@@ -1,32 +1,27 @@
 # Credits
 
-Core AI Catalog is a source-grounded catalog built on top of public upstream sources.
+Core AI Catalog is built on public upstream sources.
 
 ## GitHub credits
 
-| Role | User / organization | Repository | Link |
-|---|---|---|---|
-| Primary upstream model zoo and knowledge base | `john-rocky` | `john-rocky/coreai-model-zoo` | https://github.com/john-rocky/coreai-model-zoo |
-| Predecessor project referenced by upstream | `john-rocky` | `john-rocky/CoreML-Models` | https://github.com/john-rocky/CoreML-Models |
-| Official Apple recipes | `apple` | `apple/coreai-models` | https://github.com/apple/coreai-models |
-| Raw benchmark data referenced by upstream official docs | `john-rocky` | `john-rocky/apple-silicon-llm-bench` | https://github.com/john-rocky/apple-silicon-llm-bench |
-| Mac chat samples referenced by upstream official docs | `john-rocky` | `john-rocky/coreai-samples` | https://github.com/john-rocky/coreai-samples |
-| This catalog | `kevinqz` | `kevinqz/coreai-catalog` | https://github.com/kevinqz/coreai-catalog |
+- john-rocky / coreai-model-zoo
+- john-rocky / CoreML-Models
+- apple / coreai-models
+- john-rocky / apple-silicon-llm-bench
+- john-rocky / coreai-samples
+- kevinqz / coreai-catalog
 
 ## Hugging Face credits
 
-| Role | User | Link |
-|---|---|---|
-| Converted Apple Core AI artifact publisher used by upstream | `mlboydaisuke` | https://huggingface.co/mlboydaisuke |
+- mlboydaisuke — converted Apple Core AI artifact publisher used by the upstream repository.
 
-## Artifact links
+## Artifact references
 
-See [`docs/huggingface-links.md`](./docs/huggingface-links.md) for every Hugging Face artifact URL currently mapped in this catalog.
+Artifact references are split across smaller files under `docs/` and indexed in `docs/index.md`.
 
 ## Attribution policy
 
 - `catalog.yaml` remains the main model registry.
-- `artifacts.yaml` stores per-model GitHub and Hugging Face provenance.
-- Official entries are marked with `official_apple_recipe_conversion: true` in `artifacts.yaml`.
-- Community zoo entries are marked with `official_apple_recipe_conversion: false`.
+- Official entries use `source_group: official`.
+- Community entries use `source_group: zoo`.
 - Unknown fields should stay `unknown` until verified from primary sources.
