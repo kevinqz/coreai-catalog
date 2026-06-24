@@ -30,6 +30,7 @@ The goal is not to run models directly. The goal is to know, precisely and trace
 | Artifact provenance records | 49 |
 | Source records | 13 |
 | Main upstreams | 2 |
+| Upstream taxonomy layers | 7 |
 
 Main upstreams:
 
@@ -49,10 +50,12 @@ coreai-catalog/
 ├── catalog.yaml
 ├── artifacts.yaml
 ├── sources.yaml
+├── upstreams.yaml
 ├── requirements.txt
 ├── schema/
 │   ├── model.schema.json
-│   └── artifact.schema.json
+│   ├── artifact.schema.json
+│   └── upstream.schema.json
 ├── scripts/
 │   ├── validate.py
 │   ├── generate_docs.py
@@ -63,6 +66,7 @@ coreai-catalog/
 │   ├── capability-matrix.md
 │   ├── runtime-matrix.md
 │   ├── artifact-provenance.md
+│   ├── upstream-map.md
 │   ├── source-map.md
 │   └── sota-maintenance.md
 └── .github/
@@ -75,10 +79,11 @@ coreai-catalog/
 | File | Purpose |
 |---|---|
 | `catalog.yaml` | Model facts: name, family, capabilities, modalities, size, runtime, device support, benchmark notes, license status and verification status. |
-| `artifacts.yaml` | Artifact provenance: GitHub source owner/repo/path, Hugging Face owner/repo/url and official recipe status. |
-| `sources.yaml` | Registry of primary sources and supporting sources. |
+| `artifacts.yaml` | Converted artifact provenance: GitHub conversion source, Hugging Face owner/repo/url and official recipe status. |
+| `sources.yaml` | Compact registry of primary/supporting sources already used by the catalog. |
+| `upstreams.yaml` | Source taxonomy for framework, conversion, artifact host, benchmark, sample, original model and license sources. |
 | `CREDITS.md` | Human-readable attribution for GitHub and Hugging Face users/repositories. |
-| `schema/*.json` | Validation contracts for model and artifact records. |
+| `schema/*.json` | Validation contracts for model, artifact and upstream records. |
 | `docs/*.md` | Generated or curated human views. |
 
 ## Core data model
@@ -108,7 +113,7 @@ A model entry in `catalog.yaml` represents model metadata:
   confidence: medium
 ```
 
-An artifact entry in `artifacts.yaml` represents provenance and hosting:
+An artifact entry in `artifacts.yaml` represents converted artifact provenance and hosting:
 
 ```yaml
 - id: qwen3-5-0-8b
@@ -123,6 +128,32 @@ An artifact entry in `artifacts.yaml` represents provenance and hosting:
     url: https://huggingface.co/mlboydaisuke/qwen3.5-0.8B-CoreAI
   is_official_recipe: false
 ```
+
+An upstream entry in `upstreams.yaml` represents source taxonomy:
+
+```yaml
+- id: qwen
+  title: Qwen original model family
+  category: original_model
+  platform: huggingface
+  owner: Qwen
+  url: https://huggingface.co/Qwen
+  trust: original_model_primary
+  applies_to:
+    - qwen3-5-0-8b
+    - qwen3-vl-2b
+```
+
+## Source layers
+
+| Layer | File/category | Purpose |
+|---|---|---|
+| Model facts | `catalog.yaml` | What the model is and what it does. |
+| Converted artifact | `artifacts.yaml` | Where the Core AI artifact lives and who converted/hosts it. |
+| Framework/runtime | `upstreams.yaml > framework_sources` | Apple Core AI, Core ML and tooling context. |
+| Original model | `upstreams.yaml > original_model_sources` | Original creators/model-family sources. |
+| License | `upstreams.yaml > license_sources` | License documents and review flags. |
+| Human docs | `docs/*.md` | Tables, maps and curated summaries. |
 
 ## Model groups
 
@@ -154,6 +185,28 @@ Current official entries include:
 - FLUX.2 klein 4B
 - SAM 3
 - Whisper large-v3-turbo
+
+## Original model attribution
+
+Original model creators are tracked separately from converted artifact hosts. This avoids conflating:
+
+- original model creator
+- Apple official recipe source
+- community conversion source
+- Hugging Face artifact host
+- license source
+
+Examples:
+
+| Model family | Original upstream | Converted artifact host |
+|---|---|---|
+| Qwen | `Qwen` | `mlboydaisuke` |
+| Gemma | `google` | `mlboydaisuke` |
+| Mistral | `mistralai` | `mlboydaisuke` |
+| SAM | `facebook` / Meta | `mlboydaisuke` |
+| RF-DETR | `Roboflow` | `mlboydaisuke` |
+
+See `upstreams.yaml` and `docs/upstream-map.md`.
 
 ## Capabilities covered
 
@@ -226,6 +279,7 @@ The GitHub Actions workflow also runs validation and doc generation on push and 
 | `docs/capability-matrix.md` | Models grouped by capability. |
 | `docs/runtime-matrix.md` | Runtime concepts and flags. |
 | `docs/artifact-provenance.md` | Artifact ownership and hosting view. |
+| `docs/upstream-map.md` | Framework/original-model/license upstream map. |
 | `docs/source-map.md` | Source and upstream map. |
 | `docs/sota-maintenance.md` | Maintenance plan and data-model direction. |
 
@@ -238,15 +292,18 @@ Primary credits are recorded in:
 - `CREDITS.md`
 - `sources.yaml`
 - `artifacts.yaml`
+- `upstreams.yaml`
 
 Key credited sources include:
 
 - `john-rocky/coreai-model-zoo`
 - `john-rocky/CoreML-Models`
 - `apple/coreai-models`
+- `apple/coremltools`
 - `john-rocky/apple-silicon-llm-bench`
 - `john-rocky/coreai-samples`
 - Hugging Face user `mlboydaisuke`
+- original model creators listed in `upstreams.yaml`
 
 ## License handling
 
@@ -264,17 +321,18 @@ For sensitive licenses such as Gemma Terms, Meta SAM License, LFM Open License o
 2. Do not collapse variants when size, device support, runtime, quantization, license or artifact changes.
 3. Use `unknown` instead of guessing.
 4. Keep `catalog.yaml` focused on model facts.
-5. Keep `artifacts.yaml` focused on provenance and hosting.
-6. Keep `sources.yaml` focused on source registry.
-7. Generate Markdown views from YAML whenever possible.
-8. Credit both GitHub and Hugging Face sources.
-9. Prefer primary sources over secondary summaries.
+5. Keep `artifacts.yaml` focused on converted artifact provenance and hosting.
+6. Keep `upstreams.yaml` focused on original model, framework, license and benchmark sources.
+7. Keep `sources.yaml` focused on compact source registry.
+8. Generate Markdown views from YAML whenever possible.
+9. Credit original model creator, conversion source and artifact host separately.
 10. Update `last_verified` when a source is rechecked.
 
 ## Roadmap
 
 Near-term:
 
+- Add model-specific original upstream URLs where only family-level URLs are currently recorded.
 - Add richer license URLs per model.
 - Add checksum/hash fields where upstream provides them.
 - Add model-card source line references where practical.
@@ -285,7 +343,7 @@ Near-term:
 Later:
 
 - Split large YAML files into `data/models/*.yaml` if the catalog grows significantly.
-- Export `catalog.json` and `artifacts.json` for API/agent consumption.
+- Export `catalog.json`, `artifacts.json` and `upstreams.json` for API/agent consumption.
 - Add a small static site or searchable UI.
 - Add periodic source verification.
 
@@ -304,10 +362,15 @@ Those belong in separate repositories or future layers.
 
 ## Upstream
 
-Primary upstream repository:
+Primary community upstream:
 
 - https://github.com/john-rocky/coreai-model-zoo
 
-Official recipe upstream:
+Official Apple recipe upstream:
 
 - https://github.com/apple/coreai-models
+
+Additional upstream taxonomy:
+
+- `upstreams.yaml`
+- `docs/upstream-map.md`
