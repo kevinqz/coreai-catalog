@@ -9,6 +9,7 @@
 - [Upstream Map](./upstream-map.md)
 - [Benchmark Map](./benchmark-map.md)
 - [Source Map](./source-map.md)
+- [Generated Files Policy](./generated-files.md)
 - [v0.3 Verification Checklist](./v0.3-verification.md)
 - [SotA Maintenance Plan](./sota-maintenance.md)
 
