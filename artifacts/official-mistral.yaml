@@ -1,8 +1,0 @@
-group: official
-credit:
-  github_owner: apple
-  github_repo: coreai-models
-  hf_owner: mlboydaisuke
-artifacts:
-  - id: official-mistral-7b-v0-3
-    hf_repo: mistral-7b-v0.3-CoreAI-official

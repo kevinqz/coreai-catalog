@@ -1,33 +1,55 @@
 # Artifact Provenance
 
-Generated/curated view over `artifacts/` and encoded artifact manifests.
+Generated from `artifacts.yaml`.
 
-| Area | File | Notes |
-|---|---|---|
-| Artifact fields | `artifacts/README.md` | Defines GitHub/HF provenance fields. |
-| Official Qwen | `artifacts/official-qwen.yaml` | Apple/Core AI recipe provenance for Qwen official artifacts. |
-| Official Gemma | `artifacts/official-gemma.yaml` | Apple/Core AI recipe provenance for Gemma official artifacts. |
-| Official Mistral | `artifacts/official-mistral.yaml` | Apple/Core AI recipe provenance for Mistral official artifact. |
-| Qwen 3.5 zoo | `artifacts/q35.yaml` | Community zoo artifact references. |
-| Qwen 3.6 27B zoo | `artifacts/q36-27b.yaml` | Community zoo artifact reference. |
-| Qwen 3.6 MoE zoo | `artifacts/q36-moe.yaml` | Community zoo artifact reference. |
-| Encoded manifest | `data/artifacts.yaml.b64.part1` | Partial encoded canonical manifest created when direct writes were blocked. |
-
-## Target end state
-
-The final structure should consolidate these records into a single `artifacts.yaml` with one artifact record per model ID.
-
-Recommended shape:
-
-```yaml
-artifacts:
-  - id: qwen3-5-0-8b
-    group: zoo
-    github:
-      owner: john-rocky
-      repo: coreai-model-zoo
-    huggingface:
-      owner: mlboydaisuke
-      repo: qwen3.5-0.8B-CoreAI
-    is_official_recipe: false
-```
+| ID | Group | GitHub | Hugging Face | Official Recipe |
+|---|---|---|---|---|
+| qwen3-5-0-8b | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/qwen3.5-0.8B-CoreAI | False |
+| qwen3-5-2b | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/qwen3.5-2B-CoreAI | False |
+| qwen3-6-35b-a3b | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/Qwen3.6-35B-A3B-CoreAI | False |
+| qwen3-6-27b | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/Qwen3.6-27B-CoreAI | False |
+| glm-4-7-flash | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/GLM-4.7-Flash-CoreAI | False |
+| gemma-4-e2b | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/gemma-4-E2B-CoreAI | False |
+| gemma-4-e4b | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/gemma-4-E4B-CoreAI | False |
+| gemma-4-12b | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/Gemma-4-12B-CoreAI | False |
+| gemma-4-31b | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/Gemma-4-31B-CoreAI | False |
+| lfm2-5-1-2b-instruct | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/LFM2.5-1.2B-CoreAI | False |
+| lfm2-5-8b-a1b | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/LFM2.5-8B-A1B-CoreAI | False |
+| granite-4-0-h-1b | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/granite-4.0-h-CoreAI | False |
+| granite-4-0-h-350m | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/granite-4.0-h-CoreAI | False |
+| nanbeige4-1-3b | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/Nanbeige4.1-3B-CoreAI | False |
+| qwen3-vl-2b | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/Qwen3-VL-2B-CoreAI | False |
+| qwen3-vl-4b | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/Qwen3-VL-4B-CoreAI | False |
+| qwen3-vl-8b | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/Qwen3-VL-8B-CoreAI | False |
+| minicpm-v-4-6 | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/MiniCPM-V-4.6-CoreAI | False |
+| gemma-4-e2b-vision | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/gemma-4-E2B-CoreAI/tree/main/vl | False |
+| unlimited-ocr | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/Unlimited-OCR-CoreAI | False |
+| qwen2-5-omni-3b-audio | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/Qwen2.5-Omni-3B-Audio-CoreAI | False |
+| kokoro-82m | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/Kokoro-82M-CoreAI | False |
+| voxcpm-0-5b | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/VoxCPM-0.5B-CoreAI | False |
+| embeddinggemma-300m | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/embeddinggemma-300m-CoreAI | False |
+| qwen3-embedding-0-6b | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/Qwen3-Embedding-0.6B-CoreAI | False |
+| qwen3-reranker-0-6b | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/Qwen3-Reranker-0.6B-CoreAI | False |
+| rf-detr-nano | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/RF-DETR-CoreAI | False |
+| rf-detr-small | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/RF-DETR-CoreAI | False |
+| rf-detr-medium | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/RF-DETR-CoreAI | False |
+| rf-detr-large | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/RF-DETR-CoreAI | False |
+| rf-detr-seg-nano | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/RF-DETR-CoreAI | False |
+| rf-detr-seg-small | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/RF-DETR-CoreAI | False |
+| rf-detr-seg-medium | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/RF-DETR-CoreAI | False |
+| rf-detr-seg-large | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/RF-DETR-CoreAI | False |
+| rf-detr-seg-xlarge | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/RF-DETR-CoreAI | False |
+| rf-detr-seg-2xlarge | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/RF-DETR-CoreAI | False |
+| adcsr-x4 | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/AdcSR-CoreAI | False |
+| depth-anything-3-small | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/Depth-Anything-3-CoreAI | False |
+| depth-anything-3-base | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/Depth-Anything-3-CoreAI | False |
+| official-gpt-oss-20b | official | apple/coreai-models | mlboydaisuke/gpt-oss-20b-CoreAI-official | True |
+| official-qwen3-0-6b | official | apple/coreai-models | mlboydaisuke/qwen3-0.6b-CoreAI-official | True |
+| official-qwen3-4b | official | apple/coreai-models | mlboydaisuke/qwen3-4b-CoreAI-official | True |
+| official-qwen3-8b | official | apple/coreai-models | mlboydaisuke/qwen3-8b-CoreAI-official | True |
+| official-gemma-3-4b-it | official | apple/coreai-models | mlboydaisuke/gemma-3-4b-it-CoreAI-official | True |
+| official-gemma-3-12b-it | official | apple/coreai-models | mlboydaisuke/gemma-3-12b-it-CoreAI-official | True |
+| official-mistral-7b-v0-3 | official | apple/coreai-models | mlboydaisuke/mistral-7b-v0.3-CoreAI-official | True |
+| official-flux-2-klein-4b | official | apple/coreai-models | mlboydaisuke/FLUX.2-klein-4B-CoreAI | True |
+| official-sam-3 | official | apple/coreai-models | mlboydaisuke/sam3-CoreAI-official | True |
+| official-whisper-large-v3-turbo | official | apple/coreai-models | mlboydaisuke/whisper-large-v3-turbo-CoreAI-official | True |

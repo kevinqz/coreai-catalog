@@ -4,15 +4,15 @@
 |---|---|---|---|---|---|---|---|---|---|---|
 | qwen3-5-0-8b | Qwen3.5-0.8B | zoo | Qwen | chat, text-generation | text | text | 0.8B | iPhone/Mac | Apache-2.0 | confirmed |
 | qwen3-5-2b | Qwen3.5-2B | zoo | Qwen | chat, text-generation | text | text | 2B | iPhone/Mac | Apache-2.0 | confirmed |
-| qwen3-6-35b-a3b | Qwen3.6-35B-A3B | zoo | Qwen | chat, text-generation, moe | text | text | 35B / 3B active | Mac | Apache-2.0 | confirmed |
+| qwen3-6-35b-a3b | Qwen3.6-35B-A3B | zoo | Qwen | chat, text-generation, moe | text | text | 35B / ~3B active | Mac | Apache-2.0 | confirmed |
 | qwen3-6-27b | Qwen3.6-27B | zoo | Qwen | chat, text-generation | text | text | 27B | Mac | Apache-2.0 | confirmed |
-| glm-4-7-flash | GLM-4.7-Flash | zoo | GLM | chat, text-generation, moe, mla | text | text | 30B / 3B active | Mac | MIT | confirmed |
+| glm-4-7-flash | GLM-4.7-Flash | zoo | GLM | chat, text-generation, moe, mla | text | text | 30B / ~3B active | Mac | MIT | confirmed |
 | gemma-4-e2b | Gemma 4 E2B | zoo | Gemma | chat, text-generation | text | text | E2B | iPhone/Mac | Gemma | confirmed |
 | gemma-4-e4b | Gemma 4 E4B | zoo | Gemma | chat, text-generation | text | text | E4B | iPhone/Mac | Gemma | confirmed |
 | gemma-4-12b | Gemma 4 12B | zoo | Gemma | chat, text-generation | text | text | 12B | Mac | Gemma | confirmed |
 | gemma-4-31b | Gemma 4 31B | zoo | Gemma | chat, text-generation | text | text | 31B | Mac | Gemma | confirmed |
 | lfm2-5-1-2b-instruct | LFM2.5-1.2B-Instruct | zoo | LFM | chat, text-generation, instruction-following | text | text | 1.2B | iPhone/Mac | LFM Open License v1.0 | confirmed |
-| lfm2-5-8b-a1b | LFM2.5-8B-A1B | zoo | LFM | chat, text-generation, moe | text | text | 8B / 1B active | iPhone/Mac | LFM Open License v1.0 | confirmed |
+| lfm2-5-8b-a1b | LFM2.5-8B-A1B | zoo | LFM | chat, text-generation, moe | text | text | 8B / ~1B active | iPhone/Mac | LFM Open License v1.0 | confirmed |
 | granite-4-0-h-1b | Granite 4.0-H 1B | zoo | Granite | chat, text-generation, hybrid-llm | text | text | 1B | iPhone/Mac | Apache-2.0 | confirmed |
 | granite-4-0-h-350m | Granite 4.0-H 350M | zoo | Granite | chat, text-generation, hybrid-llm | text | text | 350M | iPhone/Mac | Apache-2.0 | confirmed |
 | nanbeige4-1-3b | Nanbeige4.1-3B | zoo | Nanbeige | chat, reasoning, agentic, text-generation | text | text | 3.93B | iPhone/Mac | Apache-2.0 | confirmed |
@@ -36,8 +36,8 @@
 | rf-detr-seg-small | RF-DETR-Seg Small | zoo | RF-DETR-Seg | instance-segmentation | image | masks, boxes, classes, scores | small | iPhone/Mac | Apache-2.0 | confirmed |
 | rf-detr-seg-medium | RF-DETR-Seg Medium | zoo | RF-DETR-Seg | instance-segmentation | image | masks, boxes, classes, scores | medium | iPhone/Mac | Apache-2.0 | confirmed |
 | rf-detr-seg-large | RF-DETR-Seg Large | zoo | RF-DETR-Seg | instance-segmentation | image | masks, boxes, classes, scores | large | iPhone/Mac | Apache-2.0 | confirmed |
-| rf-detr-seg-xlarge | RF-DETR-Seg XLarge | zoo | RF-DETR-Seg | instance-segmentation | image | masks, boxes, classes, scores | xlarge | iPhone/Mac | Apache-2.0 | confirmed |
-| rf-detr-seg-2xlarge | RF-DETR-Seg 2XLarge | zoo | RF-DETR-Seg | instance-segmentation | image | masks, boxes, classes, scores | 2xlarge | iPhone/Mac | Apache-2.0 | confirmed |
+| rf-detr-seg-xlarge | RF-DETR-Seg Xlarge | zoo | RF-DETR-Seg | instance-segmentation | image | masks, boxes, classes, scores | xlarge | iPhone/Mac | Apache-2.0 | confirmed |
+| rf-detr-seg-2xlarge | RF-DETR-Seg 2Xlarge | zoo | RF-DETR-Seg | instance-segmentation | image | masks, boxes, classes, scores | 2xlarge | iPhone/Mac | Apache-2.0 | confirmed |
 | adcsr-x4 | AdcSR ×4 | zoo | AdcSR | super-resolution | image | image | ×4 | iPhone/Mac | Apache-2.0 + OpenRAIL++ | confirmed |
 | depth-anything-3-small | Depth Anything 3 Small | zoo | Depth Anything | monocular-depth | image | depth_map | small | iPhone/Mac | Apache-2.0 | confirmed |
 | depth-anything-3-base | Depth Anything 3 Base | zoo | Depth Anything | monocular-depth | image | depth_map | base | iPhone/Mac | Apache-2.0 | confirmed |

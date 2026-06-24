@@ -2,26 +2,67 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Core AI Catalog Artifact",
   "type": "object",
-  "required": ["id", "group", "github", "huggingface"],
+  "required": [
+    "id",
+    "group",
+    "github",
+    "huggingface",
+    "is_official_recipe"
+  ],
   "properties": {
-    "id": {"type": "string"},
-    "group": {"type": "string"},
+    "id": {
+      "type": "string"
+    },
+    "group": {
+      "type": "string",
+      "enum": [
+        "zoo",
+        "official",
+        "external",
+        "unknown"
+      ]
+    },
     "github": {
       "type": "object",
+      "required": [
+        "owner",
+        "repo"
+      ],
       "properties": {
-        "owner": {"type": "string"},
-        "repo": {"type": "string"},
-        "path": {"type": ["string", "null"]}
+        "owner": {
+          "type": "string"
+        },
+        "repo": {
+          "type": "string"
+        },
+        "path": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
       }
     },
     "huggingface": {
       "type": "object",
+      "required": [
+        "owner",
+        "repo"
+      ],
       "properties": {
-        "owner": {"type": "string"},
-        "repo": {"type": "string"},
-        "path": {"type": ["string", "null"]}
+        "owner": {
+          "type": "string"
+        },
+        "repo": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
       }
     },
-    "is_official_recipe": {"type": "boolean"}
+    "is_official_recipe": {
+      "type": "boolean"
+    }
   }
 }

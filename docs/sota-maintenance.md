@@ -6,42 +6,26 @@ This repository should stay compact, granular and source-grounded.
 
 ```txt
 catalog.yaml     = model facts
+artifacts.yaml   = artifact provenance and download references
 sources.yaml     = source registry
-artifacts/       = artifact provenance by group/family
 schema/          = validation contracts
 scripts/         = validators and doc generators
 docs/            = generated or curated human views
 ```
 
-## Current priorities
+## Rules
 
-1. Consolidate artifact provenance into normalized YAML files.
-2. Generate `docs/artifact-provenance.md` from `artifacts/*.yaml`.
-3. Keep `unknown` instead of guessing.
-4. Review licenses with explicit source URLs.
-5. Keep `catalog.yaml` focused on model metadata.
-6. Keep artifact hosting and credits outside `catalog.yaml` when possible.
+1. One model variant = one catalog entry.
+2. One downloadable artifact = one artifact entry.
+3. Use `unknown` instead of guessing.
+4. Keep license review explicit.
+5. Generate docs from YAML when possible.
+6. Keep GitHub/Hugging Face provenance in `artifacts.yaml`.
 
-## Validation goals
-
-- `python scripts/validate.py`
-- `python scripts/generate_docs.py`
-- `python scripts/generate_artifact_docs.py`
-
-## Manual cleanup
-
-Remove any temporary files created during connector testing:
+## Validation
 
 ```bash
-rm -f docs/test.yaml docs/t2.md
+python scripts/validate.py
+python scripts/generate_docs.py
+python scripts/generate_artifact_docs.py
 ```
-
-## Next data model upgrade
-
-Add an `artifact_ref` field to each model in `catalog.yaml`:
-
-```yaml
-artifact_ref: qwen3-5-0-8b
-```
-
-Then keep download, host and provenance data in `artifacts/`.

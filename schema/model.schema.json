@@ -7,6 +7,7 @@
     "name",
     "family",
     "source_group",
+    "artifact_ref",
     "capabilities",
     "modalities",
     "artifact",
@@ -21,31 +22,72 @@
     "last_verified"
   ],
   "properties": {
-    "id": {"type": "string"},
-    "name": {"type": "string"},
-    "family": {"type": "string"},
-    "source_group": {"type": "string", "enum": ["zoo", "official", "external", "unknown"]},
-    "source_path": {"type": ["string", "null"]},
-    "capabilities": {"type": "array", "items": {"type": "string"}},
-    "modalities": {
-      "type": "object",
-      "required": ["input", "output"],
-      "properties": {
-        "input": {"type": "array", "items": {"type": "string"}},
-        "output": {"type": "array", "items": {"type": "string"}}
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "family": {
+      "type": "string"
+    },
+    "source_group": {
+      "type": "string",
+      "enum": [
+        "zoo",
+        "official",
+        "external",
+        "unknown"
+      ]
+    },
+    "artifact_ref": {
+      "type": "string"
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
       }
     },
-    "artifact": {"type": "object", "required": ["format", "availability"]},
-    "size": {"type": "object"},
-    "runtime": {"type": "object"},
-    "device_support": {"type": "object"},
-    "benchmark": {"type": ["object", "null"]},
-    "license": {"type": "object"},
-    "status": {"type": "string", "enum": ["confirmed", "needs_review", "deprecated", "unknown"]},
-    "maturity": {"type": "string", "enum": ["stable", "active", "experimental", "research", "unknown"]},
-    "confidence": {"type": "string", "enum": ["high", "medium", "low"]},
-    "sources": {"type": "array", "items": {"type": "string"}},
-    "last_verified": {"type": "string"},
-    "notes": {"type": ["string", "null"]}
+    "modalities": {
+      "type": "object",
+      "required": [
+        "input",
+        "output"
+      ]
+    },
+    "artifact": {
+      "type": "object"
+    },
+    "size": {
+      "type": "object"
+    },
+    "runtime": {
+      "type": "object"
+    },
+    "device_support": {
+      "type": "object"
+    },
+    "license": {
+      "type": "object"
+    },
+    "status": {
+      "type": "string"
+    },
+    "maturity": {
+      "type": "string"
+    },
+    "confidence": {
+      "type": "string"
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "last_verified": {
+      "type": "string"
+    }
   }
 }

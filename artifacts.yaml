@@ -1,0 +1,544 @@
+metadata:
+  name: Core AI Catalog artifact provenance
+  last_verified: '2026-06-24'
+  count: 49
+artifacts:
+- id: qwen3-5-0-8b
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/qwen3.5.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: qwen3.5-0.8B-CoreAI
+    url: https://huggingface.co/mlboydaisuke/qwen3.5-0.8B-CoreAI
+  is_official_recipe: false
+- id: qwen3-5-2b
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/qwen3.5.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: qwen3.5-2B-CoreAI
+    url: https://huggingface.co/mlboydaisuke/qwen3.5-2B-CoreAI
+  is_official_recipe: false
+- id: qwen3-6-35b-a3b
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/qwen3.6.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: Qwen3.6-35B-A3B-CoreAI
+    url: https://huggingface.co/mlboydaisuke/Qwen3.6-35B-A3B-CoreAI
+  is_official_recipe: false
+- id: qwen3-6-27b
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/qwen3.6-27b.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: Qwen3.6-27B-CoreAI
+    url: https://huggingface.co/mlboydaisuke/Qwen3.6-27B-CoreAI
+  is_official_recipe: false
+- id: glm-4-7-flash
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/glm-4.7-flash.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: GLM-4.7-Flash-CoreAI
+    url: https://huggingface.co/mlboydaisuke/GLM-4.7-Flash-CoreAI
+  is_official_recipe: false
+- id: gemma-4-e2b
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/gemma4-e2b.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: gemma-4-E2B-CoreAI
+    url: https://huggingface.co/mlboydaisuke/gemma-4-E2B-CoreAI
+  is_official_recipe: false
+- id: gemma-4-e4b
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/gemma4-e4b.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: gemma-4-E4B-CoreAI
+    url: https://huggingface.co/mlboydaisuke/gemma-4-E4B-CoreAI
+  is_official_recipe: false
+- id: gemma-4-12b
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/gemma4-12b.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: Gemma-4-12B-CoreAI
+    url: https://huggingface.co/mlboydaisuke/Gemma-4-12B-CoreAI
+  is_official_recipe: false
+- id: gemma-4-31b
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/gemma4-31b.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: Gemma-4-31B-CoreAI
+    url: https://huggingface.co/mlboydaisuke/Gemma-4-31B-CoreAI
+  is_official_recipe: false
+- id: lfm2-5-1-2b-instruct
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/lfm2.5.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: LFM2.5-1.2B-CoreAI
+    url: https://huggingface.co/mlboydaisuke/LFM2.5-1.2B-CoreAI
+  is_official_recipe: false
+- id: lfm2-5-8b-a1b
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/lfm2.5-8b-a1b-moe.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: LFM2.5-8B-A1B-CoreAI
+    url: https://huggingface.co/mlboydaisuke/LFM2.5-8B-A1B-CoreAI
+  is_official_recipe: false
+- id: granite-4-0-h-1b
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/granite-4.0-h.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: granite-4.0-h-CoreAI
+    url: https://huggingface.co/mlboydaisuke/granite-4.0-h-CoreAI
+  is_official_recipe: false
+- id: granite-4-0-h-350m
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/granite-4.0-h.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: granite-4.0-h-CoreAI
+    url: https://huggingface.co/mlboydaisuke/granite-4.0-h-CoreAI
+  is_official_recipe: false
+- id: nanbeige4-1-3b
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/nanbeige4.1-3b.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: Nanbeige4.1-3B-CoreAI
+    url: https://huggingface.co/mlboydaisuke/Nanbeige4.1-3B-CoreAI
+  is_official_recipe: false
+- id: qwen3-vl-2b
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/qwen3-vl.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: Qwen3-VL-2B-CoreAI
+    url: https://huggingface.co/mlboydaisuke/Qwen3-VL-2B-CoreAI
+  is_official_recipe: false
+- id: qwen3-vl-4b
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/qwen3-vl.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: Qwen3-VL-4B-CoreAI
+    url: https://huggingface.co/mlboydaisuke/Qwen3-VL-4B-CoreAI
+  is_official_recipe: false
+- id: qwen3-vl-8b
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/qwen3-vl.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: Qwen3-VL-8B-CoreAI
+    url: https://huggingface.co/mlboydaisuke/Qwen3-VL-8B-CoreAI
+  is_official_recipe: false
+- id: minicpm-v-4-6
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/minicpm-v-4.6.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: MiniCPM-V-4.6-CoreAI
+    url: https://huggingface.co/mlboydaisuke/MiniCPM-V-4.6-CoreAI
+  is_official_recipe: false
+- id: gemma-4-e2b-vision
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/gemma4-vl.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: gemma-4-E2B-CoreAI/tree/main/vl
+    url: https://huggingface.co/mlboydaisuke/gemma-4-E2B-CoreAI/tree/main/vl
+  is_official_recipe: false
+- id: unlimited-ocr
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/unlimited-ocr.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: Unlimited-OCR-CoreAI
+    url: https://huggingface.co/mlboydaisuke/Unlimited-OCR-CoreAI
+  is_official_recipe: false
+- id: qwen2-5-omni-3b-audio
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/knowledge/qwen2.5-omni-audio-understanding.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: Qwen2.5-Omni-3B-Audio-CoreAI
+    url: https://huggingface.co/mlboydaisuke/Qwen2.5-Omni-3B-Audio-CoreAI
+  is_official_recipe: false
+- id: kokoro-82m
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/kokoro-82m.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: Kokoro-82M-CoreAI
+    url: https://huggingface.co/mlboydaisuke/Kokoro-82M-CoreAI
+  is_official_recipe: false
+- id: voxcpm-0-5b
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/knowledge/voxcpm-tts.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: VoxCPM-0.5B-CoreAI
+    url: https://huggingface.co/mlboydaisuke/VoxCPM-0.5B-CoreAI
+  is_official_recipe: false
+- id: embeddinggemma-300m
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo
+  huggingface:
+    owner: mlboydaisuke
+    repo: embeddinggemma-300m-CoreAI
+    url: https://huggingface.co/mlboydaisuke/embeddinggemma-300m-CoreAI
+  is_official_recipe: false
+- id: qwen3-embedding-0-6b
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/qwen3-embedding.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: Qwen3-Embedding-0.6B-CoreAI
+    url: https://huggingface.co/mlboydaisuke/Qwen3-Embedding-0.6B-CoreAI
+  is_official_recipe: false
+- id: qwen3-reranker-0-6b
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/qwen3-reranker.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: Qwen3-Reranker-0.6B-CoreAI
+    url: https://huggingface.co/mlboydaisuke/Qwen3-Reranker-0.6B-CoreAI
+  is_official_recipe: false
+- id: rf-detr-nano
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/rf-detr.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: RF-DETR-CoreAI
+    url: https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI
+  is_official_recipe: false
+- id: rf-detr-small
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/rf-detr.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: RF-DETR-CoreAI
+    url: https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI
+  is_official_recipe: false
+- id: rf-detr-medium
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/rf-detr.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: RF-DETR-CoreAI
+    url: https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI
+  is_official_recipe: false
+- id: rf-detr-large
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/rf-detr.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: RF-DETR-CoreAI
+    url: https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI
+  is_official_recipe: false
+- id: rf-detr-seg-nano
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/rf-detr.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: RF-DETR-CoreAI
+    url: https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI
+  is_official_recipe: false
+- id: rf-detr-seg-small
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/rf-detr.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: RF-DETR-CoreAI
+    url: https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI
+  is_official_recipe: false
+- id: rf-detr-seg-medium
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/rf-detr.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: RF-DETR-CoreAI
+    url: https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI
+  is_official_recipe: false
+- id: rf-detr-seg-large
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/rf-detr.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: RF-DETR-CoreAI
+    url: https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI
+  is_official_recipe: false
+- id: rf-detr-seg-xlarge
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/rf-detr.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: RF-DETR-CoreAI
+    url: https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI
+  is_official_recipe: false
+- id: rf-detr-seg-2xlarge
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/rf-detr.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: RF-DETR-CoreAI
+    url: https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI
+  is_official_recipe: false
+- id: adcsr-x4
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/knowledge/adcsr-super-resolution.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: AdcSR-CoreAI
+    url: https://huggingface.co/mlboydaisuke/AdcSR-CoreAI
+  is_official_recipe: false
+- id: depth-anything-3-small
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/depth-anything-3.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: Depth-Anything-3-CoreAI
+    url: https://huggingface.co/mlboydaisuke/Depth-Anything-3-CoreAI
+  is_official_recipe: false
+- id: depth-anything-3-base
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/depth-anything-3.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: Depth-Anything-3-CoreAI
+    url: https://huggingface.co/mlboydaisuke/Depth-Anything-3-CoreAI
+  is_official_recipe: false
+- id: official-gpt-oss-20b
+  group: official
+  github:
+    owner: apple
+    repo: coreai-models
+    path: https://github.com/john-rocky/coreai-model-zoo/tree/main/official
+  huggingface:
+    owner: mlboydaisuke
+    repo: gpt-oss-20b-CoreAI-official
+    url: https://huggingface.co/mlboydaisuke/gpt-oss-20b-CoreAI-official
+  is_official_recipe: true
+- id: official-qwen3-0-6b
+  group: official
+  github:
+    owner: apple
+    repo: coreai-models
+    path: https://github.com/john-rocky/coreai-model-zoo/tree/main/official
+  huggingface:
+    owner: mlboydaisuke
+    repo: qwen3-0.6b-CoreAI-official
+    url: https://huggingface.co/mlboydaisuke/qwen3-0.6b-CoreAI-official
+  is_official_recipe: true
+- id: official-qwen3-4b
+  group: official
+  github:
+    owner: apple
+    repo: coreai-models
+    path: https://github.com/john-rocky/coreai-model-zoo/tree/main/official
+  huggingface:
+    owner: mlboydaisuke
+    repo: qwen3-4b-CoreAI-official
+    url: https://huggingface.co/mlboydaisuke/qwen3-4b-CoreAI-official
+  is_official_recipe: true
+- id: official-qwen3-8b
+  group: official
+  github:
+    owner: apple
+    repo: coreai-models
+    path: https://github.com/john-rocky/coreai-model-zoo/tree/main/official
+  huggingface:
+    owner: mlboydaisuke
+    repo: qwen3-8b-CoreAI-official
+    url: https://huggingface.co/mlboydaisuke/qwen3-8b-CoreAI-official
+  is_official_recipe: true
+- id: official-gemma-3-4b-it
+  group: official
+  github:
+    owner: apple
+    repo: coreai-models
+    path: https://github.com/john-rocky/coreai-model-zoo/tree/main/official
+  huggingface:
+    owner: mlboydaisuke
+    repo: gemma-3-4b-it-CoreAI-official
+    url: https://huggingface.co/mlboydaisuke/gemma-3-4b-it-CoreAI-official
+  is_official_recipe: true
+- id: official-gemma-3-12b-it
+  group: official
+  github:
+    owner: apple
+    repo: coreai-models
+    path: https://github.com/john-rocky/coreai-model-zoo/tree/main/official
+  huggingface:
+    owner: mlboydaisuke
+    repo: gemma-3-12b-it-CoreAI-official
+    url: https://huggingface.co/mlboydaisuke/gemma-3-12b-it-CoreAI-official
+  is_official_recipe: true
+- id: official-mistral-7b-v0-3
+  group: official
+  github:
+    owner: apple
+    repo: coreai-models
+    path: https://github.com/john-rocky/coreai-model-zoo/tree/main/official
+  huggingface:
+    owner: mlboydaisuke
+    repo: mistral-7b-v0.3-CoreAI-official
+    url: https://huggingface.co/mlboydaisuke/mistral-7b-v0.3-CoreAI-official
+  is_official_recipe: true
+- id: official-flux-2-klein-4b
+  group: official
+  github:
+    owner: apple
+    repo: coreai-models
+    path: https://github.com/john-rocky/coreai-model-zoo/tree/main/official
+  huggingface:
+    owner: mlboydaisuke
+    repo: FLUX.2-klein-4B-CoreAI
+    url: https://huggingface.co/mlboydaisuke/FLUX.2-klein-4B-CoreAI
+  is_official_recipe: true
+- id: official-sam-3
+  group: official
+  github:
+    owner: apple
+    repo: coreai-models
+    path: https://github.com/john-rocky/coreai-model-zoo/tree/main/official
+  huggingface:
+    owner: mlboydaisuke
+    repo: sam3-CoreAI-official
+    url: https://huggingface.co/mlboydaisuke/sam3-CoreAI-official
+  is_official_recipe: true
+- id: official-whisper-large-v3-turbo
+  group: official
+  github:
+    owner: apple
+    repo: coreai-models
+    path: https://github.com/john-rocky/coreai-model-zoo/tree/main/official
+  huggingface:
+    owner: mlboydaisuke
+    repo: whisper-large-v3-turbo-CoreAI-official
+    url: https://huggingface.co/mlboydaisuke/whisper-large-v3-turbo-CoreAI-official
+  is_official_recipe: true

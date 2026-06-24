@@ -1,54 +1,23 @@
 # Core AI Catalog Docs
 
-Generated and curated views for the Core AI Catalog.
-
-## Core files
+## Core views
 
 - [Model Registry](./model-registry.md)
-- [Model Details](./model-details.md)
 - [Capability Matrix](./capability-matrix.md)
 - [Runtime Matrix](./runtime-matrix.md)
+- [Artifact Provenance](./artifact-provenance.md)
 - [Source Map](./source-map.md)
 - [SotA Maintenance Plan](./sota-maintenance.md)
-
-## Artifact provenance
-
-- `../artifacts/README.md`
-- `../artifacts/official-qwen.yaml`
-- `../artifacts/official-gemma.yaml`
-- `../artifacts/official-mistral.yaml`
-- `../artifacts/q35.yaml`
-- `../artifacts/q36-27b.yaml`
-- `../artifacts/q36-moe.yaml`
-- `../data/artifacts.yaml.b64.part1`
-
-## Hugging Face artifact references
-
-- [Official links](./huggingface-official-links.md)
-- [Official gpt-oss link](./huggingface-official-gpt-oss.md)
-- [Zoo Qwen 3.5 links](./huggingface-zoo-llm-links-1.md)
-- [Zoo Qwen 3.6 links](./huggingface-zoo-llm-links-2.md)
-- [Zoo GLM/Gemma links](./huggingface-zoo-llm-links-3.md)
-- [Zoo LFM links](./huggingface-zoo-lfm-links.md)
-- [Zoo Granite links](./huggingface-zoo-granite-links.md)
-- [Zoo VLM links](./huggingface-zoo-vlm-links.md)
-- [Zoo OCR/audio links](./huggingface-zoo-ocr-audio-links.md)
-- [Zoo embedding links](./huggingface-zoo-embedding-links.md)
-- [Zoo Qwen RAG links](./huggingface-zoo-qwen-rag-links.md)
 
 ## Counts
 
 - Models: 49
-- Sources: 11+ primary source records
-
-## Verification
-
-- Last verified: 2026-06-24
-- Primary upstream: https://github.com/john-rocky/coreai-model-zoo
-- Hugging Face artifact owner used by upstream: https://huggingface.co/mlboydaisuke
+- Artifacts: 49
+- Sources: 13
 
 ## Source of truth
 
 - `../catalog.yaml`
+- `../artifacts.yaml`
 - `../sources.yaml`
 - `../CREDITS.md`
