@@ -63,13 +63,15 @@ python scripts/export_json.py
 
 ## Cross-reference checks
 
-`validate.py` should verify:
+`validate.py` verifies:
 
 - each `catalog.yaml` `artifact_ref` exists in `artifacts.yaml`
 - each model source exists in `sources.yaml` or `upstreams.yaml`
 - each benchmark `model_id` exists in `catalog.yaml`
 - each benchmark `source` exists in `sources.yaml` or `upstreams.yaml`
-- each upstream `applies_to` target points to a model or artifact ID
+- each `original_model_sources.applies_to` target points to a model or artifact ID
+
+Conceptual framework/runtime `applies_to` values are allowed in other upstream groups.
 
 ## v0.4 focus
 
