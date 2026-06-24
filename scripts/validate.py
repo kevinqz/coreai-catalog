@@ -86,10 +86,11 @@ def validate_cross_references() -> tuple[int, int, int, int]:
         if source_id not in source_ids and source_id not in upstream_ids:
             fail(f"benchmark {benchmark['id']} points to missing source {source_id}")
 
-    for upstream in upstream_items:
+    original_model_sources = upstreams.get('original_model_sources', []) or []
+    for upstream in original_model_sources:
         for target in upstream.get('applies_to', []) or []:
             if target not in model_ids and target not in artifact_ids:
-                fail(f"upstream {upstream['id']} applies_to missing target {target}")
+                fail(f"original model upstream {upstream['id']} applies_to missing target {target}")
 
     return len(model_ids), len(artifact_ids), len(upstream_ids), len(benchmarks.get('benchmarks', []))
 
