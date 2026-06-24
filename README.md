@@ -1,10 +1,16 @@
 # Core AI Catalog
 
-A compact, source-grounded catalog of Apple Core AI models, artifacts and provenance.
+A compact, source-grounded catalog of Apple Core AI models, artifacts, upstreams, benchmarks and provenance.
 
-Core AI Catalog maps Apple Core AI-compatible model artifacts with granular metadata, source links, Hugging Face artifact references, GitHub/Hugging Face attribution, runtime requirements, device support and verification status.
+Core AI Catalog maps Apple Core AI-compatible model artifacts with granular metadata, source links, Hugging Face artifact references, GitHub/Hugging Face attribution, runtime requirements, device support, benchmark records and verification status.
 
-> YAML is the source of truth. Markdown is the human view. Scripts generate derived docs.
+> YAML is the source of truth. Markdown is the human view. JSON is the generated machine/API export.
+
+## Status
+
+**Version:** v0.3 foundation
+
+v0.3 moves the project from structural completeness to verification depth. The catalog now separates model facts, converted artifact provenance, source taxonomy, benchmark records and generated exports.
 
 ## Why this exists
 
@@ -20,17 +26,20 @@ The goal is not to run models directly. The goal is to know, precisely and trace
 - who should be credited
 - whether it is an official Apple recipe conversion or a community zoo port
 - what runtime/device constraints are known
+- which benchmark records exist
 - which fields are confirmed and which remain unknown
 
 ## Current scope
 
-| Area | Count |
+| Area | Count / status |
 |---|---:|
 | Model records | 49 |
 | Artifact provenance records | 49 |
 | Source records | 13 |
 | Main upstreams | 2 |
 | Upstream taxonomy layers | 7 |
+| Benchmark scaffold records | 4 |
+| JSON exports | generated via script |
 
 Main upstreams:
 
@@ -51,15 +60,18 @@ coreai-catalog/
 ├── artifacts.yaml
 ├── sources.yaml
 ├── upstreams.yaml
+├── benchmarks.yaml
 ├── requirements.txt
 ├── schema/
 │   ├── model.schema.json
 │   ├── artifact.schema.json
-│   └── upstream.schema.json
+│   ├── upstream.schema.json
+│   └── benchmark.schema.json
 ├── scripts/
 │   ├── validate.py
 │   ├── generate_docs.py
-│   └── generate_artifact_docs.py
+│   ├── generate_artifact_docs.py
+│   └── export_json.py
 ├── docs/
 │   ├── index.md
 │   ├── model-registry.md
@@ -67,12 +79,16 @@ coreai-catalog/
 │   ├── runtime-matrix.md
 │   ├── artifact-provenance.md
 │   ├── upstream-map.md
+│   ├── benchmark-map.md
 │   ├── source-map.md
+│   ├── v0.3-verification.md
 │   └── sota-maintenance.md
 └── .github/
     └── workflows/
         └── validate.yml
 ```
+
+Generated JSON exports are written to `dist/` when `scripts/export_json.py` runs.
 
 ## Source of truth
 
@@ -82,9 +98,11 @@ coreai-catalog/
 | `artifacts.yaml` | Converted artifact provenance: GitHub conversion source, Hugging Face owner/repo/url and official recipe status. |
 | `sources.yaml` | Compact registry of primary/supporting sources already used by the catalog. |
 | `upstreams.yaml` | Source taxonomy for framework, conversion, artifact host, benchmark, sample, original model and license sources. |
+| `benchmarks.yaml` | Normalized benchmark records by model, metric, device, compute unit and source. |
 | `CREDITS.md` | Human-readable attribution for GitHub and Hugging Face users/repositories. |
-| `schema/*.json` | Validation contracts for model, artifact and upstream records. |
+| `schema/*.json` | Validation contracts for model, artifact, upstream and benchmark records. |
 | `docs/*.md` | Generated or curated human views. |
+| `dist/*.json` | Generated machine-readable exports. |
 
 ## Core data model
 
@@ -144,6 +162,20 @@ An upstream entry in `upstreams.yaml` represents source taxonomy:
     - qwen3-vl-2b
 ```
 
+A benchmark entry in `benchmarks.yaml` represents a normalized measurement:
+
+```yaml
+- id: qwen3-5-0-8b-iphone17pro-gpu-toks
+  model_id: qwen3-5-0-8b
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 71.9
+  device: iPhone 17 Pro
+  compute_unit: GPU
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+```
+
 ## Source layers
 
 | Layer | File/category | Purpose |
@@ -153,7 +185,9 @@ An upstream entry in `upstreams.yaml` represents source taxonomy:
 | Framework/runtime | `upstreams.yaml > framework_sources` | Apple Core AI, Core ML and tooling context. |
 | Original model | `upstreams.yaml > original_model_sources` | Original creators/model-family sources. |
 | License | `upstreams.yaml > license_sources` | License documents and review flags. |
+| Benchmarks | `benchmarks.yaml` | Measurement rows, source IDs and confidence. |
 | Human docs | `docs/*.md` | Tables, maps and curated summaries. |
+| Machine exports | `dist/*.json` | Generated JSON outputs for agents/APIs. |
 
 ## Model groups
 
@@ -248,7 +282,7 @@ The catalog tracks known runtime/device facts when available:
 
 Unknown or unverified values are intentionally kept as `unknown` instead of guessed.
 
-## Validation
+## Validation and generation
 
 Install dependencies:
 
@@ -256,20 +290,26 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
-Validate model and artifact records:
+Validate records:
 
 ```bash
 python scripts/validate.py
 ```
 
-Regenerate docs:
+Regenerate Markdown docs:
 
 ```bash
 python scripts/generate_docs.py
 python scripts/generate_artifact_docs.py
 ```
 
-The GitHub Actions workflow also runs validation and doc generation on push and pull request.
+Export JSON:
+
+```bash
+python scripts/export_json.py
+```
+
+The GitHub Actions workflow runs validation, docs generation and JSON export on push and pull request.
 
 ## Generated docs
 
@@ -280,7 +320,9 @@ The GitHub Actions workflow also runs validation and doc generation on push and 
 | `docs/runtime-matrix.md` | Runtime concepts and flags. |
 | `docs/artifact-provenance.md` | Artifact ownership and hosting view. |
 | `docs/upstream-map.md` | Framework/original-model/license upstream map. |
+| `docs/benchmark-map.md` | Benchmark registry explanation. |
 | `docs/source-map.md` | Source and upstream map. |
+| `docs/v0.3-verification.md` | Verification checklist for v0.3. |
 | `docs/sota-maintenance.md` | Maintenance plan and data-model direction. |
 
 ## Attribution
@@ -323,27 +365,25 @@ For sensitive licenses such as Gemma Terms, Meta SAM License, LFM Open License o
 4. Keep `catalog.yaml` focused on model facts.
 5. Keep `artifacts.yaml` focused on converted artifact provenance and hosting.
 6. Keep `upstreams.yaml` focused on original model, framework, license and benchmark sources.
-7. Keep `sources.yaml` focused on compact source registry.
-8. Generate Markdown views from YAML whenever possible.
-9. Credit original model creator, conversion source and artifact host separately.
-10. Update `last_verified` when a source is rechecked.
+7. Keep `benchmarks.yaml` focused on normalized measurement records.
+8. Keep `sources.yaml` focused on compact source registry.
+9. Generate Markdown and JSON views from YAML whenever possible.
+10. Credit original model creator, conversion source and artifact host separately.
+11. Update `last_verified` when a source is rechecked.
 
 ## Roadmap
 
-Near-term:
+Current milestone:
 
-- Add model-specific original upstream URLs where only family-level URLs are currently recorded.
-- Add richer license URLs per model.
-- Add checksum/hash fields where upstream provides them.
-- Add model-card source line references where practical.
-- Add CI check that generated docs are up to date.
-- Add artifact URL reachability checks.
-- Add normalized benchmark schema.
+- v0.3 — validation depth, upstream taxonomy, benchmark scaffold and JSON exports.
+
+Next milestone:
+
+- v0.4 — exact model-card URL for every original model, exact license URL per model, artifact checksums/hashes where available, complete normalized benchmark table and generated JSON release artifacts.
 
 Later:
 
 - Split large YAML files into `data/models/*.yaml` if the catalog grows significantly.
-- Export `catalog.json`, `artifacts.json` and `upstreams.json` for API/agent consumption.
 - Add a small static site or searchable UI.
 - Add periodic source verification.
 
