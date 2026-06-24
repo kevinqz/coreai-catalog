@@ -1,0 +1,99 @@
+sources:
+  - id: coreai-model-zoo
+    title: john-rocky/coreai-model-zoo
+    type: github_repository
+    url: https://github.com/john-rocky/coreai-model-zoo
+    trust: community_primary
+    volatility: high
+    last_checked: 2026-06-24
+    notes: Primary upstream repository; community model zoo and knowledge base for Apple Core AI.
+
+  - id: coreai-model-zoo-readme
+    title: coreai-model-zoo README
+    type: github_file
+    url: https://github.com/john-rocky/coreai-model-zoo/blob/main/README.md
+    trust: community_primary
+    volatility: high
+    last_checked: 2026-06-24
+    notes: Main model list, repository layout, throughput table, apps and license notes.
+
+  - id: coreai-model-zoo-zoo
+    title: coreai-model-zoo/zoo
+    type: github_directory
+    url: https://github.com/john-rocky/coreai-model-zoo/tree/main/zoo
+    trust: community_primary
+    volatility: high
+    last_checked: 2026-06-24
+    notes: Community model cards for Core AI .aimodel conversions.
+
+  - id: coreai-model-zoo-official
+    title: coreai-model-zoo/official
+    type: github_directory
+    url: https://github.com/john-rocky/coreai-model-zoo/tree/main/official
+    trust: project_primary
+    volatility: high
+    last_checked: 2026-06-24
+    notes: Pre-converted models from Apple's official recipes; distinct from community zoo ports.
+
+  - id: coreai-model-zoo-knowledge
+    title: coreai-model-zoo/knowledge
+    type: github_directory
+    url: https://github.com/john-rocky/coreai-model-zoo/tree/main/knowledge
+    trust: community_primary
+    volatility: high
+    last_checked: 2026-06-24
+    notes: Notes on conversion, compression, KV cache, AOT, compute units, custom Metal kernels, Swift runtime and model-specific topics.
+
+  - id: coreai-model-zoo-conversion
+    title: coreai-model-zoo/conversion
+    type: github_directory
+    url: https://github.com/john-rocky/coreai-model-zoo/tree/main/conversion
+    trust: community_primary
+    volatility: high
+    last_checked: 2026-06-24
+    notes: Re-authored models and conversion, verification and compression scripts.
+
+  - id: coreai-model-zoo-swift
+    title: coreai-model-zoo/swift
+    type: github_directory
+    url: https://github.com/john-rocky/coreai-model-zoo/tree/main/swift
+    trust: community_primary
+    volatility: high
+    last_checked: 2026-06-24
+    notes: Swift package containing ZooFMProvider and CoreAIRunner.
+
+  - id: coreai-model-zoo-apps
+    title: coreai-model-zoo/apps
+    type: github_directory
+    url: https://github.com/john-rocky/coreai-model-zoo/tree/main/apps
+    trust: community_primary
+    volatility: high
+    last_checked: 2026-06-24
+    notes: SwiftUI on-device sample apps for chat, depth, image generation, OCR, segmentation, transcription, upscaling and audio.
+
+  - id: apple-coreai-models
+    title: apple/coreai-models
+    type: github_repository
+    url: https://github.com/apple/coreai-models
+    trust: official_primary
+    volatility: high
+    last_checked: 2026-06-24
+    notes: Official Apple Core AI model recipes referenced by upstream.
+
+  - id: apple-coreai-models-issue-5
+    title: apple/coreai-models issue #5
+    type: github_issue
+    url: https://github.com/apple/coreai-models/issues/5
+    trust: official_primary
+    volatility: high
+    last_checked: 2026-06-24
+    notes: Referenced upstream as known beta issue around in-graph KV-write crash.
+
+  - id: apple-coreai-models-issue-27
+    title: apple/coreai-models issue #27
+    type: github_issue
+    url: https://github.com/apple/coreai-models/issues/27
+    trust: official_primary
+    volatility: high
+    last_checked: 2026-06-24
+    notes: Referenced upstream in relation to MPSGraph SDPA crash and custom flash-decode kernels.
