@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Core AI Catalog Benchmark",
+  "type": "object",
+  "required": ["id", "model_id", "metric", "unit", "source", "confidence"],
+  "properties": {
+    "id": {"type": "string"},
+    "model_id": {"type": "string"},
+    "metric": {"type": "string"},
+    "unit": {"type": "string"},
+    "value": {"type": ["number", "string", "null"]},
+    "device": {"type": ["string", "null"]},
+    "compute_unit": {"type": ["string", "null"]},
+    "precision": {"type": ["string", "null"]},
+    "source": {"type": "string"},
+    "confidence": {"type": "string", "enum": ["high", "medium", "low", "needs_review"]},
+    "notes": {"type": ["string", "null"]}
+  }
+}
