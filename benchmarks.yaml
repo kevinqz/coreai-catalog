@@ -1,0 +1,55 @@
+metadata:
+  name: Core AI Catalog benchmark registry
+  version: 0.3.0
+  last_verified: '2026-06-24'
+  status: scaffold
+  notes: Initial normalized benchmark scaffold. Values should be expanded only when traceable to source records.
+
+benchmarks:
+  - id: qwen3-5-0-8b-iphone17pro-gpu-toks
+    model_id: qwen3-5-0-8b
+    metric: decode_throughput
+    unit: tokens_per_second
+    value: 71.9
+    device: iPhone 17 Pro
+    compute_unit: GPU
+    precision: unknown
+    source: john-rocky-coreai-model-zoo
+    confidence: medium
+    notes: Reported in upstream README throughput table.
+
+  - id: qwen3-5-0-8b-m4max-gpu-toks
+    model_id: qwen3-5-0-8b
+    metric: decode_throughput
+    unit: tokens_per_second
+    value: 210
+    device: M4 Max
+    compute_unit: GPU
+    precision: unknown
+    source: john-rocky-coreai-model-zoo
+    confidence: medium
+    notes: Reported in upstream README throughput table.
+
+  - id: minicpm-v-4-6-iphone17pro-gpu-toks
+    model_id: minicpm-v-4-6
+    metric: decode_throughput
+    unit: tokens_per_second
+    value: 53.4
+    device: iPhone 17 Pro
+    compute_unit: GPU
+    precision: unknown
+    source: john-rocky-coreai-model-zoo
+    confidence: medium
+    notes: Reported in upstream README throughput table.
+
+  - id: qwen3-6-35b-a3b-m4max-gpu-toks
+    model_id: qwen3-6-35b-a3b
+    metric: decode_throughput
+    unit: tokens_per_second
+    value: 64.9
+    device: M4 Max
+    compute_unit: GPU
+    precision: unknown
+    source: john-rocky-coreai-model-zoo
+    confidence: medium
+    notes: Uses custom gather_qmm Metal kernel per upstream caveat.
