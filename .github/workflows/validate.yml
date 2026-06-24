@@ -16,3 +16,4 @@ jobs:
       - run: python scripts/validate.py
       - run: python scripts/generate_docs.py
       - run: python scripts/generate_artifact_docs.py
+      - run: python scripts/export_json.py
