@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Core AI Catalog Artifact",
+  "type": "object",
+  "required": ["id", "group", "github", "huggingface"],
+  "properties": {
+    "id": {"type": "string"},
+    "group": {"type": "string"},
+    "github": {
+      "type": "object",
+      "properties": {
+        "owner": {"type": "string"},
+        "repo": {"type": "string"},
+        "path": {"type": ["string", "null"]}
+      }
+    },
+    "huggingface": {
+      "type": "object",
+      "properties": {
+        "owner": {"type": "string"},
+        "repo": {"type": "string"},
+        "path": {"type": ["string", "null"]}
+      }
+    },
+    "is_official_recipe": {"type": "boolean"}
+  }
+}
