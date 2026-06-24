@@ -9,6 +9,18 @@ Generated and curated views for the Core AI Catalog.
 - [Capability Matrix](./capability-matrix.md)
 - [Runtime Matrix](./runtime-matrix.md)
 - [Source Map](./source-map.md)
+- [SotA Maintenance Plan](./sota-maintenance.md)
+
+## Artifact provenance
+
+- `../artifacts/README.md`
+- `../artifacts/official-qwen.yaml`
+- `../artifacts/official-gemma.yaml`
+- `../artifacts/official-mistral.yaml`
+- `../artifacts/q35.yaml`
+- `../artifacts/q36-27b.yaml`
+- `../artifacts/q36-moe.yaml`
+- `../data/artifacts.yaml.b64.part1`
 
 ## Hugging Face artifact references
 
