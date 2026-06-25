@@ -82,7 +82,8 @@ coreai-catalog/
 │   ├── benchmark-map.md
 │   ├── source-map.md
 │   ├── v0.3-verification.md
-│   └── sota-maintenance.md
+│   ├── sota-maintenance.md
+│   └── generated-files.md
 └── .github/
     └── workflows/
         └── validate.yml
@@ -311,19 +312,24 @@ python scripts/export_json.py
 
 The GitHub Actions workflow runs validation, docs generation and JSON export on push and pull request.
 
-## Generated docs
+## Documentation
 
-| Doc | Description |
-|---|---|
-| `docs/model-registry.md` | Human-readable model table. |
-| `docs/capability-matrix.md` | Models grouped by capability. |
-| `docs/runtime-matrix.md` | Runtime concepts and flags. |
-| `docs/artifact-provenance.md` | Artifact ownership and hosting view. |
-| `docs/upstream-map.md` | Framework/original-model/license upstream map. |
-| `docs/benchmark-map.md` | Benchmark registry explanation. |
-| `docs/source-map.md` | Source and upstream map. |
-| `docs/v0.3-verification.md` | Verification checklist for v0.3. |
-| `docs/sota-maintenance.md` | Maintenance plan and data-model direction. |
+`generated` docs are produced from the YAML source by scripts and must not be
+hand-edited; `curated` docs are maintained manually (see `docs/generated-files.md`).
+
+| Doc | Type | Description |
+|---|---|---|
+| `docs/index.md` | curated | Docs entry point and file map. |
+| `docs/model-registry.md` | generated | Human-readable model table (`scripts/generate_docs.py`). |
+| `docs/artifact-provenance.md` | generated | Artifact ownership and hosting view (`scripts/generate_artifact_docs.py`). |
+| `docs/capability-matrix.md` | curated | Models grouped by capability. |
+| `docs/runtime-matrix.md` | curated | Runtime concepts and flags. |
+| `docs/upstream-map.md` | curated | Framework/original-model/license upstream map. |
+| `docs/benchmark-map.md` | curated | Benchmark registry explanation. |
+| `docs/source-map.md` | curated | Source and upstream map. |
+| `docs/v0.3-verification.md` | curated | Verification checklist for v0.3. |
+| `docs/sota-maintenance.md` | curated | Maintenance plan and data-model direction. |
+| `docs/generated-files.md` | curated | Generated vs curated file policy. |
 
 ## Attribution
 

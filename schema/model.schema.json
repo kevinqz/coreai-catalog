@@ -2,11 +2,13 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Core AI Catalog Model",
   "type": "object",
+  "additionalProperties": false,
   "required": [
     "id",
     "name",
     "family",
     "source_group",
+    "source_path",
     "artifact_ref",
     "capabilities",
     "modalities",
@@ -14,12 +16,14 @@
     "size",
     "runtime",
     "device_support",
+    "benchmark",
     "license",
     "status",
     "maturity",
     "confidence",
     "sources",
-    "last_verified"
+    "last_verified",
+    "notes"
   ],
   "properties": {
     "id": {
@@ -40,6 +44,9 @@
         "unknown"
       ]
     },
+    "source_path": {
+      "type": "string"
+    },
     "artifact_ref": {
       "type": "string"
     },
@@ -47,47 +54,135 @@
       "type": "array",
       "items": {
         "type": "string"
-      }
+      },
+      "minItems": 1
     },
     "modalities": {
       "type": "object",
       "required": [
         "input",
         "output"
-      ]
+      ],
+      "properties": {
+        "input": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "output": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        }
+      }
     },
     "artifact": {
-      "type": "object"
+      "type": "object",
+      "required": [
+        "format",
+        "availability"
+      ]
     },
     "size": {
-      "type": "object"
+      "type": "object",
+      "required": [
+        "parameters",
+        "precision",
+        "quantization",
+        "artifact_size"
+      ]
     },
     "runtime": {
-      "type": "object"
+      "type": "object",
+      "required": [
+        "runtime_name",
+        "runner",
+        "stock_runtime",
+        "custom_kernel",
+        "patch_required",
+        "tokenizer_required",
+        "processor_required",
+        "aot_required"
+      ]
     },
     "device_support": {
+      "type": "object",
+      "required": [
+        "iphone",
+        "ipad",
+        "mac",
+        "mac_only"
+      ]
+    },
+    "benchmark": {
       "type": "object"
     },
     "license": {
-      "type": "object"
+      "type": "object",
+      "required": [
+        "name",
+        "commercial_use"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "commercial_use": {
+          "type": "string",
+          "enum": [
+            "likely",
+            "check_license"
+          ]
+        }
+      }
     },
     "status": {
-      "type": "string"
+      "type": "string",
+      "enum": [
+        "confirmed",
+        "needs_review",
+        "deprecated",
+        "unknown"
+      ]
     },
     "maturity": {
-      "type": "string"
+      "type": "string",
+      "enum": [
+        "stable",
+        "active",
+        "experimental",
+        "research",
+        "unknown"
+      ]
     },
     "confidence": {
-      "type": "string"
+      "type": "string",
+      "enum": [
+        "high",
+        "medium",
+        "low",
+        "needs_review"
+      ]
     },
     "sources": {
       "type": "array",
       "items": {
         "type": "string"
-      }
+      },
+      "minItems": 1
     },
     "last_verified": {
       "type": "string"
+    },
+    "notes": {
+      "type": [
+        "string",
+        "null"
+      ]
     }
   }
 }

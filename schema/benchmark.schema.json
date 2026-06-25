@@ -8,7 +8,7 @@
     "model_id": {"type": "string"},
     "metric": {"type": "string"},
     "unit": {"type": "string"},
-    "value": {"type": ["number", "string", "null"]},
+    "value": {"type": ["number", "null"]},
     "device": {"type": ["string", "null"]},
     "compute_unit": {"type": ["string", "null"]},
     "precision": {"type": ["string", "null"]},

@@ -106,6 +106,9 @@ original_model_sources:
       - qwen2-5-omni-3b-audio
       - qwen3-embedding-0-6b
       - qwen3-reranker-0-6b
+      - official-qwen3-0-6b
+      - official-qwen3-4b
+      - official-qwen3-8b
     notes: Use model-specific Qwen cards when exact model pages are confirmed.
 
   - id: google-gemma

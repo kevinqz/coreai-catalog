@@ -3,3 +3,6 @@ __pycache__/
 .DS_Store
 .env
 .venv/
+
+# Generated JSON exports (produced by scripts/export_json.py)
+dist/

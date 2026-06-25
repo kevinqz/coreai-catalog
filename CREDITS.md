@@ -7,6 +7,7 @@ Core AI Catalog is built on public upstream sources.
 - john-rocky / coreai-model-zoo
 - john-rocky / CoreML-Models
 - apple / coreai-models
+- apple / coremltools
 - john-rocky / apple-silicon-llm-bench
 - john-rocky / coreai-samples
 - kevinqz / coreai-catalog

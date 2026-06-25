@@ -6,12 +6,38 @@
   "properties": {
     "id": {"type": "string"},
     "title": {"type": "string"},
-    "category": {"type": "string"},
+    "category": {
+      "type": "string",
+      "enum": [
+        "framework",
+        "framework_tooling",
+        "official_recipes",
+        "conversion_and_zoo",
+        "predecessor",
+        "artifact_host",
+        "benchmark",
+        "samples",
+        "original_model",
+        "license"
+      ]
+    },
     "platform": {"type": ["string", "null"]},
     "owner": {"type": ["string", "null"]},
     "repo": {"type": ["string", "null"]},
     "url": {"type": ["string", "null"]},
-    "trust": {"type": "string"},
+    "trust": {
+      "type": "string",
+      "enum": [
+        "official_primary",
+        "community_primary",
+        "community_secondary",
+        "artifact_host",
+        "original_model_primary",
+        "license_primary",
+        "license_needs_model_specific_review",
+        "needs_review"
+      ]
+    },
     "applies_to": {
       "type": "array",
       "items": {"type": "string"}

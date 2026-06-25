@@ -38,6 +38,7 @@ These files are curated manually until generators are expanded:
 - `docs/source-map.md`
 - `docs/v0.3-verification.md`
 - `docs/sota-maintenance.md`
+- `docs/generated-files.md`
 
 ## Rules
 

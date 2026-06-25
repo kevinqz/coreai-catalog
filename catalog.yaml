@@ -1,7 +1,7 @@
 metadata:
   name: Core AI Catalog
   repo: coreai-catalog
-  version: 0.2.0
+  version: 0.3.0
   last_verified: '2026-06-24'
   upstream:
   - coreai-model-zoo
@@ -314,7 +314,7 @@ models:
     mac_gpu: 77.0 / QAT 78.9
     unit: tok/s
   license:
-    name: Gemma
+    name: Gemma Terms
     commercial_use: check_license
   status: confirmed
   maturity: experimental
@@ -366,7 +366,7 @@ models:
     mac_gpu: 55.8
     unit: tok/s
   license:
-    name: Gemma
+    name: Gemma Terms
     commercial_use: check_license
   status: confirmed
   maturity: experimental
@@ -418,7 +418,7 @@ models:
     mac_gpu: 23 int8 / 33 int4
     unit: tok/s
   license:
-    name: Gemma
+    name: Gemma Terms
     commercial_use: check_license
   status: confirmed
   maturity: experimental
@@ -471,7 +471,7 @@ models:
     mac_gpu: 17.2
     unit: tok/s
   license:
-    name: Gemma
+    name: Gemma Terms
     commercial_use: check_license
   status: confirmed
   maturity: experimental
@@ -998,7 +998,7 @@ models:
     mac_gpu: 82.4
     unit: tok/s
   license:
-    name: Gemma
+    name: Gemma Terms
     commercial_use: check_license
   status: confirmed
   maturity: experimental
@@ -1257,7 +1257,7 @@ models:
     mac_gpu: unknown
     unit: unknown
   license:
-    name: Gemma
+    name: Gemma Terms
     commercial_use: check_license
   status: confirmed
   maturity: experimental

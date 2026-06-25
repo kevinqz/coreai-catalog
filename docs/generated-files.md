@@ -34,6 +34,7 @@ These docs are maintained manually until generators are expanded:
 - `docs/source-map.md`
 - `docs/v0.3-verification.md`
 - `docs/sota-maintenance.md`
+- `docs/generated-files.md`
 
 ## Rule
 

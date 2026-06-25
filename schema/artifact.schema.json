@@ -64,5 +64,39 @@
     "is_official_recipe": {
       "type": "boolean"
     }
-  }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "group": {
+            "const": "official"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "is_official_recipe": {
+            "const": true
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "group": {
+            "const": "zoo"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "is_official_recipe": {
+            "const": false
+          }
+        }
+      }
+    }
+  ]
 }
