@@ -20,6 +20,20 @@ dist/             = generated JSON exports
 
 YAML files are the source of truth. Markdown and JSON are derived views unless explicitly marked as curated.
 
+## Measurement and provenance principles
+
+Measurements stay trustworthy as upstream changes by following three rules:
+
+1. Single source of truth. Measurement values live only in `benchmarks.yaml`. Model
+   records in `catalog.yaml` carry no inline benchmark numbers, so the two cannot drift;
+   consumers join on `model_id`.
+2. Environment-scoped provenance. Every record carries `device`, `compute_unit`,
+   `precision`, `environment` (OS / runtime context) and `observed` (date). Values that
+   differ across environments or versions are distinct records, not conflicts.
+3. Append-only. Sourced values are never overwritten or deleted. When upstream changes a
+   value, the prior record is retained with `confidence: needs_review` and a
+   `superseded_by` pointer to the current record.
+
 ## Generated views
 
 - `docs/model-registry.md` is generated from `catalog.yaml`.

@@ -45,11 +45,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: false
-  benchmark:
-    iphone_gpu: 71.9
-    iphone_ane: 14.7
-    mac_gpu: 210
-    unit: tok/s
   license:
     name: Apache-2.0
     commercial_use: likely
@@ -97,11 +92,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: false
-  benchmark:
-    iphone_gpu: 29
-    iphone_ane: unknown
-    mac_gpu: 161
-    unit: tok/s
   license:
     name: Apache-2.0
     commercial_use: likely
@@ -150,11 +140,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: true
-  benchmark:
-    iphone_gpu: null
-    iphone_ane: null
-    mac_gpu: 64.9
-    unit: tok/s
   license:
     name: Apache-2.0
     commercial_use: likely
@@ -202,11 +187,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: true
-  benchmark:
-    iphone_gpu: null
-    iphone_ane: null
-    mac_gpu: 15.9
-    unit: tok/s
   license:
     name: Apache-2.0
     commercial_use: likely
@@ -256,11 +236,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: true
-  benchmark:
-    iphone_gpu: null
-    iphone_ane: null
-    mac_gpu: 52.4
-    unit: tok/s
   license:
     name: MIT
     commercial_use: likely
@@ -308,11 +283,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: false
-  benchmark:
-    iphone_gpu: 30.3 / QAT 30.7
-    iphone_ane: 6
-    mac_gpu: 77.0 / QAT 78.9
-    unit: tok/s
   license:
     name: Gemma Terms
     commercial_use: check_license
@@ -360,11 +330,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: false
-  benchmark:
-    iphone_gpu: 15.1
-    iphone_ane: unknown
-    mac_gpu: 55.8
-    unit: tok/s
   license:
     name: Gemma Terms
     commercial_use: check_license
@@ -412,11 +377,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: true
-  benchmark:
-    iphone_gpu: null
-    iphone_ane: null
-    mac_gpu: 23 int8 / 33 int4
-    unit: tok/s
   license:
     name: Gemma Terms
     commercial_use: check_license
@@ -465,11 +425,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: true
-  benchmark:
-    iphone_gpu: null
-    iphone_ane: null
-    mac_gpu: 17.2
-    unit: tok/s
   license:
     name: Gemma Terms
     commercial_use: check_license
@@ -519,11 +474,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: false
-  benchmark:
-    iphone_gpu: 45.4
-    iphone_ane: unknown
-    mac_gpu: 276.5
-    unit: tok/s
   license:
     name: LFM Open License v1.0
     commercial_use: check_license
@@ -572,11 +522,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: false
-  benchmark:
-    iphone_gpu: unknown
-    iphone_ane: unknown
-    mac_gpu: unknown
-    unit: unknown
   license:
     name: LFM Open License v1.0
     commercial_use: check_license
@@ -625,11 +570,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: false
-  benchmark:
-    iphone_gpu: 36.3
-    iphone_ane: unknown
-    mac_gpu: 136.5
-    unit: tok/s
   license:
     name: Apache-2.0
     commercial_use: likely
@@ -678,11 +618,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: false
-  benchmark:
-    iphone_gpu: unknown
-    iphone_ane: unknown
-    mac_gpu: unknown
-    unit: unknown
   license:
     name: Apache-2.0
     commercial_use: likely
@@ -732,11 +667,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: false
-  benchmark:
-    iphone_gpu: 15.9
-    iphone_ane: unknown
-    mac_gpu: 114.5
-    unit: tok/s
   license:
     name: Apache-2.0
     commercial_use: likely
@@ -784,11 +714,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: false
-  benchmark:
-    iphone_gpu: unknown
-    iphone_ane: unknown
-    mac_gpu: unknown
-    unit: unknown
   license:
     name: Apache-2.0
     commercial_use: likely
@@ -836,11 +761,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: false
-  benchmark:
-    iphone_gpu: unknown
-    iphone_ane: unknown
-    mac_gpu: unknown
-    unit: unknown
   license:
     name: Apache-2.0
     commercial_use: likely
@@ -888,11 +808,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: false
-  benchmark:
-    iphone_gpu: unknown
-    iphone_ane: unknown
-    mac_gpu: unknown
-    unit: unknown
   license:
     name: Apache-2.0
     commercial_use: likely
@@ -940,11 +855,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: false
-  benchmark:
-    iphone_gpu: 53.4
-    iphone_ane: unknown
-    mac_gpu: 224.3
-    unit: tok/s
   license:
     name: Apache-2.0
     commercial_use: likely
@@ -992,11 +902,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: false
-  benchmark:
-    iphone_gpu: 25.5
-    iphone_ane: unknown
-    mac_gpu: 82.4
-    unit: tok/s
   license:
     name: Gemma Terms
     commercial_use: check_license
@@ -1046,11 +951,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: false
-  benchmark:
-    iphone_gpu: unknown
-    iphone_ane: unknown
-    mac_gpu: unknown
-    unit: unknown
   license:
     name: MIT
     commercial_use: likely
@@ -1097,11 +997,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: false
-  benchmark:
-    iphone_gpu: unknown
-    iphone_ane: unknown
-    mac_gpu: unknown
-    unit: unknown
   license:
     name: Apache-2.0
     commercial_use: likely
@@ -1148,11 +1043,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: false
-  benchmark:
-    iphone_gpu: unknown
-    iphone_ane: unknown
-    mac_gpu: unknown
-    unit: unknown
   license:
     name: Apache-2.0
     commercial_use: likely
@@ -1200,11 +1090,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: false
-  benchmark:
-    iphone_gpu: unknown
-    iphone_ane: unknown
-    mac_gpu: unknown
-    unit: unknown
   license:
     name: Apache-2.0
     commercial_use: likely
@@ -1251,11 +1136,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: false
-  benchmark:
-    iphone_gpu: unknown
-    iphone_ane: unknown
-    mac_gpu: unknown
-    unit: unknown
   license:
     name: Gemma Terms
     commercial_use: check_license
@@ -1301,11 +1181,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: false
-  benchmark:
-    iphone_gpu: unknown
-    iphone_ane: unknown
-    mac_gpu: unknown
-    unit: unknown
   license:
     name: Apache-2.0
     commercial_use: likely
@@ -1353,11 +1228,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: false
-  benchmark:
-    iphone_gpu: unknown
-    iphone_ane: unknown
-    mac_gpu: unknown
-    unit: unknown
   license:
     name: Apache-2.0
     commercial_use: likely
@@ -1406,11 +1276,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: false
-  benchmark:
-    iphone_gpu: unknown
-    iphone_ane: unknown
-    mac_gpu: unknown
-    unit: unknown
   license:
     name: Apache-2.0
     commercial_use: likely
@@ -1459,11 +1324,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: false
-  benchmark:
-    iphone_gpu: unknown
-    iphone_ane: unknown
-    mac_gpu: unknown
-    unit: unknown
   license:
     name: Apache-2.0
     commercial_use: likely
@@ -1512,11 +1372,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: false
-  benchmark:
-    iphone_gpu: unknown
-    iphone_ane: unknown
-    mac_gpu: unknown
-    unit: unknown
   license:
     name: Apache-2.0
     commercial_use: likely
@@ -1565,11 +1420,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: false
-  benchmark:
-    iphone_gpu: unknown
-    iphone_ane: unknown
-    mac_gpu: unknown
-    unit: unknown
   license:
     name: Apache-2.0
     commercial_use: likely
@@ -1619,11 +1469,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: false
-  benchmark:
-    iphone_gpu: unknown
-    iphone_ane: unknown
-    mac_gpu: unknown
-    unit: unknown
   license:
     name: Apache-2.0
     commercial_use: likely
@@ -1673,11 +1518,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: false
-  benchmark:
-    iphone_gpu: unknown
-    iphone_ane: unknown
-    mac_gpu: unknown
-    unit: unknown
   license:
     name: Apache-2.0
     commercial_use: likely
@@ -1727,11 +1567,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: false
-  benchmark:
-    iphone_gpu: unknown
-    iphone_ane: unknown
-    mac_gpu: unknown
-    unit: unknown
   license:
     name: Apache-2.0
     commercial_use: likely
@@ -1781,11 +1616,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: false
-  benchmark:
-    iphone_gpu: unknown
-    iphone_ane: unknown
-    mac_gpu: unknown
-    unit: unknown
   license:
     name: Apache-2.0
     commercial_use: likely
@@ -1835,11 +1665,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: false
-  benchmark:
-    iphone_gpu: unknown
-    iphone_ane: unknown
-    mac_gpu: unknown
-    unit: unknown
   license:
     name: Apache-2.0
     commercial_use: likely
@@ -1889,11 +1714,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: false
-  benchmark:
-    iphone_gpu: unknown
-    iphone_ane: unknown
-    mac_gpu: unknown
-    unit: unknown
   license:
     name: Apache-2.0
     commercial_use: likely
@@ -1940,11 +1760,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: false
-  benchmark:
-    iphone_gpu: unknown
-    iphone_ane: unknown
-    mac_gpu: unknown
-    unit: unknown
   license:
     name: Apache-2.0 + OpenRAIL++
     commercial_use: check_license
@@ -1991,11 +1806,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: false
-  benchmark:
-    iphone_gpu: unknown
-    iphone_ane: unknown
-    mac_gpu: unknown
-    unit: unknown
   license:
     name: Apache-2.0
     commercial_use: likely
@@ -2042,11 +1852,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: false
-  benchmark:
-    iphone_gpu: unknown
-    iphone_ane: unknown
-    mac_gpu: unknown
-    unit: unknown
   license:
     name: Apache-2.0
     commercial_use: likely
@@ -2095,11 +1900,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: true
-  benchmark:
-    iphone_gpu: null
-    iphone_ane: null
-    mac_gpu: 78.1
-    unit: tok/s
   license:
     name: Apache-2.0
     commercial_use: likely
@@ -2147,11 +1947,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: false
-  benchmark:
-    iphone_gpu: 484
-    iphone_ane: null
-    mac_gpu: 1121
-    unit: tok/s
   license:
     name: Apache-2.0
     commercial_use: likely
@@ -2199,11 +1994,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: false
-  benchmark:
-    iphone_gpu: unknown
-    iphone_ane: null
-    mac_gpu: 145.4
-    unit: tok/s
   license:
     name: Apache-2.0
     commercial_use: likely
@@ -2251,11 +2041,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: true
-  benchmark:
-    iphone_gpu: null
-    iphone_ane: null
-    mac_gpu: 94.1
-    unit: tok/s
   license:
     name: Apache-2.0
     commercial_use: likely
@@ -2304,11 +2089,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: true
-  benchmark:
-    iphone_gpu: null
-    iphone_ane: null
-    mac_gpu: 141.5
-    unit: tok/s
   license:
     name: Gemma Terms
     commercial_use: check_license
@@ -2357,11 +2137,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: true
-  benchmark:
-    iphone_gpu: null
-    iphone_ane: null
-    mac_gpu: 55.0
-    unit: tok/s
   license:
     name: Gemma Terms
     commercial_use: check_license
@@ -2409,11 +2184,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: true
-  benchmark:
-    iphone_gpu: null
-    iphone_ane: null
-    mac_gpu: 101.7
-    unit: tok/s
   license:
     name: Apache-2.0
     commercial_use: likely
@@ -2460,11 +2230,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: true
-  benchmark:
-    iphone_gpu: null
-    iphone_ane: null
-    mac_gpu: 17.4s @ 4 steps
-    unit: seconds
   license:
     name: Apache-2.0
     commercial_use: likely
@@ -2514,11 +2279,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: false
-  benchmark:
-    iphone_gpu: unknown
-    iphone_ane: null
-    mac_gpu: 0.55s/image
-    unit: seconds_per_image
   license:
     name: Meta SAM License
     commercial_use: check_license
@@ -2565,11 +2325,6 @@ models:
     ipad: unknown
     mac: true
     mac_only: false
-  benchmark:
-    iphone_gpu: unknown
-    iphone_ane: null
-    mac_gpu: 0.18s/token
-    unit: seconds_per_token
   license:
     name: Apache-2.0
     commercial_use: likely

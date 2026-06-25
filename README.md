@@ -38,7 +38,7 @@ The goal is not to run models directly. The goal is to know, precisely and trace
 | Source records | 13 |
 | Main upstreams | 2 |
 | Upstream taxonomy layers | 7 |
-| Benchmark records | 36 |
+| Benchmark records | 39 |
 | JSON exports | generated via script |
 
 Main upstreams:
@@ -95,7 +95,7 @@ Generated JSON exports are written to `dist/` when `scripts/export_json.py` runs
 
 | File | Purpose |
 |---|---|
-| `catalog.yaml` | Model facts: name, family, capabilities, modalities, size, runtime, device support, benchmark notes, license status and verification status. |
+| `catalog.yaml` | Model facts: name, family, capabilities, modalities, size, runtime, device support, license status and verification status. Measurements live in `benchmarks.yaml`, not here. |
 | `artifacts.yaml` | Converted artifact provenance: GitHub conversion source, Hugging Face owner/repo/url and official recipe status. |
 | `sources.yaml` | Compact registry of primary/supporting sources already used by the catalog. |
 | `upstreams.yaml` | Source taxonomy for framework, conversion, artifact host, benchmark, sample, original model and license sources. |
@@ -173,9 +173,13 @@ A benchmark entry in `benchmarks.yaml` represents a normalized measurement:
   value: 71.9
   device: iPhone 17 Pro
   compute_unit: GPU
+  environment: iOS 27 beta, coreai-pipelined engine
+  observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
   confidence: medium
 ```
+
+Measurements are the single source of truth in `benchmarks.yaml` (model records carry no inline numbers). Each row is environment-scoped and append-only: values that differ across OS/runtime versions are kept as separate dated records, and a superseded value is retained with `confidence: needs_review` and a `superseded_by` pointer rather than overwritten.
 
 ## Source layers
 

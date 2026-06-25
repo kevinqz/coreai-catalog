@@ -16,7 +16,6 @@
     "size",
     "runtime",
     "device_support",
-    "benchmark",
     "license",
     "status",
     "maturity",
@@ -117,9 +116,6 @@
         "mac",
         "mac_only"
       ]
-    },
-    "benchmark": {
-      "type": "object"
     },
     "license": {
       "type": "object",
