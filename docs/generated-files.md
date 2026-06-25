@@ -11,6 +11,7 @@ These files are intended to be edited directly:
 - `sources.yaml`
 - `upstreams.yaml`
 - `benchmarks.yaml`
+- `terms.yaml`
 - `schema/*.json`
 - `scripts/*.py`
 
@@ -20,6 +21,7 @@ These files or folders are produced by scripts:
 
 - `docs/model-registry.md` from `scripts/generate_docs.py`
 - `docs/artifact-provenance.md` from `scripts/generate_artifact_docs.py`
+- `docs/apple-terminology-map.md` from `scripts/generate_terms_docs.py`
 - `dist/*.json` from `scripts/export_json.py`
 
 ## Curated docs

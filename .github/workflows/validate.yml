@@ -16,6 +16,7 @@ jobs:
       - run: python scripts/validate.py
       - run: python scripts/generate_docs.py
       - run: python scripts/generate_artifact_docs.py
+      - run: python scripts/generate_terms_docs.py
       - run: python scripts/export_json.py
       - name: Ensure generated docs are in sync with YAML source
-        run: git diff --exit-code docs/model-registry.md docs/artifact-provenance.md
+        run: git diff --exit-code docs/model-registry.md docs/artifact-provenance.md docs/apple-terminology-map.md

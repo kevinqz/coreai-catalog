@@ -114,8 +114,13 @@ def main() -> None:
     upstream_data = read_yaml(ROOT / 'upstreams.yaml')
     validate_items(flatten_upstreams(upstream_data), ROOT / 'schema' / 'upstream.schema.json', 'upstream')
 
+    terms = validate_file(ROOT / 'terms.yaml', ROOT / 'schema' / 'term.schema.json', 'terms')
+
     models, artifacts, upstreams, benchmarks = validate_cross_references()
-    print(f'OK: {models} models, {artifacts} artifacts, {upstreams} upstreams and {benchmarks} benchmarks validated.')
+    print(
+        f'OK: {models} models, {artifacts} artifacts, {upstreams} upstreams, '
+        f'{benchmarks} benchmarks and {terms} terms validated.'
+    )
 
 
 if __name__ == '__main__':

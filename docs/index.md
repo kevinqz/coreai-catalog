@@ -9,6 +9,7 @@
 - [Upstream Map](./upstream-map.md)
 - [Benchmark Map](./benchmark-map.md)
 - [Source Map](./source-map.md)
+- [Apple Terminology Map](./apple-terminology-map.md)
 - [Generated Files Policy](./generated-files.md)
 - [v0.3 Verification Checklist](./v0.3-verification.md)
 - [SotA Maintenance Plan](./sota-maintenance.md)
@@ -20,6 +21,7 @@
 - Sources: 13
 - Upstream taxonomy layers: 7
 - Benchmark records: 39
+- Terminology records: 25
 
 ## Source of truth
 
@@ -28,6 +30,7 @@
 - `../sources.yaml`
 - `../upstreams.yaml`
 - `../benchmarks.yaml`
+- `../terms.yaml`
 - `../CREDITS.md`
 
 ## Generated exports

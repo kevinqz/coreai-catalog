@@ -1,0 +1,232 @@
+metadata:
+  name: Core AI Catalog terminology
+  version: 0.4.0
+  last_verified: '2026-06-25'
+  status: active
+  notes: Verified Apple AI terminology reference layer. Each term cites an official Apple source and is tagged by ecosystem layer. Reference only -- not affiliation or legal claims.
+
+terms:
+  - id: apple-intelligence
+    label: Apple Intelligence
+    apple_layer: system_surface
+    definition: Personal intelligence system across Apple devices, powered by Apple Foundation Models; provides personal context, app actions and on-screen awareness.
+    official_source: https://developer.apple.com/apple-intelligence/
+    verification: established_pre_2026
+    status: official
+
+  - id: visual-intelligence
+    label: Visual Intelligence
+    apple_layer: system_surface
+    definition: System visual-understanding capability; the 2026 update adds image input to the on-device model for on-device visual tasks.
+    official_source: https://developer.apple.com/apple-intelligence/whats-new/
+    verification: confirmed_wwdc2026
+    status: official
+
+  - id: image-playground
+    label: Image Playground
+    apple_layer: system_surface
+    definition: Image-generation experience and developer API in the Apple Intelligence ecosystem.
+    official_source: https://developer.apple.com/documentation/imageplayground
+    verification: established_pre_2026
+    status: official
+
+  - id: core-ai
+    label: Core AI
+    apple_layer: developer_framework
+    definition: WWDC26 framework for bringing PyTorch models to production on Apple Silicon (LLMs and generative AI); successor to Core ML for generative AI; exports the .aimodel format.
+    official_source: https://developer.apple.com/documentation/coreai/
+    relations:
+    - produces:aimodel
+    - succeeds:core-ml
+    verification: confirmed_wwdc2026
+    status: official
+
+  - id: foundation-models-framework
+    label: Foundation Models framework
+    apple_layer: developer_framework
+    definition: Native Swift API giving access to Apple Foundation Models (on-device and Private Cloud Compute) and to any provider with a Swift package conforming to the LanguageModel protocol.
+    official_source: https://developer.apple.com/documentation/FoundationModels
+    relations:
+    - accesses:apple-foundation-models
+    - uses:language-model-protocol
+    verification: confirmed_wwdc2026
+    status: official
+
+  - id: core-ml
+    label: Core ML
+    apple_layer: developer_framework
+    definition: Framework for integrating traditional ML models into apps; predates Core AI and is superseded by it for generative AI; uses .mlpackage / .mlmodel.
+    official_source: https://developer.apple.com/documentation/coreml
+    relations:
+    - succeeded_by:core-ai
+    - uses:mlpackage
+    verification: established_pre_2026
+    status: official
+
+  - id: mlx
+    label: MLX
+    apple_layer: developer_framework
+    definition: Open-source array framework for ML on Apple Silicon (research, training, fine-tuning, inference) with unified memory and lazy evaluation; a parallel research/training layer, not a Core AI dependency.
+    official_source: https://github.com/ml-explore/mlx
+    verification: established_pre_2026
+    status: official
+
+  - id: app-intents
+    label: App Intents
+    apple_layer: developer_framework
+    definition: Framework that connects app content and actions to Apple Intelligence, Siri and Spotlight through schemas, entities and intents.
+    official_source: https://developer.apple.com/documentation/appintents
+    relations:
+    - feeds:spotlight-semantic-index
+    verification: established_pre_2026
+    status: official
+
+  - id: vision
+    label: Vision
+    apple_layer: developer_framework
+    definition: Framework for image analysis such as detection, recognition and tracking; Vision tools can be called by the model during generation.
+    official_source: https://developer.apple.com/documentation/vision
+    verification: established_pre_2026
+    status: official
+
+  - id: speech
+    label: Speech
+    apple_layer: developer_framework
+    definition: Framework for speech recognition and audio analysis on Apple platforms.
+    official_source: https://developer.apple.com/documentation/speech
+    verification: established_pre_2026
+    status: official
+
+  - id: evaluations-framework
+    label: Evaluations framework
+    apple_layer: developer_framework
+    definition: WWDC26 Swift framework to measure the quality of intelligence features and quantify the statistical impact of prompt changes.
+    official_source: https://developer.apple.com/apple-intelligence/whats-new/
+    verification: confirmed_wwdc2026
+    status: official
+
+  - id: metal
+    label: Metal
+    apple_layer: developer_framework
+    definition: GPU programming framework; backs the custom Metal kernels some Core AI model conversions require.
+    official_source: https://developer.apple.com/metal/
+    verification: established_pre_2026
+    status: official
+
+  - id: apple-foundation-models
+    label: Apple Foundation Models
+    apple_layer: model_provider
+    definition: Apple's proprietary models (on-device and server via Private Cloud Compute) that power Apple Intelligence; third generation (AFM 3) at WWDC26; not open weights and not downloadable.
+    official_source: https://machinelearning.apple.com/research/introducing-third-generation-of-apple-foundation-models
+    relations:
+    - accessed_via:foundation-models-framework
+    verification: confirmed_wwdc2026
+    status: official
+
+  - id: private-cloud-compute
+    label: Private Cloud Compute
+    apple_layer: model_provider
+    definition: Apple's privacy-preserving server infrastructure for running larger Foundation Models off-device.
+    official_source: https://security.apple.com/blog/private-cloud-compute/
+    verification: established_pre_2026
+    status: official
+
+  - id: language-model-protocol
+    label: LanguageModel protocol
+    apple_layer: provider_protocol
+    definition: Public Swift protocol a provider implements so any model (Apple, Claude, Gemini, local) can back a LanguageModelSession without changing app logic.
+    official_source: https://developer.apple.com/videos/play/wwdc2026/339/
+    relations:
+    - part_of:foundation-models-framework
+    verification: confirmed_wwdc2026
+    status: official
+
+  - id: language-model-session
+    label: LanguageModelSession
+    apple_layer: ai_primitive
+    definition: Session object that runs prompts and tools against a LanguageModel in the Foundation Models framework.
+    official_source: https://developer.apple.com/documentation/FoundationModels
+    relations:
+    - uses:language-model-protocol
+    verification: confirmed_wwdc2026
+    status: official
+
+  - id: dynamic-profiles
+    label: Dynamic Profiles
+    apple_layer: ai_primitive
+    definition: Mechanism to swap models, tools and instructions within a single continuous session so app intelligence adapts in real time.
+    official_source: https://developer.apple.com/apple-intelligence/whats-new/
+    verification: confirmed_wwdc2026
+    status: official
+
+  - id: tool-calling
+    label: Tool calling
+    apple_layer: ai_primitive
+    definition: Model invocation of app-provided tools (including Vision tools) during generation.
+    official_source: https://developer.apple.com/documentation/FoundationModels
+    verification: confirmed_wwdc2026
+    status: official
+
+  - id: spotlight-semantic-index
+    label: Spotlight semantic index
+    apple_layer: ai_primitive
+    definition: Semantic index that App Intents entity schemas contribute to, so Siri can surface app content with attribution back to the app.
+    official_source: https://developer.apple.com/documentation/appintents
+    relations:
+    - fed_by:app-intents
+    verification: confirmed_wwdc2026
+    status: official
+
+  - id: aimodel
+    label: aimodel format
+    apple_layer: artifact_format
+    definition: On-device artifact format produced by Core AI from a PyTorch or open model; auto-specializes to the current hardware and OS version on first load (model cache).
+    official_source: https://developer.apple.com/documentation/coreai/
+    relations:
+    - produced_by:core-ai
+    verification: confirmed_wwdc2026
+    status: official
+
+  - id: mlpackage
+    label: mlpackage format
+    apple_layer: artifact_format
+    definition: Core ML model package format.
+    official_source: https://developer.apple.com/documentation/coreml
+    relations:
+    - used_by:core-ml
+    verification: established_pre_2026
+    status: official
+
+  - id: safetensors
+    label: safetensors format
+    apple_layer: artifact_format
+    definition: Open tensor-serialization format commonly used for original open-model weights on Hugging Face.
+    official_source: https://github.com/huggingface/safetensors
+    verification: established_pre_2026
+    status: community
+
+  - id: coremltools
+    label: Core ML Tools
+    apple_layer: developer_tool
+    definition: Python package for converting models from training frameworks to Core ML.
+    official_source: https://github.com/apple/coremltools
+    verification: established_pre_2026
+    status: official
+
+  - id: core-ai-pytorch-extensions
+    label: Core AI PyTorch Extensions
+    apple_layer: developer_tool
+    definition: Core AI tooling that converts prepared PyTorch models into the .aimodel format.
+    official_source: https://developer.apple.com/videos/play/wwdc2026/325/
+    relations:
+    - produces:aimodel
+    verification: confirmed_wwdc2026
+    status: official
+
+  - id: core-ai-debugger
+    label: Core AI Debugger
+    apple_layer: developer_tool
+    definition: App for visualization and numeric debugging of Core AI models, tracing tensor values back to Python source.
+    official_source: https://developer.apple.com/videos/play/wwdc2026/325/
+    verification: confirmed_wwdc2026
+    status: official

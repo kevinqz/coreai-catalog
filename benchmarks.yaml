@@ -1,6 +1,6 @@
 metadata:
   name: Core AI Catalog benchmark registry
-  version: 0.3.0
+  version: 0.4.0
   last_verified: '2026-06-25'
   status: active
   notes: "Single source of truth for measurements. Each row carries device, compute unit, precision, environment and observed date. Append-only \u2014 superseded values are retained and marked via superseded_by with confidence needs_review, never overwritten."

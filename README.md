@@ -1,16 +1,22 @@
 # Core AI Catalog
 
-A compact, source-grounded catalog of Apple Core AI models, artifacts, upstreams, benchmarks and provenance.
+A compact, source-grounded catalog of Apple Core AI models, artifacts, upstreams, benchmarks, provenance and a verified Apple AI terminology layer.
 
 Core AI Catalog maps Apple Core AI-compatible model artifacts with granular metadata, source links, Hugging Face artifact references, GitHub/Hugging Face attribution, runtime requirements, device support, benchmark records and verification status.
 
 > YAML is the source of truth. Markdown is the human view. JSON is the generated machine/API export.
 
+## Scope and disclaimer
+
+This catalog tracks **open-source models and their Apple Core AI artifacts** — provenance, runtime, licenses and benchmarks — plus a verified reference layer of Apple AI terminology grounded in official Apple sources. It does not redistribute model weights, re-document Apple's APIs, or treat Apple's proprietary Foundation Models as downloadable artifacts.
+
+Not affiliated with or endorsed by Apple. `commercial_use` fields are triage labels, not legal advice or permissions — always verify the upstream model, code and artifact licenses yourself.
+
 ## Status
 
-**Version:** v0.3 foundation
+**Version:** v0.4
 
-v0.3 moves the project from structural completeness to verification depth. The catalog now separates model facts, converted artifact provenance, source taxonomy, benchmark records and generated exports.
+v0.4 adds a verified Apple AI terminology layer (`terms.yaml`, grounded in official Apple / WWDC26 sources) and disambiguates artifact `officiality`. It builds on v0.3, which separated model facts, converted artifact provenance, source taxonomy, benchmark records and generated exports.
 
 ## Why this exists
 
@@ -39,6 +45,7 @@ The goal is not to run models directly. The goal is to know, precisely and trace
 | Main upstreams | 2 |
 | Upstream taxonomy layers | 7 |
 | Benchmark records | 39 |
+| Terminology records | 25 |
 | JSON exports | generated via script |
 
 Main upstreams:
@@ -61,16 +68,19 @@ coreai-catalog/
 ├── sources.yaml
 ├── upstreams.yaml
 ├── benchmarks.yaml
+├── terms.yaml
 ├── requirements.txt
 ├── schema/
 │   ├── model.schema.json
 │   ├── artifact.schema.json
 │   ├── upstream.schema.json
-│   └── benchmark.schema.json
+│   ├── benchmark.schema.json
+│   └── term.schema.json
 ├── scripts/
 │   ├── validate.py
 │   ├── generate_docs.py
 │   ├── generate_artifact_docs.py
+│   ├── generate_terms_docs.py
 │   └── export_json.py
 ├── docs/
 │   ├── index.md
@@ -81,6 +91,7 @@ coreai-catalog/
 │   ├── upstream-map.md
 │   ├── benchmark-map.md
 │   ├── source-map.md
+│   ├── apple-terminology-map.md
 │   ├── v0.3-verification.md
 │   ├── sota-maintenance.md
 │   └── generated-files.md
@@ -100,6 +111,7 @@ Generated JSON exports are written to `dist/` when `scripts/export_json.py` runs
 | `sources.yaml` | Compact registry of primary/supporting sources already used by the catalog. |
 | `upstreams.yaml` | Source taxonomy for framework, conversion, artifact host, benchmark, sample, original model and license sources. |
 | `benchmarks.yaml` | Normalized benchmark records by model, metric, device, compute unit and source. |
+| `terms.yaml` | Verified Apple AI terminology, tagged by ecosystem layer, each citing an official Apple source. |
 | `CREDITS.md` | Human-readable attribution for GitHub and Hugging Face users/repositories. |
 | `schema/*.json` | Validation contracts for model, artifact, upstream and benchmark records. |
 | `docs/*.md` | Generated or curated human views. |
@@ -326,6 +338,7 @@ hand-edited; `curated` docs are maintained manually (see `docs/generated-files.m
 | `docs/index.md` | curated | Docs entry point and file map. |
 | `docs/model-registry.md` | generated | Human-readable model table (`scripts/generate_docs.py`). |
 | `docs/artifact-provenance.md` | generated | Artifact ownership and hosting view (`scripts/generate_artifact_docs.py`). |
+| `docs/apple-terminology-map.md` | generated | Verified Apple AI terminology by layer (`scripts/generate_terms_docs.py`). |
 | `docs/capability-matrix.md` | curated | Models grouped by capability. |
 | `docs/runtime-matrix.md` | curated | Runtime concepts and flags. |
 | `docs/upstream-map.md` | curated | Framework/original-model/license upstream map. |
@@ -385,11 +398,15 @@ For sensitive licenses such as Gemma Terms, Meta SAM License, LFM Open License o
 
 Current milestone:
 
+- v0.4 — verified Apple AI terminology layer, artifact officiality, benchmark provenance and JSON exports.
+
+Earlier:
+
 - v0.3 — validation depth, upstream taxonomy, benchmark registry and JSON exports.
 
 Next milestone:
 
-- v0.4 — exact model-card URL for every original model, exact license URL per model, artifact checksums/hashes where available, and generated JSON release artifacts.
+- v0.5 — exact model-card URL for every original model, exact license URL per model, artifact checksums/hashes where available, and generated JSON release artifacts.
 
 Later:
 

@@ -15,6 +15,7 @@ INPUTS = {
     "sources": ROOT / "sources.yaml",
     "upstreams": ROOT / "upstreams.yaml",
     "benchmarks": ROOT / "benchmarks.yaml",
+    "terms": ROOT / "terms.yaml",
 }
 
 

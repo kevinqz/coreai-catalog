@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Core AI Catalog Term",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "label",
+    "apple_layer",
+    "definition",
+    "official_source",
+    "verification",
+    "status"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "apple_layer": {
+      "type": "string",
+      "enum": [
+        "system_surface",
+        "developer_framework",
+        "model_provider",
+        "provider_protocol",
+        "ai_primitive",
+        "artifact_format",
+        "developer_tool",
+        "model"
+      ]
+    },
+    "definition": {
+      "type": "string"
+    },
+    "official_source": {
+      "type": "string",
+      "pattern": "^https://"
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z_]+:[a-z0-9-]+$"
+      }
+    },
+    "verification": {
+      "type": "string",
+      "enum": [
+        "confirmed_wwdc2026",
+        "confirmed_apple_docs",
+        "established_pre_2026"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "official",
+        "official_adjacent",
+        "community"
+      ]
+    },
+    "notes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}
