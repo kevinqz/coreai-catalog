@@ -157,7 +157,10 @@ An artifact entry in `artifacts.yaml` represents converted artifact provenance a
     owner: mlboydaisuke
     repo: qwen3.5-0.8B-CoreAI
     url: https://huggingface.co/mlboydaisuke/qwen3.5-0.8B-CoreAI
-  is_official_recipe: false
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
 ```
 
 An upstream entry in `upstreams.yaml` represents source taxonomy:
@@ -217,7 +220,7 @@ Measurements are the single source of truth in `benchmarks.yaml` (model records 
 
 ## Official Apple recipe conversions
 
-Entries with `source_group: official` in `catalog.yaml` and `is_official_recipe: true` in `artifacts.yaml` are treated as official Apple recipe conversion artifacts.
+Entries with `source_group: official` in `catalog.yaml` and `officiality.apple_export_recipe: true` in `artifacts.yaml` are treated as official Apple recipe conversion artifacts. The `officiality` block disambiguates *official of what*: `apple_export_recipe` (converted via an Apple recipe), `apple_hosted_artifact` (Apple hosts the artifact — `false` for all current entries), and `community_packaged` (packaged/hosted by the community).
 
 These entries credit:
 

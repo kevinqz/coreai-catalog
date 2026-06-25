@@ -7,7 +7,7 @@
     "group",
     "github",
     "huggingface",
-    "is_official_recipe"
+    "officiality"
   ],
   "properties": {
     "id": {
@@ -61,8 +61,25 @@
         }
       }
     },
-    "is_official_recipe": {
-      "type": "boolean"
+    "officiality": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "apple_export_recipe",
+        "apple_hosted_artifact",
+        "community_packaged"
+      ],
+      "properties": {
+        "apple_export_recipe": {
+          "type": "boolean"
+        },
+        "apple_hosted_artifact": {
+          "type": "boolean"
+        },
+        "community_packaged": {
+          "type": "boolean"
+        }
+      }
     }
   },
   "allOf": [
@@ -76,8 +93,12 @@
       },
       "then": {
         "properties": {
-          "is_official_recipe": {
-            "const": true
+          "officiality": {
+            "properties": {
+              "apple_export_recipe": {
+                "const": true
+              }
+            }
           }
         }
       }
@@ -92,8 +113,12 @@
       },
       "then": {
         "properties": {
-          "is_official_recipe": {
-            "const": false
+          "officiality": {
+            "properties": {
+              "apple_export_recipe": {
+                "const": false
+              }
+            }
           }
         }
       }

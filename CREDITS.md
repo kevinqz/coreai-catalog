@@ -20,6 +20,7 @@ Core AI Catalog is built on public upstream sources.
 
 - `catalog.yaml` is the main model registry.
 - `artifacts.yaml` records artifact provenance and download references.
-- Official entries use `source_group: official` and `is_official_recipe: true`.
-- Community entries use `source_group: zoo` and `is_official_recipe: false`.
+- Official-recipe entries use `source_group: official` and `officiality.apple_export_recipe: true`.
+- Community-port entries use `source_group: zoo` and `officiality.apple_export_recipe: false`.
+- `officiality.apple_hosted_artifact` is `false` for all current entries: artifacts are community-packaged (`mlboydaisuke`), not hosted by Apple.
 - Unknown fields stay `unknown` until verified from primary sources.
