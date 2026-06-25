@@ -78,6 +78,17 @@ def validate_cross_references() -> tuple[int, int, int, int]:
             if source_id not in source_ids and source_id not in upstream_ids:
                 fail(f"model {model['id']} points to missing source {source_id}")
 
+    for artifact in artifacts.get('artifacts', []):
+        github = artifact.get('github', {}) or {}
+        path = github.get('path')
+        owner, repo = github.get('owner'), github.get('repo')
+        if isinstance(path, str) and path.startswith('https://github.com/'):
+            if f'{owner}/{repo}' not in path:
+                fail(
+                    f"artifact {artifact['id']} github.path {path} "
+                    f"is inconsistent with owner/repo {owner}/{repo}"
+                )
+
     for benchmark in benchmarks.get('benchmarks', []):
         model_id = benchmark.get('model_id')
         if model_id not in model_ids:

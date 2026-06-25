@@ -435,8 +435,8 @@ artifacts:
 - id: official-gpt-oss-20b
   group: official
   github:
-    owner: apple
-    repo: coreai-models
+    owner: john-rocky
+    repo: coreai-model-zoo
     path: https://github.com/john-rocky/coreai-model-zoo/tree/main/official
   huggingface:
     owner: mlboydaisuke
@@ -446,8 +446,8 @@ artifacts:
 - id: official-qwen3-0-6b
   group: official
   github:
-    owner: apple
-    repo: coreai-models
+    owner: john-rocky
+    repo: coreai-model-zoo
     path: https://github.com/john-rocky/coreai-model-zoo/tree/main/official
   huggingface:
     owner: mlboydaisuke
@@ -457,8 +457,8 @@ artifacts:
 - id: official-qwen3-4b
   group: official
   github:
-    owner: apple
-    repo: coreai-models
+    owner: john-rocky
+    repo: coreai-model-zoo
     path: https://github.com/john-rocky/coreai-model-zoo/tree/main/official
   huggingface:
     owner: mlboydaisuke
@@ -468,8 +468,8 @@ artifacts:
 - id: official-qwen3-8b
   group: official
   github:
-    owner: apple
-    repo: coreai-models
+    owner: john-rocky
+    repo: coreai-model-zoo
     path: https://github.com/john-rocky/coreai-model-zoo/tree/main/official
   huggingface:
     owner: mlboydaisuke
@@ -479,8 +479,8 @@ artifacts:
 - id: official-gemma-3-4b-it
   group: official
   github:
-    owner: apple
-    repo: coreai-models
+    owner: john-rocky
+    repo: coreai-model-zoo
     path: https://github.com/john-rocky/coreai-model-zoo/tree/main/official
   huggingface:
     owner: mlboydaisuke
@@ -490,8 +490,8 @@ artifacts:
 - id: official-gemma-3-12b-it
   group: official
   github:
-    owner: apple
-    repo: coreai-models
+    owner: john-rocky
+    repo: coreai-model-zoo
     path: https://github.com/john-rocky/coreai-model-zoo/tree/main/official
   huggingface:
     owner: mlboydaisuke
@@ -501,8 +501,8 @@ artifacts:
 - id: official-mistral-7b-v0-3
   group: official
   github:
-    owner: apple
-    repo: coreai-models
+    owner: john-rocky
+    repo: coreai-model-zoo
     path: https://github.com/john-rocky/coreai-model-zoo/tree/main/official
   huggingface:
     owner: mlboydaisuke
@@ -512,8 +512,8 @@ artifacts:
 - id: official-flux-2-klein-4b
   group: official
   github:
-    owner: apple
-    repo: coreai-models
+    owner: john-rocky
+    repo: coreai-model-zoo
     path: https://github.com/john-rocky/coreai-model-zoo/tree/main/official
   huggingface:
     owner: mlboydaisuke
@@ -523,8 +523,8 @@ artifacts:
 - id: official-sam-3
   group: official
   github:
-    owner: apple
-    repo: coreai-models
+    owner: john-rocky
+    repo: coreai-model-zoo
     path: https://github.com/john-rocky/coreai-model-zoo/tree/main/official
   huggingface:
     owner: mlboydaisuke
@@ -534,8 +534,8 @@ artifacts:
 - id: official-whisper-large-v3-turbo
   group: official
   github:
-    owner: apple
-    repo: coreai-models
+    owner: john-rocky
+    repo: coreai-model-zoo
     path: https://github.com/john-rocky/coreai-model-zoo/tree/main/official
   huggingface:
     owner: mlboydaisuke
