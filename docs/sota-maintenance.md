@@ -79,5 +79,4 @@ Conceptual framework/runtime `applies_to` values are allowed in other upstream g
 - exact model-card URL for every original model
 - exact license URL per model
 - artifact hashes/checksums where available
-- complete normalized benchmark table
-- stricter nested schemas for model runtime, artifact, license and device support
+- benchmark prefill-latency, memory-footprint and QAT-variant rows

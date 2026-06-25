@@ -17,7 +17,7 @@ Benchmarks are intentionally separate from `catalog.yaml` so model facts do not 
 
 ## Current status
 
-The benchmark registry is an initial v0.3 scaffold. It includes a small set of normalized throughput examples from the upstream `john-rocky/coreai-model-zoo` README.
+The registry holds normalized decode-throughput records (iPhone 17 Pro GPU/ANE and M4 Max GPU) plus image-generation, segmentation and transcription latency records, traced to the upstream `john-rocky/coreai-model-zoo` README and `official/` performance tables. It covers every model the upstream reports a measurement for.
 
 ## Record shape
 
@@ -32,7 +32,7 @@ The benchmark registry is an initial v0.3 scaffold. It includes a small set of n
   precision: unknown
   source: john-rocky-coreai-model-zoo
   confidence: medium
-  notes: Reported in upstream README throughput table.
+  notes: Decode throughput from upstream README table (iOS 27 / macOS 27 beta, coreai-pipelined GPU engine).
 ```
 
 ## Rules
@@ -45,8 +45,8 @@ The benchmark registry is an initial v0.3 scaffold. It includes a small set of n
 
 ## Future work
 
-- Expand all throughput rows from upstream tables.
 - Add prefill latency if source data exists.
 - Add memory footprint and artifact-size measurements.
-- Add generation-time metrics for image/audio models.
+- Add QAT-variant throughput rows where the upstream reports them.
+- Reconcile the `official-qwen3-0-6b` inline-vs-upstream discrepancy (1121 macOS-26 vs 484 M4 Max).
 - Add source line references where practical.

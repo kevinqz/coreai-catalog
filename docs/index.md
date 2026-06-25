@@ -19,7 +19,7 @@
 - Artifacts: 49
 - Sources: 13
 - Upstream taxonomy layers: 7
-- Benchmark scaffold records: 4
+- Benchmark records: 36
 
 ## Source of truth
 

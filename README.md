@@ -38,7 +38,7 @@ The goal is not to run models directly. The goal is to know, precisely and trace
 | Source records | 13 |
 | Main upstreams | 2 |
 | Upstream taxonomy layers | 7 |
-| Benchmark scaffold records | 4 |
+| Benchmark records | 36 |
 | JSON exports | generated via script |
 
 Main upstreams:
@@ -381,11 +381,11 @@ For sensitive licenses such as Gemma Terms, Meta SAM License, LFM Open License o
 
 Current milestone:
 
-- v0.3 — validation depth, upstream taxonomy, benchmark scaffold and JSON exports.
+- v0.3 — validation depth, upstream taxonomy, benchmark registry and JSON exports.
 
 Next milestone:
 
-- v0.4 — exact model-card URL for every original model, exact license URL per model, artifact checksums/hashes where available, complete normalized benchmark table and generated JSON release artifacts.
+- v0.4 — exact model-card URL for every original model, exact license URL per model, artifact checksums/hashes where available, and generated JSON release artifacts.
 
 Later:
 
