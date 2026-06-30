@@ -134,6 +134,7 @@ Source groups:
 | AOT supported | +5 |
 | Status = confirmed | +10 |
 | Confidence = high | +5 |
+| Confidence = medium | +3 |
 | Maturity = stable/active | +5 |
 | Confidence = low | -10 |
 

@@ -154,6 +154,8 @@ class Catalog:
                 if modality.lower() not in inp and modality.lower() not in out:
                     continue
             results.append(m)
+        # Sort by readiness score descending so best models appear first
+        results.sort(key=lambda m: self.readiness_score(m), reverse=True)
         return results
 
     def readiness_score(self, model: dict) -> int:
@@ -177,7 +179,7 @@ class Catalog:
             score += 5
         if rt.get("patch_required") is False:
             score += 5
-        if rt.get("aot_required") is not False:
+        if rt.get("aot_required") is False:
             score += 5
         if model.get("status") == "confirmed":
             score += 10

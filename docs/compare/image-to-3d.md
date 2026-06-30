@@ -4,7 +4,7 @@ Side-by-side comparison of all 1 model(s) with the `image-to-3d` capability.
 
 | Model | Family | Parameters | Precision | Devices | License | Runtime | Benchmark | Source |
 |---|---|---|---|---|---|---|---|---|
-| TripoSplat | TripoSplat | unknown | fp16 | Mac | MIT | CoreAIRunner | — | 🐼 Zoo |
+| TripoSplat | TripoSplat | not_published | fp16 | Mac | MIT | CoreAIRunner | — | 🐼 Zoo |
 
 > Generated automatically by `scripts/generate.py` from `catalog.yaml` + `benchmarks.yaml`.
 

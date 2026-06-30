@@ -387,7 +387,9 @@ components:
       properties:
         metric: { type: string }
         unit: { type: string }
-        value: { type: number }
+        value:
+          type: number
+          nullable: true
         device: { type: string }
         compute_unit: { type: string }
         precision: { type: string }

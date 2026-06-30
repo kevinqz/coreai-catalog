@@ -88,6 +88,8 @@ def search_models(
         source_group=source_group,
         modality=modality,
     )
+    total_matches = len(results)
+    truncated = total_matches > limit
     output = []
     for m in results[:limit]:
         ds = m.get("device_support", {})
@@ -98,6 +100,11 @@ def search_models(
             devices.append("ipad")
         if ds.get("mac") is True:
             devices.append("mac")
+        # Surface unknown device support explicitly
+        devices_unknown = []
+        for dev in ("iphone", "ipad", "mac"):
+            if ds.get(dev) not in (True, False):
+                devices_unknown.append(dev)
         art = catalog.get_artifact(m["id"])
         hf_url = ""
         if art:
@@ -108,6 +115,7 @@ def search_models(
             "family": m["family"],
             "capabilities": m.get("capabilities", []),
             "devices": devices,
+            "devices_unknown": devices_unknown or None,
             "parameters": m.get("size", {}).get("parameters"),
             "license": m.get("license", {}).get("name"),
             "commercial_use": m.get("license", {}).get("commercial_use"),
@@ -116,7 +124,12 @@ def search_models(
             "artifact_url": hf_url,
             "source_group": m.get("source_group"),
         })
-    return json.dumps({"count": len(output), "models": output}, indent=2)
+    return json.dumps({
+        "count": len(output),
+        "total_matches": total_matches,
+        "truncated": truncated,
+        "models": output,
+    }, indent=2)
 
 
 # ── Tool 2: get_model ──
@@ -266,6 +279,16 @@ def recommend_model(task: str, device: str | None = None, limit: int = 5) -> str
             "notes": m.get("notes", ""),
         })
     candidates.sort(key=lambda x: x["score"], reverse=True)
+
+    # Secondary sort: if task resolved to specific capabilities (not a slugified
+    # fallback), prioritize models matching the FIRST resolved capability.
+    if capabilities and capabilities[0] in {c.lower() for c in capabilities}:
+        first_cap = capabilities[0].lower()
+        # Split into primary (matches first cap) and secondary
+        primary = [c for c in candidates if first_cap in c["matched_capabilities"]]
+        secondary = [c for c in candidates if first_cap not in c["matched_capabilities"]]
+        candidates = primary + secondary
+
     return json.dumps({
         "task": task,
         "resolved_capabilities": capabilities,

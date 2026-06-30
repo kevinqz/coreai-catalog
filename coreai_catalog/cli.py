@@ -87,6 +87,21 @@ def _fmt_source(model: dict) -> str:
     return sg
 
 
+def _parse_params(val) -> float:
+    """Parse a parameter string like '2B', '350M', 'unknown' into a float for sorting."""
+    if not val or val == "unknown":
+        return float("inf")
+    s = str(val).strip().upper()
+    try:
+        if s.endswith("B"):
+            return float(s[:-1])
+        if s.endswith("M"):
+            return float(s[:-1]) / 1000
+        return float(s)
+    except (ValueError, IndexError):
+        return float("inf")
+
+
 def _format_model_compact(cat: Catalog, model: dict) -> str:
     """One-line model summary for lists."""
     ds = model.get("device_support", {})
@@ -172,6 +187,42 @@ def cmd_show(args: argparse.Namespace) -> int:
     benchmarks = cat.get_benchmarks(model["id"])
     score = cat.readiness_score(model)
     installed = is_installed(model["id"])
+
+    # JSON output
+    if args.json:
+        result = {
+            "id": model["id"],
+            "name": model["name"],
+            "family": model.get("family"),
+            "source_group": model.get("source_group"),
+            "capabilities": model.get("capabilities", []),
+            "modalities": model.get("modalities", {}),
+            "size": model.get("size", {}),
+            "runtime": model.get("runtime", {}),
+            "device_support": model.get("device_support", {}),
+            "license": model.get("license", {}),
+            "readiness_score": score,
+            "installed": installed,
+            "provenance": {},
+            "benchmarks": [],
+            "notes": model.get("notes"),
+        }
+        if art:
+            result["provenance"] = {
+                "github": art.get("github", {}),
+                "huggingface": art.get("huggingface", {}),
+                "officiality": art.get("officiality", {}),
+            }
+        for b in benchmarks:
+            result["benchmarks"].append({
+                "metric": b.get("metric"),
+                "unit": b.get("unit"),
+                "value": b.get("value"),
+                "device": b.get("device"),
+                "compute_unit": b.get("compute_unit"),
+            })
+        print(json.dumps(result, indent=2))
+        return 0
 
     mid = model["id"]
     print(f"\n  {BOLD}{model['name']}{RESET}")
@@ -282,6 +333,20 @@ def cmd_list(args: argparse.Namespace) -> int:
 
     models.sort(key=lambda m: cat.readiness_score(m), reverse=True)
 
+    if args.json:
+        results = [{
+            "id": m["id"],
+            "name": m["name"],
+            "family": m.get("family"),
+            "capabilities": m.get("capabilities", []),
+            "devices": _fmt_devices(m.get("device_support", {})),
+            "license": m.get("license", {}),
+            "readiness_score": cat.readiness_score(m),
+            "source_group": m.get("source_group"),
+        } for m in models]
+        print(json.dumps({"count": len(results), "models": results}, indent=2))
+        return 0
+
     print(f"\n  {BOLD}{len(models)} models in catalog{RESET}\n")
     for m in models:
         print(_format_model_compact(cat, m))
@@ -305,8 +370,8 @@ def cmd_scores(args: argparse.Namespace) -> int:
         return 0
 
     print(f"\n  {BOLD}Core AI Readiness Scores{RESET}\n")
-    print(f"  {'Score':>5}  {'ID':40s}  Name")
-    print(f"  {'─' * 5}  {'─' * 40}  {'─' * 30}")
+    print(f"  {'Score':>20s}  {'ID':40s}  Name")
+    print(f"  {'─' * 20}  {'─' * 40}  {'─' * 30}")
     for m, s in scored:
         print(f"  {_fmt_score(s):>20s}  {m['id']:40s}  {m['name']}")
 
@@ -422,7 +487,8 @@ def cmd_recommend(args: argparse.Namespace) -> int:
             score += 5
         candidates.append((m, score, sorted(matched)))
 
-    candidates.sort(key=lambda x: x[1], reverse=True)
+    # Sort by score desc, then by parameter count asc (smaller models first on ties)
+    candidates.sort(key=lambda x: (-x[1], _parse_params(x[0].get("size", {}).get("parameters"))))
     candidates = candidates[: args.limit]
 
     if args.json:
@@ -443,6 +509,10 @@ def cmd_recommend(args: argparse.Namespace) -> int:
     if not candidates:
         print(f"\n  {DIM}No models found for task '{args.task}'.{RESET}")
         print(f"  {DIM}Resolved capabilities: {', '.join(capabilities)}{RESET}")
+        # Show valid task keywords to help the user
+        from .catalog import TASK_MAP
+        valid = ", ".join(sorted(TASK_MAP.keys()))
+        print(f"  {DIM}Try one of: {valid}{RESET}")
         return 0
 
     print(f"\n  {BOLD}Task:{RESET} {args.task}")
@@ -676,11 +746,13 @@ def build_parser() -> argparse.ArgumentParser:
     # show
     p = sub.add_parser("show", aliases=["info"], help="Show details for a specific model")
     p.add_argument("model_id", help="Model ID (e.g. qwen3-vl-2b)")
+    p.add_argument("--json", action="store_true", help="Output as JSON")
     p.set_defaults(func=cmd_show)
 
     # list
     p = sub.add_parser("list", aliases=["ls"], help="List all models (sorted by readiness score)")
     p.add_argument("-c", "--capability", help="Filter by capability")
+    p.add_argument("--json", action="store_true", help="Output as JSON")
     p.set_defaults(func=cmd_list)
 
     # scores

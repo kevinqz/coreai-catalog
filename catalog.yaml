@@ -933,7 +933,7 @@ models:
     format: aimodel
     availability: available
   size:
-    parameters: unknown
+    parameters: not_published
     precision: fp32
     quantization: none
     artifact_size: not_published
@@ -2775,7 +2775,7 @@ models:
     format: aimodel
     availability: available
   size:
-    parameters: unknown
+    parameters: not_published
     precision: fp16
     quantization: none
     artifact_size: not_published
@@ -3062,7 +3062,7 @@ models:
     format: aimodel
     availability: available
   size:
-    parameters: unknown
+    parameters: not_published
     precision: fp16
     quantization: none
     artifact_size: 1GB

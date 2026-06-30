@@ -21,7 +21,7 @@
 | qwen3-vl-8b | Qwen3-VL 8B | zoo | Qwen | vision-language | image, text | text | 8B | iPhone/Mac | Apache-2.0 | confirmed |
 | minicpm-v-4-6 | MiniCPM-V 4.6 | zoo | MiniCPM | vision-language | image, text | text | sub-2B | iPhone/Mac | Apache-2.0 | confirmed |
 | gemma-4-e2b-vision | Gemma 4 E2B Vision | zoo | Gemma | vision-language | image, text | text | E2B | iPhone/Mac | Gemma Terms | confirmed |
-| unlimited-ocr | Unlimited-OCR | zoo | Unlimited-OCR | document-ocr | document_image, image | markdown, html, latex | unknown | iPhone/Mac | MIT | confirmed |
+| unlimited-ocr | Unlimited-OCR | zoo | Unlimited-OCR | document-ocr | document_image, image | markdown, html, latex | not_published | iPhone/Mac | MIT | confirmed |
 | qwen2-5-omni-3b-audio | Qwen2.5-Omni-3B Audio | zoo | Qwen | audio-understanding | audio | text | 3B | iPhone/Mac | Apache-2.0 | confirmed |
 | kokoro-82m | Kokoro-82M | zoo | Kokoro | text-to-speech | text | audio | 82M | iPhone/Mac | Apache-2.0 | confirmed |
 | voxcpm-0-5b | VoxCPM-0.5B | zoo | VoxCPM | text-to-speech | text | audio | 0.5B | iPhone/Mac | Apache-2.0 | confirmed |
@@ -60,13 +60,13 @@
 | parakeet-tdt-0-6b | Parakeet-TDT-0.6B | zoo | Parakeet | speech-to-text | audio | transcript | 0.6B | iPhone/Mac | CC-BY-4.0 | confirmed |
 | voxcpm2-2b | VoxCPM2 2B | zoo | VoxCPM | text-to-speech | text | audio | 2B | iPhone/Mac | Apache-2.0 | confirmed |
 | yolox-s | YOLOX-S | zoo | YOLOX | object-detection | image | boxes, classes, scores | 8.97M | iPhone/Mac | Apache-2.0 | confirmed |
-| tripo-splat | TripoSplat | zoo | TripoSplat | image-to-3d | image | gaussian-splats | unknown | Mac | MIT | confirmed |
+| tripo-splat | TripoSplat | zoo | TripoSplat | image-to-3d | image | gaussian-splats | not_published | Mac | MIT | confirmed |
 | ltx-video-2b | LTX-Video 2B distilled | zoo | LTX-Video | text-to-video | text | video | 2B / DiT 1.9B + T5-XXL 4.76B | Mac | OpenRAIL-M | confirmed |
 | official-qwen3-1-7b | Qwen3 1.7B | official | Qwen | chat, text-generation | text | text | 1.7B | iPhone/Mac | Apache-2.0 | confirmed |
 | official-clip-vit-base-patch32 | CLIP ViT-B/32 | official | CLIP | image-text-similarity | image, text | vector | 151M | iPhone/Mac | MIT | confirmed |
 | llada-8b-dllm | LLaDA-8B dLLM | zoo | LLaDA | chat, text-generation, diffusion-lm | text | text | 8B | Mac | MIT | confirmed |
 | bitvla | BitVLA | zoo | BitVLA | vision-language-action, robotics | image, text | action-tokens | 2B (BitNet b1.58) | iPhone/Mac | MIT | confirmed |
-| stable-audio-open-small | Stable Audio Open Small | zoo | Stable Audio | text-to-audio, music-generation | text | audio | unknown | Mac | Stability Community | confirmed |
+| stable-audio-open-small | Stable Audio Open Small | zoo | Stable Audio | text-to-audio, music-generation | text | audio | not_published | Mac | Stability Community | confirmed |
 | whisper-large-v3-turbo-carstenl | Whisper large-v3-turbo (CarstenL) | external | Whisper | speech-to-text | audio | transcript | 809M | Mac | Apache-2.0 | confirmed |
 | whisper-tiny-en-intiser | Whisper tiny.en (Intiser) | external | Whisper | speech-to-text | audio | transcript | 39M | Mac | MIT | confirmed |
 | whisper-medium-intiser | Whisper medium (Intiser) | external | Whisper | speech-to-text | audio | transcript | 769M | Mac | MIT | confirmed |
