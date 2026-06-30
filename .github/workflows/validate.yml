@@ -3,6 +3,9 @@ name: Validate catalog
 on:
   push:
   pull_request:
+  schedule:
+    # Weekly upstream sync check (Sundays 18:00 UTC)
+    - cron: '0 18 * * 0'
 
 jobs:
   validate:
@@ -21,12 +24,26 @@ jobs:
           restore-keys: ${{ runner.os }}-pip-
 
       - run: pip install -r requirements.txt
-      - run: python scripts/validate.py
-      - run: python scripts/generate_docs.py
-      - run: python scripts/generate_artifact_docs.py
-      - run: python scripts/generate_terms_docs.py
-      - run: python scripts/export_json.py
 
+      # ── Schema validation + cross-references ──
+      - name: Validate schemas and cross-references
+        run: python scripts/validate.py
+
+      # ── Data-quality audit (9 categories, zero unknowns) ──
+      - name: Run data-quality audit
+        run: python scripts/audit.py
+
+      # ── Generate derived views ──
+      - name: Generate Markdown docs
+        run: |
+          python scripts/generate_docs.py
+          python scripts/generate_artifact_docs.py
+          python scripts/generate_terms_docs.py
+
+      - name: Export JSON
+        run: python scripts/export_json.py
+
+      # ── Sync gates ──
       - name: Ensure generated docs are in sync with YAML source
         run: git diff --exit-code docs/model-registry.md docs/artifact-provenance.md docs/apple-terminology-map.md
 
@@ -40,6 +57,12 @@ jobs:
             echo "OK: $f ($(wc -c < "$f") bytes)"
           done
 
+      # ── Upstream sync (informational, always passes) ──
+      - name: Scan upstream for gaps
+        run: python scripts/sync_upstream.py
+        continue-on-error: true
+
+      # ── Publish ──
       - name: Upload JSON exports
         uses: actions/upload-artifact@v4
         if: github.ref == 'refs/heads/main'
@@ -47,3 +70,56 @@ jobs:
           name: coreai-catalog-json
           path: dist/
           retention-days: 30
+
+  # Weekly scheduled job: upstream sync report as a GitHub issue
+  sync-report:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+
+      - name: Generate upstream sync report
+        run: python scripts/sync_upstream.py --json > /tmp/sync_report.json
+
+      - name: Create issue from report
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const report = JSON.parse(fs.readFileSync('/tmp/sync_report.json', 'utf8'));
+            const missing = report.missing_from_catalog || [];
+            const unbenchmarked = report.unbenchmarked_models || [];
+            const hfGaps = report.hf_artifacts_without_entries || [];
+
+            if (missing.length === 0 && unbenchmarked.length === 0 && hfGaps.length === 0) {
+              console.log('No gaps found — skipping issue creation');
+              return;
+            }
+
+            let body = '## Weekly Upstream Sync Report\n\n';
+            if (missing.length > 0) {
+              body += `### Missing from catalog (${missing.length})\n`;
+              for (const m of missing) body += `- **${m.name}**: ${m.hf_repo}\n`;
+              body += '\n';
+            }
+            if (hfGaps.length > 0) {
+              body += `### HF CoreAI artifacts without entries (${hfGaps.length})\n`;
+              for (const r of hfGaps) body += `- ${r}\n`;
+              body += '\n';
+            }
+            if (unbenchmarked.length > 0) {
+              body += `### Models without benchmarks (${unbenchmarked.length})\n`;
+              for (const id of unbenchmarked) body += `- ${id}\n`;
+            }
+
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `Weekly sync: ${missing.length} missing, ${unbenchmarked.length} unbenchmarked`,
+              body: body,
+              labels: ['sync', 'upstream']
+            });

@@ -66,3 +66,6 @@ Generated from `artifacts.yaml`.
 | ltx-video-2b | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/LTX-Video-2B-CoreAI | False | False |
 | official-qwen3-1-7b | official | john-rocky/coreai-model-zoo | mlboydaisuke/qwen3-1.7b-CoreAI-official | True | False |
 | official-clip-vit-base-patch32 | official | john-rocky/coreai-model-zoo | mlboydaisuke/clip-vit-base-patch32-CoreAI-official | True | False |
+| llada-8b-dllm | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/LLaDA-8B-dLLM-CoreAI | False | False |
+| bitvla | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/BitVLA-CoreAI | False | False |
+| stable-audio-open-small | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/Stable-Audio-Open-Small-CoreAI | False | False |

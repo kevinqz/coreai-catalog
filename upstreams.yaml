@@ -458,6 +458,36 @@ original_model_sources:
   applies_to:
   - official-clip-vit-base-patch32
   notes: CLIP ViT-B/32 — image+text joint embedding model.
+- id: gsai-ml-llada
+  title: LLaDA original model family
+  category: original_model
+  platform: huggingface
+  owner: GSAI-ML
+  url: https://huggingface.co/GSAI-ML/LLaDA-8B-Instruct
+  trust: original_model_primary
+  applies_to:
+  - llada-8b-dllm
+  notes: Masked diffusion LLM (dLLM); bidirectional text generation.
+- id: lxsy-bitvla
+  title: BitVLA original model family
+  category: original_model
+  platform: huggingface
+  owner: lxsy
+  url: https://huggingface.co/lxsy/bitvla-bf16
+  trust: original_model_primary
+  applies_to:
+  - bitvla
+  notes: 1.58-bit ternary Vision-Language-Action policy; BitNet b1.58 LLM + BitSigLIP vision.
+- id: stability-ai
+  title: Stability AI original model family
+  category: original_model
+  platform: huggingface
+  owner: stabilityai
+  url: https://huggingface.co/stabilityai
+  trust: original_model_primary
+  applies_to:
+  - stable-audio-open-small
+  notes: Generative audio; Stable Audio Open Small.
 license_sources:
 - id: apache-2-0
   title: Apache License 2.0
@@ -505,5 +535,11 @@ license_sources:
   title: OpenRAIL-M license (responsible use)
   category: license
   url: https://huggingface.co/stabilityai/stable-diffusion-3.5-medium
+  trust: license_needs_model_specific_review
+  review_required: true
+- id: stability-community-license
+  title: Stability Community License
+  category: license
+  url: https://stability.ai/license
   trust: license_needs_model_specific_review
   review_required: true

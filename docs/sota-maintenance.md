@@ -12,7 +12,9 @@ upstreams.yaml    = framework, original-model, benchmark, sample and license sou
 benchmarks.yaml   = normalized benchmark records
 terms.yaml        = verified Apple AI terminology reference layer
 schema/           = validation contracts
-scripts/          = validators, doc generators and export tools
+| `scripts/validate.py` | Schema validation + cross-reference checks. |
+| `scripts/audit.py` | Data-quality audit: 9 categories including zero-unknown verification. |
+| `scripts/sync_upstream.py` | Scans upstream zoo + Hugging Face for catalog gaps. |
 docs/             = generated or curated human views
 dist/             = generated JSON exports
 ```

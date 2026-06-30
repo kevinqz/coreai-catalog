@@ -13,7 +13,7 @@ These files are intended to be edited directly:
 - `benchmarks.yaml`
 - `terms.yaml`
 - `schema/*.json`
-- `scripts/*.py`
+- `scripts/*.py` (validate, audit, sync_upstream, generate_docs, generate_artifact_docs, generate_terms_docs, export_json)
 
 ## Generated files
 

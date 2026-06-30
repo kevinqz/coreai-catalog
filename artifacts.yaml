@@ -1,7 +1,7 @@
 metadata:
   name: Core AI Catalog artifact provenance
   last_verified: '2026-06-29'
-  count: 62
+  count: 65
 artifacts:
 - id: qwen3-5-0-8b
   group: zoo
@@ -869,5 +869,47 @@ artifacts:
     url: https://huggingface.co/mlboydaisuke/clip-vit-base-patch32-CoreAI-official
   officiality:
     apple_export_recipe: true
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: llada-8b-dllm
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo
+  huggingface:
+    owner: mlboydaisuke
+    repo: LLaDA-8B-dLLM-CoreAI
+    url: https://huggingface.co/mlboydaisuke/LLaDA-8B-dLLM-CoreAI
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: bitvla
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo
+  huggingface:
+    owner: mlboydaisuke
+    repo: BitVLA-CoreAI
+    url: https://huggingface.co/mlboydaisuke/BitVLA-CoreAI
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: stable-audio-open-small
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo
+  huggingface:
+    owner: mlboydaisuke
+    repo: Stable-Audio-Open-Small-CoreAI
+    url: https://huggingface.co/mlboydaisuke/Stable-Audio-Open-Small-CoreAI
+  officiality:
+    apple_export_recipe: false
     apple_hosted_artifact: false
     community_packaged: true

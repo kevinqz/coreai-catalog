@@ -2946,3 +2946,148 @@ models:
   last_verified: '2026-06-29'
   notes: Official recipe CLIP export (models/clip/export.py); fp16 static; text padded to 77 tokens for free-text queries.
     Image+text → cosine similarity.
+- id: llada-8b-dllm
+  name: LLaDA-8B dLLM
+  family: LLaDA
+  source_group: zoo
+  artifact_ref: llada-8b-dllm
+  source_path: https://github.com/john-rocky/coreai-model-zoo/blob/main/knowledge/diffusion-llms-dllm.md
+  capabilities:
+  - chat
+  - text-generation
+  - diffusion-lm
+  modalities:
+    input:
+    - text
+    output:
+    - text
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 8B
+    precision: int4
+    quantization: int4-per-block-32
+    artifact_size: 4.9GB
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: false
+    custom_kernel: false
+    patch_required: false
+    aot_required: false
+    tokenizer_required: true
+    processor_required: false
+  device_support:
+    iphone: false
+    ipad: unknown
+    mac: true
+    mac_only: true
+  license:
+    name: MIT
+    commercial_use: likely
+  status: confirmed
+  maturity: experimental
+  confidence: medium
+  sources:
+  - coreai-model-zoo-readme
+  - coreai-model-zoo-knowledge
+  last_verified: '2026-06-29'
+  notes: First diffusion LM (dLLM) on Core AI. Masked bidirectional text generation, no KV cache. int4 viable (not a cliff).
+    ~38 tok/s at threshold 1.0.
+- id: bitvla
+  name: BitVLA
+  family: BitVLA
+  source_group: zoo
+  artifact_ref: bitvla
+  source_path: https://github.com/john-rocky/coreai-model-zoo/blob/main/knowledge/bitvla-1.58bit-vla.md
+  capabilities:
+  - vision-language-action
+  - robotics
+  modalities:
+    input:
+    - image
+    - text
+    output:
+    - action-tokens
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 2B (BitNet b1.58)
+    precision: 1.58-bit ternary
+    quantization: ternary-W1.58-A8
+    artifact_size: not_published
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: false
+    custom_kernel: true
+    patch_required: true
+    aot_required: false
+    tokenizer_required: true
+    processor_required: true
+  device_support:
+    iphone: true
+    ipad: unknown
+    mac: true
+    mac_only: false
+  license:
+    name: MIT
+    commercial_use: likely
+  status: confirmed
+  maturity: experimental
+  confidence: medium
+  sources:
+  - coreai-model-zoo-readme
+  - coreai-model-zoo-knowledge
+  last_verified: '2026-06-29'
+  notes: 'First VLA / robotics model on Core AI. 1.58-bit ternary VLA: BitNet LLM + BitSigLIP vision → 7-DoF robot action.
+    Generalized ternary kernel (arbitrary K/N).'
+- id: stable-audio-open-small
+  name: Stable Audio Open Small
+  family: Stable Audio
+  source_group: zoo
+  artifact_ref: stable-audio-open-small
+  source_path: https://github.com/john-rocky/coreai-model-zoo/README.md
+  capabilities:
+  - text-to-audio
+  - music-generation
+  modalities:
+    input:
+    - text
+    output:
+    - audio
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: unknown
+    precision: fp16
+    quantization: none
+    artifact_size: 1GB
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIDiffusionPipeline
+    stock_runtime: true
+    custom_kernel: false
+    patch_required: false
+    aot_required: false
+    tokenizer_required: true
+    processor_required: true
+  device_support:
+    iphone: false
+    ipad: unknown
+    mac: true
+    mac_only: true
+  license:
+    name: Stability Community
+    commercial_use: check_license
+  status: confirmed
+  maturity: experimental
+  confidence: medium
+  sources:
+  - coreai-model-zoo-readme
+  last_verified: '2026-06-29'
+  notes: 'First generative audio model. Latent diffusion: T5 encoder + DiT (8-step rectified-flow) + Oobleck VAE. ~11s 44.1
+    kHz stereo in ~0.4s on M4 Max (≈30× real-time).'

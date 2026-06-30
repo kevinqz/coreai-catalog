@@ -64,3 +64,6 @@
 | ltx-video-2b | LTX-Video 2B distilled | zoo | LTX-Video | text-to-video | text | video | 2B / DiT 1.9B + T5-XXL 4.76B | Mac | OpenRAIL-M | confirmed |
 | official-qwen3-1-7b | Qwen3 1.7B | official | Qwen | chat, text-generation | text | text | 1.7B | iPhone/Mac | Apache-2.0 | confirmed |
 | official-clip-vit-base-patch32 | CLIP ViT-B/32 | official | CLIP | image-text-similarity | image, text | vector | 151M | iPhone/Mac | MIT | confirmed |
+| llada-8b-dllm | LLaDA-8B dLLM | zoo | LLaDA | chat, text-generation, diffusion-lm | text | text | 8B | Mac | MIT | confirmed |
+| bitvla | BitVLA | zoo | BitVLA | vision-language-action, robotics | image, text | action-tokens | 2B (BitNet b1.58) | iPhone/Mac | MIT | confirmed |
+| stable-audio-open-small | Stable Audio Open Small | zoo | Stable Audio | text-to-audio, music-generation | text | audio | unknown | Mac | Stability Community | confirmed |

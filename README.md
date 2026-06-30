@@ -39,8 +39,8 @@ The goal is not to run models directly. The goal is to know, precisely and trace
 
 | Area | Count / status |
 |---|---:|
-| Model records | 62 |
-| Artifact provenance records | 62 |
+| Model records | 65 |
+| Artifact provenance records | 65 |
 | Source records | 13 |
 | Main upstreams | 2 |
 | Upstream taxonomy layers | 7 |
@@ -78,6 +78,8 @@ coreai-catalog/
 │   └── term.schema.json
 ├── scripts/
 │   ├── validate.py
+│   ├── audit.py
+│   ├── sync_upstream.py
 │   ├── generate_docs.py
 │   ├── generate_artifact_docs.py
 │   ├── generate_terms_docs.py
@@ -289,6 +291,9 @@ The catalog currently covers:
 - super-resolution
 - text-to-video
 - image-to-3D (Gaussian splatting)
+- text-to-audio (generative music)
+- diffusion LLMs (dLLM)
+- vision-language-action (VLA / robotics)
 
 ## Devices and runtime metadata
 
