@@ -378,9 +378,11 @@ pip install -e .
 coreai-catalog search --capability vision-language --device iphone
 coreai-catalog list                          # all models, sorted by readiness score
 coreai-catalog scores                        # 0-100 readiness scores with grade distribution
+coreai-catalog capabilities                  # list all capabilities with model counts
 
 # Inspect a model
 coreai-catalog show qwen3-vl-2b              # full details: caps, devices, runtime, provenance, benchmarks
+coreai-catalog show qwen3-vl-2b -v           # verbose — full notes, not truncated
 coreai-catalog compare qwen3-vl-2b unlimited-ocr  # side-by-side
 
 # Get recommendations
@@ -390,7 +392,7 @@ coreai-catalog recommend --task "voice assistant" --device mac
 
 # Install a model (downloads from Hugging Face, writes manifest + Swift snippet)
 coreai-catalog install qwen3-vl-2b           # downloads artifact, generates snippet.swift
-coreai-catalog install qwen3-vl-2b --dry-run # preview without downloading
+coreai-catalog install qwen3-vl-2b --dry-run # preview download size without downloading
 coreai-catalog installed                     # list locally installed models
 coreai-catalog uninstall qwen3-vl-2b
 

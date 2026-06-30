@@ -4,7 +4,27 @@ All notable changes to CoreAI Catalog are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/), and this
 project adheres to [Semantic Versioning](https://semver.org/).
 
-## [1.2.0] — 2026-06-30
+## [1.2.5] — 2026-06-30
+
+### Added — DX/UX improvements
+- New `coreai-catalog capabilities` command (alias `caps`) — list all capabilities
+  with model counts, directly in the CLI (was MCP-only)
+- `show -v` / `--verbose` flag — display full notes without truncation
+- `install --dry-run` now shows artifact download size
+- `search --help` now shows example capability values (chat, vision-language,
+  speech-to-text, etc.) so users don't have to guess
+
+### Fixed — DX/UX improvements
+- `doctor` now only prints install instructions for tools that actually failed
+  (was unconditionally printing all 3 install commands)
+- `recommend "robot vision"` now prioritizes vision-language models above
+  object-detection (VLMs are what most users want for robot vision)
+- Aligned CLI description and pyproject.toml with Apple terminology:
+  "Core AI models for Apple Silicon"
+
+### Changed
+- pyproject.toml: add jsonschema to dependencies, remove dead package-data
+- Terminology: "Core AI" (space) per Apple convention, not "CoreAI"
 
 ### Changed
 - Consolidated 10 redundant scripts into one unified `scripts/generate.py`

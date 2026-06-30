@@ -199,7 +199,7 @@ class Catalog:
 
 # Task → capability mapping
 TASK_MAP: dict[str, list[str]] = {
-    "robot vision": ["object-detection", "vision-language", "monocular-depth", "promptable-segmentation"],
+    "robot vision": ["vision-language", "object-detection", "monocular-depth", "promptable-segmentation"],
     "object detection": ["object-detection"],
     "segmentation": ["instance-segmentation", "promptable-segmentation"],
     "private chat": ["chat", "text-generation"],

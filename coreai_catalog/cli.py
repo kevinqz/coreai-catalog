@@ -315,10 +315,13 @@ def cmd_show(args: argparse.Namespace) -> int:
     # Notes
     notes = model.get("notes")
     if notes:
-        note = notes[:150].replace("\n", " ")
-        if len(notes) > 150:
-            note += "…"
-        print(f"\n  {DIM}Note: {note}{RESET}")
+        if args.verbose:
+            print(f"\n  {DIM}Note: {notes}{RESET}")
+        else:
+            note = notes[:150].replace("\n", " ")
+            if len(notes) > 150:
+                note += "…"
+            print(f"\n  {DIM}Note: {note}{RESET}")
 
     # Actions
     print(f"\n  {BOLD}Actions:{RESET}")
@@ -610,6 +613,9 @@ def cmd_install(args: argparse.Namespace) -> int:
         return 0
 
     print(f"\n  {BOLD}Installing {model['name']}...{RESET}")
+    size = model.get("size", {}).get("artifact_size", "")
+    if size and size != "not_published":
+        print(f"  {DIM}Artifact size: {size}{RESET}")
 
     if args.dry_run:
         print(f"  {DIM}(dry run — no files downloaded){RESET}")
@@ -635,6 +641,32 @@ def cmd_uninstall(args: argparse.Namespace) -> int:
         return 0
     print(f"\n  {YELLOW}Model '{args.model_id}' was not installed.{RESET}")
     return 1
+
+
+def cmd_capabilities(args: argparse.Namespace) -> int:
+    """List all capabilities with model counts."""
+    cat = Catalog()
+    from collections import Counter
+    cap_counts: Counter = Counter()
+    for m in cat.models:
+        for c in m.get("capabilities", []):
+            cap_counts[c] += 1
+
+    if args.json:
+        output = [
+            {"capability": cap, "model_count": count}
+            for cap, count in cap_counts.most_common()
+        ]
+        print(json.dumps({"count": len(output), "capabilities": output}, indent=2))
+        return 0
+
+    print(f"\n  {BOLD}Core AI Model Capabilities{RESET}\n")
+    print(f"  {'Capability':35s}  Models")
+    print(f"  {'─' * 35}  {'─' * 6}")
+    for cap, count in cap_counts.most_common():
+        print(f"  {cap:35s}  {count}")
+    print(f"\n  {DIM}{len(cap_counts)} capabilities across {len(cat.models)} models{RESET}\n")
+    return 0
 
 
 def cmd_doctor(args: argparse.Namespace) -> int:
@@ -712,12 +744,23 @@ def cmd_doctor(args: argparse.Namespace) -> int:
     elif checks_passed >= checks_total - 2:
         print(f"  {YELLOW}⚠️  Mostly ready. Install missing tools for full functionality.{RESET}")
     else:
-        print(f"  {YELLOW}⚠️  Several tools missing. See recommendations above.{RESET}")
+        print(f"  {YELLOW}⚠️  Several tools missing. See recommendations below.{RESET}")
 
-    print(f"\n  {BOLD}Install missing tools:{RESET}")
-    print(f"    {DIM}brew install uv{RESET}")
-    print(f"    {DIM}uv pip install coreai-torch coreai-opt{RESET}")
-    print(f"    {DIM}pip install huggingface-hub{RESET}")
+    # Only show install instructions for tools that actually failed
+    missing = []
+    if not coreai_torch:
+        missing.append(("coreai-torch", "uv pip install coreai-torch"))
+    if not coreai_opt:
+        missing.append(("coreai-opt", "uv pip install coreai-opt"))
+    if not hfcli:
+        missing.append(("huggingface-cli", "pip install huggingface-hub"))
+    if not shutil.which("uv"):
+        missing.append(("uv (package manager)", "brew install uv"))
+
+    if missing:
+        print(f"\n  {BOLD}Install missing tools:{RESET}")
+        for name, cmd in missing:
+            print(f"    {DIM}{cmd}{RESET}")
     print()
     return 0 if checks_passed == checks_total else 1
 
@@ -763,18 +806,25 @@ def cmd_installed(args: argparse.Namespace) -> int:
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="coreai-catalog",
-        description="Discover, verify, and install Apple Core AI models.",
+        description="Discover, compare, and install Core AI models for Apple Silicon.",
     )
     sub = parser.add_subparsers(dest="command", help="Available commands")
 
     # search
     p = sub.add_parser("search", aliases=["s"], help="Search models by criteria")
-    p.add_argument("-c", "--capability", help="Filter by capability")
-    p.add_argument("-d", "--device", help="Filter by device (iphone, ipad, mac)")
-    p.add_argument("-l", "--license", help="Filter by commercial_use (likely, check_license)")
-    p.add_argument("-f", "--family", help="Filter by model family")
-    p.add_argument("-g", "--source-group", help="Filter by source group (zoo, official, external)")
-    p.add_argument("-m", "--modality", help="Filter by modality (text, image, audio)")
+    p.add_argument("-c", "--capability",
+                   help="Filter by capability (e.g. chat, text-generation, "
+                        "vision-language, speech-to-text, text-to-speech, "
+                        "embedding, object-detection, image-generation)")
+    p.add_argument("-d", "--device",
+                   help="Filter by device (iphone, ipad, mac)")
+    p.add_argument("-l", "--license",
+                   help="Filter by commercial use (likely, check_license)")
+    p.add_argument("-f", "--family", help="Filter by model family (e.g. Qwen, Gemma, Whisper)")
+    p.add_argument("-g", "--source-group",
+                   help="Filter by source (official, zoo, external)")
+    p.add_argument("-m", "--modality",
+                   help="Filter by modality (text, image, audio)")
     p.add_argument("--json", action="store_true", help="Output as JSON")
     p.set_defaults(func=cmd_search)
 
@@ -782,6 +832,7 @@ def build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("show", aliases=["info"], help="Show details for a specific model")
     p.add_argument("model_id", help="Model ID (e.g. qwen3-vl-2b)")
     p.add_argument("--json", action="store_true", help="Output as JSON")
+    p.add_argument("-v", "--verbose", action="store_true", help="Show full notes (not truncated)")
     p.set_defaults(func=cmd_show)
 
     # list
@@ -828,6 +879,11 @@ def build_parser() -> argparse.ArgumentParser:
     # doctor
     p = sub.add_parser("doctor", help="Check your environment for Core AI development")
     p.set_defaults(func=cmd_doctor)
+
+    # capabilities
+    p = sub.add_parser("capabilities", aliases=["caps"], help="List all capabilities with model counts")
+    p.add_argument("--json", action="store_true", help="Output as JSON")
+    p.set_defaults(func=cmd_capabilities)
 
     return parser
 
