@@ -51,3 +51,16 @@
 | official-flux-2-klein-4b | FLUX.2 klein 4B | official | FLUX | image-generation | text | image | 4B / ~4GB | Mac | Apache-2.0 | confirmed |
 | official-sam-3 | SAM 3 | official | SAM | promptable-segmentation | image, text | masks, boxes, scores | ~1.7GB | iPhone/Mac | Meta SAM License | confirmed |
 | official-whisper-large-v3-turbo | Whisper large-v3-turbo | official | Whisper | speech-to-text | audio | transcript | 809M / ~1.5GB | iPhone/Mac | Apache-2.0 | confirmed |
+| minicpm5-1b | MiniCPM5-1B | zoo | MiniCPM | chat, text-generation, reasoning | text | text | 1.08B | iPhone/Mac | Apache-2.0 | confirmed |
+| fastcontext-1-0-4b | FastContext-1.0-4B | zoo | FastContext | chat, text-generation, agentic | text | text | 4B | iPhone/Mac | MIT | confirmed |
+| bitcpm-8b | BitCPM-8B | zoo | BitCPM | chat, text-generation | text | text | 8B / ternary {-1,0,+1} | iPhone/Mac | Apache-2.0 | confirmed |
+| holo2-4b | Holo2-4B | zoo | Holo | vision-language, gui-grounding | image, text | coordinates | 4B | iPhone/Mac | Apache-2.0 | confirmed |
+| colmodernvbert | ColModernVBERT | zoo | ModernVBERT | visual-document-retrieval | image, text | vector | 250M | iPhone/Mac | MIT | confirmed |
+| qwen3-asr-1-7b | Qwen3-ASR-1.7B | zoo | Qwen | speech-to-text | audio | transcript | 1.7B | iPhone/Mac | Apache-2.0 | confirmed |
+| parakeet-tdt-0-6b | Parakeet-TDT-0.6B | zoo | Parakeet | speech-to-text | audio | transcript | 0.6B | iPhone/Mac | CC-BY-4.0 | confirmed |
+| voxcpm2-2b | VoxCPM2 2B | zoo | VoxCPM | text-to-speech | text | audio | 2B | iPhone/Mac | Apache-2.0 | confirmed |
+| yolox-s | YOLOX-S | zoo | YOLOX | object-detection | image | boxes, classes, scores | 8.97M | iPhone/Mac | Apache-2.0 | confirmed |
+| tripo-splat | TripoSplat | zoo | TripoSplat | image-to-3d | image | gaussian-splats | unknown | Mac | MIT | confirmed |
+| ltx-video-2b | LTX-Video 2B distilled | zoo | LTX-Video | text-to-video | text | video | 2B / DiT 1.9B + T5-XXL 4.76B | Mac | OpenRAIL-M | confirmed |
+| official-qwen3-1-7b | Qwen3 1.7B | official | Qwen | chat, text-generation | text | text | 1.7B | iPhone/Mac | Apache-2.0 | confirmed |
+| official-clip-vit-base-patch32 | CLIP ViT-B/32 | official | CLIP | image-text-similarity | image, text | vector | 151M | iPhone/Mac | MIT | confirmed |

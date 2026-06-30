@@ -1,7 +1,7 @@
 metadata:
   name: Core AI Catalog artifact provenance
-  last_verified: '2026-06-24'
-  count: 49
+  last_verified: '2026-06-29'
+  count: 62
 artifacts:
 - id: qwen3-5-0-8b
   group: zoo
@@ -685,6 +685,188 @@ artifacts:
     owner: mlboydaisuke
     repo: whisper-large-v3-turbo-CoreAI-official
     url: https://huggingface.co/mlboydaisuke/whisper-large-v3-turbo-CoreAI-official
+  officiality:
+    apple_export_recipe: true
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: minicpm5-1b
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/minicpm5-1b.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: MiniCPM5-1B-CoreAI
+    url: https://huggingface.co/mlboydaisuke/MiniCPM5-1B-CoreAI
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: fastcontext-1-0-4b
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/fastcontext.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: FastContext-1.0-4B-CoreAI
+    url: https://huggingface.co/mlboydaisuke/FastContext-1.0-4B-CoreAI
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: bitcpm-8b
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/bitcpm-8b.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: BitCPM-8B-CoreAI
+    url: https://huggingface.co/mlboydaisuke/BitCPM-8B-CoreAI
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: holo2-4b
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/holo2.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: Holo2-4B-CoreAI
+    url: https://huggingface.co/mlboydaisuke/Holo2-4B-CoreAI
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: colmodernvbert
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/colmodernvbert.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: ColModernVBERT-CoreAI
+    url: https://huggingface.co/mlboydaisuke/ColModernVBERT-CoreAI
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: qwen3-asr-1-7b
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/README.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: Qwen3-ASR-1.7B-CoreAI
+    url: https://huggingface.co/mlboydaisuke/Qwen3-ASR-1.7B-CoreAI
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: parakeet-tdt-0-6b
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/parakeet.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: Parakeet-TDT-0.6B-CoreAI
+    url: https://huggingface.co/mlboydaisuke/Parakeet-TDT-0.6B-CoreAI
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: voxcpm2-2b
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/README.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: VoxCPM2-CoreAI
+    url: https://huggingface.co/mlboydaisuke/VoxCPM2-CoreAI
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: yolox-s
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/yolox.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: YOLOX-S-CoreAI
+    url: https://huggingface.co/mlboydaisuke/YOLOX-S-CoreAI
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: tripo-splat
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/README.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: TripoSplat-CoreAI
+    url: https://huggingface.co/mlboydaisuke/TripoSplat-CoreAI
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: ltx-video-2b
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/ltxvideo.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: LTX-Video-2B-CoreAI
+    url: https://huggingface.co/mlboydaisuke/LTX-Video-2B-CoreAI
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: official-qwen3-1-7b
+  group: official
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/tree/main/official
+  huggingface:
+    owner: mlboydaisuke
+    repo: qwen3-1.7b-CoreAI-official
+    url: https://huggingface.co/mlboydaisuke/qwen3-1.7b-CoreAI-official
+  officiality:
+    apple_export_recipe: true
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: official-clip-vit-base-patch32
+  group: official
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/tree/main/official
+  huggingface:
+    owner: mlboydaisuke
+    repo: clip-vit-base-patch32-CoreAI-official
+    url: https://huggingface.co/mlboydaisuke/clip-vit-base-patch32-CoreAI-official
   officiality:
     apple_export_recipe: true
     apple_hosted_artifact: false

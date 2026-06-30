@@ -2,62 +2,51 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Core AI Catalog Artifact",
   "type": "object",
-  "required": [
-    "id",
-    "group",
-    "github",
-    "huggingface",
-    "officiality"
-  ],
+  "additionalProperties": false,
+  "required": ["id", "group", "github", "huggingface", "officiality"],
   "properties": {
     "id": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "group": {
       "type": "string",
-      "enum": [
-        "zoo",
-        "official",
-        "external",
-        "unknown"
-      ]
+      "enum": ["zoo", "official", "external", "unknown"]
     },
     "github": {
       "type": "object",
-      "required": [
-        "owner",
-        "repo"
-      ],
+      "additionalProperties": false,
+      "required": ["owner", "repo"],
       "properties": {
         "owner": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         },
         "repo": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         },
         "path": {
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": ["string", "null"]
         }
       }
     },
     "huggingface": {
       "type": "object",
-      "required": [
-        "owner",
-        "repo"
-      ],
+      "additionalProperties": false,
+      "required": ["owner", "repo", "url"],
       "properties": {
         "owner": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         },
         "repo": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         },
         "url": {
-          "type": "string"
+          "type": "string",
+          "pattern": "^https://"
         }
       }
     },
@@ -70,15 +59,9 @@
         "community_packaged"
       ],
       "properties": {
-        "apple_export_recipe": {
-          "type": "boolean"
-        },
-        "apple_hosted_artifact": {
-          "type": "boolean"
-        },
-        "community_packaged": {
-          "type": "boolean"
-        }
+        "apple_export_recipe": { "type": "boolean" },
+        "apple_hosted_artifact": { "type": "boolean" },
+        "community_packaged": { "type": "boolean" }
       }
     }
   },
@@ -86,18 +69,15 @@
     {
       "if": {
         "properties": {
-          "group": {
-            "const": "official"
-          }
-        }
+          "group": { "const": "official" }
+        },
+        "required": ["group"]
       },
       "then": {
         "properties": {
           "officiality": {
             "properties": {
-              "apple_export_recipe": {
-                "const": true
-              }
+              "apple_export_recipe": { "const": true }
             }
           }
         }
@@ -106,18 +86,15 @@
     {
       "if": {
         "properties": {
-          "group": {
-            "const": "zoo"
-          }
-        }
+          "group": { "const": "zoo" }
+        },
+        "required": ["group"]
       },
       "then": {
         "properties": {
           "officiality": {
             "properties": {
-              "apple_export_recipe": {
-                "const": false
-              }
+              "apple_export_recipe": { "const": false }
             }
           }
         }

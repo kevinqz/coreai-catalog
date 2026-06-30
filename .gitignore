@@ -2,7 +2,11 @@ __pycache__/
 *.pyc
 .DS_Store
 .env
-.venv/
+.venv*
+venv/
+
+# Claude Code worktrees (ephemeral, should not be committed)
+.claude/worktrees/
 
 # Generated JSON exports (produced by scripts/export_json.py)
 dist/

@@ -53,3 +53,16 @@ Generated from `artifacts.yaml`.
 | official-flux-2-klein-4b | official | john-rocky/coreai-model-zoo | mlboydaisuke/FLUX.2-klein-4B-CoreAI | True | False |
 | official-sam-3 | official | john-rocky/coreai-model-zoo | mlboydaisuke/sam3-CoreAI-official | True | False |
 | official-whisper-large-v3-turbo | official | john-rocky/coreai-model-zoo | mlboydaisuke/whisper-large-v3-turbo-CoreAI-official | True | False |
+| minicpm5-1b | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/MiniCPM5-1B-CoreAI | False | False |
+| fastcontext-1-0-4b | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/FastContext-1.0-4B-CoreAI | False | False |
+| bitcpm-8b | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/BitCPM-8B-CoreAI | False | False |
+| holo2-4b | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/Holo2-4B-CoreAI | False | False |
+| colmodernvbert | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/ColModernVBERT-CoreAI | False | False |
+| qwen3-asr-1-7b | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/Qwen3-ASR-1.7B-CoreAI | False | False |
+| parakeet-tdt-0-6b | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/Parakeet-TDT-0.6B-CoreAI | False | False |
+| voxcpm2-2b | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/VoxCPM2-CoreAI | False | False |
+| yolox-s | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/YOLOX-S-CoreAI | False | False |
+| tripo-splat | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/TripoSplat-CoreAI | False | False |
+| ltx-video-2b | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/LTX-Video-2B-CoreAI | False | False |
+| official-qwen3-1-7b | official | john-rocky/coreai-model-zoo | mlboydaisuke/qwen3-1.7b-CoreAI-official | True | False |
+| official-clip-vit-base-patch32 | official | john-rocky/coreai-model-zoo | mlboydaisuke/clip-vit-base-patch32-CoreAI-official | True | False |

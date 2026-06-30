@@ -14,9 +14,9 @@ Not affiliated with or endorsed by Apple. `commercial_use` fields are triage lab
 
 ## Status
 
-**Version:** v0.4
+**Version:** v0.6
 
-v0.4 adds a verified Apple AI terminology layer (`terms.yaml`, grounded in official Apple / WWDC26 sources) and disambiguates artifact `officiality`. It builds on v0.3, which separated model facts, converted artifact provenance, source taxonomy, benchmark records and generated exports.
+v0.6 backfills technical metadata from model cards (24 models updated), adds 13 non-LLM benchmarks, expands terminology to 35 terms, and maps the complete source ecosystem (independent converters, Apple tooling, emerging ports). It builds on v0.5, which added 11 new models and hardened schemas.
 
 ## Why this exists
 
@@ -39,13 +39,13 @@ The goal is not to run models directly. The goal is to know, precisely and trace
 
 | Area | Count / status |
 |---|---:|
-| Model records | 49 |
-| Artifact provenance records | 49 |
+| Model records | 62 |
+| Artifact provenance records | 62 |
 | Source records | 13 |
 | Main upstreams | 2 |
 | Upstream taxonomy layers | 7 |
-| Benchmark records | 39 |
-| Terminology records | 25 |
+| Benchmark records | 61 |
+| Terminology records | 42 |
 | JSON exports | generated via script |
 
 Main upstreams:
@@ -270,19 +270,25 @@ The catalog currently covers:
 - instruction following
 - reasoning / agentic LLMs
 - MoE LLMs
+- 1.58-bit ternary LLMs
 - vision-language models
+- GUI grounding / computer use
 - document OCR
+- visual document retrieval (ColBERT / MaxSim)
 - audio understanding
 - text-to-speech
-- speech-to-text
+- speech-to-text (ASR + transducer / TDT)
 - embeddings
 - reranking
+- image-text similarity (CLIP)
 - object detection
 - instance segmentation
 - promptable segmentation
 - monocular depth
 - image generation
 - super-resolution
+- text-to-video
+- image-to-3D (Gaussian splatting)
 
 ## Devices and runtime metadata
 
@@ -401,15 +407,24 @@ For sensitive licenses such as Gemma Terms, Meta SAM License, LFM Open License o
 
 Current milestone:
 
-- v0.4 — verified Apple AI terminology layer, artifact officiality, benchmark provenance and JSON exports.
+- v0.5 — expanded model coverage (11 new: ternary LLM, GUI grounding, visual retrieval, transducer ASR, video, 3D), hardened schemas, CI JSON artifacts.
 
 Earlier:
 
+- v0.4 — verified Apple AI terminology layer, artifact officiality, benchmark provenance and JSON exports.
 - v0.3 — validation depth, upstream taxonomy, benchmark registry and JSON exports.
 
 Next milestone:
 
-- v0.5 — exact model-card URL for every original model, exact license URL per model, artifact checksums/hashes where available, and generated JSON release artifacts.
+- v0.6 — technical backfill from model cards, non-LLM benchmarks, expanded terminology, source ecosystem mapping.
+
+Completed in v0.6:
+
+- Backfilled technical metadata (precision, quantization, runtime flags, artifact_size) for 24 models from upstream model cards.
+- Added 13 new non-LLM benchmarks (RF-DETR latency, Depth Anything FPS, embedding/reranker latency, Qwen3-VL throughput, Gemma E4B prefill, Parakeet transcription).
+- Expanded terminology layer to 35 terms: added CoreAIKit, pipelined engine, AOT compilation, gather_qmm, FlowMatch sampler, detailed Evaluations framework.
+- Registered 6 new framework/conversion upstream sources (apple/coreai-torch, apple/coreai-optimization, coreai-onnx, mlx2coreai, agent-demos, CLIP).
+- Mapped the complete source ecosystem: Hugging Face (mlboydaisuke 98 models), independent converters, and emerging ports (FastVLM, VibeVoice, AFM-Studio).
 
 Later:
 

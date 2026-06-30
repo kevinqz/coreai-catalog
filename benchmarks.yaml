@@ -1,554 +1,804 @@
 metadata:
   name: Core AI Catalog benchmark registry
-  version: 0.4.0
-  last_verified: '2026-06-25'
+  version: 0.6.0
+  last_verified: '2026-06-29'
   status: active
-  notes: "Single source of truth for measurements. Each row carries device, compute unit, precision, environment and observed date. Append-only \u2014 superseded values are retained and marked via superseded_by with confidence needs_review, never overwritten."
-
+  count: 61
+  notes: Single source of truth for measurements. Each row carries device, compute unit, precision, environment and observed
+    date. Append-only — superseded values are retained and marked via superseded_by with confidence needs_review, never overwritten.
 benchmarks:
-  - id: qwen3-5-0-8b-iphone17pro-gpu-toks
-    model_id: qwen3-5-0-8b
-    metric: decode_throughput
-    unit: tokens_per_second
-    value: 71.9
-    device: iPhone 17 Pro
-    compute_unit: GPU
-    precision: unknown
-    environment: iOS 27 beta, coreai-pipelined engine
-    observed: '2026-06-25'
-    source: john-rocky-coreai-model-zoo
-    confidence: medium
-    notes: Decode throughput from upstream README table.
-
-  - id: qwen3-5-0-8b-iphone17pro-ane-toks
-    model_id: qwen3-5-0-8b
-    metric: decode_throughput
-    unit: tokens_per_second
-    value: 14.7
-    device: iPhone 17 Pro
-    compute_unit: ANE
-    precision: unknown
-    environment: iOS 27 beta, coreai-pipelined engine
-    observed: '2026-06-25'
-    source: john-rocky-coreai-model-zoo
-    confidence: medium
-    notes: Decode throughput from upstream README table.
-
-  - id: qwen3-5-0-8b-m4max-gpu-toks
-    model_id: qwen3-5-0-8b
-    metric: decode_throughput
-    unit: tokens_per_second
-    value: 210
-    device: M4 Max
-    compute_unit: GPU
-    precision: unknown
-    environment: macOS 27 beta, coreai-pipelined engine
-    observed: '2026-06-25'
-    source: john-rocky-coreai-model-zoo
-    confidence: medium
-    notes: Decode throughput from upstream README table.
-
-  - id: qwen3-5-2b-iphone17pro-gpu-toks
-    model_id: qwen3-5-2b
-    metric: decode_throughput
-    unit: tokens_per_second
-    value: 29
-    device: iPhone 17 Pro
-    compute_unit: GPU
-    precision: unknown
-    environment: iOS 27 beta, coreai-pipelined engine
-    observed: '2026-06-25'
-    source: john-rocky-coreai-model-zoo
-    confidence: medium
-    notes: Decode throughput from upstream README table.
-
-  - id: qwen3-5-2b-m4max-gpu-toks
-    model_id: qwen3-5-2b
-    metric: decode_throughput
-    unit: tokens_per_second
-    value: 161
-    device: M4 Max
-    compute_unit: GPU
-    precision: unknown
-    environment: macOS 27 beta, coreai-pipelined engine
-    observed: '2026-06-25'
-    source: john-rocky-coreai-model-zoo
-    confidence: medium
-    notes: Decode throughput from upstream README table.
-
-  - id: lfm2-5-1-2b-instruct-iphone17pro-gpu-toks
-    model_id: lfm2-5-1-2b-instruct
-    metric: decode_throughput
-    unit: tokens_per_second
-    value: 45.4
-    device: iPhone 17 Pro
-    compute_unit: GPU
-    precision: unknown
-    environment: iOS 27 beta, coreai-pipelined engine
-    observed: '2026-06-25'
-    source: john-rocky-coreai-model-zoo
-    confidence: medium
-    notes: Decode throughput from upstream README table.
-
-  - id: lfm2-5-1-2b-instruct-m4max-gpu-toks
-    model_id: lfm2-5-1-2b-instruct
-    metric: decode_throughput
-    unit: tokens_per_second
-    value: 276.5
-    device: M4 Max
-    compute_unit: GPU
-    precision: unknown
-    environment: macOS 27 beta, coreai-pipelined engine
-    observed: '2026-06-25'
-    source: john-rocky-coreai-model-zoo
-    confidence: medium
-    notes: Decode throughput from upstream README table.
-
-  - id: granite-4-0-h-1b-iphone17pro-gpu-toks
-    model_id: granite-4-0-h-1b
-    metric: decode_throughput
-    unit: tokens_per_second
-    value: 36.3
-    device: iPhone 17 Pro
-    compute_unit: GPU
-    precision: unknown
-    environment: iOS 27 beta, coreai-pipelined engine
-    observed: '2026-06-25'
-    source: john-rocky-coreai-model-zoo
-    confidence: medium
-    notes: Decode throughput from upstream README table.
-
-  - id: granite-4-0-h-1b-m4max-gpu-toks
-    model_id: granite-4-0-h-1b
-    metric: decode_throughput
-    unit: tokens_per_second
-    value: 136.5
-    device: M4 Max
-    compute_unit: GPU
-    precision: unknown
-    environment: macOS 27 beta, coreai-pipelined engine
-    observed: '2026-06-25'
-    source: john-rocky-coreai-model-zoo
-    confidence: medium
-    notes: Decode throughput from upstream README table.
-
-  - id: nanbeige4-1-3b-iphone17pro-gpu-toks
-    model_id: nanbeige4-1-3b
-    metric: decode_throughput
-    unit: tokens_per_second
-    value: 15.9
-    device: iPhone 17 Pro
-    compute_unit: GPU
-    precision: unknown
-    environment: iOS 27 beta, coreai-pipelined engine
-    observed: '2026-06-25'
-    source: john-rocky-coreai-model-zoo
-    confidence: medium
-    notes: Decode throughput from upstream README table.
-
-  - id: nanbeige4-1-3b-m4max-gpu-toks
-    model_id: nanbeige4-1-3b
-    metric: decode_throughput
-    unit: tokens_per_second
-    value: 114.5
-    device: M4 Max
-    compute_unit: GPU
-    precision: unknown
-    environment: macOS 27 beta, coreai-pipelined engine
-    observed: '2026-06-25'
-    source: john-rocky-coreai-model-zoo
-    confidence: medium
-    notes: Decode throughput from upstream README table.
-
-  - id: gemma-4-e2b-iphone17pro-gpu-toks
-    model_id: gemma-4-e2b
-    metric: decode_throughput
-    unit: tokens_per_second
-    value: 30.3
-    device: iPhone 17 Pro
-    compute_unit: GPU
-    precision: unknown
-    environment: iOS 27 beta, coreai-pipelined engine
-    observed: '2026-06-25'
-    source: john-rocky-coreai-model-zoo
-    confidence: medium
-    notes: Decode throughput from upstream README table.
-
-  - id: gemma-4-e2b-iphone17pro-gpu-qat-toks
-    model_id: gemma-4-e2b
-    metric: decode_throughput
-    unit: tokens_per_second
-    value: 30.7
-    device: iPhone 17 Pro
-    compute_unit: GPU
-    precision: official-QAT-int4
-    environment: iOS 27 beta, coreai-pipelined engine
-    observed: '2026-06-25'
-    source: john-rocky-coreai-model-zoo
-    confidence: medium
-    notes: QAT-int4 variant from upstream README.
-
-  - id: gemma-4-e2b-iphone17pro-ane-toks
-    model_id: gemma-4-e2b
-    metric: decode_throughput
-    unit: tokens_per_second
-    value: 6
-    device: iPhone 17 Pro
-    compute_unit: ANE
-    precision: unknown
-    environment: iOS 27 beta, coreai-pipelined engine
-    observed: '2026-06-25'
-    source: john-rocky-coreai-model-zoo
-    confidence: medium
-    notes: Decode throughput from upstream README table.
-
-  - id: gemma-4-e2b-m4max-gpu-toks
-    model_id: gemma-4-e2b
-    metric: decode_throughput
-    unit: tokens_per_second
-    value: 77.0
-    device: M4 Max
-    compute_unit: GPU
-    precision: unknown
-    environment: macOS 27 beta, coreai-pipelined engine
-    observed: '2026-06-25'
-    source: john-rocky-coreai-model-zoo
-    confidence: medium
-    notes: Decode throughput from upstream README table.
-
-  - id: gemma-4-e2b-m4max-gpu-qat-toks
-    model_id: gemma-4-e2b
-    metric: decode_throughput
-    unit: tokens_per_second
-    value: 78.9
-    device: M4 Max
-    compute_unit: GPU
-    precision: official-QAT-int4
-    environment: macOS 27 beta, coreai-pipelined engine
-    observed: '2026-06-25'
-    source: john-rocky-coreai-model-zoo
-    confidence: medium
-    notes: QAT-int4 variant from upstream README.
-
-  - id: gemma-4-e4b-iphone17pro-gpu-toks
-    model_id: gemma-4-e4b
-    metric: decode_throughput
-    unit: tokens_per_second
-    value: 15.1
-    device: iPhone 17 Pro
-    compute_unit: GPU
-    precision: unknown
-    environment: iOS 27 beta, coreai-pipelined engine
-    observed: '2026-06-25'
-    source: john-rocky-coreai-model-zoo
-    confidence: medium
-    notes: Decode throughput from upstream README table.
-
-  - id: gemma-4-e4b-m4max-gpu-toks
-    model_id: gemma-4-e4b
-    metric: decode_throughput
-    unit: tokens_per_second
-    value: 55.8
-    device: M4 Max
-    compute_unit: GPU
-    precision: unknown
-    environment: macOS 27 beta, coreai-pipelined engine
-    observed: '2026-06-25'
-    source: john-rocky-coreai-model-zoo
-    confidence: medium
-    notes: Decode throughput from upstream README table.
-
-  - id: gemma-4-e2b-vision-iphone17pro-gpu-toks
-    model_id: gemma-4-e2b-vision
-    metric: decode_throughput
-    unit: tokens_per_second
-    value: 25.5
-    device: iPhone 17 Pro
-    compute_unit: GPU
-    precision: unknown
-    environment: iOS 27 beta, coreai-pipelined engine
-    observed: '2026-06-25'
-    source: john-rocky-coreai-model-zoo
-    confidence: medium
-    notes: Decode throughput from upstream README table.
-
-  - id: gemma-4-e2b-vision-m4max-gpu-toks
-    model_id: gemma-4-e2b-vision
-    metric: decode_throughput
-    unit: tokens_per_second
-    value: 82.4
-    device: M4 Max
-    compute_unit: GPU
-    precision: unknown
-    environment: macOS 27 beta, coreai-pipelined engine
-    observed: '2026-06-25'
-    source: john-rocky-coreai-model-zoo
-    confidence: medium
-    notes: Decode throughput from upstream README table.
-
-  - id: minicpm-v-4-6-iphone17pro-gpu-toks
-    model_id: minicpm-v-4-6
-    metric: decode_throughput
-    unit: tokens_per_second
-    value: 53.4
-    device: iPhone 17 Pro
-    compute_unit: GPU
-    precision: unknown
-    environment: iOS 27 beta, coreai-pipelined engine
-    observed: '2026-06-25'
-    source: john-rocky-coreai-model-zoo
-    confidence: medium
-    notes: Decode throughput from upstream README table.
-
-  - id: minicpm-v-4-6-m4max-gpu-toks
-    model_id: minicpm-v-4-6
-    metric: decode_throughput
-    unit: tokens_per_second
-    value: 224.3
-    device: M4 Max
-    compute_unit: GPU
-    precision: unknown
-    environment: macOS 27 beta, coreai-pipelined engine
-    observed: '2026-06-25'
-    source: john-rocky-coreai-model-zoo
-    confidence: medium
-    notes: Decode throughput from upstream README table.
-
-  - id: qwen3-6-35b-a3b-m4max-gpu-toks
-    model_id: qwen3-6-35b-a3b
-    metric: decode_throughput
-    unit: tokens_per_second
-    value: 64.9
-    device: M4 Max
-    compute_unit: GPU
-    precision: unknown
-    environment: macOS 27 beta, coreai-pipelined engine
-    observed: '2026-06-25'
-    source: john-rocky-coreai-model-zoo
-    confidence: medium
-    notes: Decode throughput from upstream README table. MoE; custom gather_qmm Metal kernel per upstream caveat.
-
-  - id: qwen3-6-27b-m4max-gpu-toks
-    model_id: qwen3-6-27b
-    metric: decode_throughput
-    unit: tokens_per_second
-    value: 15.9
-    device: M4 Max
-    compute_unit: GPU
-    precision: unknown
-    environment: macOS 27 beta, coreai-pipelined engine
-    observed: '2026-06-25'
-    source: john-rocky-coreai-model-zoo
-    confidence: medium
-    notes: Decode throughput from upstream README table.
-
-  - id: glm-4-7-flash-m4max-gpu-toks
-    model_id: glm-4-7-flash
-    metric: decode_throughput
-    unit: tokens_per_second
-    value: 52.4
-    device: M4 Max
-    compute_unit: GPU
-    precision: unknown
-    environment: macOS 27 beta, coreai-pipelined engine
-    observed: '2026-06-25'
-    source: john-rocky-coreai-model-zoo
-    confidence: medium
-    notes: Decode throughput from upstream README table. MoE + MLA; custom Metal kernel per upstream caveat.
-
-  - id: gemma-4-12b-m4max-gpu-int8-toks
-    model_id: gemma-4-12b
-    metric: decode_throughput
-    unit: tokens_per_second
-    value: 23
-    device: M4 Max
-    compute_unit: GPU
-    precision: int8
-    environment: macOS 27 beta, coreai-pipelined engine
-    observed: '2026-06-25'
-    source: john-rocky-coreai-model-zoo
-    confidence: medium
-    notes: Decode throughput from upstream README table. int8; custom flash-decode kernel.
-
-  - id: gemma-4-12b-m4max-gpu-int4-toks
-    model_id: gemma-4-12b
-    metric: decode_throughput
-    unit: tokens_per_second
-    value: 33
-    device: M4 Max
-    compute_unit: GPU
-    precision: int4
-    environment: macOS 27 beta, coreai-pipelined engine
-    observed: '2026-06-25'
-    source: john-rocky-coreai-model-zoo
-    confidence: medium
-    notes: Decode throughput from upstream README table. int4; custom flash-decode kernel.
-
-  - id: gemma-4-31b-m4max-gpu-int4-toks
-    model_id: gemma-4-31b
-    metric: decode_throughput
-    unit: tokens_per_second
-    value: 17.2
-    device: M4 Max
-    compute_unit: GPU
-    precision: int4
-    environment: macOS 27 beta, coreai-pipelined engine
-    observed: '2026-06-25'
-    source: john-rocky-coreai-model-zoo
-    confidence: medium
-    notes: Decode throughput from upstream README table. custom flash-decode kernel.
-
-  - id: official-gpt-oss-20b-m4max-gpu-toks
-    model_id: official-gpt-oss-20b
-    metric: decode_throughput
-    unit: tokens_per_second
-    value: 78.1
-    device: M4 Max
-    compute_unit: GPU
-    precision: unknown
-    environment: stock CoreAI runtime, M4 Max
-    observed: '2026-06-25'
-    source: john-rocky-coreai-model-zoo
-    confidence: medium
-    notes: Decode throughput from upstream official/ performance table (512/1024 greedy, 5 trials).
-
-  - id: official-qwen3-0-6b-m4max-gpu-toks
-    model_id: official-qwen3-0-6b
-    metric: decode_throughput
-    unit: tokens_per_second
-    value: 484
-    device: M4 Max
-    compute_unit: GPU
-    precision: unknown
-    environment: stock CoreAI runtime, M4 Max
-    observed: '2026-06-25'
-    source: john-rocky-coreai-model-zoo
-    confidence: medium
-    notes: Decode throughput from upstream official/ performance table (512/1024 greedy, 5 trials).
-
-  - id: official-qwen3-4b-m4max-gpu-toks
-    model_id: official-qwen3-4b
-    metric: decode_throughput
-    unit: tokens_per_second
-    value: 145.4
-    device: M4 Max
-    compute_unit: GPU
-    precision: unknown
-    environment: stock CoreAI runtime, M4 Max
-    observed: '2026-06-25'
-    source: john-rocky-coreai-model-zoo
-    confidence: medium
-    notes: Decode throughput from upstream official/ performance table (512/1024 greedy, 5 trials).
-
-  - id: official-qwen3-8b-m4max-gpu-toks
-    model_id: official-qwen3-8b
-    metric: decode_throughput
-    unit: tokens_per_second
-    value: 94.1
-    device: M4 Max
-    compute_unit: GPU
-    precision: unknown
-    environment: stock CoreAI runtime, M4 Max
-    observed: '2026-06-25'
-    source: john-rocky-coreai-model-zoo
-    confidence: medium
-    notes: Decode throughput from upstream official/ performance table (512/1024 greedy, 5 trials).
-
-  - id: official-gemma-3-4b-it-m4max-gpu-toks
-    model_id: official-gemma-3-4b-it
-    metric: decode_throughput
-    unit: tokens_per_second
-    value: 141.5
-    device: M4 Max
-    compute_unit: GPU
-    precision: unknown
-    environment: stock CoreAI runtime, M4 Max
-    observed: '2026-06-25'
-    source: john-rocky-coreai-model-zoo
-    confidence: medium
-    notes: Decode throughput from upstream official/ performance table (512/1024 greedy, 5 trials).
-
-  - id: official-gemma-3-12b-it-m4max-gpu-toks
-    model_id: official-gemma-3-12b-it
-    metric: decode_throughput
-    unit: tokens_per_second
-    value: 55.0
-    device: M4 Max
-    compute_unit: GPU
-    precision: unknown
-    environment: stock CoreAI runtime, M4 Max
-    observed: '2026-06-25'
-    source: john-rocky-coreai-model-zoo
-    confidence: medium
-    notes: Decode throughput from upstream official/ performance table (512/1024 greedy, 5 trials).
-
-  - id: official-mistral-7b-v0-3-m4max-gpu-toks
-    model_id: official-mistral-7b-v0-3
-    metric: decode_throughput
-    unit: tokens_per_second
-    value: 101.7
-    device: M4 Max
-    compute_unit: GPU
-    precision: unknown
-    environment: stock CoreAI runtime, M4 Max
-    observed: '2026-06-25'
-    source: john-rocky-coreai-model-zoo
-    confidence: medium
-    notes: Decode throughput from upstream official/ performance table (512/1024 greedy, 5 trials).
-
-  - id: official-flux-2-klein-4b-m4max-gpu-latency
-    model_id: official-flux-2-klein-4b
-    metric: image_generation_latency
-    unit: seconds
-    value: 17.4
-    device: M4 Max
-    compute_unit: GPU
-    precision: unknown
-    environment: stock CoreAI runtime, M4 Max
-    observed: '2026-06-25'
-    source: john-rocky-coreai-model-zoo
-    confidence: medium
-    notes: From upstream official/ table. 1024px at 4 steps; stock CoreAIDiffusionPipeline.
-
-  - id: official-sam-3-m4max-gpu-latency
-    model_id: official-sam-3
-    metric: segmentation_latency
-    unit: seconds_per_image
-    value: 0.55
-    device: M4 Max
-    compute_unit: GPU
-    precision: unknown
-    environment: stock CoreAI runtime, M4 Max
-    observed: '2026-06-25'
-    source: john-rocky-coreai-model-zoo
-    confidence: medium
-    notes: From upstream official/ table. Warm; stock CoreAIImageSegmenter.
-
-  - id: official-whisper-large-v3-turbo-m4max-gpu-latency
-    model_id: official-whisper-large-v3-turbo
-    metric: transcription_latency
-    unit: seconds_per_token
-    value: 0.18
-    device: M4 Max
-    compute_unit: GPU
-    precision: unknown
-    environment: stock CoreAI runtime, M4 Max
-    observed: '2026-06-25'
-    source: john-rocky-coreai-model-zoo
-    confidence: medium
-    notes: From upstream official/ table. Warm; stock CoreAITranscribe.
-
-  - id: official-qwen3-0-6b-m4max-gpu-macos26-toks
-    model_id: official-qwen3-0-6b
-    metric: decode_throughput
-    unit: tokens_per_second
-    value: 1121
-    device: M4 Max
-    compute_unit: GPU
-    precision: unknown
-    environment: macOS 26
-    observed: '2026-06-24'
-    source: john-rocky-coreai-model-zoo
-    confidence: needs_review
-    superseded_by: official-qwen3-0-6b-m4max-gpu-toks
-    notes: Figure recorded at catalog authoring (macOS 26); not reproduced in current upstream, which reports 484 tok/s on M4 Max (macOS 27 beta). Retained for provenance.
+- id: qwen3-5-0-8b-iphone17pro-gpu-toks
+  model_id: qwen3-5-0-8b
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 71.9
+  device: iPhone 17 Pro
+  compute_unit: GPU
+  precision: unknown
+  environment: iOS 27 beta, coreai-pipelined engine
+  observed: '2026-06-25'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: Decode throughput from upstream README table.
+- id: qwen3-5-0-8b-iphone17pro-ane-toks
+  model_id: qwen3-5-0-8b
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 14.7
+  device: iPhone 17 Pro
+  compute_unit: ANE
+  precision: unknown
+  environment: iOS 27 beta, coreai-pipelined engine
+  observed: '2026-06-25'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: Decode throughput from upstream README table.
+- id: qwen3-5-0-8b-m4max-gpu-toks
+  model_id: qwen3-5-0-8b
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 210
+  device: M4 Max
+  compute_unit: GPU
+  precision: unknown
+  environment: macOS 27 beta, coreai-pipelined engine
+  observed: '2026-06-25'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: Decode throughput from upstream README table.
+- id: qwen3-5-2b-iphone17pro-gpu-toks
+  model_id: qwen3-5-2b
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 29
+  device: iPhone 17 Pro
+  compute_unit: GPU
+  precision: unknown
+  environment: iOS 27 beta, coreai-pipelined engine
+  observed: '2026-06-25'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: Decode throughput from upstream README table.
+- id: qwen3-5-2b-m4max-gpu-toks
+  model_id: qwen3-5-2b
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 161
+  device: M4 Max
+  compute_unit: GPU
+  precision: unknown
+  environment: macOS 27 beta, coreai-pipelined engine
+  observed: '2026-06-25'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: Decode throughput from upstream README table.
+- id: lfm2-5-1-2b-instruct-iphone17pro-gpu-toks
+  model_id: lfm2-5-1-2b-instruct
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 45.4
+  device: iPhone 17 Pro
+  compute_unit: GPU
+  precision: unknown
+  environment: iOS 27 beta, coreai-pipelined engine
+  observed: '2026-06-25'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: Decode throughput from upstream README table.
+- id: lfm2-5-1-2b-instruct-m4max-gpu-toks
+  model_id: lfm2-5-1-2b-instruct
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 276.5
+  device: M4 Max
+  compute_unit: GPU
+  precision: unknown
+  environment: macOS 27 beta, coreai-pipelined engine
+  observed: '2026-06-25'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: Decode throughput from upstream README table.
+- id: granite-4-0-h-1b-iphone17pro-gpu-toks
+  model_id: granite-4-0-h-1b
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 36.3
+  device: iPhone 17 Pro
+  compute_unit: GPU
+  precision: unknown
+  environment: iOS 27 beta, coreai-pipelined engine
+  observed: '2026-06-25'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: Decode throughput from upstream README table.
+- id: granite-4-0-h-1b-m4max-gpu-toks
+  model_id: granite-4-0-h-1b
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 136.5
+  device: M4 Max
+  compute_unit: GPU
+  precision: unknown
+  environment: macOS 27 beta, coreai-pipelined engine
+  observed: '2026-06-25'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: Decode throughput from upstream README table.
+- id: nanbeige4-1-3b-iphone17pro-gpu-toks
+  model_id: nanbeige4-1-3b
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 15.9
+  device: iPhone 17 Pro
+  compute_unit: GPU
+  precision: unknown
+  environment: iOS 27 beta, coreai-pipelined engine
+  observed: '2026-06-25'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: Decode throughput from upstream README table.
+- id: nanbeige4-1-3b-m4max-gpu-toks
+  model_id: nanbeige4-1-3b
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 114.5
+  device: M4 Max
+  compute_unit: GPU
+  precision: unknown
+  environment: macOS 27 beta, coreai-pipelined engine
+  observed: '2026-06-25'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: Decode throughput from upstream README table.
+- id: gemma-4-e2b-iphone17pro-gpu-toks
+  model_id: gemma-4-e2b
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 30.3
+  device: iPhone 17 Pro
+  compute_unit: GPU
+  precision: unknown
+  environment: iOS 27 beta, coreai-pipelined engine
+  observed: '2026-06-25'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: Decode throughput from upstream README table.
+- id: gemma-4-e2b-iphone17pro-gpu-qat-toks
+  model_id: gemma-4-e2b
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 30.7
+  device: iPhone 17 Pro
+  compute_unit: GPU
+  precision: official-QAT-int4
+  environment: iOS 27 beta, coreai-pipelined engine
+  observed: '2026-06-25'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: QAT-int4 variant from upstream README.
+- id: gemma-4-e2b-iphone17pro-ane-toks
+  model_id: gemma-4-e2b
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 6
+  device: iPhone 17 Pro
+  compute_unit: ANE
+  precision: unknown
+  environment: iOS 27 beta, coreai-pipelined engine
+  observed: '2026-06-25'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: Decode throughput from upstream README table.
+- id: gemma-4-e2b-m4max-gpu-toks
+  model_id: gemma-4-e2b
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 77.0
+  device: M4 Max
+  compute_unit: GPU
+  precision: unknown
+  environment: macOS 27 beta, coreai-pipelined engine
+  observed: '2026-06-25'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: Decode throughput from upstream README table.
+- id: gemma-4-e2b-m4max-gpu-qat-toks
+  model_id: gemma-4-e2b
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 78.9
+  device: M4 Max
+  compute_unit: GPU
+  precision: official-QAT-int4
+  environment: macOS 27 beta, coreai-pipelined engine
+  observed: '2026-06-25'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: QAT-int4 variant from upstream README.
+- id: gemma-4-e4b-iphone17pro-gpu-toks
+  model_id: gemma-4-e4b
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 15.1
+  device: iPhone 17 Pro
+  compute_unit: GPU
+  precision: unknown
+  environment: iOS 27 beta, coreai-pipelined engine
+  observed: '2026-06-25'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: Decode throughput from upstream README table.
+- id: gemma-4-e4b-m4max-gpu-toks
+  model_id: gemma-4-e4b
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 55.8
+  device: M4 Max
+  compute_unit: GPU
+  precision: unknown
+  environment: macOS 27 beta, coreai-pipelined engine
+  observed: '2026-06-25'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: Decode throughput from upstream README table.
+- id: gemma-4-e2b-vision-iphone17pro-gpu-toks
+  model_id: gemma-4-e2b-vision
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 25.5
+  device: iPhone 17 Pro
+  compute_unit: GPU
+  precision: int4linsym
+  environment: iOS 27 beta, pipelined engine, AOT h18p, provider mode
+  observed: '2026-06-29'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: Footprint 1.96 GB, headroom 4.5 GB. Vision encode ~100-170ms per image.
+- id: gemma-4-e2b-vision-m4max-gpu-toks
+  model_id: gemma-4-e2b-vision
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 82.4
+  device: M4 Max
+  compute_unit: GPU
+  precision: unknown
+  environment: macOS 27 beta, coreai-pipelined engine
+  observed: '2026-06-25'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: Decode throughput from upstream README table.
+- id: minicpm-v-4-6-iphone17pro-gpu-toks
+  model_id: minicpm-v-4-6
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 53.4
+  device: iPhone 17 Pro
+  compute_unit: GPU
+  precision: unknown
+  environment: iOS 27 beta, coreai-pipelined engine
+  observed: '2026-06-25'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: Decode throughput from upstream README table.
+- id: minicpm-v-4-6-m4max-gpu-toks
+  model_id: minicpm-v-4-6
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 224.3
+  device: M4 Max
+  compute_unit: GPU
+  precision: unknown
+  environment: macOS 27 beta, coreai-pipelined engine
+  observed: '2026-06-25'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: Decode throughput from upstream README table.
+- id: qwen3-6-35b-a3b-m4max-gpu-toks
+  model_id: qwen3-6-35b-a3b
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 64.9
+  device: M4 Max
+  compute_unit: GPU
+  precision: unknown
+  environment: macOS 27 beta, coreai-pipelined engine
+  observed: '2026-06-25'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: Decode throughput from upstream README table. MoE; custom gather_qmm Metal kernel per upstream caveat.
+- id: qwen3-6-27b-m4max-gpu-toks
+  model_id: qwen3-6-27b
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 15.9
+  device: M4 Max
+  compute_unit: GPU
+  precision: unknown
+  environment: macOS 27 beta, coreai-pipelined engine
+  observed: '2026-06-25'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: Decode throughput from upstream README table.
+- id: glm-4-7-flash-m4max-gpu-toks
+  model_id: glm-4-7-flash
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 52.4
+  device: M4 Max
+  compute_unit: GPU
+  precision: unknown
+  environment: macOS 27 beta, coreai-pipelined engine
+  observed: '2026-06-25'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: Decode throughput from upstream README table. MoE + MLA; custom Metal kernel per upstream caveat.
+- id: gemma-4-12b-m4max-gpu-int8-toks
+  model_id: gemma-4-12b
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 23
+  device: M4 Max
+  compute_unit: GPU
+  precision: int8
+  environment: macOS 27 beta, coreai-pipelined engine
+  observed: '2026-06-25'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: Decode throughput from upstream README table. int8; custom flash-decode kernel.
+- id: gemma-4-12b-m4max-gpu-int4-toks
+  model_id: gemma-4-12b
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 33
+  device: M4 Max
+  compute_unit: GPU
+  precision: int4
+  environment: macOS 27 beta, coreai-pipelined engine
+  observed: '2026-06-25'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: Decode throughput from upstream README table. int4; custom flash-decode kernel.
+- id: gemma-4-31b-m4max-gpu-int4-toks
+  model_id: gemma-4-31b
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 17.2
+  device: M4 Max
+  compute_unit: GPU
+  precision: int4
+  environment: macOS 27 beta, coreai-pipelined engine
+  observed: '2026-06-25'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: Decode throughput from upstream README table. custom flash-decode kernel.
+- id: official-gpt-oss-20b-m4max-gpu-toks
+  model_id: official-gpt-oss-20b
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 78.1
+  device: M4 Max
+  compute_unit: GPU
+  precision: unknown
+  environment: stock CoreAI runtime, M4 Max
+  observed: '2026-06-25'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: Decode throughput from upstream official/ performance table (512/1024 greedy, 5 trials).
+- id: official-qwen3-0-6b-m4max-gpu-toks
+  model_id: official-qwen3-0-6b
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 484
+  device: M4 Max
+  compute_unit: GPU
+  precision: unknown
+  environment: stock CoreAI runtime, M4 Max
+  observed: '2026-06-25'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: Decode throughput from upstream official/ performance table (512/1024 greedy, 5 trials).
+- id: official-qwen3-4b-m4max-gpu-toks
+  model_id: official-qwen3-4b
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 145.4
+  device: M4 Max
+  compute_unit: GPU
+  precision: unknown
+  environment: stock CoreAI runtime, M4 Max
+  observed: '2026-06-25'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: Decode throughput from upstream official/ performance table (512/1024 greedy, 5 trials).
+- id: official-qwen3-8b-m4max-gpu-toks
+  model_id: official-qwen3-8b
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 94.1
+  device: M4 Max
+  compute_unit: GPU
+  precision: unknown
+  environment: stock CoreAI runtime, M4 Max
+  observed: '2026-06-25'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: Decode throughput from upstream official/ performance table (512/1024 greedy, 5 trials).
+- id: official-gemma-3-4b-it-m4max-gpu-toks
+  model_id: official-gemma-3-4b-it
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 141.5
+  device: M4 Max
+  compute_unit: GPU
+  precision: unknown
+  environment: stock CoreAI runtime, M4 Max
+  observed: '2026-06-25'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: Decode throughput from upstream official/ performance table (512/1024 greedy, 5 trials).
+- id: official-gemma-3-12b-it-m4max-gpu-toks
+  model_id: official-gemma-3-12b-it
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 55.0
+  device: M4 Max
+  compute_unit: GPU
+  precision: unknown
+  environment: stock CoreAI runtime, M4 Max
+  observed: '2026-06-25'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: Decode throughput from upstream official/ performance table (512/1024 greedy, 5 trials).
+- id: official-mistral-7b-v0-3-m4max-gpu-toks
+  model_id: official-mistral-7b-v0-3
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 101.7
+  device: M4 Max
+  compute_unit: GPU
+  precision: unknown
+  environment: stock CoreAI runtime, M4 Max
+  observed: '2026-06-25'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: Decode throughput from upstream official/ performance table (512/1024 greedy, 5 trials).
+- id: official-flux-2-klein-4b-m4max-gpu-latency
+  model_id: official-flux-2-klein-4b
+  metric: image_generation_latency
+  unit: seconds
+  value: 17.4
+  device: M4 Max
+  compute_unit: GPU
+  precision: unknown
+  environment: stock CoreAI runtime, M4 Max
+  observed: '2026-06-25'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: From upstream official/ table. 1024px at 4 steps; stock CoreAIDiffusionPipeline.
+- id: official-sam-3-m4max-gpu-latency
+  model_id: official-sam-3
+  metric: segmentation_latency
+  unit: seconds_per_image
+  value: 0.55
+  device: M4 Max
+  compute_unit: GPU
+  precision: unknown
+  environment: stock CoreAI runtime, M4 Max
+  observed: '2026-06-25'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: From upstream official/ table. Warm; stock CoreAIImageSegmenter.
+- id: official-whisper-large-v3-turbo-m4max-gpu-latency
+  model_id: official-whisper-large-v3-turbo
+  metric: transcription_latency
+  unit: seconds_per_token
+  value: 0.18
+  device: M4 Max
+  compute_unit: GPU
+  precision: unknown
+  environment: stock CoreAI runtime, M4 Max
+  observed: '2026-06-25'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: From upstream official/ table. Warm; stock CoreAITranscribe.
+- id: official-qwen3-0-6b-m4max-gpu-macos26-toks
+  model_id: official-qwen3-0-6b
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 1121
+  device: M4 Max
+  compute_unit: GPU
+  precision: unknown
+  environment: macOS 26
+  observed: '2026-06-24'
+  source: john-rocky-coreai-model-zoo
+  confidence: needs_review
+  superseded_by: official-qwen3-0-6b-m4max-gpu-toks
+  notes: Figure recorded at catalog authoring (macOS 26); not reproduced in current upstream, which reports 484 tok/s on M4
+    Max (macOS 27 beta). Retained for provenance.
+- id: minicpm5-1b-iphone17pro-gpu-toks
+  model_id: minicpm5-1b
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 66.8
+  device: iPhone 17 Pro
+  compute_unit: GPU
+  precision: int8
+  environment: iOS 27 beta, coreai-pipelined engine
+  observed: '2026-06-29'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: Decode throughput from upstream README table. int8 lossless (24/24 exact vs HF).
+- id: minicpm5-1b-m4max-gpu-toks
+  model_id: minicpm5-1b
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 59.4
+  device: M4 Max
+  compute_unit: GPU
+  precision: int8
+  environment: macOS 27 beta, coreai-pipelined engine
+  observed: '2026-06-29'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: Decode throughput from upstream README table.
+- id: fastcontext-1-0-4b-iphone17pro-gpu-toks
+  model_id: fastcontext-1-0-4b
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 20.4
+  device: iPhone 17 Pro
+  compute_unit: GPU
+  precision: int4
+  environment: iOS 27 beta, coreai-pipelined engine, AOT h18p
+  observed: '2026-06-29'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: Decode throughput from upstream README table. ANE inference unsupported.
+- id: bitcpm-8b-iphone17pro-gpu-toks
+  model_id: bitcpm-8b
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 17
+  device: iPhone 17 Pro
+  compute_unit: GPU
+  precision: 1.58-bit ternary
+  environment: iOS 27 beta, coreai-pipelined engine, AOT h18p
+  observed: '2026-06-29'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: Decode throughput from upstream README table. Custom 2-bit packed-GEMM kernel; ~2.1 GB resident.
+- id: bitcpm-8b-m4max-gpu-toks
+  model_id: bitcpm-8b
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 62.7
+  device: M4 Max
+  compute_unit: GPU
+  precision: 1.58-bit ternary
+  environment: macOS 27 beta, coreai-pipelined engine
+  observed: '2026-06-29'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: Decode throughput from upstream README table. Engine token-identical to torch ternary reference.
+- id: yolox-s-m4max-gpu-latency
+  model_id: yolox-s
+  metric: inference_latency
+  unit: milliseconds
+  value: 4.8
+  device: M4 Max
+  compute_unit: GPU
+  precision: fp32
+  environment: macOS 27 beta, median of 80
+  observed: '2026-06-29'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: Median inference latency; 208 FPS on M4 Max GPU.
+- id: yolox-s-iphone17pro-gpu-latency
+  model_id: yolox-s
+  metric: inference_latency
+  unit: milliseconds
+  value: 22
+  device: iPhone 17 Pro
+  compute_unit: GPU
+  precision: fp32
+  environment: iOS 27 beta, Release, Low Power Mode ON
+  observed: '2026-06-29'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: ~45 model FPS on-device; first load specializes in ~2.6s.
+- id: parakeet-tdt-0-6b-iphone17pro-gpu-rtf
+  model_id: parakeet-tdt-0-6b
+  metric: realtime_factor
+  unit: frames_per_second
+  value: 47.9
+  device: iPhone 17 Pro
+  compute_unit: GPU
+  precision: fp16
+  environment: iOS 27 beta, Release, AOT h18p encoder
+  observed: '2026-06-29'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: 14.84s clip transcribes in 0.31s warm (47.9× real-time). AOT-compiled encoder bundle.
+- id: rf-detr-nano-m4max-gpu-latency
+  model_id: rf-detr-nano
+  metric: inference_latency
+  unit: milliseconds
+  value: 8.6
+  device: M4 Max
+  compute_unit: GPU
+  precision: fp32
+  environment: macOS 27 beta, median
+  observed: '2026-06-29'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: ~116 FPS on M4 Max GPU. iPhone 17 Pro ~25ms / 33-39 FPS end-to-end.
+- id: rf-detr-small-m4max-gpu-latency
+  model_id: rf-detr-small
+  metric: inference_latency
+  unit: milliseconds
+  value: 12.0
+  device: M4 Max
+  compute_unit: GPU
+  precision: fp32
+  environment: macOS 27 beta, median
+  observed: '2026-06-29'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: ~83 FPS on M4 Max GPU.
+- id: rf-detr-medium-m4max-gpu-latency
+  model_id: rf-detr-medium
+  metric: inference_latency
+  unit: milliseconds
+  value: 14.8
+  device: M4 Max
+  compute_unit: GPU
+  precision: fp32
+  environment: macOS 27 beta, median
+  observed: '2026-06-29'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: ~68 FPS on M4 Max GPU. iPhone 17 Pro 56-63ms / 15-17 FPS.
+- id: rf-detr-large-m4max-gpu-latency
+  model_id: rf-detr-large
+  metric: inference_latency
+  unit: milliseconds
+  value: 19.1
+  device: M4 Max
+  compute_unit: GPU
+  precision: fp32
+  environment: macOS 27 beta, median
+  observed: '2026-06-29'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: ~52 FPS on M4 Max GPU.
+- id: depth-anything-3-small-m4max-gpu-latency
+  model_id: depth-anything-3-small
+  metric: inference_latency
+  unit: milliseconds
+  value: 15.2
+  device: M4 Max
+  compute_unit: GPU
+  precision: fp16
+  environment: macOS 27 beta
+  observed: '2026-06-29'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: ~65.7 FPS; 54.5 MB. iPhone hero config.
+- id: depth-anything-3-base-m4max-gpu-latency
+  model_id: depth-anything-3-base
+  metric: inference_latency
+  unit: milliseconds
+  value: 37.7
+  device: M4 Max
+  compute_unit: GPU
+  precision: fp16
+  environment: macOS 27 beta
+  observed: '2026-06-29'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: ~26.5 FPS; 202 MB.
+- id: qwen3-embedding-0-6b-m4max-gpu-latency
+  model_id: qwen3-embedding-0-6b
+  metric: inference_latency
+  unit: milliseconds
+  value: 12.0
+  device: M4 Max
+  compute_unit: GPU
+  precision: fp16
+  environment: macOS 27 beta, S=512 grid, warm
+  observed: '2026-06-29'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: ~83 embeddings/s at S=512 grid. Cosine 0.999998 vs torch reference.
+- id: qwen3-reranker-0-6b-m4max-gpu-latency
+  model_id: qwen3-reranker-0-6b
+  metric: inference_latency
+  unit: milliseconds
+  value: 45.7
+  device: M4 Max
+  compute_unit: GPU
+  precision: fp16
+  environment: macOS 27 beta, S=512 grid, warm
+  observed: '2026-06-29'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: ~22 pair-scores/s at S=512 grid. P(yes) within |Δ| < 0.0005.
+- id: qwen3-vl-2b-iphone17pro-gpu-toks
+  model_id: qwen3-vl-2b
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 33.5
+  device: iPhone 17 Pro
+  compute_unit: GPU
+  precision: int8hu
+  environment: iOS 27 beta, pipelined engine, settled
+  observed: '2026-06-29'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: Multimodal oracle 24/24 × 8 runs — token-identical to M4 Max. ~92% of naive BW ceiling.
+- id: qwen3-vl-2b-m4max-gpu-toks
+  model_id: qwen3-vl-2b
+  metric: decode_throughput
+  unit: tokens_per_second
+  value: 191.0
+  device: M4 Max
+  compute_unit: GPU
+  precision: int8hu
+  environment: macOS 27 beta, pipelined engine
+  observed: '2026-06-29'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: Multimodal sweep 4/4 + decode 16/16 token-exact vs fp32-HF.
+- id: gemma-4-e4b-m4max-gpu-toks-extra
+  model_id: gemma-4-e4b
+  metric: prefill_latency
+  unit: tokens_per_second
+  value: 53.2
+  device: M4 Max
+  compute_unit: GPU
+  precision: int4lin-QAT
+  environment: macOS 27 beta, pipelined engine, COREAI_CHUNK_THRESHOLD=1
+  observed: '2026-06-29'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: Prefill throughput from upstream card. 3.7 GB bundle.
+- id: parakeet-tdt-0-6b-m4max-gpu-latency
+  model_id: parakeet-tdt-0-6b
+  metric: transcription_latency
+  unit: milliseconds
+  value: 310
+  device: M4 Max
+  compute_unit: GPU
+  precision: fp16
+  environment: macOS 27 beta, warm, 14.84s clip
+  observed: '2026-06-29'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: 0.31s for a 14.84s clip warm; AOT-compiled encoder bundle loads in 3.9s.
+- id: voxcpm-0-5b-iphone17pro-gpu-rtf
+  model_id: voxcpm-0-5b
+  metric: realtime_factor
+  unit: frames_per_second
+  value: 0.9
+  device: iPhone 17 Pro
+  compute_unit: GPU
+  precision: int8
+  environment: iOS 27 beta, pipelined engine, AOT h18p, streaming mode
+  observed: '2026-06-29'
+  source: john-rocky-coreai-model-zoo
+  confidence: medium
+  notes: RTF ~0.9 with int8 backbone + streaming. First-audio 0.43s. 12.5 Hz token rate.
+- id: adcsr-x4-iphone17pro-gpu-latency
+  model_id: adcsr-x4
+  metric: inference_latency
+  unit: milliseconds
+  value: null
+  device: iPhone 17 Pro
+  compute_unit: GPU
+  precision: fp32
+  environment: iOS 27 beta, 128→512 tile, ~2.7GB peak
+  observed: '2026-06-29'
+  source: john-rocky-coreai-model-zoo
+  confidence: low
+  notes: fp32 ship precision; tiling + feather-blend on host. Value not published as single-tile ms; iPhone 17 Pro verified.

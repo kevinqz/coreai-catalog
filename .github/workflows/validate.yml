@@ -12,11 +12,38 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+
+      - name: Cache pip dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: ${{ runner.os }}-pip-
+
       - run: pip install -r requirements.txt
       - run: python scripts/validate.py
       - run: python scripts/generate_docs.py
       - run: python scripts/generate_artifact_docs.py
       - run: python scripts/generate_terms_docs.py
       - run: python scripts/export_json.py
+
       - name: Ensure generated docs are in sync with YAML source
         run: git diff --exit-code docs/model-registry.md docs/artifact-provenance.md docs/apple-terminology-map.md
+
+      - name: Verify JSON exports are non-empty
+        run: |
+          for f in dist/catalog.json dist/artifacts.json dist/benchmarks.json dist/sources.json dist/upstreams.json dist/terms.json dist/coreai-catalog.json; do
+            if [ ! -s "$f" ]; then
+              echo "ERROR: $f is empty or missing"
+              exit 1
+            fi
+            echo "OK: $f ($(wc -c < "$f") bytes)"
+          done
+
+      - name: Upload JSON exports
+        uses: actions/upload-artifact@v4
+        if: github.ref == 'refs/heads/main'
+        with:
+          name: coreai-catalog-json
+          path: dist/
+          retention-days: 30

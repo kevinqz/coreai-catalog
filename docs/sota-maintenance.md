@@ -75,6 +75,7 @@ These files are curated manually until generators are expanded:
 python scripts/validate.py
 python scripts/generate_docs.py
 python scripts/generate_artifact_docs.py
+python scripts/generate_terms_docs.py
 python scripts/export_json.py
 ```
 
