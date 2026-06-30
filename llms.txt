@@ -1,0 +1,80 @@
+# CoreAI Catalog
+
+> A source-grounded catalog of 78+ Apple Core AI models, artifacts, benchmarks,
+> provenance, and a verified Apple AI terminology layer.
+
+CoreAI Catalog helps you discover, compare, verify, and install Apple Core AI
+models. It maps Core AI-compatible model artifacts with granular metadata,
+source links, Hugging Face artifact references, runtime requirements, device
+support, benchmark records, and verification status.
+
+## Catalog facts
+
+- 78 model records (chat, vision-language, speech, embeddings, detection, more)
+- 78 artifact provenance records (Hugging Face + GitHub sources)
+- 66 benchmark records (throughput, latency, RTF — iPhone + Mac)
+- 42 verified Apple AI terminology entries (each citing an official source)
+- 8 independent Hugging Face converters indexed (multi-upstream)
+- Readiness scores (0-100) for deployment decision-making
+
+## How to use this data
+
+### For humans
+
+```bash
+pip install -e .
+coreai-catalog search --capability vision-language --device iphone
+coreai-catalog recommend --task "robot vision" --device iphone
+coreai-catalog show qwen3-vl-2b
+coreai-catalog install qwen3-vl-2b
+coreai-catalog doctor
+```
+
+### For agents and automation
+
+Machine-readable JSON exports:
+
+- `dist/catalog.json` — all model records
+- `dist/artifacts.json` — all artifact provenance records
+- `dist/benchmarks.json` — all benchmark measurements
+- `dist/search-index.json` — flattened, denormalized model entries with joined data
+- `dist/models.jsonl` — one model per line (streaming-friendly)
+- `dist/readiness-scores.json` — 0-100 deployment readiness scores
+- `dist/coreai-catalog.json` — everything bundled
+
+MCP server (for Claude Desktop, Cursor, MCP-compatible agents):
+
+```json
+{
+  "mcpServers": {
+    "coreai-catalog": {
+      "command": "python",
+      "args": ["mcp_server/server.py"]
+    }
+  }
+}
+```
+
+Available MCP tools: `search_models`, `get_model`, `compare_models`,
+`recommend_model`, `check_license`, `get_benchmarks`, `get_artifact`,
+`explain_term`, `get_capabilities`.
+
+## Key files
+
+- `catalog.yaml` — model metadata (source of truth)
+- `artifacts.yaml` — converted artifact provenance
+- `benchmarks.yaml` — normalized benchmark measurements
+- `terms.yaml` — verified Apple AI terminology
+- `upstreams.yaml` — source taxonomy
+- `AGENTS.md` — instructions for AI agents consuming the catalog
+- `docs/data-model.md` — entity model and relationships
+
+## What this catalog is NOT
+
+- Not affiliated with or endorsed by Apple
+- Not a model host — it does not redistribute weights or artifacts
+- Not legal advice — `commercial_use` fields are triage labels, not permissions
+
+## Source URL
+
+https://github.com/kevinqz/coreai-catalog

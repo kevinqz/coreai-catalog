@@ -14,9 +14,9 @@ Not affiliated with or endorsed by Apple. `commercial_use` fields are triage lab
 
 ## Status
 
-**Version:** v1.0
+**Version:** v1.1
 
-v1.0 ships the CLI: `pip install -e .` gives you `coreai-catalog` with 8 commands — search, show, list, scores, compare, recommend, install, and doctor. The install command resolves Hugging Face artifacts, downloads them, writes a local manifest, and generates a Swift integration snippet. Doctor checks Python, Xcode, coreai-torch, coreai-opt, huggingface-cli, and disk space. It builds on v0.9, which added the decision layer (query, recommend, readiness score, search index, comparison tables).
+v1.1 adds the Agent API: an MCP server with 9 tools (`search_models`, `get_model`, `compare_models`, `recommend_model`, `check_license`, `get_benchmarks`, `get_artifact`, `explain_term`, `get_capabilities`), `llms.txt` for LLM discovery, and agent skills for model selection and license triage. Agents can now discover, compare, and recommend Core AI models without scraping or reading READMEs. It builds on v1.0, which shipped the CLI with 8 commands including install and doctor.
 
 ## Why this exists
 
@@ -99,6 +99,13 @@ coreai-catalog/
 │   ├── cli.py
 │   ├── catalog.py
 │   └── installer.py
+├── mcp_server/
+│   ├── __init__.py
+│   └── server.py
+├── skills/
+│   ├── coreai-model-selection/
+│   └── coreai-license-triage/
+├── llms.txt
 ├── docs/
 │   ├── index.md
 │   ├── model-registry.md
@@ -400,6 +407,74 @@ coreai-catalog doctor                        # checks Python, Xcode, coreai-torc
 ```
 
 All commands support `--json` for programmatic consumption by agents and automation.
+
+## MCP server (Agent API)
+
+The catalog ships an [MCP server](https://modelcontextprotocol.io/) that exposes 9 tools to AI agents (Claude Desktop, Cursor, any MCP-compatible client).
+
+### Setup
+
+```bash
+pip install -e ".[mcp]"
+```
+
+### Configure in Claude Desktop
+
+Add to `~/Library/Application Support/Claude/claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "coreai-catalog": {
+      "command": "python",
+      "args": ["mcp_server/server.py"]
+    }
+  }
+}
+```
+
+Or use the installed entry point:
+
+```json
+{
+  "mcpServers": {
+    "coreai-catalog": {
+      "command": "coreai-catalog-mcp"
+    }
+  }
+}
+```
+
+### Available tools
+
+| Tool | Description |
+|---|---|
+| `search_models` | Filter by capability, device, license, family, source, modality |
+| `get_model` | Full model details: capabilities, runtime, provenance, benchmarks |
+| `compare_models` | Side-by-side comparison of 2+ models |
+| `recommend_model` | Task-based recommendations (40 task synonyms mapped) |
+| `check_license` | License and commercial use triage for a model |
+| `get_benchmarks` | All benchmark records for a model |
+| `get_artifact` | Artifact provenance and download info |
+| `explain_term` | Apple AI terminology lookup (42 verified terms) |
+| `get_capabilities` | List all capabilities with model counts |
+
+### Example agent interaction
+
+```
+User: I need a vision-language model that runs on iPhone for robot perception.
+
+Agent calls: search_models(capability="vision-language", device="iphone")
+→ Returns 6 candidates with readiness scores
+
+Agent calls: compare_models(["qwen3-vl-2b", "minicpm-v-4-6"])
+→ Returns side-by-side comparison
+
+Agent calls: check_license("qwen3-vl-2b")
+→ Returns Apache-2.0, commercial_use: likely
+
+Agent recommends: Qwen3-VL 2B — benchmarked, iPhone-supported, Apache-2.0
+```
 
 ## Query and decision
 

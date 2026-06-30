@@ -49,15 +49,24 @@ jobs:
           python scripts/readiness_score.py
 
       # ── CLI smoke test ──
-      - name: Install and test CLI
+      - name: Install and test CLI + MCP
         run: |
-          pip install -e .
+          pip install -e ".[mcp]"
           coreai-catalog --help
           coreai-catalog list --capability chat | head -5
           coreai-catalog show qwen3-vl-2b
           coreai-catalog recommend --task "robot vision" --device iphone
           coreai-catalog scores | head -5
           coreai-catalog doctor || true
+          # MCP server smoke test
+          python -c "
+          import sys; sys.path.insert(0, '.')
+          from mcp_server.server import mcp
+          tools = mcp._tool_manager._tools
+          print(f'MCP tools: {len(tools)}')
+          assert len(tools) == 9, f'Expected 9 tools, got {len(tools)}'
+          print('MCP server OK')
+          "
 
       # ── Sync gates ──
       - name: Ensure generated docs are in sync with YAML source
