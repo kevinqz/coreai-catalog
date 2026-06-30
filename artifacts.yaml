@@ -1,7 +1,7 @@
 metadata:
   name: Core AI Catalog artifact provenance
   last_verified: '2026-06-29'
-  count: 65
+  count: 78
 artifacts:
 - id: qwen3-5-0-8b
   group: zoo
@@ -914,3 +914,186 @@ artifacts:
     apple_export_recipe: false
     apple_hosted_artifact: false
     community_packaged: true
+- id: whisper-large-v3-turbo-carstenl
+  group: external
+  github:
+    owner: CarstenL
+    repo: whisper-large-v3-turbo-coreai
+    path: https://huggingface.co/CarstenL/whisper-large-v3-turbo-coreai
+  huggingface:
+    owner: CarstenL
+    repo: whisper-large-v3-turbo-coreai
+    url: https://huggingface.co/CarstenL/whisper-large-v3-turbo-coreai
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: false
+- id: whisper-tiny-en-intiser
+  group: external
+  github:
+    owner: Intiser
+    repo: whisper-coreai
+    path: null
+  huggingface:
+    owner: Intiser
+    repo: whisper-tiny-en-coreai
+    url: https://huggingface.co/Intiser/whisper-tiny-en-coreai
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: false
+- id: whisper-medium-intiser
+  group: external
+  github:
+    owner: Intiser
+    repo: whisper-coreai
+    path: null
+  huggingface:
+    owner: Intiser
+    repo: whisper-medium-coreai
+    url: https://huggingface.co/Intiser/whisper-medium-coreai
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: false
+- id: gemma-4-12b-mm-warshanks
+  group: external
+  github:
+    owner: warshanks
+    repo: gemma-4-12B-it-coreai
+    path: https://huggingface.co/warshanks/gemma-4-12B-it-coreai
+  huggingface:
+    owner: warshanks
+    repo: gemma-4-12B-it-coreai
+    url: https://huggingface.co/warshanks/gemma-4-12B-it-coreai
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: false
+- id: gemma-4-12b-assistant-warshanks
+  group: external
+  github:
+    owner: warshanks
+    repo: gemma-4-12B-it-assistant-coreai
+    path: https://huggingface.co/warshanks/gemma-4-12B-it-assistant-coreai
+  huggingface:
+    owner: warshanks
+    repo: gemma-4-12B-it-assistant-coreai
+    url: https://huggingface.co/warshanks/gemma-4-12B-it-assistant-coreai
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: false
+- id: vibevoice-0-5b
+  group: external
+  github:
+    owner: gafiatulin
+    repo: vibevoice-coreai
+    path: https://github.com/gafiatulin/vibevoice-coreai
+  huggingface:
+    owner: gafiatulin
+    repo: vibevoice-0.5b-coreai
+    url: https://huggingface.co/gafiatulin/vibevoice-0.5b-coreai
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: false
+- id: vibevoice-1-5b
+  group: external
+  github:
+    owner: gafiatulin
+    repo: vibevoice-coreai
+    path: https://github.com/gafiatulin/vibevoice-coreai
+  huggingface:
+    owner: gafiatulin
+    repo: vibevoice-1.5b-coreai
+    url: https://huggingface.co/gafiatulin/vibevoice-1.5b-coreai
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: false
+- id: vibevoice-7b
+  group: external
+  github:
+    owner: gafiatulin
+    repo: vibevoice-coreai
+    path: https://github.com/gafiatulin/vibevoice-coreai
+  huggingface:
+    owner: gafiatulin
+    repo: vibevoice-7b-coreai
+    url: https://huggingface.co/gafiatulin/vibevoice-7b-coreai
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: false
+- id: vibevoice-asr
+  group: external
+  github:
+    owner: gafiatulin
+    repo: vibevoice-coreai
+    path: https://github.com/gafiatulin/vibevoice-coreai
+  huggingface:
+    owner: gafiatulin
+    repo: vibevoice-asr-coreai
+    url: https://huggingface.co/gafiatulin/vibevoice-asr-coreai
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: false
+- id: nemotron-3-5-asr-streaming
+  group: external
+  github:
+    owner: mweinbach
+    repo: NemotronCoreAI
+    path: https://github.com/mweinbach/NemotronCoreAI
+  huggingface:
+    owner: mweinbach
+    repo: nemotron-3.5-asr-streaming-0.6b-coreai
+    url: https://huggingface.co/mweinbach/nemotron-3.5-asr-streaming-0.6b-coreai
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: false
+- id: z-image-turbo
+  group: external
+  github:
+    owner: bryanbblewis11
+    repo: CoreAI-models
+    path: null
+  huggingface:
+    owner: bryanbblewis11
+    repo: Z-Image-Turbo-CoreAI
+    url: https://huggingface.co/bryanbblewis11/Z-Image-Turbo-CoreAI
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: false
+- id: real-esrgan-x4v3
+  group: external
+  github:
+    owner: bryanbblewis11
+    repo: CoreAI-models
+    path: null
+  huggingface:
+    owner: bryanbblewis11
+    repo: RealESRGAN-x4v3-CoreAI
+    url: https://huggingface.co/bryanbblewis11/RealESRGAN-x4v3-CoreAI
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: false
+- id: efficientsam3-tinyvit
+  group: external
+  github:
+    owner: lenitas
+    repo: coreai-artifacts
+    path: https://huggingface.co/lenitas/coreai-artifacts
+  huggingface:
+    owner: lenitas
+    repo: coreai-artifacts
+    path: tree/main/artifacts/efficientsam3-tinyvit/default
+    url: https://huggingface.co/lenitas/coreai-artifacts/tree/main/artifacts/efficientsam3-tinyvit/default
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: false

@@ -69,3 +69,16 @@ Generated from `artifacts.yaml`.
 | llada-8b-dllm | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/LLaDA-8B-dLLM-CoreAI | False | False |
 | bitvla | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/BitVLA-CoreAI | False | False |
 | stable-audio-open-small | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/Stable-Audio-Open-Small-CoreAI | False | False |
+| whisper-large-v3-turbo-carstenl | external | CarstenL/whisper-large-v3-turbo-coreai | CarstenL/whisper-large-v3-turbo-coreai | False | False |
+| whisper-tiny-en-intiser | external | Intiser/whisper-coreai | Intiser/whisper-tiny-en-coreai | False | False |
+| whisper-medium-intiser | external | Intiser/whisper-coreai | Intiser/whisper-medium-coreai | False | False |
+| gemma-4-12b-mm-warshanks | external | warshanks/gemma-4-12B-it-coreai | warshanks/gemma-4-12B-it-coreai | False | False |
+| gemma-4-12b-assistant-warshanks | external | warshanks/gemma-4-12B-it-assistant-coreai | warshanks/gemma-4-12B-it-assistant-coreai | False | False |
+| vibevoice-0-5b | external | gafiatulin/vibevoice-coreai | gafiatulin/vibevoice-0.5b-coreai | False | False |
+| vibevoice-1-5b | external | gafiatulin/vibevoice-coreai | gafiatulin/vibevoice-1.5b-coreai | False | False |
+| vibevoice-7b | external | gafiatulin/vibevoice-coreai | gafiatulin/vibevoice-7b-coreai | False | False |
+| vibevoice-asr | external | gafiatulin/vibevoice-coreai | gafiatulin/vibevoice-asr-coreai | False | False |
+| nemotron-3-5-asr-streaming | external | mweinbach/NemotronCoreAI | mweinbach/nemotron-3.5-asr-streaming-0.6b-coreai | False | False |
+| z-image-turbo | external | bryanbblewis11/CoreAI-models | bryanbblewis11/Z-Image-Turbo-CoreAI | False | False |
+| real-esrgan-x4v3 | external | bryanbblewis11/CoreAI-models | bryanbblewis11/RealESRGAN-x4v3-CoreAI | False | False |
+| efficientsam3-tinyvit | external | lenitas/coreai-artifacts | lenitas/coreai-artifacts | False | False |

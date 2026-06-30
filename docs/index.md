@@ -17,11 +17,11 @@
 
 ## Counts
 
-- Models: 65
-- Artifacts: 65
-- Sources: 13
-- Upstream taxonomy entries: 53
-- Benchmark records: 61
+- Models: 78
+- Artifacts: 78
+- Sources: 20
+- Upstream taxonomy entries: 65
+- Benchmark records: 66
 - Terminology records: 42
 
 > Counts are generated automatically by `scripts/generate_index.py`. Never edit this section manually.

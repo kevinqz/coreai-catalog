@@ -14,9 +14,9 @@ Not affiliated with or endorsed by Apple. `commercial_use` fields are triage lab
 
 ## Status
 
-**Version:** v0.7
+**Version:** v0.8
 
-v0.7 hardens the foundation: generates docs/index.md automatically (ending stale count drift), fixes a duplicate upstream group in audit.py, adds Hugging Face sub-path support for artifact records, adds AGENTS.md for agent consumption, CONTRIBUTING.md for submissions, docs/data-model.md for the entity model, and hardens CI to detect stale generated docs. It builds on v0.6, which backfilled technical metadata from model cards (24 models updated), added 13 non-LLM benchmarks, expanded terminology to 42 terms, and mapped the complete source ecosystem.
+v0.8 expands coverage beyond the primary zoo upstream: 13 new models cataloged from 7 independent Hugging Face converters (warshanks, gafiatulin, mweinbach, CarstenL, Intiser, bryanbblewis11, lenitas). Adds realtime_factor benchmark unit, expands the upstream sync scanner to search the full Hugging Face API (all owners, not just mlboydaisuke), and adds 12 new upstream taxonomy entries. It builds on v0.7, which hardened the foundation with auto-generated docs index, AGENTS.md, CONTRIBUTING.md, data-model documentation, and Hugging Face sub-path support.
 
 ## Why this exists
 
@@ -39,12 +39,12 @@ The goal is not to run models directly. The goal is to know, precisely and trace
 
 | Area | Count / status |
 |---|---:|
-| Model records | 65 |
-| Artifact provenance records | 65 |
-| Source records | 13 |
+| Model records | 78 |
+| Artifact provenance records | 78 |
+| Source records | 20 |
 | Main upstreams | 2 |
-| Upstream taxonomy layers | 7 |
-| Benchmark records | 61 |
+| Upstream taxonomy entries | 65 |
+| Benchmark records | 66 |
 | Terminology records | 42 |
 | JSON exports | generated via script |
 

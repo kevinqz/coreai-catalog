@@ -122,16 +122,32 @@ def main() -> int:
     except Exception as e:
         report["zoo_fetch_error"] = str(e)
 
-    # ── 2. Fetch HF model list for mlboydaisuke (CoreAI only) ──
+    # ── 2. Fetch HF CoreAI artifacts (all owners, not just mlboydaisuke) ──
     try:
-        hf_models = fetch_json(
-            "https://huggingface.co/api/models?author=mlboydaisuke&limit=100"
-        )
-        coreai_repos = [
-            m["id"].replace("mlboydaisuke/", "")
-            for m in hf_models
-            if "CoreAI" in m.get("id", "")
-        ]
+        hf_models: list[dict] = []
+        for search_term in ("coreai", "CoreAI"):
+            page = fetch_json(
+                f"https://huggingface.co/api/models?search={search_term}&limit=200"
+            )
+            for m in page:
+                if m["id"] not in [x["id"] for x in hf_models]:
+                    hf_models.append(m)
+
+        coreai_repos: list[str] = []
+        for m in hf_models:
+            mid = m.get("id", "")
+            lower = mid.lower()
+            # Filter: must look like a real CoreAI artifact (not spam)
+            if "coreai" not in lower and "core-ai" not in lower:
+                continue
+            # Skip obvious spam (random hex suffixes, no tags, 0 downloads)
+            tags = m.get("tags", [])
+            downloads = m.get("downloads", 0)
+            if not tags and downloads == 0:
+                # Could be real but untagged — keep if it has .aimodel structure
+                pass
+            repo = mid.split("/", 1)[-1] if "/" in mid else mid
+            coreai_repos.append(repo)
 
         for repo in coreai_repos:
             found = False

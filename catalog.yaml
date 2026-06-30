@@ -1,8 +1,8 @@
 metadata:
   name: Core AI Catalog
   repo: coreai-catalog
-  version: 0.6.0
-  last_verified: '2026-06-29'
+  version: 0.8.0
+  last_verified: '2026-06-30'
   upstream:
   - coreai-model-zoo
   - apple/coreai-models
@@ -3091,3 +3091,604 @@ models:
   last_verified: '2026-06-29'
   notes: 'First generative audio model. Latent diffusion: T5 encoder + DiT (8-step rectified-flow) + Oobleck VAE. ~11s 44.1
     kHz stereo in ~0.4s on M4 Max (≈30× real-time).'
+- id: whisper-large-v3-turbo-carstenl
+  name: Whisper large-v3-turbo (CarstenL)
+  family: Whisper
+  source_group: external
+  artifact_ref: whisper-large-v3-turbo-carstenl
+  source_path: https://huggingface.co/CarstenL/whisper-large-v3-turbo-coreai
+  capabilities:
+  - speech-to-text
+  modalities:
+    input:
+    - audio
+    output:
+    - transcript
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 809M
+    precision: fp16
+    quantization: none
+    artifact_size: 3.1GB
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAITranscribe
+    stock_runtime: true
+    custom_kernel: false
+    patch_required: false
+    tokenizer_required: false
+    processor_required: true
+    aot_required: false
+  device_support:
+    iphone: unknown
+    ipad: unknown
+    mac: true
+    mac_only: false
+  license:
+    name: Apache-2.0
+    commercial_use: likely
+  status: confirmed
+  maturity: active
+  confidence: medium
+  sources:
+  - carstenl-whisper-coreai
+  last_verified: '2026-06-30'
+  notes: Independent conversion with split encoder/decoder .aimodel bundles. 99 languages.
+- id: whisper-tiny-en-intiser
+  name: Whisper tiny.en (Intiser)
+  family: Whisper
+  source_group: external
+  artifact_ref: whisper-tiny-en-intiser
+  source_path: https://huggingface.co/Intiser/whisper-tiny-en-coreai
+  capabilities:
+  - speech-to-text
+  modalities:
+    input:
+    - audio
+    output:
+    - transcript
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 39M
+    precision: fp16
+    quantization: none
+    artifact_size: not_published
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAITranscribe
+    stock_runtime: true
+    custom_kernel: false
+    patch_required: false
+    tokenizer_required: false
+    processor_required: true
+    aot_required: false
+  device_support:
+    iphone: unknown
+    ipad: unknown
+    mac: true
+    mac_only: false
+  license:
+    name: MIT
+    commercial_use: likely
+  status: confirmed
+  maturity: active
+  confidence: medium
+  sources:
+  - intiser-whisper-coreai
+  last_verified: '2026-06-30'
+  notes: English-only Whisper tiny variant. Minimal footprint ASR.
+- id: whisper-medium-intiser
+  name: Whisper medium (Intiser)
+  family: Whisper
+  source_group: external
+  artifact_ref: whisper-medium-intiser
+  source_path: https://huggingface.co/Intiser/whisper-medium-coreai
+  capabilities:
+  - speech-to-text
+  modalities:
+    input:
+    - audio
+    output:
+    - transcript
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 769M
+    precision: fp16
+    quantization: none
+    artifact_size: not_published
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAITranscribe
+    stock_runtime: true
+    custom_kernel: false
+    patch_required: false
+    tokenizer_required: false
+    processor_required: true
+    aot_required: false
+  device_support:
+    iphone: unknown
+    ipad: unknown
+    mac: true
+    mac_only: false
+  license:
+    name: MIT
+    commercial_use: likely
+  status: confirmed
+  maturity: active
+  confidence: medium
+  sources:
+  - intiser-whisper-coreai
+  last_verified: '2026-06-30'
+  notes: Multilingual Whisper medium variant.
+- id: gemma-4-12b-mm-warshanks
+  name: Gemma 4 12B IT Multimodal (warshanks)
+  family: Gemma
+  source_group: external
+  artifact_ref: gemma-4-12b-mm-warshanks
+  source_path: https://huggingface.co/warshanks/gemma-4-12B-it-coreai
+  capabilities:
+  - chat
+  - vision-language
+  - text-generation
+  modalities:
+    input:
+    - text
+    - image
+    - audio
+    output:
+    - text
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 12B
+    precision: int4
+    quantization: int4linsym
+    artifact_size: 6.4GB
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: false
+    custom_kernel: false
+    patch_required: true
+    tokenizer_required: true
+    processor_required: true
+    aot_required: false
+  device_support:
+    iphone: false
+    ipad: unknown
+    mac: true
+    mac_only: true
+  license:
+    name: Apache-2.0
+    commercial_use: likely
+  status: confirmed
+  maturity: experimental
+  confidence: medium
+  sources:
+  - warshanks-gemma-4-12b-coreai
+  last_verified: '2026-06-30'
+  notes: 'First multimodal Gemma 4 conversion: text+image+audio input via encoder-free
+    architecture. Custom conversion recipe extending coreai-models. INT4 block-32 weight-only
+    decoder. Multi-function bundle (main, prefill_multimodal, embed_vision, embed_audio).'
+- id: gemma-4-12b-assistant-warshanks
+  name: Gemma 4 12B IT Assistant (MTP draft)
+  family: Gemma
+  source_group: external
+  artifact_ref: gemma-4-12b-assistant-warshanks
+  source_path: https://huggingface.co/warshanks/gemma-4-12B-it-assistant-coreai
+  capabilities:
+  - speculative-decoding
+  modalities:
+    input:
+    - text
+    output:
+    - text
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 12B
+    precision: int4
+    quantization: int4linsym
+    artifact_size: not_published
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: false
+    custom_kernel: false
+    patch_required: true
+    tokenizer_required: true
+    processor_required: false
+    aot_required: false
+  device_support:
+    iphone: false
+    ipad: unknown
+    mac: true
+    mac_only: true
+  license:
+    name: Apache-2.0
+    commercial_use: likely
+  status: confirmed
+  maturity: experimental
+  confidence: medium
+  sources:
+  - warshanks-gemma-4-12b-coreai
+  last_verified: '2026-06-30'
+  notes: 'Multi-token-prediction draft model for speculative decoding with Gemma 4
+    12B. Cross-attends main model KV cache (layers 46/47) zero-copy. ~3ms/step on
+    M4 Max vs ~21ms for the 12B. Companion to warshanks/gemma-4-12B-it-coreai.'
+- id: vibevoice-0-5b
+  name: VibeVoice 0.5B
+  family: VibeVoice
+  source_group: external
+  artifact_ref: vibevoice-0-5b
+  source_path: https://huggingface.co/gafiatulin/vibevoice-0.5b-coreai
+  capabilities:
+  - text-to-speech
+  modalities:
+    input:
+    - text
+    output:
+    - audio
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 0.5B
+    precision: fp16
+    quantization: int4
+    artifact_size: not_published
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: false
+    custom_kernel: false
+    patch_required: false
+    tokenizer_required: true
+    processor_required: true
+    aot_required: false
+  device_support:
+    iphone: false
+    ipad: unknown
+    mac: true
+    mac_only: true
+  license:
+    name: MIT
+    commercial_use: likely
+  status: confirmed
+  maturity: experimental
+  confidence: medium
+  sources:
+  - gafiatulin-vibevoice-coreai
+  last_verified: '2026-06-30'
+  notes: 'Streaming TTS with 0.5B Qwen2 backbone. 10.2x RTF on M4 Max. Multi-bundle
+    pipeline: LM + diffusion sampler + acoustic decoder/connector. Microsoft VibeVoice
+    original weights.'
+- id: vibevoice-1-5b
+  name: VibeVoice 1.5B
+  family: VibeVoice
+  source_group: external
+  artifact_ref: vibevoice-1-5b
+  source_path: https://huggingface.co/gafiatulin/vibevoice-1.5b-coreai
+  capabilities:
+  - text-to-speech
+  modalities:
+    input:
+    - text
+    output:
+    - audio
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 1.5B
+    precision: fp16
+    quantization: int8
+    artifact_size: not_published
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: false
+    custom_kernel: false
+    patch_required: false
+    tokenizer_required: true
+    processor_required: true
+    aot_required: false
+  device_support:
+    iphone: false
+    ipad: unknown
+    mac: true
+    mac_only: true
+  license:
+    name: MIT
+    commercial_use: likely
+  status: confirmed
+  maturity: experimental
+  confidence: medium
+  sources:
+  - gafiatulin-vibevoice-coreai
+  last_verified: '2026-06-30'
+  notes: 'Multi-speaker TTS with 1.5B Qwen2 backbone. INT8 LM. 4.99x RTF on M4 Max.'
+- id: vibevoice-7b
+  name: VibeVoice 7B
+  family: VibeVoice
+  source_group: external
+  artifact_ref: vibevoice-7b
+  source_path: https://huggingface.co/gafiatulin/vibevoice-7b-coreai
+  capabilities:
+  - text-to-speech
+  modalities:
+    input:
+    - text
+    output:
+    - audio
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 7B
+    precision: fp16
+    quantization: int8
+    artifact_size: not_published
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: false
+    custom_kernel: false
+    patch_required: false
+    tokenizer_required: true
+    processor_required: true
+    aot_required: false
+  device_support:
+    iphone: false
+    ipad: unknown
+    mac: true
+    mac_only: true
+  license:
+    name: MIT
+    commercial_use: likely
+  status: confirmed
+  maturity: experimental
+  confidence: medium
+  sources:
+  - gafiatulin-vibevoice-coreai
+  last_verified: '2026-06-30'
+  notes: 'High-quality multi-speaker TTS with 7B Qwen2 backbone. INT8/4 LM. 2.37x
+    RTF on M4 Max.'
+- id: vibevoice-asr
+  name: VibeVoice ASR
+  family: VibeVoice
+  source_group: external
+  artifact_ref: vibevoice-asr
+  source_path: https://huggingface.co/gafiatulin/vibevoice-asr-coreai
+  capabilities:
+  - speech-to-text
+  modalities:
+    input:
+    - audio
+    output:
+    - transcript
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 7B
+    precision: fp16
+    quantization: int8
+    artifact_size: not_published
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: false
+    custom_kernel: false
+    patch_required: false
+    tokenizer_required: true
+    processor_required: true
+    aot_required: false
+  device_support:
+    iphone: false
+    ipad: unknown
+    mac: true
+    mac_only: true
+  license:
+    name: MIT
+    commercial_use: likely
+  status: confirmed
+  maturity: experimental
+  confidence: medium
+  sources:
+  - gafiatulin-vibevoice-coreai
+  last_verified: '2026-06-30'
+  notes: 'On-device transcription, Qwen2-7B. INT8/4 LM. 11.1x RTF on M4 Max. Microsoft
+    VibeVoice ASR original weights.'
+- id: nemotron-3-5-asr-streaming
+  name: Nemotron 3.5 ASR Streaming 0.6B
+  family: Nemotron
+  source_group: external
+  artifact_ref: nemotron-3-5-asr-streaming
+  source_path: https://huggingface.co/mweinbach/nemotron-3.5-asr-streaming-0.6b-coreai
+  capabilities:
+  - speech-to-text
+  modalities:
+    input:
+    - audio
+    output:
+    - transcript
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 0.6B
+    precision: fp16
+    quantization: none
+    artifact_size: not_published
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAITranscribe
+    stock_runtime: true
+    custom_kernel: false
+    patch_required: false
+    tokenizer_required: false
+    processor_required: true
+    aot_required: true
+  device_support:
+    iphone: true
+    ipad: unknown
+    mac: true
+    mac_only: false
+  license:
+    name: OpenMDW-1.1
+    commercial_use: check_license
+  status: confirmed
+  maturity: experimental
+  confidence: high
+  sources:
+  - mweinbach-nemotron-coreai
+  last_verified: '2026-06-30'
+  notes: 'NVIDIA FastConformer + RNN-T streaming ASR. Cache-aware 320ms encoder mode.
+    AOT artifacts for iOS (A19 h18p) + macOS (M3-M5). Companion Swift package mweinbach/NemotronCoreAI.
+    Multiple quantization variants (int8, lut6, lut8). 174 files.'
+- id: z-image-turbo
+  name: Z-Image Turbo
+  family: Z-Image
+  source_group: external
+  artifact_ref: z-image-turbo
+  source_path: https://huggingface.co/bryanbblewis11/Z-Image-Turbo-CoreAI
+  capabilities:
+  - image-generation
+  modalities:
+    input:
+    - text
+    output:
+    - image
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: not_published
+    precision: fp16
+    quantization: none
+    artifact_size: not_published
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIDiffusionPipeline
+    stock_runtime: false
+    custom_kernel: false
+    patch_required: false
+    tokenizer_required: true
+    processor_required: true
+    aot_required: false
+  device_support:
+    iphone: true
+    ipad: true
+    mac: true
+    mac_only: false
+  license:
+    name: Apache-2.0
+    commercial_use: likely
+  status: confirmed
+  maturity: experimental
+  confidence: medium
+  sources:
+  - bryanbblewis11-coreai
+  last_verified: '2026-06-30'
+  notes: 'Tongyi-MAI Z-Image Turbo text-to-image. GPU (fast-512) and ANE (ane-1024,
+    hoisted-adaLN) bundles at 512 and 1024 resolution. For CoreAIStudio on macOS/iOS/iPadOS/visionOS.'
+- id: real-esrgan-x4v3
+  name: Real-ESRGAN x4v3
+  family: Real-ESRGAN
+  source_group: external
+  artifact_ref: real-esrgan-x4v3
+  source_path: https://huggingface.co/bryanbblewis11/RealESRGAN-x4v3-CoreAI
+  capabilities:
+  - super-resolution
+  modalities:
+    input:
+    - image
+    output:
+    - image
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: not_published
+    precision: fp16
+    quantization: none
+    artifact_size: not_published
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIImageSegmenter
+    stock_runtime: true
+    custom_kernel: false
+    patch_required: false
+    tokenizer_required: false
+    processor_required: false
+    aot_required: false
+  device_support:
+    iphone: unknown
+    ipad: unknown
+    mac: true
+    mac_only: false
+  license:
+    name: BSD-3-Clause
+    commercial_use: likely
+  status: confirmed
+  maturity: active
+  confidence: medium
+  sources:
+  - bryanbblewis11-coreai
+  last_verified: '2026-06-30'
+  notes: 4x super-resolution (SRVGGNetCompact). fp16, 256 tile size. For CoreAIStudio.
+- id: efficientsam3-tinyvit
+  name: EfficientSAM3-TinyViT
+  family: SAM
+  source_group: external
+  artifact_ref: efficientsam3-tinyvit
+  source_path: https://huggingface.co/lenitas/coreai-artifacts
+  capabilities:
+  - promptable-segmentation
+  modalities:
+    input:
+    - image
+    output:
+    - masks
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: not_published
+    precision: fp16
+    quantization: none
+    artifact_size: 374MB
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIImageSegmenter
+    stock_runtime: true
+    custom_kernel: false
+    patch_required: false
+    tokenizer_required: false
+    processor_required: true
+    aot_required: false
+  device_support:
+    iphone: true
+    ipad: unknown
+    mac: true
+    mac_only: false
+  license:
+    name: Apache-2.0
+    commercial_use: likely
+  status: confirmed
+  maturity: active
+  confidence: medium
+  sources:
+  - lenitas-coreai-artifacts
+  last_verified: '2026-06-30'
+  notes: Lightweight promptable segmentation. Hosted by Lenitas app distribution.
+    392MB total with tokenizer. SHA-256 verified.

@@ -44,7 +44,8 @@
         "seconds_per_token",
         "megabytes",
         "milliseconds",
-        "frames_per_second"
+        "frames_per_second",
+        "realtime_factor"
       ]
     },
     "value": { "type": ["number", "null"] },

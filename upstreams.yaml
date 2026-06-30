@@ -141,6 +141,76 @@ artifact_hosts:
   trust: artifact_host
   applies_to:
   - converted-coreai-artifacts
+- id: carstenl-hf
+  title: CarstenL on Hugging Face
+  category: artifact_host
+  platform: huggingface
+  owner: CarstenL
+  url: https://huggingface.co/CarstenL
+  trust: artifact_host
+  applies_to:
+  - whisper-large-v3-turbo-carstenl
+- id: intiser-hf
+  title: Intiser on Hugging Face
+  category: artifact_host
+  platform: huggingface
+  owner: Intiser
+  url: https://huggingface.co/Intiser
+  trust: artifact_host
+  applies_to:
+  - whisper-tiny-en-intiser
+  - whisper-medium-intiser
+- id: warshanks-hf
+  title: warshanks on Hugging Face
+  category: artifact_host
+  platform: huggingface
+  owner: warshanks
+  url: https://huggingface.co/warshanks
+  trust: artifact_host
+  applies_to:
+  - gemma-4-12b-mm-warshanks
+  - gemma-4-12b-assistant-warshanks
+- id: gafiatulin-hf
+  title: gafiatulin on Hugging Face
+  category: artifact_host
+  platform: huggingface
+  owner: gafiatulin
+  url: https://huggingface.co/gafiatulin
+  trust: artifact_host
+  applies_to:
+  - vibevoice-0-5b
+  - vibevoice-1-5b
+  - vibevoice-7b
+  - vibevoice-asr
+- id: mweinbach-hf
+  title: mweinbach on Hugging Face
+  category: artifact_host
+  platform: huggingface
+  owner: mweinbach
+  url: https://huggingface.co/mweinbach
+  trust: artifact_host
+  applies_to:
+  - nemotron-3-5-asr-streaming
+- id: bryanbblewis11-hf
+  title: bryanbblewis11 on Hugging Face
+  category: artifact_host
+  platform: huggingface
+  owner: bryanbblewis11
+  url: https://huggingface.co/bryanbblewis11
+  trust: artifact_host
+  applies_to:
+  - z-image-turbo
+  - real-esrgan-x4v3
+- id: lenitas-hf
+  title: lenitas on Hugging Face
+  category: artifact_host
+  platform: huggingface
+  owner: lenitas
+  url: https://huggingface.co/lenitas
+  trust: artifact_host
+  applies_to:
+  - efficientsam3-tinyvit
+
 benchmark_sources:
 - id: john-rocky-apple-silicon-llm-bench
   title: john-rocky/apple-silicon-llm-bench
@@ -488,6 +558,55 @@ original_model_sources:
   applies_to:
   - stable-audio-open-small
   notes: Generative audio; Stable Audio Open Small.
+- id: microsoft-vibevoice
+  title: Microsoft VibeVoice
+  category: original_model
+  platform: huggingface
+  owner: Microsoft
+  url: https://huggingface.co/microsoft
+  trust: original_model_primary
+  applies_to:
+  - vibevoice-0-5b
+  - vibevoice-1-5b
+  - vibevoice-7b
+  - vibevoice-asr
+- id: nvidia-nemotron
+  title: NVIDIA Nemotron ASR
+  category: original_model
+  platform: huggingface
+  owner: NVIDIA
+  url: https://huggingface.co/nvidia
+  trust: original_model_primary
+  applies_to:
+  - nemotron-3-5-asr-streaming
+- id: tongyi-mai-z-image
+  title: Tongyi-MAI Z-Image
+  category: original_model
+  platform: huggingface
+  owner: Tongyi-MAI
+  url: https://huggingface.co/Tongyi-MAI/Z-Image-Turbo
+  trust: original_model_primary
+  applies_to:
+  - z-image-turbo
+- id: xinntao-realesrgan
+  title: Real-ESRGAN (xinntao)
+  category: original_model
+  platform: github
+  owner: xinntao
+  url: https://github.com/xinntao/Real-ESRGAN
+  trust: original_model_primary
+  applies_to:
+  - real-esrgan-x4v3
+- id: facebook-efficientsam3
+  title: Meta EfficientSAM3
+  category: original_model
+  platform: huggingface
+  owner: Meta
+  url: https://huggingface.co/facebook
+  trust: original_model_primary
+  applies_to:
+  - efficientsam3-tinyvit
+
 license_sources:
 - id: apache-2-0
   title: Apache License 2.0

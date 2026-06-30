@@ -67,3 +67,16 @@
 | llada-8b-dllm | LLaDA-8B dLLM | zoo | LLaDA | chat, text-generation, diffusion-lm | text | text | 8B | Mac | MIT | confirmed |
 | bitvla | BitVLA | zoo | BitVLA | vision-language-action, robotics | image, text | action-tokens | 2B (BitNet b1.58) | iPhone/Mac | MIT | confirmed |
 | stable-audio-open-small | Stable Audio Open Small | zoo | Stable Audio | text-to-audio, music-generation | text | audio | unknown | Mac | Stability Community | confirmed |
+| whisper-large-v3-turbo-carstenl | Whisper large-v3-turbo (CarstenL) | external | Whisper | speech-to-text | audio | transcript | 809M | Mac | Apache-2.0 | confirmed |
+| whisper-tiny-en-intiser | Whisper tiny.en (Intiser) | external | Whisper | speech-to-text | audio | transcript | 39M | Mac | MIT | confirmed |
+| whisper-medium-intiser | Whisper medium (Intiser) | external | Whisper | speech-to-text | audio | transcript | 769M | Mac | MIT | confirmed |
+| gemma-4-12b-mm-warshanks | Gemma 4 12B IT Multimodal (warshanks) | external | Gemma | chat, vision-language, text-generation | text, image, audio | text | 12B | Mac | Apache-2.0 | confirmed |
+| gemma-4-12b-assistant-warshanks | Gemma 4 12B IT Assistant (MTP draft) | external | Gemma | speculative-decoding | text | text | 12B | Mac | Apache-2.0 | confirmed |
+| vibevoice-0-5b | VibeVoice 0.5B | external | VibeVoice | text-to-speech | text | audio | 0.5B | Mac | MIT | confirmed |
+| vibevoice-1-5b | VibeVoice 1.5B | external | VibeVoice | text-to-speech | text | audio | 1.5B | Mac | MIT | confirmed |
+| vibevoice-7b | VibeVoice 7B | external | VibeVoice | text-to-speech | text | audio | 7B | Mac | MIT | confirmed |
+| vibevoice-asr | VibeVoice ASR | external | VibeVoice | speech-to-text | audio | transcript | 7B | Mac | MIT | confirmed |
+| nemotron-3-5-asr-streaming | Nemotron 3.5 ASR Streaming 0.6B | external | Nemotron | speech-to-text | audio | transcript | 0.6B | iPhone/Mac | OpenMDW-1.1 | confirmed |
+| z-image-turbo | Z-Image Turbo | external | Z-Image | image-generation | text | image | not_published | iPhone/iPad/Mac | Apache-2.0 | confirmed |
+| real-esrgan-x4v3 | Real-ESRGAN x4v3 | external | Real-ESRGAN | super-resolution | image | image | not_published | Mac | BSD-3-Clause | confirmed |
+| efficientsam3-tinyvit | EfficientSAM3-TinyViT | external | SAM | promptable-segmentation | image | masks | not_published | iPhone/Mac | Apache-2.0 | confirmed |

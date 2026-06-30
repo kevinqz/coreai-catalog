@@ -137,3 +137,68 @@ sources:
   volatility: medium
   last_checked: '2026-06-24'
   notes: CoreAIChatMac samples referenced by upstream official README.
+- id: carstenl-whisper-coreai
+  title: CarstenL/whisper-large-v3-turbo-coreai
+  type: huggingface_repository
+  url: https://huggingface.co/CarstenL/whisper-large-v3-turbo-coreai
+  owner: CarstenL
+  trust: community_secondary
+  volatility: medium
+  last_checked: '2026-06-30'
+  notes: 'Independent Whisper large-v3-turbo Core AI conversion with split encoder/decoder bundles.'
+- id: intiser-whisper-coreai
+  title: Intiser Whisper CoreAI conversions
+  type: huggingface_user
+  url: https://huggingface.co/Intiser
+  owner: Intiser
+  trust: community_secondary
+  volatility: medium
+  last_checked: '2026-06-30'
+  notes: 'Whisper tiny.en, medium, and large-v3-turbo Core AI variants in fp16/fp32.'
+- id: warshanks-gemma-4-12b-coreai
+  title: warshanks Gemma 4 12B CoreAI conversions
+  type: huggingface_repository
+  url: https://huggingface.co/warshanks/gemma-4-12B-it-coreai
+  owner: warshanks
+  trust: community_secondary
+  volatility: medium
+  last_checked: '2026-06-30'
+  notes: 'First multimodal Gemma 4 Core AI conversion (text+image+audio). Custom conversion recipe extending coreai-models. Includes MTP draft model for speculative decoding. Used in Wyvern Chat.'
+- id: gafiatulin-vibevoice-coreai
+  title: gafiatulin VibeVoice CoreAI pipeline
+  type: github_repository
+  url: https://github.com/gafiatulin/vibevoice-coreai
+  owner: gafiatulin
+  repo: vibevoice-coreai
+  trust: community_secondary
+  volatility: medium
+  last_checked: '2026-06-30'
+  notes: 'VibeVoice TTS and ASR conversion pipeline. Microsoft VibeVoice original weights. 0.5B/1.5B/7B TTS + ASR variants.'
+- id: mweinbach-nemotron-coreai
+  title: mweinbach Nemotron 3.5 ASR CoreAI
+  type: github_repository
+  url: https://github.com/mweinbach/NemotronCoreAI
+  owner: mweinbach
+  repo: NemotronCoreAI
+  trust: community_secondary
+  volatility: medium
+  last_checked: '2026-06-30'
+  notes: 'NVIDIA Nemotron 3.5 streaming ASR with full AOT artifact matrix (iOS A19 + macOS M3-M5). Companion Swift package.'
+- id: bryanbblewis11-coreai
+  title: bryanbblewis11 CoreAI model conversions
+  type: huggingface_user
+  url: https://huggingface.co/bryanbblewis11
+  owner: bryanbblewis11
+  trust: community_secondary
+  volatility: medium
+  last_checked: '2026-06-30'
+  notes: 'Z-Image Turbo text-to-image and Real-ESRGAN super-resolution Core AI bundles. For CoreAIStudio.'
+- id: lenitas-coreai-artifacts
+  title: lenitas/coreai-artifacts
+  type: huggingface_repository
+  url: https://huggingface.co/lenitas/coreai-artifacts
+  owner: lenitas
+  trust: community_secondary
+  volatility: medium
+  last_checked: '2026-06-30'
+  notes: 'Hosted Core AI artifacts for Lenitas app. Includes EfficientSAM3-TinyViT and SAM3 variants with SHA-256 verified download index.'

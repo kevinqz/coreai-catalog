@@ -3,7 +3,7 @@ metadata:
   version: 0.6.0
   last_verified: '2026-06-29'
   status: active
-  count: 61
+  count: 66
   notes: Single source of truth for measurements. Each row carries device, compute unit, precision, environment and observed
     date. Append-only — superseded values are retained and marked via superseded_by with confidence needs_review, never overwritten.
 benchmarks:
@@ -802,3 +802,68 @@ benchmarks:
   source: john-rocky-coreai-model-zoo
   confidence: low
   notes: fp32 ship precision; tiling + feather-blend on host. Value not published as single-tile ms; iPhone 17 Pro verified.
+- id: vibevoice-0-5b-m4max-gpu-rtf
+  model_id: vibevoice-0-5b
+  metric: realtime_factor
+  unit: realtime_factor
+  value: 10.2
+  device: M4 Max
+  compute_unit: GPU
+  precision: fp16
+  environment: macOS 27 beta, Core AI
+  observed: '2026-06-30'
+  source: gafiatulin-vibevoice-coreai
+  confidence: medium
+  notes: 10.2x faster than real-time streaming TTS.
+- id: vibevoice-1-5b-m4max-gpu-rtf
+  model_id: vibevoice-1-5b
+  metric: realtime_factor
+  unit: realtime_factor
+  value: 4.99
+  device: M4 Max
+  compute_unit: GPU
+  precision: int8
+  environment: macOS 27 beta, Core AI
+  observed: '2026-06-30'
+  source: gafiatulin-vibevoice-coreai
+  confidence: medium
+  notes: 4.99x RTF multi-speaker TTS with INT8 LM.
+- id: vibevoice-7b-m4max-gpu-rtf
+  model_id: vibevoice-7b
+  metric: realtime_factor
+  unit: realtime_factor
+  value: 2.37
+  device: M4 Max
+  compute_unit: GPU
+  precision: int8
+  environment: macOS 27 beta, Core AI
+  observed: '2026-06-30'
+  source: gafiatulin-vibevoice-coreai
+  confidence: medium
+  notes: 2.37x RTF high-quality multi-speaker TTS with INT8/4 LM.
+- id: vibevoice-asr-m4max-gpu-rtf
+  model_id: vibevoice-asr
+  metric: realtime_factor
+  unit: realtime_factor
+  value: 11.1
+  device: M4 Max
+  compute_unit: GPU
+  precision: int8
+  environment: macOS 27 beta, Core AI
+  observed: '2026-06-30'
+  source: gafiatulin-vibevoice-coreai
+  confidence: medium
+  notes: 11.1x RTF on-device transcription.
+- id: gemma-4-12b-assistant-m4max-gpu-latency
+  model_id: gemma-4-12b-assistant-warshanks
+  metric: inference_latency
+  unit: milliseconds
+  value: 3
+  device: M4 Max
+  compute_unit: GPU
+  precision: int4
+  environment: macOS 27 beta, Core AI, draft model step
+  observed: '2026-06-30'
+  source: warshanks-gemma-4-12b-coreai
+  confidence: medium
+  notes: ~3ms per draft step vs ~21ms for the 12B main model.
