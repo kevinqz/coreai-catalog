@@ -197,7 +197,7 @@ class Catalog:
         return max(0, min(100, score))
 
 
-# Task → capability mapping (shared with recommend.py)
+# Task → capability mapping
 TASK_MAP: dict[str, list[str]] = {
     "robot vision": ["object-detection", "vision-language", "monocular-depth", "promptable-segmentation"],
     "object detection": ["object-detection"],

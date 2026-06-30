@@ -118,11 +118,7 @@ Before submitting a pull request, run **all** of these and ensure zero errors:
 ```bash
 python scripts/validate.py
 python scripts/audit.py
-python scripts/generate_docs.py
-python scripts/generate_artifact_docs.py
-python scripts/generate_terms_docs.py
-python scripts/generate_index.py
-python scripts/export_json.py
+python scripts/generate.py
 ```
 
 Then verify no generated files are out of sync:

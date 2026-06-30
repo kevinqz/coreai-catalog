@@ -148,7 +148,7 @@ promptable-segmentation, monocular-depth, image-generation, super-resolution,
 document-ocr, audio-understanding, music-generation, text-to-audio,
 text-to-video, gui-grounding, vision-language-action, robotics, reasoning,
 agentic, image-to-3d, image-text-similarity, visual-document-retrieval,
-moe, mla, speculative-decoding, instruction-following, diffusion-lm
+moe, mla, speculative-decoding, instruction-following, diffusion-lm, hybrid-llm
 
 ## Verified Apple AI terminology (42 terms)
 
