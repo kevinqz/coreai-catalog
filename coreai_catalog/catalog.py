@@ -13,6 +13,24 @@ from typing import Any
 
 import yaml
 
+#: Common abbreviations and aliases → canonical capability names.
+CAPABILITY_ALIASES: dict[str, str] = {
+    "vlm": "vision-language",
+    "vision": "vision-language",
+    "llm": "chat",
+    "asr": "speech-to-text",
+    "stt": "speech-to-text",
+    "tts": "text-to-speech",
+    "ocr": "document-ocr",
+    "rag": "embedding",
+    "clip": "image-text-similarity",
+    "vla": "vision-language-action",
+    "depth": "monocular-depth",
+    "segmentation": "promptable-segmentation",
+    "detection": "object-detection",
+    "coding": "text-generation",
+}
+
 
 def _find_catalog_root() -> Path:
     """Find the catalog root (where catalog.yaml lives)."""
@@ -130,11 +148,15 @@ class Catalog:
     ) -> list[dict]:
         """Filter models by criteria. Returns list of model dicts."""
         self._load()
+        # Normalize capability with aliases
+        if capability:
+            capability = CAPABILITY_ALIASES.get(capability.lower(), capability).lower()
         results = []
         for m in self._models:
             if capability:
                 caps = [c.lower() for c in m.get("capabilities", [])]
-                if capability.lower() not in caps:
+                # Exact match OR substring match (e.g. "vision" matches "vision-language")
+                if capability not in caps and not any(capability in c for c in caps):
                     continue
             if device:
                 ds = m.get("device_support", {})

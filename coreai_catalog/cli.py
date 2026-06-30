@@ -35,13 +35,16 @@ from .installer import (
 
 # ── Formatting helpers ──
 
-BOLD = "\033[1m"
-DIM = "\033[2m"
-GREEN = "\033[32m"
-YELLOW = "\033[33m"
-BLUE = "\033[34m"
-RED = "\033[31m"
-RESET = "\033[0m"
+#: Detect if stdout is a TTY. When not a TTY (piped to file), disable colors.
+_IS_TTY = sys.stdout.isatty()
+
+BOLD = "\033[1m" if _IS_TTY else ""
+DIM = "\033[2m" if _IS_TTY else ""
+GREEN = "\033[32m" if _IS_TTY else ""
+YELLOW = "\033[33m" if _IS_TTY else ""
+BLUE = "\033[34m" if _IS_TTY else ""
+RED = "\033[31m" if _IS_TTY else ""
+RESET = "\033[0m" if _IS_TTY else ""
 
 
 def _fmt_devices(ds: dict) -> str:
@@ -807,7 +810,18 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="coreai-catalog",
         description="Discover, compare, and install Core AI models for Apple Silicon.",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog=(
+            "Common tasks:\n"
+            "  coreai-catalog capabilities          # see all capabilities\n"
+            "  coreai-catalog search -c chat -d iphone  # find chat models for iPhone\n"
+            "  coreai-catalog recommend -t 'robot vision' -d iphone\n"
+            "  coreai-catalog show qwen3-vl-2b       # full model details\n"
+            "  coreai-catalog install qwen3-vl-2b    # download + Swift snippet\n"
+            "  coreai-catalog doctor                 # check your environment\n"
+        ),
     )
+    parser.add_argument("--no-color", action="store_true", help="Disable ANSI colors")
     sub = parser.add_subparsers(dest="command", help="Available commands")
 
     # search
@@ -891,6 +905,11 @@ def build_parser() -> argparse.ArgumentParser:
 def main() -> None:
     parser = build_parser()
     args = parser.parse_args()
+
+    # Apply --no-color by re-evaluating color constants
+    global BOLD, DIM, GREEN, YELLOW, BLUE, RED, RESET
+    if getattr(args, "no_color", False) or not _IS_TTY:
+        BOLD = DIM = GREEN = YELLOW = BLUE = RED = RESET = ""
 
     if not hasattr(args, "func"):
         parser.print_help()
