@@ -4,8 +4,7 @@ metadata:
   last_verified: '2026-06-29'
   status: active
   count: 66
-  notes: Single source of truth for measurements. Each row carries device, compute unit, precision, environment and observed
-    date. Append-only — superseded values are retained and marked via superseded_by with confidence needs_review, never overwritten.
+  notes: Single source of truth for measurements. Each row carries device, compute unit, precision, environment and observed date. Append-only — superseded values are retained and marked via superseded_by with confidence needs_review, never overwritten.
 benchmarks:
 - id: qwen3-5-0-8b-iphone17pro-gpu-toks
   model_id: qwen3-5-0-8b
@@ -14,12 +13,13 @@ benchmarks:
   value: 71.9
   device: iPhone 17 Pro
   compute_unit: GPU
-  precision: not_published
+  precision: inferred:int8
   environment: iOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: Decode throughput from upstream README table.
+  higher_is_better: true
 - id: qwen3-5-0-8b-iphone17pro-ane-toks
   model_id: qwen3-5-0-8b
   metric: decode_throughput
@@ -27,12 +27,13 @@ benchmarks:
   value: 14.7
   device: iPhone 17 Pro
   compute_unit: ANE
-  precision: not_published
+  precision: inferred:int8
   environment: iOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: Decode throughput from upstream README table.
+  higher_is_better: true
 - id: qwen3-5-0-8b-m4max-gpu-toks
   model_id: qwen3-5-0-8b
   metric: decode_throughput
@@ -40,12 +41,13 @@ benchmarks:
   value: 210
   device: M4 Max
   compute_unit: GPU
-  precision: not_published
+  precision: inferred:int8
   environment: macOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: Decode throughput from upstream README table.
+  higher_is_better: true
 - id: qwen3-5-2b-iphone17pro-gpu-toks
   model_id: qwen3-5-2b
   metric: decode_throughput
@@ -53,12 +55,13 @@ benchmarks:
   value: 29
   device: iPhone 17 Pro
   compute_unit: GPU
-  precision: not_published
+  precision: inferred:int8
   environment: iOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: Decode throughput from upstream README table.
+  higher_is_better: true
 - id: qwen3-5-2b-m4max-gpu-toks
   model_id: qwen3-5-2b
   metric: decode_throughput
@@ -66,12 +69,13 @@ benchmarks:
   value: 161
   device: M4 Max
   compute_unit: GPU
-  precision: not_published
+  precision: inferred:int8
   environment: macOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: Decode throughput from upstream README table.
+  higher_is_better: true
 - id: lfm2-5-1-2b-instruct-iphone17pro-gpu-toks
   model_id: lfm2-5-1-2b-instruct
   metric: decode_throughput
@@ -79,12 +83,13 @@ benchmarks:
   value: 45.4
   device: iPhone 17 Pro
   compute_unit: GPU
-  precision: not_published
+  precision: inferred:int8
   environment: iOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: Decode throughput from upstream README table.
+  higher_is_better: true
 - id: lfm2-5-1-2b-instruct-m4max-gpu-toks
   model_id: lfm2-5-1-2b-instruct
   metric: decode_throughput
@@ -92,12 +97,13 @@ benchmarks:
   value: 276.5
   device: M4 Max
   compute_unit: GPU
-  precision: not_published
+  precision: inferred:int8
   environment: macOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: Decode throughput from upstream README table.
+  higher_is_better: true
 - id: granite-4-0-h-1b-iphone17pro-gpu-toks
   model_id: granite-4-0-h-1b
   metric: decode_throughput
@@ -105,12 +111,13 @@ benchmarks:
   value: 36.3
   device: iPhone 17 Pro
   compute_unit: GPU
-  precision: not_published
+  precision: inferred:int8
   environment: iOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: Decode throughput from upstream README table.
+  higher_is_better: true
 - id: granite-4-0-h-1b-m4max-gpu-toks
   model_id: granite-4-0-h-1b
   metric: decode_throughput
@@ -118,12 +125,13 @@ benchmarks:
   value: 136.5
   device: M4 Max
   compute_unit: GPU
-  precision: not_published
+  precision: inferred:int8
   environment: macOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: Decode throughput from upstream README table.
+  higher_is_better: true
 - id: nanbeige4-1-3b-iphone17pro-gpu-toks
   model_id: nanbeige4-1-3b
   metric: decode_throughput
@@ -131,12 +139,13 @@ benchmarks:
   value: 15.9
   device: iPhone 17 Pro
   compute_unit: GPU
-  precision: not_published
+  precision: inferred:int8
   environment: iOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: Decode throughput from upstream README table.
+  higher_is_better: true
 - id: nanbeige4-1-3b-m4max-gpu-toks
   model_id: nanbeige4-1-3b
   metric: decode_throughput
@@ -144,12 +153,13 @@ benchmarks:
   value: 114.5
   device: M4 Max
   compute_unit: GPU
-  precision: not_published
+  precision: inferred:int8
   environment: macOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: Decode throughput from upstream README table.
+  higher_is_better: true
 - id: gemma-4-e2b-iphone17pro-gpu-toks
   model_id: gemma-4-e2b
   metric: decode_throughput
@@ -157,12 +167,13 @@ benchmarks:
   value: 30.3
   device: iPhone 17 Pro
   compute_unit: GPU
-  precision: not_published
+  precision: inferred:int4
   environment: iOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: Decode throughput from upstream README table.
+  higher_is_better: true
 - id: gemma-4-e2b-iphone17pro-gpu-qat-toks
   model_id: gemma-4-e2b
   metric: decode_throughput
@@ -176,6 +187,7 @@ benchmarks:
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: QAT-int4 variant from upstream README.
+  higher_is_better: true
 - id: gemma-4-e2b-iphone17pro-ane-toks
   model_id: gemma-4-e2b
   metric: decode_throughput
@@ -183,12 +195,13 @@ benchmarks:
   value: 6
   device: iPhone 17 Pro
   compute_unit: ANE
-  precision: not_published
+  precision: inferred:int4
   environment: iOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: Decode throughput from upstream README table.
+  higher_is_better: true
 - id: gemma-4-e2b-m4max-gpu-toks
   model_id: gemma-4-e2b
   metric: decode_throughput
@@ -196,12 +209,13 @@ benchmarks:
   value: 77.0
   device: M4 Max
   compute_unit: GPU
-  precision: not_published
+  precision: inferred:int4
   environment: macOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: Decode throughput from upstream README table.
+  higher_is_better: true
 - id: gemma-4-e2b-m4max-gpu-qat-toks
   model_id: gemma-4-e2b
   metric: decode_throughput
@@ -215,6 +229,7 @@ benchmarks:
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: QAT-int4 variant from upstream README.
+  higher_is_better: true
 - id: gemma-4-e4b-iphone17pro-gpu-toks
   model_id: gemma-4-e4b
   metric: decode_throughput
@@ -222,12 +237,13 @@ benchmarks:
   value: 15.1
   device: iPhone 17 Pro
   compute_unit: GPU
-  precision: not_published
+  precision: inferred:int4
   environment: iOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: Decode throughput from upstream README table.
+  higher_is_better: true
 - id: gemma-4-e4b-m4max-gpu-toks
   model_id: gemma-4-e4b
   metric: decode_throughput
@@ -235,12 +251,13 @@ benchmarks:
   value: 55.8
   device: M4 Max
   compute_unit: GPU
-  precision: not_published
+  precision: inferred:int4
   environment: macOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: Decode throughput from upstream README table.
+  higher_is_better: true
 - id: gemma-4-e2b-vision-iphone17pro-gpu-toks
   model_id: gemma-4-e2b-vision
   metric: decode_throughput
@@ -254,6 +271,7 @@ benchmarks:
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: Footprint 1.96 GB, headroom 4.5 GB. Vision encode ~100-170ms per image.
+  higher_is_better: true
 - id: gemma-4-e2b-vision-m4max-gpu-toks
   model_id: gemma-4-e2b-vision
   metric: decode_throughput
@@ -261,12 +279,13 @@ benchmarks:
   value: 82.4
   device: M4 Max
   compute_unit: GPU
-  precision: not_published
+  precision: inferred:int4
   environment: macOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: Decode throughput from upstream README table.
+  higher_is_better: true
 - id: minicpm-v-4-6-iphone17pro-gpu-toks
   model_id: minicpm-v-4-6
   metric: decode_throughput
@@ -274,12 +293,13 @@ benchmarks:
   value: 53.4
   device: iPhone 17 Pro
   compute_unit: GPU
-  precision: not_published
+  precision: inferred:int8
   environment: iOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: Decode throughput from upstream README table.
+  higher_is_better: true
 - id: minicpm-v-4-6-m4max-gpu-toks
   model_id: minicpm-v-4-6
   metric: decode_throughput
@@ -287,12 +307,13 @@ benchmarks:
   value: 224.3
   device: M4 Max
   compute_unit: GPU
-  precision: not_published
+  precision: inferred:int8
   environment: macOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: Decode throughput from upstream README table.
+  higher_is_better: true
 - id: qwen3-6-35b-a3b-m4max-gpu-toks
   model_id: qwen3-6-35b-a3b
   metric: decode_throughput
@@ -300,12 +321,13 @@ benchmarks:
   value: 64.9
   device: M4 Max
   compute_unit: GPU
-  precision: not_published
+  precision: inferred:int8
   environment: macOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: Decode throughput from upstream README table. MoE; custom gather_qmm Metal kernel per upstream caveat.
+  higher_is_better: true
 - id: qwen3-6-27b-m4max-gpu-toks
   model_id: qwen3-6-27b
   metric: decode_throughput
@@ -313,12 +335,13 @@ benchmarks:
   value: 15.9
   device: M4 Max
   compute_unit: GPU
-  precision: not_published
+  precision: inferred:int8
   environment: macOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: Decode throughput from upstream README table.
+  higher_is_better: true
 - id: glm-4-7-flash-m4max-gpu-toks
   model_id: glm-4-7-flash
   metric: decode_throughput
@@ -326,12 +349,13 @@ benchmarks:
   value: 52.4
   device: M4 Max
   compute_unit: GPU
-  precision: not_published
+  precision: inferred:int8
   environment: macOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: Decode throughput from upstream README table. MoE + MLA; custom Metal kernel per upstream caveat.
+  higher_is_better: true
 - id: gemma-4-12b-m4max-gpu-int8-toks
   model_id: gemma-4-12b
   metric: decode_throughput
@@ -345,6 +369,7 @@ benchmarks:
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: Decode throughput from upstream README table. int8; custom flash-decode kernel.
+  higher_is_better: true
 - id: gemma-4-12b-m4max-gpu-int4-toks
   model_id: gemma-4-12b
   metric: decode_throughput
@@ -358,6 +383,7 @@ benchmarks:
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: Decode throughput from upstream README table. int4; custom flash-decode kernel.
+  higher_is_better: true
 - id: gemma-4-31b-m4max-gpu-int4-toks
   model_id: gemma-4-31b
   metric: decode_throughput
@@ -371,6 +397,7 @@ benchmarks:
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: Decode throughput from upstream README table. custom flash-decode kernel.
+  higher_is_better: true
 - id: official-gpt-oss-20b-m4max-gpu-toks
   model_id: official-gpt-oss-20b
   metric: decode_throughput
@@ -378,12 +405,13 @@ benchmarks:
   value: 78.1
   device: M4 Max
   compute_unit: GPU
-  precision: not_published
+  precision: inferred:MXFP4
   environment: stock CoreAI runtime, M4 Max
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: Decode throughput from upstream official/ performance table (512/1024 greedy, 5 trials).
+  higher_is_better: true
 - id: official-qwen3-0-6b-m4max-gpu-toks
   model_id: official-qwen3-0-6b
   metric: decode_throughput
@@ -391,12 +419,13 @@ benchmarks:
   value: 484
   device: M4 Max
   compute_unit: GPU
-  precision: not_published
+  precision: inferred:int4
   environment: stock CoreAI runtime, M4 Max
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: Decode throughput from upstream official/ performance table (512/1024 greedy, 5 trials).
+  higher_is_better: true
 - id: official-qwen3-4b-m4max-gpu-toks
   model_id: official-qwen3-4b
   metric: decode_throughput
@@ -404,12 +433,13 @@ benchmarks:
   value: 145.4
   device: M4 Max
   compute_unit: GPU
-  precision: not_published
+  precision: inferred:int4
   environment: stock CoreAI runtime, M4 Max
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: Decode throughput from upstream official/ performance table (512/1024 greedy, 5 trials).
+  higher_is_better: true
 - id: official-qwen3-8b-m4max-gpu-toks
   model_id: official-qwen3-8b
   metric: decode_throughput
@@ -417,12 +447,13 @@ benchmarks:
   value: 94.1
   device: M4 Max
   compute_unit: GPU
-  precision: not_published
+  precision: inferred:int4
   environment: stock CoreAI runtime, M4 Max
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: Decode throughput from upstream official/ performance table (512/1024 greedy, 5 trials).
+  higher_is_better: true
 - id: official-gemma-3-4b-it-m4max-gpu-toks
   model_id: official-gemma-3-4b-it
   metric: decode_throughput
@@ -430,12 +461,13 @@ benchmarks:
   value: 141.5
   device: M4 Max
   compute_unit: GPU
-  precision: not_published
+  precision: inferred:int4
   environment: stock CoreAI runtime, M4 Max
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: Decode throughput from upstream official/ performance table (512/1024 greedy, 5 trials).
+  higher_is_better: true
 - id: official-gemma-3-12b-it-m4max-gpu-toks
   model_id: official-gemma-3-12b-it
   metric: decode_throughput
@@ -443,12 +475,13 @@ benchmarks:
   value: 55.0
   device: M4 Max
   compute_unit: GPU
-  precision: not_published
+  precision: inferred:int4
   environment: stock CoreAI runtime, M4 Max
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: Decode throughput from upstream official/ performance table (512/1024 greedy, 5 trials).
+  higher_is_better: true
 - id: official-mistral-7b-v0-3-m4max-gpu-toks
   model_id: official-mistral-7b-v0-3
   metric: decode_throughput
@@ -456,12 +489,13 @@ benchmarks:
   value: 101.7
   device: M4 Max
   compute_unit: GPU
-  precision: not_published
+  precision: inferred:int4
   environment: stock CoreAI runtime, M4 Max
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: Decode throughput from upstream official/ performance table (512/1024 greedy, 5 trials).
+  higher_is_better: true
 - id: official-flux-2-klein-4b-m4max-gpu-latency
   model_id: official-flux-2-klein-4b
   metric: image_generation_latency
@@ -469,12 +503,13 @@ benchmarks:
   value: 17.4
   device: M4 Max
   compute_unit: GPU
-  precision: not_published
+  precision: inferred:int4
   environment: stock CoreAI runtime, M4 Max
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: From upstream official/ table. 1024px at 4 steps; stock CoreAIDiffusionPipeline.
+  higher_is_better: false
 - id: official-sam-3-m4max-gpu-latency
   model_id: official-sam-3
   metric: segmentation_latency
@@ -482,12 +517,13 @@ benchmarks:
   value: 0.55
   device: M4 Max
   compute_unit: GPU
-  precision: not_published
+  precision: inferred:fp16
   environment: stock CoreAI runtime, M4 Max
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: From upstream official/ table. Warm; stock CoreAIImageSegmenter.
+  higher_is_better: false
 - id: official-whisper-large-v3-turbo-m4max-gpu-latency
   model_id: official-whisper-large-v3-turbo
   metric: transcription_latency
@@ -495,12 +531,13 @@ benchmarks:
   value: 180
   device: M4 Max
   compute_unit: GPU
-  precision: not_published
+  precision: inferred:fp16
   environment: stock CoreAI runtime, M4 Max
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: From upstream official/ table. Warm; stock CoreAITranscribe.
+  higher_is_better: false
 - id: official-qwen3-0-6b-m4max-gpu-macos26-toks
   model_id: official-qwen3-0-6b
   metric: decode_throughput
@@ -508,14 +545,14 @@ benchmarks:
   value: 1121
   device: M4 Max
   compute_unit: GPU
-  precision: not_published
+  precision: inferred:int4
   environment: macOS 26
   observed: '2026-06-24'
   source: john-rocky-coreai-model-zoo
   confidence: needs_review
   superseded_by: official-qwen3-0-6b-m4max-gpu-toks
-  notes: Figure recorded at catalog authoring (macOS 26); not reproduced in current upstream, which reports 484 tok/s on M4
-    Max (macOS 27 beta). Retained for provenance.
+  notes: Figure recorded at catalog authoring (macOS 26); not reproduced in current upstream, which reports 484 tok/s on M4 Max (macOS 27 beta). Retained for provenance.
+  higher_is_better: true
 - id: minicpm5-1b-iphone17pro-gpu-toks
   model_id: minicpm5-1b
   metric: decode_throughput
@@ -529,6 +566,7 @@ benchmarks:
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: Decode throughput from upstream README table. int8 lossless (24/24 exact vs HF).
+  higher_is_better: true
 - id: minicpm5-1b-m4max-gpu-toks
   model_id: minicpm5-1b
   metric: decode_throughput
@@ -542,6 +580,7 @@ benchmarks:
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: Decode throughput from upstream README table.
+  higher_is_better: true
 - id: fastcontext-1-0-4b-iphone17pro-gpu-toks
   model_id: fastcontext-1-0-4b
   metric: decode_throughput
@@ -555,6 +594,7 @@ benchmarks:
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: Decode throughput from upstream README table. ANE inference unsupported.
+  higher_is_better: true
 - id: bitcpm-8b-iphone17pro-gpu-toks
   model_id: bitcpm-8b
   metric: decode_throughput
@@ -568,6 +608,7 @@ benchmarks:
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: Decode throughput from upstream README table. Custom 2-bit packed-GEMM kernel; ~2.1 GB resident.
+  higher_is_better: true
 - id: bitcpm-8b-m4max-gpu-toks
   model_id: bitcpm-8b
   metric: decode_throughput
@@ -581,6 +622,7 @@ benchmarks:
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: Decode throughput from upstream README table. Engine token-identical to torch ternary reference.
+  higher_is_better: true
 - id: yolox-s-m4max-gpu-latency
   model_id: yolox-s
   metric: inference_latency
@@ -594,6 +636,7 @@ benchmarks:
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: Median inference latency; 208 FPS on M4 Max GPU.
+  higher_is_better: false
 - id: yolox-s-iphone17pro-gpu-latency
   model_id: yolox-s
   metric: inference_latency
@@ -607,6 +650,7 @@ benchmarks:
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: ~45 model FPS on-device; first load specializes in ~2.6s.
+  higher_is_better: false
 - id: parakeet-tdt-0-6b-iphone17pro-gpu-rtf
   model_id: parakeet-tdt-0-6b
   metric: realtime_factor
@@ -620,6 +664,7 @@ benchmarks:
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: 14.84s clip transcribes in 0.31s warm (47.9× real-time). AOT-compiled encoder bundle.
+  higher_is_better: true
 - id: rf-detr-nano-m4max-gpu-latency
   model_id: rf-detr-nano
   metric: inference_latency
@@ -633,6 +678,7 @@ benchmarks:
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: ~116 FPS on M4 Max GPU. iPhone 17 Pro ~25ms / 33-39 FPS end-to-end.
+  higher_is_better: false
 - id: rf-detr-small-m4max-gpu-latency
   model_id: rf-detr-small
   metric: inference_latency
@@ -646,6 +692,7 @@ benchmarks:
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: ~83 FPS on M4 Max GPU.
+  higher_is_better: false
 - id: rf-detr-medium-m4max-gpu-latency
   model_id: rf-detr-medium
   metric: inference_latency
@@ -659,6 +706,7 @@ benchmarks:
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: ~68 FPS on M4 Max GPU. iPhone 17 Pro 56-63ms / 15-17 FPS.
+  higher_is_better: false
 - id: rf-detr-large-m4max-gpu-latency
   model_id: rf-detr-large
   metric: inference_latency
@@ -672,6 +720,7 @@ benchmarks:
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: ~52 FPS on M4 Max GPU.
+  higher_is_better: false
 - id: depth-anything-3-small-m4max-gpu-latency
   model_id: depth-anything-3-small
   metric: inference_latency
@@ -685,6 +734,7 @@ benchmarks:
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: ~65.7 FPS; 54.5 MB. iPhone hero config.
+  higher_is_better: false
 - id: depth-anything-3-base-m4max-gpu-latency
   model_id: depth-anything-3-base
   metric: inference_latency
@@ -698,6 +748,7 @@ benchmarks:
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: ~26.5 FPS; 202 MB.
+  higher_is_better: false
 - id: qwen3-embedding-0-6b-m4max-gpu-latency
   model_id: qwen3-embedding-0-6b
   metric: inference_latency
@@ -711,6 +762,7 @@ benchmarks:
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: ~83 embeddings/s at S=512 grid. Cosine 0.999998 vs torch reference.
+  higher_is_better: false
 - id: qwen3-reranker-0-6b-m4max-gpu-latency
   model_id: qwen3-reranker-0-6b
   metric: inference_latency
@@ -724,6 +776,7 @@ benchmarks:
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: ~22 pair-scores/s at S=512 grid. P(yes) within |Δ| < 0.0005.
+  higher_is_better: false
 - id: qwen3-vl-2b-iphone17pro-gpu-toks
   model_id: qwen3-vl-2b
   metric: decode_throughput
@@ -737,6 +790,7 @@ benchmarks:
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: Multimodal oracle 24/24 × 8 runs — token-identical to M4 Max. ~92% of naive BW ceiling.
+  higher_is_better: true
 - id: qwen3-vl-2b-m4max-gpu-toks
   model_id: qwen3-vl-2b
   metric: decode_throughput
@@ -750,6 +804,7 @@ benchmarks:
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: Multimodal sweep 4/4 + decode 16/16 token-exact vs fp32-HF.
+  higher_is_better: true
 - id: gemma-4-e4b-m4max-gpu-toks-extra
   model_id: gemma-4-e4b
   metric: decode_throughput
@@ -763,6 +818,7 @@ benchmarks:
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: Prefill throughput from upstream card. 3.7 GB bundle.
+  higher_is_better: true
 - id: parakeet-tdt-0-6b-m4max-gpu-latency
   model_id: parakeet-tdt-0-6b
   metric: transcription_latency
@@ -776,6 +832,7 @@ benchmarks:
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: 0.31s for a 14.84s clip warm; AOT-compiled encoder bundle loads in 3.9s.
+  higher_is_better: false
 - id: voxcpm-0-5b-iphone17pro-gpu-rtf
   model_id: voxcpm-0-5b
   metric: realtime_factor
@@ -789,11 +846,12 @@ benchmarks:
   source: john-rocky-coreai-model-zoo
   confidence: medium
   notes: RTF ~0.9 with int8 backbone + streaming. First-audio 0.43s. 12.5 Hz token rate.
+  higher_is_better: true
 - id: adcsr-x4-iphone17pro-gpu-latency
   model_id: adcsr-x4
   metric: inference_latency
   unit: milliseconds
-  value: null
+  value:
   device: iPhone 17 Pro
   compute_unit: GPU
   precision: fp32
@@ -802,6 +860,7 @@ benchmarks:
   source: john-rocky-coreai-model-zoo
   confidence: low
   notes: fp32 ship precision; tiling + feather-blend on host. Value not published as single-tile ms; iPhone 17 Pro verified.
+  higher_is_better: false
 - id: vibevoice-0-5b-m4max-gpu-rtf
   model_id: vibevoice-0-5b
   metric: realtime_factor
@@ -815,6 +874,7 @@ benchmarks:
   source: gafiatulin-vibevoice-coreai
   confidence: medium
   notes: 10.2x faster than real-time streaming TTS.
+  higher_is_better: true
 - id: vibevoice-1-5b-m4max-gpu-rtf
   model_id: vibevoice-1-5b
   metric: realtime_factor
@@ -828,6 +888,7 @@ benchmarks:
   source: gafiatulin-vibevoice-coreai
   confidence: medium
   notes: 4.99x RTF multi-speaker TTS with INT8 LM.
+  higher_is_better: true
 - id: vibevoice-7b-m4max-gpu-rtf
   model_id: vibevoice-7b
   metric: realtime_factor
@@ -841,6 +902,7 @@ benchmarks:
   source: gafiatulin-vibevoice-coreai
   confidence: medium
   notes: 2.37x RTF high-quality multi-speaker TTS with INT8/4 LM.
+  higher_is_better: true
 - id: vibevoice-asr-m4max-gpu-rtf
   model_id: vibevoice-asr
   metric: realtime_factor
@@ -854,6 +916,7 @@ benchmarks:
   source: gafiatulin-vibevoice-coreai
   confidence: medium
   notes: 11.1x RTF on-device transcription.
+  higher_is_better: true
 - id: gemma-4-12b-assistant-m4max-gpu-latency
   model_id: gemma-4-12b-assistant-warshanks
   metric: inference_latency
@@ -867,3 +930,4 @@ benchmarks:
   source: warshanks-gemma-4-12b-coreai
   confidence: medium
   notes: ~3ms per draft step vs ~21ms for the 12B main model.
+  higher_is_better: false

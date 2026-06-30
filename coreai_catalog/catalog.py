@@ -231,8 +231,14 @@ class Catalog:
         results.sort(key=lambda m: self.readiness_score(m), reverse=True)
         return results
 
-    def readiness_score(self, model: dict) -> int:
-        """Calculate 0-100 readiness score for a model."""
+    def readiness_score(self, model: dict, task: str | None = None) -> int:
+        """Calculate 0-100 readiness score for a model.
+
+        When *task* is provided, a quality-proxy size bonus is applied:
+        for quality-sensitive tasks (chat, reasoning, code agent, etc.)
+        models with >2B parameters get +3 points. For on-device/edge/mobile
+        tasks, large models are NOT boosted (smaller is better).
+        """
         has_bench = bool(self._bench_by_model.get(model.get("id", "")))
         score = 0
         if model.get("artifact", {}).get("availability") == "available":
@@ -265,6 +271,17 @@ class Catalog:
             score -= 10
         if model.get("maturity") in ("stable", "active"):
             score += 5
+
+        # Quality-proxy: boost large models for quality-sensitive tasks
+        # unless the task explicitly targets on-device/edge/mobile.
+        if task and score > 0:
+            tl = task.lower()
+            is_edge = any(k in tl for k in ("on-device", "edge", "mobile"))
+            if not is_edge:
+                params = _parse_params(model.get("size", {}).get("parameters"))
+                if params != float("inf") and params > 2.0:
+                    score += 3
+
         return max(0, min(100, score))
 
     def recommend_models(
@@ -272,6 +289,8 @@ class Catalog:
         capabilities: list[str],
         device: str | None = None,
         limit: int = 5,
+        task: str | None = None,
+        license_type: str | None = None,
     ) -> list[dict]:
         """Unified model recommendation logic shared by CLI and MCP server.
 
@@ -302,7 +321,10 @@ class Catalog:
                 ds = m.get("device_support", {})
                 if ds.get(device.lower()) is not True:
                     continue
-            score = self.readiness_score(m)
+            if license_type:
+                if m.get("license", {}).get("commercial_use") != license_type:
+                    continue
+            score = self.readiness_score(m, task=task)
             if self._bench_by_model.get(m["id"]):
                 score += 5
             candidates.append({

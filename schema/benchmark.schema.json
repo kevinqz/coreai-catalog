@@ -68,6 +68,9 @@
       "type": "string",
       "enum": ["high", "medium", "low", "needs_review"]
     },
+    "higher_is_better": {
+      "type": "boolean"
+    },
     "superseded_by": { "type": ["string", "null"] },
     "notes": { "type": ["string", "null"] }
   }

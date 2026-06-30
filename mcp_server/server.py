@@ -268,6 +268,7 @@ def recommend_model(task: str, device: str | None = None, limit: int = 5) -> str
         capabilities=capabilities,
         device=device,
         limit=limit,
+        task=task,
     )
 
     return json.dumps({

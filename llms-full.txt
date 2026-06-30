@@ -172,6 +172,17 @@ Each term cites an official Apple source URL.
 4. **Officiality logic** — source_group: official → apple_export_recipe: true
 5. **Append-only benchmarks** — superseded values retained with confidence: needs_review
 
+## Derived fields
+
+Several fields are inferred from existing data rather than requiring upstream collection:
+
+- **`architecture`** — inferred from the `runner` field (e.g., CoreAIRunner → transformer, CoreAIDiffusionPipeline → diffusion, CoreAIImageSegmenter → cnn/transformer, CoreAITranscribe → transformer, CoreAIVideoPipeline → diffusion, CoreAIKit-GraphModel → encoder)
+- **`context_window`** — extracted from model `notes` where mentioned (e.g., "128K context")
+- **`streaming`** — inferred from model type: chat/text-generation/LLM models support streaming (`true`); detection, segmentation, embedding, and image models do not (`false`)
+- **`size.artifact_size`** — serves as a proxy for **minimum memory footprint**: the artifact must be fully loaded into memory at runtime, so `artifact_size` approximates the minimum RAM required to run the model on-device (actual peak memory may be higher due to KV cache, activation buffers, and framework overhead)
+- **Benchmark `precision`** — when the upstream benchmark source does not publish precision, it is inferred from the model's catalog precision and marked with an `inferred:` prefix
+- **Benchmark `higher_is_better`** — derived from the metric type: throughput/RTF metrics → `true`, latency/footprint metrics → `false`
+
 ## Canonical files
 
 | File | Purpose |

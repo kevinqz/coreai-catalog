@@ -489,14 +489,20 @@ def cmd_compare(args: argparse.Namespace) -> int:
         ("Capabilities", lambda m: ", ".join(m.get("capabilities", []))),
     ]
 
-    # Calculate column width
+    # Calculate column width — consider longest field value, not just name
     max_name = max(len(m["name"]) for m in all_models)
-    col_w = max(max_name, 12)
+    max_val = max_name
+    for label, getter in fields:
+        for m in all_models:
+            val_len = len(str(getter(m)))
+            if val_len > max_val:
+                max_val = val_len
+    col_w = min(max(max_val, 12), 40)  # cap at 40 to prevent extreme overflow
 
     # Header row
     print(f"  {'Field':15s}", end="")
     for m in all_models:
-        print(f"  {m['name']:{col_w}s}", end="")
+        print(f"  {m['name'][:col_w]:{col_w}s}", end="")
     print()
     print(f"  {'─' * 15}", end="")
     for _ in all_models:
@@ -506,7 +512,10 @@ def cmd_compare(args: argparse.Namespace) -> int:
     for label, getter in fields:
         print(f"  {label:15s}", end="")
         for m in all_models:
-            val = getter(m)
+            val = str(getter(m))
+            # Truncate long values to col_w
+            if len(val) > col_w:
+                val = val[: col_w - 1] + "…"
             print(f"  {val:{col_w}s}", end="")
         print()
     print()
@@ -520,6 +529,8 @@ def cmd_recommend(args: argparse.Namespace) -> int:
         capabilities=capabilities,
         device=args.device,
         limit=args.limit,
+        task=args.task,
+        license_type=getattr(args, "license", None),
     )
 
     if args.json:
@@ -632,13 +643,31 @@ def cmd_install(args: argparse.Namespace) -> int:
         dry_run=args.dry_run,
     )
 
-    print(f"\n  {GREEN}✅ Done.{RESET}")
-    print(f"  {BOLD}Next steps:{RESET}")
-    print(f"    View manifest:   cat {get_model_dir(model['id']) / 'manifest.json'}")
-    print(f"    Swift snippet:   cat {get_model_dir(model['id']) / 'snippet.swift'}")
-    print(f"    Uninstall:       coreai-catalog uninstall {model['id']}")
-    print()
-    return 0
+    # Report honestly based on the installation outcome
+    file_layout = manifest.get("verified", {}).get("file_layout", "not_checked")
+
+    if args.dry_run:
+        print(f"\n  {DIM}(dry run complete){RESET}\n")
+        return 0
+
+    if file_layout == "downloaded":
+        print(f"\n  {GREEN}✅ Done.{RESET}")
+        print(f"  {BOLD}Next steps:{RESET}")
+        print(f"    View manifest:   cat {get_model_dir(model['id']) / 'manifest.json'}")
+        print(f"    Swift snippet:   cat {get_model_dir(model['id']) / 'snippet.swift'}")
+        print(f"    Uninstall:       coreai-catalog uninstall {model['id']}")
+        print()
+        return 0
+    elif file_layout == "manual_required":
+        print(f"\n  {YELLOW}⚠️  Manifest written, but manual download required.{RESET}")
+        print(f"  {DIM}See manifest for the Hugging Face URL.{RESET}")
+        print()
+        return 0
+    else:
+        print(f"\n  {RED}❌ Installation failed (file_layout: {file_layout}).{RESET}")
+        print(f"  {DIM}Manifest written to: {get_model_dir(model['id']) / 'manifest.json'}{RESET}")
+        print()
+        return 1
 
 
 def cmd_uninstall(args: argparse.Namespace) -> int:
@@ -878,6 +907,8 @@ def build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("recommend", aliases=["rec"], help="Get model recommendations for a task")
     p.add_argument("-t", "--task", required=True, help="Task description (e.g. 'robot vision')")
     p.add_argument("-d", "--device", help="Target device (iphone, mac)")
+    p.add_argument("-l", "--license",
+                   help="Filter by commercial use (likely, check_license)")
     p.add_argument("-n", "--limit", type=int, default=5, help="Max results (default 5)")
     p.add_argument("--json", action="store_true", help="Output as JSON")
     p.set_defaults(func=cmd_recommend)

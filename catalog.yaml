@@ -6,8 +6,7 @@ metadata:
   upstream:
   - coreai-model-zoo
   - apple/coreai-models
-  description: Compact, source-grounded catalog of Apple Core AI models, artifacts, capabilities, modalities, runtime metadata,
-    device support and sources.
+  description: Compact, source-grounded catalog of Apple Core AI models, artifacts, capabilities, modalities, runtime metadata, device support and sources.
 models:
 - id: qwen3-5-0-8b
   name: Qwen3.5-0.8B
@@ -56,6 +55,8 @@ models:
   - coreai-model-zoo-zoo
   last_verified: '2026-06-24'
   notes: Top-1 exact vs Hugging Face reference according to upstream.
+  architecture: transformer
+  streaming: true
 - id: qwen3-5-2b
   name: Qwen3.5-2B
   family: Qwen
@@ -103,6 +104,8 @@ models:
   - coreai-model-zoo-zoo
   last_verified: '2026-06-24'
   notes: Top-1 exact vs Hugging Face reference according to upstream.
+  architecture: transformer
+  streaming: true
 - id: qwen3-6-35b-a3b
   name: Qwen3.6-35B-A3B
   family: Qwen
@@ -151,6 +154,8 @@ models:
   - coreai-model-zoo-zoo
   last_verified: '2026-06-24'
   notes: Mac-only MoE; custom gather_qmm Metal kernel.
+  architecture: transformer
+  streaming: true
 - id: qwen3-6-27b
   name: Qwen3.6-27B
   family: Qwen
@@ -198,6 +203,8 @@ models:
   - coreai-model-zoo-zoo
   last_verified: '2026-06-24'
   notes: Dense Mac-only LLM.
+  architecture: transformer
+  streaming: true
 - id: glm-4-7-flash
   name: GLM-4.7-Flash
   family: GLM
@@ -247,6 +254,8 @@ models:
   - coreai-model-zoo-zoo
   last_verified: '2026-06-24'
   notes: MoE + MLA; custom gather_qmm Metal kernel.
+  architecture: transformer
+  streaming: true
 - id: gemma-4-e2b
   name: Gemma 4 E2B
   family: Gemma
@@ -294,6 +303,8 @@ models:
   - coreai-model-zoo-zoo
   last_verified: '2026-06-24'
   notes: Text decoder; upstream reports 8/8 exact vs HF.
+  architecture: transformer
+  streaming: true
 - id: gemma-4-e4b
   name: Gemma 4 E4B
   family: Gemma
@@ -341,6 +352,8 @@ models:
   - coreai-model-zoo-zoo
   last_verified: '2026-06-24'
   notes: Official-QAT int4.
+  architecture: transformer
+  streaming: true
 - id: gemma-4-12b
   name: Gemma 4 12B
   family: Gemma
@@ -389,6 +402,8 @@ models:
   - apple-coreai-models
   last_verified: '2026-06-24'
   notes: Custom flash-decode kernel.
+  architecture: transformer
+  streaming: true
 - id: gemma-4-31b
   name: Gemma 4 31B
   family: Gemma
@@ -437,6 +452,8 @@ models:
   - apple-coreai-models
   last_verified: '2026-06-24'
   notes: Custom flash-decode kernel.
+  architecture: transformer
+  streaming: true
 - id: lfm2-5-1-2b-instruct
   name: LFM2.5-1.2B-Instruct
   family: LFM
@@ -485,6 +502,8 @@ models:
   - coreai-model-zoo-zoo
   last_verified: '2026-06-24'
   notes: Hybrid architecture.
+  architecture: transformer
+  streaming: true
 - id: lfm2-5-8b-a1b
   name: LFM2.5-8B-A1B
   family: LFM
@@ -533,6 +552,8 @@ models:
   - coreai-model-zoo-zoo
   last_verified: '2026-06-24'
   notes: MoE path with gather_qmm.
+  architecture: transformer
+  streaming: true
 - id: granite-4-0-h-1b
   name: Granite 4.0-H 1B
   family: Granite
@@ -581,6 +602,8 @@ models:
   - coreai-model-zoo-zoo
   last_verified: '2026-06-24'
   notes: Mamba2 + attention hybrid.
+  architecture: transformer
+  streaming: true
 - id: granite-4-0-h-350m
   name: Granite 4.0-H 350M
   family: Granite
@@ -629,6 +652,8 @@ models:
   - coreai-model-zoo-zoo
   last_verified: '2026-06-24'
   notes: Same upstream card as Granite 4.0-H 1B.
+  architecture: transformer
+  streaming: true
 - id: nanbeige4-1-3b
   name: Nanbeige4.1-3B
   family: Nanbeige
@@ -678,6 +703,8 @@ models:
   - coreai-model-zoo-zoo
   last_verified: '2026-06-24'
   notes: Dense reasoning/agentic.
+  architecture: transformer
+  streaming: true
 - id: qwen3-vl-2b
   name: Qwen3-VL 2B
   family: Qwen
@@ -725,6 +752,8 @@ models:
   - coreai-model-zoo-zoo
   last_verified: '2026-06-24'
   notes: Vision-language model.
+  architecture: transformer
+  streaming: true
 - id: qwen3-vl-4b
   name: Qwen3-VL 4B
   family: Qwen
@@ -772,6 +801,8 @@ models:
   - coreai-model-zoo-zoo
   last_verified: '2026-06-24'
   notes: Vision-language model.
+  architecture: transformer
+  streaming: true
 - id: qwen3-vl-8b
   name: Qwen3-VL 8B
   family: Qwen
@@ -819,6 +850,8 @@ models:
   - coreai-model-zoo-zoo
   last_verified: '2026-06-24'
   notes: Vision-language model.
+  architecture: transformer
+  streaming: true
 - id: minicpm-v-4-6
   name: MiniCPM-V 4.6
   family: MiniCPM
@@ -866,6 +899,8 @@ models:
   - coreai-model-zoo-zoo
   last_verified: '2026-06-24'
   notes: Tiny VLM.
+  architecture: transformer
+  streaming: true
 - id: gemma-4-e2b-vision
   name: Gemma 4 E2B Vision
   family: Gemma
@@ -913,6 +948,8 @@ models:
   - coreai-model-zoo-zoo
   last_verified: '2026-06-24'
   notes: Image+text to text.
+  architecture: transformer
+  streaming: true
 - id: unlimited-ocr
   name: Unlimited-OCR
   family: Unlimited-OCR
@@ -962,6 +999,8 @@ models:
   - coreai-model-zoo-zoo
   last_verified: '2026-06-24'
   notes: Document OCR to markdown; tables to HTML; formulas to LaTeX.
+  architecture: transformer
+  streaming: false
 - id: qwen2-5-omni-3b-audio
   name: Qwen2.5-Omni-3B Audio
   family: Qwen
@@ -1008,6 +1047,8 @@ models:
   - coreai-model-zoo-knowledge
   last_verified: '2026-06-24'
   notes: Audio understanding; describes sounds, not literal transcript.
+  architecture: transformer
+  streaming: true
 - id: kokoro-82m
   name: Kokoro-82M
   family: Kokoro
@@ -1055,6 +1096,8 @@ models:
   - coreai-model-zoo-knowledge
   last_verified: '2026-06-24'
   notes: StyleTTS2 + iSTFTNet; 28 English voices.
+  architecture: transformer
+  streaming: true
 - id: voxcpm-0-5b
   name: VoxCPM-0.5B
   family: VoxCPM
@@ -1101,6 +1144,8 @@ models:
   - coreai-model-zoo-knowledge
   last_verified: '2026-06-24'
   notes: Diffusion TTS.
+  architecture: transformer
+  streaming: true
 - id: embeddinggemma-300m
   name: EmbeddingGemma 300M
   family: Gemma
@@ -1146,6 +1191,8 @@ models:
   - coreai-model-zoo-readme
   last_verified: '2026-06-24'
   notes: Text embeddings for on-device RAG / semantic search.
+  architecture: transformer
+  streaming: false
 - id: qwen3-embedding-0-6b
   name: Qwen3-Embedding 0.6B
   family: Qwen
@@ -1192,6 +1239,8 @@ models:
   - coreai-model-zoo-zoo
   last_verified: '2026-06-24'
   notes: Multilingual embeddings; last-token pooling + MRL.
+  architecture: transformer
+  streaming: false
 - id: qwen3-reranker-0-6b
   name: Qwen3-Reranker 0.6B
   family: Qwen
@@ -1239,6 +1288,8 @@ models:
   - coreai-model-zoo-zoo
   last_verified: '2026-06-24'
   notes: Cross-encoder reranker.
+  architecture: transformer
+  streaming: false
 - id: rf-detr-nano
   name: RF-DETR Nano
   family: RF-DETR
@@ -1287,6 +1338,8 @@ models:
   - coreai-model-zoo-zoo
   last_verified: '2026-06-24'
   notes: Object detection; no NMS.
+  architecture: transformer
+  streaming: false
 - id: rf-detr-small
   name: RF-DETR Small
   family: RF-DETR
@@ -1335,6 +1388,8 @@ models:
   - coreai-model-zoo-zoo
   last_verified: '2026-06-24'
   notes: Object detection; no NMS.
+  architecture: transformer
+  streaming: false
 - id: rf-detr-medium
   name: RF-DETR Medium
   family: RF-DETR
@@ -1383,6 +1438,8 @@ models:
   - coreai-model-zoo-zoo
   last_verified: '2026-06-24'
   notes: Object detection; no NMS.
+  architecture: transformer
+  streaming: false
 - id: rf-detr-large
   name: RF-DETR Large
   family: RF-DETR
@@ -1431,6 +1488,8 @@ models:
   - coreai-model-zoo-zoo
   last_verified: '2026-06-24'
   notes: Object detection; no NMS.
+  architecture: transformer
+  streaming: false
 - id: rf-detr-seg-nano
   name: RF-DETR-Seg Nano
   family: RF-DETR-Seg
@@ -1480,6 +1539,8 @@ models:
   - coreai-model-zoo-zoo
   last_verified: '2026-06-24'
   notes: Instance segmentation.
+  architecture: transformer
+  streaming: false
 - id: rf-detr-seg-small
   name: RF-DETR-Seg Small
   family: RF-DETR-Seg
@@ -1529,6 +1590,8 @@ models:
   - coreai-model-zoo-zoo
   last_verified: '2026-06-24'
   notes: Instance segmentation.
+  architecture: transformer
+  streaming: false
 - id: rf-detr-seg-medium
   name: RF-DETR-Seg Medium
   family: RF-DETR-Seg
@@ -1578,6 +1641,8 @@ models:
   - coreai-model-zoo-zoo
   last_verified: '2026-06-24'
   notes: Instance segmentation.
+  architecture: transformer
+  streaming: false
 - id: rf-detr-seg-large
   name: RF-DETR-Seg Large
   family: RF-DETR-Seg
@@ -1627,6 +1692,8 @@ models:
   - coreai-model-zoo-zoo
   last_verified: '2026-06-24'
   notes: Instance segmentation.
+  architecture: transformer
+  streaming: false
 - id: rf-detr-seg-xlarge
   name: RF-DETR-Seg Xlarge
   family: RF-DETR-Seg
@@ -1676,6 +1743,8 @@ models:
   - coreai-model-zoo-zoo
   last_verified: '2026-06-24'
   notes: Instance segmentation.
+  architecture: transformer
+  streaming: false
 - id: rf-detr-seg-2xlarge
   name: RF-DETR-Seg 2Xlarge
   family: RF-DETR-Seg
@@ -1725,6 +1794,8 @@ models:
   - coreai-model-zoo-zoo
   last_verified: '2026-06-24'
   notes: Instance segmentation.
+  architecture: transformer
+  streaming: false
 - id: adcsr-x4
   name: AdcSR ×4
   family: AdcSR
@@ -1771,6 +1842,8 @@ models:
   - coreai-model-zoo-knowledge
   last_verified: '2026-06-24'
   notes: Super-resolution; one-step diffusion-GAN.
+  architecture: transformer
+  streaming: false
 - id: depth-anything-3-small
   name: Depth Anything 3 Small
   family: Depth Anything
@@ -1817,6 +1890,8 @@ models:
   - coreai-model-zoo-zoo
   last_verified: '2026-06-24'
   notes: Monocular depth; small variant.
+  architecture: transformer
+  streaming: false
 - id: depth-anything-3-base
   name: Depth Anything 3 Base
   family: Depth Anything
@@ -1863,6 +1938,8 @@ models:
   - coreai-model-zoo-zoo
   last_verified: '2026-06-24'
   notes: Monocular depth; base variant.
+  architecture: transformer
+  streaming: false
 - id: official-gpt-oss-20b
   name: gpt-oss-20B
   family: gpt-oss
@@ -1911,6 +1988,8 @@ models:
   - coreai-model-zoo-official-readme
   last_verified: '2026-06-24'
   notes: Official-recipe conversion; stock runtime.
+  architecture: transformer
+  streaming: true
 - id: official-qwen3-0-6b
   name: Qwen3 0.6B
   family: Qwen
@@ -1958,6 +2037,8 @@ models:
   - coreai-model-zoo-official-readme
   last_verified: '2026-06-24'
   notes: Official-recipe conversion; stock runtime.
+  architecture: transformer
+  streaming: true
 - id: official-qwen3-4b
   name: Qwen3 4B
   family: Qwen
@@ -2005,6 +2086,8 @@ models:
   - coreai-model-zoo-official-readme
   last_verified: '2026-06-24'
   notes: Official-recipe conversion; stock runtime.
+  architecture: transformer
+  streaming: true
 - id: official-qwen3-8b
   name: Qwen3 8B
   family: Qwen
@@ -2052,6 +2135,8 @@ models:
   - coreai-model-zoo-official-readme
   last_verified: '2026-06-24'
   notes: Official-recipe conversion; stock runtime.
+  architecture: transformer
+  streaming: true
 - id: official-gemma-3-4b-it
   name: Gemma 3 4B IT
   family: Gemma
@@ -2100,6 +2185,8 @@ models:
   - coreai-model-zoo-official-readme
   last_verified: '2026-06-24'
   notes: Official-recipe conversion; stock runtime.
+  architecture: transformer
+  streaming: true
 - id: official-gemma-3-12b-it
   name: Gemma 3 12B IT
   family: Gemma
@@ -2148,6 +2235,8 @@ models:
   - coreai-model-zoo-official-readme
   last_verified: '2026-06-24'
   notes: Official-recipe conversion; stock runtime.
+  architecture: transformer
+  streaming: true
 - id: official-mistral-7b-v0-3
   name: Mistral 7B v0.3
   family: Mistral
@@ -2195,6 +2284,8 @@ models:
   - coreai-model-zoo-official-readme
   last_verified: '2026-06-24'
   notes: Official-recipe conversion; stock runtime.
+  architecture: transformer
+  streaming: true
 - id: official-flux-2-klein-4b
   name: FLUX.2 klein 4B
   family: FLUX
@@ -2241,6 +2332,8 @@ models:
   - coreai-model-zoo-official-readme
   last_verified: '2026-06-24'
   notes: Official diffusion export; stock CoreAIDiffusionPipeline.
+  architecture: diffusion
+  streaming: false
 - id: official-sam-3
   name: SAM 3
   family: SAM
@@ -2290,6 +2383,8 @@ models:
   - coreai-model-zoo-official-readme
   last_verified: '2026-06-24'
   notes: Promptable open-vocabulary segmentation; stock CoreAIImageSegmenter.
+  architecture: cnn/transformer
+  streaming: false
 - id: official-whisper-large-v3-turbo
   name: Whisper large-v3-turbo
   family: Whisper
@@ -2336,6 +2431,8 @@ models:
   - coreai-model-zoo-official-readme
   last_verified: '2026-06-24'
   notes: Bundle includes tokenizer and mel filterbank.
+  architecture: transformer
+  streaming: false
 - id: minicpm5-1b
   name: MiniCPM5-1B
   family: MiniCPM
@@ -2384,6 +2481,9 @@ models:
   - coreai-model-zoo-zoo
   last_verified: '2026-06-29'
   notes: Hybrid Think/No-Think reasoning; 128K context; int8 lossless (24/24 exact vs HF).
+  architecture: transformer
+  context_window: 128K
+  streaming: true
 - id: fastcontext-1-0-4b
   name: FastContext-1.0-4B
   family: FastContext
@@ -2432,6 +2532,8 @@ models:
   - coreai-model-zoo-zoo
   last_verified: '2026-06-29'
   notes: Repository-exploration agent (Microsoft); Qwen3-4B arch; AOT h18p; ANE unsupported.
+  architecture: transformer
+  streaming: true
 - id: bitcpm-8b
   name: BitCPM-8B
   family: BitCPM
@@ -2479,6 +2581,8 @@ models:
   - coreai-model-zoo-zoo
   last_verified: '2026-06-29'
   notes: First 1.58-bit ternary LLM; custom 2-bit packed-GEMM Metal kernel; ~2.1 GB resident on iPhone.
+  architecture: transformer
+  streaming: true
 - id: holo2-4b
   name: Holo2-4B
   family: Holo
@@ -2527,6 +2631,8 @@ models:
   - coreai-model-zoo-zoo
   last_verified: '2026-06-29'
   notes: GUI-grounding / computer-use VLM (H Company); Qwen3-VL-4B backbone; screenshot → click coordinates.
+  architecture: transformer
+  streaming: true
 - id: colmodernvbert
   name: ColModernVBERT
   family: ModernVBERT
@@ -2574,6 +2680,8 @@ models:
   - coreai-model-zoo-zoo
   last_verified: '2026-06-29'
   notes: Visual document retriever; ColBERT/MaxSim late-interaction; ModernBERT + SigLIP2.
+  architecture: encoder
+  streaming: false
 - id: qwen3-asr-1-7b
   name: Qwen3-ASR-1.7B
   family: Qwen
@@ -2619,6 +2727,8 @@ models:
   - coreai-model-zoo-readme
   last_verified: '2026-06-29'
   notes: Zoo's first ASR; AuT encoder + Qwen3 decoder; 52 languages.
+  architecture: transformer
+  streaming: true
 - id: parakeet-tdt-0-6b
   name: Parakeet-TDT-0.6B
   family: Parakeet
@@ -2665,6 +2775,8 @@ models:
   - coreai-model-zoo-zoo
   last_verified: '2026-06-29'
   notes: First transducer/TDT (RNN-T); NVIDIA FastConformer + LSTM predictor; 25 EU languages; iPhone 47.9× realtime.
+  architecture: encoder
+  streaming: false
 - id: voxcpm2-2b
   name: VoxCPM2 2B
   family: VoxCPM
@@ -2710,6 +2822,8 @@ models:
   - coreai-model-zoo-readme
   last_verified: '2026-06-29'
   notes: 2B successor at 48 kHz; MiniCPM4 28L LM + LocDiT-12L flow-matching + 48 kHz AudioVAE.
+  architecture: transformer
+  streaming: true
 - id: yolox-s
   name: YOLOX-S
   family: YOLOX
@@ -2758,6 +2872,8 @@ models:
   - coreai-model-zoo-zoo
   last_verified: '2026-06-29'
   notes: First single-stage anchor-free detector (YOLO family); CSPDarknet + PAFPN; per-class NMS; 208 FPS on M4 Max GPU.
+  architecture: encoder
+  streaming: false
 - id: tripo-splat
   name: TripoSplat
   family: TripoSplat
@@ -2802,8 +2918,9 @@ models:
   sources:
   - coreai-model-zoo-readme
   last_verified: '2026-06-29'
-  notes: Single image → 3D Gaussian splats; DINOv3 ViT-H + 20-step flow-matching DiT; .ply/.splat → RealityKit / MetalSplatter;
-    VAST; Mac-only.
+  notes: Single image → 3D Gaussian splats; DINOv3 ViT-H + 20-step flow-matching DiT; .ply/.splat → RealityKit / MetalSplatter; VAST; Mac-only.
+  architecture: transformer
+  streaming: false
 - id: ltx-video-2b
   name: LTX-Video 2B distilled
   family: LTX-Video
@@ -2850,6 +2967,8 @@ models:
   - coreai-model-zoo-zoo
   last_verified: '2026-06-29'
   notes: First video model; T5-XXL + 8-step flow-matching DiT + causal video VAE; 512×768×49f ~14s Mac GPU; Lightricks; Mac-only.
+  architecture: diffusion
+  streaming: false
 - id: official-qwen3-1-7b
   name: Qwen3 1.7B
   family: Qwen
@@ -2896,8 +3015,9 @@ models:
   - apple-coreai-models
   - huggingface-mlboydaisuke
   last_verified: '2026-06-29'
-  notes: Fills the missing 1.7B rung in the dense Qwen3 Core AI line. GPU-only — ANE export omitted (loads but fails on iOS
-    27).
+  notes: Fills the missing 1.7B rung in the dense Qwen3 Core AI line. GPU-only — ANE export omitted (loads but fails on iOS 27).
+  architecture: transformer
+  streaming: true
 - id: official-clip-vit-base-patch32
   name: CLIP ViT-B/32
   family: CLIP
@@ -2944,8 +3064,9 @@ models:
   - apple-coreai-models
   - huggingface-mlboydaisuke
   last_verified: '2026-06-29'
-  notes: Official recipe CLIP export (models/clip/export.py); fp16 static; text padded to 77 tokens for free-text queries.
-    Image+text → cosine similarity.
+  notes: Official recipe CLIP export (models/clip/export.py); fp16 static; text padded to 77 tokens for free-text queries. Image+text → cosine similarity.
+  architecture: encoder
+  streaming: false
 - id: llada-8b-dllm
   name: LLaDA-8B dLLM
   family: LLaDA
@@ -2993,8 +3114,9 @@ models:
   - coreai-model-zoo-readme
   - coreai-model-zoo-knowledge
   last_verified: '2026-06-29'
-  notes: First diffusion LM (dLLM) on Core AI. Masked bidirectional text generation, no KV cache. int4 viable (not a cliff).
-    ~38 tok/s at threshold 1.0.
+  notes: First diffusion LM (dLLM) on Core AI. Masked bidirectional text generation, no KV cache. int4 viable (not a cliff). ~38 tok/s at threshold 1.0.
+  architecture: transformer
+  streaming: true
 - id: bitvla
   name: BitVLA
   family: BitVLA
@@ -3042,8 +3164,9 @@ models:
   - coreai-model-zoo-readme
   - coreai-model-zoo-knowledge
   last_verified: '2026-06-29'
-  notes: 'First VLA / robotics model on Core AI. 1.58-bit ternary VLA: BitNet LLM + BitSigLIP vision → 7-DoF robot action.
-    Generalized ternary kernel (arbitrary K/N).'
+  notes: 'First VLA / robotics model on Core AI. 1.58-bit ternary VLA: BitNet LLM + BitSigLIP vision → 7-DoF robot action. Generalized ternary kernel (arbitrary K/N).'
+  architecture: transformer
+  streaming: false
 - id: stable-audio-open-small
   name: Stable Audio Open Small
   family: Stable Audio
@@ -3089,8 +3212,9 @@ models:
   sources:
   - coreai-model-zoo-readme
   last_verified: '2026-06-29'
-  notes: 'First generative audio model. Latent diffusion: T5 encoder + DiT (8-step rectified-flow) + Oobleck VAE. ~11s 44.1
-    kHz stereo in ~0.4s on M4 Max (≈30× real-time).'
+  notes: 'First generative audio model. Latent diffusion: T5 encoder + DiT (8-step rectified-flow) + Oobleck VAE. ~11s 44.1 kHz stereo in ~0.4s on M4 Max (≈30× real-time).'
+  architecture: diffusion
+  streaming: false
 - id: whisper-large-v3-turbo-carstenl
   name: Whisper large-v3-turbo (CarstenL)
   family: Whisper
@@ -3136,6 +3260,8 @@ models:
   - carstenl-whisper-coreai
   last_verified: '2026-06-30'
   notes: Independent conversion with split encoder/decoder .aimodel bundles. 99 languages.
+  architecture: transformer
+  streaming: false
 - id: whisper-tiny-en-intiser
   name: Whisper tiny.en (Intiser)
   family: Whisper
@@ -3181,6 +3307,8 @@ models:
   - intiser-whisper-coreai
   last_verified: '2026-06-30'
   notes: English-only Whisper tiny variant. Minimal footprint ASR.
+  architecture: transformer
+  streaming: false
 - id: whisper-medium-intiser
   name: Whisper medium (Intiser)
   family: Whisper
@@ -3226,6 +3354,8 @@ models:
   - intiser-whisper-coreai
   last_verified: '2026-06-30'
   notes: Multilingual Whisper medium variant.
+  architecture: transformer
+  streaming: false
 - id: gemma-4-12b-mm-warshanks
   name: Gemma 4 12B IT Multimodal (warshanks)
   family: Gemma
@@ -3274,9 +3404,9 @@ models:
   sources:
   - warshanks-gemma-4-12b-coreai
   last_verified: '2026-06-30'
-  notes: 'First multimodal Gemma 4 conversion: text+image+audio input via encoder-free
-    architecture. Custom conversion recipe extending coreai-models. INT4 block-32 weight-only
-    decoder. Multi-function bundle (main, prefill_multimodal, embed_vision, embed_audio).'
+  notes: 'First multimodal Gemma 4 conversion: text+image+audio input via encoder-free architecture. Custom conversion recipe extending coreai-models. INT4 block-32 weight-only decoder. Multi-function bundle (main, prefill_multimodal, embed_vision, embed_audio).'
+  architecture: transformer
+  streaming: true
 - id: gemma-4-12b-assistant-warshanks
   name: Gemma 4 12B IT Assistant (MTP draft)
   family: Gemma
@@ -3321,9 +3451,9 @@ models:
   sources:
   - warshanks-gemma-4-12b-coreai
   last_verified: '2026-06-30'
-  notes: 'Multi-token-prediction draft model for speculative decoding with Gemma 4
-    12B. Cross-attends main model KV cache (layers 46/47) zero-copy. ~3ms/step on
-    M4 Max vs ~21ms for the 12B. Companion to warshanks/gemma-4-12B-it-coreai.'
+  notes: 'Multi-token-prediction draft model for speculative decoding with Gemma 4 12B. Cross-attends main model KV cache (layers 46/47) zero-copy. ~3ms/step on M4 Max vs ~21ms for the 12B. Companion to warshanks/gemma-4-12B-it-coreai.'
+  architecture: transformer
+  streaming: false
 - id: vibevoice-0-5b
   name: VibeVoice 0.5B
   family: VibeVoice
@@ -3368,9 +3498,9 @@ models:
   sources:
   - gafiatulin-vibevoice-coreai
   last_verified: '2026-06-30'
-  notes: 'Streaming TTS with 0.5B Qwen2 backbone. 10.2x RTF on M4 Max. Multi-bundle
-    pipeline: LM + diffusion sampler + acoustic decoder/connector. Microsoft VibeVoice
-    original weights.'
+  notes: 'Streaming TTS with 0.5B Qwen2 backbone. 10.2x RTF on M4 Max. Multi-bundle pipeline: LM + diffusion sampler + acoustic decoder/connector. Microsoft VibeVoice original weights.'
+  architecture: transformer
+  streaming: true
 - id: vibevoice-1-5b
   name: VibeVoice 1.5B
   family: VibeVoice
@@ -3416,6 +3546,8 @@ models:
   - gafiatulin-vibevoice-coreai
   last_verified: '2026-06-30'
   notes: 'Multi-speaker TTS with 1.5B Qwen2 backbone. INT8 LM. 4.99x RTF on M4 Max.'
+  architecture: transformer
+  streaming: true
 - id: vibevoice-7b
   name: VibeVoice 7B
   family: VibeVoice
@@ -3460,8 +3592,9 @@ models:
   sources:
   - gafiatulin-vibevoice-coreai
   last_verified: '2026-06-30'
-  notes: 'High-quality multi-speaker TTS with 7B Qwen2 backbone. INT8/4 LM. 2.37x
-    RTF on M4 Max.'
+  notes: 'High-quality multi-speaker TTS with 7B Qwen2 backbone. INT8/4 LM. 2.37x RTF on M4 Max.'
+  architecture: transformer
+  streaming: true
 - id: vibevoice-asr
   name: VibeVoice ASR
   family: VibeVoice
@@ -3506,8 +3639,9 @@ models:
   sources:
   - gafiatulin-vibevoice-coreai
   last_verified: '2026-06-30'
-  notes: 'On-device transcription, Qwen2-7B. INT8/4 LM. 11.1x RTF on M4 Max. Microsoft
-    VibeVoice ASR original weights.'
+  notes: 'On-device transcription, Qwen2-7B. INT8/4 LM. 11.1x RTF on M4 Max. Microsoft VibeVoice ASR original weights.'
+  architecture: transformer
+  streaming: true
 - id: nemotron-3-5-asr-streaming
   name: Nemotron 3.5 ASR Streaming 0.6B
   family: Nemotron
@@ -3552,9 +3686,9 @@ models:
   sources:
   - mweinbach-nemotron-coreai
   last_verified: '2026-06-30'
-  notes: 'NVIDIA FastConformer + RNN-T streaming ASR. Cache-aware 320ms encoder mode.
-    AOT artifacts for iOS (A19 h18p) + macOS (M3-M5). Companion Swift package mweinbach/NemotronCoreAI.
-    Multiple quantization variants (int8, lut6, lut8). 174 files.'
+  notes: 'NVIDIA FastConformer + RNN-T streaming ASR. Cache-aware 320ms encoder mode. AOT artifacts for iOS (A19 h18p) + macOS (M3-M5). Companion Swift package mweinbach/NemotronCoreAI. Multiple quantization variants (int8, lut6, lut8). 174 files.'
+  architecture: transformer
+  streaming: false
 - id: z-image-turbo
   name: Z-Image Turbo
   family: Z-Image
@@ -3599,8 +3733,9 @@ models:
   sources:
   - bryanbblewis11-coreai
   last_verified: '2026-06-30'
-  notes: 'Tongyi-MAI Z-Image Turbo text-to-image. GPU (fast-512) and ANE (ane-1024,
-    hoisted-adaLN) bundles at 512 and 1024 resolution. For CoreAIStudio on macOS/iOS/iPadOS/visionOS.'
+  notes: 'Tongyi-MAI Z-Image Turbo text-to-image. GPU (fast-512) and ANE (ane-1024, hoisted-adaLN) bundles at 512 and 1024 resolution. For CoreAIStudio on macOS/iOS/iPadOS/visionOS.'
+  architecture: diffusion
+  streaming: false
 - id: real-esrgan-x4v3
   name: Real-ESRGAN x4v3
   family: Real-ESRGAN
@@ -3646,6 +3781,8 @@ models:
   - bryanbblewis11-coreai
   last_verified: '2026-06-30'
   notes: 4x super-resolution (SRVGGNetCompact). fp16, 256 tile size. For CoreAIStudio.
+  architecture: cnn/transformer
+  streaming: false
 - id: efficientsam3-tinyvit
   name: EfficientSAM3-TinyViT
   family: SAM
@@ -3690,5 +3827,6 @@ models:
   sources:
   - lenitas-coreai-artifacts
   last_verified: '2026-06-30'
-  notes: Lightweight promptable segmentation. Hosted by Lenitas app distribution.
-    392MB total with tokenizer. SHA-256 verified.
+  notes: Lightweight promptable segmentation. Hosted by Lenitas app distribution. 392MB total with tokenizer. SHA-256 verified.
+  architecture: cnn/transformer
+  streaming: false
