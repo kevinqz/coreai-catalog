@@ -263,7 +263,8 @@ artifacts:
     path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/gemma4-vl.md
   huggingface:
     owner: mlboydaisuke
-    repo: gemma-4-E2B-CoreAI/tree/main/vl
+    repo: gemma-4-E2B-CoreAI
+    path: tree/main/vl
     url: https://huggingface.co/mlboydaisuke/gemma-4-E2B-CoreAI/tree/main/vl
   officiality:
     apple_export_recipe: false

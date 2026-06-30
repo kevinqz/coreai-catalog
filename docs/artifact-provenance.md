@@ -22,7 +22,7 @@ Generated from `artifacts.yaml`.
 | qwen3-vl-4b | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/Qwen3-VL-4B-CoreAI | False | False |
 | qwen3-vl-8b | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/Qwen3-VL-8B-CoreAI | False | False |
 | minicpm-v-4-6 | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/MiniCPM-V-4.6-CoreAI | False | False |
-| gemma-4-e2b-vision | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/gemma-4-E2B-CoreAI/tree/main/vl | False | False |
+| gemma-4-e2b-vision | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/gemma-4-E2B-CoreAI | False | False |
 | unlimited-ocr | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/Unlimited-OCR-CoreAI | False | False |
 | qwen2-5-omni-3b-audio | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/Qwen2.5-Omni-3B-Audio-CoreAI | False | False |
 | kokoro-82m | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/Kokoro-82M-CoreAI | False | False |

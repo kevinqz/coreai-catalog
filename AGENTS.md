@@ -1,0 +1,77 @@
+# Agent Instructions for CoreAI Catalog
+
+## Source of truth
+
+YAML files are authoritative. Markdown docs and JSON exports are derived views.
+
+| File | Entity |
+|---|---|
+| `catalog.yaml` | Model metadata (facts, capabilities, runtime, device support, license) |
+| `artifacts.yaml` | Converted artifact provenance (GitHub source, Hugging Face host, officiality) |
+| `benchmarks.yaml` | Normalized benchmark measurements (append-only, environment-scoped) |
+| `sources.yaml` | Compact registry of primary/supporting sources |
+| `upstreams.yaml` | Source taxonomy (framework, conversion, artifact host, benchmark, sample, original model, license) |
+| `terms.yaml` | Verified Apple AI terminology with official source citations |
+
+## How to answer model-selection questions
+
+1. Filter by `capabilities` in `catalog.yaml`.
+2. Filter by `modalities` (input/output).
+3. Filter by `device_support` (iphone, ipad, mac, mac_only).
+4. Join `artifact_ref` with `artifacts.yaml` to get provenance and download info.
+5. Join benchmarks by `model_id` with `benchmarks.yaml`.
+6. Join `sources[]` and upstream IDs with `sources.yaml` / `upstreams.yaml`.
+7. Surface `license.commercial_use` status (`likely` or `check_license`).
+8. **Never infer unknown fields.** If a field is `unknown`, report it as unknown.
+9. Explain officiality precisely using the `officiality` block:
+   - `apple_export_recipe` — true only for Apple official recipe conversions
+   - `apple_hosted_artifact` — true only if Apple hosts the artifact (currently always false)
+   - `community_packaged` — true for community-zoo packaged artifacts
+
+## Key relations
+
+```
+catalog.models[].artifact_ref  →  artifacts.artifacts[].id
+benchmarks.benchmarks[].model_id  →  catalog.models[].id
+catalog.models[].sources[]  →  sources.sources[].id  OR  upstreams.*[].id
+upstreams.original_model_sources[].applies_to[]  →  catalog.models[].id
+terms.terms[].relations[]  →  terms.terms[].id  (format: "relation_type:target_id")
+```
+
+## Common tasks
+
+- **Find models for a capability**: filter `catalog.yaml` by `capabilities` list
+- **Compare two models**: join both with artifacts + benchmarks, present side-by-side
+- **Recommend model candidates for a use case**: filter by capability + device + license, rank by confidence and benchmark availability
+- **Check license risk**: read `license.commercial_use` and cross-reference the original model upstream
+- **Explain Apple/Core AI terminology**: look up in `terms.yaml`, cite `official_source`
+
+## JSON exports
+
+Pre-generated exports are in `dist/`:
+
+- `dist/catalog.json` — all model records
+- `dist/artifacts.json` — all artifact provenance records
+- `dist/benchmarks.json` — all benchmark records
+- `dist/terms.json` — all terminology records
+- `dist/sources.json` — all source records
+- `dist/upstreams.json` — all upstream taxonomy
+- `dist/coreai-catalog.json` — everything bundled
+
+These are suitable for programmatic consumption without parsing YAML.
+
+## Data quality guarantees
+
+The catalog enforces:
+
+1. **Schema validation** — every record validates against its JSON Schema (`schema/*.json`)
+2. **Cross-reference integrity** — all `artifact_ref`, `model_id`, and source references resolve
+3. **Zero unknowns** — critical fields (precision, quantization, runtime flags) must not be `unknown`; use `not_published` if the upstream doesn't disclose
+4. **Officiality logic** — `source_group: official` implies `apple_export_recipe: true`; `source_group: zoo` implies `apple_export_recipe: false`
+5. **Append-only benchmarks** — superseded values are retained with `confidence: needs_review` and a `superseded_by` pointer
+
+## What this catalog is NOT
+
+- Not affiliated with or endorsed by Apple
+- Not a model host — it does not redistribute weights or artifacts
+- Not legal advice — `commercial_use` fields are triage labels, not permissions

@@ -68,7 +68,6 @@ def main() -> int:
 
     UPSTREAM_GROUPS = [
         "framework_sources",
-        "framework_sources",
         "conversion_sources",
         "artifact_hosts",
         "benchmark_sources",
@@ -114,7 +113,10 @@ def main() -> int:
         url = hf.get("url", "")
         owner = hf.get("owner", "")
         repo = hf.get("repo", "")
+        path = hf.get("path")
         expected = f"https://huggingface.co/{owner}/{repo}"
+        if path:
+            expected = f"{expected}/{path}"
         if url and url != expected:
             issues.append(
                 f"artifact {a['id']} URL mismatch: '{url}' != '{expected}'"

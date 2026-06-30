@@ -39,13 +39,14 @@ jobs:
           python scripts/generate_docs.py
           python scripts/generate_artifact_docs.py
           python scripts/generate_terms_docs.py
+          python scripts/generate_index.py
 
       - name: Export JSON
         run: python scripts/export_json.py
 
       # ── Sync gates ──
       - name: Ensure generated docs are in sync with YAML source
-        run: git diff --exit-code docs/model-registry.md docs/artifact-provenance.md docs/apple-terminology-map.md
+        run: git diff --exit-code docs/model-registry.md docs/artifact-provenance.md docs/apple-terminology-map.md docs/index.md
 
       - name: Verify JSON exports are non-empty
         run: |

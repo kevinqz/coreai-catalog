@@ -17,8 +17,9 @@ These files are intended to be edited directly:
 
 ## Generated files
 
-These files or folders are produced by scripts:
+These files are produced by scripts:
 
+- `docs/index.md` from `scripts/generate_index.py`
 - `docs/model-registry.md` from `scripts/generate_docs.py`
 - `docs/artifact-provenance.md` from `scripts/generate_artifact_docs.py`
 - `docs/apple-terminology-map.md` from `scripts/generate_terms_docs.py`
@@ -28,12 +29,12 @@ These files or folders are produced by scripts:
 
 These docs are maintained manually until generators are expanded:
 
-- `docs/index.md`
 - `docs/capability-matrix.md`
 - `docs/runtime-matrix.md`
 - `docs/upstream-map.md`
 - `docs/benchmark-map.md`
 - `docs/source-map.md`
+- `docs/data-model.md`
 - `docs/v0.3-verification.md`
 - `docs/sota-maintenance.md`
 - `docs/generated-files.md`

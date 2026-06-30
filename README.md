@@ -14,9 +14,9 @@ Not affiliated with or endorsed by Apple. `commercial_use` fields are triage lab
 
 ## Status
 
-**Version:** v0.6
+**Version:** v0.7
 
-v0.6 backfills technical metadata from model cards (24 models updated), adds 13 non-LLM benchmarks, expands terminology to 35 terms, and maps the complete source ecosystem (independent converters, Apple tooling, emerging ports). It builds on v0.5, which added 11 new models and hardened schemas.
+v0.7 hardens the foundation: generates docs/index.md automatically (ending stale count drift), fixes a duplicate upstream group in audit.py, adds Hugging Face sub-path support for artifact records, adds AGENTS.md for agent consumption, CONTRIBUTING.md for submissions, docs/data-model.md for the entity model, and hardens CI to detect stale generated docs. It builds on v0.6, which backfilled technical metadata from model cards (24 models updated), added 13 non-LLM benchmarks, expanded terminology to 42 terms, and mapped the complete source ecosystem.
 
 ## Why this exists
 
@@ -62,6 +62,8 @@ Primary Hugging Face artifact owner currently mapped:
 ```txt
 coreai-catalog/
 ├── README.md
+├── AGENTS.md
+├── CONTRIBUTING.md
 ├── CREDITS.md
 ├── catalog.yaml
 ├── artifacts.yaml
@@ -83,6 +85,7 @@ coreai-catalog/
 │   ├── generate_docs.py
 │   ├── generate_artifact_docs.py
 │   ├── generate_terms_docs.py
+│   ├── generate_index.py
 │   └── export_json.py
 ├── docs/
 │   ├── index.md
@@ -94,6 +97,7 @@ coreai-catalog/
 │   ├── benchmark-map.md
 │   ├── source-map.md
 │   ├── apple-terminology-map.md
+│   ├── data-model.md
 │   ├── v0.3-verification.md
 │   ├── sota-maintenance.md
 │   └── generated-files.md
@@ -332,6 +336,8 @@ Regenerate Markdown docs:
 ```bash
 python scripts/generate_docs.py
 python scripts/generate_artifact_docs.py
+python scripts/generate_terms_docs.py
+python scripts/generate_index.py
 ```
 
 Export JSON:
@@ -349,10 +355,11 @@ hand-edited; `curated` docs are maintained manually (see `docs/generated-files.m
 
 | Doc | Type | Description |
 |---|---|---|
-| `docs/index.md` | curated | Docs entry point and file map. |
+| `docs/index.md` | generated | Docs entry point and counts (`scripts/generate_index.py`). |
 | `docs/model-registry.md` | generated | Human-readable model table (`scripts/generate_docs.py`). |
 | `docs/artifact-provenance.md` | generated | Artifact ownership and hosting view (`scripts/generate_artifact_docs.py`). |
 | `docs/apple-terminology-map.md` | generated | Verified Apple AI terminology by layer (`scripts/generate_terms_docs.py`). |
+| `docs/data-model.md` | curated | Entity model and relationship documentation. |
 | `docs/capability-matrix.md` | curated | Models grouped by capability. |
 | `docs/runtime-matrix.md` | curated | Runtime concepts and flags. |
 | `docs/upstream-map.md` | curated | Framework/original-model/license upstream map. |

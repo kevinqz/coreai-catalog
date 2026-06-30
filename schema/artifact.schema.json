@@ -47,6 +47,9 @@
         "url": {
           "type": "string",
           "pattern": "^https://"
+        },
+        "path": {
+          "type": ["string", "null"]
         }
       }
     },
