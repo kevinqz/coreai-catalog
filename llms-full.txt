@@ -86,11 +86,11 @@ All CLI commands support `--json` for structured output.
 - `dist/readiness-scores.json` — 0-100 deployment readiness scores
 - `dist/coreai-catalog.json` — everything bundled
 
-### MCP server (Claude Desktop, Cursor, MCP-compatible agents)
+MCP server (for Claude Desktop, Cursor, MCP-compatible agents):
 
-9 tools: `search_models`, `get_model`, `compare_models`, `recommend_model`,
+11 tools: `search_models`, `get_model`, `compare_models`, `recommend_model`,
 `check_license`, `get_benchmarks`, `get_artifact`, `explain_term`,
-`get_capabilities`.
+`get_capabilities`, `get_tasks`, `get_version`.
 
 All tools are read-only. Configuration:
 

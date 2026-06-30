@@ -2,7 +2,7 @@
 """
 Core AI Catalog MCP Server — exposes catalog tools to AI agents.
 
-Provides 9 tools for model discovery, comparison, recommendation,
+Provides 11 tools for model discovery, comparison, recommendation,
 license triage, and terminology explanation via the Model Context Protocol.
 
 Usage (stdio transport — standard for Claude Desktop, Cursor, etc.):
@@ -264,46 +264,17 @@ def recommend_model(task: str, device: str | None = None, limit: int = 5) -> str
         with scores, devices, licenses, and notes.
     """
     capabilities = resolve_task(task)
-    candidates = []
-    for m in catalog.models:
-        model_caps = {c.lower() for c in m.get("capabilities", [])}
-        matched = model_caps & {c.lower() for c in capabilities}
-        if not matched:
-            continue
-        if device:
-            ds = m.get("device_support", {})
-            if ds.get(device.lower()) is not True:
-                continue
-        score = catalog.readiness_score(m)
-        if catalog.get_benchmarks(m["id"]):
-            score += 5
-        candidates.append({
-            "id": m["id"],
-            "name": m["name"],
-            "score": score,
-            "matched_capabilities": sorted(matched),
-            "devices": m.get("device_support", {}),
-            "license": m.get("license", {}).get("name"),
-            "commercial_use": m.get("license", {}).get("commercial_use"),
-            "has_benchmark": bool(catalog.get_benchmarks(m["id"])),
-            "notes": m.get("notes", ""),
-        })
-    candidates.sort(key=lambda x: x["score"], reverse=True)
-
-    # Secondary sort: if task resolved to specific capabilities (not a slugified
-    # fallback), prioritize models matching the FIRST resolved capability.
-    if capabilities and capabilities[0] in {c.lower() for c in capabilities}:
-        first_cap = capabilities[0].lower()
-        # Split into primary (matches first cap) and secondary
-        primary = [c for c in candidates if first_cap in c["matched_capabilities"]]
-        secondary = [c for c in candidates if first_cap not in c["matched_capabilities"]]
-        candidates = primary + secondary
+    recommendations = catalog.recommend_models(
+        capabilities=capabilities,
+        device=device,
+        limit=limit,
+    )
 
     return json.dumps({
         "task": task,
         "resolved_capabilities": capabilities,
         "device": device,
-        "recommendations": candidates[:limit],
+        "recommendations": recommendations,
     }, indent=2)
 
 
@@ -484,6 +455,56 @@ def get_capabilities() -> str:
         for cap, count in cap_counts.most_common()
     ]
     return json.dumps({"count": len(output), "capabilities": output}, indent=2)
+
+
+# ── Tool 10: get_tasks ──
+
+@mcp.tool()
+def get_tasks() -> str:
+    """List valid task keywords accepted by recommend_model.
+
+    Returns:
+        JSON with the list of valid task keywords from TASK_MAP that
+        can be passed to the `task` parameter of recommend_model.
+    """
+    from coreai_catalog.catalog import TASK_MAP
+    tasks = sorted(TASK_MAP.keys())
+    return json.dumps({
+        "count": len(tasks),
+        "tasks": tasks,
+    }, indent=2)
+
+
+# ── Tool 11: get_version ──
+
+@mcp.tool()
+def get_version() -> str:
+    """Get catalog version and content statistics.
+
+    Returns:
+        JSON with the catalog version, model count, benchmark count,
+        term count, and last_verified date.
+    """
+    import yaml as _yaml
+    cat_path = _ROOT / "catalog.yaml"
+    version = "unknown"
+    last_verified = None
+    if cat_path.exists():
+        data = _yaml.safe_load(cat_path.read_text()) or {}
+        meta = data.get("metadata", {})
+        version = meta.get("version", "unknown")
+        last_verified = meta.get("last_verified")
+
+    bench_count = len(catalog.benchmarks)
+    term_count = len(catalog.terms)
+
+    return json.dumps({
+        "version": version,
+        "model_count": len(catalog.models),
+        "benchmark_count": bench_count,
+        "term_count": term_count,
+        "last_verified": last_verified,
+    }, indent=2)
 
 
 # ── Entry point ──

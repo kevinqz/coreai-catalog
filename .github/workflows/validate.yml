@@ -53,7 +53,7 @@ jobs:
           from mcp_server.server import mcp
           tools = mcp._tool_manager._tools
           print(f'MCP tools: {len(tools)}')
-          assert len(tools) == 9, f'Expected 9 tools, got {len(tools)}'
+          assert len(tools) == 11, f'Expected 11 tools, got {len(tools)}'
           print('MCP server OK')
           "
 

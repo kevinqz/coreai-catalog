@@ -491,8 +491,8 @@ benchmarks:
 - id: official-whisper-large-v3-turbo-m4max-gpu-latency
   model_id: official-whisper-large-v3-turbo
   metric: transcription_latency
-  unit: seconds_per_token
-  value: 0.18
+  unit: milliseconds
+  value: 180
   device: M4 Max
   compute_unit: GPU
   precision: not_published
@@ -610,7 +610,7 @@ benchmarks:
 - id: parakeet-tdt-0-6b-iphone17pro-gpu-rtf
   model_id: parakeet-tdt-0-6b
   metric: realtime_factor
-  unit: frames_per_second
+  unit: realtime_factor
   value: 47.9
   device: iPhone 17 Pro
   compute_unit: GPU
@@ -752,7 +752,7 @@ benchmarks:
   notes: Multimodal sweep 4/4 + decode 16/16 token-exact vs fp32-HF.
 - id: gemma-4-e4b-m4max-gpu-toks-extra
   model_id: gemma-4-e4b
-  metric: prefill_latency
+  metric: decode_throughput
   unit: tokens_per_second
   value: 53.2
   device: M4 Max
@@ -779,7 +779,7 @@ benchmarks:
 - id: voxcpm-0-5b-iphone17pro-gpu-rtf
   model_id: voxcpm-0-5b
   metric: realtime_factor
-  unit: frames_per_second
+  unit: realtime_factor
   value: 0.9
   device: iPhone 17 Pro
   compute_unit: GPU

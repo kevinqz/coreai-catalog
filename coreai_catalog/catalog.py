@@ -8,10 +8,27 @@ It can work with either the local checkout or a pip-installed package
 from __future__ import annotations
 
 import json
+import sys
 from pathlib import Path
 from typing import Any
 
 import yaml
+
+
+def _parse_params(val) -> float:
+    """Parse a parameter string like '2B', '350M', 'unknown' into a float for sorting."""
+    if not val or val == "unknown":
+        return float("inf")
+    s = str(val).strip().upper()
+    try:
+        if s.endswith("B"):
+            return float(s[:-1])
+        if s.endswith("M"):
+            return float(s[:-1]) / 1000
+        return float(s)
+    except (ValueError, IndexError):
+        return float("inf")
+
 
 #: Common abbreviations and aliases → canonical capability names.
 CAPABILITY_ALIASES: dict[str, str] = {
@@ -29,6 +46,8 @@ CAPABILITY_ALIASES: dict[str, str] = {
     "segmentation": "promptable-segmentation",
     "detection": "object-detection",
     "coding": "text-generation",
+    "text": "text-generation",
+    "speech": "speech-to-text",
 }
 
 
@@ -69,7 +88,11 @@ class Catalog:
         def read_yml(name: str) -> dict:
             path = self.root / f"{name}.yaml"
             if path.exists():
-                return yaml.safe_load(path.read_text()) or {}
+                try:
+                    return yaml.safe_load(path.read_text()) or {}
+                except yaml.YAMLError as e:
+                    print(f"Error parsing {name}.yaml: {e}", file=sys.stderr)
+                    return {}
             return {}
 
         cat = read_yml("catalog")
@@ -137,6 +160,15 @@ class Catalog:
         self._load()
         return self._bench_by_model.get(model_id, [])
 
+    def _known_capabilities(self) -> set[str]:
+        """Return the set of all canonical capability names defined in the catalog."""
+        self._load()
+        caps: set[str] = set()
+        for m in self._models:
+            for c in m.get("capabilities", []):
+                caps.add(c)
+        return caps
+
     def search(
         self,
         capability: str | None = None,
@@ -152,11 +184,28 @@ class Catalog:
         if capability:
             capability = CAPABILITY_ALIASES.get(capability.lower(), capability).lower()
         results = []
+        # Determine matching mode:
+        # - If the resolved capability exactly matches a known capability → exact match only
+        # - If not exact but is a known prefix like "vision" → substring match ONLY for
+        #   capabilities that start with the query (not arbitrary substring containment)
+        #   This prevents "text" from matching text-generation, text-to-speech, etc.
+        use_prefix_match = False
+        if capability:
+            resolved_caps_lower = {c.lower() for c in self._known_capabilities()}
+            if capability not in resolved_caps_lower:
+                # Check if it's a unique prefix (e.g. "vision" → "vision-language")
+                prefix_matches = [c for c in resolved_caps_lower if c.startswith(capability)]
+                if len(prefix_matches) >= 1:
+                    use_prefix_match = True
+                # else: not a prefix of anything, will return no results
         for m in self._models:
             if capability:
                 caps = [c.lower() for c in m.get("capabilities", [])]
-                # Exact match OR substring match (e.g. "vision" matches "vision-language")
-                if capability not in caps and not any(capability in c for c in caps):
+                if capability in caps:
+                    pass  # exact match
+                elif use_prefix_match and any(c.startswith(capability) for c in caps):
+                    pass  # prefix match (e.g. "vision" matches "vision-language")
+                else:
                     continue
             if device:
                 ds = m.get("device_support", {})
@@ -217,6 +266,73 @@ class Catalog:
         if model.get("maturity") in ("stable", "active"):
             score += 5
         return max(0, min(100, score))
+
+    def recommend_models(
+        self,
+        capabilities: list[str],
+        device: str | None = None,
+        limit: int = 5,
+    ) -> list[dict]:
+        """Unified model recommendation logic shared by CLI and MCP server.
+
+        Ranks models that match any of *capabilities*, applying:
+        1. Readiness score + benchmark boost (primary sort key, desc).
+        2. First-capability priority: models matching the FIRST resolved
+           capability are promoted ahead of models that only match later
+           capabilities (secondary sort, stable within each tier).
+        3. Parameter count (tertiary: smaller models first on ties).
+
+        Returns a list of recommendation dicts (already sorted + limited),
+        each with: id, name, score, matched_capabilities, parameters,
+        devices, license, commercial_use, has_benchmark, notes.
+        """
+        self._load()
+        if not capabilities:
+            return []
+
+        caps_lower = {c.lower() for c in capabilities}
+        first_cap = capabilities[0].lower()
+        candidates = []
+        for m in self._models:
+            model_caps = {c.lower() for c in m.get("capabilities", [])}
+            matched = model_caps & caps_lower
+            if not matched:
+                continue
+            if device:
+                ds = m.get("device_support", {})
+                if ds.get(device.lower()) is not True:
+                    continue
+            score = self.readiness_score(m)
+            if self._bench_by_model.get(m["id"]):
+                score += 5
+            candidates.append({
+                "id": m["id"],
+                "name": m["name"],
+                "score": score,
+                "matched_capabilities": sorted(matched),
+                "parameters": m.get("size", {}).get("parameters"),
+                "devices": m.get("device_support", {}),
+                "license": m.get("license", {}).get("name"),
+                "commercial_use": m.get("license", {}).get("commercial_use"),
+                "has_benchmark": bool(self._bench_by_model.get(m["id"])),
+                "notes": m.get("notes", ""),
+                # internal flags for sorting (stripped before return)
+                "_matches_first": first_cap in matched,
+                "_params_sort": _parse_params(m.get("size", {}).get("parameters")),
+            })
+
+        # Primary sort: score desc. Secondary: first-cap priority. Tertiary: params asc.
+        candidates.sort(
+            key=lambda c: (-c["score"], 0 if c["_matches_first"] else 1, c["_params_sort"])
+        )
+
+        # Strip internal sort keys and apply limit
+        result = []
+        for c in candidates[:limit]:
+            del c["_matches_first"]
+            del c["_params_sort"]
+            result.append(c)
+        return result
 
 
 # Task → capability mapping

@@ -137,6 +137,20 @@ def cmd_search(args: argparse.Namespace) -> int:
 
     if not results:
         print(f"\n  {DIM}No models match the given filters.{RESET}")
+        # Provide valid-value hints for filters that may have been set
+        if args.device:
+            valid = sorted({d for m in cat.models
+                            for d, v in m.get("device_support", {}).items()
+                            if v is True})
+            print(f"  {DIM}Valid devices: {', '.join(valid)}{RESET}")
+        if args.source_group:
+            valid = sorted({sg for m in cat.models
+                            if (sg := m.get("source_group"))})
+            print(f"  {DIM}Valid source groups: {', '.join(valid)}{RESET}")
+        if args.license:
+            valid = sorted({cu for m in cat.models
+                            if (cu := m.get("license", {}).get("commercial_use"))})
+            print(f"  {DIM}Valid license values: {', '.join(valid)}{RESET}")
         return 0
 
     if args.json:
@@ -502,42 +516,28 @@ def cmd_compare(args: argparse.Namespace) -> int:
 def cmd_recommend(args: argparse.Namespace) -> int:
     cat = Catalog()
     capabilities = resolve_task(args.task)
-
-    candidates = []
-    for m in cat.models:
-        model_caps = {c.lower() for c in m.get("capabilities", [])}
-        matched = model_caps & {c.lower() for c in capabilities}
-        if not matched:
-            continue
-        if args.device:
-            ds = m.get("device_support", {})
-            if ds.get(args.device.lower()) is not True:
-                continue
-        score = cat.readiness_score(m)
-        # Boost by benchmark availability
-        if cat.get_benchmarks(m["id"]):
-            score += 5
-        candidates.append((m, score, sorted(matched)))
-
-    # Sort by score desc, then by parameter count asc (smaller models first on ties)
-    candidates.sort(key=lambda x: (-x[1], _parse_params(x[0].get("size", {}).get("parameters"))))
-    candidates = candidates[: args.limit]
+    recommendations = cat.recommend_models(
+        capabilities=capabilities,
+        device=args.device,
+        limit=args.limit,
+    )
 
     if args.json:
         results = []
-        for m, s, mc in candidates:
-            ds = m.get("device_support", {})
+        for rec in recommendations:
+            ds = rec.get("devices", {})
             devices = [d for d in ("iphone", "ipad", "mac") if ds.get(d) is True]
             results.append({
-                "id": m["id"],
-                "name": m["name"],
-                "score": s,
-                "matched_capabilities": mc,
+                "id": rec["id"],
+                "name": rec["name"],
+                "score": rec["score"],
+                "matched_capabilities": rec["matched_capabilities"],
+                "parameters": rec.get("parameters"),
                 "devices": devices,
-                "license": m.get("license", {}).get("name"),
-                "commercial_use": m.get("license", {}).get("commercial_use"),
-                "has_benchmark": bool(cat.get_benchmarks(m["id"])),
-                "notes": m.get("notes", ""),
+                "license": rec.get("license"),
+                "commercial_use": rec.get("commercial_use"),
+                "has_benchmark": rec.get("has_benchmark"),
+                "notes": rec.get("notes", ""),
             })
         print(json.dumps({
             "task": args.task,
@@ -547,7 +547,7 @@ def cmd_recommend(args: argparse.Namespace) -> int:
         }, indent=2))
         return 0
 
-    if not candidates:
+    if not recommendations:
         print(f"\n  {DIM}No models found for task '{args.task}'.{RESET}")
         print(f"  {DIM}Resolved capabilities: {', '.join(capabilities)}{RESET}")
         # Show valid task keywords to help the user
@@ -562,22 +562,24 @@ def cmd_recommend(args: argparse.Namespace) -> int:
         print(f"  {BOLD}Device:{RESET} {args.device}")
     print(f"\n  {BOLD}Recommended models:{RESET}\n")
 
-    for i, (m, score, matched) in enumerate(candidates, 1):
-        ds = m.get("device_support", {})
+    for i, rec in enumerate(recommendations, 1):
+        ds = rec.get("devices", {})
         devices = []
         if ds.get("iphone") is True:
             devices.append("iPhone")
         if ds.get("mac") is True:
             devices.append("Mac")
-        bench = "📊 benchmarked" if cat.get_benchmarks(m["id"]) else "not benchmarked"
-        lic = m.get("license", {}).get("name", "?")
+        bench = "📊 benchmarked" if rec.get("has_benchmark") else "not benchmarked"
+        lic = rec.get("license", "?")
+        params = rec.get("parameters", "?")
 
-        print(f"  {BOLD}{i}. {m['name']}{RESET}")
-        print(f"     {DIM}ID:{RESET} {m['id']}")
+        print(f"  {BOLD}{i}. {rec['name']}{RESET}")
+        print(f"     {DIM}ID:{RESET} {rec['id']}")
+        print(f"     {DIM}Size:{RESET} {params}")
         print(f"     {DIM}Runs on:{RESET} {'/'.join(devices) or 'unknown'}")
-        print(f"     {DIM}License:{RESET} {lic} ({'likely commercial' if m.get('license', {}).get('commercial_use') == 'likely' else 'check license'})")
+        print(f"     {DIM}License:{RESET} {lic} ({'likely commercial' if rec.get('commercial_use') == 'likely' else 'check license'})")
         print(f"     {DIM}{bench}{RESET}")
-        notes = m.get("notes", "")
+        notes = rec.get("notes", "")
         if notes:
             note = notes[:120].replace("\n", " ")
             if len(notes) > 120:
@@ -585,8 +587,8 @@ def cmd_recommend(args: argparse.Namespace) -> int:
             print(f"     {DIM}Note:{RESET} {note}")
         print()
 
-    if candidates:
-        first = candidates[0][0]
+    if recommendations:
+        first = recommendations[0]
         print(f"  {DIM}Next:{RESET}")
         print(f"    coreai-catalog show {first['id']}")
         print(f"    coreai-catalog install {first['id']}")
@@ -647,27 +649,33 @@ def cmd_uninstall(args: argparse.Namespace) -> int:
 
 
 def cmd_capabilities(args: argparse.Namespace) -> int:
-    """List all capabilities with model counts."""
+    """List all capabilities with model and benchmark counts."""
     cat = Catalog()
     from collections import Counter
     cap_counts: Counter = Counter()
+    bench_counts: Counter = Counter()
     for m in cat.models:
+        has_bench = bool(cat.get_benchmarks(m["id"]))
         for c in m.get("capabilities", []):
             cap_counts[c] += 1
+            if has_bench:
+                bench_counts[c] += 1
 
     if args.json:
         output = [
-            {"capability": cap, "model_count": count}
+            {"capability": cap, "model_count": count,
+             "benchmark_count": bench_counts.get(cap, 0)}
             for cap, count in cap_counts.most_common()
         ]
         print(json.dumps({"count": len(output), "capabilities": output}, indent=2))
         return 0
 
     print(f"\n  {BOLD}Core AI Model Capabilities{RESET}\n")
-    print(f"  {'Capability':35s}  Models")
-    print(f"  {'─' * 35}  {'─' * 6}")
+    print(f"  {'Capability':35s}  Models  Benchmarked")
+    print(f"  {'─' * 35}  {'─' * 6}  {'─' * 12}")
     for cap, count in cap_counts.most_common():
-        print(f"  {cap:35s}  {count}")
+        bcount = bench_counts.get(cap, 0)
+        print(f"  {cap:35s}  {count:>6}  {bcount:>12}")
     print(f"\n  {DIM}{len(cap_counts)} capabilities across {len(cat.models)} models{RESET}\n")
     return 0
 
