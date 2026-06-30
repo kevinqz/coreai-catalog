@@ -14,9 +14,9 @@ Not affiliated with or endorsed by Apple. `commercial_use` fields are triage lab
 
 ## Status
 
-**Version:** v0.8
+**Version:** v0.9
 
-v0.8 expands coverage beyond the primary zoo upstream: 13 new models cataloged from 7 independent Hugging Face converters (warshanks, gafiatulin, mweinbach, CarstenL, Intiser, bryanbblewis11, lenitas). Adds realtime_factor benchmark unit, expands the upstream sync scanner to search the full Hugging Face API (all owners, not just mlboydaisuke), and adds 12 new upstream taxonomy entries. It builds on v0.7, which hardened the foundation with auto-generated docs index, AGENTS.md, CONTRIBUTING.md, data-model documentation, and Hugging Face sub-path support.
+v0.9 adds the decision layer: `query.py` for filtering by capability/device/license/family, `recommend.py` for task-based model recommendations with scoring, `readiness_score.py` generating 0-100 deployment readiness scores, `export_search.py` producing flattened denormalized search-index.json + models.jsonl, and `generate_compare.py` creating 32 side-by-side comparison tables by capability. It builds on v0.8, which expanded coverage to 78 models from 8 independent HF converters.
 
 ## Why this exists
 
@@ -86,7 +86,12 @@ coreai-catalog/
 │   ├── generate_artifact_docs.py
 │   ├── generate_terms_docs.py
 │   ├── generate_index.py
-│   └── export_json.py
+│   ├── generate_compare.py
+│   ├── export_json.py
+│   ├── export_search.py
+│   ├── readiness_score.py
+│   ├── query.py
+│   └── recommend.py
 ├── docs/
 │   ├── index.md
 │   ├── model-registry.md
@@ -338,15 +343,43 @@ python scripts/generate_docs.py
 python scripts/generate_artifact_docs.py
 python scripts/generate_terms_docs.py
 python scripts/generate_index.py
+python scripts/generate_compare.py
 ```
 
-Export JSON:
+Export JSON and search indexes:
 
 ```bash
 python scripts/export_json.py
+python scripts/export_search.py
+python scripts/readiness_score.py
 ```
 
-The GitHub Actions workflow runs validation, docs generation and JSON export on push and pull request.
+The GitHub Actions workflow runs validation, docs generation, scoring and JSON export on push and pull request.
+
+## Query and decision
+
+The catalog includes tools to answer "which model should I use for X?":
+
+**Search models by capability, device, license:**
+
+```bash
+python scripts/query.py --capability vision-language --device iphone
+python scripts/query.py --capability speech-to-text --license likely
+python scripts/query.py --family Qwen --device mac --json
+```
+
+**Get recommendations for a task:**
+
+```bash
+python scripts/recommend.py --task "robot vision" --device iphone
+python scripts/recommend.py --task "private on-device OCR" --device iphone
+python scripts/recommend.py --task "on-device RAG"
+python scripts/recommend.py --task "voice assistant" --device mac
+```
+
+**Readiness scores** (`dist/readiness-scores.json`) rate each model 0-100 on deployment readiness based on artifact availability, device support, benchmark coverage, runtime simplicity, license clarity, and trust signals.
+
+**Comparison tables** (`docs/compare/`) provide side-by-side views of all models within a capability, including parameters, precision, runtime flags, benchmarks, and source.
 
 ## Documentation
 

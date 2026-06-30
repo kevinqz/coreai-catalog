@@ -40,9 +40,13 @@ jobs:
           python scripts/generate_artifact_docs.py
           python scripts/generate_terms_docs.py
           python scripts/generate_index.py
+          python scripts/generate_compare.py
 
       - name: Export JSON
-        run: python scripts/export_json.py
+        run: |
+          python scripts/export_json.py
+          python scripts/export_search.py
+          python scripts/readiness_score.py
 
       # ── Sync gates ──
       - name: Ensure generated docs are in sync with YAML source
