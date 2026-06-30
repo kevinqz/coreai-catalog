@@ -10,3 +10,8 @@ venv/
 
 # Generated JSON exports (produced by scripts/export_json.py)
 dist/
+
+# Build artifacts (pip install -e .)
+build/
+*.egg-info/
+coreai_catalog.egg-info/

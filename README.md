@@ -14,9 +14,9 @@ Not affiliated with or endorsed by Apple. `commercial_use` fields are triage lab
 
 ## Status
 
-**Version:** v0.9
+**Version:** v1.0
 
-v0.9 adds the decision layer: `query.py` for filtering by capability/device/license/family, `recommend.py` for task-based model recommendations with scoring, `readiness_score.py` generating 0-100 deployment readiness scores, `export_search.py` producing flattened denormalized search-index.json + models.jsonl, and `generate_compare.py` creating 32 side-by-side comparison tables by capability. It builds on v0.8, which expanded coverage to 78 models from 8 independent HF converters.
+v1.0 ships the CLI: `pip install -e .` gives you `coreai-catalog` with 8 commands — search, show, list, scores, compare, recommend, install, and doctor. The install command resolves Hugging Face artifacts, downloads them, writes a local manifest, and generates a Swift integration snippet. Doctor checks Python, Xcode, coreai-torch, coreai-opt, huggingface-cli, and disk space. It builds on v0.9, which added the decision layer (query, recommend, readiness score, search index, comparison tables).
 
 ## Why this exists
 
@@ -65,6 +65,7 @@ coreai-catalog/
 ├── AGENTS.md
 ├── CONTRIBUTING.md
 ├── CREDITS.md
+├── pyproject.toml
 ├── catalog.yaml
 ├── artifacts.yaml
 ├── sources.yaml
@@ -92,6 +93,12 @@ coreai-catalog/
 │   ├── readiness_score.py
 │   ├── query.py
 │   └── recommend.py
+├── coreai_catalog/
+│   ├── __init__.py
+│   ├── __main__.py
+│   ├── cli.py
+│   ├── catalog.py
+│   └── installer.py
 ├── docs/
 │   ├── index.md
 │   ├── model-registry.md
@@ -103,6 +110,7 @@ coreai-catalog/
 │   ├── source-map.md
 │   ├── apple-terminology-map.md
 │   ├── data-model.md
+│   ├── compare/
 │   ├── v0.3-verification.md
 │   ├── sota-maintenance.md
 │   └── generated-files.md
@@ -356,9 +364,46 @@ python scripts/readiness_score.py
 
 The GitHub Actions workflow runs validation, docs generation, scoring and JSON export on push and pull request.
 
+## CLI
+
+Install the CLI for the full experience:
+
+```bash
+pip install -e .
+```
+
+### Commands
+
+```bash
+# Discover models
+coreai-catalog search --capability vision-language --device iphone
+coreai-catalog list                          # all models, sorted by readiness score
+coreai-catalog scores                        # 0-100 readiness scores with grade distribution
+
+# Inspect a model
+coreai-catalog show qwen3-vl-2b              # full details: caps, devices, runtime, provenance, benchmarks
+coreai-catalog compare qwen3-vl-2b unlimited-ocr  # side-by-side
+
+# Get recommendations
+coreai-catalog recommend --task "robot vision" --device iphone
+coreai-catalog recommend --task "private on-device OCR" --device iphone
+coreai-catalog recommend --task "voice assistant" --device mac
+
+# Install a model (downloads from Hugging Face, writes manifest + Swift snippet)
+coreai-catalog install qwen3-vl-2b           # downloads artifact, generates snippet.swift
+coreai-catalog install qwen3-vl-2b --dry-run # preview without downloading
+coreai-catalog installed                     # list locally installed models
+coreai-catalog uninstall qwen3-vl-2b
+
+# Check your environment
+coreai-catalog doctor                        # checks Python, Xcode, coreai-torch, coreai-opt, HF CLI, disk
+```
+
+All commands support `--json` for programmatic consumption by agents and automation.
+
 ## Query and decision
 
-The catalog includes tools to answer "which model should I use for X?":
+The catalog includes Python scripts for programmatic access (same logic as the CLI):
 
 **Search models by capability, device, license:**
 
