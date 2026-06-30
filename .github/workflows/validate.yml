@@ -33,32 +33,21 @@ jobs:
       - name: Run data-quality audit
         run: python scripts/audit.py
 
-      # ── Generate derived views ──
-      - name: Generate Markdown docs
-        run: |
-          python scripts/generate_docs.py
-          python scripts/generate_artifact_docs.py
-          python scripts/generate_terms_docs.py
-          python scripts/generate_index.py
-          python scripts/generate_compare.py
-
-      - name: Export JSON and search indexes
-        run: |
-          python scripts/export_json.py
-          python scripts/export_search.py
-          python scripts/readiness_score.py
-
-      # ── CLI smoke test ──
-      - name: Install and test CLI + MCP
+      # ── Generate docs + JSON + scores (single unified generator) ──
+      - name: Generate all derived views
         run: |
           pip install -e ".[mcp]"
+          python scripts/generate.py
+
+      # ── CLI + MCP smoke test ──
+      - name: CLI + MCP smoke test
+        run: |
           coreai-catalog --help
           coreai-catalog list --capability chat | head -5
           coreai-catalog show qwen3-vl-2b
           coreai-catalog recommend --task "robot vision" --device iphone
           coreai-catalog scores | head -5
           coreai-catalog doctor || true
-          # MCP server smoke test
           python -c "
           import sys; sys.path.insert(0, '.')
           from mcp_server.server import mcp
@@ -74,7 +63,7 @@ jobs:
 
       - name: Verify JSON exports are non-empty
         run: |
-          for f in dist/catalog.json dist/artifacts.json dist/benchmarks.json dist/sources.json dist/upstreams.json dist/terms.json dist/coreai-catalog.json; do
+          for f in dist/catalog.json dist/artifacts.json dist/benchmarks.json dist/sources.json dist/upstreams.json dist/terms.json dist/coreai-catalog.json dist/search-index.json dist/models.jsonl dist/readiness-scores.json; do
             if [ ! -s "$f" ]; then
               echo "ERROR: $f is empty or missing"
               exit 1

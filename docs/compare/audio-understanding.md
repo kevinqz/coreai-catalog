@@ -4,7 +4,7 @@ Side-by-side comparison of all 1 model(s) with the `audio-understanding` capabil
 
 | Model | Family | Parameters | Precision | Devices | License | Runtime | Benchmark | Source |
 |---|---|---|---|---|---|---|---|---|
-| Qwen2.5-Omni-3B Audio | Qwen | 3B | int8 | iPhone/Mac | Apache-2.0 | CoreAIRunner (patch, AOT) | — | 🐼 Zoo |
+| Qwen2.5-Omni-3B Audio | Qwen | 3B | int8 | iPhone/Mac | Apache-2.0 | CoreAIRunner | — | 🐼 Zoo |
 
-> Generated automatically by `scripts/generate_compare.py` from `catalog.yaml` + `benchmarks.yaml`.
+> Generated automatically by `scripts/generate.py` from `catalog.yaml` + `benchmarks.yaml`.
 

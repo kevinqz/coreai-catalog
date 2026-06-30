@@ -13,21 +13,25 @@ These files are intended to be edited directly:
 - `benchmarks.yaml`
 - `terms.yaml`
 - `schema/*.json`
-- `scripts/*.py` (validate, audit, sync_upstream, generate_docs, generate_artifact_docs, generate_terms_docs, export_json)
+- `scripts/*.py` (validate, audit, sync_upstream, generate)
 
 ## Generated files
 
-These files are produced by scripts:
+These files are produced by `scripts/generate.py`:
 
-- `docs/index.md` from `scripts/generate_index.py`
-- `docs/model-registry.md` from `scripts/generate_docs.py`
-- `docs/artifact-provenance.md` from `scripts/generate_artifact_docs.py`
-- `docs/apple-terminology-map.md` from `scripts/generate_terms_docs.py`
-- `dist/*.json` from `scripts/export_json.py`
+- `docs/index.md`
+- `docs/model-registry.md`
+- `docs/artifact-provenance.md`
+- `docs/apple-terminology-map.md`
+- `docs/compare/*.md`
+- `dist/*.json` (catalog, artifacts, benchmarks, sources, upstreams, terms, coreai-catalog bundle)
+- `dist/search-index.json`, `dist/models.jsonl`, `dist/readiness-scores.json`
+
+Run `python scripts/generate.py` to regenerate everything, or `--docs` / `--json` for partial runs.
 
 ## Curated docs
 
-These docs are maintained manually until generators are expanded:
+These docs are maintained manually:
 
 - `docs/capability-matrix.md`
 - `docs/runtime-matrix.md`

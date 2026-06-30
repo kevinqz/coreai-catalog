@@ -6,5 +6,5 @@ Side-by-side comparison of all 1 model(s) with the `diffusion-lm` capability.
 |---|---|---|---|---|---|---|---|---|
 | LLaDA-8B dLLM | LLaDA | 8B | int4 | Mac | MIT | CoreAIRunner | — | 🐼 Zoo |
 
-> Generated automatically by `scripts/generate_compare.py` from `catalog.yaml` + `benchmarks.yaml`.
+> Generated automatically by `scripts/generate.py` from `catalog.yaml` + `benchmarks.yaml`.
 

@@ -178,9 +178,9 @@ cross-references  →  referential integrity (validate.py)
        ↓
 data-quality audit  →  9 categories, zero unknowns (audit.py)
        ↓
-generated docs  →  markdown views (generate_docs.py, generate_artifact_docs.py, generate_terms_docs.py, generate_index.py)
+generated docs  →  markdown views (generate.py)
        ↓
-JSON exports  →  machine-readable views (export_json.py)
+JSON exports  →  machine-readable views (generate.py --json)
        ↓
 sync scan  →  upstream gap detection (sync_upstream.py)
 ```

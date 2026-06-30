@@ -14,9 +14,9 @@ Not affiliated with or endorsed by Apple. `commercial_use` fields are triage lab
 
 ## Status
 
-**Version:** v1.1
+**Version:** v1.2
 
-v1.1 adds the Agent API: an MCP server with 9 tools (`search_models`, `get_model`, `compare_models`, `recommend_model`, `check_license`, `get_benchmarks`, `get_artifact`, `explain_term`, `get_capabilities`), `llms.txt` for LLM discovery, and agent skills for model selection and license triage. Agents can now discover, compare, and recommend Core AI models without scraping or reading READMEs. It builds on v1.0, which shipped the CLI with 8 commands including install and doctor.
+v1.2 consolidates the architecture for maximum efficiency: 10 redundant scripts deleted, all doc generation merged into one `scripts/generate.py`, all export logic moved to `coreai_catalog/exports.py`, scoring/search/recommend logic unified into `coreai_catalog/catalog.py` as single source of truth. No code duplication remains between scripts and the package. Agent-first: CLI, MCP server, and JSON exports all import from the same engine.
 
 ## Why this exists
 
@@ -82,22 +82,14 @@ coreai-catalog/
 ├── scripts/
 │   ├── validate.py
 │   ├── audit.py
-│   ├── sync_upstream.py
-│   ├── generate_docs.py
-│   ├── generate_artifact_docs.py
-│   ├── generate_terms_docs.py
-│   ├── generate_index.py
-│   ├── generate_compare.py
-│   ├── export_json.py
-│   ├── export_search.py
-│   ├── readiness_score.py
-│   ├── query.py
-│   └── recommend.py
+│   ├── generate.py
+│   └── sync_upstream.py
 ├── coreai_catalog/
 │   ├── __init__.py
 │   ├── __main__.py
 │   ├── cli.py
 │   ├── catalog.py
+│   ├── exports.py
 │   └── installer.py
 ├── mcp_server/
 │   ├── __init__.py
@@ -126,7 +118,7 @@ coreai-catalog/
         └── validate.yml
 ```
 
-Generated JSON exports are written to `dist/` when `scripts/export_json.py` runs.
+Generated JSON exports are written to `dist/` when `python scripts/generate.py --json` runs.
 
 ## Source of truth
 
@@ -354,22 +346,22 @@ python scripts/validate.py
 Regenerate Markdown docs:
 
 ```bash
-python scripts/generate_docs.py
-python scripts/generate_artifact_docs.py
-python scripts/generate_terms_docs.py
-python scripts/generate_index.py
-python scripts/generate_compare.py
+python scripts/generate.py --docs
 ```
 
-Export JSON and search indexes:
+Export JSON, search indexes, and readiness scores:
 
 ```bash
-python scripts/export_json.py
-python scripts/export_search.py
-python scripts/readiness_score.py
+python scripts/generate.py --json
 ```
 
-The GitHub Actions workflow runs validation, docs generation, scoring and JSON export on push and pull request.
+Or generate everything at once:
+
+```bash
+python scripts/generate.py
+```
+
+The GitHub Actions workflow runs validation, generation, CLI smoke test, and MCP assertion on every push and pull request.
 
 ## CLI
 
@@ -478,28 +470,7 @@ Agent recommends: Qwen3-VL 2B — benchmarked, iPhone-supported, Apache-2.0
 
 ## Query and decision
 
-The catalog includes Python scripts for programmatic access (same logic as the CLI):
-
-**Search models by capability, device, license:**
-
-```bash
-python scripts/query.py --capability vision-language --device iphone
-python scripts/query.py --capability speech-to-text --license likely
-python scripts/query.py --family Qwen --device mac --json
-```
-
-**Get recommendations for a task:**
-
-```bash
-python scripts/recommend.py --task "robot vision" --device iphone
-python scripts/recommend.py --task "private on-device OCR" --device iphone
-python scripts/recommend.py --task "on-device RAG"
-python scripts/recommend.py --task "voice assistant" --device mac
-```
-
-**Readiness scores** (`dist/readiness-scores.json`) rate each model 0-100 on deployment readiness based on artifact availability, device support, benchmark coverage, runtime simplicity, license clarity, and trust signals.
-
-**Comparison tables** (`docs/compare/`) provide side-by-side views of all models within a capability, including parameters, precision, runtime flags, benchmarks, and source.
+All query and decision tools are built into the CLI (see above) and the MCP server (see below). There is no separate `scripts/query.py` or `scripts/recommend.py` — the CLI is the single entry point for both humans and automation.
 
 ## Documentation
 
@@ -508,10 +479,10 @@ hand-edited; `curated` docs are maintained manually (see `docs/generated-files.m
 
 | Doc | Type | Description |
 |---|---|---|
-| `docs/index.md` | generated | Docs entry point and counts (`scripts/generate_index.py`). |
-| `docs/model-registry.md` | generated | Human-readable model table (`scripts/generate_docs.py`). |
-| `docs/artifact-provenance.md` | generated | Artifact ownership and hosting view (`scripts/generate_artifact_docs.py`). |
-| `docs/apple-terminology-map.md` | generated | Verified Apple AI terminology by layer (`scripts/generate_terms_docs.py`). |
+| `docs/index.md` | generated | Docs entry point and counts (`scripts/generate.py`). |
+| `docs/model-registry.md` | generated | Human-readable model table (`scripts/generate.py`). |
+| `docs/artifact-provenance.md` | generated | Artifact ownership and hosting view (`scripts/generate.py`). |
+| `docs/apple-terminology-map.md` | generated | Verified Apple AI terminology by layer (`scripts/generate.py`). |
 | `docs/data-model.md` | curated | Entity model and relationship documentation. |
 | `docs/capability-matrix.md` | curated | Models grouped by capability. |
 | `docs/runtime-matrix.md` | curated | Runtime concepts and flags. |

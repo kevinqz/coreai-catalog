@@ -1,0 +1,190 @@
+# CoreAI Catalog — Full LLM Context
+
+## Identity
+
+CoreAI Catalog is a source-grounded registry of Apple Core AI (CoreML/MLX) models,
+artifacts, benchmarks, provenance, and verified Apple AI terminology. It is an
+independent community project — not affiliated with or endorsed by Apple.
+
+- **Repository:** https://github.com/kevinqz/coreai-catalog
+- **License:** MIT
+- **Version:** 1.2.0
+- **Last verified:** 2026-06-30
+
+## What this catalog IS
+
+- A metadata and decision layer: discover, compare, verify, and install models
+- Source-grounded: every record traces to Hugging Face, GitHub, or Apple docs
+- Agent-first: CLI, MCP server, JSON exports, llms.txt — all from the same engine
+
+## What this catalog is NOT
+
+- Not a model host — it does not redistribute weights or artifacts
+- Not legal advice — `commercial_use` fields are triage labels, not permissions
+- Not affiliated with Apple
+
+## Catalog facts
+
+- 78 model records (chat, vision-language, speech, embeddings, detection, more)
+- 78 artifact provenance records (Hugging Face + GitHub sources)
+- 66 benchmark records (throughput, latency, RTF — iPhone + Mac)
+- 42 verified Apple AI terminology entries (each citing an official source)
+- 8 independent Hugging Face converters indexed (multi-upstream)
+- Readiness scores (0-100) for deployment decision-making
+
+## Data model
+
+Six YAML files are the source of truth. All derived views (JSON, Markdown,
+search indexes) are generated from them.
+
+| File | Entity | Key |
+|---|---|---|
+| `catalog.yaml` | Model metadata | `models[].id` |
+| `artifacts.yaml` | Artifact provenance | `artifacts[].id` |
+| `benchmarks.yaml` | Benchmark measurements | `benchmarks[].model_id` |
+| `sources.yaml` | Source registry | `sources[].id` |
+| `upstreams.yaml` | Source taxonomy | group-based |
+| `terms.yaml` | Apple AI terminology | `terms[].id` |
+
+### Key relations
+
+```
+catalog.models[].artifact_ref  →  artifacts.artifacts[].id
+benchmarks.benchmarks[].model_id  →  catalog.models[].id
+catalog.models[].sources[]  →  sources.sources[].id  OR  upstreams.*[].id
+upstreams.original_model_sources[].applies_to[]  →  catalog.models[].id
+terms.terms[].relations[]  →  terms.terms[].id
+```
+
+## How to consume this data
+
+### CLI (humans)
+
+```bash
+pip install -e .
+coreai-catalog search --capability vision-language --device iphone
+coreai-catalog recommend --task "robot vision" --device iphone
+coreai-catalog show qwen3-vl-2b
+coreai-catalog compare qwen3-vl-2b gemma-4-e2b-vision
+coreai-catalog install qwen3-vl-2b
+coreai-catalog scores
+coreai-catalog doctor
+```
+
+All CLI commands support `--json` for structured output.
+
+### JSON exports (agents/automation)
+
+- `dist/catalog.json` — all model records
+- `dist/artifacts.json` — all artifact provenance records
+- `dist/benchmarks.json` — all benchmark measurements
+- `dist/sources.json` — all source records
+- `dist/upstreams.json` — all upstream taxonomy
+- `dist/terms.json` — all terminology records
+- `dist/search-index.json` — flattened, denormalized model entries with joined data
+- `dist/models.jsonl` — one model per line (streaming-friendly)
+- `dist/readiness-scores.json` — 0-100 deployment readiness scores
+- `dist/coreai-catalog.json` — everything bundled
+
+### MCP server (Claude Desktop, Cursor, MCP-compatible agents)
+
+9 tools: `search_models`, `get_model`, `compare_models`, `recommend_model`,
+`check_license`, `get_benchmarks`, `get_artifact`, `explain_term`,
+`get_capabilities`.
+
+All tools are read-only. Configuration:
+
+```json
+{
+  "mcpServers": {
+    "coreai-catalog": {
+      "command": "python",
+      "args": ["mcp_server/server.py"]
+    }
+  }
+}
+```
+
+## Officiality model
+
+Every artifact has an `officiality` block:
+
+- `apple_export_recipe` — true only for Apple official recipe conversions
+- `apple_hosted_artifact` — true only if Apple hosts the artifact (currently always false)
+- `community_packaged` — true for community-zoo packaged artifacts
+
+Source groups:
+
+- `official` — Apple's own Core AI model zoo exports
+- `zoo` — Community-packaged from the Core AI model zoo
+- `external` — Independent HF converters not in the zoo
+
+## Readiness score breakdown (0-100)
+
+| Factor | Points |
+|---|---|
+| Artifact available | +15 |
+| License commercial_use = likely | +10 |
+| iPhone support | +10 |
+| Mac support | +10 |
+| Has benchmarks | +10 |
+| Stock runtime | +10 |
+| No custom kernel | +5 |
+| No patch required | +5 |
+| AOT supported | +5 |
+| Status = confirmed | +10 |
+| Confidence = high | +5 |
+| Maturity = stable/active | +5 |
+| Confidence = low | -10 |
+
+Score is clamped to [0, 100].
+
+## Capabilities in the catalog
+
+chat, text-generation, vision-language, speech-to-text, text-to-speech,
+embedding, reranking, object-detection, instance-segmentation,
+promptable-segmentation, monocular-depth, image-generation, super-resolution,
+document-ocr, audio-understanding, music-generation, text-to-audio,
+text-to-video, gui-grounding, vision-language-action, robotics, reasoning,
+agentic, image-to-3d, image-text-similarity, visual-document-retrieval,
+moe, mla, speculative-decoding, instruction-following, diffusion-lm
+
+## Verified Apple AI terminology (42 terms)
+
+Organized by Apple ecosystem layer:
+
+- **System surfaces:** App Intents, Spotlight, Siri
+- **Developer frameworks:** Core AI, Core ML, MLX, Vision, Speech, Natural Language
+- **Model providers:** Foundation Models
+- **Artifact formats:** .aimodel, .mlmodel, .mlpackage
+- **Developer tools:** Xcode, Instruments, Core AI Converter
+- **AI primitives:** AOT compilation, quantization, ANE, Neural Engine
+- **Provider protocols:** App Intents API, Foundation Models API
+
+Each term cites an official Apple source URL.
+
+## Data quality guarantees
+
+1. **Schema validation** — every record validates against its JSON Schema
+2. **Cross-reference integrity** — all artifact_ref, model_id, and source refs resolve
+3. **Zero unknowns** — critical fields use `not_published` if upstream doesn't disclose
+4. **Officiality logic** — source_group: official → apple_export_recipe: true
+5. **Append-only benchmarks** — superseded values retained with confidence: needs_review
+
+## Canonical files
+
+| File | Purpose |
+|---|---|
+| `/llms.txt` | Concise LLM context map |
+| `/llms-full.txt` | This file — full context |
+| `/agent.json` | Machine-readable agent manifest |
+| `/AGENTS.md` | Instructions for AI agents |
+| `/openapi.yaml` | REST API contract (mirrors MCP tools) |
+| `/dist/coreai-catalog.json` | Complete bundled JSON export |
+
+## Update policy
+
+- YAML sources are updated as upstream changes are discovered
+- Derived views (docs, JSON) are regenerated via `python scripts/generate.py`
+- CI validates schemas, cross-references, and data quality on every push
+- Weekly cron scans upstream (Hugging Face, GitHub) for new models/gaps

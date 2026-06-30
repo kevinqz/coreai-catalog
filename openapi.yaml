@@ -1,0 +1,423 @@
+openapi: 3.1.0
+info:
+  title: CoreAI Catalog API
+  version: 1.2.0
+  description: |
+    Source-grounded catalog of 78+ Apple Core AI models. All endpoints are
+    read-only. This OpenAPI spec mirrors the MCP server's 9 tools as REST
+    endpoints for agents and automation that don't use MCP.
+
+    JSON exports are also available as static files under `dist/`:
+    - `dist/catalog.json` — all models
+    - `dist/search-index.json` — denormalized search entries
+    - `dist/coreai-catalog.json` — complete bundle
+  license:
+    name: MIT
+    url: https://github.com/kevinqz/coreai-catalog/blob/main/LICENSE
+  contact:
+    url: https://github.com/kevinqz/coreai-catalog/issues
+servers:
+  - url: https://raw.githubusercontent.com/kevinqz/coreai-catalog/main
+    description: Static JSON files (read-only, no query support)
+  - url: cli://coreai-catalog
+    description: Local CLI (pip install -e . && coreai-catalog <command> --json)
+tags:
+  - name: models
+    description: Model discovery and details
+  - name: compare
+    description: Side-by-side model comparison
+  - name: recommend
+    description: Task-based model recommendation
+  - name: license
+    description: License and commercial use triage
+  - name: benchmarks
+    description: Benchmark measurements
+  - name: artifacts
+    description: Artifact provenance and download info
+  - name: terminology
+    description: Verified Apple AI terminology
+  - name: meta
+    description: Catalog metadata
+
+paths:
+  /api/models:
+    get:
+      tags: [models]
+      summary: Search models by criteria
+      description: Filter Apple Core AI models by capability, device, license, family, source group, or modality.
+      operationId: searchModels
+      parameters:
+        - name: capability
+          in: query
+          schema: { type: string }
+          description: e.g. "chat", "vision-language", "speech-to-text", "embedding"
+          example: vision-language
+        - name: device
+          in: query
+          schema: { type: string, enum: [iphone, ipad, mac] }
+          example: iphone
+        - name: license
+          in: query
+          schema: { type: string, enum: [likely, check_license] }
+        - name: family
+          in: query
+          schema: { type: string }
+          example: Qwen
+        - name: source_group
+          in: query
+          schema: { type: string, enum: [zoo, official, external] }
+        - name: modality
+          in: query
+          schema: { type: string }
+          description: Input or output modality (text, image, audio)
+        - name: limit
+          in: query
+          schema: { type: integer, default: 20, minimum: 1 }
+      responses:
+        "200":
+          description: Matching models
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count: { type: integer }
+                  models:
+                    type: array
+                    items: { $ref: "#/components/schemas/SearchResult" }
+
+  /api/models/{model_id}:
+    get:
+      tags: [models]
+      summary: Get full model details
+      operationId: getModel
+      parameters:
+        - name: model_id
+          in: path
+          required: true
+          schema: { type: string }
+          example: qwen3-vl-2b
+      responses:
+        "200":
+          description: Full model record
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Model" }
+        "404":
+          description: Model not found
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Error" }
+
+  /api/compare:
+    get:
+      tags: [compare]
+      summary: Compare 2+ models side-by-side
+      operationId: compareModels
+      parameters:
+        - name: ids
+          in: query
+          required: true
+          schema:
+            type: array
+            items: { type: string }
+            minItems: 2
+          style: form
+          explode: true
+          example: ["qwen3-vl-2b", "gemma-4-e2b-vision"]
+      responses:
+        "200":
+          description: Comparison results
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  comparison:
+                    type: array
+                    items: { $ref: "#/components/schemas/ComparisonEntry" }
+
+  /api/recommend:
+    get:
+      tags: [recommend]
+      summary: Recommend models for a task
+      description: Resolves a natural-language task to capabilities and returns ranked model recommendations.
+      operationId: recommendModel
+      parameters:
+        - name: task
+          in: query
+          required: true
+          schema: { type: string }
+          example: robot vision
+        - name: device
+          in: query
+          schema: { type: string, enum: [iphone, mac] }
+        - name: limit
+          in: query
+          schema: { type: integer, default: 5 }
+      responses:
+        "200":
+          description: Recommendations
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  task: { type: string }
+                  resolved_capabilities:
+                    type: array
+                    items: { type: string }
+                  device: { type: string, nullable: true }
+                  recommendations:
+                    type: array
+                    items: { $ref: "#/components/schemas/Recommendation" }
+
+  /api/models/{model_id}/license:
+    get:
+      tags: [license]
+      summary: Check license and commercial use status
+      operationId: checkLicense
+      parameters:
+        - name: model_id
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: License status
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/LicenseStatus" }
+        "404":
+          description: Model not found
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Error" }
+
+  /api/models/{model_id}/benchmarks:
+    get:
+      tags: [benchmarks]
+      summary: Get benchmark records for a model
+      operationId: getBenchmarks
+      parameters:
+        - name: model_id
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Benchmark measurements
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  model_id: { type: string }
+                  count: { type: integer }
+                  benchmarks:
+                    type: array
+                    items: { $ref: "#/components/schemas/Benchmark" }
+
+  /api/models/{model_id}/artifact:
+    get:
+      tags: [artifacts]
+      summary: Get artifact provenance and download info
+      operationId: getArtifact
+      parameters:
+        - name: model_id
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Artifact provenance
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Artifact" }
+        "404":
+          description: Model or artifact not found
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Error" }
+
+  /api/terms/{term}:
+    get:
+      tags: [terminology]
+      summary: Explain an Apple AI term
+      description: Looks up verified Apple AI/Core AI terminology with official source citation.
+      operationId: explainTerm
+      parameters:
+        - name: term
+          in: path
+          required: true
+          schema: { type: string }
+          example: "Core AI"
+      responses:
+        "200":
+          description: Term definition
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Term" }
+
+  /api/capabilities:
+    get:
+      tags: [meta]
+      summary: List all capabilities with model counts
+      operationId: getCapabilities
+      responses:
+        "200":
+          description: Capabilities list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count: { type: integer }
+                  capabilities:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        capability: { type: string }
+                        model_count: { type: integer }
+
+components:
+  schemas:
+    SearchResult:
+      type: object
+      properties:
+        id: { type: string }
+        name: { type: string }
+        family: { type: string }
+        capabilities: { type: array, items: { type: string } }
+        devices: { type: array, items: { type: string } }
+        parameters: { type: string }
+        license: { type: string }
+        commercial_use: { type: string }
+        readiness_score: { type: integer }
+        has_benchmark: { type: boolean }
+        artifact_url: { type: string }
+        source_group: { type: string }
+
+    Model:
+      type: object
+      properties:
+        id: { type: string }
+        name: { type: string }
+        family: { type: string }
+        source_group: { type: string }
+        capabilities: { type: array, items: { type: string } }
+        modalities:
+          type: object
+          properties:
+            input: { type: array, items: { type: string } }
+            output: { type: array, items: { type: string } }
+        size:
+          type: object
+          properties:
+            parameters: { type: string }
+            precision: { type: string }
+            quantization: { type: string }
+            artifact_size: { type: string }
+        runtime:
+          type: object
+          properties:
+            runner: { type: string }
+            stock_runtime: { type: boolean }
+            custom_kernel: { type: boolean }
+            patch_required: { type: boolean }
+            aot_required: { type: boolean }
+        device_support:
+          type: object
+          properties:
+            iphone: { type: boolean }
+            ipad: { type: boolean }
+            mac: { type: boolean }
+        license:
+          type: object
+          properties:
+            name: { type: string }
+            commercial_use: { type: string, enum: [likely, check_license] }
+        readiness_score: { type: integer }
+        provenance: { type: object }
+        benchmarks: { type: array, items: { type: object } }
+
+    ComparisonEntry:
+      type: object
+      properties:
+        id: { type: string }
+        name: { type: string }
+        score: { type: integer }
+        capabilities: { type: array, items: { type: string } }
+        parameters: { type: string }
+        precision: { type: string }
+        devices: { type: object }
+        license: { type: string }
+        commercial_use: { type: string }
+        runner: { type: string }
+        benchmark_count: { type: integer }
+        source_group: { type: string }
+
+    Recommendation:
+      type: object
+      properties:
+        id: { type: string }
+        name: { type: string }
+        score: { type: integer }
+        matched_capabilities: { type: array, items: { type: string } }
+        devices: { type: object }
+        license: { type: string }
+        commercial_use: { type: string }
+        has_benchmark: { type: boolean }
+        notes: { type: string }
+
+    LicenseStatus:
+      type: object
+      properties:
+        id: { type: string }
+        name: { type: string }
+        license: { type: string }
+        commercial_use: { type: string }
+        officiality: { type: object }
+        source_group: { type: string }
+        warning: { type: string, nullable: true }
+
+    Benchmark:
+      type: object
+      properties:
+        metric: { type: string }
+        unit: { type: string }
+        value: { type: number }
+        device: { type: string }
+        compute_unit: { type: string }
+        precision: { type: string }
+        environment: { type: string }
+        observed: { type: string }
+        confidence: { type: string }
+
+    Artifact:
+      type: object
+      properties:
+        id: { type: string }
+        group: { type: string }
+        github: { type: object }
+        huggingface: { type: object }
+        officiality: { type: object }
+        artifact_format: { type: string }
+        artifact_availability: { type: string }
+
+    Term:
+      type: object
+      properties:
+        id: { type: string }
+        label: { type: string }
+        definition: { type: string }
+        apple_layer: { type: string }
+        official_source: { type: string }
+        verification: { type: string }
+        relations: { type: array, items: { type: string } }
+
+    Error:
+      type: object
+      properties:
+        error: { type: string }

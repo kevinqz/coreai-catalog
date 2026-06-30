@@ -1,0 +1,108 @@
+{
+  "name": "CoreAI Catalog",
+  "url": "https://github.com/kevinqz/coreai-catalog",
+  "description": "A source-grounded catalog of 78+ Apple Core AI models with artifact provenance, benchmarks, verified terminology, readiness scores, and an MCP server for agent-native model discovery, comparison, and recommendation.",
+  "primary_language": "en",
+  "entity_type": "open_source_database",
+  "version": "1.2.0",
+  "license": "MIT",
+  "capabilities": [
+    {
+      "id": "search_models",
+      "name": "Search models",
+      "description": "Filter Apple Core AI models by capability, device, license, family, source group, or modality.",
+      "human_approval_required": false,
+      "transport": ["cli", "mcp", "json"]
+    },
+    {
+      "id": "get_model",
+      "name": "Get model details",
+      "description": "Retrieve full metadata for a specific model including capabilities, runtime, device support, license, provenance, and benchmarks.",
+      "human_approval_required": false,
+      "transport": ["cli", "mcp", "json"]
+    },
+    {
+      "id": "compare_models",
+      "name": "Compare models",
+      "description": "Side-by-side comparison of 2+ models by score, capabilities, devices, parameters, license, and benchmarks.",
+      "human_approval_required": false,
+      "transport": ["cli", "mcp"]
+    },
+    {
+      "id": "recommend_model",
+      "name": "Recommend models for task",
+      "description": "Natural-language task to model recommendation with capability resolution, device filtering, and readiness scoring.",
+      "human_approval_required": false,
+      "transport": ["cli", "mcp"]
+    },
+    {
+      "id": "check_license",
+      "name": "Check license status",
+      "description": "License and commercial use triage for a model, including officiality status and upstream source.",
+      "human_approval_required": false,
+      "transport": ["cli", "mcp"]
+    },
+    {
+      "id": "get_benchmarks",
+      "name": "Get benchmarks",
+      "description": "All benchmark measurements for a model (throughput, latency, RTF) with device, compute unit, and environment.",
+      "human_approval_required": false,
+      "transport": ["cli", "mcp", "json"]
+    },
+    {
+      "id": "get_artifact",
+      "name": "Get artifact provenance",
+      "description": "Artifact download info: Hugging Face repo, GitHub conversion source, format, availability, and officiality.",
+      "human_approval_required": false,
+      "transport": ["cli", "mcp"]
+    },
+    {
+      "id": "explain_term",
+      "name": "Explain Apple AI term",
+      "description": "Look up verified Apple AI/Core AI terminology with official source citation and term relations.",
+      "human_approval_required": false,
+      "transport": ["cli", "mcp"]
+    },
+    {
+      "id": "get_capabilities",
+      "name": "List all capabilities",
+      "description": "All model capabilities in the catalog with model counts, sorted by frequency.",
+      "human_approval_required": false,
+      "transport": ["mcp"]
+    },
+    {
+      "id": "install_model",
+      "name": "Install model",
+      "description": "Download and install a model artifact locally for on-device use.",
+      "human_approval_required": false,
+      "transport": ["cli"]
+    }
+  ],
+  "canonical_files": {
+    "llms": "https://raw.githubusercontent.com/kevinqz/coreai-catalog/main/llms.txt",
+    "llms_full": "https://raw.githubusercontent.com/kevinqz/coreai-catalog/main/llms-full.txt",
+    "agent_manifest": "https://raw.githubusercontent.com/kevinqz/coreai-catalog/main/agent.json",
+    "openapi": "https://raw.githubusercontent.com/kevinqz/coreai-catalog/main/openapi.yaml",
+    "catalog_json": "https://raw.githubusercontent.com/kevinqz/coreai-catalog/main/dist/catalog.json",
+    "search_index": "https://raw.githubusercontent.com/kevinqz/coreai-catalog/main/dist/search-index.json",
+    "bundled": "https://raw.githubusercontent.com/kevinqz/coreai-catalog/main/dist/coreai-catalog.json",
+    "agents_instructions": "https://raw.githubusercontent.com/kevinqz/coreai-catalog/main/AGENTS.md"
+  },
+  "mcp_server": {
+    "transport": "stdio",
+    "command": "python",
+    "args": ["mcp_server/server.py"],
+    "tools": 9,
+    "read_only": true
+  },
+  "data_quality": {
+    "schema_validated": true,
+    "cross_references_checked": true,
+    "append_only_benchmarks": true,
+    "ci_validated": true
+  },
+  "contact": {
+    "type": "github_issues",
+    "url": "https://github.com/kevinqz/coreai-catalog/issues"
+  }
+}

@@ -24,7 +24,7 @@
 - Benchmark records: 66
 - Terminology records: 42
 
-> Counts are generated automatically by `scripts/generate_index.py`. Never edit this section manually.
+> Counts are generated automatically by `scripts/generate.py`. Never edit this section manually.
 
 ## Source of truth
 
@@ -41,7 +41,7 @@
 Run:
 
 ```bash
-python scripts/export_json.py
+python scripts/generate.py --json
 ```
 
 This generates JSON views under `dist/`.
