@@ -403,6 +403,8 @@ def explain_term(term: str) -> str:
         JSON with the term definition, Apple ecosystem layer, official source
         URL, and relations to other terms.
     """
+    if not term or not term.strip():
+        return json.dumps({"error": "Term parameter is required"})
     lower = term.lower().strip()
     for t in catalog.terms:
         if t["id"].lower() == lower or t.get("label", "").lower() == lower:

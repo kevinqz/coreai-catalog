@@ -801,6 +801,13 @@ def cmd_doctor(args: argparse.Namespace) -> int:
         print(f"\n  {BOLD}Install missing tools:{RESET}")
         for name, cmd in missing:
             print(f"    {DIM}{cmd}{RESET}")
+
+    # Show available interfaces
+    print(f"\n  {BOLD}Available interfaces:{RESET}")
+    print(f"    {DIM}CLI:     coreai-catalog <command>{RESET}")
+    print(f"    {DIM}MCP:     coreai-catalog-mcp  (Claude Desktop, Cursor, MCP clients){RESET}")
+    print(f"    {DIM}JSON:    dist/*.json         (programmatic consumption){RESET}")
+    print(f"    {DIM}Context: llms.txt, llms-full.txt, agent.json, openapi.yaml{RESET}")
     print()
     return 0 if checks_passed == checks_total else 1
 

@@ -404,7 +404,7 @@ All commands support `--json` for programmatic consumption by agents and automat
 
 ## MCP server (Agent API)
 
-The catalog ships an [MCP server](https://modelcontextprotocol.io/) that exposes 9 tools to AI agents (Claude Desktop, Cursor, any MCP-compatible client).
+The catalog ships an [MCP server](https://modelcontextprotocol.io/) that exposes 11 tools to AI agents (Claude Desktop, Cursor, any MCP-compatible client).
 
 ### Setup
 
