@@ -88,10 +88,12 @@ def search_models(
         source_group=source_group,
         modality=modality,
     )
+    # Clamp limit to valid range
+    limit = max(0, min(limit, 10000))
     total_matches = len(results)
-    truncated = total_matches > limit
+    truncated = total_matches > limit if limit > 0 else False
     output = []
-    for m in results[:limit]:
+    for m in results[:limit] if limit > 0 else []:
         ds = m.get("device_support", {})
         devices = []
         if ds.get("iphone") is True:
@@ -210,11 +212,19 @@ def compare_models(model_ids: list[str]) -> str:
         JSON array with each model's score, capabilities, devices, parameters,
         license, runner, benchmark count, and source.
     """
-    if len(model_ids) < 2:
+    if not model_ids or len(model_ids) < 2:
         return json.dumps({"error": "Provide at least 2 model IDs to compare"})
 
-    results = []
+    # Deduplicate while preserving order
+    seen = set()
+    unique_ids = []
     for mid in model_ids:
+        if mid not in seen:
+            seen.add(mid)
+            unique_ids.append(mid)
+
+    results = []
+    for mid in unique_ids:
         m = catalog.get_model(mid)
         if not m:
             results.append({"id": mid, "error": "not found"})

@@ -94,6 +94,8 @@ def export_search_index(catalog_root: Path, dist: Path | None = None) -> int:
             "environment": b.get("environment"),
             "observed": b.get("observed"),
             "confidence": b.get("confidence"),
+            "precision": b.get("precision"),
+            "notes": b.get("notes"),
         })
 
     entries = []

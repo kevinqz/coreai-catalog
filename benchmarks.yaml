@@ -14,7 +14,7 @@ benchmarks:
   value: 71.9
   device: iPhone 17 Pro
   compute_unit: GPU
-  precision: unknown
+  precision: not_published
   environment: iOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
@@ -27,7 +27,7 @@ benchmarks:
   value: 14.7
   device: iPhone 17 Pro
   compute_unit: ANE
-  precision: unknown
+  precision: not_published
   environment: iOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
@@ -40,7 +40,7 @@ benchmarks:
   value: 210
   device: M4 Max
   compute_unit: GPU
-  precision: unknown
+  precision: not_published
   environment: macOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
@@ -53,7 +53,7 @@ benchmarks:
   value: 29
   device: iPhone 17 Pro
   compute_unit: GPU
-  precision: unknown
+  precision: not_published
   environment: iOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
@@ -66,7 +66,7 @@ benchmarks:
   value: 161
   device: M4 Max
   compute_unit: GPU
-  precision: unknown
+  precision: not_published
   environment: macOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
@@ -79,7 +79,7 @@ benchmarks:
   value: 45.4
   device: iPhone 17 Pro
   compute_unit: GPU
-  precision: unknown
+  precision: not_published
   environment: iOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
@@ -92,7 +92,7 @@ benchmarks:
   value: 276.5
   device: M4 Max
   compute_unit: GPU
-  precision: unknown
+  precision: not_published
   environment: macOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
@@ -105,7 +105,7 @@ benchmarks:
   value: 36.3
   device: iPhone 17 Pro
   compute_unit: GPU
-  precision: unknown
+  precision: not_published
   environment: iOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
@@ -118,7 +118,7 @@ benchmarks:
   value: 136.5
   device: M4 Max
   compute_unit: GPU
-  precision: unknown
+  precision: not_published
   environment: macOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
@@ -131,7 +131,7 @@ benchmarks:
   value: 15.9
   device: iPhone 17 Pro
   compute_unit: GPU
-  precision: unknown
+  precision: not_published
   environment: iOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
@@ -144,7 +144,7 @@ benchmarks:
   value: 114.5
   device: M4 Max
   compute_unit: GPU
-  precision: unknown
+  precision: not_published
   environment: macOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
@@ -157,7 +157,7 @@ benchmarks:
   value: 30.3
   device: iPhone 17 Pro
   compute_unit: GPU
-  precision: unknown
+  precision: not_published
   environment: iOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
@@ -183,7 +183,7 @@ benchmarks:
   value: 6
   device: iPhone 17 Pro
   compute_unit: ANE
-  precision: unknown
+  precision: not_published
   environment: iOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
@@ -196,7 +196,7 @@ benchmarks:
   value: 77.0
   device: M4 Max
   compute_unit: GPU
-  precision: unknown
+  precision: not_published
   environment: macOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
@@ -222,7 +222,7 @@ benchmarks:
   value: 15.1
   device: iPhone 17 Pro
   compute_unit: GPU
-  precision: unknown
+  precision: not_published
   environment: iOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
@@ -235,7 +235,7 @@ benchmarks:
   value: 55.8
   device: M4 Max
   compute_unit: GPU
-  precision: unknown
+  precision: not_published
   environment: macOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
@@ -261,7 +261,7 @@ benchmarks:
   value: 82.4
   device: M4 Max
   compute_unit: GPU
-  precision: unknown
+  precision: not_published
   environment: macOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
@@ -274,7 +274,7 @@ benchmarks:
   value: 53.4
   device: iPhone 17 Pro
   compute_unit: GPU
-  precision: unknown
+  precision: not_published
   environment: iOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
@@ -287,7 +287,7 @@ benchmarks:
   value: 224.3
   device: M4 Max
   compute_unit: GPU
-  precision: unknown
+  precision: not_published
   environment: macOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
@@ -300,7 +300,7 @@ benchmarks:
   value: 64.9
   device: M4 Max
   compute_unit: GPU
-  precision: unknown
+  precision: not_published
   environment: macOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
@@ -313,7 +313,7 @@ benchmarks:
   value: 15.9
   device: M4 Max
   compute_unit: GPU
-  precision: unknown
+  precision: not_published
   environment: macOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
@@ -326,7 +326,7 @@ benchmarks:
   value: 52.4
   device: M4 Max
   compute_unit: GPU
-  precision: unknown
+  precision: not_published
   environment: macOS 27 beta, coreai-pipelined engine
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
@@ -378,7 +378,7 @@ benchmarks:
   value: 78.1
   device: M4 Max
   compute_unit: GPU
-  precision: unknown
+  precision: not_published
   environment: stock CoreAI runtime, M4 Max
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
@@ -391,7 +391,7 @@ benchmarks:
   value: 484
   device: M4 Max
   compute_unit: GPU
-  precision: unknown
+  precision: not_published
   environment: stock CoreAI runtime, M4 Max
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
@@ -404,7 +404,7 @@ benchmarks:
   value: 145.4
   device: M4 Max
   compute_unit: GPU
-  precision: unknown
+  precision: not_published
   environment: stock CoreAI runtime, M4 Max
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
@@ -417,7 +417,7 @@ benchmarks:
   value: 94.1
   device: M4 Max
   compute_unit: GPU
-  precision: unknown
+  precision: not_published
   environment: stock CoreAI runtime, M4 Max
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
@@ -430,7 +430,7 @@ benchmarks:
   value: 141.5
   device: M4 Max
   compute_unit: GPU
-  precision: unknown
+  precision: not_published
   environment: stock CoreAI runtime, M4 Max
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
@@ -443,7 +443,7 @@ benchmarks:
   value: 55.0
   device: M4 Max
   compute_unit: GPU
-  precision: unknown
+  precision: not_published
   environment: stock CoreAI runtime, M4 Max
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
@@ -456,7 +456,7 @@ benchmarks:
   value: 101.7
   device: M4 Max
   compute_unit: GPU
-  precision: unknown
+  precision: not_published
   environment: stock CoreAI runtime, M4 Max
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
@@ -469,7 +469,7 @@ benchmarks:
   value: 17.4
   device: M4 Max
   compute_unit: GPU
-  precision: unknown
+  precision: not_published
   environment: stock CoreAI runtime, M4 Max
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
@@ -482,7 +482,7 @@ benchmarks:
   value: 0.55
   device: M4 Max
   compute_unit: GPU
-  precision: unknown
+  precision: not_published
   environment: stock CoreAI runtime, M4 Max
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
@@ -495,7 +495,7 @@ benchmarks:
   value: 0.18
   device: M4 Max
   compute_unit: GPU
-  precision: unknown
+  precision: not_published
   environment: stock CoreAI runtime, M4 Max
   observed: '2026-06-25'
   source: john-rocky-coreai-model-zoo
@@ -508,7 +508,7 @@ benchmarks:
   value: 1121
   device: M4 Max
   compute_unit: GPU
-  precision: unknown
+  precision: not_published
   environment: macOS 26
   observed: '2026-06-24'
   source: john-rocky-coreai-model-zoo

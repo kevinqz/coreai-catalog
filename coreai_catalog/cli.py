@@ -139,17 +139,23 @@ def cmd_search(args: argparse.Namespace) -> int:
     if args.json:
         enriched = []
         for m in results:
+            ds = m.get("device_support", {})
+            devices = [d for d in ("iphone", "ipad", "mac") if ds.get(d) is True]
             enriched.append({
                 "id": m["id"],
                 "name": m["name"],
                 "family": m["family"],
                 "capabilities": m.get("capabilities", []),
-                "devices": _fmt_devices(m.get("device_support", {})),
-                "license": m.get("license", {}),
+                "devices": devices,
+                "parameters": m.get("size", {}).get("parameters"),
+                "license": m.get("license", {}).get("name"),
+                "commercial_use": m.get("license", {}).get("commercial_use"),
                 "readiness_score": cat.readiness_score(m),
+                "has_benchmark": bool(cat.get_benchmarks(m["id"])),
                 "source_group": m.get("source_group"),
             })
-        print(json.dumps({"count": len(enriched), "models": enriched}, indent=2))
+        print(json.dumps({"count": len(enriched), "total_matches": len(enriched),
+                          "truncated": False, "models": enriched}, indent=2))
         return 0
 
     print(f"\n  {BOLD}Found {len(results)} model(s){RESET}\n")
@@ -188,7 +194,7 @@ def cmd_show(args: argparse.Namespace) -> int:
     score = cat.readiness_score(model)
     installed = is_installed(model["id"])
 
-    # JSON output
+    # JSON output — aligned with MCP get_model schema
     if args.json:
         result = {
             "id": model["id"],
@@ -201,11 +207,15 @@ def cmd_show(args: argparse.Namespace) -> int:
             "runtime": model.get("runtime", {}),
             "device_support": model.get("device_support", {}),
             "license": model.get("license", {}),
+            "status": model.get("status"),
+            "maturity": model.get("maturity"),
+            "confidence": model.get("confidence"),
             "readiness_score": score,
-            "installed": installed,
+            "artifact": model.get("artifact", {}),
             "provenance": {},
             "benchmarks": [],
             "notes": model.get("notes"),
+            "last_verified": model.get("last_verified"),
         }
         if art:
             result["provenance"] = {
@@ -220,6 +230,9 @@ def cmd_show(args: argparse.Namespace) -> int:
                 "value": b.get("value"),
                 "device": b.get("device"),
                 "compute_unit": b.get("compute_unit"),
+                "environment": b.get("environment"),
+                "observed": b.get("observed"),
+                "confidence": b.get("confidence"),
             })
         print(json.dumps(result, indent=2))
         return 0
@@ -334,17 +347,25 @@ def cmd_list(args: argparse.Namespace) -> int:
     models.sort(key=lambda m: cat.readiness_score(m), reverse=True)
 
     if args.json:
-        results = [{
-            "id": m["id"],
-            "name": m["name"],
-            "family": m.get("family"),
-            "capabilities": m.get("capabilities", []),
-            "devices": _fmt_devices(m.get("device_support", {})),
-            "license": m.get("license", {}),
-            "readiness_score": cat.readiness_score(m),
-            "source_group": m.get("source_group"),
-        } for m in models]
-        print(json.dumps({"count": len(results), "models": results}, indent=2))
+        results = []
+        for m in models:
+            ds = m.get("device_support", {})
+            devices = [d for d in ("iphone", "ipad", "mac") if ds.get(d) is True]
+            results.append({
+                "id": m["id"],
+                "name": m["name"],
+                "family": m.get("family"),
+                "capabilities": m.get("capabilities", []),
+                "devices": devices,
+                "parameters": m.get("size", {}).get("parameters"),
+                "license": m.get("license", {}).get("name"),
+                "commercial_use": m.get("license", {}).get("commercial_use"),
+                "readiness_score": cat.readiness_score(m),
+                "has_benchmark": bool(cat.get_benchmarks(m["id"])),
+                "source_group": m.get("source_group"),
+            })
+        print(json.dumps({"count": len(results), "total_matches": len(results),
+                          "truncated": False, "models": results}, indent=2))
         return 0
 
     print(f"\n  {BOLD}{len(models)} models in catalog{RESET}\n")
@@ -419,10 +440,15 @@ def cmd_compare(args: argparse.Namespace) -> int:
                 "name": m["name"],
                 "score": cat.readiness_score(m),
                 "capabilities": m.get("capabilities", []),
-                "devices": _fmt_devices(m.get("device_support", {})),
                 "parameters": m.get("size", {}).get("parameters"),
+                "precision": m.get("size", {}).get("precision"),
+                "devices": m.get("device_support", {}),
                 "license": m.get("license", {}).get("name"),
-                "benchmarks": len(cat.get_benchmarks(m["id"])),
+                "commercial_use": m.get("license", {}).get("commercial_use"),
+                "runner": m.get("runtime", {}).get("runner"),
+                "stock_runtime": m.get("runtime", {}).get("stock_runtime"),
+                "benchmark_count": len(cat.get_benchmarks(m["id"])),
+                "source_group": m.get("source_group"),
             })
         print(json.dumps({"comparison": results}, indent=2))
         return 0
@@ -492,12 +518,21 @@ def cmd_recommend(args: argparse.Namespace) -> int:
     candidates = candidates[: args.limit]
 
     if args.json:
-        results = [{
-            "id": m["id"],
-            "name": m["name"],
-            "score": s,
-            "matched_capabilities": mc,
-        } for m, s, mc in candidates]
+        results = []
+        for m, s, mc in candidates:
+            ds = m.get("device_support", {})
+            devices = [d for d in ("iphone", "ipad", "mac") if ds.get(d) is True]
+            results.append({
+                "id": m["id"],
+                "name": m["name"],
+                "score": s,
+                "matched_capabilities": mc,
+                "devices": devices,
+                "license": m.get("license", {}).get("name"),
+                "commercial_use": m.get("license", {}).get("commercial_use"),
+                "has_benchmark": bool(cat.get_benchmarks(m["id"])),
+                "notes": m.get("notes", ""),
+            })
         print(json.dumps({
             "task": args.task,
             "resolved_capabilities": capabilities,

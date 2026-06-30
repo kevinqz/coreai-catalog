@@ -97,7 +97,9 @@ class Catalog:
     def get_model(self, model_id: str) -> dict | None:
         """Find a model by ID (case-insensitive)."""
         self._load()
-        lower = model_id.lower()
+        if not model_id or not model_id.strip():
+            return None
+        lower = model_id.lower().strip()
         for m in self._models:
             if m["id"].lower() == lower:
                 return m
@@ -243,6 +245,8 @@ TASK_MAP: dict[str, list[str]] = {
 
 def resolve_task(task: str) -> list[str]:
     """Resolve a free-text task to a list of capabilities."""
+    if not task or not task.strip():
+        return []
     lower = task.lower().strip()
     if lower in TASK_MAP:
         return TASK_MAP[lower]

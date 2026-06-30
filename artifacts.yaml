@@ -919,7 +919,6 @@ artifacts:
   github:
     owner: CarstenL
     repo: whisper-large-v3-turbo-coreai
-    path: https://huggingface.co/CarstenL/whisper-large-v3-turbo-coreai
   huggingface:
     owner: CarstenL
     repo: whisper-large-v3-turbo-coreai
@@ -961,7 +960,6 @@ artifacts:
   github:
     owner: warshanks
     repo: gemma-4-12B-it-coreai
-    path: https://huggingface.co/warshanks/gemma-4-12B-it-coreai
   huggingface:
     owner: warshanks
     repo: gemma-4-12B-it-coreai
@@ -975,7 +973,6 @@ artifacts:
   github:
     owner: warshanks
     repo: gemma-4-12B-it-assistant-coreai
-    path: https://huggingface.co/warshanks/gemma-4-12B-it-assistant-coreai
   huggingface:
     owner: warshanks
     repo: gemma-4-12B-it-assistant-coreai
@@ -1087,7 +1084,6 @@ artifacts:
   github:
     owner: lenitas
     repo: coreai-artifacts
-    path: https://huggingface.co/lenitas/coreai-artifacts
   huggingface:
     owner: lenitas
     repo: coreai-artifacts
