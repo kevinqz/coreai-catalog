@@ -851,7 +851,7 @@ benchmarks:
   model_id: adcsr-x4
   metric: inference_latency
   unit: milliseconds
-  value:
+  value: not_published
   device: iPhone 17 Pro
   compute_unit: GPU
   precision: fp32

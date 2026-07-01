@@ -1,10 +1,59 @@
 # Changelog
 
-All notable changes to CoreAI Catalog are documented here.
+All notable changes to Core AI Catalog are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/), and this
 project adheres to [Semantic Versioning](https://semver.org/).
 
-## [1.2.5] — 2026-06-30
+## [1.3.0] — 2026-07-01
+
+### Fixed — Red-team R3: CLI↔MCP parity, version consistency
+- **Version sync** — catalog.yaml, pyproject.toml, agent.json, openapi.yaml, and
+  all `dist/*.json` exports now carry `1.3.0` (were stale at `1.2.0` since 9
+  commits). `readiness-scores.json` now also includes `export_catalog_version`.
+- **CLI `search --json` / `list --json`** — added `artifact_url` and
+  `devices_unknown` fields to match MCP `search_models` output exactly.
+- **MCP `recommend_model`** — `devices` field normalized from raw dict to list
+  (matches CLI output shape).
+- **MCP `recommend_model`** — added `license` parameter (parity with CLI
+  `-l`/`--license` filter).
+- **MCP `get_capabilities`** — added `benchmark_count` field (parity with CLI).
+- **CLI `scores`** — added secondary sort by model ID for deterministic
+  tie-breaking (9 models tied at score 93, 11 at 83, etc.).
+- **CLI `search`** — added valid-capability and valid-family hints when search
+  returns 0 results.
+
+### Added — Red-team R3: discoverability, task coverage
+- **CLI `--version` / `-V` flag** — prints `coreai-catalog 1.3.0` and exits.
+- **CLI `version` subcommand** — shows version, model count, benchmark count,
+  term count, and last-verified date (supports `--json`).
+- **TASK_MAP expanded from 40→87 entries** — added `translation`,
+  `summarization`, `code generation`, `math`, `question answering`, `image
+  classification`, `image captioning`, `visual question answering`, `voice
+  cloning`, `document understanding`, `video understanding`, `multimodal chat`,
+  `3d reconstruction`, and 27 more. 50 common tasks that previously returned
+  0 models now resolve correctly.
+- **`openapi.yaml`** — added `/api/tasks` and `/api/version` endpoints;
+  added `license` parameter to `/api/recommend`; added `benchmark_count` to
+  capabilities schema.
+- **`agent.json`** — replaced phantom `install_model` with actual MCP tools
+  `get_tasks` and `get_version`; tool list now matches MCP server exactly.
+- **`readiness-scores.json`** — includes `export_schema_version` and
+  `export_catalog_version` for consumer version detection.
+
+### Fixed — Red-team R3: parameter parsing (35% of models affected)
+- **`_parse_params` rewritten** — previously 27/78 models (35%) sorted as `inf`
+  due to non-standard parameter formats. Now handles `E2B`/`E4B` (effective
+  parameters), `nano`/`small`/`medium`/`large`/`xlarge` (size tiers),
+  `sub-2B`, `35B / ~3B active` (compound), `809M / ~1.5GB` (weight+param),
+  `2B (BitNet b1.58)` (parenthetical), and more. Only 2 models remain as `inf`
+  (genuinely no parameter count: upscale factor `×4`, weight-only `~1.7GB`).
+
+### Fixed — Red-team R3: terminology alignment
+- `llms.txt`, `openapi.yaml`, `agent.json` — "CoreAI" → "Core AI" (Apple's
+  official convention with space).
+- `openapi.yaml` — tool count "9 tools" → "11 tools" in description.
+
+## [1.2.9] — 2026-06-30
 
 ### Added — DX/UX improvements
 - New `coreai-catalog capabilities` command (alias `caps`) — list all capabilities

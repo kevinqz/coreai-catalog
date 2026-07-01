@@ -1,10 +1,10 @@
 openapi: 3.1.0
 info:
-  title: CoreAI Catalog API
-  version: 1.2.0
+  title: Core AI Catalog API
+  version: 1.3.0
   description: |
     Source-grounded catalog of 78+ Apple Core AI models. All endpoints are
-    read-only. This OpenAPI spec mirrors the MCP server's 9 tools as REST
+    read-only. This OpenAPI spec mirrors the MCP server's 11 tools as REST
     endpoints for agents and automation that don't use MCP.
 
     JSON exports are also available as static files under `dist/`:
@@ -155,6 +155,9 @@ paths:
         - name: limit
           in: query
           schema: { type: integer, default: 5 }
+        - name: license
+          in: query
+          schema: { type: string, enum: [likely, check_license] }
       responses:
         "200":
           description: Recommendations
@@ -280,6 +283,33 @@ paths:
                       properties:
                         capability: { type: string }
                         model_count: { type: integer }
+                        benchmark_count: { type: integer }
+
+  /api/tasks:
+    get:
+      tags: [meta]
+      summary: List valid task keywords for recommend_model
+      operationId: getTasks
+      responses:
+        "200":
+          description: Task keywords list
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TaskList"
+
+  /api/version:
+    get:
+      tags: [meta]
+      summary: Get catalog version and statistics
+      operationId: getVersion
+      responses:
+        "200":
+          description: Version info
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VersionInfo"
 
 components:
   schemas:
@@ -423,3 +453,20 @@ components:
       type: object
       properties:
         error: { type: string }
+
+    TaskList:
+      type: object
+      properties:
+        count: { type: integer }
+        tasks:
+          type: array
+          items: { type: string }
+
+    VersionInfo:
+      type: object
+      properties:
+        version: { type: string }
+        model_count: { type: integer }
+        benchmark_count: { type: integer }
+        term_count: { type: integer }
+        last_verified: { type: string, nullable: true }

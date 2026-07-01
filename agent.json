@@ -1,10 +1,10 @@
 {
-  "name": "CoreAI Catalog",
+  "name": "Core AI Catalog",
   "url": "https://github.com/kevinqz/coreai-catalog",
   "description": "A source-grounded catalog of 78+ Apple Core AI models with artifact provenance, benchmarks, verified terminology, readiness scores, and an MCP server for agent-native model discovery, comparison, and recommendation.",
   "primary_language": "en",
   "entity_type": "open_source_database",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "license": "MIT",
   "capabilities": [
     {
@@ -66,16 +66,23 @@
     {
       "id": "get_capabilities",
       "name": "List all capabilities",
-      "description": "All model capabilities in the catalog with model counts, sorted by frequency.",
+      "description": "All model capabilities in the catalog with model counts and benchmark coverage, sorted by frequency.",
+      "human_approval_required": false,
+      "transport": ["cli", "mcp"]
+    },
+    {
+      "id": "get_tasks",
+      "name": "List valid task keywords",
+      "description": "Lists all task keywords accepted by recommend_model, enabling agents to discover valid task inputs.",
       "human_approval_required": false,
       "transport": ["mcp"]
     },
     {
-      "id": "install_model",
-      "name": "Install model",
-      "description": "Download and install a model artifact locally for on-device use.",
+      "id": "get_version",
+      "name": "Get catalog version",
+      "description": "Returns catalog version, model count, benchmark count, term count, and last_verified date.",
       "human_approval_required": false,
-      "transport": ["cli"]
+      "transport": ["cli", "mcp"]
     }
   ],
   "canonical_files": {

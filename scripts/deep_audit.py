@@ -257,15 +257,19 @@ def main() -> int:
             if re.match(r"^\d+$", str(params)):
                 issues.append(f"[SIZE] model {m['id']} parameters='{params}' raw number without B/M suffix")
 
-            # Check for non-standard formats (not a recognized param pattern)
+            # Check for non-standard formats that _parse_params can't handle
+            # _parse_params now handles: B/M suffix, E2B/E4B, size tiers,
+            # compound formats, parenthetical, sub-XB — so we only flag
+            # genuinely unparseable values.
+            sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+            from coreai_catalog.catalog import _parse_params
             if not param_re.match(str(params)):
-                # Some are intentionally descriptive (MoE active params, etc.) — flag for review
-                if not any(x in str(params).lower() for x in ["active", "ternary", "dit", "bitnet"]):
-                    if str(params) not in ("not_published", "unknown"):
-                        issues.append(
-                            f"[SIZE] model {m['id']} parameters='{params}' non-standard format "
-                            f"(expected e.g. '2B', '350M')"
-                        )
+                parsed = _parse_params(params)
+                if parsed == float("inf") and str(params) not in ("not_published", "unknown"):
+                    issues.append(
+                        f"[SIZE] model {m['id']} parameters='{params}' unparseable "
+                        f"(not a recognized format for sorting)"
+                    )
 
         # artifact_size format
         if asize and asize not in ("not_published", "unknown"):

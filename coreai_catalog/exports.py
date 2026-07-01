@@ -182,9 +182,13 @@ def export_search_index(catalog_root: Path, dist: Path | None = None) -> int:
             f.write(json.dumps(entry, ensure_ascii=False) + "\n")
 
     # readiness-scores.json
-    scores.sort(key=lambda s: s["score"], reverse=True)
+    scores.sort(key=lambda s: (-s["score"], s["id"]))
     (dist / "readiness-scores.json").write_text(
-        json.dumps({"readiness_scores": scores}, indent=2, ensure_ascii=False) + "\n"
+        json.dumps({
+            "readiness_scores": scores,
+            "export_schema_version": EXPORT_SCHEMA_VERSION,
+            "export_catalog_version": catalog_version,
+        }, indent=2, ensure_ascii=False) + "\n"
     )
 
     return len(entries)

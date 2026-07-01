@@ -1,9 +1,9 @@
-# CoreAI Catalog
+# Core AI Catalog
 
 > A source-grounded catalog of 78+ Apple Core AI models, artifacts, benchmarks,
 > provenance, and a verified Apple AI terminology layer.
 
-CoreAI Catalog helps you discover, compare, verify, and install Apple Core AI
+Core AI Catalog helps you discover, compare, verify, and install Apple Core AI
 models. It maps Core AI-compatible model artifacts with granular metadata,
 source links, Hugging Face artifact references, runtime requirements, device
 support, benchmark records, and verification status.

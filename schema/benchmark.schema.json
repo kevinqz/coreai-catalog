@@ -48,7 +48,7 @@
         "realtime_factor"
       ]
     },
-    "value": { "type": ["number", "null"] },
+    "value": { "type": ["number", "null", "string"] },
     "device": { "type": ["string", "null"] },
     "compute_unit": {
       "type": ["string", "null"],

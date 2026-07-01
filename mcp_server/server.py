@@ -250,7 +250,12 @@ def compare_models(model_ids: list[str]) -> str:
 # ── Tool 4: recommend_model ──
 
 @mcp.tool()
-def recommend_model(task: str, device: str | None = None, limit: int = 5) -> str:
+def recommend_model(
+    task: str,
+    device: str | None = None,
+    limit: int = 5,
+    license: str | None = None,
+) -> str:
     """Recommend Core AI models for a given task.
 
     Args:
@@ -258,6 +263,7 @@ def recommend_model(task: str, device: str | None = None, limit: int = 5) -> str
             'private on-device OCR', 'voice assistant', 'on-device RAG').
         device: Target device constraint ('iphone' or 'mac').
         limit: Maximum recommendations (default 5).
+        license: Filter by commercial use status ('likely' or 'check_license').
 
     Returns:
         JSON with resolved capabilities and ranked model recommendations
@@ -269,13 +275,18 @@ def recommend_model(task: str, device: str | None = None, limit: int = 5) -> str
         device=device,
         limit=limit,
         task=task,
+        license_type=license,
     )
 
     return json.dumps({
         "task": task,
         "resolved_capabilities": capabilities,
         "device": device,
-        "recommendations": recommendations,
+        "recommendations": [
+            {**r, "devices": [d for d in ("iphone", "ipad", "mac")
+                              if r.get("devices", {}).get(d) is True]}
+            for r in recommendations
+        ],
     }, indent=2)
 
 
@@ -450,11 +461,16 @@ def get_capabilities() -> str:
     """
     from collections import Counter
     cap_counts: Counter = Counter()
+    bench_counts: Counter = Counter()
     for m in catalog.models:
+        has_bench = bool(catalog.get_benchmarks(m["id"]))
         for c in m.get("capabilities", []):
             cap_counts[c] += 1
+            if has_bench:
+                bench_counts[c] += 1
     output = [
-        {"capability": cap, "model_count": count}
+        {"capability": cap, "model_count": count,
+         "benchmark_count": bench_counts.get(cap, 0)}
         for cap, count in cap_counts.most_common()
     ]
     return json.dumps({"count": len(output), "capabilities": output}, indent=2)

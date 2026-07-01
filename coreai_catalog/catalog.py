@@ -16,18 +16,63 @@ import yaml
 
 
 def _parse_params(val) -> float:
-    """Parse a parameter string like '2B', '350M', 'unknown' into a float for sorting."""
-    if not val or val == "unknown":
+    """Parse a parameter string into a float (in billions) for sorting.
+
+    Handles standard formats ('2B', '350M'), compound formats
+    ('35B / ~3B active', '20B / ~13GB'), effective-parameter formats
+    ('E2B', 'E4B'), size tiers ('nano', 'small', 'large'), and
+    weight-only descriptors ('~1.7GB', '809M / ~1.5GB').
+    Returns float('inf') for unparseable or unknown values.
+    """
+    if not val or val == "unknown" or val == "not_published":
         return float("inf")
     s = str(val).strip().upper()
+
+    # Size tier estimation (common for detection/segmentation models)
+    _SIZE_TIERS = {
+        "NANO": 0.05, "TINY": 0.08,
+        "SMALL": 0.15, "BASE": 0.3,
+        "MEDIUM": 0.5, "LARGE": 1.0,
+        "XLARGE": 2.0, "2XLARGE": 4.0,
+    }
+    if s in _SIZE_TIERS:
+        return _SIZE_TIERS[s]
+
+    # Effective-parameter format: 'E2B' → 2.0, 'E4B' → 4.0
+    if s.startswith("E") and s.endswith("B"):
+        try:
+            return float(s[1:-1])
+        except ValueError:
+            pass
+
+    # 'sub-2B' → 1.5 (slightly under 2B)
+    if s.startswith("SUB-") and s.endswith("B"):
+        try:
+            return float(s[4:-1]) * 0.75
+        except ValueError:
+            pass
+
+    # Compound formats: extract the first parameter count
+    # '35B / ~3B active' → 35.0, '20B / ~13GB' → 20.0, '809M / ~1.5GB' → 0.809
+    # '2B / DiT 1.9B + T5-XXL 4.76B' → 2.0, '2B (BitNet b1.58)' → 2.0
+    first_token = s.split()[0].split("/")[0].split("(")[0].strip()
     try:
-        if s.endswith("B"):
-            return float(s[:-1])
-        if s.endswith("M"):
-            return float(s[:-1]) / 1000
-        return float(s)
+        if first_token.endswith("B"):
+            return float(first_token[:-1])
+        if first_token.endswith("M"):
+            return float(first_token[:-1]) / 1000
+        return float(first_token)
     except (ValueError, IndexError):
-        return float("inf")
+        pass
+
+    # Fallback: try to extract any number followed by B/M anywhere in string
+    import re
+    m = re.search(r"(\d+(?:\.\d+)?)\s*([BM])\b", s)
+    if m:
+        num = float(m.group(1))
+        return num if m.group(2) == "B" else num / 1000
+
+    return float("inf")
 
 
 #: Common abbreviations and aliases → canonical capability names.
@@ -400,6 +445,60 @@ TASK_MAP: dict[str, list[str]] = {
     "code agent": ["agentic", "chat"],
     "agentic": ["agentic"],
     "reasoning": ["reasoning", "chat"],
+    # ── NLP tasks that map to chat/text-generation ──
+    "translation": ["chat", "text-generation"],
+    "summarization": ["chat", "text-generation"],
+    "summarize": ["chat", "text-generation"],
+    "code generation": ["text-generation", "chat"],
+    "code completion": ["text-generation", "chat"],
+    "math": ["reasoning", "chat"],
+    "math reasoning": ["reasoning", "chat"],
+    "question answering": ["chat", "text-generation"],
+    "qa": ["chat", "text-generation"],
+    "text summarization": ["chat", "text-generation"],
+    "writing": ["chat", "text-generation"],
+    "creative writing": ["chat", "text-generation"],
+    "text generation": ["text-generation", "chat"],
+    "instruct": ["chat", "text-generation"],
+    "instruction following": ["chat", "text-generation"],
+    "function calling": ["chat", "agentic"],
+    "tool use": ["chat", "agentic"],
+    "json generation": ["text-generation", "chat"],
+    "classification": ["embedding", "chat"],
+    "text classification": ["embedding", "chat"],
+    "sentiment analysis": ["embedding", "chat"],
+    "zero-shot classification": ["embedding", "chat"],
+    "feature extraction": ["embedding"],
+    "reranker": ["reranking"],
+    "ranking": ["reranking"],
+    "reranking": ["reranking"],
+    # ── Vision tasks ──
+    "image classification": ["vision-language", "image-text-similarity"],
+    "image captioning": ["vision-language"],
+    "visual question answering": ["vision-language"],
+    "vqa": ["vision-language"],
+    "visual reasoning": ["vision-language", "reasoning"],
+    "scene understanding": ["vision-language", "object-detection"],
+    "face detection": ["object-detection"],
+    "pose estimation": ["object-detection"],
+    "image segmentation": ["promptable-segmentation", "instance-segmentation"],
+    "panoptic segmentation": ["promptable-segmentation"],
+    # ── Audio tasks ──
+    "audio transcription": ["speech-to-text"],
+    "speech enhancement": ["speech-to-text"],
+    "noise reduction": ["speech-to-text"],
+    "voice cloning": ["text-to-speech"],
+    # ── Document tasks ──
+    "layout analysis": ["document-ocr", "vision-language"],
+    "document understanding": ["document-ocr", "vision-language"],
+    "table extraction": ["document-ocr", "vision-language"],
+    "formula recognition": ["document-ocr"],
+    # ── Video/multimodal ──
+    "video understanding": ["vision-language"],
+    "multimodal chat": ["vision-language", "chat"],
+    # ── 3D tasks ──
+    "3d reconstruction": ["image-to-3d"],
+    "gaussian splatting": ["image-to-3d"],
 }
 
 

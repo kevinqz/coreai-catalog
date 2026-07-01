@@ -151,6 +151,13 @@ def cmd_search(args: argparse.Namespace) -> int:
             valid = sorted({cu for m in cat.models
                             if (cu := m.get("license", {}).get("commercial_use"))})
             print(f"  {DIM}Valid license values: {', '.join(valid)}{RESET}")
+        if args.capability:
+            valid = sorted({c for m in cat.models
+                            for c in m.get("capabilities", [])})
+            print(f"  {DIM}Valid capabilities: {', '.join(valid)}{RESET}")
+        if args.family:
+            valid = sorted({f for m in cat.models if (f := m.get("family"))})
+            print(f"  {DIM}Valid families: {', '.join(valid)}{RESET}")
         return 0
 
     if args.json:
@@ -158,17 +165,26 @@ def cmd_search(args: argparse.Namespace) -> int:
         for m in results:
             ds = m.get("device_support", {})
             devices = [d for d in ("iphone", "ipad", "mac") if ds.get(d) is True]
+            devices_unknown = [d for d in ("iphone", "ipad", "mac")
+                               if ds.get(d) not in (True, False)] or None
+            # Artifact URL for direct download
+            art = cat.get_artifact(m["id"])
+            hf_url = ""
+            if art:
+                hf_url = art.get("huggingface", {}).get("url", "")
             enriched.append({
                 "id": m["id"],
                 "name": m["name"],
                 "family": m["family"],
                 "capabilities": m.get("capabilities", []),
                 "devices": devices,
+                "devices_unknown": devices_unknown,
                 "parameters": m.get("size", {}).get("parameters"),
                 "license": m.get("license", {}).get("name"),
                 "commercial_use": m.get("license", {}).get("commercial_use"),
                 "readiness_score": cat.readiness_score(m),
                 "has_benchmark": bool(cat.get_benchmarks(m["id"])),
+                "artifact_url": hf_url,
                 "source_group": m.get("source_group"),
             })
         print(json.dumps({"count": len(enriched), "total_matches": len(enriched),
@@ -371,17 +387,25 @@ def cmd_list(args: argparse.Namespace) -> int:
         for m in models:
             ds = m.get("device_support", {})
             devices = [d for d in ("iphone", "ipad", "mac") if ds.get(d) is True]
+            devices_unknown = [d for d in ("iphone", "ipad", "mac")
+                               if ds.get(d) not in (True, False)] or None
+            art = cat.get_artifact(m["id"])
+            hf_url = ""
+            if art:
+                hf_url = art.get("huggingface", {}).get("url", "")
             results.append({
                 "id": m["id"],
                 "name": m["name"],
                 "family": m.get("family"),
                 "capabilities": m.get("capabilities", []),
                 "devices": devices,
+                "devices_unknown": devices_unknown,
                 "parameters": m.get("size", {}).get("parameters"),
                 "license": m.get("license", {}).get("name"),
                 "commercial_use": m.get("license", {}).get("commercial_use"),
                 "readiness_score": cat.readiness_score(m),
                 "has_benchmark": bool(cat.get_benchmarks(m["id"])),
+                "artifact_url": hf_url,
                 "source_group": m.get("source_group"),
             })
         print(json.dumps({"count": len(results), "total_matches": len(results),
@@ -399,7 +423,7 @@ def cmd_scores(args: argparse.Namespace) -> int:
     cat = Catalog()
     models = cat.models
     scored = [(m, cat.readiness_score(m)) for m in models]
-    scored.sort(key=lambda x: x[1], reverse=True)
+    scored.sort(key=lambda x: (-x[1], x[0]["id"]))
 
     if args.json:
         results = [{
@@ -847,6 +871,43 @@ def cmd_installed(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_version(args: argparse.Namespace) -> int:
+    """Show catalog version and content statistics."""
+    import yaml as _yaml
+    cat = Catalog()
+    cat_path = cat.root / "catalog.yaml"
+    version = "unknown"
+    last_verified = None
+    if cat_path.exists():
+        data = _yaml.safe_load(cat_path.read_text()) or {}
+        meta = data.get("metadata", {})
+        version = meta.get("version", "unknown")
+        last_verified = meta.get("last_verified")
+
+    bench_count = len(cat.benchmarks)
+    term_count = len(cat.terms)
+
+    if args.json:
+        print(json.dumps({
+            "version": version,
+            "model_count": len(cat.models),
+            "benchmark_count": bench_count,
+            "term_count": term_count,
+            "last_verified": last_verified,
+        }, indent=2))
+        return 0
+
+    print(f"\n  {BOLD}Core AI Catalog{RESET}")
+    print(f"  {'─' * 40}")
+    print(f"  Version:        {version}")
+    print(f"  Models:         {len(cat.models)}")
+    print(f"  Benchmarks:     {bench_count}")
+    print(f"  Terms:          {term_count}")
+    print(f"  Last verified:  {last_verified}")
+    print()
+    return 0
+
+
 # ── CLI entry point ──
 
 
@@ -866,6 +927,7 @@ def build_parser() -> argparse.ArgumentParser:
         ),
     )
     parser.add_argument("--no-color", action="store_true", help="Disable ANSI colors")
+    parser.add_argument("-V", "--version", action="store_true", help="Show version and exit")
     sub = parser.add_subparsers(dest="command", help="Available commands")
 
     # search
@@ -945,6 +1007,11 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--json", action="store_true", help="Output as JSON")
     p.set_defaults(func=cmd_capabilities)
 
+    # version
+    p = sub.add_parser("version", help="Show catalog version and statistics")
+    p.add_argument("--json", action="store_true", help="Output as JSON")
+    p.set_defaults(func=cmd_version)
+
     return parser
 
 
@@ -956,6 +1023,18 @@ def main() -> None:
     global BOLD, DIM, GREEN, YELLOW, BLUE, RED, RESET
     if getattr(args, "no_color", False) or not _IS_TTY:
         BOLD = DIM = GREEN = YELLOW = BLUE = RED = RESET = ""
+
+    # Handle --version / -V flag
+    if getattr(args, "version", False):
+        import yaml as _yaml
+        cat = Catalog()
+        cat_path = cat.root / "catalog.yaml"
+        version = "unknown"
+        if cat_path.exists():
+            data = _yaml.safe_load(cat_path.read_text()) or {}
+            version = data.get("metadata", {}).get("version", "unknown")
+        print(f"coreai-catalog {version}")
+        sys.exit(0)
 
     if not hasattr(args, "func"):
         parser.print_help()
