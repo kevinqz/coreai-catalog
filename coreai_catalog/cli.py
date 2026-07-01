@@ -608,6 +608,16 @@ def cmd_recommend(args: argparse.Namespace) -> int:
     print(f"  {BOLD}Capabilities:{RESET} {', '.join(capabilities)}")
     if args.device:
         print(f"  {BOLD}Device:{RESET} {args.device}")
+    if args.explain:
+        print(f"\n  {BOLD}── Decision tree ──{RESET}")
+        print(f"  {DIM}1.{RESET} Task \"{args.task}\" → resolved to capabilities: {', '.join(capabilities)}")
+        if args.device:
+            print(f"  {DIM}2.{RESET} Filter: device_support.{args.device} == true")
+        if args.license:
+            print(f"  {DIM}3.{RESET} Filter: commercial_use == {args.license}")
+        step = (4 if args.device else 3) if args.license else (3 if args.device else 2)
+        print(f"  {DIM}{step}.{RESET} Rank by: readiness_score (desc) → first-capability priority → params (asc)")
+        print(f"  {DIM}{step+1}.{RESET} Top {args.limit} returned\n")
     print(f"\n  {BOLD}Recommended models:{RESET}\n")
 
     for i, rec in enumerate(recommendations, 1):
@@ -801,6 +811,46 @@ def cmd_capabilities(args: argparse.Namespace) -> int:
         bcount = bench_counts.get(cap, 0)
         print(f"  {cap:35s}  {count:>6}  {bcount:>12}")
     print(f"\n  {DIM}{len(cap_counts)} capabilities across {len(cat.models)} models{RESET}\n")
+    return 0
+
+
+def cmd_tasks(args: argparse.Namespace) -> int:
+    """Browse all supported task keywords, grouped by capability."""
+    from .catalog import TASK_MAP
+    from collections import defaultdict
+
+    # Build reverse map: capability → list of task synonyms
+    cap_to_tasks: dict[str, list[str]] = defaultdict(list)
+    for task_syn, caps in TASK_MAP.items():
+        for cap in caps:
+            cap_to_tasks[cap].append(task_syn)
+
+    if args.json:
+        tasks_out = []
+        for cap in sorted(cap_to_tasks.keys()):
+            synonyms = sorted(cap_to_tasks[cap])
+            tasks_out.append({
+                "capability": cap,
+                "task_synonyms": synonyms,
+                "synonym_count": len(synonyms),
+            })
+        print(json.dumps({
+            "count": len(TASK_MAP),
+            "capabilities": tasks_out,
+        }, indent=2))
+        return 0
+
+    print(f"\n  {BOLD}Core AI Catalog — Task Keywords{RESET}")
+    print(f"  {DIM}{len(TASK_MAP)} task synonyms across {len(cap_to_tasks)} capabilities{RESET}\n")
+
+    for cap in sorted(cap_to_tasks.keys()):
+        synonyms = sorted(cap_to_tasks[cap])
+        syn_str = ", ".join(synonyms)
+        print(f"  {BOLD}{cap}{RESET} ({len(synonyms)})")
+        print(f"    {DIM}{syn_str}{RESET}\n")
+
+    print(f"  {DIM}Usage: coreai-catalog recommend --task \"<keyword>\"{RESET}")
+    print()
     return 0
 
 
@@ -1050,6 +1100,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("-l", "--license",
                    help="Filter by commercial use (likely, check_license)")
     p.add_argument("-n", "--limit", type=int, default=5, help="Max results (default 5)")
+    p.add_argument("--explain", action="store_true", help="Show decision tree (task → capability → filter → rank)")
     p.add_argument("--json", action="store_true", help="Output as JSON")
     p.set_defaults(func=cmd_recommend)
 
@@ -1084,6 +1135,11 @@ def build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("version", help="Show catalog version and statistics")
     p.add_argument("--json", action="store_true", help="Output as JSON")
     p.set_defaults(func=cmd_version)
+
+    # tasks (browse-tasks)
+    p = sub.add_parser("tasks", help="Browse all supported task keywords")
+    p.add_argument("--json", action="store_true", help="Output as JSON")
+    p.set_defaults(func=cmd_tasks)
 
     return parser
 

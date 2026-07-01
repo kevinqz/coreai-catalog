@@ -120,7 +120,7 @@
     }
   ],
   "export_schema_version": "1.0",
-  "export_catalog_version": "1.5.0",
+  "export_catalog_version": "1.6.0",
   "best_overall": "efficientsam3-tinyvit",
   "best_iphone": "efficientsam3-tinyvit",
   "best_commercial": "efficientsam3-tinyvit"

@@ -18,7 +18,7 @@ Not affiliated with or endorsed by Apple. `commercial_use` fields are triage lab
 
 ## Status
 
-**Version:** v1.5.0
+**Version:** v1.6.0
 
 79 Apple Core AI models with artifact provenance, benchmarks, verified terminology, readiness scores, and an MCP server for agent-native model discovery, comparison, and recommendation. Agent-ready: CLI, MCP server, JSON exports, llms.txt, openapi.yaml — all from the same engine.
 
@@ -574,10 +574,11 @@ For sensitive licenses such as Gemma Terms, Meta SAM License, LFM Open License o
 
 Current milestone:
 
-- v1.5.0 — Structured docs (philosophy, getting-started, concepts, task pages), community templates, issue templates. 79 models, 68 tests.
+- v1.6.0 — Task-first discovery: `tasks` command, `recommend --explain`, enriched MCP get_tasks.
 
 Earlier:
 
+- v1.5.0 — Structured docs (philosophy, getting-started, concepts, task pages), community templates, issue templates.
 - v1.4.0 — PyPI-ready, 60-second demo, Swift examples, recommend redesign.
 - v1.3.x — RWKV-7 Goose 1.5B, source-monitor cron, 3-round red-team, dist/ committed, docs sync.
 

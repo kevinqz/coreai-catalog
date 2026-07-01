@@ -482,17 +482,32 @@ def get_capabilities() -> str:
 
 @mcp.tool()
 def get_tasks() -> str:
-    """List valid task keywords accepted by recommend_model.
+    """Browse all supported task keywords, grouped by capability.
 
     Returns:
-        JSON with the list of valid task keywords from TASK_MAP that
-        can be passed to the `task` parameter of recommend_model.
+        JSON with task synonyms grouped by capability, including
+        synonym counts and the total number of unique tasks.
     """
     from coreai_catalog.catalog import TASK_MAP
-    tasks = sorted(TASK_MAP.keys())
+    from collections import defaultdict
+
+    cap_to_tasks: dict[str, list[str]] = defaultdict(list)
+    for task_syn, caps in TASK_MAP.items():
+        for cap in caps:
+            cap_to_tasks[cap].append(task_syn)
+
+    capabilities = []
+    for cap in sorted(cap_to_tasks.keys()):
+        synonyms = sorted(cap_to_tasks[cap])
+        capabilities.append({
+            "capability": cap,
+            "task_synonyms": synonyms,
+            "synonym_count": len(synonyms),
+        })
+
     return json.dumps({
-        "count": len(tasks),
-        "tasks": tasks,
+        "count": len(TASK_MAP),
+        "capabilities": capabilities,
     }, indent=2)
 
 

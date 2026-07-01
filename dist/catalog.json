@@ -1,5 +1,5 @@
 {
-  "export_catalog_version": "1.5.0",
+  "export_catalog_version": "1.6.0",
   "export_schema_version": "1.0",
   "metadata": {
     "description": "Compact, source-grounded catalog of Apple Core AI models, artifacts, capabilities, modalities, runtime metadata, device support and sources.",
@@ -10,7 +10,7 @@
       "coreai-model-zoo",
       "apple/coreai-models"
     ],
-    "version": "1.5.0"
+    "version": "1.6.0"
   },
   "models": [
     {

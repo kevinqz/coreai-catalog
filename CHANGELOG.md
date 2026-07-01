@@ -4,6 +4,17 @@ All notable changes to Core AI Catalog are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/), and this
 project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.6.0] — 2026-07-01
+
+### Added — task-first discovery
+
+- **`coreai-catalog tasks`** — new CLI command listing all 89 task synonyms
+  grouped by capability (25 capabilities). Supports `--json`.
+- **`recommend --explain`** — shows the full decision tree: task → resolved
+  capabilities → device/license filters → ranking algorithm → top-N.
+- **MCP `get_tasks` enriched** — now groups synonyms by capability with counts
+  (was flat list). Backward compatible: still returns count + all tasks.
+
 ## [1.5.0] — 2026-07-01
 
 ### Added — structured documentation

@@ -372,8 +372,9 @@ class TestMCPTools(unittest.TestCase):
 
     def test_get_tasks(self):
         data = self._expect_json(self.get_tasks())
-        self.assertIn("tasks", data)
-        self.assertGreater(len(data["tasks"]), 40)
+        self.assertIn("count", data)
+        self.assertGreater(data["count"], 40)
+        self.assertIn("capabilities", data)
 
     def test_get_version(self):
         data = self._expect_json(self.get_version())
