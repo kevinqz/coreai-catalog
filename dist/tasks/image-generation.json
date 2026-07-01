@@ -1,0 +1,42 @@
+{
+  "task": "image generation",
+  "capabilities": [
+    "image-generation"
+  ],
+  "model_count": 2,
+  "models": [
+    {
+      "id": "official-flux-2-klein-4b",
+      "name": "FLUX.2 klein 4B",
+      "score": 85,
+      "parameters": "4B / ~4GB",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": true
+    },
+    {
+      "id": "z-image-turbo",
+      "name": "Z-Image Turbo",
+      "score": 73,
+      "parameters": "not_published",
+      "devices": {
+        "iphone": true,
+        "ipad": true,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    }
+  ],
+  "export_schema_version": "1.0",
+  "export_catalog_version": "1.5.0",
+  "best_overall": "official-flux-2-klein-4b",
+  "best_iphone": "z-image-turbo",
+  "best_commercial": "official-flux-2-klein-4b"
+}

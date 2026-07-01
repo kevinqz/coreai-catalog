@@ -1,0 +1,126 @@
+{
+  "task": "noise reduction",
+  "capabilities": [
+    "speech-to-text"
+  ],
+  "model_count": 8,
+  "models": [
+    {
+      "id": "official-whisper-large-v3-turbo",
+      "name": "Whisper large-v3-turbo",
+      "score": 90,
+      "parameters": "809M / ~1.5GB",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": true
+    },
+    {
+      "id": "parakeet-tdt-0-6b",
+      "name": "Parakeet-TDT-0.6B",
+      "score": 78,
+      "parameters": "0.6B",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "CC-BY-4.0",
+      "commercial_use": "check_license",
+      "has_benchmark": true
+    },
+    {
+      "id": "whisper-large-v3-turbo-carstenl",
+      "name": "Whisper large-v3-turbo (CarstenL)",
+      "score": 78,
+      "parameters": "809M",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "whisper-medium-intiser",
+      "name": "Whisper medium (Intiser)",
+      "score": 78,
+      "parameters": "769M",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "MIT",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "whisper-tiny-en-intiser",
+      "name": "Whisper tiny.en (Intiser)",
+      "score": 78,
+      "parameters": "39M",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "MIT",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "qwen3-asr-1-7b",
+      "name": "Qwen3-ASR-1.7B",
+      "score": 73,
+      "parameters": "1.7B",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "vibevoice-asr",
+      "name": "VibeVoice ASR",
+      "score": 73,
+      "parameters": "7B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "MIT",
+      "commercial_use": "likely",
+      "has_benchmark": true
+    },
+    {
+      "id": "nemotron-3-5-asr-streaming",
+      "name": "Nemotron 3.5 ASR Streaming 0.6B",
+      "score": 70,
+      "parameters": "0.6B",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "OpenMDW-1.1",
+      "commercial_use": "check_license",
+      "has_benchmark": false
+    }
+  ],
+  "export_schema_version": "1.0",
+  "export_catalog_version": "1.5.0",
+  "best_overall": "official-whisper-large-v3-turbo",
+  "best_iphone": "official-whisper-large-v3-turbo",
+  "best_commercial": "official-whisper-large-v3-turbo"
+}

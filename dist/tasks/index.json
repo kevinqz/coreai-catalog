@@ -1,0 +1,768 @@
+{
+  "task_count": 89,
+  "tasks": [
+    {
+      "task": "3d generation",
+      "slug": "3d-generation",
+      "capabilities": [
+        "image-to-3d"
+      ],
+      "model_count": 1
+    },
+    {
+      "task": "3d reconstruction",
+      "slug": "3d-reconstruction",
+      "capabilities": [
+        "image-to-3d"
+      ],
+      "model_count": 1
+    },
+    {
+      "task": "agentic",
+      "slug": "agentic",
+      "capabilities": [
+        "agentic"
+      ],
+      "model_count": 2
+    },
+    {
+      "task": "asr",
+      "slug": "asr",
+      "capabilities": [
+        "speech-to-text"
+      ],
+      "model_count": 8
+    },
+    {
+      "task": "audio transcription",
+      "slug": "audio-transcription",
+      "capabilities": [
+        "speech-to-text"
+      ],
+      "model_count": 8
+    },
+    {
+      "task": "audio understanding",
+      "slug": "audio-understanding",
+      "capabilities": [
+        "audio-understanding"
+      ],
+      "model_count": 1
+    },
+    {
+      "task": "chat",
+      "slug": "chat",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "model_count": 28
+    },
+    {
+      "task": "classification",
+      "slug": "classification",
+      "capabilities": [
+        "embedding",
+        "chat"
+      ],
+      "model_count": 30
+    },
+    {
+      "task": "clip",
+      "slug": "clip",
+      "capabilities": [
+        "image-text-similarity"
+      ],
+      "model_count": 1
+    },
+    {
+      "task": "code agent",
+      "slug": "code-agent",
+      "capabilities": [
+        "agentic",
+        "chat"
+      ],
+      "model_count": 28
+    },
+    {
+      "task": "code completion",
+      "slug": "code-completion",
+      "capabilities": [
+        "text-generation",
+        "chat"
+      ],
+      "model_count": 28
+    },
+    {
+      "task": "code generation",
+      "slug": "code-generation",
+      "capabilities": [
+        "text-generation",
+        "chat"
+      ],
+      "model_count": 28
+    },
+    {
+      "task": "computer use",
+      "slug": "computer-use",
+      "capabilities": [
+        "gui-grounding"
+      ],
+      "model_count": 1
+    },
+    {
+      "task": "creative writing",
+      "slug": "creative-writing",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "model_count": 28
+    },
+    {
+      "task": "depth estimation",
+      "slug": "depth-estimation",
+      "capabilities": [
+        "monocular-depth"
+      ],
+      "model_count": 2
+    },
+    {
+      "task": "document ocr",
+      "slug": "document-ocr",
+      "capabilities": [
+        "document-ocr"
+      ],
+      "model_count": 1
+    },
+    {
+      "task": "document understanding",
+      "slug": "document-understanding",
+      "capabilities": [
+        "document-ocr",
+        "vision-language"
+      ],
+      "model_count": 8
+    },
+    {
+      "task": "embedding",
+      "slug": "embedding",
+      "capabilities": [
+        "embedding"
+      ],
+      "model_count": 2
+    },
+    {
+      "task": "face detection",
+      "slug": "face-detection",
+      "capabilities": [
+        "object-detection"
+      ],
+      "model_count": 5
+    },
+    {
+      "task": "feature extraction",
+      "slug": "feature-extraction",
+      "capabilities": [
+        "embedding"
+      ],
+      "model_count": 2
+    },
+    {
+      "task": "formula recognition",
+      "slug": "formula-recognition",
+      "capabilities": [
+        "document-ocr"
+      ],
+      "model_count": 1
+    },
+    {
+      "task": "function calling",
+      "slug": "function-calling",
+      "capabilities": [
+        "chat",
+        "agentic"
+      ],
+      "model_count": 28
+    },
+    {
+      "task": "gaussian splatting",
+      "slug": "gaussian-splatting",
+      "capabilities": [
+        "image-to-3d"
+      ],
+      "model_count": 1
+    },
+    {
+      "task": "gui grounding",
+      "slug": "gui-grounding",
+      "capabilities": [
+        "gui-grounding"
+      ],
+      "model_count": 1
+    },
+    {
+      "task": "image captioning",
+      "slug": "image-captioning",
+      "capabilities": [
+        "vision-language"
+      ],
+      "model_count": 7
+    },
+    {
+      "task": "image classification",
+      "slug": "image-classification",
+      "capabilities": [
+        "vision-language",
+        "image-text-similarity"
+      ],
+      "model_count": 8
+    },
+    {
+      "task": "image generation",
+      "slug": "image-generation",
+      "capabilities": [
+        "image-generation"
+      ],
+      "model_count": 2
+    },
+    {
+      "task": "image segmentation",
+      "slug": "image-segmentation",
+      "capabilities": [
+        "promptable-segmentation",
+        "instance-segmentation"
+      ],
+      "model_count": 8
+    },
+    {
+      "task": "image text similarity",
+      "slug": "image-text-similarity",
+      "capabilities": [
+        "image-text-similarity"
+      ],
+      "model_count": 1
+    },
+    {
+      "task": "image to 3d",
+      "slug": "image-to-3d",
+      "capabilities": [
+        "image-to-3d"
+      ],
+      "model_count": 1
+    },
+    {
+      "task": "instruct",
+      "slug": "instruct",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "model_count": 28
+    },
+    {
+      "task": "instruction following",
+      "slug": "instruction-following",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "model_count": 28
+    },
+    {
+      "task": "json generation",
+      "slug": "json-generation",
+      "capabilities": [
+        "text-generation",
+        "chat"
+      ],
+      "model_count": 28
+    },
+    {
+      "task": "layout analysis",
+      "slug": "layout-analysis",
+      "capabilities": [
+        "document-ocr",
+        "vision-language"
+      ],
+      "model_count": 8
+    },
+    {
+      "task": "llm",
+      "slug": "llm",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "model_count": 28
+    },
+    {
+      "task": "math",
+      "slug": "math",
+      "capabilities": [
+        "reasoning",
+        "chat"
+      ],
+      "model_count": 28
+    },
+    {
+      "task": "math reasoning",
+      "slug": "math-reasoning",
+      "capabilities": [
+        "reasoning",
+        "chat"
+      ],
+      "model_count": 28
+    },
+    {
+      "task": "monocular depth",
+      "slug": "monocular-depth",
+      "capabilities": [
+        "monocular-depth"
+      ],
+      "model_count": 2
+    },
+    {
+      "task": "multimodal chat",
+      "slug": "multimodal-chat",
+      "capabilities": [
+        "vision-language",
+        "chat"
+      ],
+      "model_count": 34
+    },
+    {
+      "task": "music generation",
+      "slug": "music-generation",
+      "capabilities": [
+        "music-generation",
+        "text-to-audio"
+      ],
+      "model_count": 1
+    },
+    {
+      "task": "noise reduction",
+      "slug": "noise-reduction",
+      "capabilities": [
+        "speech-to-text"
+      ],
+      "model_count": 8
+    },
+    {
+      "task": "object detection",
+      "slug": "object-detection",
+      "capabilities": [
+        "object-detection"
+      ],
+      "model_count": 5
+    },
+    {
+      "task": "ocr",
+      "slug": "ocr",
+      "capabilities": [
+        "document-ocr",
+        "vision-language"
+      ],
+      "model_count": 8
+    },
+    {
+      "task": "on-device rag",
+      "slug": "on-device-rag",
+      "capabilities": [
+        "embedding",
+        "reranking",
+        "chat"
+      ],
+      "model_count": 31
+    },
+    {
+      "task": "panoptic segmentation",
+      "slug": "panoptic-segmentation",
+      "capabilities": [
+        "promptable-segmentation"
+      ],
+      "model_count": 2
+    },
+    {
+      "task": "pose estimation",
+      "slug": "pose-estimation",
+      "capabilities": [
+        "object-detection"
+      ],
+      "model_count": 5
+    },
+    {
+      "task": "private chat",
+      "slug": "private-chat",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "model_count": 28
+    },
+    {
+      "task": "private on-device ocr",
+      "slug": "private-on-device-ocr",
+      "capabilities": [
+        "document-ocr",
+        "vision-language"
+      ],
+      "model_count": 8
+    },
+    {
+      "task": "qa",
+      "slug": "qa",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "model_count": 28
+    },
+    {
+      "task": "question answering",
+      "slug": "question-answering",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "model_count": 28
+    },
+    {
+      "task": "rag",
+      "slug": "rag",
+      "capabilities": [
+        "embedding",
+        "reranking",
+        "chat"
+      ],
+      "model_count": 31
+    },
+    {
+      "task": "ranking",
+      "slug": "ranking",
+      "capabilities": [
+        "reranking"
+      ],
+      "model_count": 1
+    },
+    {
+      "task": "reasoning",
+      "slug": "reasoning",
+      "capabilities": [
+        "reasoning",
+        "chat"
+      ],
+      "model_count": 28
+    },
+    {
+      "task": "reranker",
+      "slug": "reranker",
+      "capabilities": [
+        "reranking"
+      ],
+      "model_count": 1
+    },
+    {
+      "task": "reranking",
+      "slug": "reranking",
+      "capabilities": [
+        "reranking"
+      ],
+      "model_count": 1
+    },
+    {
+      "task": "robot vision",
+      "slug": "robot-vision",
+      "capabilities": [
+        "vision-language",
+        "object-detection",
+        "monocular-depth",
+        "promptable-segmentation"
+      ],
+      "model_count": 16
+    },
+    {
+      "task": "robotics",
+      "slug": "robotics",
+      "capabilities": [
+        "vision-language-action",
+        "robotics"
+      ],
+      "model_count": 1
+    },
+    {
+      "task": "scene understanding",
+      "slug": "scene-understanding",
+      "capabilities": [
+        "vision-language",
+        "object-detection"
+      ],
+      "model_count": 12
+    },
+    {
+      "task": "segmentation",
+      "slug": "segmentation",
+      "capabilities": [
+        "instance-segmentation",
+        "promptable-segmentation"
+      ],
+      "model_count": 8
+    },
+    {
+      "task": "sentiment analysis",
+      "slug": "sentiment-analysis",
+      "capabilities": [
+        "embedding",
+        "chat"
+      ],
+      "model_count": 30
+    },
+    {
+      "task": "speech enhancement",
+      "slug": "speech-enhancement",
+      "capabilities": [
+        "speech-to-text"
+      ],
+      "model_count": 8
+    },
+    {
+      "task": "speech to text",
+      "slug": "speech-to-text",
+      "capabilities": [
+        "speech-to-text"
+      ],
+      "model_count": 8
+    },
+    {
+      "task": "summarization",
+      "slug": "summarization",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "model_count": 28
+    },
+    {
+      "task": "summarize",
+      "slug": "summarize",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "model_count": 28
+    },
+    {
+      "task": "super resolution",
+      "slug": "super-resolution",
+      "capabilities": [
+        "super-resolution"
+      ],
+      "model_count": 2
+    },
+    {
+      "task": "table extraction",
+      "slug": "table-extraction",
+      "capabilities": [
+        "document-ocr",
+        "vision-language"
+      ],
+      "model_count": 8
+    },
+    {
+      "task": "text classification",
+      "slug": "text-classification",
+      "capabilities": [
+        "embedding",
+        "chat"
+      ],
+      "model_count": 30
+    },
+    {
+      "task": "text generation",
+      "slug": "text-generation",
+      "capabilities": [
+        "text-generation",
+        "chat"
+      ],
+      "model_count": 28
+    },
+    {
+      "task": "text summarization",
+      "slug": "text-summarization",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "model_count": 28
+    },
+    {
+      "task": "text to audio",
+      "slug": "text-to-audio",
+      "capabilities": [
+        "text-to-audio"
+      ],
+      "model_count": 1
+    },
+    {
+      "task": "text to image",
+      "slug": "text-to-image",
+      "capabilities": [
+        "image-generation"
+      ],
+      "model_count": 2
+    },
+    {
+      "task": "text to speech",
+      "slug": "text-to-speech",
+      "capabilities": [
+        "text-to-speech"
+      ],
+      "model_count": 6
+    },
+    {
+      "task": "text to video",
+      "slug": "text-to-video",
+      "capabilities": [
+        "text-to-video"
+      ],
+      "model_count": 1
+    },
+    {
+      "task": "tool use",
+      "slug": "tool-use",
+      "capabilities": [
+        "chat",
+        "agentic"
+      ],
+      "model_count": 28
+    },
+    {
+      "task": "transcription",
+      "slug": "transcription",
+      "capabilities": [
+        "speech-to-text"
+      ],
+      "model_count": 8
+    },
+    {
+      "task": "translation",
+      "slug": "translation",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "model_count": 28
+    },
+    {
+      "task": "tts",
+      "slug": "tts",
+      "capabilities": [
+        "text-to-speech"
+      ],
+      "model_count": 6
+    },
+    {
+      "task": "upscale",
+      "slug": "upscale",
+      "capabilities": [
+        "super-resolution"
+      ],
+      "model_count": 2
+    },
+    {
+      "task": "video understanding",
+      "slug": "video-understanding",
+      "capabilities": [
+        "vision-language"
+      ],
+      "model_count": 7
+    },
+    {
+      "task": "vision language",
+      "slug": "vision-language",
+      "capabilities": [
+        "vision-language"
+      ],
+      "model_count": 7
+    },
+    {
+      "task": "visual question answering",
+      "slug": "visual-question-answering",
+      "capabilities": [
+        "vision-language"
+      ],
+      "model_count": 7
+    },
+    {
+      "task": "visual reasoning",
+      "slug": "visual-reasoning",
+      "capabilities": [
+        "vision-language",
+        "reasoning"
+      ],
+      "model_count": 9
+    },
+    {
+      "task": "vla",
+      "slug": "vla",
+      "capabilities": [
+        "vision-language-action"
+      ],
+      "model_count": 1
+    },
+    {
+      "task": "vlm",
+      "slug": "vlm",
+      "capabilities": [
+        "vision-language"
+      ],
+      "model_count": 7
+    },
+    {
+      "task": "voice assistant",
+      "slug": "voice-assistant",
+      "capabilities": [
+        "speech-to-text",
+        "text-to-speech",
+        "chat"
+      ],
+      "model_count": 42
+    },
+    {
+      "task": "voice cloning",
+      "slug": "voice-cloning",
+      "capabilities": [
+        "text-to-speech"
+      ],
+      "model_count": 6
+    },
+    {
+      "task": "vqa",
+      "slug": "vqa",
+      "capabilities": [
+        "vision-language"
+      ],
+      "model_count": 7
+    },
+    {
+      "task": "writing",
+      "slug": "writing",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "model_count": 28
+    },
+    {
+      "task": "zero-shot classification",
+      "slug": "zero-shot-classification",
+      "capabilities": [
+        "embedding",
+        "chat"
+      ],
+      "model_count": 30
+    }
+  ],
+  "export_schema_version": "1.0",
+  "export_catalog_version": "1.5.0"
+}

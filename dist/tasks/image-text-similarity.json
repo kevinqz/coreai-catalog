@@ -1,0 +1,28 @@
+{
+  "task": "image text similarity",
+  "capabilities": [
+    "image-text-similarity"
+  ],
+  "model_count": 1,
+  "models": [
+    {
+      "id": "official-clip-vit-base-patch32",
+      "name": "CLIP ViT-B/32",
+      "score": 83,
+      "parameters": "151M",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "MIT",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    }
+  ],
+  "export_schema_version": "1.0",
+  "export_catalog_version": "1.5.0",
+  "best_overall": "official-clip-vit-base-patch32",
+  "best_iphone": "official-clip-vit-base-patch32",
+  "best_commercial": "official-clip-vit-base-patch32"
+}

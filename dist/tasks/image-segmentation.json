@@ -1,0 +1,127 @@
+{
+  "task": "image segmentation",
+  "capabilities": [
+    "promptable-segmentation",
+    "instance-segmentation"
+  ],
+  "model_count": 8,
+  "models": [
+    {
+      "id": "efficientsam3-tinyvit",
+      "name": "EfficientSAM3-TinyViT",
+      "score": 88,
+      "parameters": "not_published",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "rf-detr-seg-2xlarge",
+      "name": "RF-DETR-Seg 2Xlarge",
+      "score": 83,
+      "parameters": "2xlarge",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "rf-detr-seg-large",
+      "name": "RF-DETR-Seg Large",
+      "score": 83,
+      "parameters": "large",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "rf-detr-seg-medium",
+      "name": "RF-DETR-Seg Medium",
+      "score": 83,
+      "parameters": "medium",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "rf-detr-seg-nano",
+      "name": "RF-DETR-Seg Nano",
+      "score": 83,
+      "parameters": "nano",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "rf-detr-seg-small",
+      "name": "RF-DETR-Seg Small",
+      "score": 83,
+      "parameters": "small",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "rf-detr-seg-xlarge",
+      "name": "RF-DETR-Seg Xlarge",
+      "score": 83,
+      "parameters": "xlarge",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "official-sam-3",
+      "name": "SAM 3",
+      "score": 80,
+      "parameters": "~1.7GB",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Meta SAM License",
+      "commercial_use": "check_license",
+      "has_benchmark": true
+    }
+  ],
+  "export_schema_version": "1.0",
+  "export_catalog_version": "1.5.0",
+  "best_overall": "efficientsam3-tinyvit",
+  "best_iphone": "efficientsam3-tinyvit",
+  "best_commercial": "efficientsam3-tinyvit"
+}

@@ -1,7 +1,7 @@
 {
   "count": 79,
   "export_schema_version": "1.0",
-  "export_catalog_version": "1.4.0",
+  "export_catalog_version": "1.5.0",
   "models": [
     {
       "id": "qwen3-5-0-8b",

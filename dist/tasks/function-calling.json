@@ -1,0 +1,407 @@
+{
+  "task": "function calling",
+  "capabilities": [
+    "chat",
+    "agentic"
+  ],
+  "model_count": 28,
+  "models": [
+    {
+      "id": "official-qwen3-0-6b",
+      "name": "Qwen3 0.6B",
+      "score": 90,
+      "parameters": "0.6B",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": true
+    },
+    {
+      "id": "official-qwen3-4b",
+      "name": "Qwen3 4B",
+      "score": 90,
+      "parameters": "4B",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": true
+    },
+    {
+      "id": "official-gpt-oss-20b",
+      "name": "gpt-oss-20B",
+      "score": 85,
+      "parameters": "20B / ~13GB",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": true
+    },
+    {
+      "id": "minicpm5-1b",
+      "name": "MiniCPM5-1B",
+      "score": 83,
+      "parameters": "1.08B",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": true
+    },
+    {
+      "id": "official-mistral-7b-v0-3",
+      "name": "Mistral 7B v0.3",
+      "score": 80,
+      "parameters": "7B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": true
+    },
+    {
+      "id": "official-qwen3-8b",
+      "name": "Qwen3 8B",
+      "score": 80,
+      "parameters": "8B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": true
+    },
+    {
+      "id": "fastcontext-1-0-4b",
+      "name": "FastContext-1.0-4B",
+      "score": 78,
+      "parameters": "4B",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "MIT",
+      "commercial_use": "likely",
+      "has_benchmark": true
+    },
+    {
+      "id": "granite-4-0-h-1b",
+      "name": "Granite 4.0-H 1B",
+      "score": 78,
+      "parameters": "1B",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": true
+    },
+    {
+      "id": "nanbeige4-1-3b",
+      "name": "Nanbeige4.1-3B",
+      "score": 78,
+      "parameters": "3.93B",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": true
+    },
+    {
+      "id": "official-qwen3-1-7b",
+      "name": "Qwen3 1.7B",
+      "score": 78,
+      "parameters": "1.7B",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "qwen3-5-0-8b",
+      "name": "Qwen3.5-0.8B",
+      "score": 78,
+      "parameters": "0.8B",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": true
+    },
+    {
+      "id": "qwen3-5-2b",
+      "name": "Qwen3.5-2B",
+      "score": 78,
+      "parameters": "2B",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": true
+    },
+    {
+      "id": "official-gemma-3-12b-it",
+      "name": "Gemma 3 12B IT",
+      "score": 70,
+      "parameters": "12B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Gemma Terms",
+      "commercial_use": "check_license",
+      "has_benchmark": true
+    },
+    {
+      "id": "official-gemma-3-4b-it",
+      "name": "Gemma 3 4B IT",
+      "score": 70,
+      "parameters": "4B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Gemma Terms",
+      "commercial_use": "check_license",
+      "has_benchmark": true
+    },
+    {
+      "id": "bitcpm-8b",
+      "name": "BitCPM-8B",
+      "score": 68,
+      "parameters": "8B / ternary {-1,0,+1}",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": true
+    },
+    {
+      "id": "granite-4-0-h-350m",
+      "name": "Granite 4.0-H 350M",
+      "score": 68,
+      "parameters": "350M",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "lfm2-5-1-2b-instruct",
+      "name": "LFM2.5-1.2B-Instruct",
+      "score": 68,
+      "parameters": "1.2B",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "LFM Open License v1.0",
+      "commercial_use": "check_license",
+      "has_benchmark": true
+    },
+    {
+      "id": "gemma-4-e2b",
+      "name": "Gemma 4 E2B",
+      "score": 63,
+      "parameters": "E2B",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Gemma Terms",
+      "commercial_use": "check_license",
+      "has_benchmark": true
+    },
+    {
+      "id": "gemma-4-e4b",
+      "name": "Gemma 4 E4B",
+      "score": 63,
+      "parameters": "E4B",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Gemma Terms",
+      "commercial_use": "check_license",
+      "has_benchmark": true
+    },
+    {
+      "id": "glm-4-7-flash",
+      "name": "GLM-4.7-Flash",
+      "score": 63,
+      "parameters": "30B / ~3B active",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "MIT",
+      "commercial_use": "likely",
+      "has_benchmark": true
+    },
+    {
+      "id": "llada-8b-dllm",
+      "name": "LLaDA-8B dLLM",
+      "score": 63,
+      "parameters": "8B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "MIT",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "qwen3-6-27b",
+      "name": "Qwen3.6-27B",
+      "score": 63,
+      "parameters": "27B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": true
+    },
+    {
+      "id": "qwen3-6-35b-a3b",
+      "name": "Qwen3.6-35B-A3B",
+      "score": 63,
+      "parameters": "35B / ~3B active",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": true
+    },
+    {
+      "id": "rwkv7-goose-1-5b",
+      "name": "RWKV-7 Goose 1.5B",
+      "score": 63,
+      "parameters": "1.5B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "gemma-4-12b-mm-warshanks",
+      "name": "Gemma 4 12B IT Multimodal (warshanks)",
+      "score": 58,
+      "parameters": "12B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "gemma-4-12b",
+      "name": "Gemma 4 12B",
+      "score": 53,
+      "parameters": "12B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Gemma Terms",
+      "commercial_use": "check_license",
+      "has_benchmark": true
+    },
+    {
+      "id": "gemma-4-31b",
+      "name": "Gemma 4 31B",
+      "score": 53,
+      "parameters": "31B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Gemma Terms",
+      "commercial_use": "check_license",
+      "has_benchmark": true
+    },
+    {
+      "id": "lfm2-5-8b-a1b",
+      "name": "LFM2.5-8B-A1B",
+      "score": 53,
+      "parameters": "8B / ~1B active",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "LFM Open License v1.0",
+      "commercial_use": "check_license",
+      "has_benchmark": false
+    }
+  ],
+  "export_schema_version": "1.0",
+  "export_catalog_version": "1.5.0",
+  "best_overall": "official-qwen3-0-6b",
+  "best_iphone": "official-qwen3-0-6b",
+  "best_commercial": "official-qwen3-0-6b"
+}

@@ -1,0 +1,84 @@
+{
+  "task": "pose estimation",
+  "capabilities": [
+    "object-detection"
+  ],
+  "model_count": 5,
+  "models": [
+    {
+      "id": "rf-detr-large",
+      "name": "RF-DETR Large",
+      "score": 93,
+      "parameters": "large",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": true
+    },
+    {
+      "id": "rf-detr-medium",
+      "name": "RF-DETR Medium",
+      "score": 93,
+      "parameters": "medium",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": true
+    },
+    {
+      "id": "rf-detr-nano",
+      "name": "RF-DETR Nano",
+      "score": 93,
+      "parameters": "nano",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": true
+    },
+    {
+      "id": "rf-detr-small",
+      "name": "RF-DETR Small",
+      "score": 93,
+      "parameters": "small",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": true
+    },
+    {
+      "id": "yolox-s",
+      "name": "YOLOX-S",
+      "score": 93,
+      "parameters": "8.97M",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": true
+    }
+  ],
+  "export_schema_version": "1.0",
+  "export_catalog_version": "1.5.0",
+  "best_overall": "rf-detr-large",
+  "best_iphone": "rf-detr-large",
+  "best_commercial": "rf-detr-large"
+}

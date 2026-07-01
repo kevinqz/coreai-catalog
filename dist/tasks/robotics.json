@@ -1,0 +1,29 @@
+{
+  "task": "robotics",
+  "capabilities": [
+    "vision-language-action",
+    "robotics"
+  ],
+  "model_count": 1,
+  "models": [
+    {
+      "id": "bitvla",
+      "name": "BitVLA",
+      "score": 63,
+      "parameters": "2B (BitNet b1.58)",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "MIT",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    }
+  ],
+  "export_schema_version": "1.0",
+  "export_catalog_version": "1.5.0",
+  "best_overall": "bitvla",
+  "best_iphone": "bitvla",
+  "best_commercial": "bitvla"
+}

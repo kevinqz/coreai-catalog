@@ -1,0 +1,98 @@
+{
+  "task": "text to speech",
+  "capabilities": [
+    "text-to-speech"
+  ],
+  "model_count": 6,
+  "models": [
+    {
+      "id": "voxcpm-0-5b",
+      "name": "VoxCPM-0.5B",
+      "score": 78,
+      "parameters": "0.5B",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": true
+    },
+    {
+      "id": "kokoro-82m",
+      "name": "Kokoro-82M",
+      "score": 73,
+      "parameters": "82M",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "vibevoice-0-5b",
+      "name": "VibeVoice 0.5B",
+      "score": 73,
+      "parameters": "0.5B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "MIT",
+      "commercial_use": "likely",
+      "has_benchmark": true
+    },
+    {
+      "id": "vibevoice-1-5b",
+      "name": "VibeVoice 1.5B",
+      "score": 73,
+      "parameters": "1.5B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "MIT",
+      "commercial_use": "likely",
+      "has_benchmark": true
+    },
+    {
+      "id": "vibevoice-7b",
+      "name": "VibeVoice 7B",
+      "score": 73,
+      "parameters": "7B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "MIT",
+      "commercial_use": "likely",
+      "has_benchmark": true
+    },
+    {
+      "id": "voxcpm2-2b",
+      "name": "VoxCPM2 2B",
+      "score": 68,
+      "parameters": "2B",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    }
+  ],
+  "export_schema_version": "1.0",
+  "export_catalog_version": "1.5.0",
+  "best_overall": "voxcpm-0-5b",
+  "best_iphone": "voxcpm-0-5b",
+  "best_commercial": "voxcpm-0-5b"
+}

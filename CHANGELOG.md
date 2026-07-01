@@ -4,6 +4,34 @@ All notable changes to Core AI Catalog are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/), and this
 project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.5.0] — 2026-07-01
+
+### Added — structured documentation
+
+- **`PROJECT_PHILOSOPHY.md`** — why the project exists, design principles,
+  non-goals, inspiration from FastAPI/Django/Transformers/Home Assistant.
+- **`docs/getting-started.md`** — 60-second → 5-minute → 10-minute walkthrough.
+- **`docs/concepts/`** — 4 concept docs:
+  - model-vs-artifact.md (original model → conversion → host → install flow)
+  - core-ai-vs-core-ml-vs-mlx.md (Apple ML runtime landscape)
+  - license-risk.md (reading license fields, decision tree)
+  - benchmark-quality.md (append-only semantics, confidence levels)
+- **`docs/tasks/`** — 32 auto-generated per-capability pages with model tables,
+  task synonyms, install commands, and scoring.
+- **`dist/tasks/`** — 89 task JSON files + index.json for agent consumption.
+  Each contains sorted models, best-overall, best-iphone, best-commercial picks.
+
+### Added — community contribution infrastructure
+
+- **`templates/model-entry.yaml`** — copy-pasteable YAML skeleton for new models.
+- **`templates/artifact-entry.yaml`** — same for artifacts.
+- **`.github/ISSUE_TEMPLATE/`** — model-request, bug-report, benchmark-submission.
+
+### Added — task page generation engine
+
+- **`coreai_catalog/task_pages.py`** — generates markdown task pages and JSON exports.
+- Integrated into `scripts/generate.py` — runs automatically with all other exports.
+
 ## [1.4.0] — 2026-07-01
 
 ### Added — PyPI distribution ready

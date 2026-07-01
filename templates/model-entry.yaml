@@ -1,0 +1,52 @@
+# Core AI model entry template
+# Copy this file, fill in the fields, and add to catalog.yaml
+# See CONTRIBUTING.md for full instructions
+
+- id: model-id-here          # kebab-case, unique
+  name: Model Display Name
+  family: ModelFamily          # e.g. Qwen, Gemma, Whisper
+  source_group: zoo           # zoo | official | external
+  artifact_ref: model-id-here # must match id in artifacts.yaml
+  source_path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/model.md
+  capabilities:
+  - chat                      # see: coreai-catalog capabilities
+  - text-generation
+  modalities:
+    input:
+    - text
+    output:
+    - text
+  artifact:
+    format: aimodel
+    availability: available   # available | unavailable | not_published
+  size:
+    parameters: 2B            # e.g. 2B, 350M, 809M
+    precision: int4           # int4 | int8 | fp16 | fp32 | mixed
+    quantization: int4-per-block-32
+    artifact_size: 1.2GB      # or not_published
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner      # or stock-runner
+    stock_runtime: false
+    custom_kernel: false
+    patch_required: false
+    aot_required: false
+    tokenizer_required: true
+    processor_required: false
+  device_support:
+    iphone: true              # true | false | unknown
+    ipad: true
+    mac: true
+    mac_only: false
+  license:
+    name: Apache-2.0
+    commercial_use: likely    # likely | check_license
+  status: confirmed           # confirmed | unverified
+  maturity: active            # active | experimental | deprecated
+  confidence: medium          # high | medium | low
+  sources:
+  - coreai-model-zoo-readme
+  last_verified: '2026-07-01'
+  notes: One-line description of what this model does.
+  architecture: transformer   # transformer | diffusion | cnn/transformer | encoder | recurrent | unknown
+  streaming: true

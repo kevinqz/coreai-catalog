@@ -1,0 +1,42 @@
+{
+  "task": "agentic",
+  "capabilities": [
+    "agentic"
+  ],
+  "model_count": 2,
+  "models": [
+    {
+      "id": "fastcontext-1-0-4b",
+      "name": "FastContext-1.0-4B",
+      "score": 78,
+      "parameters": "4B",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "MIT",
+      "commercial_use": "likely",
+      "has_benchmark": true
+    },
+    {
+      "id": "nanbeige4-1-3b",
+      "name": "Nanbeige4.1-3B",
+      "score": 78,
+      "parameters": "3.93B",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": true
+    }
+  ],
+  "export_schema_version": "1.0",
+  "export_catalog_version": "1.5.0",
+  "best_overall": "fastcontext-1-0-4b",
+  "best_iphone": "fastcontext-1-0-4b",
+  "best_commercial": "fastcontext-1-0-4b"
+}

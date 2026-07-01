@@ -1,0 +1,28 @@
+{
+  "task": "gaussian splatting",
+  "capabilities": [
+    "image-to-3d"
+  ],
+  "model_count": 1,
+  "models": [
+    {
+      "id": "tripo-splat",
+      "name": "TripoSplat",
+      "score": 63,
+      "parameters": "not_published",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "MIT",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    }
+  ],
+  "export_schema_version": "1.0",
+  "export_catalog_version": "1.5.0",
+  "best_overall": "tripo-splat",
+  "best_iphone": null,
+  "best_commercial": "tripo-splat"
+}

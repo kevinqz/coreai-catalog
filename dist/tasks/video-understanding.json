@@ -1,0 +1,112 @@
+{
+  "task": "video understanding",
+  "capabilities": [
+    "vision-language"
+  ],
+  "model_count": 7,
+  "models": [
+    {
+      "id": "minicpm-v-4-6",
+      "name": "MiniCPM-V 4.6",
+      "score": 78,
+      "parameters": "sub-2B",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": true
+    },
+    {
+      "id": "qwen3-vl-2b",
+      "name": "Qwen3-VL 2B",
+      "score": 78,
+      "parameters": "2B",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": true
+    },
+    {
+      "id": "holo2-4b",
+      "name": "Holo2-4B",
+      "score": 73,
+      "parameters": "4B",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "qwen3-vl-4b",
+      "name": "Qwen3-VL 4B",
+      "score": 68,
+      "parameters": "4B",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "qwen3-vl-8b",
+      "name": "Qwen3-VL 8B",
+      "score": 68,
+      "parameters": "8B",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "gemma-4-e2b-vision",
+      "name": "Gemma 4 E2B Vision",
+      "score": 63,
+      "parameters": "E2B",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Gemma Terms",
+      "commercial_use": "check_license",
+      "has_benchmark": true
+    },
+    {
+      "id": "gemma-4-12b-mm-warshanks",
+      "name": "Gemma 4 12B IT Multimodal (warshanks)",
+      "score": 58,
+      "parameters": "12B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    }
+  ],
+  "export_schema_version": "1.0",
+  "export_catalog_version": "1.5.0",
+  "best_overall": "minicpm-v-4-6",
+  "best_iphone": "minicpm-v-4-6",
+  "best_commercial": "minicpm-v-4-6"
+}

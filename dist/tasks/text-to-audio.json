@@ -1,0 +1,28 @@
+{
+  "task": "text to audio",
+  "capabilities": [
+    "text-to-audio"
+  ],
+  "model_count": 1,
+  "models": [
+    {
+      "id": "stable-audio-open-small",
+      "name": "Stable Audio Open Small",
+      "score": 63,
+      "parameters": "not_published",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Stability Community",
+      "commercial_use": "check_license",
+      "has_benchmark": false
+    }
+  ],
+  "export_schema_version": "1.0",
+  "export_catalog_version": "1.5.0",
+  "best_overall": "stable-audio-open-small",
+  "best_iphone": null,
+  "best_commercial": null
+}

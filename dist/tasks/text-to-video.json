@@ -1,0 +1,28 @@
+{
+  "task": "text to video",
+  "capabilities": [
+    "text-to-video"
+  ],
+  "model_count": 1,
+  "models": [
+    {
+      "id": "ltx-video-2b",
+      "name": "LTX-Video 2B distilled",
+      "score": 63,
+      "parameters": "2B / DiT 1.9B + T5-XXL 4.76B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "OpenRAIL-M",
+      "commercial_use": "check_license",
+      "has_benchmark": false
+    }
+  ],
+  "export_schema_version": "1.0",
+  "export_catalog_version": "1.5.0",
+  "best_overall": "ltx-video-2b",
+  "best_iphone": null,
+  "best_commercial": null
+}

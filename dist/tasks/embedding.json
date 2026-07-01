@@ -1,0 +1,42 @@
+{
+  "task": "embedding",
+  "capabilities": [
+    "embedding"
+  ],
+  "model_count": 2,
+  "models": [
+    {
+      "id": "qwen3-embedding-0-6b",
+      "name": "Qwen3-Embedding 0.6B",
+      "score": 93,
+      "parameters": "0.6B",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": true
+    },
+    {
+      "id": "embeddinggemma-300m",
+      "name": "EmbeddingGemma 300M",
+      "score": 73,
+      "parameters": "300M",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Gemma Terms",
+      "commercial_use": "check_license",
+      "has_benchmark": false
+    }
+  ],
+  "export_schema_version": "1.0",
+  "export_catalog_version": "1.5.0",
+  "best_overall": "qwen3-embedding-0-6b",
+  "best_iphone": "qwen3-embedding-0-6b",
+  "best_commercial": "qwen3-embedding-0-6b"
+}

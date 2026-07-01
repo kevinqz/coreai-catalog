@@ -1,0 +1,28 @@
+{
+  "task": "formula recognition",
+  "capabilities": [
+    "document-ocr"
+  ],
+  "model_count": 1,
+  "models": [
+    {
+      "id": "unlimited-ocr",
+      "name": "Unlimited-OCR",
+      "score": 83,
+      "parameters": "not_published",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "MIT",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    }
+  ],
+  "export_schema_version": "1.0",
+  "export_catalog_version": "1.5.0",
+  "best_overall": "unlimited-ocr",
+  "best_iphone": "unlimited-ocr",
+  "best_commercial": "unlimited-ocr"
+}

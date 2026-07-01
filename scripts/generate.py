@@ -308,6 +308,13 @@ def main() -> int:
     subprocess.run([sys.executable, str(ROOT / "scripts" / "sync_package_data.py")],
                    capture_output=True)
 
+    # Generate task pages
+    print("Generating task pages...")
+    from coreai_catalog.task_pages import generate_task_pages, export_task_json
+    pages = generate_task_pages(ROOT)
+    tasks_exported = export_task_json(ROOT)
+    print(f"  {pages} capability pages, {tasks_exported} task JSONs")
+
     return 0
 
 

@@ -1,0 +1,18 @@
+# Core AI artifact entry template
+# Copy this file, fill in the fields, and add to artifacts.yaml
+# The id MUST match the artifact_ref in catalog.yaml
+
+- id: model-id-here          # must match catalog.yaml artifact_ref
+  group: zoo                  # zoo | official | external
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/model.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: Model-Name-CoreAI
+    url: https://huggingface.co/mlboydaisuke/Model-Name-CoreAI
+  officiality:
+    apple_export_recipe: false   # true ONLY for Apple official recipes
+    apple_hosted_artifact: false # true ONLY if Apple hosts (currently always false)
+    community_packaged: true     # true for community-zoo packaged artifacts

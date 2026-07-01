@@ -18,7 +18,7 @@ Not affiliated with or endorsed by Apple. `commercial_use` fields are triage lab
 
 ## Status
 
-**Version:** v1.4.0
+**Version:** v1.5.0
 
 79 Apple Core AI models with artifact provenance, benchmarks, verified terminology, readiness scores, and an MCP server for agent-native model discovery, comparison, and recommendation. Agent-ready: CLI, MCP server, JSON exports, llms.txt, openapi.yaml — all from the same engine.
 
@@ -507,19 +507,22 @@ hand-edited; `curated` docs are maintained manually (see `docs/generated-files.m
 
 | Doc | Type | Description |
 |---|---|---|
+| `docs/getting-started.md` | curated | 60-second → 10-minute walkthrough |
 | `docs/index.md` | generated | Docs entry point and counts (`scripts/generate.py`). |
 | `docs/model-registry.md` | generated | Human-readable model table (`scripts/generate.py`). |
 | `docs/artifact-provenance.md` | generated | Artifact ownership and hosting view (`scripts/generate.py`). |
 | `docs/apple-terminology-map.md` | generated | Verified Apple AI terminology by layer (`scripts/generate.py`). |
+| `docs/tasks/` | generated | Per-capability task pages with model tables (`scripts/generate.py`). |
+| `docs/concepts/` | curated | Model vs artifact, runtime landscape, license risk, benchmark quality. |
 | `docs/data-model.md` | curated | Entity model and relationship documentation. |
 | `docs/capability-matrix.md` | curated | Models grouped by capability. |
 | `docs/runtime-matrix.md` | curated | Runtime concepts and flags. |
 | `docs/upstream-map.md` | curated | Framework/original-model/license upstream map. |
 | `docs/benchmark-map.md` | curated | Benchmark registry explanation. |
 | `docs/source-map.md` | curated | Source and upstream map. |
-| `docs/v0.3-verification.md` | curated | Verification checklist for v0.3. |
 | `docs/sota-maintenance.md` | curated | Maintenance plan and data-model direction. |
 | `docs/generated-files.md` | curated | Generated vs curated file policy. |
+| `PROJECT_PHILOSOPHY.md` | curated | Why the project exists, design principles, non-goals. |
 
 ## Attribution
 
@@ -571,10 +574,11 @@ For sensitive licenses such as Gemma Terms, Meta SAM License, LFM Open License o
 
 Current milestone:
 
-- v1.4.0 — PyPI-ready distribution, 60-second demo (recommend redesign + install --json), Swift examples (OCR, VLM, RAG). 79 models, 68 tests.
+- v1.5.0 — Structured docs (philosophy, getting-started, concepts, task pages), community templates, issue templates. 79 models, 68 tests.
 
 Earlier:
 
+- v1.4.0 — PyPI-ready, 60-second demo, Swift examples, recommend redesign.
 - v1.3.x — RWKV-7 Goose 1.5B, source-monitor cron, 3-round red-team, dist/ committed, docs sync.
 
 - v1.3.0 — CLI↔MCP parity, TASK_MAP expanded 40→89, `version` command, terminology alignment ("Core AI").
