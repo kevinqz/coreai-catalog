@@ -14,9 +14,9 @@ Not affiliated with or endorsed by Apple. `commercial_use` fields are triage lab
 
 ## Status
 
-**Version:** v1.2
+**Version:** v1.3.1
 
-v1.2 consolidates the architecture for maximum efficiency: 10 redundant scripts deleted, all doc generation merged into one `scripts/generate.py`, all export logic moved to `coreai_catalog/exports.py`, scoring/search/recommend logic unified into `coreai_catalog/catalog.py` as single source of truth. No code duplication remains between scripts and the package. Agent-first: CLI, MCP server, and JSON exports all import from the same engine.
+v1.3.1 adds RWKV-7 Goose 1.5B (first pure-recurrent / linear-attention LLM on Core AI), a source-monitor cron job for automated upstream detection, and completes the 3-round red-team (R1 functional + R2 cross-system + R3 docs). 79 models, 79 artifacts, 11 MCP tools, 13 CLI commands, 89 task synonyms mapped. Agent-ready: CLI, MCP server, JSON exports, llms.txt, openapi.yaml — all from the same engine.
 
 ## Why this exists
 
@@ -39,11 +39,11 @@ The goal is not to run models directly. The goal is to know, precisely and trace
 
 | Area | Count / status |
 |---|---:|
-| Model records | 78 |
-| Artifact provenance records | 78 |
-| Source records | 20 |
+| Model records | 79 |
+| Artifact provenance records | 79 |
+| Source records | 21 |
 | Main upstreams | 2 |
-| Upstream taxonomy entries | 65 |
+| Upstream taxonomy entries | 66 |
 | Benchmark records | 66 |
 | Terminology records | 42 |
 | JSON exports | generated via script |
@@ -82,8 +82,11 @@ coreai-catalog/
 ├── scripts/
 │   ├── validate.py
 │   ├── audit.py
+│   ├── deep_audit.py
+│   ├── derive_fields.py
 │   ├── generate.py
-│   └── sync_upstream.py
+│   ├── sync_upstream.py
+│   └── check_sources.sh
 ├── coreai_catalog/
 │   ├── __init__.py
 │   ├── __main__.py
@@ -446,12 +449,14 @@ Or use the installed entry point:
 | `search_models` | Filter by capability, device, license, family, source, modality |
 | `get_model` | Full model details: capabilities, runtime, provenance, benchmarks |
 | `compare_models` | Side-by-side comparison of 2+ models |
-| `recommend_model` | Task-based recommendations (40 task synonyms mapped) |
+| `recommend_model` | Task-based recommendations (89 task synonyms mapped) |
 | `check_license` | License and commercial use triage for a model |
 | `get_benchmarks` | All benchmark records for a model |
 | `get_artifact` | Artifact provenance and download info |
 | `explain_term` | Apple AI terminology lookup (42 verified terms) |
 | `get_capabilities` | List all capabilities with model counts |
+| `get_tasks` | List all supported task synonyms and their mappings |
+| `get_version` | Catalog version, model count, last-verified date |
 
 ### Example agent interaction
 
@@ -545,30 +550,23 @@ For sensitive licenses such as Gemma Terms, Meta SAM License, LFM Open License o
 
 Current milestone:
 
-- v0.5 — expanded model coverage (11 new: ternary LLM, GUI grounding, visual retrieval, transducer ASR, video, 3D), hardened schemas, CI JSON artifacts.
+- v1.3.1 — RWKV-7 Goose 1.5B (first recurrent LLM), source-monitor cron automation, 3-round red-team complete (all 9 axes at 5/5). 79 models, 68 tests.
 
 Earlier:
 
-- v0.4 — verified Apple AI terminology layer, artifact officiality, benchmark provenance and JSON exports.
-- v0.3 — validation depth, upstream taxonomy, benchmark registry and JSON exports.
-
-Next milestone:
-
-- v0.6 — technical backfill from model cards, non-LLM benchmarks, expanded terminology, source ecosystem mapping.
-
-Completed in v0.6:
-
-- Backfilled technical metadata (precision, quantization, runtime flags, artifact_size) for 24 models from upstream model cards.
-- Added 13 new non-LLM benchmarks (RF-DETR latency, Depth Anything FPS, embedding/reranker latency, Qwen3-VL throughput, Gemma E4B prefill, Parakeet transcription).
-- Expanded terminology layer to 35 terms: added CoreAIKit, pipelined engine, AOT compilation, gather_qmm, FlowMatch sampler, detailed Evaluations framework.
-- Registered 6 new framework/conversion upstream sources (apple/coreai-torch, apple/coreai-optimization, coreai-onnx, mlx2coreai, agent-demos, CLIP).
-- Mapped the complete source ecosystem: Hugging Face (mlboydaisuke 98 models), independent converters, and emerging ports (FastVLM, VibeVoice, AFM-Studio).
+- v1.3.0 — CLI↔MCP parity, TASK_MAP expanded 40→89, `version` command, terminology alignment ("Core AI").
+- v1.2.x — Fuzzy search, capability aliases, ANSI auto-detect, recommend --license, installer hardening, DX improvements.
+- v1.0 — Error resilience SotAAA+++: 8 crash fixes + 63-test suite + CI integration.
+- v0.6 — Technical backfill (precision, quantization, runtime flags), non-LLM benchmarks, terminology to 42 terms.
+- v0.5 — Expanded model coverage: ternary LLM, GUI grounding, visual retrieval, transducer ASR, video, 3D, diffusion LLM, VLA.
+- v0.4 — Verified Apple AI terminology layer, artifact officiality, benchmark provenance.
+- v0.3 — Validation depth, upstream taxonomy, benchmark registry.
 
 Later:
 
 - Split large YAML files into `data/models/*.yaml` if the catalog grows significantly.
 - Add a small static site or searchable UI.
-- Add periodic source verification.
+- Automated source verification (in progress via `scripts/check_sources.sh`).
 
 ## Non-goals
 
