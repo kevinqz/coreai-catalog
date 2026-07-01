@@ -5,7 +5,8 @@ This guide takes you from zero to running Core AI models on Apple Silicon in 10 
 ## 60 seconds — find the right model
 
 ```bash
-pip install coreai-catalog
+# Install from GitHub (PyPI coming soon)
+pip install git+https://github.com/kevinqz/coreai-catalog.git
 
 # Describe your task in plain English
 coreai-catalog recommend --task "private OCR on iPhone" --license likely

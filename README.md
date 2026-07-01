@@ -27,7 +27,8 @@ Not affiliated with or endorsed by Apple. `commercial_use` fields are triage lab
 ## Quick Start
 
 ```bash
-pip install coreai-catalog
+# Install from GitHub (PyPI coming soon)
+pip install git+https://github.com/kevinqz/coreai-catalog.git
 
 # Find the right model for your task
 coreai-catalog recommend --task "private OCR on iPhone" --license likely
@@ -597,7 +598,9 @@ Earlier:
 Later:
 
 - Split large YAML files into `data/models/*.yaml` if the catalog grows significantly.
-- Add a small static site or searchable UI.
+- Richer model cards, per-model pages, and SEO optimization on the web UI.
+- Additional filters: runtime, maturity, confidence, artifact availability, modality.
+- Publish to PyPI for `pip install coreai-catalog` (currently `pip install git+...`).
 - Automated source verification (in progress via `scripts/check_sources.sh`).
 
 ## Non-goals
