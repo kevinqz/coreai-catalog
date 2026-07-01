@@ -82,3 +82,4 @@ Generated from `artifacts.yaml`.
 | z-image-turbo | external | bryanbblewis11/CoreAI-models | bryanbblewis11/Z-Image-Turbo-CoreAI | False | False |
 | real-esrgan-x4v3 | external | bryanbblewis11/CoreAI-models | bryanbblewis11/RealESRGAN-x4v3-CoreAI | False | False |
 | efficientsam3-tinyvit | external | lenitas/coreai-artifacts | lenitas/coreai-artifacts | False | False |
+| rwkv7-goose-1-5b | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/RWKV7-Goose-1.5B-CoreAI | False | False |

@@ -1,7 +1,7 @@
 metadata:
   name: Core AI Catalog artifact provenance
-  last_verified: '2026-06-29'
-  count: 78
+  last_verified: '2026-07-01'
+  count: 79
 artifacts:
 - id: qwen3-5-0-8b
   group: zoo
@@ -1093,3 +1093,18 @@ artifacts:
     apple_export_recipe: false
     apple_hosted_artifact: false
     community_packaged: false
+
+- id: rwkv7-goose-1-5b
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/conversion/export_rwkv7_decode.py
+  huggingface:
+    owner: mlboydaisuke
+    repo: RWKV7-Goose-1.5B-CoreAI
+    url: https://huggingface.co/mlboydaisuke/RWKV7-Goose-1.5B-CoreAI
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true

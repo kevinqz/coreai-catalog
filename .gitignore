@@ -18,3 +18,4 @@ coreai_catalog.egg-info/
 
 # Hermes workspace (agent runtime, not catalog content)
 .hermes/
+.source-watch-state.json

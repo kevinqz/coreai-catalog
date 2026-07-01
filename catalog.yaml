@@ -1,8 +1,8 @@
 metadata:
   name: Core AI Catalog
   repo: coreai-catalog
-  version: 1.3.0
-  last_verified: '2026-06-30'
+  version: 1.3.1
+  last_verified: '2026-07-01'
   upstream:
   - coreai-model-zoo
   - apple/coreai-models
@@ -3830,3 +3830,56 @@ models:
   notes: Lightweight promptable segmentation. Hosted by Lenitas app distribution. 392MB total with tokenizer. SHA-256 verified.
   architecture: cnn/transformer
   streaming: false
+
+- id: rwkv7-goose-1-5b
+  name: RWKV-7 Goose 1.5B
+  family: RWKV
+  source_group: zoo
+  artifact_ref: rwkv7-goose-1-5b
+  source_path: https://github.com/john-rocky/coreai-model-zoo/blob/main/conversion/export_rwkv7_decode.py
+  capabilities:
+  - chat
+  - text-generation
+  modalities:
+    input:
+    - text
+    output:
+    - text
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 1.5B
+    precision: int8
+    quantization: int8-per-block-32
+    artifact_size: not_published
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: false
+    custom_kernel: false
+    patch_required: false
+    aot_required: false
+    tokenizer_required: true
+    processor_required: false
+  device_support:
+    iphone: false
+    ipad: unknown
+    mac: true
+    mac_only: true
+  license:
+    name: Apache-2.0
+    commercial_use: likely
+  status: confirmed
+  maturity: experimental
+  confidence: medium
+  sources:
+  - coreai-model-zoo-readme
+  - rwkv-upstream
+  last_verified: '2026-07-01'
+  notes: First pure-recurrent / linear-attention LLM on Core AI. No attention, no
+    KV cache — O(1) per-token decode with constant memory and unbounded context.
+    WKV7 delta-rule matrix-state time-mix + sqrelu channel-mix. int8 weight-only
+    quant (FFN only; recurrence projections kept fp16).
+  architecture: recurrent
+  streaming: true

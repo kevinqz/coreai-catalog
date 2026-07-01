@@ -202,3 +202,12 @@ sources:
   volatility: medium
   last_checked: '2026-06-30'
   notes: 'Hosted Core AI artifacts for Lenitas app. Includes EfficientSAM3-TinyViT and SAM3 variants with SHA-256 verified download index.'
+- id: rwkv-upstream
+  title: RWKV/RWKV7-Goose-World3-1.5B-HF
+  type: huggingface_model
+  url: https://huggingface.co/RWKV/RWKV7-Goose-World3-1.5B-HF
+  owner: RWKV
+  trust: original_model_primary
+  volatility: low
+  last_checked: '2026-07-01'
+  notes: 'RWKV-7 Goose — pure-recurrent / linear-attention LLM. Original model upstream for the Core AI conversion.'

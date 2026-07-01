@@ -80,3 +80,4 @@
 | z-image-turbo | Z-Image Turbo | external | Z-Image | image-generation | text | image | not_published | iPhone/iPad/Mac | Apache-2.0 | confirmed |
 | real-esrgan-x4v3 | Real-ESRGAN x4v3 | external | Real-ESRGAN | super-resolution | image | image | not_published | Mac | BSD-3-Clause | confirmed |
 | efficientsam3-tinyvit | EfficientSAM3-TinyViT | external | SAM | promptable-segmentation | image | masks | not_published | iPhone/Mac | Apache-2.0 | confirmed |
+| rwkv7-goose-1-5b | RWKV-7 Goose 1.5B | zoo | RWKV | chat, text-generation | text | text | 1.5B | Mac | Apache-2.0 | confirmed |

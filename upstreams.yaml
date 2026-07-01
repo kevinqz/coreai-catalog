@@ -606,6 +606,15 @@ original_model_sources:
   trust: original_model_primary
   applies_to:
   - efficientsam3-tinyvit
+- id: rwkv
+  title: RWKV Foundation
+  category: original_model
+  platform: huggingface
+  owner: RWKV
+  url: https://huggingface.co/RWKV
+  trust: original_model_primary
+  applies_to:
+  - rwkv7-goose-1-5b
 
 license_sources:
 - id: apache-2-0

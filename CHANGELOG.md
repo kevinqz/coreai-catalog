@@ -6,6 +6,22 @@ project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [1.3.1] — 2026-07-01
 
+### Added — new model: RWKV-7 Goose 1.5B
+- **RWKV-7 Goose 1.5B** (`rwkv7-goose-1-5b`) — first pure-recurrent /
+  linear-attention LLM on Core AI. No attention, no KV cache — O(1)
+  per-token decode with constant memory and unbounded context. WKV7
+  delta-rule matrix-state time-mix + sqrelu channel-mix. int8 weight-only
+  quant (FFN only; recurrence projections kept fp16). Mac-only,
+  Apache-2.0, experimental. Detected by the new source-monitor cron job.
+  Model count: 78 → 79.
+
+### Added — source-monitor automation
+- **`scripts/check_sources.sh`** — watchdog script that monitors 6 GitHub
+  repos, 6 HuggingFace Core AI artifact accounts, and 8 upstream model
+  orgs for new commits/models. Runs every 3h via Hermes cron. Silent when
+  nothing changes.
+- New source: `rwkv-upstream` (HuggingFace model page).
+
 ### Fixed — 3-round red-team (R1 functional + R2 cross-system + R3 docs)
 
 **R2: --json error paths (3 MAJOR bugs):**

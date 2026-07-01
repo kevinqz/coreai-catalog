@@ -225,7 +225,7 @@
     },
     "architecture": {
       "type": "string",
-      "enum": ["transformer", "diffusion", "cnn/transformer", "encoder", "unknown"]
+      "enum": ["transformer", "diffusion", "cnn/transformer", "encoder", "recurrent", "unknown"]
     },
     "context_window": {
       "type": ["string", "null"]
