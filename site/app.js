@@ -1,21 +1,20 @@
 /**
- * Core AI Catalog — Explorer v3
- * Professional registry UI. SVG icons. Zero emoji. Vanilla JS.
+ * Core AI Catalog — Explorer v4
+ * Fixed: modal close, CSS shorthand, device labels, active filter pills.
  */
 (function () {
   'use strict';
 
-  const DATA_URL = 'https://raw.githubusercontent.com/kevinqz/coreai-catalog/main/dist/search-index.json';
-  const TASKS_URL = 'https://raw.githubusercontent.com/kevinqz/coreai-catalog/main/dist/tasks/index.json';
+  var DATA_URL = 'https://raw.githubusercontent.com/kevinqz/coreai-catalog/main/dist/search-index.json';
+  var TASKS_URL = 'https://raw.githubusercontent.com/kevinqz/coreai-catalog/main/dist/tasks/index.json';
 
-  let MODELS = [];
-  let FILTERED = [];
-  let CAPABILITIES = new Set();
-  let searchTimer = null;
+  var MODELS = [];
+  var FILTERED = [];
+  var CAPABILITIES = {};
+  var searchTimer = null;
 
-  const $ = (id) => document.getElementById(id);
+  function $(id) { return document.getElementById(id); }
 
-  // ── Helpers ──
   function scoreClass(s) {
     if (s >= 85) return 'score-a';
     if (s >= 70) return 'score-b';
@@ -32,23 +31,24 @@
   }
   function paramSortValue(p) {
     if (!p || p === 'unknown' || p === 'not_published') return 9999;
-    const m = String(p).toUpperCase().match(/([\d.]+)\s*(B|M|K)?/);
+    var m = String(p).toUpperCase().match(/([\d.]+)\s*(B|M|K)?/);
     if (!m) return 9999;
     return parseFloat(m[1]) * ({ B: 1000, M: 1, K: 0.001 }[m[2]] || 1000);
   }
   function escapeHtml(s) {
     if (!s) return '';
-    const d = document.createElement('div');
+    var d = document.createElement('div');
     d.textContent = s;
     return d.innerHTML;
   }
   function capChip(c) { return 'chip chip-cap-' + (c || '').replace(/_/g, '-'); }
+
   function devLabel(devs) {
-    const parts = [];
-    if (devs.includes('iphone')) parts.push('iPhone');
-    if (devs.includes('ipad')) parts.push('iPad');
-    if (devs.includes('mac')) parts.push('Mac');
-    return parts.join(' / ') || 'Unknown';
+    var parts = [];
+    if (devs.indexOf('iphone') >= 0) parts.push('iPhone');
+    if (devs.indexOf('ipad') >= 0) parts.push('iPad');
+    if (devs.indexOf('mac') >= 0) parts.push('Mac');
+    return parts.join(' · ') || 'Unknown';
   }
   function sourceLabel(sg) {
     if (sg === 'official') return 'Apple recipe';
@@ -57,25 +57,30 @@
     return sg || '';
   }
   function licLabel(cu, name) {
-    if (cu === 'likely') return name + ' (likely)';
+    if (cu === 'likely') return name + ' (likely OK)';
     if (cu === 'check_license') return name + ' (check)';
     return name || 'Unknown';
+  }
+  function devChipLabel(d) {
+    return d.charAt(0).toUpperCase() + d.slice(1);
   }
 
   // ── Data ──
   async function loadData() {
     try {
-      const resp = await fetch(DATA_URL);
+      var resp = await fetch(DATA_URL);
       if (!resp.ok) throw new Error('HTTP ' + resp.status);
-      const data = await resp.json();
+      var data = await resp.json();
       MODELS = data.models || [];
 
-      CAPABILITIES = new Set();
-      MODELS.forEach(m => (m.capabilities || []).forEach(c => CAPABILITIES.add(c)));
+      CAPABILITIES = {};
+      MODELS.forEach(function (m) {
+        (m.capabilities || []).forEach(function (c) { CAPABILITIES[c] = true; });
+      });
 
-      const sel = $('filter-capability');
-      Array.from(CAPABILITIES).sort().forEach(cap => {
-        const opt = document.createElement('option');
+      var sel = $('filter-capability');
+      Object.keys(CAPABILITIES).sort().forEach(function (cap) {
+        var opt = document.createElement('option');
         opt.value = cap;
         opt.textContent = cap.replace(/-/g, ' ');
         sel.appendChild(opt);
@@ -84,30 +89,30 @@
       $('search-box').placeholder = 'Search ' + MODELS.length + ' models\u2026';
       applyFilters();
     } catch (err) {
-      $('model-grid').innerHTML = '<div class="empty-state"><p>Failed to load catalog data.</p><p><small>' + err.message + '</small></p></div>';
+      $('model-grid').innerHTML = '<div class="empty-state"><p>Failed to load catalog data.</p></div>';
       $('result-count').textContent = 'Error';
     }
   }
 
   // ── Filter ──
   function applyFilters() {
-    const search = $('search-box').value.toLowerCase().trim();
-    const cap = $('filter-capability').value;
-    const sI = $('filter-iphone').checked, sP = $('filter-ipad').checked, sM = $('filter-mac').checked;
-    const lic = $('filter-license').value, src = $('filter-source').value, sort = $('sort-by').value;
+    var search = $('search-box').value.toLowerCase().trim();
+    var cap = $('filter-capability').value;
+    var sI = $('filter-iphone').checked, sP = $('filter-ipad').checked, sM = $('filter-mac').checked;
+    var lic = $('filter-license').value, src = $('filter-source').value, sort = $('sort-by').value;
 
-    FILTERED = MODELS.filter(m => {
+    FILTERED = MODELS.filter(function (m) {
       if (search) {
-        const hay = (m.name + ' ' + m.id + ' ' + (m.capabilities || []).join(' ') + ' ' + (m.family || '')).toLowerCase();
-        if (!hay.includes(search)) return false;
+        var hay = (m.name + ' ' + m.id + ' ' + (m.capabilities || []).join(' ') + ' ' + (m.family || '')).toLowerCase();
+        if (hay.indexOf(search) < 0) return false;
       }
-      if (cap && !(m.capabilities || []).includes(cap)) return false;
-      const devs = m.devices || [];
+      if (cap && (m.capabilities || []).indexOf(cap) < 0) return false;
+      var devs = m.devices || [];
       if (sI || sP || sM) {
-        let ok = false;
-        if (sI && devs.includes('iphone')) ok = true;
-        if (sP && devs.includes('ipad')) ok = true;
-        if (sM && devs.includes('mac')) ok = true;
+        var ok = false;
+        if (sI && devs.indexOf('iphone') >= 0) ok = true;
+        if (sP && devs.indexOf('ipad') >= 0) ok = true;
+        if (sM && devs.indexOf('mac') >= 0) ok = true;
         if (!ok) return false;
       }
       if (lic && m.commercial_use !== lic) return false;
@@ -115,16 +120,43 @@
       return true;
     });
 
-    if (sort === 'name') FILTERED.sort((a, b) => a.name.localeCompare(b.name));
-    else if (sort === 'params') FILTERED.sort((a, b) => paramSortValue(a.parameters) - paramSortValue(b.parameters));
-    else FILTERED.sort((a, b) => b.readiness_score - a.readiness_score);
+    if (sort === 'name') FILTERED.sort(function (a, b) { return a.name.localeCompare(b.name); });
+    else if (sort === 'params') FILTERED.sort(function (a, b) { return paramSortValue(a.parameters) - paramSortValue(b.parameters); });
+    else FILTERED.sort(function (a, b) { return b.readiness_score - a.readiness_score; });
 
+    renderActiveFilters(search, cap, sI, sP, sM, lic, src);
     renderGrid();
+  }
+
+  // ── Active filter pills ──
+  function renderActiveFilters(search, cap, sI, sP, sM, lic, src) {
+    var pills = [];
+    if (search) pills.push({ label: '"' + search + '"', clear: function () { $('search-box').value = ''; } });
+    if (cap) pills.push({ label: cap.replace(/-/g, ' '), clear: function () { $('filter-capability').value = ''; } });
+    if (!sI) pills.push({ label: 'no iPhone', clear: function () { $('filter-iphone').checked = true; } });
+    if (!sP) pills.push({ label: 'no iPad', clear: function () { $('filter-ipad').checked = true; } });
+    if (!sM) pills.push({ label: 'no Mac', clear: function () { $('filter-mac').checked = true; } });
+    if (lic) pills.push({ label: lic === 'likely' ? 'Commercial: likely' : 'Check license', clear: function () { $('filter-license').value = ''; } });
+    if (src) pills.push({ label: sourceLabel(src), clear: function () { $('filter-source').value = ''; } });
+
+    var container = $('active-filters');
+    if (!pills.length) { container.innerHTML = ''; return; }
+
+    container.innerHTML = pills.map(function (p, i) {
+      return '<span class="filter-pill" data-idx="' + i + '">' + escapeHtml(p.label) + '</span>';
+    }).join('');
+
+    container.querySelectorAll('.filter-pill').forEach(function (el, i) {
+      el.addEventListener('click', function () {
+        pills[i].clear();
+        applyFilters();
+      });
+    });
   }
 
   // ── Render ──
   function renderGrid() {
-    const grid = $('model-grid');
+    var grid = $('model-grid');
     $('result-count').textContent = FILTERED.length + ' of ' + MODELS.length + ' models';
 
     if (!FILTERED.length) {
@@ -132,14 +164,14 @@
       return;
     }
 
-    grid.innerHTML = FILTERED.map((m, i) => {
-      const s = m.readiness_score;
-      const caps = (m.capabilities || []).slice(0, 4).map(c =>
-        '<span class="' + capChip(c) + '">' + c.replace(/-/g, ' ') + '</span>'
-      ).join('');
-      const licClass = m.commercial_use === 'likely' ? 'lic-ok' : 'lic-warn';
-      const bench = m.benchmarks && m.benchmarks.length ? '<span class="card-bench">' + m.benchmarks.length + ' benchmarks</span>' : '';
-      const delay = Math.min(i * 12, 180);
+    grid.innerHTML = FILTERED.map(function (m, i) {
+      var s = m.readiness_score;
+      var caps = (m.capabilities || []).slice(0, 4).map(function (c) {
+        return '<span class="' + capChip(c) + '">' + c.replace(/-/g, ' ') + '</span>';
+      }).join('');
+      var licClass = m.commercial_use === 'likely' ? 'lic-ok' : 'lic-warn';
+      var bench = m.benchmarks && m.benchmarks.length ? '<span class="card-bench">' + m.benchmarks.length + ' benchmarks</span>' : '';
+      var delay = Math.min(i * 12, 180);
 
       return '<div class="model-card" data-id="' + m.id + '" style="animation-delay:' + delay + 'ms">' +
         '<div class="card-top">' +
@@ -148,44 +180,47 @@
         '</div>' +
         '<div class="card-caps">' + caps + '</div>' +
         '<div class="card-bottom">' +
-          '<div class="card-meta-left">' +
+          '<div class="card-meta">' +
             '<span class="card-devices">' + devLabel(m.devices || []) + '</span>' +
-            '<span class="card-source">' + escapeHtml(sourceLabel(m.source_group)) + '</span>' +
           '</div>' +
-          '<div class="card-meta-left">' +
+          '<div class="card-meta">' +
             bench +
-            '<span class="card-license ' + licClass + '">' + escapeHtml(licLabel(m.commercial_use, m.license)) + '</span>' +
+            '<span class="card-license ' + licClass + '">' + escapeHtml(m.license || '?') + '</span>' +
           '</div>' +
         '</div>' +
       '</div>';
     }).join('');
 
-    grid.querySelectorAll('.model-card').forEach(card =>
-      card.addEventListener('click', () => showDetail(card.dataset.id))
-    );
+    grid.querySelectorAll('.model-card').forEach(function (card) {
+      card.addEventListener('click', function () { showDetail(card.dataset.id); });
+    });
   }
 
   // ── Modal ──
+  function closeModal() {
+    $('modal-overlay').style.display = 'none';
+  }
+
   function showDetail(id) {
-    const m = MODELS.find(x => x.id === id);
+    var m = MODELS.find(function (x) { return x.id === id; });
     if (!m) return;
 
-    const s = m.readiness_score;
-    const art = m.artifact || {};
-    const hfUrl = art.huggingface_url || '';
-    const hfRepo = art.huggingface_repo || '';
-    const devList = (m.devices || []).map(d => '<span class="chip">' + d + '</span>').join('');
-    const capsList = (m.capabilities || []).map(c => '<span class="' + capChip(c) + '">' + c + '</span>').join('');
-    const benchRows = (m.benchmarks || []).map(b =>
-      '<tr><td>' + (b.metric || '') + '</td><td><strong>' + b.value + '</strong> ' + (b.unit || '') + '</td><td>' + (b.device || '') + '</td><td>' + (b.compute_unit || '') + '</td></tr>'
-    ).join('');
+    var s = m.readiness_score;
+    var art = m.artifact || {};
+    var hfUrl = art.huggingface_url || '';
+    var hfRepo = art.huggingface_repo || '';
+    var devList = (m.devices || []).map(function (d) { return '<span class="chip">' + devChipLabel(d) + '</span>'; }).join('');
+    var capsList = (m.capabilities || []).map(function (c) { return '<span class="' + capChip(c) + '">' + c + '</span>'; }).join('');
+    var benchRows = (m.benchmarks || []).map(function (b) {
+      return '<tr><td>' + (b.metric || '') + '</td><td><strong>' + b.value + '</strong> ' + (b.unit || '') + '</td><td>' + (b.device || '') + '</td><td>' + (b.compute_unit || '') + '</td></tr>';
+    }).join('');
 
     $('modal-content').innerHTML =
-      '<button class="modal-close" onclick="$(\'modal-overlay\').style.display=\'none\'" aria-label="Close">&times;</button>' +
+      '<button class="modal-close" id="modal-close-btn" aria-label="Close">&times;</button>' +
       '<h2>' + escapeHtml(m.name) + '</h2>' +
       '<p class="modal-id">' + m.id + ' &middot; ' + escapeHtml(sourceLabel(m.source_group)) + '</p>' +
       '<div class="modal-score-row">' +
-        '<span class="card-score ' + scoreClass(s) + '" style="font-size:.82rem;padding:.18rem.65rem">' + s + ' ' + gradeLetter(s) + '</span>' +
+        '<span class="modal-score ' + scoreClass(s) + '">' + s + ' ' + gradeLetter(s) + '</span>' +
         '<span class="modal-score-desc">Readiness score &middot; ' + escapeHtml(m.maturity || 'unknown') + ' maturity</span>' +
       '</div>' +
       (capsList ? '<div class="modal-section"><h4>Capabilities</h4><div class="card-caps">' + capsList + '</div></div>' : '') +
@@ -204,23 +239,26 @@
       '<div class="modal-section"><h4>Install</h4><pre><code>coreai-catalog install ' + m.id + '</code></pre></div>';
 
     $('modal-overlay').style.display = 'flex';
+
+    // Wire close button via addEventListener (not inline onclick)
+    $('modal-close-btn').addEventListener('click', closeModal);
   }
 
   // ── Tasks ──
   async function loadTasks() {
     try {
-      const resp = await fetch(TASKS_URL);
+      var resp = await fetch(TASKS_URL);
       if (!resp.ok) throw new Error('HTTP ' + resp.status);
-      const data = await resp.json();
+      var data = await resp.json();
 
-      const byCap = {};
-      data.tasks.forEach(t => t.capabilities.forEach(c => { (byCap[c] = byCap[c] || []).push(t); }));
+      var byCap = {};
+      data.tasks.forEach(function (t) { t.capabilities.forEach(function (c) { (byCap[c] = byCap[c] || []).push(t); }); });
 
-      $('task-list').innerHTML = Object.keys(byCap).sort().map(cap => {
-        const syns = byCap[cap].map(t => t.task).sort();
+      $('task-list').innerHTML = Object.keys(byCap).sort().map(function (cap) {
+        var syns = byCap[cap].map(function (t) { return t.task; }).sort();
         return '<div class="task-section">' +
           '<h3>' + cap.replace(/-/g, ' ') + ' <span class="task-count">' + syns.length + '</span></h3>' +
-          '<div class="task-synonyms">' + syns.map(s => '<span class="chip">' + s + '</span>').join('') + '</div>' +
+          '<div class="task-synonyms">' + syns.map(function (s) { return '<span class="chip">' + escapeHtml(s) + '</span>'; }).join('') + '</div>' +
         '</div>';
       }).join('');
     } catch (err) {
@@ -230,10 +268,10 @@
 
   // ── Tabs ──
   function initTabs() {
-    document.querySelectorAll('.tab').forEach(tab => {
-      tab.addEventListener('click', () => {
-        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        document.querySelectorAll('.tab').forEach(function (t) { t.classList.remove('active'); });
+        document.querySelectorAll('.tab-content').forEach(function (c) { c.classList.remove('active'); });
         tab.classList.add('active');
         $(tab.dataset.tab).classList.add('active');
         if (tab.dataset.tab === 'tasks' && !$('task-list').innerHTML) loadTasks();
@@ -243,29 +281,32 @@
 
   // ── Theme ──
   function initTheme() {
-    const toggle = $('theme-toggle');
-    toggle.addEventListener('click', () => {
-      const cur = document.documentElement.getAttribute('data-theme');
-      const next = cur === 'dark' ? 'light' : 'dark';
+    $('theme-toggle').addEventListener('click', function () {
+      var cur = document.documentElement.getAttribute('data-theme');
+      var next = cur === 'dark' ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', next);
       localStorage.setItem('coreai-theme', next);
     });
   }
 
   // ── Init ──
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', function () {
     initTheme();
     initTabs();
     loadData();
 
-    $('search-box').addEventListener('input', () => {
+    $('search-box').addEventListener('input', function () {
       clearTimeout(searchTimer);
       searchTimer = setTimeout(applyFilters, 180);
     });
-    ['filter-capability', 'filter-license', 'filter-source', 'sort-by'].forEach(id => $(id).addEventListener('change', applyFilters));
-    ['filter-iphone', 'filter-ipad', 'filter-mac'].forEach(id => $(id).addEventListener('change', applyFilters));
+    ['filter-capability', 'filter-license', 'filter-source', 'sort-by'].forEach(function (id) {
+      $(id).addEventListener('change', applyFilters);
+    });
+    ['filter-iphone', 'filter-ipad', 'filter-mac'].forEach(function (id) {
+      $(id).addEventListener('change', applyFilters);
+    });
 
-    $('reset-filters').addEventListener('click', () => {
+    $('reset-filters').addEventListener('click', function () {
       $('search-box').value = '';
       $('filter-capability').value = '';
       $('filter-license').value = '';
@@ -277,7 +318,11 @@
       applyFilters();
     });
 
-    $('modal-overlay').addEventListener('click', e => { if (e.target === e.currentTarget) e.currentTarget.style.display = 'none'; });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') $('modal-overlay').style.display = 'none'; });
+    $('modal-overlay').addEventListener('click', function (e) {
+      if (e.target === e.currentTarget) closeModal();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeModal();
+    });
   });
 })();

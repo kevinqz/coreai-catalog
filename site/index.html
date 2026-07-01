@@ -96,13 +96,18 @@
       <div class="filter-group">
         <button id="reset-filters" class="btn-secondary">Reset filters</button>
       </div>
-      <div id="result-count" class="result-count">Loading…</div>
     </aside>
 
-    <section id="model-grid">
-      <div class="skeleton-card"></div><div class="skeleton-card"></div>
-      <div class="skeleton-card"></div><div class="skeleton-card"></div>
-      <div class="skeleton-card"></div><div class="skeleton-card"></div>
+    <section id="grid-area">
+      <div id="grid-header">
+        <span id="result-count" class="result-count">Loading…</span>
+        <span id="active-filters" class="active-filters"></span>
+      </div>
+      <div id="model-grid">
+        <div class="skeleton-card"></div><div class="skeleton-card"></div>
+        <div class="skeleton-card"></div><div class="skeleton-card"></div>
+        <div class="skeleton-card"></div><div class="skeleton-card"></div>
+      </div>
     </section>
   </main>
 
@@ -147,7 +152,7 @@ catalog.recommend(task="ocr", device="iphone")</code></pre>
 
   <!-- ── MODAL ── -->
   <div id="modal-overlay" class="modal-overlay" style="display:none;">
-    <div id="modal-content" class="modal-content"></div>
+    <div id="modal-content" class="modal-content" role="dialog" aria-modal="true"></div>
   </div>
 
   <footer>
