@@ -4,6 +4,29 @@ All notable changes to Core AI Catalog are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/), and this
 project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.7.0] — 2026-07-01
+
+### Added — public Python library API
+
+- **`coreai_catalog.api.Catalog`** — clean, stable programmatic interface:
+  ```python
+  from coreai_catalog import Catalog
+  catalog = Catalog.load()
+  catalog.search(capability="vision-language", device="iphone")
+  catalog.recommend(task="ocr", device="iphone")
+  catalog.compare("qwen3-vl-2b", "unlimited-ocr")
+  catalog.license_report("qwen3-vl-2b")
+  catalog.tasks()
+  catalog.capabilities()
+  ```
+- **`coreai_catalog/__init__.py`** — exports `Catalog` for `from coreai_catalog import Catalog`
+- **20 new tests** (`tests/test_public_api.py`) covering all API methods
+
+### Added — schema versioning documentation
+
+- **`docs/concepts/schema-versioning.md`** — SemVer policy for schema changes,
+  consumer guidance (agents, Python API, raw JSON), validation guarantees.
+
 ## [1.6.0] — 2026-07-01
 
 ### Added — task-first discovery

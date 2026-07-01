@@ -4,7 +4,7 @@
   "description": "A source-grounded catalog of 79 Apple Core AI models with artifact provenance, benchmarks, verified terminology, readiness scores, and an MCP server for agent-native model discovery, comparison, and recommendation.",
   "primary_language": "en",
   "entity_type": "open_source_database",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "license": "MIT",
   "capabilities": [
     {
