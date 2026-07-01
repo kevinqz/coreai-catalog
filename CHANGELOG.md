@@ -4,6 +4,35 @@ All notable changes to Core AI Catalog are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/), and this
 project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.3.1] — 2026-07-01
+
+### Fixed — 3-round red-team (R1 functional + R2 cross-system + R3 docs)
+
+**R2: --json error paths (3 MAJOR bugs):**
+- `search --json` with 0 results: was returning human text, now returns
+  `{"count": 0, "total_matches": 0, "truncated": false, "models": []}`
+- `show --json` with nonexistent model: was returning human text, now returns
+  `{"error": "Model '...' not found"}`
+- `compare --json` with nonexistent/insufficient models: same fix, returns
+  JSON error objects
+
+**R1: verified 0 functional bugs:**
+- Readiness scores manually verified for 5 models (all match)
+- Search counts match YAML for all tested capabilities
+- CLI↔MCP parity confirmed (identical fields in search/caps/recommend)
+- TASK_MAP: all 89 tasks resolve to at least 1 model
+- Version consistency: all 4 source files + 9 dist files say 1.3.0
+
+**R3: verified 0 docs/structure bugs:**
+- All 11 MCP tools present in agent.json, llms.txt, openapi.yaml
+- All 78 models have all 19 required fields
+- Real-world agent simulation: all 6 scenarios pass
+- YAML key ordering consistent across all models
+
+### Added — test suite expanded to 68 tests
+- `TestJSONErrorPaths` (5 new tests): verifies all CLI `--json` error paths
+  return valid JSON, never plain text
+
 ## [1.3.0] — 2026-07-01
 
 ### Fixed — Red-team R3: CLI↔MCP parity, version consistency
