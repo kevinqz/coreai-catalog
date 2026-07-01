@@ -571,9 +571,11 @@ For sensitive licenses such as Gemma Terms, Meta SAM License, LFM Open License o
 
 Current milestone:
 
-- v1.3.1 — RWKV-7 Goose 1.5B (first recurrent LLM), source-monitor cron automation, 3-round red-team complete (all 9 axes at 5/5). 79 models, 68 tests.
+- v1.4.0 — PyPI-ready distribution, 60-second demo (recommend redesign + install --json), Swift examples (OCR, VLM, RAG). 79 models, 68 tests.
 
 Earlier:
+
+- v1.3.x — RWKV-7 Goose 1.5B, source-monitor cron, 3-round red-team, dist/ committed, docs sync.
 
 - v1.3.0 — CLI↔MCP parity, TASK_MAP expanded 40→89, `version` command, terminology alignment ("Core AI").
 - v1.2.x — Fuzzy search, capability aliases, ANSI auto-detect, recommend --license, installer hardening, DX improvements.

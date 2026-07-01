@@ -43,7 +43,7 @@ catalog = Catalog(_ROOT)
 mcp = FastMCP(
     "coreai-catalog",
     instructions=(
-        "Core AI Catalog — a source-grounded registry of 78+ Apple Core AI models. "
+        "Core AI Catalog — a source-grounded registry of 79 Apple Core AI models. "
         "Use these tools to discover, compare, and recommend models for on-device "
         "Apple Silicon deployment. All data is grounded in upstream sources "
         "(Hugging Face, GitHub, Apple documentation). Never fabricate model "

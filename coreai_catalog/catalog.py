@@ -383,7 +383,9 @@ class Catalog:
                 caps_lower.add(c.lower())
         if not caps_lower:
             return []
-        first_cap = next(iter(caps_lower))  # first element of the set (arbitrary but stable)
+        # Sort for determinism — set iteration order is hash-seed dependent
+        caps_sorted = sorted(caps_lower)
+        first_cap = caps_sorted[0]
         candidates = []
         for m in self._models:
             model_caps = {c.lower() for c in m.get("capabilities", [])}

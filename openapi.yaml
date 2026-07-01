@@ -381,7 +381,7 @@ components:
         capabilities: { type: array, items: { type: string } }
         parameters: { type: string }
         precision: { type: string }
-        devices: { type: object }
+        devices: { type: array, items: { type: string } }
         license: { type: string }
         commercial_use: { type: string }
         runner: { type: string }
@@ -395,7 +395,7 @@ components:
         name: { type: string }
         score: { type: integer }
         matched_capabilities: { type: array, items: { type: string } }
-        devices: { type: object }
+        devices: { type: array, items: { type: string } }
         license: { type: string }
         commercial_use: { type: string }
         has_benchmark: { type: boolean }
