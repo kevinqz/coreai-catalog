@@ -84,7 +84,7 @@
       badge.src = `https://img.shields.io/badge/models-${MODELS.length}-blue`;
       badge.alt = `${MODELS.length} models`;
 
-      renderGrid();
+      applyFilters();
     } catch (err) {
       document.getElementById('model-grid').innerHTML =
         `<p style="color:var(--red);grid-column:1/-1;">Failed to load catalog data: ${err.message}</p>`;
