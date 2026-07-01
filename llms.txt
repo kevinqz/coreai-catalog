@@ -22,7 +22,7 @@ support, benchmark records, and verification status.
 ### For humans
 
 ```bash
-pip install -e .
+pip install coreai-catalog
 coreai-catalog search --capability vision-language --device iphone
 coreai-catalog recommend --task "robot vision" --device iphone
 coreai-catalog show qwen3-vl-2b

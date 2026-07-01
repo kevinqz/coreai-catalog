@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Core AI Catalog — Apple On-Device AI Model Registry</title>
-  <meta name="description" content="A source-grounded catalog of Apple Core AI models — provenance, licenses, benchmarks, and readiness scores.">
-  <meta property="og:title" content="Core AI Catalog">
-  <meta property="og:description" content="The agent-ready registry for Apple local AI. Filter by capability, device, license, and score.">
+  <meta name="description" content="The agent-ready registry for Apple on-device AI. 79 Core AI models with provenance, licenses, benchmarks, and readiness scores. Filter by capability, device, and license.">
+  <meta property="og:title" content="Core AI Catalog — Apple On-Device AI Model Registry">
+  <meta property="og:description" content="Find, compare, and verify Apple Core AI models by capability, device support, license risk, artifact provenance, and benchmark evidence. 79 models, 89 task keywords, 11 MCP tools.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kevinqz.github.io/coreai-catalog/">
   <link rel="stylesheet" href="style.css">
@@ -26,7 +26,7 @@
         <div class="header-logo">C</div>
         <div>
           <h1>Core AI Catalog</h1>
-          <span class="header-tagline">Agent-ready registry for Apple on-device AI</span>
+          <span class="header-tagline">The agent-ready registry for Apple on-device AI</span>
         </div>
       </div>
       <div class="header-actions">
@@ -103,6 +103,11 @@
         <span id="result-count" class="result-count">Loading…</span>
         <span id="active-filters" class="active-filters"></span>
       </div>
+      <noscript>
+        <p>Core AI Catalog is a registry of 79 Apple Core AI models. Enable JavaScript to explore models by capability, device, license, and readiness score.</p>
+        <p>Install: <code>pip install coreai-catalog</code></p>
+        <p>JSON API: <a href="https://raw.githubusercontent.com/kevinqz/coreai-catalog/main/dist/catalog.json">catalog.json</a></p>
+      </noscript>
       <div id="model-grid">
         <div class="skeleton-card"></div><div class="skeleton-card"></div>
         <div class="skeleton-card"></div><div class="skeleton-card"></div>
