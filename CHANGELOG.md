@@ -6,7 +6,33 @@ project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [1.3.1] — 2026-07-01
 
+### Fixed — dist/ exports now committed (raw GitHub URLs resolve)
+
+- **Problem:** `dist/` was `.gitignored`, so every doc citing `dist/*.json`
+  URLs (agent.json, llms.txt, llms-full.txt, openapi.yaml, AGENTS.md)
+  returned 404 on raw GitHub. The "agent-ready" promise was broken.
+- **Fix:** removed `dist/` from `.gitignore`, committed all 10 JSON exports.
+  Verified: `catalog.json`, `readiness-scores.json`, `coreai-catalog.json`
+  all return HTTP 200 on raw GitHub.
+- Updated docs to clarify exports are committed, not local-only. Added raw
+  GitHub base URL to llms.txt, llms-full.txt, AGENTS.md.
+- **CI:** added "Verify dist/ and docs/ are in sync" step
+  (`git diff --exit-code docs/ dist/`).
+- **CI:** fixed version assertion `1.3.0` → `1.3.1`.
+
+### Fixed — README.md sync (stale since v1.2)
+
+- Version `v1.2` → `v1.3.1`, status section rewritten.
+- Model/artifact counts `78` → `79`, sources `20` → `21`, upstreams `65` → `66`.
+- Scripts tree: added `deep_audit.py`, `derive_fields.py`, `check_sources.sh`.
+- MCP tools table: added `get_tasks`, `get_version` (was listing 9 of 11).
+- Task synonyms `40` → `89`.
+- Roadmap: replaced v0.3–v0.6 with full v0.3 → v1.3.1 timeline.
+- `llms.txt`, `agent.json`: `78+` → `79` (exact count, not range).
+- `openapi.yaml`: `78+` → `79`.
+
 ### Added — new model: RWKV-7 Goose 1.5B
+
 - **RWKV-7 Goose 1.5B** (`rwkv7-goose-1-5b`) — first pure-recurrent /
   linear-attention LLM on Core AI. No attention, no KV cache — O(1)
   per-token decode with constant memory and unbounded context. WKV7
@@ -16,11 +42,13 @@ project adheres to [Semantic Versioning](https://semver.org/).
   Model count: 78 → 79.
 
 ### Added — source-monitor automation
+
 - **`scripts/check_sources.sh`** — watchdog script that monitors 6 GitHub
   repos, 6 HuggingFace Core AI artifact accounts, and 8 upstream model
   orgs for new commits/models. Runs every 3h via Hermes cron. Silent when
   nothing changes.
 - New source: `rwkv-upstream` (HuggingFace model page).
+- Schema: added `recurrent` to architecture enum.
 
 ### Fixed — 3-round red-team (R1 functional + R2 cross-system + R3 docs)
 
@@ -37,7 +65,6 @@ project adheres to [Semantic Versioning](https://semver.org/).
 - Search counts match YAML for all tested capabilities
 - CLI↔MCP parity confirmed (identical fields in search/caps/recommend)
 - TASK_MAP: all 89 tasks resolve to at least 1 model
-- Version consistency: all 4 source files + 9 dist files say 1.3.0
 
 **R3: verified 0 docs/structure bugs:**
 - All 11 MCP tools present in agent.json, llms.txt, openapi.yaml
@@ -46,6 +73,7 @@ project adheres to [Semantic Versioning](https://semver.org/).
 - YAML key ordering consistent across all models
 
 ### Added — test suite expanded to 68 tests
+
 - `TestJSONErrorPaths` (5 new tests): verifies all CLI `--json` error paths
   return valid JSON, never plain text
 

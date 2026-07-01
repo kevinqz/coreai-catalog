@@ -1,6 +1,6 @@
 # Core AI Catalog
 
-> A source-grounded catalog of 78+ Apple Core AI models, artifacts, benchmarks,
+> A source-grounded catalog of 79 Apple Core AI models, artifacts, benchmarks,
 > provenance, and a verified Apple AI terminology layer.
 
 Core AI Catalog helps you discover, compare, verify, and install Apple Core AI

@@ -1,5 +1,9 @@
 # Core AI Catalog
 
+![CI](https://github.com/kevinqz/coreai-catalog/actions/workflows/validate.yml/badge.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+
 A compact, source-grounded catalog of Apple Core AI models, artifacts, upstreams, benchmarks, provenance and a verified Apple AI terminology layer.
 
 Core AI Catalog maps Apple Core AI-compatible model artifacts with granular metadata, source links, Hugging Face artifact references, GitHub/Hugging Face attribution, runtime requirements, device support, benchmark records and verification status.
