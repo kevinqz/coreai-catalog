@@ -21,15 +21,22 @@ jobs:
           pip install build twine
           pip install -r requirements.txt
 
+      - name: Sync package data
+        run: python scripts/sync_package_data.py
+
       - name: Validate before publish
         run: |
           python scripts/validate.py
           python scripts/audit.py
 
       - name: Build package
-        run: python -m build
+        run: |
+          python -m build
+          # Move build artifacts to avoid conflict with dist/*.json
+          mkdir -p dist_pkg
+          cp dist/coreai_catalog-* dist_pkg/
 
       - name: Publish to PyPI
         env:
           TWINE_API_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
-        run: twine upload dist_package/*
+        run: twine upload dist_pkg/*
