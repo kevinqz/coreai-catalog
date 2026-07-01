@@ -4,30 +4,45 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Core AI Catalog — Apple On-Device AI Model Explorer</title>
-  <meta name="description" content="Discover, compare, and install Apple Core AI models. Filter by capability, device, license, and readiness score.">
-  <meta property="og:title" content="Core AI Catalog — Apple On-Device AI Model Explorer">
-  <meta property="og:description" content="The agent-ready registry for Apple local AI. 79 models with provenance, licenses, benchmarks, and recommendations.">
+  <meta name="description" content="Discover, compare, and install Apple Core AI models. 79 models with provenance, licenses, benchmarks, and readiness scores.">
+  <meta property="og:title" content="Core AI Catalog">
+  <meta property="og:description" content="The agent-ready registry for Apple local AI. Filter by capability, device, license, and score.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kevinqz.github.io/coreai-catalog/">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
+  <script>
+    // Prevent flash: set theme before paint
+    (function() {
+      var t = localStorage.getItem('coreai-theme');
+      if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
 </head>
 <body>
+  <!-- ── HEADER ── -->
   <header>
     <div class="header-inner">
-      <h1>🧠 Core AI Catalog</h1>
-      <p class="tagline">The agent-ready registry for Apple local AI</p>
-      <div class="badges">
-        <a href="https://github.com/kevinqz/coreai-catalog/actions/workflows/validate.yml" target="_blank"><img src="https://github.com/kevinqz/coreai-catalog/actions/workflows/validate.yml/badge.svg" alt="CI"></a>
-        <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT">
-        <img id="model-count-badge" src="" alt="Model count">
+      <div class="header-title">
+        <span class="header-logo">🧠</span>
+        <h1>Core AI Catalog</h1>
+      </div>
+      <span class="header-tagline">The agent-ready registry for Apple local AI</span>
+      <div class="header-actions">
+        <div class="header-badges">
+          <a href="https://github.com/kevinqz/coreai-catalog/actions/workflows/validate.yml" target="_blank" rel="noopener"><img src="https://github.com/kevinqz/coreai-catalog/actions/workflows/validate.yml/badge.svg" alt="CI" height="18"></a>
+        </div>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">🌙</button>
+        <a href="https://github.com/kevinqz/coreai-catalog" target="_blank" rel="noopener" class="theme-toggle" style="text-decoration:none;display:flex;align-items:center;justify-content:center;" aria-label="GitHub repo">📦</a>
       </div>
     </div>
   </header>
 
+  <!-- ── TABS ── -->
   <nav id="tabs">
-    <button class="tab active" data-tab="explore">🔍 Explore Models</button>
-    <button class="tab" data-tab="tasks">📋 Browse Tasks</button>
+    <button class="tab active" data-tab="explore">🔍 Explore</button>
+    <button class="tab" data-tab="tasks">📋 Tasks</button>
     <button class="tab" data-tab="about">📖 About</button>
   </nav>
 
@@ -36,7 +51,7 @@
     <aside id="filters">
       <div class="filter-group">
         <label>Search</label>
-        <input type="text" id="search-box" placeholder="Search models…" autocomplete="off">
+        <input type="text" id="search-box" placeholder="Search 79 models…" autocomplete="off" spellcheck="false">
       </div>
       <div class="filter-group">
         <label>Capability</label>
@@ -70,17 +85,24 @@
         <label>Sort by</label>
         <select id="sort-by">
           <option value="score">Readiness score</option>
-          <option value="name">Name (A-Z)</option>
+          <option value="name">Name (A–Z)</option>
           <option value="params">Parameters (small first)</option>
         </select>
       </div>
       <div class="filter-group">
         <button id="reset-filters" class="btn-secondary">Reset filters</button>
       </div>
-      <div id="result-count" class="result-count"></div>
+      <div id="result-count" class="result-count">Loading…</div>
     </aside>
 
-    <section id="model-grid"></section>
+    <section id="model-grid">
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
+      <div class="skeleton-card"></div>
+    </section>
   </main>
 
   <!-- ── TASKS TAB ── -->
@@ -91,7 +113,7 @@
   <!-- ── ABOUT TAB ── -->
   <main id="about" class="tab-content">
     <div class="about-content">
-      <h2>About Core AI Catalog</h2>
+      <h2>Core AI Catalog</h2>
       <p>A source-grounded catalog of Apple Core AI models — provenance, licenses, benchmarks, and recommendations. Not affiliated with Apple.</p>
 
       <h3>Quick Start</h3>
@@ -100,23 +122,28 @@ coreai-catalog recommend --task "private OCR on iPhone" --license likely</code><
 
       <h3>Resources</h3>
       <ul>
-        <li><a href="https://github.com/kevinqz/coreai-catalog">📦 GitHub Repository</a></li>
-        <li><a href="https://github.com/kevinqz/coreai-catalog/releases">🏷️ Releases</a></li>
-        <li><a href="https://raw.githubusercontent.com/kevinqz/coreai-catalog/main/dist/catalog.json">📄 JSON API (catalog.json)</a></li>
-        <li><a href="https://raw.githubusercontent.com/kevinqz/coreai-catalog/main/dist/coreai-catalog.json">📄 Complete Bundle</a></li>
-        <li><a href="https://github.com/kevinqz/coreai-catalog/blob/main/PROJECT_PHILOSOPHY.md">📖 Philosophy</a></li>
-        <li><a href="https://github.com/kevinqz/coreai-catalog/blob/main/docs/getting-started.md">🚀 Getting Started Guide</a></li>
+        <li><a href="https://github.com/kevinqz/coreai-catalog" target="_blank" rel="noopener">📦 GitHub Repository</a></li>
+        <li><a href="https://github.com/kevinqz/coreai-catalog/releases" target="_blank" rel="noopener">🏷️ Releases</a></li>
+        <li><a href="https://raw.githubusercontent.com/kevinqz/coreai-catalog/main/dist/catalog.json" target="_blank" rel="noopener">📄 JSON API (catalog.json)</a></li>
+        <li><a href="https://raw.githubusercontent.com/kevinqz/coreai-catalog/main/dist/coreai-catalog.json" target="_blank" rel="noopener">📄 Complete Bundle</a></li>
+        <li><a href="https://github.com/kevinqz/coreai-catalog/blob/main/PROJECT_PHILOSOPHY.md" target="_blank" rel="noopener">📖 Philosophy</a></li>
+        <li><a href="https://github.com/kevinqz/coreai-catalog/blob/main/docs/getting-started.md" target="_blank" rel="noopener">🚀 Getting Started Guide</a></li>
       </ul>
-
-      <h3>Agent Integration</h3>
-      <p>MCP server with 11 tools for Claude Desktop, Cursor, and MCP-compatible agents.</p>
-      <pre><code>pip install -e ".[mcp]"</code></pre>
 
       <h3>Python API</h3>
       <pre><code>from coreai_catalog import Catalog
 
 catalog = Catalog.load()
 catalog.recommend(task="ocr", device="iphone")</code></pre>
+
+      <h3>MCP Server (for Claude Desktop, Cursor)</h3>
+      <pre><code>pip install -e ".[mcp]"</code></pre>
+
+      <p style="margin-top: 1.5rem; color: var(--text-tertiary); font-size: 0.82rem;">
+        MIT License · <a href="https://github.com/kevinqz/coreai-catalog">GitHub</a> ·
+        Source monitor runs every 3h ·
+        <code>commercial_use</code> fields are triage labels, not legal advice.
+      </p>
     </div>
   </main>
 
@@ -125,8 +152,9 @@ catalog.recommend(task="ocr", device="iphone")</code></pre>
     <div id="modal-content" class="modal-content"></div>
   </div>
 
+  <!-- ── FOOTER ── -->
   <footer>
-    <p>Core AI Catalog · <a href="https://github.com/kevinqz/coreai-catalog">GitHub</a> · MIT License · Not affiliated with Apple</p>
+    <p>Core AI Catalog · <a href="https://github.com/kevinqz/coreai-catalog" target="_blank" rel="noopener">GitHub</a> · MIT License · Not affiliated with Apple</p>
   </footer>
 
   <script src="app.js"></script>
