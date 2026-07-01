@@ -148,9 +148,48 @@ coreai-catalog recommend --task "private OCR on iPhone" --license likely</code><
 catalog = Catalog.load()
 catalog.recommend(task="ocr", device="iphone")</code></pre>
 
-      <h3>MCP Server</h3>
-      <p>11 tools for Claude Desktop, Cursor, and MCP-compatible agents.</p>
+      <h3>MCP Server — 1-Click Install</h3>
+      <p>11 tools for AI agents. Install the package, then add to your client:</p>
       <pre><code>pip install "coreai-catalog[mcp]"</code></pre>
+
+      <div class="mcp-clients">
+        <div class="mcp-client" data-client="claude">
+          <div class="mcp-client-header">
+            <strong>Claude Desktop</strong>
+            <button class="btn-copy" data-copy="claude">Copy config</button>
+          </div>
+          <pre class="mcp-config" id="mcp-claude"><code>{
+  "mcpServers": {
+    "coreai-catalog": {
+      "command": "coreai-catalog-mcp"
+    }
+  }
+}</code></pre>
+        </div>
+
+        <div class="mcp-client" data-client="cursor">
+          <div class="mcp-client-header">
+            <strong>Cursor</strong>
+            <button class="btn-copy" data-copy="cursor">Copy config</button>
+          </div>
+          <pre class="mcp-config" id="mcp-cursor"><code>// ~/.cursor/mcp.json
+{
+  "mcpServers": {
+    "coreai-catalog": {
+      "command": "coreai-catalog-mcp"
+    }
+  }
+}</code></pre>
+        </div>
+
+        <div class="mcp-client" data-client="generic">
+          <div class="mcp-client-header">
+            <strong>Any MCP client</strong>
+            <button class="btn-copy" data-copy="generic">Copy command</button>
+          </div>
+          <pre class="mcp-config" id="mcp-generic"><code>coreai-catalog-mcp</code></pre>
+        </div>
+      </div>
 
       <p class="legal">MIT License. Not affiliated with or endorsed by Apple. <code>commercial_use</code> fields are triage labels, not legal advice.</p>
     </div>

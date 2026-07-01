@@ -324,5 +324,34 @@
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') closeModal();
     });
+
+    // ── MCP copy-to-clipboard ──
+    document.querySelectorAll('.btn-copy').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var target = btn.dataset.copy;
+        var el = $('mcp-' + target);
+        if (!el) return;
+        var text = el.querySelector('code') ? el.querySelector('code').textContent : el.textContent;
+
+        function flashCopied() {
+          var orig = btn.textContent;
+          btn.textContent = 'Copied';
+          btn.classList.add('copied');
+          setTimeout(function () { btn.textContent = orig; btn.classList.remove('copied'); }, 1500);
+        }
+
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(text.trim()).then(flashCopied, flashCopied);
+        } else {
+          var ta = document.createElement('textarea');
+          ta.value = text.trim();
+          document.body.appendChild(ta);
+          ta.select();
+          try { document.execCommand('copy'); } catch (e) {}
+          document.body.removeChild(ta);
+          flashCopied();
+        }
+      });
+    });
   });
 })();

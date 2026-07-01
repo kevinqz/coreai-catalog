@@ -313,6 +313,29 @@ footer {
 footer a { color: var(--accent); text-decoration: none; }
 footer a:hover { text-decoration: underline; }
 
+/* ═══ MCP CLIENT CARDS ═══ */
+.mcp-clients { display: flex; flex-direction: column; gap: .75rem; margin: .75rem 0; }
+.mcp-client {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden;
+}
+.mcp-client-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: .55rem .85rem; border-bottom: 1px solid var(--border);
+  background: var(--bg-elevated);
+}
+.mcp-client-header strong { font-size: .85rem; }
+.btn-copy {
+  background: var(--accent-soft); color: var(--accent);
+  border: 1px solid transparent; border-radius: var(--radius-sm);
+  padding: .25rem .65rem; font-size: .76rem; font-weight: 500;
+  cursor: pointer; font-family: var(--font); transition: var(--t);
+}
+.btn-copy:hover { background: rgba(91,127,251,.2); }
+.btn-copy.copied { background: var(--green-soft); color: var(--green); }
+.mcp-client pre { margin: 0; border: none; border-radius: 0; }
+.mcp-config { padding: .65rem .85rem; font-size: .78rem; }
+
 /* ═══ EMPTY STATE ═══ */
 .empty-state { grid-column: 1 / -1; text-align: center; padding: 3rem 1rem; color: var(--text-tertiary); }
 
