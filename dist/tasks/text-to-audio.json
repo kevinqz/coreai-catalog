@@ -21,7 +21,7 @@
     }
   ],
   "export_schema_version": "1.0",
-  "export_catalog_version": "1.7.0",
+  "export_catalog_version": "2.0.0",
   "best_overall": "stable-audio-open-small",
   "best_iphone": null,
   "best_commercial": null

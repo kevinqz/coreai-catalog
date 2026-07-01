@@ -54,7 +54,7 @@ jobs:
           coreai-catalog recommend --task "robot vision" --device iphone
           coreai-catalog recommend --task "translation" --json | python -c "import json,sys; d=json.load(sys.stdin); assert d['recommendations'], 'translation should resolve'"
           coreai-catalog scores | head -5
-          coreai-catalog version --json | python -c "import json,sys; d=json.load(sys.stdin); assert d['version'] == '1.7.0', f'version mismatch: {d[\"version\"]}'"
+          coreai-catalog version --json | python -c "import json,sys; d=json.load(sys.stdin); assert d['version'] == '2.0.0', f'version mismatch: {d[\"version\"]}'"
           coreai-catalog doctor || true
           python -c "
           import sys; sys.path.insert(0, '.')

@@ -4,6 +4,28 @@ All notable changes to Core AI Catalog are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/), and this
 project adheres to [Semantic Versioning](https://semver.org/).
 
+## [2.0.0] — 2026-07-01
+
+### Added — searchable web UI (GitHub Pages)
+
+- **`site/`** — static, zero-dependency web UI for model exploration:
+  - `index.html` + `style.css` + `app.js` (26KB total, no framework)
+  - Loads `dist/search-index.json` via fetch
+  - Filters: capability, device (iPhone/iPad/Mac), license, source group, sort by
+  - Full-text search across model names, capabilities, and families
+  - Model detail modal: full metadata, benchmarks, install command, artifact URL
+  - Tasks tab: browse all 89 task keywords grouped by capability
+  - About tab: quick start, resources, agent integration, Python API
+  - Dark theme, mobile-responsive, keyboard-accessible (ESC closes modal)
+- **`.github/workflows/pages.yml`** — auto-deploys to GitHub Pages on push
+  - URL: https://kevinqz.github.io/coreai-catalog/
+
+### Breaking — major version bump (1.x → 2.0)
+
+No breaking schema changes. The major bump reflects the project maturing from
+a catalog into a **decision infrastructure platform** with web UI, Python API,
+agent integration, and distribution pipeline. Schema version stays at 1.0.
+
 ## [1.7.0] — 2026-07-01
 
 ### Added — public Python library API

@@ -8,7 +8,7 @@ independent community project — not affiliated with or endorsed by Apple.
 
 - **Repository:** https://github.com/kevinqz/coreai-catalog
 - **License:** MIT
-- **Version:** 1.7.0
+- **Version:** 2.0.0
 - **Last verified:** 2026-07-01
 
 ## What this catalog IS

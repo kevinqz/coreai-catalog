@@ -4,6 +4,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 
+🌐 **[Live site: kevinqz.github.io/coreai-catalog](https://kevinqz.github.io/coreai-catalog/)** — searchable web UI with model cards, filters, and benchmarks.
+
 A compact, source-grounded catalog of Apple Core AI models, artifacts, upstreams, benchmarks, provenance and a verified Apple AI terminology layer.
 
 Core AI Catalog maps Apple Core AI-compatible model artifacts with granular metadata, source links, Hugging Face artifact references, GitHub/Hugging Face attribution, runtime requirements, device support, benchmark records and verification status.
@@ -18,7 +20,7 @@ Not affiliated with or endorsed by Apple. `commercial_use` fields are triage lab
 
 ## Status
 
-**Version:** v1.7.0
+**Version:** v2.0.0
 
 79 Apple Core AI models with artifact provenance, benchmarks, verified terminology, readiness scores, and an MCP server for agent-native model discovery, comparison, and recommendation. Agent-ready: CLI, MCP server, JSON exports, llms.txt, openapi.yaml — all from the same engine.
 
@@ -574,10 +576,11 @@ For sensitive licenses such as Gemma Terms, Meta SAM License, LFM Open License o
 
 Current milestone:
 
-- v1.7.0 — Public Python library API (`from coreai_catalog import Catalog`), schema versioning docs.
+- v2.0.0 — Web UI (GitHub Pages): model explorer, task browser, filters, search.
 
 Earlier:
 
+- v1.7.0 — Public Python library API (`from coreai_catalog import Catalog`), schema versioning docs.
 - v1.6.0 — Task-first discovery: `tasks` command, `recommend --explain`, enriched MCP get_tasks.
 - v1.5.0 — Structured docs (philosophy, getting-started, concepts, task pages), community templates, issue templates.
 - v1.4.0 — PyPI-ready, 60-second demo, Swift examples, recommend redesign.

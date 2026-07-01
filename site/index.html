@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Core AI Catalog — Apple On-Device AI Model Explorer</title>
+  <meta name="description" content="Discover, compare, and install Apple Core AI models. Filter by capability, device, license, and readiness score.">
+  <meta property="og:title" content="Core AI Catalog — Apple On-Device AI Model Explorer">
+  <meta property="og:description" content="The agent-ready registry for Apple local AI. 79 models with provenance, licenses, benchmarks, and recommendations.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kevinqz.github.io/coreai-catalog/">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <h1>🧠 Core AI Catalog</h1>
+      <p class="tagline">The agent-ready registry for Apple local AI</p>
+      <div class="badges">
+        <a href="https://github.com/kevinqz/coreai-catalog/actions/workflows/validate.yml" target="_blank"><img src="https://github.com/kevinqz/coreai-catalog/actions/workflows/validate.yml/badge.svg" alt="CI"></a>
+        <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT">
+        <img id="model-count-badge" src="" alt="Model count">
+      </div>
+    </div>
+  </header>
+
+  <nav id="tabs">
+    <button class="tab active" data-tab="explore">🔍 Explore Models</button>
+    <button class="tab" data-tab="tasks">📋 Browse Tasks</button>
+    <button class="tab" data-tab="about">📖 About</button>
+  </nav>
+
+  <!-- ── EXPLORE TAB ── -->
+  <main id="explore" class="tab-content active">
+    <aside id="filters">
+      <div class="filter-group">
+        <label>Search</label>
+        <input type="text" id="search-box" placeholder="Search models…" autocomplete="off">
+      </div>
+      <div class="filter-group">
+        <label>Capability</label>
+        <select id="filter-capability"><option value="">All capabilities</option></select>
+      </div>
+      <div class="filter-group">
+        <label>Device</label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" id="filter-iphone" checked> 📱 iPhone</label>
+          <label><input type="checkbox" id="filter-ipad" checked> 📐 iPad</label>
+          <label><input type="checkbox" id="filter-mac" checked> 💻 Mac</label>
+        </div>
+      </div>
+      <div class="filter-group">
+        <label>License</label>
+        <select id="filter-license">
+          <option value="">All licenses</option>
+          <option value="likely">✅ Commercial: likely</option>
+          <option value="check_license">⚠️ Check license</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Source</label>
+        <select id="filter-source">
+          <option value="">All sources</option>
+          <option value="official">🍎 Apple recipe</option>
+          <option value="zoo">🐼 Community zoo</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Sort by</label>
+        <select id="sort-by">
+          <option value="score">Readiness score</option>
+          <option value="name">Name (A-Z)</option>
+          <option value="params">Parameters (small first)</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <button id="reset-filters" class="btn-secondary">Reset filters</button>
+      </div>
+      <div id="result-count" class="result-count"></div>
+    </aside>
+
+    <section id="model-grid"></section>
+  </main>
+
+  <!-- ── TASKS TAB ── -->
+  <main id="tasks" class="tab-content">
+    <div id="task-list"></div>
+  </main>
+
+  <!-- ── ABOUT TAB ── -->
+  <main id="about" class="tab-content">
+    <div class="about-content">
+      <h2>About Core AI Catalog</h2>
+      <p>A source-grounded catalog of Apple Core AI models — provenance, licenses, benchmarks, and recommendations. Not affiliated with Apple.</p>
+
+      <h3>Quick Start</h3>
+      <pre><code>pip install coreai-catalog
+coreai-catalog recommend --task "private OCR on iPhone" --license likely</code></pre>
+
+      <h3>Resources</h3>
+      <ul>
+        <li><a href="https://github.com/kevinqz/coreai-catalog">📦 GitHub Repository</a></li>
+        <li><a href="https://github.com/kevinqz/coreai-catalog/releases">🏷️ Releases</a></li>
+        <li><a href="https://raw.githubusercontent.com/kevinqz/coreai-catalog/main/dist/catalog.json">📄 JSON API (catalog.json)</a></li>
+        <li><a href="https://raw.githubusercontent.com/kevinqz/coreai-catalog/main/dist/coreai-catalog.json">📄 Complete Bundle</a></li>
+        <li><a href="https://github.com/kevinqz/coreai-catalog/blob/main/PROJECT_PHILOSOPHY.md">📖 Philosophy</a></li>
+        <li><a href="https://github.com/kevinqz/coreai-catalog/blob/main/docs/getting-started.md">🚀 Getting Started Guide</a></li>
+      </ul>
+
+      <h3>Agent Integration</h3>
+      <p>MCP server with 11 tools for Claude Desktop, Cursor, and MCP-compatible agents.</p>
+      <pre><code>pip install -e ".[mcp]"</code></pre>
+
+      <h3>Python API</h3>
+      <pre><code>from coreai_catalog import Catalog
+
+catalog = Catalog.load()
+catalog.recommend(task="ocr", device="iphone")</code></pre>
+    </div>
+  </main>
+
+  <!-- ── MODEL DETAIL MODAL ── -->
+  <div id="modal-overlay" class="modal-overlay" style="display:none;">
+    <div id="modal-content" class="modal-content"></div>
+  </div>
+
+  <footer>
+    <p>Core AI Catalog · <a href="https://github.com/kevinqz/coreai-catalog">GitHub</a> · MIT License · Not affiliated with Apple</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

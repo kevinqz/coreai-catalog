@@ -120,7 +120,7 @@
     }
   ],
   "export_schema_version": "1.0",
-  "export_catalog_version": "1.7.0",
+  "export_catalog_version": "2.0.0",
   "best_overall": "unlimited-ocr",
   "best_iphone": "unlimited-ocr",
   "best_commercial": "unlimited-ocr"
