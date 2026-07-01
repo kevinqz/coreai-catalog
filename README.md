@@ -21,9 +21,11 @@ Not affiliated with or endorsed by Apple. `commercial_use` fields are triage lab
 
 ## Status
 
-**Version:** v2.0.3
+**Version:** v2.0.4 — [PyPI](https://pypi.org/project/coreai-catalog/) · [Live site](https://kevinqz.github.io/coreai-catalog/) · [CI](https://github.com/kevinqz/coreai-catalog/actions/workflows/validate.yml)
 
-79 Apple Core AI models with artifact provenance, benchmarks, verified terminology, readiness scores, and an MCP server for agent-native model discovery, comparison, and recommendation. Agent-ready: CLI, MCP server, JSON exports, llms.txt, openapi.yaml — all from the same engine.
+79 Apple Core AI models with artifact provenance, benchmarks, verified terminology, readiness scores, and an MCP server for agent-native model discovery, comparison, and recommendation.
+
+**Version contract:** PyPI = GitHub tag = `catalog.yaml` = `agent.json` = `openapi.yaml` = `README.md`. All surfaces carry the same version number.
 
 ## Quick Start
 
@@ -395,7 +397,7 @@ The GitHub Actions workflow runs validation, generation, CLI smoke test, and MCP
 Install the CLI for the full experience:
 
 ```bash
-pip install -e .
+pip install coreai-catalog
 ```
 
 ### Commands
@@ -436,7 +438,7 @@ The catalog ships an [MCP server](https://modelcontextprotocol.io/) that exposes
 ### Setup
 
 ```bash
-pip install -e ".[mcp]"
+pip install "coreai-catalog[mcp]"
 ```
 
 ### Configure in Claude Desktop

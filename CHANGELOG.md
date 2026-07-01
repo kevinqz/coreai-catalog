@@ -4,6 +4,20 @@ All notable changes to Core AI Catalog are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/), and this
 project adheres to [Semantic Versioning](https://semver.org/).
 
+## [2.0.4] — 2026-07-01
+
+### Fixed — public surface consistency
+
+- **PyPI=GitHub sync confirmed** — v2.0.3 propagated to PyPI; this release
+  continues the alignment.
+- **Install commands** — all `pip install -e .` and `pip install -e ".[mcp]"`
+  in user-facing docs replaced with `pip install coreai-catalog` and
+  `pip install "coreai-catalog[mcp]"` (site, README, getting-started).
+- **README Status section** — now links to PyPI, live site, and CI directly,
+  plus declares the version contract: "PyPI = GitHub tag = catalog.yaml =
+  agent.json = openapi.yaml = README.md".
+- **CI assertion** — already dynamic since v2.0.3, confirmed no hardcodes remain.
+
 ## [2.0.3] — 2026-07-01
 
 ### Fixed — release hygiene and docs consistency

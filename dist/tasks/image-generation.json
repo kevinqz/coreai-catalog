@@ -35,7 +35,7 @@
     }
   ],
   "export_schema_version": "1.0",
-  "export_catalog_version": "2.0.3",
+  "export_catalog_version": "2.0.4",
   "best_overall": "official-flux-2-klein-4b",
   "best_iphone": "z-image-turbo",
   "best_commercial": "official-flux-2-klein-4b"

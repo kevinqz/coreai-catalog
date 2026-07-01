@@ -134,7 +134,7 @@
     }
   ],
   "export_schema_version": "1.0",
-  "export_catalog_version": "2.0.3",
+  "export_catalog_version": "2.0.4",
   "best_overall": "minicpm5-1b",
   "best_iphone": "minicpm5-1b",
   "best_commercial": "minicpm5-1b"

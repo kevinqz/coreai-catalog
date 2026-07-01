@@ -94,7 +94,7 @@ See [`examples/`](../examples/) for complete integration guides:
 Connect the catalog to Claude Desktop, Cursor, or any MCP-compatible client:
 
 ```bash
-pip install -e ".[mcp]"
+pip install "coreai-catalog[mcp]"
 ```
 
 Add to `~/Library/Application Support/Claude/claude_desktop_config.json`:
