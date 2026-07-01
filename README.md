@@ -21,7 +21,7 @@ Not affiliated with or endorsed by Apple. `commercial_use` fields are triage lab
 
 ## Status
 
-**Version:** v2.0.2
+**Version:** v2.0.3
 
 79 Apple Core AI models with artifact provenance, benchmarks, verified terminology, readiness scores, and an MCP server for agent-native model discovery, comparison, and recommendation. Agent-ready: CLI, MCP server, JSON exports, llms.txt, openapi.yaml — all from the same engine.
 
@@ -600,7 +600,6 @@ Later:
 - Split large YAML files into `data/models/*.yaml` if the catalog grows significantly.
 - Richer model cards, per-model pages, and SEO optimization on the web UI.
 - Additional filters: runtime, maturity, confidence, artifact availability, modality.
-- Publish to PyPI for `pip install coreai-catalog` (currently `pip install git+...`).
 - Automated source verification (in progress via `scripts/check_sources.sh`).
 
 ## Non-goals

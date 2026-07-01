@@ -4,6 +4,34 @@ All notable changes to Core AI Catalog are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/), and this
 project adheres to [Semantic Versioning](https://semver.org/).
 
+## [2.0.3] — 2026-07-01
+
+### Fixed — release hygiene and docs consistency
+
+- **CI version assertion** — replaced hardcoded version string in
+  `validate.yml` with dynamic read from `catalog.yaml`. Never goes stale again.
+- **CHANGELOG** — added missing v2.0.1 and v2.0.2 entries.
+- **llms.txt + llms-full.txt** — `pip install -e .` → `pip install coreai-catalog`.
+- **Site SEO** — enriched meta description, OpenGraph tags, `<noscript>` fallback
+  with model count and JSON API link for crawlers.
+- **Roadmap** — removed stale "Publish to PyPI" from future (already done).
+
+## [2.0.2] — 2026-07-01
+
+### Fixed — PyPI published
+
+- **PyPI** — `coreai-catalog` v2.0.2 published. `pip install coreai-catalog` works.
+- **Publish workflow** — fixed `dist_package/*` → `dist_pkg/*` path, added
+  `TWINE_USERNAME=__token__`, added `sync_package_data` step.
+- **Install instructions** — reverted all docs to `pip install coreai-catalog`.
+
+## [2.0.1] — 2026-07-01
+
+### Fixed — PyPI publish workflow
+
+- Initial attempt to publish to PyPI (failed: wrong dist path).
+- Fixed: build artifacts to `dist_pkg/` to avoid conflict with `dist/*.json`.
+
 ## [2.0.0] — 2026-07-01
 
 ### Added — searchable web UI (GitHub Pages)

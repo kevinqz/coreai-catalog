@@ -21,7 +21,7 @@
     }
   ],
   "export_schema_version": "1.0",
-  "export_catalog_version": "2.0.2",
+  "export_catalog_version": "2.0.3",
   "best_overall": "ltx-video-2b",
   "best_iphone": null,
   "best_commercial": null

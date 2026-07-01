@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
   title: Core AI Catalog API
-  version: 2.0.2
+  version: 2.0.3
   description: |
     Source-grounded catalog of 79 Apple Core AI models. All endpoints are
     read-only. This OpenAPI spec mirrors the MCP server's 11 tools as REST
@@ -20,7 +20,7 @@ servers:
   - url: https://raw.githubusercontent.com/kevinqz/coreai-catalog/main
     description: Static JSON files (read-only, no query support)
   - url: cli://coreai-catalog
-    description: Local CLI (pip install -e . && coreai-catalog <command> --json)
+    description: CLI (pip install coreai-catalog && coreai-catalog <command> --json)
 tags:
   - name: models
     description: Model discovery and details

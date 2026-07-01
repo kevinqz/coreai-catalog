@@ -35,7 +35,7 @@
     }
   ],
   "export_schema_version": "1.0",
-  "export_catalog_version": "2.0.2",
+  "export_catalog_version": "2.0.3",
   "best_overall": "adcsr-x4",
   "best_iphone": "adcsr-x4",
   "best_commercial": "real-esrgan-x4v3"
