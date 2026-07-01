@@ -4,6 +4,19 @@ All notable changes to Core AI Catalog are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/), and this
 project adheres to [Semantic Versioning](https://semver.org/).
 
+## [2.0.5] — 2026-07-01
+
+### Fixed — MCP install + CI smoke test
+
+- **MCP config** — all public docs now use `coreai-catalog-mcp` binary entry
+  point instead of `python mcp_server/server.py` (requires clone).
+  Updated: README, agent.json, llms.txt, llms-full.txt.
+- **CI PyPI smoke test** — new step in validate.yml: installs the published
+  PyPI package on tag pushes and verifies model count, recommend, and
+  Python API work from a clean install.
+- **Publish workflow** — added `environment: pypi` and `url` for PyPI
+  dashboard integration. Ready for Trusted Publishing migration.
+
 ## [2.0.4] — 2026-07-01
 
 ### Fixed — public surface consistency

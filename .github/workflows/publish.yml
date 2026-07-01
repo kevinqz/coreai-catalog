@@ -9,6 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       id-token: write
+      contents: read
+
+    environment:
+      name: pypi
+      url: https://pypi.org/project/coreai-catalog/
 
     steps:
       - uses: actions/checkout@v4
@@ -32,7 +37,6 @@ jobs:
       - name: Build package
         run: |
           python -m build
-          # Move build artifacts to avoid conflict with dist/*.json
           mkdir -p dist_pkg
           cp dist/coreai_catalog-* dist_pkg/
 

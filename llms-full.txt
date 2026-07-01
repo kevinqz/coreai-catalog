@@ -8,7 +8,7 @@ independent community project — not affiliated with or endorsed by Apple.
 
 - **Repository:** https://github.com/kevinqz/coreai-catalog
 - **License:** MIT
-- **Version:** 2.0.4
+- **Version:** 2.0.5
 - **Last verified:** 2026-07-01
 
 ## What this catalog IS
@@ -100,8 +100,7 @@ All tools are read-only. Configuration:
 {
   "mcpServers": {
     "coreai-catalog": {
-      "command": "python",
-      "args": ["mcp_server/server.py"]
+      "command": "coreai-catalog-mcp"
     }
   }
 }

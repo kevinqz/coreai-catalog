@@ -94,6 +94,15 @@ jobs:
         run: python scripts/sync_upstream.py
         continue-on-error: true
 
+      # ── PyPI smoke test (only on tag pushes) ──
+      - name: PyPI install smoke test
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: |
+          pip install coreai-catalog --no-deps
+          coreai-catalog version
+          python -c "from coreai_catalog import Catalog; c = Catalog.load(); print(f'Models: {c.model_count}'); assert c.model_count > 70, 'model count too low'"
+          coreai-catalog recommend --task "private OCR on iPhone" --license likely --json | python -c "import json,sys; d=json.load(sys.stdin); assert d['recommendations'], 'recommend failed'"
+
       # ── Publish ──
       - name: Upload JSON exports
         uses: actions/upload-artifact@v4

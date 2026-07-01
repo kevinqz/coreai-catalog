@@ -50,8 +50,7 @@ MCP server (for Claude Desktop, Cursor, MCP-compatible agents):
 {
   "mcpServers": {
     "coreai-catalog": {
-      "command": "python",
-      "args": ["mcp_server/server.py"]
+      "command": "coreai-catalog-mcp"
     }
   }
 }
