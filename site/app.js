@@ -1,6 +1,6 @@
 /**
- * Core AI Catalog — Explorer v4
- * Fixed: modal close, CSS shorthand, device labels, active filter pills.
+ * Core AI Catalog — Explorer v5
+ * Tighter, cleaner, faster.
  */
 (function () {
   'use strict';
@@ -12,6 +12,7 @@
   var FILTERED = [];
   var CAPABILITIES = {};
   var searchTimer = null;
+  var deviceFilters = { iphone: true, ipad: true, mac: true };
 
   function $(id) { return document.getElementById(id); }
 
@@ -42,7 +43,6 @@
     return d.innerHTML;
   }
   function capChip(c) { return 'chip chip-cap-' + (c || '').replace(/_/g, '-'); }
-
   function devLabel(devs) {
     var parts = [];
     if (devs.indexOf('iphone') >= 0) parts.push('iPhone');
@@ -51,19 +51,10 @@
     return parts.join(' · ') || 'Unknown';
   }
   function sourceLabel(sg) {
-    if (sg === 'official') return 'Apple recipe';
-    if (sg === 'zoo') return 'Community';
-    if (sg === 'external') return 'External';
-    return sg || '';
+    return { official: 'Apple', zoo: 'Community', external: 'External' }[sg] || '';
   }
-  function licLabel(cu, name) {
-    if (cu === 'likely') return name + ' (likely OK)';
-    if (cu === 'check_license') return name + ' (check)';
-    return name || 'Unknown';
-  }
-  function devChipLabel(d) {
-    return d.charAt(0).toUpperCase() + d.slice(1);
-  }
+  function licClass(cu) { return cu === 'likely' ? 'lic-ok' : 'lic-warn'; }
+  function licIcon(cu) { return cu === 'likely' ? '' : ''; }
 
   // ── Data ──
   async function loadData() {
@@ -89,7 +80,7 @@
       $('search-box').placeholder = 'Search ' + MODELS.length + ' models\u2026';
       applyFilters();
     } catch (err) {
-      $('model-grid').innerHTML = '<div class="empty-state"><p>Failed to load catalog data.</p></div>';
+      $('model-grid').innerHTML = '<div class="empty-state"><p>Failed to load data.</p></div>';
       $('result-count').textContent = 'Error';
     }
   }
@@ -98,8 +89,9 @@
   function applyFilters() {
     var search = $('search-box').value.toLowerCase().trim();
     var cap = $('filter-capability').value;
-    var sI = $('filter-iphone').checked, sP = $('filter-ipad').checked, sM = $('filter-mac').checked;
-    var lic = $('filter-license').value, src = $('filter-source').value, sort = $('sort-by').value;
+    var lic = $('filter-license').value;
+    var src = $('filter-source').value;
+    var sort = $('sort-by').value;
 
     FILTERED = MODELS.filter(function (m) {
       if (search) {
@@ -108,11 +100,12 @@
       }
       if (cap && (m.capabilities || []).indexOf(cap) < 0) return false;
       var devs = m.devices || [];
-      if (sI || sP || sM) {
+      var anyDevice = deviceFilters.iphone || deviceFilters.ipad || deviceFilters.mac;
+      if (anyDevice) {
         var ok = false;
-        if (sI && devs.indexOf('iphone') >= 0) ok = true;
-        if (sP && devs.indexOf('ipad') >= 0) ok = true;
-        if (sM && devs.indexOf('mac') >= 0) ok = true;
+        if (deviceFilters.iphone && devs.indexOf('iphone') >= 0) ok = true;
+        if (deviceFilters.ipad && devs.indexOf('ipad') >= 0) ok = true;
+        if (deviceFilters.mac && devs.indexOf('mac') >= 0) ok = true;
         if (!ok) return false;
       }
       if (lic && m.commercial_use !== lic) return false;
@@ -124,34 +117,35 @@
     else if (sort === 'params') FILTERED.sort(function (a, b) { return paramSortValue(a.parameters) - paramSortValue(b.parameters); });
     else FILTERED.sort(function (a, b) { return b.readiness_score - a.readiness_score; });
 
-    renderActiveFilters(search, cap, sI, sP, sM, lic, src);
+    renderPills(search, cap, lic, src);
     renderGrid();
   }
 
-  // ── Active filter pills ──
-  function renderActiveFilters(search, cap, sI, sP, sM, lic, src) {
+  // ── Filter pills ──
+  function renderPills(search, cap, lic, src) {
     var pills = [];
     if (search) pills.push({ label: '"' + search + '"', clear: function () { $('search-box').value = ''; } });
     if (cap) pills.push({ label: cap.replace(/-/g, ' '), clear: function () { $('filter-capability').value = ''; } });
-    if (!sI) pills.push({ label: 'no iPhone', clear: function () { $('filter-iphone').checked = true; } });
-    if (!sP) pills.push({ label: 'no iPad', clear: function () { $('filter-ipad').checked = true; } });
-    if (!sM) pills.push({ label: 'no Mac', clear: function () { $('filter-mac').checked = true; } });
+    if (!deviceFilters.iphone) pills.push({ label: 'no iPhone', clear: function () { toggleDevice('iphone', true); } });
+    if (!deviceFilters.ipad) pills.push({ label: 'no iPad', clear: function () { toggleDevice('ipad', true); } });
+    if (!deviceFilters.mac) pills.push({ label: 'no Mac', clear: function () { toggleDevice('mac', true); } });
     if (lic) pills.push({ label: lic === 'likely' ? 'Commercial: likely' : 'Check license', clear: function () { $('filter-license').value = ''; } });
     if (src) pills.push({ label: sourceLabel(src), clear: function () { $('filter-source').value = ''; } });
 
-    var container = $('active-filters');
-    if (!pills.length) { container.innerHTML = ''; return; }
-
-    container.innerHTML = pills.map(function (p, i) {
+    var c = $('active-filters');
+    if (!pills.length) { c.innerHTML = ''; return; }
+    c.innerHTML = pills.map(function (p, i) {
       return '<span class="filter-pill" data-idx="' + i + '">' + escapeHtml(p.label) + '</span>';
     }).join('');
-
-    container.querySelectorAll('.filter-pill').forEach(function (el, i) {
-      el.addEventListener('click', function () {
-        pills[i].clear();
-        applyFilters();
-      });
+    c.querySelectorAll('.filter-pill').forEach(function (el, i) {
+      el.addEventListener('click', function () { pills[i].clear(); applyFilters(); });
     });
+  }
+
+  function toggleDevice(d, val) {
+    deviceFilters[d] = val;
+    var btn = document.querySelector('.seg[data-filter="' + d + '"]');
+    if (btn) { val ? btn.classList.add('active') : btn.classList.remove('active'); }
   }
 
   // ── Render ──
@@ -160,18 +154,17 @@
     $('result-count').textContent = FILTERED.length + ' of ' + MODELS.length + ' models';
 
     if (!FILTERED.length) {
-      grid.innerHTML = '<div class="empty-state"><p>No models match your filters.</p><p><small>Try adjusting capability, device, or license filters.</small></p></div>';
+      grid.innerHTML = '<div class="empty-state">No models match your filters.</div>';
       return;
     }
 
     grid.innerHTML = FILTERED.map(function (m, i) {
       var s = m.readiness_score;
-      var caps = (m.capabilities || []).slice(0, 4).map(function (c) {
+      var caps = (m.capabilities || []).slice(0, 3).map(function (c) {
         return '<span class="' + capChip(c) + '">' + c.replace(/-/g, ' ') + '</span>';
       }).join('');
-      var licClass = m.commercial_use === 'likely' ? 'lic-ok' : 'lic-warn';
-      var bench = m.benchmarks && m.benchmarks.length ? '<span class="card-bench">' + m.benchmarks.length + ' benchmarks</span>' : '';
-      var delay = Math.min(i * 12, 180);
+      var bench = m.benchmarks && m.benchmarks.length ? '<span class="card-bench">' + m.benchmarks.length + ' bench</span>' : '';
+      var delay = Math.min(i * 10, 120);
 
       return '<div class="model-card" data-id="' + m.id + '" style="animation-delay:' + delay + 'ms">' +
         '<div class="card-top">' +
@@ -180,13 +173,14 @@
         '</div>' +
         '<div class="card-caps">' + caps + '</div>' +
         '<div class="card-bottom">' +
-          '<div class="card-meta">' +
-            '<span class="card-devices">' + devLabel(m.devices || []) + '</span>' +
-          '</div>' +
-          '<div class="card-meta">' +
+          '<span class="card-meta">' +
+            '<span>' + devLabel(m.devices || []) + '</span>' +
+            '<span> · ' + escapeHtml(sourceLabel(m.source_group)) + '</span>' +
+          '</span>' +
+          '<span class="card-meta">' +
             bench +
-            '<span class="card-license ' + licClass + '">' + escapeHtml(m.license || '?') + '</span>' +
-          '</div>' +
+            '<span class="card-license ' + licClass(m.commercial_use) + '">' + escapeHtml(m.license || '') + '</span>' +
+          '</span>' +
         '</div>' +
       '</div>';
     }).join('');
@@ -197,20 +191,21 @@
   }
 
   // ── Modal ──
-  function closeModal() {
-    $('modal-overlay').style.display = 'none';
-  }
+  function closeModal() { $('modal-overlay').style.display = 'none'; }
 
   function showDetail(id) {
     var m = MODELS.find(function (x) { return x.id === id; });
     if (!m) return;
-
     var s = m.readiness_score;
     var art = m.artifact || {};
     var hfUrl = art.huggingface_url || '';
     var hfRepo = art.huggingface_repo || '';
-    var devList = (m.devices || []).map(function (d) { return '<span class="chip">' + devChipLabel(d) + '</span>'; }).join('');
-    var capsList = (m.capabilities || []).map(function (c) { return '<span class="' + capChip(c) + '">' + c + '</span>'; }).join('');
+    var devList = (m.devices || []).map(function (d) {
+      return '<span class="chip">' + (d.charAt(0).toUpperCase() + d.slice(1)) + '</span>';
+    }).join('');
+    var capsList = (m.capabilities || []).map(function (c) {
+      return '<span class="' + capChip(c) + '">' + c + '</span>';
+    }).join('');
     var benchRows = (m.benchmarks || []).map(function (b) {
       return '<tr><td>' + (b.metric || '') + '</td><td><strong>' + b.value + '</strong> ' + (b.unit || '') + '</td><td>' + (b.device || '') + '</td><td>' + (b.compute_unit || '') + '</td></tr>';
     }).join('');
@@ -221,7 +216,7 @@
       '<p class="modal-id">' + m.id + ' &middot; ' + escapeHtml(sourceLabel(m.source_group)) + '</p>' +
       '<div class="modal-score-row">' +
         '<span class="modal-score ' + scoreClass(s) + '">' + s + ' ' + gradeLetter(s) + '</span>' +
-        '<span class="modal-score-desc">Readiness score &middot; ' + escapeHtml(m.maturity || 'unknown') + ' maturity</span>' +
+        '<span class="modal-score-desc">Readiness &middot; ' + escapeHtml(m.maturity || 'unknown') + '</span>' +
       '</div>' +
       (capsList ? '<div class="modal-section"><h4>Capabilities</h4><div class="card-caps">' + capsList + '</div></div>' : '') +
       (devList ? '<div class="modal-section"><h4>Devices</h4><div class="card-caps">' + devList + '</div></div>' : '') +
@@ -229,18 +224,15 @@
         '<tr><td>Parameters</td><td>' + (m.parameters || 'not published') + '</td></tr>' +
         '<tr><td>Precision</td><td>' + (m.precision || 'unknown') + '</td></tr>' +
         '<tr><td>Quantization</td><td>' + (m.quantization || 'unknown') + '</td></tr>' +
-        '<tr><td>License</td><td>' + escapeHtml(licLabel(m.commercial_use, m.license)) + '</td></tr>' +
+        '<tr><td>License</td><td>' + escapeHtml(m.license || '?') + ' (' + escapeHtml(m.commercial_use || '?') + ')</td></tr>' +
         '<tr><td>Runtime</td><td>' + (m.runtime || 'unknown') + '</td></tr>' +
-        '<tr><td>Runner</td><td>' + (m.runner || 'unknown') + '</td></tr>' +
       '</table>' +
       (benchRows ? '<div class="modal-section"><h4>Benchmarks</h4><table class="modal-table"><tr><td>Metric</td><td>Value</td><td>Device</td><td>Compute</td></tr>' + benchRows + '</table></div>' : '') +
-      (m.notes ? '<div class="modal-section"><h4>Notes</h4><p style="font-size:.85rem;color:var(--text-secondary)">' + escapeHtml(m.notes) + '</p></div>' : '') +
+      (m.notes ? '<div class="modal-section"><h4>Notes</h4><p style="font-size:.8rem;color:var(--text-2)">' + escapeHtml(m.notes) + '</p></div>' : '') +
       (hfUrl ? '<div class="modal-section"><h4>Artifact</h4><p><a href="' + hfUrl + '" target="_blank" rel="noopener">' + escapeHtml(hfRepo || hfUrl) + '</a></p></div>' : '') +
-      '<div class="modal-section"><h4>Install</h4><pre><code>coreai-catalog install ' + m.id + '</code></pre></div>';
+      '<div class="modal-section"><h4>Install</h4><div class="code-inline"><pre><code>coreai-catalog install ' + m.id + '</code></pre></div></div>';
 
     $('modal-overlay').style.display = 'flex';
-
-    // Wire close button via addEventListener (not inline onclick)
     $('modal-close-btn').addEventListener('click', closeModal);
   }
 
@@ -250,10 +242,8 @@
       var resp = await fetch(TASKS_URL);
       if (!resp.ok) throw new Error('HTTP ' + resp.status);
       var data = await resp.json();
-
       var byCap = {};
       data.tasks.forEach(function (t) { t.capabilities.forEach(function (c) { (byCap[c] = byCap[c] || []).push(t); }); });
-
       $('task-list').innerHTML = Object.keys(byCap).sort().map(function (cap) {
         var syns = byCap[cap].map(function (t) { return t.task; }).sort();
         return '<div class="task-section">' +
@@ -262,7 +252,7 @@
         '</div>';
       }).join('');
     } catch (err) {
-      $('task-list').innerHTML = '<div class="empty-state"><p>Failed to load tasks.</p></div>';
+      $('task-list').innerHTML = '<div class="empty-state">Failed to load.</div>';
     }
   }
 
@@ -289,20 +279,66 @@
     });
   }
 
+  // ── Device segmented buttons ──
+  function initDeviceSegs() {
+    document.querySelectorAll('.seg').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var f = btn.dataset.filter;
+        toggleDevice(f, !deviceFilters[f]);
+        applyFilters();
+      });
+    });
+  }
+
+  // ── Copy buttons (generic) ──
+  function initCopyButtons() {
+    document.querySelectorAll('.btn-copy').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var targetId = btn.dataset.copyTarget;
+        var text = '';
+        if (targetId) {
+          var el = $(targetId);
+          text = el ? (el.querySelector('code') ? el.querySelector('code').textContent : el.textContent) : '';
+        } else {
+          var parent = btn.closest('.mcp-client');
+          if (parent) {
+            var code = parent.querySelector('code');
+            text = code ? code.textContent : '';
+          }
+        }
+        text = text.trim();
+
+        function flash() {
+          var orig = btn.textContent;
+          btn.textContent = 'Copied';
+          btn.classList.add('copied');
+          setTimeout(function () { btn.textContent = orig; btn.classList.remove('copied'); }, 1500);
+        }
+
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(text).then(flash, flash);
+        } else {
+          var ta = document.createElement('textarea');
+          ta.value = text; document.body.appendChild(ta); ta.select();
+          try { document.execCommand('copy'); } catch (e) {}
+          document.body.removeChild(ta); flash();
+        }
+      });
+    });
+  }
+
   // ── Init ──
   document.addEventListener('DOMContentLoaded', function () {
     initTheme();
     initTabs();
+    initDeviceSegs();
     loadData();
 
     $('search-box').addEventListener('input', function () {
       clearTimeout(searchTimer);
-      searchTimer = setTimeout(applyFilters, 180);
+      searchTimer = setTimeout(applyFilters, 150);
     });
     ['filter-capability', 'filter-license', 'filter-source', 'sort-by'].forEach(function (id) {
-      $(id).addEventListener('change', applyFilters);
-    });
-    ['filter-iphone', 'filter-ipad', 'filter-mac'].forEach(function (id) {
       $(id).addEventListener('change', applyFilters);
     });
 
@@ -311,10 +347,8 @@
       $('filter-capability').value = '';
       $('filter-license').value = '';
       $('filter-source').value = '';
-      $('filter-iphone').checked = true;
-      $('filter-ipad').checked = true;
-      $('filter-mac').checked = true;
       $('sort-by').value = 'score';
+      ['iphone', 'ipad', 'mac'].forEach(function (d) { toggleDevice(d, true); });
       applyFilters();
     });
 
@@ -325,33 +359,6 @@
       if (e.key === 'Escape') closeModal();
     });
 
-    // ── MCP copy-to-clipboard ──
-    document.querySelectorAll('.btn-copy').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var target = btn.dataset.copy;
-        var el = $('mcp-' + target);
-        if (!el) return;
-        var text = el.querySelector('code') ? el.querySelector('code').textContent : el.textContent;
-
-        function flashCopied() {
-          var orig = btn.textContent;
-          btn.textContent = 'Copied';
-          btn.classList.add('copied');
-          setTimeout(function () { btn.textContent = orig; btn.classList.remove('copied'); }, 1500);
-        }
-
-        if (navigator.clipboard) {
-          navigator.clipboard.writeText(text.trim()).then(flashCopied, flashCopied);
-        } else {
-          var ta = document.createElement('textarea');
-          ta.value = text.trim();
-          document.body.appendChild(ta);
-          ta.select();
-          try { document.execCommand('copy'); } catch (e) {}
-          document.body.removeChild(ta);
-          flashCopied();
-        }
-      });
-    });
+    initCopyButtons();
   });
 })();

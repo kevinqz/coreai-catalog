@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Core AI Catalog — Apple On-Device AI Model Registry</title>
-  <meta name="description" content="The agent-ready registry for Apple on-device AI. 79 Core AI models with provenance, licenses, benchmarks, and readiness scores. Filter by capability, device, and license.">
+  <meta name="description" content="The agent-ready registry for Apple on-device AI. 79 Core AI models with provenance, licenses, benchmarks, and readiness scores.">
   <meta property="og:title" content="Core AI Catalog — Apple On-Device AI Model Registry">
-  <meta property="og:description" content="Find, compare, and verify Apple Core AI models by capability, device support, license risk, artifact provenance, and benchmark evidence. 79 models, 89 task keywords, 11 MCP tools.">
+  <meta property="og:description" content="Find, compare, and verify Apple Core AI models by capability, device support, license risk, and benchmark evidence.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kevinqz.github.io/coreai-catalog/">
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%236c8cff'/><text x='16' y='22' font-size='17' font-family='system-ui' font-weight='700' fill='white' text-anchor='middle'>C</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%235b7ffb'/><text x='16' y='22' font-size='17' font-family='system-ui' font-weight='700' fill='white' text-anchor='middle'>C</text></svg>">
   <script>
     (function() {
       var t = localStorage.getItem('coreai-theme');
@@ -20,33 +20,34 @@
   </script>
 </head>
 <body>
+
+  <!-- ── HEADER ── -->
   <header>
     <div class="header-inner">
       <div class="header-brand">
         <div class="header-logo">C</div>
-        <div>
+        <div class="header-text">
           <h1>Core AI Catalog</h1>
           <span class="header-tagline">The agent-ready registry for Apple on-device AI</span>
         </div>
       </div>
       <div class="header-actions">
-        <div class="header-badges">
-          <a href="https://github.com/kevinqz/coreai-catalog/actions/workflows/validate.yml" target="_blank" rel="noopener"><img src="https://github.com/kevinqz/coreai-catalog/actions/workflows/validate.yml/badge.svg" alt="CI" height="18"></a>
-        </div>
-        <button class="icon-btn" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+        <a href="https://github.com/kevinqz/coreai-catalog/actions/workflows/validate.yml" target="_blank" rel="noopener" class="header-badge"><img src="https://github.com/kevinqz/coreai-catalog/actions/workflows/validate.yml/badge.svg" alt="CI" height="18"></a>
+        <button class="icon-btn" id="theme-toggle" aria-label="Toggle theme">
           <svg class="icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
           <svg class="icon-sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
         </button>
-        <a href="https://github.com/kevinqz/coreai-catalog" target="_blank" rel="noopener" class="icon-btn" aria-label="GitHub" title="GitHub">
+        <a href="https://github.com/kevinqz/coreai-catalog" target="_blank" rel="noopener" class="icon-btn" aria-label="GitHub">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.95 0-1.31.47-2.39 1.24-3.23-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.92 1.24 3.23 0 4.62-2.81 5.64-5.49 5.94.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
         </a>
       </div>
     </div>
   </header>
 
+  <!-- ── TABS ── -->
   <nav id="tabs">
-    <button class="tab active" data-tab="explore">Explore Models</button>
-    <button class="tab" data-tab="tasks">Browse Tasks</button>
+    <button class="tab active" data-tab="explore">Explore</button>
+    <button class="tab" data-tab="tasks">Tasks</button>
     <button class="tab" data-tab="about">About</button>
   </nav>
 
@@ -59,43 +60,41 @@
       </div>
       <div class="filter-group">
         <label>Capability</label>
-        <select id="filter-capability"><option value="">All capabilities</option></select>
+        <select id="filter-capability"><option value="">All</option></select>
       </div>
       <div class="filter-group">
         <label>Device</label>
-        <div class="checkbox-group">
-          <label><input type="checkbox" id="filter-iphone" checked> iPhone</label>
-          <label><input type="checkbox" id="filter-ipad" checked> iPad</label>
-          <label><input type="checkbox" id="filter-mac" checked> Mac</label>
+        <div class="seg-group">
+          <button class="seg active" data-filter="iphone">iPhone</button>
+          <button class="seg active" data-filter="ipad">iPad</button>
+          <button class="seg active" data-filter="mac">Mac</button>
         </div>
       </div>
       <div class="filter-group">
         <label>License</label>
         <select id="filter-license">
-          <option value="">All licenses</option>
-          <option value="likely">Commercial use: likely</option>
+          <option value="">All</option>
+          <option value="likely">Commercial: likely</option>
           <option value="check_license">Check license</option>
         </select>
       </div>
       <div class="filter-group">
         <label>Source</label>
         <select id="filter-source">
-          <option value="">All sources</option>
+          <option value="">All</option>
           <option value="official">Apple recipe</option>
-          <option value="zoo">Community zoo</option>
+          <option value="zoo">Community</option>
         </select>
       </div>
       <div class="filter-group">
-        <label>Sort by</label>
+        <label>Sort</label>
         <select id="sort-by">
           <option value="score">Readiness score</option>
-          <option value="name">Name (A–Z)</option>
-          <option value="params">Parameters (small first)</option>
+          <option value="name">Name</option>
+          <option value="params">Smallest first</option>
         </select>
       </div>
-      <div class="filter-group">
-        <button id="reset-filters" class="btn-secondary">Reset filters</button>
-      </div>
+      <button id="reset-filters" class="btn-link">Reset all</button>
     </aside>
 
     <section id="grid-area">
@@ -104,9 +103,8 @@
         <span id="active-filters" class="active-filters"></span>
       </div>
       <noscript>
-        <p>Core AI Catalog is a registry of 79 Apple Core AI models. Enable JavaScript to explore models by capability, device, license, and readiness score.</p>
-        <p>Install: <code>pip install coreai-catalog</code></p>
-        <p>JSON API: <a href="https://raw.githubusercontent.com/kevinqz/coreai-catalog/main/dist/catalog.json">catalog.json</a></p>
+        <p>Core AI Catalog is a registry of 79 Apple Core AI models.</p>
+        <p><code>pip install coreai-catalog</code></p>
       </noscript>
       <div id="model-grid">
         <div class="skeleton-card"></div><div class="skeleton-card"></div>
@@ -125,69 +123,88 @@
   <main id="about" class="tab-content">
     <div class="about-content">
       <h2>Core AI Catalog</h2>
-      <p class="lede">A source-grounded catalog of Apple Core AI models — provenance, licenses, benchmarks, and recommendations.</p>
+      <p class="lede">A source-grounded registry of Apple Core AI models — provenance, licenses, benchmarks, and recommendations.</p>
+
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num" id="stat-models">79</span><span class="stat-label">Models</span></div>
+        <div class="stat"><span class="stat-num">66</span><span class="stat-label">Benchmarks</span></div>
+        <div class="stat"><span class="stat-num">11</span><span class="stat-label">MCP Tools</span></div>
+        <div class="stat"><span class="stat-num">89</span><span class="stat-label">Task Keywords</span></div>
+      </div>
 
       <h3>Quick Start</h3>
-      <pre><code>pip install coreai-catalog
+      <div class="code-block">
+        <div class="code-header"><span>bash</span><button class="btn-copy" data-copy-target="quickstart-code">Copy</button></div>
+        <pre><code id="quickstart-code">pip install coreai-catalog
 
 coreai-catalog recommend --task "private OCR on iPhone" --license likely</code></pre>
+      </div>
 
       <h3>Resources</h3>
       <ul class="resource-list">
         <li><a href="https://github.com/kevinqz/coreai-catalog" target="_blank" rel="noopener">GitHub Repository</a></li>
         <li><a href="https://github.com/kevinqz/coreai-catalog/releases" target="_blank" rel="noopener">Releases</a></li>
+        <li><a href="https://pypi.org/project/coreai-catalog/" target="_blank" rel="noopener">PyPI Package</a></li>
         <li><a href="https://raw.githubusercontent.com/kevinqz/coreai-catalog/main/dist/catalog.json" target="_blank" rel="noopener">JSON API (catalog.json)</a></li>
         <li><a href="https://raw.githubusercontent.com/kevinqz/coreai-catalog/main/dist/coreai-catalog.json" target="_blank" rel="noopener">Complete Bundle</a></li>
         <li><a href="https://github.com/kevinqz/coreai-catalog/blob/main/PROJECT_PHILOSOPHY.md" target="_blank" rel="noopener">Philosophy</a></li>
-        <li><a href="https://github.com/kevinqz/coreai-catalog/blob/main/docs/getting-started.md" target="_blank" rel="noopener">Getting Started Guide</a></li>
+        <li><a href="https://github.com/kevinqz/coreai-catalog/blob/main/docs/getting-started.md" target="_blank" rel="noopener">Getting Started</a></li>
       </ul>
 
       <h3>Python API</h3>
-      <pre><code>from coreai_catalog import Catalog
+      <div class="code-block">
+        <div class="code-header"><span>python</span><button class="btn-copy" data-copy-target="python-code">Copy</button></div>
+        <pre><code id="python-code">from coreai_catalog import Catalog
 
 catalog = Catalog.load()
 catalog.recommend(task="ocr", device="iphone")</code></pre>
+      </div>
 
-      <h3>MCP Server — 1-Click Install</h3>
-      <p>11 tools for AI agents. Install the package, then add to your client:</p>
-      <pre><code>pip install "coreai-catalog[mcp]"</code></pre>
+      <h3>MCP Server</h3>
+      <p class="mcp-intro">Install, then add to your AI client. 11 tools for model discovery, comparison, and recommendation.</p>
+
+      <div class="code-block code-install">
+        <div class="code-header"><span>install</span></div>
+        <pre><code>pip install "coreai-catalog[mcp]"</code></pre>
+      </div>
 
       <div class="mcp-clients">
-        <div class="mcp-client" data-client="claude">
-          <div class="mcp-client-header">
+        <div class="mcp-client">
+          <div class="mcp-client-head">
             <strong>Claude Desktop</strong>
-            <button class="btn-copy" data-copy="claude">Copy config</button>
+            <button class="btn-copy" data-copy-target="mcp-claude-code">Copy config</button>
           </div>
-          <pre class="mcp-config" id="mcp-claude"><code>{
+          <pre id="mcp-claude-code" class="code-inline"><code>{
   "mcpServers": {
     "coreai-catalog": {
       "command": "coreai-catalog-mcp"
     }
   }
 }</code></pre>
+          <p class="mcp-path">~/Library/Application Support/Claude/claude_desktop_config.json</p>
         </div>
 
-        <div class="mcp-client" data-client="cursor">
-          <div class="mcp-client-header">
+        <div class="mcp-client">
+          <div class="mcp-client-head">
             <strong>Cursor</strong>
-            <button class="btn-copy" data-copy="cursor">Copy config</button>
+            <button class="btn-copy" data-copy-target="mcp-cursor-code">Copy config</button>
           </div>
-          <pre class="mcp-config" id="mcp-cursor"><code>// ~/.cursor/mcp.json
-{
+          <pre id="mcp-cursor-code" class="code-inline"><code>{
   "mcpServers": {
     "coreai-catalog": {
       "command": "coreai-catalog-mcp"
     }
   }
 }</code></pre>
+          <p class="mcp-path">~/.cursor/mcp.json</p>
         </div>
 
-        <div class="mcp-client" data-client="generic">
-          <div class="mcp-client-header">
+        <div class="mcp-client">
+          <div class="mcp-client-head">
             <strong>Any MCP client</strong>
-            <button class="btn-copy" data-copy="generic">Copy command</button>
+            <button class="btn-copy" data-copy-target="mcp-generic-code">Copy command</button>
           </div>
-          <pre class="mcp-config" id="mcp-generic"><code>coreai-catalog-mcp</code></pre>
+          <pre id="mcp-generic-code" class="code-inline"><code>coreai-catalog-mcp</code></pre>
         </div>
       </div>
 
@@ -201,7 +218,7 @@ catalog.recommend(task="ocr", device="iphone")</code></pre>
   </div>
 
   <footer>
-    <p>Core AI Catalog &middot; <a href="https://github.com/kevinqz/coreai-catalog" target="_blank" rel="noopener">GitHub</a> &middot; MIT License &middot; Not affiliated with Apple</p>
+    <p>Core AI Catalog &middot; <a href="https://github.com/kevinqz/coreai-catalog" target="_blank" rel="noopener">GitHub</a> &middot; <a href="https://pypi.org/project/coreai-catalog/" target="_blank" rel="noopener">PyPI</a> &middot; MIT License</p>
   </footer>
 
   <script src="app.js"></script>
