@@ -18,7 +18,7 @@ Not affiliated with or endorsed by Apple. `commercial_use` fields are triage lab
 
 ## Status
 
-**Version:** v1.3.1
+**Version:** v1.3.2
 
 v1.3.1 adds RWKV-7 Goose 1.5B (first pure-recurrent / linear-attention LLM on Core AI), a source-monitor cron job for automated upstream detection, and completes the 3-round red-team (R1 functional + R2 cross-system + R3 docs). 79 models, 79 artifacts, 11 MCP tools, 13 CLI commands, 89 task synonyms mapped. Agent-ready: CLI, MCP server, JSON exports, llms.txt, openapi.yaml — all from the same engine.
 
