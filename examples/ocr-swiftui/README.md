@@ -5,7 +5,7 @@ Private, on-device document text extraction using the Unlimited-OCR Core AI mode
 ## Setup
 
 ```bash
-pip install git+https://github.com/kevinqz/coreai-catalog.git
+pip install coreai-catalog
 coreai-catalog install unlimited-ocr
 ```
 

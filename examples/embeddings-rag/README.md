@@ -6,7 +6,7 @@ All text stays on-device — no API calls, no data collection.
 ## Setup
 
 ```bash
-pip install git+https://github.com/kevinqz/coreai-catalog.git
+pip install coreai-catalog
 coreai-catalog install embeddinggemma-300m
 ```
 

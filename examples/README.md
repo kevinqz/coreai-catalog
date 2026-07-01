@@ -14,7 +14,7 @@ Real-world Swift snippets and integration patterns for Apple Core AI models.
 
 ```bash
 # Install the catalog CLI
-pip install git+https://github.com/kevinqz/coreai-catalog.git
+pip install coreai-catalog
 
 # Install a model (downloads .aimodel bundle from Hugging Face)
 coreai-catalog install unlimited-ocr

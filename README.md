@@ -1,5 +1,6 @@
 # Core AI Catalog
 
+[![PyPI](https://img.shields.io/pypi/v/coreai-catalog.svg)](https://pypi.org/project/coreai-catalog/)
 ![CI](https://github.com/kevinqz/coreai-catalog/actions/workflows/validate.yml/badge.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
@@ -27,8 +28,7 @@ Not affiliated with or endorsed by Apple. `commercial_use` fields are triage lab
 ## Quick Start
 
 ```bash
-# Install from GitHub (PyPI coming soon)
-pip install git+https://github.com/kevinqz/coreai-catalog.git
+pip install coreai-catalog
 
 # Find the right model for your task
 coreai-catalog recommend --task "private OCR on iPhone" --license likely

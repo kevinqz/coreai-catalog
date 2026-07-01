@@ -6,7 +6,7 @@ Runs entirely on Apple Silicon via Core AI.
 ## Setup
 
 ```bash
-pip install git+https://github.com/kevinqz/coreai-catalog.git
+pip install coreai-catalog
 coreai-catalog install qwen3-vl-2b
 ```
 
