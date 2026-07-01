@@ -1,0 +1,391 @@
+metadata:
+  name: Core AI Catalog terminology
+  version: 0.6.0
+  last_verified: '2026-06-29'
+  status: active
+  notes: Verified Apple AI terminology reference layer. Each term cites an official Apple source and is tagged by ecosystem
+    layer. Reference only -- not affiliation or legal claims.
+terms:
+- id: apple-intelligence
+  label: Apple Intelligence
+  apple_layer: system_surface
+  definition: Personal intelligence system across Apple devices, powered by Apple Foundation Models; provides personal context,
+    app actions and on-screen awareness.
+  official_source: https://developer.apple.com/apple-intelligence/
+  verification: established_pre_2026
+  status: official
+- id: visual-intelligence
+  label: Visual Intelligence
+  apple_layer: system_surface
+  definition: System visual-understanding capability; the 2026 update adds image input to the on-device model for on-device
+    visual tasks.
+  official_source: https://developer.apple.com/apple-intelligence/whats-new/
+  verification: confirmed_wwdc2026
+  status: official
+- id: image-playground
+  label: Image Playground
+  apple_layer: system_surface
+  definition: Image-generation experience and developer API in the Apple Intelligence ecosystem.
+  official_source: https://developer.apple.com/documentation/imageplayground
+  verification: established_pre_2026
+  status: official
+- id: core-ai
+  label: Core AI
+  apple_layer: developer_framework
+  definition: WWDC26 framework for bringing PyTorch models to production on Apple Silicon (LLMs and generative AI); successor
+    to Core ML for generative AI; exports the .aimodel format.
+  official_source: https://developer.apple.com/documentation/coreai/
+  relations:
+  - produces:aimodel
+  - succeeds:core-ml
+  verification: confirmed_wwdc2026
+  status: official
+- id: foundation-models-framework
+  label: Foundation Models framework
+  apple_layer: developer_framework
+  definition: Native Swift API giving access to Apple Foundation Models (on-device and Private Cloud Compute) and to any provider
+    with a Swift package conforming to the LanguageModel protocol.
+  official_source: https://developer.apple.com/documentation/FoundationModels
+  relations:
+  - accesses:apple-foundation-models
+  - uses:language-model-protocol
+  verification: confirmed_wwdc2026
+  status: official
+- id: core-ml
+  label: Core ML
+  apple_layer: developer_framework
+  definition: Framework for integrating traditional ML models into apps; predates Core AI and is superseded by it for generative
+    AI; uses .mlpackage / .mlmodel.
+  official_source: https://developer.apple.com/documentation/coreml
+  relations:
+  - succeeded_by:core-ai
+  - uses:mlpackage
+  verification: established_pre_2026
+  status: official
+- id: mlx
+  label: MLX
+  apple_layer: developer_framework
+  definition: Open-source array framework for ML on Apple Silicon (research, training, fine-tuning, inference) with unified
+    memory and lazy evaluation; a parallel research/training layer, not a Core AI dependency.
+  official_source: https://github.com/ml-explore/mlx
+  verification: established_pre_2026
+  status: official
+- id: app-intents
+  label: App Intents
+  apple_layer: developer_framework
+  definition: Framework that connects app content and actions to Apple Intelligence, Siri and Spotlight through schemas, entities
+    and intents.
+  official_source: https://developer.apple.com/documentation/appintents
+  relations:
+  - feeds:spotlight-semantic-index
+  verification: established_pre_2026
+  status: official
+- id: vision
+  label: Vision
+  apple_layer: developer_framework
+  definition: Framework for image analysis such as detection, recognition and tracking; Vision tools can be called by the
+    model during generation.
+  official_source: https://developer.apple.com/documentation/vision
+  verification: established_pre_2026
+  status: official
+- id: speech
+  label: Speech
+  apple_layer: developer_framework
+  definition: Framework for speech recognition and audio analysis on Apple platforms.
+  official_source: https://developer.apple.com/documentation/speech
+  verification: established_pre_2026
+  status: official
+- id: evaluations-framework
+  label: Evaluations framework
+  apple_layer: developer_framework
+  definition: 'WWDC26 Swift framework (sessions 298/299/335) for measuring intelligence feature quality. API: subject(from:),
+    ModelSample, Metric, Evaluator, ModelJudgeEvaluator, ScoreDimension, TrajectoryExpectation, ToolCallEvaluator. Runs in
+    Swift Testing, supports macOS/iOS/watchOS/visionOS, on-device or against Private Cloud Compute.'
+  official_source: https://developer.apple.com/apple-intelligence/whats-new/
+  verification: confirmed_wwdc2026
+  status: official
+  relations:
+  - part_of:foundation-models-framework
+- id: metal
+  label: Metal
+  apple_layer: developer_framework
+  definition: GPU programming framework; backs the custom Metal kernels some Core AI model conversions require.
+  official_source: https://developer.apple.com/metal/
+  verification: established_pre_2026
+  status: official
+- id: apple-foundation-models
+  label: Apple Foundation Models
+  apple_layer: model_provider
+  definition: Apple's proprietary models (on-device and server via Private Cloud Compute) that power Apple Intelligence; third
+    generation (AFM 3) at WWDC26; not open weights and not downloadable.
+  official_source: https://machinelearning.apple.com/research/introducing-third-generation-of-apple-foundation-models
+  relations:
+  - accessed_via:foundation-models-framework
+  verification: confirmed_wwdc2026
+  status: official
+- id: private-cloud-compute
+  label: Private Cloud Compute
+  apple_layer: model_provider
+  definition: Apple's privacy-preserving server infrastructure for running larger Foundation Models off-device.
+  official_source: https://security.apple.com/blog/private-cloud-compute/
+  verification: established_pre_2026
+  status: official
+- id: language-model-protocol
+  label: LanguageModel protocol
+  apple_layer: provider_protocol
+  definition: Public Swift protocol a provider implements so any model (Apple, Claude, Gemini, local) can back a LanguageModelSession
+    without changing app logic.
+  official_source: https://developer.apple.com/videos/play/wwdc2026/339/
+  relations:
+  - part_of:foundation-models-framework
+  verification: confirmed_wwdc2026
+  status: official
+- id: language-model-session
+  label: LanguageModelSession
+  apple_layer: ai_primitive
+  definition: Session object that runs prompts and tools against a LanguageModel in the Foundation Models framework.
+  official_source: https://developer.apple.com/documentation/FoundationModels
+  relations:
+  - uses:language-model-protocol
+  verification: confirmed_wwdc2026
+  status: official
+- id: tool-calling
+  label: Tool calling
+  apple_layer: ai_primitive
+  definition: Model invocation of app-provided tools (including Vision tools) during generation.
+  official_source: https://developer.apple.com/documentation/FoundationModels
+  verification: confirmed_wwdc2026
+  status: official
+- id: spotlight-semantic-index
+  label: Spotlight semantic index
+  apple_layer: ai_primitive
+  definition: Semantic index that App Intents entity schemas contribute to, so Siri can surface app content with attribution
+    back to the app.
+  official_source: https://developer.apple.com/documentation/appintents
+  relations:
+  - fed_by:app-intents
+  verification: confirmed_wwdc2026
+  status: official
+- id: aimodel
+  label: aimodel format
+  apple_layer: artifact_format
+  definition: On-device artifact format produced by Core AI from a PyTorch or open model; auto-specializes to the current
+    hardware and OS version on first load (model cache).
+  official_source: https://developer.apple.com/documentation/coreai/
+  relations:
+  - produced_by:core-ai
+  verification: confirmed_wwdc2026
+  status: official
+- id: mlpackage
+  label: mlpackage format
+  apple_layer: artifact_format
+  definition: Core ML model package format.
+  official_source: https://developer.apple.com/documentation/coreml
+  relations:
+  - used_by:core-ml
+  verification: established_pre_2026
+  status: official
+- id: safetensors
+  label: safetensors format
+  apple_layer: artifact_format
+  definition: Open tensor-serialization format commonly used for original open-model weights on Hugging Face.
+  official_source: https://github.com/huggingface/safetensors
+  verification: established_pre_2026
+  status: community
+- id: coremltools
+  label: Core ML Tools
+  apple_layer: developer_tool
+  definition: Python package for converting models from training frameworks to Core ML.
+  official_source: https://github.com/apple/coremltools
+  verification: established_pre_2026
+  status: official
+- id: core-ai-pytorch-extensions
+  label: Core AI PyTorch Extensions
+  apple_layer: developer_tool
+  definition: Core AI tooling that converts prepared PyTorch models into the .aimodel format.
+  official_source: https://developer.apple.com/videos/play/wwdc2026/325/
+  relations:
+  - produces:aimodel
+  verification: confirmed_wwdc2026
+  status: official
+- id: core-ai-debugger
+  label: Core AI Debugger
+  apple_layer: developer_tool
+  definition: App for visualization and numeric debugging of Core AI models, tracing tensor values back to Python source.
+  official_source: https://developer.apple.com/videos/play/wwdc2026/325/
+  verification: confirmed_wwdc2026
+  status: official
+- id: coreai-language-model
+  label: CoreAILanguageModel
+  apple_layer: provider_protocol
+  definition: Apple adapter that wraps a Core AI .aimodel bundle into a LanguageModel conforming to the Foundation Models
+    framework, enabling session.respond / stream / Tool usage with one-line integration.
+  official_source: https://developer.apple.com/documentation/FoundationModels
+  relations:
+  - conforms_to:language-model-protocol
+  - wraps:aimodel
+  verification: confirmed_wwdc2026
+  status: official
+- id: spotlight-search-tool
+  label: SpotlightSearchTool
+  apple_layer: ai_primitive
+  definition: FoundationModels.Tool that turns the Core Spotlight index into a retrieval tool for a LanguageModelSession,
+    enabling on-device RAG. Works behind any LanguageModel, not just Apple's system model.
+  official_source: https://developer.apple.com/videos/play/wwdc2026/246/
+  relations:
+  - part_of:foundation-models-framework
+  verification: confirmed_wwdc2026
+  status: official
+- id: coreaikit-graphmodel
+  label: CoreAIKit GraphModel
+  apple_layer: developer_tool
+  definition: CoreAIKit abstraction for running multi-graph models (encoders, transducers) as stateless .aimodel bundles via
+    AIModel.run, without the full LLM runtime. Used by non-LLM models like Parakeet TDT, ColModernVBERT, YOLOX.
+  official_source: https://developer.apple.com/documentation/coreai/
+  verification: confirmed_wwdc2026
+  status: official_adjacent
+- id: dynamic-profile
+  label: DynamicProfile
+  apple_layer: ai_primitive
+  definition: WWDC26 mechanism to declare multiple profiles (model + instructions + tools + modifiers) within a single LanguageModelSession
+    and switch between them as the conversation evolves. Enables on-device model routing.
+  official_source: https://developer.apple.com/videos/play/wwdc2026/242/
+  verification: confirmed_wwdc2026
+  status: official
+- id: coreaikit
+  label: CoreAIKit
+  apple_layer: developer_framework
+  definition: 'Swift package from the coreai-models project providing higher-level abstractions for running .aimodel bundles:
+    KitLanguageModel (LanguageModel conformance), GraphModel (multi-graph encoders/transducers), TextEmbedder, ImageTextEncoder,
+    and the CoreAIRunner LLM driver. The primary programmatic interface to Core AI artifacts.'
+  official_source: https://github.com/apple/coreai-models
+  verification: confirmed_wwdc2026
+  status: official
+- id: pipelined-engine
+  label: coreai-pipelined engine
+  apple_layer: ai_primitive
+  definition: An alternate Core AI GPU execution engine that fuses decode operations into a pipelined graph, achieving higher
+    throughput than the stock engine. Used by most zoo LLMs. Identified in benchmarks as 'coreai-pipelined'. The stock engine
+    is 'coreai' without pipelining.
+  official_source: https://developer.apple.com/documentation/coreai/
+  verification: confirmed_wwdc2026
+  status: official_adjacent
+- id: aot-compilation
+  label: AOT compilation (.aimodelc)
+  apple_layer: developer_tool
+  definition: Ahead-of-time compilation of a Core AI .aimodel bundle into a .aimodelc for a specific hardware architecture
+    (e.g. h18p for iPhone 17/18). Required when the model graph is too large to specialize on-device within reasonable time.
+    Compiled via 'xcrun coreai-build compile --preferred-compute gpu --architecture h18p'.
+  official_source: https://developer.apple.com/documentation/coreai/
+  verification: confirmed_wwdc2026
+  status: official_adjacent
+- id: gather-qmm
+  label: gather_qmm Metal kernel
+  apple_layer: ai_primitive
+  definition: Custom Metal kernel for grouped-query matrix multiplication used by MoE (Mixture-of-Experts) models on Core
+    AI. Reads only the routed experts instead of the full weight matrix, enabling large MoE models (Qwen3.6-35B, GLM-4.7-Flash,
+    LFM2.5-8B-A1B) to run on iPhone.
+  official_source: https://developer.apple.com/documentation/coreai/
+  verification: confirmed_wwdc2026
+  status: community
+- id: flowmatch-sampler
+  label: FlowMatch sampler
+  apple_layer: ai_primitive
+  definition: 'Host-side sampling loop for flow-matching diffusion models (FLUX.2, LTX-Video, VoxCPM). The neural networks
+    run as Core AI bundles; only the data-dependent control flow (scheduling, timestep iteration) stays on host. The standard
+    zoo pattern: convert heavy nets, keep control flow in Python.'
+  official_source: https://developer.apple.com/documentation/coreai/
+  verification: confirmed_wwdc2026
+  status: community
+- id: coreai-ir
+  label: Core AI IR (.mlirb)
+  apple_layer: artifact_format
+  definition: The intermediate representation produced by coreai-torch's TorchConverter. Stored as main.mlirb inside the .aimodel
+    bundle, alongside metadata.json and main.hash. The IR is lowered by the Core AI compiler to GPU/ANE/CPU code.
+  official_source: https://developer.apple.com/documentation/coreai/
+  relations:
+  - produced_by:core-ai-pytorch-extensions
+  - part_of:aimodel
+  verification: confirmed_wwdc2026
+  status: official
+- id: language-bundle
+  label: LanguageBundle
+  apple_layer: artifact_format
+  definition: 'Directory structure for LLM .aimodel bundles: metadata.json (kind ''llm'', assets.main, language.{tokenizer,vocab_size,max_context_length,function_map})
+    + tokenizer/ + the .aimodel. Required by the pipelined engine and Foundation Models integration.'
+  official_source: https://developer.apple.com/documentation/coreai/
+  relations:
+  - contains:aimodel
+  - consumed_by:pipelined-engine
+  verification: confirmed_wwdc2026
+  status: official_adjacent
+- id: specialization
+  label: On-device specialization (AIModelCache)
+  apple_layer: ai_primitive
+  definition: The on-device first-run compilation of a .aimodel for the specific hardware, managed via AIModelCache / AIModel.specialize().
+    Converts the portable IR to a compiled graph for the device's GPU/ANE/CPU. AOT-compiled (.aimodelc) bundles skip this
+    step entirely.
+  official_source: https://developer.apple.com/documentation/coreai/
+  relations:
+  - related:aot-compilation
+  verification: confirmed_wwdc2026
+  status: official
+- id: palettization
+  label: Palettization (k-means LUT)
+  apple_layer: ai_primitive
+  definition: 'Apple''s term for k-means codebook compression: each weight maps to an index into a LUT of 2^n_bits centroids.
+    Per-channel palettization consistently beats per-channel quantization by ~15-19 dB. Part of coreai-optimization (coreai-opt).'
+  official_source: https://github.com/apple/coreai-optimization
+  relations:
+  - part_of:core-ai-pytorch-extensions
+  verification: confirmed_wwdc2026
+  status: official_adjacent
+- id: generable
+  label: '@Generable'
+  apple_layer: ai_primitive
+  definition: 'Foundation Models macro for guided/structured generation: annotated Swift structs produce a JSON schema that
+    constrains model decoding. Works with LanguageModelSession. Requires engine logits, so GPU-pipelined bundles need the
+    adapter path.'
+  official_source: https://developer.apple.com/documentation/FoundationModels
+  relations:
+  - part_of:foundation-models-framework
+  verification: confirmed_wwdc2026
+  status: official
+- id: host-cache-kv
+  label: Host-cache KV workaround
+  apple_layer: ai_primitive
+  definition: 'Beta workaround for the MPSGraph in-graph KV-write bug (FB23024751): express the KV cache as model input/output
+    instead of a Core AI state, append with torch.cat, attend with masked SDPA, and write the new column back on the host
+    between steps. Superseded by the input-mask escape and pipelined engine for dynamic models.'
+  official_source: https://github.com/apple/coreai-models/issues/5
+  verification: confirmed_wwdc2026
+  status: community
+- id: flash-decode-kernel
+  label: Flash-decode Metal kernel
+  apple_layer: ai_primitive
+  definition: Custom Metal kernel that replaces the stock MPSGraph SDPA for full-attention models with ≥16 heads × head_dim
+    512. The stock SDPA overflows the GPU scratch heap on large Q tensors. Required by Gemma 4 12B/31B dense models to run
+    on the pipelined engine.
+  official_source: https://github.com/apple/coreai-models/issues/27
+  verification: confirmed_wwdc2026
+  status: community
+- id: coreai-instruments
+  label: Core AI Instruments
+  apple_layer: developer_tool
+  definition: Instruments template for profiling Core AI inference and specialization timing. Pairs with the Core AI Debugger
+    (graph visualization) and the in-Xcode debug gauge (streaming Core AI activity).
+  official_source: https://developer.apple.com/documentation/coreai/
+  verification: confirmed_wwdc2026
+  status: official
+- id: aimodelc
+  label: .aimodelc (AOT-compiled bundle)
+  apple_layer: artifact_format
+  definition: Ahead-of-time compiled output of a .aimodel for a specific hardware architecture. Produced by 'xcrun coreai-build
+    compile'. Embeds the precompiled MPSGraph so load is near-instant. Required for iOS deployment of large models. Architecture
+    named by GPU family (e.g. h18p = iPhone 17/18 class).
+  official_source: https://developer.apple.com/documentation/coreai/
+  relations:
+  - produced_from:aimodel
+  - related:aot-compilation
+  verification: confirmed_wwdc2026
+  status: official

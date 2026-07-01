@@ -4,6 +4,35 @@ All notable changes to Core AI Catalog are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/), and this
 project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.4.0] — 2026-07-01
+
+### Added — PyPI distribution ready
+
+- **`pyproject.toml`** — full PyPI metadata (classifiers, keywords, authors, URLs)
+- **Package data** — YAMLs + schemas bundled in `coreai_catalog/data/` so the catalog works after `pip install` without cloning the repo
+- **`_find_catalog_root()`** — 3-tier search: CWD → walk-up → bundled package data
+- **`.github/workflows/publish.yml`** — auto-publish to PyPI on tag push
+- **`scripts/sync_package_data.py`** — syncs YAMLs into package before build
+
+### Added — 60-second demo moment
+
+- **`recommend` output redesigned** — each recommendation now shows:
+  readiness score with grade, device support, license icon, install command,
+  and artifact URL. Footer has bolded quick-start command.
+- **`install --json`** — structured output: model_id, status, path, artifact_url, size
+- **`uninstall --json`** — structured output: model_id, status
+- **`examples/` directory** — 3 complete Swift integration examples:
+  - `ocr-swiftui/` — Unlimited-OCR (document text extraction)
+  - `vlm-chat/` — Qwen3-VL 2B (vision-language chat)
+  - `embeddings-rag/` — EmbeddingGemma 300M (on-device semantic search + RAG)
+
+### Changed — all install/uninstall error paths return JSON with `--json`
+
+- `install` not-found: `{"error": "Model '...' not found"}`
+- `install` already-installed: `{"model_id": "...", "status": "already_installed"}`
+- `install` dry-run: `{"model_id": "...", "status": "dry_run"}`
+- `uninstall` not-installed: `{"model_id": "...", "status": "not_installed"}`
+
 ## [1.3.1] — 2026-07-01
 
 ### Fixed — dist/ exports now committed (raw GitHub URLs resolve)

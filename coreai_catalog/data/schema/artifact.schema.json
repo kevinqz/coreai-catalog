@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Core AI Catalog Artifact",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "group", "github", "huggingface", "officiality"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "group": {
+      "type": "string",
+      "enum": ["zoo", "official", "external", "unknown"]
+    },
+    "github": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["owner", "repo"],
+      "properties": {
+        "owner": {
+          "type": "string",
+          "minLength": 1
+        },
+        "repo": {
+          "type": "string",
+          "minLength": 1
+        },
+        "path": {
+          "type": ["string", "null"]
+        }
+      }
+    },
+    "huggingface": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["owner", "repo", "url"],
+      "properties": {
+        "owner": {
+          "type": "string",
+          "minLength": 1
+        },
+        "repo": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "pattern": "^https://"
+        },
+        "path": {
+          "type": ["string", "null"]
+        }
+      }
+    },
+    "officiality": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "apple_export_recipe",
+        "apple_hosted_artifact",
+        "community_packaged"
+      ],
+      "properties": {
+        "apple_export_recipe": { "type": "boolean" },
+        "apple_hosted_artifact": { "type": "boolean" },
+        "community_packaged": { "type": "boolean" }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "group": { "const": "official" }
+        },
+        "required": ["group"]
+      },
+      "then": {
+        "properties": {
+          "officiality": {
+            "properties": {
+              "apple_export_recipe": { "const": true }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "group": { "const": "zoo" }
+        },
+        "required": ["group"]
+      },
+      "then": {
+        "properties": {
+          "officiality": {
+            "properties": {
+              "apple_export_recipe": { "const": false }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

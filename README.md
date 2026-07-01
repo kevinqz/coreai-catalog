@@ -2,7 +2,7 @@
 
 ![CI](https://github.com/kevinqz/coreai-catalog/actions/workflows/validate.yml/badge.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 
 A compact, source-grounded catalog of Apple Core AI models, artifacts, upstreams, benchmarks, provenance and a verified Apple AI terminology layer.
 
@@ -18,9 +18,26 @@ Not affiliated with or endorsed by Apple. `commercial_use` fields are triage lab
 
 ## Status
 
-**Version:** v1.3.2
+**Version:** v1.4.0
 
-v1.3.1 adds RWKV-7 Goose 1.5B (first pure-recurrent / linear-attention LLM on Core AI), a source-monitor cron job for automated upstream detection, and completes the 3-round red-team (R1 functional + R2 cross-system + R3 docs). 79 models, 79 artifacts, 11 MCP tools, 13 CLI commands, 89 task synonyms mapped. Agent-ready: CLI, MCP server, JSON exports, llms.txt, openapi.yaml — all from the same engine.
+79 Apple Core AI models with artifact provenance, benchmarks, verified terminology, readiness scores, and an MCP server for agent-native model discovery, comparison, and recommendation. Agent-ready: CLI, MCP server, JSON exports, llms.txt, openapi.yaml — all from the same engine.
+
+## Quick Start
+
+```bash
+pip install coreai-catalog
+
+# Find the right model for your task
+coreai-catalog recommend --task "private OCR on iPhone" --license likely
+
+# Install it (downloads .aimodel from Hugging Face)
+coreai-catalog install unlimited-ocr
+
+# Compare alternatives
+coreai-catalog compare unlimited-ocr qwen3-vl-2b
+```
+
+See [`examples/`](./examples/) for Swift integration snippets (OCR, VLM chat, embeddings/RAG).
 
 ## Why this exists
 

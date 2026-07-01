@@ -302,6 +302,12 @@ def main() -> int:
         count = export_search_index(ROOT)
         print(f"  {count} entries → search-index.json, models.jsonl, readiness-scores.json")
 
+    # Sync YAML data into package for pip distribution
+    print("Syncing package data...")
+    import subprocess, sys
+    subprocess.run([sys.executable, str(ROOT / "scripts" / "sync_package_data.py")],
+                   capture_output=True)
+
     return 0
 
 

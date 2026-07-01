@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Core AI Catalog Benchmark",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "model_id",
+    "metric",
+    "unit",
+    "source",
+    "environment",
+    "observed",
+    "confidence"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "model_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "metric": {
+      "type": "string",
+      "enum": [
+        "decode_throughput",
+        "image_generation_latency",
+        "segmentation_latency",
+        "transcription_latency",
+        "prefill_latency",
+        "memory_footprint",
+        "inference_latency",
+        "realtime_factor"
+      ]
+    },
+    "unit": {
+      "type": "string",
+      "enum": [
+        "tokens_per_second",
+        "seconds",
+        "seconds_per_image",
+        "seconds_per_token",
+        "megabytes",
+        "milliseconds",
+        "frames_per_second",
+        "realtime_factor"
+      ]
+    },
+    "value": { "type": ["number", "null", "string"] },
+    "device": { "type": ["string", "null"] },
+    "compute_unit": {
+      "type": ["string", "null"],
+      "enum": ["GPU", "ANE", "CPU", null]
+    },
+    "precision": { "type": ["string", "null"] },
+    "environment": { "type": "string", "minLength": 1 },
+    "observed": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "source": {
+      "type": "string",
+      "minLength": 1
+    },
+    "confidence": {
+      "type": "string",
+      "enum": ["high", "medium", "low", "needs_review"]
+    },
+    "higher_is_better": {
+      "type": "boolean"
+    },
+    "superseded_by": { "type": ["string", "null"] },
+    "notes": { "type": ["string", "null"] }
+  }
+}

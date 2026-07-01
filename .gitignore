@@ -12,6 +12,7 @@ venv/
 build/
 *.egg-info/
 coreai_catalog.egg-info/
+dist/coreai_catalog-*
 
 # Hermes workspace (agent runtime, not catalog content)
 .hermes/

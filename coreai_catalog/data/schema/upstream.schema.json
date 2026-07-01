@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Core AI Catalog Upstream Source",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "title", "category", "trust"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "framework",
+        "framework_tooling",
+        "official_recipes",
+        "conversion_and_zoo",
+        "predecessor",
+        "artifact_host",
+        "benchmark",
+        "samples",
+        "original_model",
+        "license"
+      ]
+    },
+    "platform": {
+      "type": ["string", "null"],
+      "enum": ["huggingface", "github", "apple", "unknown", null]
+    },
+    "owner": { "type": ["string", "null"] },
+    "repo": { "type": ["string", "null"] },
+    "url": { "type": ["string", "null"] },
+    "trust": {
+      "type": "string",
+      "enum": [
+        "official_primary",
+        "community_primary",
+        "community_secondary",
+        "project_primary",
+        "artifact_host",
+        "original_model_primary",
+        "license_primary",
+        "license_needs_model_specific_review",
+        "needs_review"
+      ]
+    },
+    "applies_to": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "review_required": { "type": ["boolean", "null"] },
+    "notes": { "type": ["string", "null"] }
+  }
+}

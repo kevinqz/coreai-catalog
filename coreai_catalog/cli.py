@@ -620,26 +620,35 @@ def cmd_recommend(args: argparse.Namespace) -> int:
         bench = "📊 benchmarked" if rec.get("has_benchmark") else "not benchmarked"
         lic = rec.get("license", "?")
         params = rec.get("parameters", "?")
+        cu = rec.get("commercial_use", "")
+        lic_icon = f"{GREEN}✅{RESET}" if cu == "likely" else f"{YELLOW}⚠️ {RESET}"
+        dev_str = "/".join(devices) if devices else "unknown"
+        score_str = _fmt_score(rec["score"])
 
+        # Header line with score, device, license
         print(f"  {BOLD}{i}. {rec['name']}{RESET}")
-        print(f"     {DIM}ID:{RESET} {rec['id']}")
-        print(f"     {DIM}Size:{RESET} {params}")
-        print(f"     {DIM}Runs on:{RESET} {'/'.join(devices) or 'unknown'}")
-        print(f"     {DIM}License:{RESET} {lic} ({'likely commercial' if rec.get('commercial_use') == 'likely' else 'check license'})")
-        print(f"     {DIM}{bench}{RESET}")
+        print(f"     {score_str} · {dev_str} · {lic_icon} {lic}")
+        print(f"     {bench} · {params} params")
         notes = rec.get("notes", "")
         if notes:
             note = notes[:120].replace("\n", " ")
             if len(notes) > 120:
                 note += "…"
-            print(f"     {DIM}Note:{RESET} {note}")
+            print(f"     {DIM}{note}{RESET}")
+        # Install command + artifact URL
+        print(f"\n     {DIM}Install:{RESET}  coreai-catalog install {rec['id']}")
+        art = cat.get_artifact(rec["id"])
+        if art:
+            hf = art.get("huggingface", {}) or {}
+            url = hf.get("url", "")
+            if url:
+                print(f"     {DIM}Artifact:{RESET} {url}")
         print()
 
     if recommendations:
         first = recommendations[0]
-        print(f"  {DIM}Next:{RESET}")
-        print(f"    coreai-catalog show {first['id']}")
-        print(f"    coreai-catalog install {first['id']}")
+        print(f"  {DIM}── Quick start ──{RESET}")
+        print(f"    {BOLD}coreai-catalog install {first['id']}{RESET}")
     print()
     return 0
 
@@ -649,39 +658,72 @@ def cmd_install(args: argparse.Namespace) -> int:
     model = cat.get_model(args.model_id)
 
     if not model:
-        print(f"\n  {RED}Model '{args.model_id}' not found.{RESET}")
-        print(f"  {DIM}Try: coreai-catalog search --capability chat{RESET}")
+        if args.json:
+            print(json.dumps({"error": f"Model '{args.model_id}' not found"}))
+        else:
+            print(f"\n  {RED}Model '{args.model_id}' not found.{RESET}")
+            print(f"  {DIM}Try: coreai-catalog search --capability chat{RESET}")
         return 1
 
     artifact = cat.get_artifact(model["id"])
     if not artifact:
-        print(f"\n  {RED}No artifact record for '{model['id']}'.{RESET}")
+        if args.json:
+            print(json.dumps({"error": f"No artifact record for '{model['id']}'"}))
+        else:
+            print(f"\n  {RED}No artifact record for '{model['id']}'.{RESET}")
         return 1
 
     if is_installed(model["id"]) and not args.force:
-        print(f"\n  {YELLOW}Model '{model['id']}' is already installed.{RESET}")
-        print(f"  {DIM}Use --force to reinstall.{RESET}")
         d = get_model_dir(model["id"])
-        print(f"  {DIM}Location: {d}{RESET}")
+        if args.json:
+            print(json.dumps({
+                "model_id": model["id"],
+                "status": "already_installed",
+                "path": str(d),
+            }, indent=2))
+        else:
+            print(f"\n  {YELLOW}Model '{model['id']}' is already installed.{RESET}")
+            print(f"  {DIM}Use --force to reinstall.{RESET}")
+            print(f"  {DIM}Location: {d}{RESET}")
         return 0
 
-    print(f"\n  {BOLD}Installing {model['name']}...{RESET}")
-    size = model.get("size", {}).get("artifact_size", "")
-    if size and size != "not_published":
-        print(f"  {DIM}Artifact size: {size}{RESET}")
+    if not args.json:
+        print(f"\n  {BOLD}Installing {model['name']}...{RESET}")
+        size = model.get("size", {}).get("artifact_size", "")
+        if size and size != "not_published":
+            print(f"  {DIM}Artifact size: {size}{RESET}")
 
-    if args.dry_run:
-        print(f"  {DIM}(dry run — no files downloaded){RESET}")
+        if args.dry_run:
+            print(f"  {DIM}(dry run — no files downloaded){RESET}")
 
     manifest = install_model(
         model=model,
         artifact=artifact,
         benchmarks=cat.get_benchmarks(model["id"]),
         dry_run=args.dry_run,
+        verbose=not args.json,
     )
 
     # Report honestly based on the installation outcome
     file_layout = manifest.get("verified", {}).get("file_layout", "not_checked")
+
+    if args.json:
+        status = "dry_run" if args.dry_run else file_layout
+        result = {
+            "model_id": model["id"],
+            "name": model.get("name", model["id"]),
+            "status": status,
+        }
+        size = model.get("size", {}).get("artifact_size", "")
+        if size and size != "not_published":
+            result["artifact_size"] = size
+        hf = artifact.get("huggingface", {}) or {}
+        if hf.get("url"):
+            result["artifact_url"] = hf["url"]
+        if not args.dry_run:
+            result["path"] = str(get_model_dir(model["id"]))
+        print(json.dumps(result, indent=2))
+        return 0 if file_layout != "not_checked" else 0
 
     if args.dry_run:
         print(f"\n  {DIM}(dry run complete){RESET}\n")
@@ -708,6 +750,22 @@ def cmd_install(args: argparse.Namespace) -> int:
 
 
 def cmd_uninstall(args: argparse.Namespace) -> int:
+    if args.json:
+        # Check if installed first for accurate JSON response
+        d = get_model_dir(args.model_id)
+        if not d.exists():
+            print(json.dumps({
+                "model_id": args.model_id,
+                "status": "not_installed",
+            }))
+            return 1
+        success = uninstall_model(args.model_id, verbose=False)
+        print(json.dumps({
+            "model_id": args.model_id,
+            "status": "removed" if success else "failed",
+        }))
+        return 0 if success else 1
+
     if uninstall_model(args.model_id):
         return 0
     print(f"\n  {YELLOW}Model '{args.model_id}' was not installed.{RESET}")
@@ -1000,11 +1058,13 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("model_id", help="Model ID to install")
     p.add_argument("--dry-run", action="store_true", help="Show what would happen without downloading")
     p.add_argument("--force", action="store_true", help="Reinstall if already installed")
+    p.add_argument("--json", action="store_true", help="Output as JSON")
     p.set_defaults(func=cmd_install)
 
     # uninstall
     p = sub.add_parser("uninstall", help="Remove a locally installed model")
     p.add_argument("model_id", help="Model ID to remove")
+    p.add_argument("--json", action="store_true", help="Output as JSON")
     p.set_defaults(func=cmd_uninstall)
 
     # installed

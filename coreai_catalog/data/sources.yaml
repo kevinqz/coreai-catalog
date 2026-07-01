@@ -1,0 +1,213 @@
+sources:
+- id: coreai-model-zoo
+  title: john-rocky/coreai-model-zoo
+  type: github_repository
+  url: https://github.com/john-rocky/coreai-model-zoo
+  owner: john-rocky
+  repo: coreai-model-zoo
+  trust: community_primary
+  volatility: high
+  last_checked: '2026-06-24'
+  notes: 'Primary upstream repository: community model zoo and knowledge base for Apple Core AI.'
+- id: coreai-model-zoo-readme
+  title: coreai-model-zoo README
+  type: github_file
+  url: https://github.com/john-rocky/coreai-model-zoo/blob/main/README.md
+  owner: john-rocky
+  repo: coreai-model-zoo
+  path: README.md
+  trust: community_primary
+  volatility: high
+  last_checked: '2026-06-24'
+  notes: Main source for model list, repository layout, throughput table, apps and license notes.
+- id: coreai-model-zoo-zoo
+  title: coreai-model-zoo/zoo
+  type: github_directory
+  url: https://github.com/john-rocky/coreai-model-zoo/tree/main/zoo
+  owner: john-rocky
+  repo: coreai-model-zoo
+  path: zoo/
+  trust: community_primary
+  volatility: high
+  last_checked: '2026-06-24'
+  notes: Community model cards for Core AI .aimodel conversions.
+- id: coreai-model-zoo-official
+  title: coreai-model-zoo/official
+  type: github_directory
+  url: https://github.com/john-rocky/coreai-model-zoo/tree/main/official
+  owner: john-rocky
+  repo: coreai-model-zoo
+  path: official/
+  trust: project_primary
+  volatility: high
+  last_checked: '2026-06-24'
+  notes: Pre-converted models from Apple official recipes; distinct from community zoo ports.
+- id: coreai-model-zoo-official-readme
+  title: coreai-model-zoo official README
+  type: github_file
+  url: https://github.com/john-rocky/coreai-model-zoo/blob/main/official/README.md
+  owner: john-rocky
+  repo: coreai-model-zoo
+  path: official/README.md
+  trust: project_primary
+  volatility: high
+  last_checked: '2026-06-24'
+  notes: Primary source for official Apple recipe conversion list and Hugging Face links.
+- id: coreai-model-zoo-knowledge
+  title: coreai-model-zoo/knowledge
+  type: github_directory
+  url: https://github.com/john-rocky/coreai-model-zoo/tree/main/knowledge
+  owner: john-rocky
+  repo: coreai-model-zoo
+  path: knowledge/
+  trust: community_primary
+  volatility: high
+  last_checked: '2026-06-24'
+  notes: Technical notes on conversion, compression, KV cache, AOT, compute units, Metal kernels, Swift runtime and model-specific
+    topics.
+- id: coreai-model-zoo-conversion
+  title: coreai-model-zoo/conversion
+  type: github_directory
+  url: https://github.com/john-rocky/coreai-model-zoo/tree/main/conversion
+  owner: john-rocky
+  repo: coreai-model-zoo
+  path: conversion/
+  trust: community_primary
+  volatility: high
+  last_checked: '2026-06-24'
+  notes: Re-authored models and conversion/verification/compression scripts.
+- id: coreai-model-zoo-swift
+  title: coreai-model-zoo/swift
+  type: github_directory
+  url: https://github.com/john-rocky/coreai-model-zoo/tree/main/swift
+  owner: john-rocky
+  repo: coreai-model-zoo
+  path: swift/
+  trust: community_primary
+  volatility: high
+  last_checked: '2026-06-24'
+  notes: Swift package containing ZooFMProvider and CoreAIRunner.
+- id: coreai-model-zoo-apps
+  title: coreai-model-zoo/apps
+  type: github_directory
+  url: https://github.com/john-rocky/coreai-model-zoo/tree/main/apps
+  owner: john-rocky
+  repo: coreai-model-zoo
+  path: apps/
+  trust: community_primary
+  volatility: high
+  last_checked: '2026-06-24'
+  notes: SwiftUI on-device sample apps.
+- id: apple-coreai-models
+  title: apple/coreai-models
+  type: github_repository
+  url: https://github.com/apple/coreai-models
+  owner: apple
+  repo: coreai-models
+  trust: official_primary
+  volatility: high
+  last_checked: '2026-06-24'
+  notes: Official Apple Core AI model recipes referenced by upstream.
+- id: huggingface-mlboydaisuke
+  title: mlboydaisuke on Hugging Face
+  type: huggingface_user
+  url: https://huggingface.co/mlboydaisuke
+  owner: mlboydaisuke
+  trust: artifact_host
+  volatility: high
+  last_checked: '2026-06-24'
+  notes: Hugging Face account hosting converted Core AI artifacts listed by upstream.
+- id: apple-silicon-llm-bench
+  title: john-rocky/apple-silicon-llm-bench
+  type: github_repository
+  url: https://github.com/john-rocky/apple-silicon-llm-bench
+  owner: john-rocky
+  repo: apple-silicon-llm-bench
+  trust: community_primary
+  volatility: medium
+  last_checked: '2026-06-24'
+  notes: Raw benchmark data repository referenced by upstream official README.
+- id: coreai-samples
+  title: john-rocky/coreai-samples
+  type: github_repository
+  url: https://github.com/john-rocky/coreai-samples
+  owner: john-rocky
+  repo: coreai-samples
+  trust: community_primary
+  volatility: medium
+  last_checked: '2026-06-24'
+  notes: CoreAIChatMac samples referenced by upstream official README.
+- id: carstenl-whisper-coreai
+  title: CarstenL/whisper-large-v3-turbo-coreai
+  type: huggingface_repository
+  url: https://huggingface.co/CarstenL/whisper-large-v3-turbo-coreai
+  owner: CarstenL
+  trust: community_secondary
+  volatility: medium
+  last_checked: '2026-06-30'
+  notes: 'Independent Whisper large-v3-turbo Core AI conversion with split encoder/decoder bundles.'
+- id: intiser-whisper-coreai
+  title: Intiser Whisper CoreAI conversions
+  type: huggingface_user
+  url: https://huggingface.co/Intiser
+  owner: Intiser
+  trust: community_secondary
+  volatility: medium
+  last_checked: '2026-06-30'
+  notes: 'Whisper tiny.en, medium, and large-v3-turbo Core AI variants in fp16/fp32.'
+- id: warshanks-gemma-4-12b-coreai
+  title: warshanks Gemma 4 12B CoreAI conversions
+  type: huggingface_repository
+  url: https://huggingface.co/warshanks/gemma-4-12B-it-coreai
+  owner: warshanks
+  trust: community_secondary
+  volatility: medium
+  last_checked: '2026-06-30'
+  notes: 'First multimodal Gemma 4 Core AI conversion (text+image+audio). Custom conversion recipe extending coreai-models. Includes MTP draft model for speculative decoding. Used in Wyvern Chat.'
+- id: gafiatulin-vibevoice-coreai
+  title: gafiatulin VibeVoice CoreAI pipeline
+  type: github_repository
+  url: https://github.com/gafiatulin/vibevoice-coreai
+  owner: gafiatulin
+  repo: vibevoice-coreai
+  trust: community_secondary
+  volatility: medium
+  last_checked: '2026-06-30'
+  notes: 'VibeVoice TTS and ASR conversion pipeline. Microsoft VibeVoice original weights. 0.5B/1.5B/7B TTS + ASR variants.'
+- id: mweinbach-nemotron-coreai
+  title: mweinbach Nemotron 3.5 ASR CoreAI
+  type: github_repository
+  url: https://github.com/mweinbach/NemotronCoreAI
+  owner: mweinbach
+  repo: NemotronCoreAI
+  trust: community_secondary
+  volatility: medium
+  last_checked: '2026-06-30'
+  notes: 'NVIDIA Nemotron 3.5 streaming ASR with full AOT artifact matrix (iOS A19 + macOS M3-M5). Companion Swift package.'
+- id: bryanbblewis11-coreai
+  title: bryanbblewis11 CoreAI model conversions
+  type: huggingface_user
+  url: https://huggingface.co/bryanbblewis11
+  owner: bryanbblewis11
+  trust: community_secondary
+  volatility: medium
+  last_checked: '2026-06-30'
+  notes: 'Z-Image Turbo text-to-image and Real-ESRGAN super-resolution Core AI bundles. For CoreAIStudio.'
+- id: lenitas-coreai-artifacts
+  title: lenitas/coreai-artifacts
+  type: huggingface_repository
+  url: https://huggingface.co/lenitas/coreai-artifacts
+  owner: lenitas
+  trust: community_secondary
+  volatility: medium
+  last_checked: '2026-06-30'
+  notes: 'Hosted Core AI artifacts for Lenitas app. Includes EfficientSAM3-TinyViT and SAM3 variants with SHA-256 verified download index.'
+- id: rwkv-upstream
+  title: RWKV/RWKV7-Goose-World3-1.5B-HF
+  type: huggingface_model
+  url: https://huggingface.co/RWKV/RWKV7-Goose-World3-1.5B-HF
+  owner: RWKV
+  trust: original_model_primary
+  volatility: low
+  last_checked: '2026-07-01'
+  notes: 'RWKV-7 Goose — pure-recurrent / linear-attention LLM. Original model upstream for the Core AI conversion.'

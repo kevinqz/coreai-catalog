@@ -4,16 +4,36 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "coreai-catalog"
-version = "1.3.2"
+version = "1.4.0"
 description = "Discover, compare, and install Core AI models for Apple Silicon."
 readme = "README.md"
 license = {text = "MIT"}
 requires-python = ">=3.10"
+authors = [{name = "Kevin Saltarelli"}]
+keywords = [
+    "apple", "core-ai", "core-ml", "on-device", "ai",
+    "model-catalog", "mcp", "apple-silicon", "llm",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
 dependencies = [
     "PyYAML>=6.0",
     "requests>=2.28",
     "jsonschema>=4.0",
 ]
+
+[project.urls]
+Homepage = "https://github.com/kevinqz/coreai-catalog"
+Repository = "https://github.com/kevinqz/coreai-catalog"
+Issues = "https://github.com/kevinqz/coreai-catalog/issues"
+Changelog = "https://github.com/kevinqz/coreai-catalog/blob/main/CHANGELOG.md"
 
 [project.optional-dependencies]
 mcp = ["mcp>=1.0"]
@@ -27,3 +47,4 @@ where = ["."]
 include = ["coreai_catalog*", "mcp_server*"]
 
 [tool.setuptools.package-data]
+coreai_catalog = ["data/*.yaml", "data/schema/*.json"]

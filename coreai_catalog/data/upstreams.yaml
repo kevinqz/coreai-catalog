@@ -1,0 +1,673 @@
+metadata:
+  name: Core AI Catalog upstream source taxonomy
+  last_verified: '2026-06-29'
+  purpose: Track upstream framework, original model, benchmark, sample, artifact host and license sources separately from
+    converted artifacts.
+framework_sources:
+- id: apple-coreai-docs
+  title: Apple Core AI Developer Documentation
+  category: framework
+  owner: apple
+  url: https://developer.apple.com/documentation/coreai
+  trust: official_primary
+  applies_to:
+  - coreai-runtime
+  - aimodel-format
+  - apple-platform-integration
+- id: apple-coreml-docs
+  title: Apple Core ML Developer Documentation
+  category: framework
+  owner: apple
+  url: https://developer.apple.com/documentation/coreml
+  trust: official_primary
+  applies_to:
+  - coreml-runtime
+  - on-device-ml
+  - apple-neural-engine
+- id: apple-coremltools
+  title: apple/coremltools
+  category: framework_tooling
+  owner: apple
+  repo: coremltools
+  url: https://github.com/apple/coremltools
+  trust: official_primary
+  applies_to:
+  - conversion
+  - optimization
+  - validation
+  - coreml-tooling
+- id: apple-coreai-models
+  title: apple/coreai-models
+  category: official_recipes
+  owner: apple
+  repo: coreai-models
+  url: https://github.com/apple/coreai-models
+  trust: official_primary
+  applies_to:
+  - official-recipes
+  - export-recipes
+  - swift-runtime
+  - coreai-skills
+- id: apple-coreai-torch
+  title: apple/coreai-torch
+  category: framework_tooling
+  owner: apple
+  repo: coreai-torch
+  url: https://github.com/apple/coreai-torch
+  trust: official_primary
+  applies_to:
+  - conversion
+  - pytorch-bridge
+  - metal-kernels
+  - composite-ops
+  notes: 'PyTorch Extensions (coreai-torch) — TorchConverter, composite_ops, Metal kernels. PyPI: coreai-torch.'
+- id: apple-coreai-optimization
+  title: apple/coreai-optimization
+  category: framework_tooling
+  owner: apple
+  repo: coreai-optimization
+  url: https://github.com/apple/coreai-optimization
+  trust: official_primary
+  applies_to:
+  - quantization
+  - palettization
+  - pruning
+  - compression
+  notes: 'Core AI Optimization (coreai-opt) — quantization, palettization, pruning for Apple Silicon deployment. PyPI: coreai-opt.'
+conversion_sources:
+- id: john-rocky-coreai-model-zoo
+  title: john-rocky/coreai-model-zoo
+  category: conversion_and_zoo
+  owner: john-rocky
+  repo: coreai-model-zoo
+  url: https://github.com/john-rocky/coreai-model-zoo
+  trust: community_primary
+  applies_to:
+  - community-ports
+  - conversion-notes
+  - model-cards
+  - knowledge-base
+  - apps
+- id: john-rocky-coreml-models
+  title: john-rocky/CoreML-Models
+  category: predecessor
+  owner: john-rocky
+  repo: CoreML-Models
+  url: https://github.com/john-rocky/CoreML-Models
+  trust: community_secondary
+  applies_to:
+  - predecessor-project
+  - historical-context
+- id: devin-lai-coreai-onnx
+  title: devin-lai/coreai-onnx
+  category: conversion_and_zoo
+  owner: devin-lai
+  repo: coreai-onnx
+  url: https://github.com/devin-lai/coreai-onnx
+  trust: community_secondary
+  applies_to:
+  - onnx-conversion
+  - onnx-to-aimodel
+  notes: 'Converts ONNX models directly to .aimodel. PyPI: coreai-onnx. Independent from Apple''s PyTorch path.'
+- id: lucasnewman-mlx2coreai
+  title: lucasnewman/mlx2coreai
+  category: conversion_and_zoo
+  owner: lucasnewman
+  repo: mlx2coreai
+  url: https://github.com/lucasnewman/mlx2coreai
+  trust: community_secondary
+  applies_to:
+  - mlx-conversion
+  - mlx-to-aimodel
+  notes: 'Captures MLX graphs, lowers to CoreAI MLIR, writes .aimodel. PyPI: mlx2coreai.'
+- id: john-rocky-agent-demos
+  title: john-rocky/agent-demos
+  category: conversion_and_zoo
+  owner: john-rocky
+  repo: agent-demos
+  url: https://github.com/john-rocky/agent-demos
+  trust: community_primary
+  applies_to:
+  - agentic-demos
+  - foundation-models-demos
+  notes: On-device agentic API demos running CoreAI zoo bundles through Foundation Models.
+artifact_hosts:
+- id: hf-mlboydaisuke
+  title: mlboydaisuke on Hugging Face
+  category: artifact_host
+  platform: huggingface
+  owner: mlboydaisuke
+  url: https://huggingface.co/mlboydaisuke
+  trust: artifact_host
+  applies_to:
+  - converted-coreai-artifacts
+- id: carstenl-hf
+  title: CarstenL on Hugging Face
+  category: artifact_host
+  platform: huggingface
+  owner: CarstenL
+  url: https://huggingface.co/CarstenL
+  trust: artifact_host
+  applies_to:
+  - whisper-large-v3-turbo-carstenl
+- id: intiser-hf
+  title: Intiser on Hugging Face
+  category: artifact_host
+  platform: huggingface
+  owner: Intiser
+  url: https://huggingface.co/Intiser
+  trust: artifact_host
+  applies_to:
+  - whisper-tiny-en-intiser
+  - whisper-medium-intiser
+- id: warshanks-hf
+  title: warshanks on Hugging Face
+  category: artifact_host
+  platform: huggingface
+  owner: warshanks
+  url: https://huggingface.co/warshanks
+  trust: artifact_host
+  applies_to:
+  - gemma-4-12b-mm-warshanks
+  - gemma-4-12b-assistant-warshanks
+- id: gafiatulin-hf
+  title: gafiatulin on Hugging Face
+  category: artifact_host
+  platform: huggingface
+  owner: gafiatulin
+  url: https://huggingface.co/gafiatulin
+  trust: artifact_host
+  applies_to:
+  - vibevoice-0-5b
+  - vibevoice-1-5b
+  - vibevoice-7b
+  - vibevoice-asr
+- id: mweinbach-hf
+  title: mweinbach on Hugging Face
+  category: artifact_host
+  platform: huggingface
+  owner: mweinbach
+  url: https://huggingface.co/mweinbach
+  trust: artifact_host
+  applies_to:
+  - nemotron-3-5-asr-streaming
+- id: bryanbblewis11-hf
+  title: bryanbblewis11 on Hugging Face
+  category: artifact_host
+  platform: huggingface
+  owner: bryanbblewis11
+  url: https://huggingface.co/bryanbblewis11
+  trust: artifact_host
+  applies_to:
+  - z-image-turbo
+  - real-esrgan-x4v3
+- id: lenitas-hf
+  title: lenitas on Hugging Face
+  category: artifact_host
+  platform: huggingface
+  owner: lenitas
+  url: https://huggingface.co/lenitas
+  trust: artifact_host
+  applies_to:
+  - efficientsam3-tinyvit
+
+benchmark_sources:
+- id: john-rocky-apple-silicon-llm-bench
+  title: john-rocky/apple-silicon-llm-bench
+  category: benchmark
+  owner: john-rocky
+  repo: apple-silicon-llm-bench
+  url: https://github.com/john-rocky/apple-silicon-llm-bench
+  trust: community_primary
+  applies_to:
+  - throughput
+  - apple-silicon-benchmarks
+sample_sources:
+- id: john-rocky-coreai-samples
+  title: john-rocky/coreai-samples
+  category: samples
+  owner: john-rocky
+  repo: coreai-samples
+  url: https://github.com/john-rocky/coreai-samples
+  trust: community_primary
+  applies_to:
+  - mac-samples
+  - chat-samples
+  - runtime-usage
+original_model_sources:
+- id: qwen
+  title: Qwen original model family
+  category: original_model
+  platform: huggingface
+  owner: Qwen
+  url: https://huggingface.co/Qwen
+  trust: original_model_primary
+  applies_to:
+  - qwen3-5-0-8b
+  - qwen3-5-2b
+  - qwen3-6-35b-a3b
+  - qwen3-6-27b
+  - qwen3-vl-2b
+  - qwen3-vl-4b
+  - qwen3-vl-8b
+  - qwen2-5-omni-3b-audio
+  - qwen3-embedding-0-6b
+  - qwen3-reranker-0-6b
+  - official-qwen3-0-6b
+  - official-qwen3-4b
+  - official-qwen3-8b
+  - official-qwen3-1-7b
+  notes: Use model-specific Qwen cards when exact model pages are confirmed.
+- id: google-gemma
+  title: Google Gemma original model family
+  category: original_model
+  platform: huggingface
+  owner: google
+  url: https://huggingface.co/google
+  trust: original_model_primary
+  applies_to:
+  - gemma-4-e2b
+  - gemma-4-e4b
+  - gemma-4-12b
+  - gemma-4-31b
+  - gemma-4-e2b-vision
+  - embeddinggemma-300m
+  - official-gemma-3-4b-it
+  - official-gemma-3-12b-it
+- id: openai-gpt-oss
+  title: OpenAI gpt-oss original model family
+  category: original_model
+  platform: huggingface
+  owner: openai
+  url: https://huggingface.co/openai/gpt-oss-20b
+  trust: original_model_primary
+  applies_to:
+  - official-gpt-oss-20b
+- id: mistral-ai
+  title: Mistral AI original model family
+  category: original_model
+  platform: huggingface
+  owner: mistralai
+  url: https://huggingface.co/mistralai/Mistral-7B-v0.3
+  trust: original_model_primary
+  applies_to:
+  - official-mistral-7b-v0-3
+- id: ibm-granite
+  title: IBM Granite original model family
+  category: original_model
+  platform: huggingface
+  owner: ibm-granite
+  url: https://huggingface.co/ibm-granite
+  trust: original_model_primary
+  applies_to:
+  - granite-4-0-h-1b
+  - granite-4-0-h-350m
+- id: liquid-ai-lfm
+  title: Liquid AI LFM original model family
+  category: original_model
+  platform: huggingface
+  owner: LiquidAI
+  url: https://huggingface.co/LiquidAI
+  trust: original_model_primary
+  applies_to:
+  - lfm2-5-1-2b-instruct
+  - lfm2-5-8b-a1b
+- id: openbmb-minicpm
+  title: OpenBMB MiniCPM original model family
+  category: original_model
+  platform: huggingface
+  owner: openbmb
+  url: https://huggingface.co/openbmb
+  trust: original_model_primary
+  applies_to:
+  - minicpm-v-4-6
+  - voxcpm-0-5b
+- id: meta-sam
+  title: Meta SAM original model family
+  category: original_model
+  platform: huggingface
+  owner: facebook
+  url: https://huggingface.co/facebook/sam3
+  trust: original_model_primary
+  applies_to:
+  - official-sam-3
+- id: black-forest-labs-flux
+  title: Black Forest Labs FLUX original model family
+  category: original_model
+  platform: huggingface
+  owner: black-forest-labs
+  url: https://huggingface.co/black-forest-labs
+  trust: original_model_primary
+  applies_to:
+  - official-flux-2-klein-4b
+- id: openai-whisper
+  title: OpenAI Whisper original model family
+  category: original_model
+  platform: github
+  owner: openai
+  repo: whisper
+  url: https://github.com/openai/whisper
+  trust: original_model_primary
+  applies_to:
+  - official-whisper-large-v3-turbo
+- id: roboflow-rf-detr
+  title: Roboflow RF-DETR original model family
+  category: original_model
+  platform: huggingface
+  owner: Roboflow
+  url: https://huggingface.co/Roboflow
+  trust: original_model_primary
+  applies_to:
+  - rf-detr-nano
+  - rf-detr-small
+  - rf-detr-medium
+  - rf-detr-large
+  - rf-detr-seg-nano
+  - rf-detr-seg-small
+  - rf-detr-seg-medium
+  - rf-detr-seg-large
+  - rf-detr-seg-xlarge
+  - rf-detr-seg-2xlarge
+- id: depth-anything
+  title: Depth Anything original model family
+  category: original_model
+  platform: github
+  owner: DepthAnything
+  repo: Depth-Anything-V2
+  url: https://github.com/DepthAnything/Depth-Anything-V2
+  trust: original_model_primary
+  applies_to:
+  - depth-anything-3-small
+  - depth-anything-3-base
+  notes: Current Core AI catalog uses Depth Anything 3; keep model-specific upstream under review.
+- id: hexgrad-kokoro
+  title: Kokoro original model family
+  category: original_model
+  platform: huggingface
+  owner: hexgrad
+  url: https://huggingface.co/hexgrad/Kokoro-82M
+  trust: original_model_primary
+  applies_to:
+  - kokoro-82m
+- id: glm-zai-thudm
+  title: GLM original model family
+  category: original_model
+  platform: unknown
+  owner: Z.ai / THUDM
+  url: unknown
+  trust: needs_review
+  applies_to:
+  - glm-4-7-flash
+  notes: Exact upstream for GLM-4.7-Flash should be verified before marking primary.
+- id: nanbeige
+  title: Nanbeige original model family
+  category: original_model
+  platform: unknown
+  owner: unknown
+  url: unknown
+  trust: needs_review
+  applies_to:
+  - nanbeige4-1-3b
+- id: adcsr
+  title: AdcSR original model family
+  category: original_model
+  platform: unknown
+  owner: unknown
+  url: unknown
+  trust: needs_review
+  applies_to:
+  - adcsr-x4
+- id: unlimited-ocr
+  title: Unlimited-OCR original model family
+  category: original_model
+  platform: unknown
+  owner: unknown
+  url: unknown
+  trust: needs_review
+  applies_to:
+  - unlimited-ocr
+- id: openbmb-minicpm5
+  title: OpenBMB MiniCPM5 original model family
+  category: original_model
+  platform: huggingface
+  owner: openbmb
+  url: https://huggingface.co/openbmb/MiniCPM5-1B
+  trust: original_model_primary
+  applies_to:
+  - minicpm5-1b
+  notes: 1.08B hybrid Think/No-Think LLM; 128K context.
+- id: microsoft-fastcontext
+  title: Microsoft FastContext original model family
+  category: original_model
+  platform: huggingface
+  owner: microsoft
+  url: https://huggingface.co/microsoft/FastContext-1.0-4B-SFT
+  trust: original_model_primary
+  applies_to:
+  - fastcontext-1-0-4b
+  notes: Repo-exploration agent; Qwen3-4B-Instruct backbone SFT.
+- id: openbmb-bitcpm
+  title: OpenBMB BitCPM original model family
+  category: original_model
+  platform: huggingface
+  owner: openbmb
+  url: https://huggingface.co/openbmb/BitCPM-CANN-8B
+  trust: original_model_primary
+  applies_to:
+  - bitcpm-8b
+  notes: 1.58-bit ternary LLM; MiniCPM4-8B arch quantization-aware trained to ternary.
+- id: h-company-holo
+  title: H Company Holo original model family
+  category: original_model
+  platform: huggingface
+  owner: Hcompany
+  url: https://huggingface.co/Hcompany/Holo2-4B
+  trust: original_model_primary
+  applies_to:
+  - holo2-4b
+  notes: GUI-grounding / computer-use VLM; Qwen3-VL-4B backbone.
+- id: modernvbert
+  title: ModernVBERT original model family
+  category: original_model
+  platform: huggingface
+  owner: ModernVBERT
+  url: https://huggingface.co/ModernVBERT/colmodernvbert
+  trust: original_model_primary
+  applies_to:
+  - colmodernvbert
+  notes: Visual document retriever; ModernBERT + SigLIP2; ColBERT/MaxSim.
+- id: nvidia-parakeet
+  title: NVIDIA Parakeet TDT original model family
+  category: original_model
+  platform: huggingface
+  owner: nvidia
+  url: https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3
+  trust: original_model_primary
+  applies_to:
+  - parakeet-tdt-0-6b
+  notes: Token-and-duration transducer (RNN-T); FastConformer + LSTM predictor.
+- id: megvii-yolox
+  title: Megvii YOLOX original model family
+  category: original_model
+  platform: github
+  owner: Megvii-BaseDetection
+  repo: YOLOX
+  url: https://github.com/Megvii-BaseDetection/YOLOX
+  trust: original_model_primary
+  applies_to:
+  - yolox-s
+  notes: Single-stage anchor-free detector; CSPDarknet + PAFPN.
+- id: vast-triposplat
+  title: VAST TripoSplat original model family
+  category: original_model
+  platform: huggingface
+  owner: VAST
+  url: https://huggingface.co/VAST
+  trust: needs_review
+  applies_to:
+  - tripo-splat
+  notes: Single image → 3D Gaussian splats; DINOv3 + flow-matching DiT. Exact HF page to be verified.
+- id: lightricks-ltxvideo
+  title: Lightricks LTX-Video original model family
+  category: original_model
+  platform: github
+  owner: Lightricks
+  repo: LTX-Video
+  url: https://github.com/Lightricks/LTX-Video
+  trust: original_model_primary
+  applies_to:
+  - ltx-video-2b
+  notes: Text → video; T5-XXL + 8-step flow-matching DiT + causal video VAE.
+- id: openai-clip
+  title: OpenAI CLIP original model family
+  category: original_model
+  platform: huggingface
+  owner: openai
+  url: https://huggingface.co/openai/clip-vit-base-patch32
+  trust: original_model_primary
+  applies_to:
+  - official-clip-vit-base-patch32
+  notes: CLIP ViT-B/32 — image+text joint embedding model.
+- id: gsai-ml-llada
+  title: LLaDA original model family
+  category: original_model
+  platform: huggingface
+  owner: GSAI-ML
+  url: https://huggingface.co/GSAI-ML/LLaDA-8B-Instruct
+  trust: original_model_primary
+  applies_to:
+  - llada-8b-dllm
+  notes: Masked diffusion LLM (dLLM); bidirectional text generation.
+- id: lxsy-bitvla
+  title: BitVLA original model family
+  category: original_model
+  platform: huggingface
+  owner: lxsy
+  url: https://huggingface.co/lxsy/bitvla-bf16
+  trust: original_model_primary
+  applies_to:
+  - bitvla
+  notes: 1.58-bit ternary Vision-Language-Action policy; BitNet b1.58 LLM + BitSigLIP vision.
+- id: stability-ai
+  title: Stability AI original model family
+  category: original_model
+  platform: huggingface
+  owner: stabilityai
+  url: https://huggingface.co/stabilityai
+  trust: original_model_primary
+  applies_to:
+  - stable-audio-open-small
+  notes: Generative audio; Stable Audio Open Small.
+- id: microsoft-vibevoice
+  title: Microsoft VibeVoice
+  category: original_model
+  platform: huggingface
+  owner: Microsoft
+  url: https://huggingface.co/microsoft
+  trust: original_model_primary
+  applies_to:
+  - vibevoice-0-5b
+  - vibevoice-1-5b
+  - vibevoice-7b
+  - vibevoice-asr
+- id: nvidia-nemotron
+  title: NVIDIA Nemotron ASR
+  category: original_model
+  platform: huggingface
+  owner: NVIDIA
+  url: https://huggingface.co/nvidia
+  trust: original_model_primary
+  applies_to:
+  - nemotron-3-5-asr-streaming
+- id: tongyi-mai-z-image
+  title: Tongyi-MAI Z-Image
+  category: original_model
+  platform: huggingface
+  owner: Tongyi-MAI
+  url: https://huggingface.co/Tongyi-MAI/Z-Image-Turbo
+  trust: original_model_primary
+  applies_to:
+  - z-image-turbo
+- id: xinntao-realesrgan
+  title: Real-ESRGAN (xinntao)
+  category: original_model
+  platform: github
+  owner: xinntao
+  url: https://github.com/xinntao/Real-ESRGAN
+  trust: original_model_primary
+  applies_to:
+  - real-esrgan-x4v3
+- id: facebook-efficientsam3
+  title: Meta EfficientSAM3
+  category: original_model
+  platform: huggingface
+  owner: Meta
+  url: https://huggingface.co/facebook
+  trust: original_model_primary
+  applies_to:
+  - efficientsam3-tinyvit
+- id: rwkv
+  title: RWKV Foundation
+  category: original_model
+  platform: huggingface
+  owner: RWKV
+  url: https://huggingface.co/RWKV
+  trust: original_model_primary
+  applies_to:
+  - rwkv7-goose-1-5b
+
+license_sources:
+- id: apache-2-0
+  title: Apache License 2.0
+  category: license
+  url: https://www.apache.org/licenses/LICENSE-2.0
+  trust: license_primary
+  review_required: false
+- id: mit
+  title: MIT License
+  category: license
+  url: https://opensource.org/license/mit
+  trust: license_primary
+  review_required: false
+- id: gemma-terms
+  title: Gemma Terms of Use
+  category: license
+  url: https://ai.google.dev/gemma/terms
+  trust: license_primary
+  review_required: true
+- id: meta-sam-license
+  title: Meta SAM license
+  category: license
+  url: https://huggingface.co/facebook/sam3
+  trust: license_primary
+  review_required: true
+- id: lfm-open-license
+  title: LFM Open License
+  category: license
+  url: https://huggingface.co/LiquidAI
+  trust: license_needs_model_specific_review
+  review_required: true
+- id: openrail
+  title: OpenRAIL-style license family
+  category: license
+  url: unknown
+  trust: needs_review
+  review_required: true
+- id: cc-by-4-0
+  title: Creative Commons Attribution 4.0
+  category: license
+  url: https://creativecommons.org/licenses/by/4.0/
+  trust: license_primary
+  review_required: false
+- id: openrail-m
+  title: OpenRAIL-M license (responsible use)
+  category: license
+  url: https://huggingface.co/stabilityai/stable-diffusion-3.5-medium
+  trust: license_needs_model_specific_review
+  review_required: true
+- id: stability-community-license
+  title: Stability Community License
+  category: license
+  url: https://stability.ai/license
+  trust: license_needs_model_specific_review
+  review_required: true

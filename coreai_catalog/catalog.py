@@ -97,7 +97,13 @@ CAPABILITY_ALIASES: dict[str, str] = {
 
 
 def _find_catalog_root() -> Path:
-    """Find the catalog root (where catalog.yaml lives)."""
+    """Find the catalog root (where catalog.yaml lives).
+
+    Search order:
+      1. CWD (if catalog.yaml exists — dev mode or cloned repo)
+      2. Walk up from this file (development mode from repo root)
+      3. Bundled package data (pip install / PyPI)
+    """
     # Try CWD first
     cwd = Path.cwd()
     if (cwd / "catalog.yaml").exists():
@@ -108,6 +114,10 @@ def _find_catalog_root() -> Path:
         if (p / "catalog.yaml").exists():
             return p
         p = p.parent
+    # Try bundled package data (pip install from PyPI)
+    bundled = Path(__file__).resolve().parent / "data"
+    if (bundled / "catalog.yaml").exists():
+        return bundled
     # Fall back to CWD anyway
     return cwd
 
