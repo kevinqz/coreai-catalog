@@ -228,6 +228,53 @@ class TestInstaller(unittest.TestCase):
         self.assertIsNone(_parse_artifact_size_gb("abc"))
 
 
+class TestJSONErrorPaths(unittest.TestCase):
+    """CLI commands with --json must always return valid JSON, never plain text."""
+
+    def setUp(self):
+        self.cli = [sys.executable, '-m', 'coreai_catalog']
+
+    def _run_cli(self, *args):
+        import subprocess
+        env = os.environ.copy()
+        env.pop('PYTHONPATH', None)
+        r = subprocess.run(
+            self.cli + list(args),
+            capture_output=True, text=True, timeout=10,
+            env=env, cwd=str(_ROOT),
+        )
+        return r
+
+    def _assert_json(self, result, name):
+        output = result.stdout.strip()
+        self.assertTrue(
+            output.startswith('{') or output.startswith('['),
+            f"{name}: expected JSON, got text: {output[:80]}"
+        )
+        import json as _json
+        _json.loads(output)  # Must be valid JSON
+
+    def test_search_empty_json(self):
+        r = self._run_cli('search', '-c', 'nonexistent_cap', '--json')
+        self._assert_json(r, 'search empty --json')
+
+    def test_show_nonexistent_json(self):
+        r = self._run_cli('show', 'nonexistent', '--json')
+        self._assert_json(r, 'show nonexistent --json')
+
+    def test_compare_nonexistent_json(self):
+        r = self._run_cli('compare', 'a', 'b', '--json')
+        self._assert_json(r, 'compare nonexistent --json')
+
+    def test_compare_single_json(self):
+        r = self._run_cli('compare', 'qwen3-vl-2b', '--json')
+        self._assert_json(r, 'compare single --json')
+
+    def test_recommend_empty_json(self):
+        r = self._run_cli('recommend', '-t', '', '--json')
+        self._assert_json(r, 'recommend empty --json')
+
+
 class TestMCPTools(unittest.TestCase):
     """MCP server tools must return JSON strings, never crash."""
 

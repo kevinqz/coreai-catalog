@@ -136,6 +136,10 @@ def cmd_search(args: argparse.Namespace) -> int:
     )
 
     if not results:
+        if args.json:
+            print(json.dumps({"count": 0, "total_matches": 0,
+                              "truncated": False, "models": []}, indent=2))
+            return 0
         print(f"\n  {DIM}No models match the given filters.{RESET}")
         # Provide valid-value hints for filters that may have been set
         if args.device:
@@ -218,6 +222,9 @@ def cmd_show(args: argparse.Namespace) -> int:
     model = cat.get_model(args.model_id)
 
     if not model:
+        if args.json:
+            print(json.dumps({"error": f"Model '{args.model_id}' not found"}, indent=2))
+            return 1
         print(f"\n  {RED}Model '{args.model_id}' not found.{RESET}")
         print(f"  {DIM}Try: coreai-catalog search --capability chat{RESET}")
         return 1
@@ -464,6 +471,9 @@ def cmd_compare(args: argparse.Namespace) -> int:
     models_to_compare = args.models
 
     if len(models_to_compare) < 2:
+        if args.json:
+            print(json.dumps({"error": "Compare requires at least 2 models"}, indent=2))
+            return 1
         print(f"\n  {RED}Compare requires at least 2 models.{RESET}")
         print(f"  {DIM}Usage: coreai-catalog compare <model-a> <model-b> [model-c...]{RESET}")
         return 1
@@ -472,6 +482,9 @@ def cmd_compare(args: argparse.Namespace) -> int:
     for mid in models_to_compare:
         m = cat.get_model(mid)
         if not m:
+            if args.json:
+                print(json.dumps({"error": f"Model '{mid}' not found"}, indent=2))
+                return 1
             print(f"\n  {RED}Model '{mid}' not found.{RESET}")
             return 1
         all_models.append(m)
