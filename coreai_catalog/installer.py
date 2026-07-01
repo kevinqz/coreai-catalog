@@ -18,8 +18,8 @@ MODELS_DIR = CACHE_DIR / "models"
 
 def get_model_dir(model_id: str) -> Path:
     """Return the install directory for a model."""
-    safe_id = model_id.replace("/", "--")
-    return MODELS_DIR / safe_id
+    safe_id = str(model_id or "").replace("/", "--")
+    return MODELS_DIR / safe_id if safe_id else MODELS_DIR
 
 
 def is_installed(model_id: str) -> bool:
@@ -206,6 +206,10 @@ def install_model(
 
 def uninstall_model(model_id: str, verbose: bool = True) -> bool:
     """Remove a model from the local cache."""
+    if not model_id or not isinstance(model_id, str):
+        if verbose:
+            print("  Model ID is required.")
+        return False
     install_dir = get_model_dir(model_id)
     if not install_dir.exists():
         if verbose:

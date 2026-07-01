@@ -88,7 +88,9 @@ def search_models(
         source_group=source_group,
         modality=modality,
     )
-    # Clamp limit to valid range
+    # Clamp limit to valid range (guard against None)
+    if limit is None:
+        limit = 20
     limit = max(0, min(limit, 10000))
     total_matches = len(results)
     truncated = total_matches > limit if limit > 0 else False

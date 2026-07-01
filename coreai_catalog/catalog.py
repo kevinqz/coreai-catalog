@@ -183,7 +183,7 @@ class Catalog:
     def get_model(self, model_id: str) -> dict | None:
         """Find a model by ID (case-insensitive)."""
         self._load()
-        if not model_id or not model_id.strip():
+        if not isinstance(model_id, str) or not model_id.strip():
             return None
         lower = model_id.lower().strip()
         for m in self._models:
@@ -225,9 +225,16 @@ class Catalog:
     ) -> list[dict]:
         """Filter models by criteria. Returns list of model dicts."""
         self._load()
+        # Coerce non-string filters to None (defensive against int/list/None args)
+        capability = str(capability).lower() if capability and isinstance(capability, str) else None
+        device = str(device).lower() if device and isinstance(device, str) else None
+        license_type = str(license_type) if license_type and isinstance(license_type, str) else None
+        family = str(family).lower() if family and isinstance(family, str) else None
+        source_group = str(source_group) if source_group and isinstance(source_group, str) else None
+        modality = str(modality).lower() if modality and isinstance(modality, str) else None
         # Normalize capability with aliases
         if capability:
-            capability = CAPABILITY_ALIASES.get(capability.lower(), capability).lower()
+            capability = CAPABILITY_ALIASES.get(capability, capability)
         results = []
         # Determine matching mode:
         # - If the resolved capability exactly matches a known capability → exact match only
@@ -284,6 +291,8 @@ class Catalog:
         models with >2B parameters get +3 points. For on-device/edge/mobile
         tasks, large models are NOT boosted (smaller is better).
         """
+        if not model or not isinstance(model, dict):
+            return 0
         has_bench = bool(self._bench_by_model.get(model.get("id", "")))
         score = 0
         if model.get("artifact", {}).get("availability") == "available":
@@ -354,8 +363,17 @@ class Catalog:
         if not capabilities:
             return []
 
-        caps_lower = {c.lower() for c in capabilities}
-        first_cap = capabilities[0].lower()
+        # Coerce non-string filters to None (defensive)
+        device = str(device).lower() if device and isinstance(device, str) else None
+        license_type = str(license_type) if license_type and isinstance(license_type, str) else None
+
+        caps_lower = set()
+        for c in capabilities:
+            if isinstance(c, str):
+                caps_lower.add(c.lower())
+        if not caps_lower:
+            return []
+        first_cap = next(iter(caps_lower))  # first element of the set (arbitrary but stable)
         candidates = []
         for m in self._models:
             model_caps = {c.lower() for c in m.get("capabilities", [])}
@@ -504,7 +522,7 @@ TASK_MAP: dict[str, list[str]] = {
 
 def resolve_task(task: str) -> list[str]:
     """Resolve a free-text task to a list of capabilities."""
-    if not task or not task.strip():
+    if not isinstance(task, str) or not task.strip():
         return []
     lower = task.lower().strip()
     if lower in TASK_MAP:
