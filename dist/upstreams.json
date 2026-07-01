@@ -1,0 +1,871 @@
+{
+  "artifact_hosts": [
+    {
+      "applies_to": [
+        "converted-coreai-artifacts"
+      ],
+      "category": "artifact_host",
+      "id": "hf-mlboydaisuke",
+      "owner": "mlboydaisuke",
+      "platform": "huggingface",
+      "title": "mlboydaisuke on Hugging Face",
+      "trust": "artifact_host",
+      "url": "https://huggingface.co/mlboydaisuke"
+    },
+    {
+      "applies_to": [
+        "whisper-large-v3-turbo-carstenl"
+      ],
+      "category": "artifact_host",
+      "id": "carstenl-hf",
+      "owner": "CarstenL",
+      "platform": "huggingface",
+      "title": "CarstenL on Hugging Face",
+      "trust": "artifact_host",
+      "url": "https://huggingface.co/CarstenL"
+    },
+    {
+      "applies_to": [
+        "whisper-tiny-en-intiser",
+        "whisper-medium-intiser"
+      ],
+      "category": "artifact_host",
+      "id": "intiser-hf",
+      "owner": "Intiser",
+      "platform": "huggingface",
+      "title": "Intiser on Hugging Face",
+      "trust": "artifact_host",
+      "url": "https://huggingface.co/Intiser"
+    },
+    {
+      "applies_to": [
+        "gemma-4-12b-mm-warshanks",
+        "gemma-4-12b-assistant-warshanks"
+      ],
+      "category": "artifact_host",
+      "id": "warshanks-hf",
+      "owner": "warshanks",
+      "platform": "huggingface",
+      "title": "warshanks on Hugging Face",
+      "trust": "artifact_host",
+      "url": "https://huggingface.co/warshanks"
+    },
+    {
+      "applies_to": [
+        "vibevoice-0-5b",
+        "vibevoice-1-5b",
+        "vibevoice-7b",
+        "vibevoice-asr"
+      ],
+      "category": "artifact_host",
+      "id": "gafiatulin-hf",
+      "owner": "gafiatulin",
+      "platform": "huggingface",
+      "title": "gafiatulin on Hugging Face",
+      "trust": "artifact_host",
+      "url": "https://huggingface.co/gafiatulin"
+    },
+    {
+      "applies_to": [
+        "nemotron-3-5-asr-streaming"
+      ],
+      "category": "artifact_host",
+      "id": "mweinbach-hf",
+      "owner": "mweinbach",
+      "platform": "huggingface",
+      "title": "mweinbach on Hugging Face",
+      "trust": "artifact_host",
+      "url": "https://huggingface.co/mweinbach"
+    },
+    {
+      "applies_to": [
+        "z-image-turbo",
+        "real-esrgan-x4v3"
+      ],
+      "category": "artifact_host",
+      "id": "bryanbblewis11-hf",
+      "owner": "bryanbblewis11",
+      "platform": "huggingface",
+      "title": "bryanbblewis11 on Hugging Face",
+      "trust": "artifact_host",
+      "url": "https://huggingface.co/bryanbblewis11"
+    },
+    {
+      "applies_to": [
+        "efficientsam3-tinyvit"
+      ],
+      "category": "artifact_host",
+      "id": "lenitas-hf",
+      "owner": "lenitas",
+      "platform": "huggingface",
+      "title": "lenitas on Hugging Face",
+      "trust": "artifact_host",
+      "url": "https://huggingface.co/lenitas"
+    }
+  ],
+  "benchmark_sources": [
+    {
+      "applies_to": [
+        "throughput",
+        "apple-silicon-benchmarks"
+      ],
+      "category": "benchmark",
+      "id": "john-rocky-apple-silicon-llm-bench",
+      "owner": "john-rocky",
+      "repo": "apple-silicon-llm-bench",
+      "title": "john-rocky/apple-silicon-llm-bench",
+      "trust": "community_primary",
+      "url": "https://github.com/john-rocky/apple-silicon-llm-bench"
+    }
+  ],
+  "conversion_sources": [
+    {
+      "applies_to": [
+        "community-ports",
+        "conversion-notes",
+        "model-cards",
+        "knowledge-base",
+        "apps"
+      ],
+      "category": "conversion_and_zoo",
+      "id": "john-rocky-coreai-model-zoo",
+      "owner": "john-rocky",
+      "repo": "coreai-model-zoo",
+      "title": "john-rocky/coreai-model-zoo",
+      "trust": "community_primary",
+      "url": "https://github.com/john-rocky/coreai-model-zoo"
+    },
+    {
+      "applies_to": [
+        "predecessor-project",
+        "historical-context"
+      ],
+      "category": "predecessor",
+      "id": "john-rocky-coreml-models",
+      "owner": "john-rocky",
+      "repo": "CoreML-Models",
+      "title": "john-rocky/CoreML-Models",
+      "trust": "community_secondary",
+      "url": "https://github.com/john-rocky/CoreML-Models"
+    },
+    {
+      "applies_to": [
+        "onnx-conversion",
+        "onnx-to-aimodel"
+      ],
+      "category": "conversion_and_zoo",
+      "id": "devin-lai-coreai-onnx",
+      "notes": "Converts ONNX models directly to .aimodel. PyPI: coreai-onnx. Independent from Apple's PyTorch path.",
+      "owner": "devin-lai",
+      "repo": "coreai-onnx",
+      "title": "devin-lai/coreai-onnx",
+      "trust": "community_secondary",
+      "url": "https://github.com/devin-lai/coreai-onnx"
+    },
+    {
+      "applies_to": [
+        "mlx-conversion",
+        "mlx-to-aimodel"
+      ],
+      "category": "conversion_and_zoo",
+      "id": "lucasnewman-mlx2coreai",
+      "notes": "Captures MLX graphs, lowers to CoreAI MLIR, writes .aimodel. PyPI: mlx2coreai.",
+      "owner": "lucasnewman",
+      "repo": "mlx2coreai",
+      "title": "lucasnewman/mlx2coreai",
+      "trust": "community_secondary",
+      "url": "https://github.com/lucasnewman/mlx2coreai"
+    },
+    {
+      "applies_to": [
+        "agentic-demos",
+        "foundation-models-demos"
+      ],
+      "category": "conversion_and_zoo",
+      "id": "john-rocky-agent-demos",
+      "notes": "On-device agentic API demos running CoreAI zoo bundles through Foundation Models.",
+      "owner": "john-rocky",
+      "repo": "agent-demos",
+      "title": "john-rocky/agent-demos",
+      "trust": "community_primary",
+      "url": "https://github.com/john-rocky/agent-demos"
+    }
+  ],
+  "export_catalog_version": "1.3.1",
+  "export_schema_version": "1.0",
+  "framework_sources": [
+    {
+      "applies_to": [
+        "coreai-runtime",
+        "aimodel-format",
+        "apple-platform-integration"
+      ],
+      "category": "framework",
+      "id": "apple-coreai-docs",
+      "owner": "apple",
+      "title": "Apple Core AI Developer Documentation",
+      "trust": "official_primary",
+      "url": "https://developer.apple.com/documentation/coreai"
+    },
+    {
+      "applies_to": [
+        "coreml-runtime",
+        "on-device-ml",
+        "apple-neural-engine"
+      ],
+      "category": "framework",
+      "id": "apple-coreml-docs",
+      "owner": "apple",
+      "title": "Apple Core ML Developer Documentation",
+      "trust": "official_primary",
+      "url": "https://developer.apple.com/documentation/coreml"
+    },
+    {
+      "applies_to": [
+        "conversion",
+        "optimization",
+        "validation",
+        "coreml-tooling"
+      ],
+      "category": "framework_tooling",
+      "id": "apple-coremltools",
+      "owner": "apple",
+      "repo": "coremltools",
+      "title": "apple/coremltools",
+      "trust": "official_primary",
+      "url": "https://github.com/apple/coremltools"
+    },
+    {
+      "applies_to": [
+        "official-recipes",
+        "export-recipes",
+        "swift-runtime",
+        "coreai-skills"
+      ],
+      "category": "official_recipes",
+      "id": "apple-coreai-models",
+      "owner": "apple",
+      "repo": "coreai-models",
+      "title": "apple/coreai-models",
+      "trust": "official_primary",
+      "url": "https://github.com/apple/coreai-models"
+    },
+    {
+      "applies_to": [
+        "conversion",
+        "pytorch-bridge",
+        "metal-kernels",
+        "composite-ops"
+      ],
+      "category": "framework_tooling",
+      "id": "apple-coreai-torch",
+      "notes": "PyTorch Extensions (coreai-torch) — TorchConverter, composite_ops, Metal kernels. PyPI: coreai-torch.",
+      "owner": "apple",
+      "repo": "coreai-torch",
+      "title": "apple/coreai-torch",
+      "trust": "official_primary",
+      "url": "https://github.com/apple/coreai-torch"
+    },
+    {
+      "applies_to": [
+        "quantization",
+        "palettization",
+        "pruning",
+        "compression"
+      ],
+      "category": "framework_tooling",
+      "id": "apple-coreai-optimization",
+      "notes": "Core AI Optimization (coreai-opt) — quantization, palettization, pruning for Apple Silicon deployment. PyPI: coreai-opt.",
+      "owner": "apple",
+      "repo": "coreai-optimization",
+      "title": "apple/coreai-optimization",
+      "trust": "official_primary",
+      "url": "https://github.com/apple/coreai-optimization"
+    }
+  ],
+  "license_sources": [
+    {
+      "category": "license",
+      "id": "apache-2-0",
+      "review_required": false,
+      "title": "Apache License 2.0",
+      "trust": "license_primary",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0"
+    },
+    {
+      "category": "license",
+      "id": "mit",
+      "review_required": false,
+      "title": "MIT License",
+      "trust": "license_primary",
+      "url": "https://opensource.org/license/mit"
+    },
+    {
+      "category": "license",
+      "id": "gemma-terms",
+      "review_required": true,
+      "title": "Gemma Terms of Use",
+      "trust": "license_primary",
+      "url": "https://ai.google.dev/gemma/terms"
+    },
+    {
+      "category": "license",
+      "id": "meta-sam-license",
+      "review_required": true,
+      "title": "Meta SAM license",
+      "trust": "license_primary",
+      "url": "https://huggingface.co/facebook/sam3"
+    },
+    {
+      "category": "license",
+      "id": "lfm-open-license",
+      "review_required": true,
+      "title": "LFM Open License",
+      "trust": "license_needs_model_specific_review",
+      "url": "https://huggingface.co/LiquidAI"
+    },
+    {
+      "category": "license",
+      "id": "openrail",
+      "review_required": true,
+      "title": "OpenRAIL-style license family",
+      "trust": "needs_review",
+      "url": "unknown"
+    },
+    {
+      "category": "license",
+      "id": "cc-by-4-0",
+      "review_required": false,
+      "title": "Creative Commons Attribution 4.0",
+      "trust": "license_primary",
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "category": "license",
+      "id": "openrail-m",
+      "review_required": true,
+      "title": "OpenRAIL-M license (responsible use)",
+      "trust": "license_needs_model_specific_review",
+      "url": "https://huggingface.co/stabilityai/stable-diffusion-3.5-medium"
+    },
+    {
+      "category": "license",
+      "id": "stability-community-license",
+      "review_required": true,
+      "title": "Stability Community License",
+      "trust": "license_needs_model_specific_review",
+      "url": "https://stability.ai/license"
+    }
+  ],
+  "metadata": {
+    "last_verified": "2026-06-29",
+    "name": "Core AI Catalog upstream source taxonomy",
+    "purpose": "Track upstream framework, original model, benchmark, sample, artifact host and license sources separately from converted artifacts."
+  },
+  "original_model_sources": [
+    {
+      "applies_to": [
+        "qwen3-5-0-8b",
+        "qwen3-5-2b",
+        "qwen3-6-35b-a3b",
+        "qwen3-6-27b",
+        "qwen3-vl-2b",
+        "qwen3-vl-4b",
+        "qwen3-vl-8b",
+        "qwen2-5-omni-3b-audio",
+        "qwen3-embedding-0-6b",
+        "qwen3-reranker-0-6b",
+        "official-qwen3-0-6b",
+        "official-qwen3-4b",
+        "official-qwen3-8b",
+        "official-qwen3-1-7b"
+      ],
+      "category": "original_model",
+      "id": "qwen",
+      "notes": "Use model-specific Qwen cards when exact model pages are confirmed.",
+      "owner": "Qwen",
+      "platform": "huggingface",
+      "title": "Qwen original model family",
+      "trust": "original_model_primary",
+      "url": "https://huggingface.co/Qwen"
+    },
+    {
+      "applies_to": [
+        "gemma-4-e2b",
+        "gemma-4-e4b",
+        "gemma-4-12b",
+        "gemma-4-31b",
+        "gemma-4-e2b-vision",
+        "embeddinggemma-300m",
+        "official-gemma-3-4b-it",
+        "official-gemma-3-12b-it"
+      ],
+      "category": "original_model",
+      "id": "google-gemma",
+      "owner": "google",
+      "platform": "huggingface",
+      "title": "Google Gemma original model family",
+      "trust": "original_model_primary",
+      "url": "https://huggingface.co/google"
+    },
+    {
+      "applies_to": [
+        "official-gpt-oss-20b"
+      ],
+      "category": "original_model",
+      "id": "openai-gpt-oss",
+      "owner": "openai",
+      "platform": "huggingface",
+      "title": "OpenAI gpt-oss original model family",
+      "trust": "original_model_primary",
+      "url": "https://huggingface.co/openai/gpt-oss-20b"
+    },
+    {
+      "applies_to": [
+        "official-mistral-7b-v0-3"
+      ],
+      "category": "original_model",
+      "id": "mistral-ai",
+      "owner": "mistralai",
+      "platform": "huggingface",
+      "title": "Mistral AI original model family",
+      "trust": "original_model_primary",
+      "url": "https://huggingface.co/mistralai/Mistral-7B-v0.3"
+    },
+    {
+      "applies_to": [
+        "granite-4-0-h-1b",
+        "granite-4-0-h-350m"
+      ],
+      "category": "original_model",
+      "id": "ibm-granite",
+      "owner": "ibm-granite",
+      "platform": "huggingface",
+      "title": "IBM Granite original model family",
+      "trust": "original_model_primary",
+      "url": "https://huggingface.co/ibm-granite"
+    },
+    {
+      "applies_to": [
+        "lfm2-5-1-2b-instruct",
+        "lfm2-5-8b-a1b"
+      ],
+      "category": "original_model",
+      "id": "liquid-ai-lfm",
+      "owner": "LiquidAI",
+      "platform": "huggingface",
+      "title": "Liquid AI LFM original model family",
+      "trust": "original_model_primary",
+      "url": "https://huggingface.co/LiquidAI"
+    },
+    {
+      "applies_to": [
+        "minicpm-v-4-6",
+        "voxcpm-0-5b"
+      ],
+      "category": "original_model",
+      "id": "openbmb-minicpm",
+      "owner": "openbmb",
+      "platform": "huggingface",
+      "title": "OpenBMB MiniCPM original model family",
+      "trust": "original_model_primary",
+      "url": "https://huggingface.co/openbmb"
+    },
+    {
+      "applies_to": [
+        "official-sam-3"
+      ],
+      "category": "original_model",
+      "id": "meta-sam",
+      "owner": "facebook",
+      "platform": "huggingface",
+      "title": "Meta SAM original model family",
+      "trust": "original_model_primary",
+      "url": "https://huggingface.co/facebook/sam3"
+    },
+    {
+      "applies_to": [
+        "official-flux-2-klein-4b"
+      ],
+      "category": "original_model",
+      "id": "black-forest-labs-flux",
+      "owner": "black-forest-labs",
+      "platform": "huggingface",
+      "title": "Black Forest Labs FLUX original model family",
+      "trust": "original_model_primary",
+      "url": "https://huggingface.co/black-forest-labs"
+    },
+    {
+      "applies_to": [
+        "official-whisper-large-v3-turbo"
+      ],
+      "category": "original_model",
+      "id": "openai-whisper",
+      "owner": "openai",
+      "platform": "github",
+      "repo": "whisper",
+      "title": "OpenAI Whisper original model family",
+      "trust": "original_model_primary",
+      "url": "https://github.com/openai/whisper"
+    },
+    {
+      "applies_to": [
+        "rf-detr-nano",
+        "rf-detr-small",
+        "rf-detr-medium",
+        "rf-detr-large",
+        "rf-detr-seg-nano",
+        "rf-detr-seg-small",
+        "rf-detr-seg-medium",
+        "rf-detr-seg-large",
+        "rf-detr-seg-xlarge",
+        "rf-detr-seg-2xlarge"
+      ],
+      "category": "original_model",
+      "id": "roboflow-rf-detr",
+      "owner": "Roboflow",
+      "platform": "huggingface",
+      "title": "Roboflow RF-DETR original model family",
+      "trust": "original_model_primary",
+      "url": "https://huggingface.co/Roboflow"
+    },
+    {
+      "applies_to": [
+        "depth-anything-3-small",
+        "depth-anything-3-base"
+      ],
+      "category": "original_model",
+      "id": "depth-anything",
+      "notes": "Current Core AI catalog uses Depth Anything 3; keep model-specific upstream under review.",
+      "owner": "DepthAnything",
+      "platform": "github",
+      "repo": "Depth-Anything-V2",
+      "title": "Depth Anything original model family",
+      "trust": "original_model_primary",
+      "url": "https://github.com/DepthAnything/Depth-Anything-V2"
+    },
+    {
+      "applies_to": [
+        "kokoro-82m"
+      ],
+      "category": "original_model",
+      "id": "hexgrad-kokoro",
+      "owner": "hexgrad",
+      "platform": "huggingface",
+      "title": "Kokoro original model family",
+      "trust": "original_model_primary",
+      "url": "https://huggingface.co/hexgrad/Kokoro-82M"
+    },
+    {
+      "applies_to": [
+        "glm-4-7-flash"
+      ],
+      "category": "original_model",
+      "id": "glm-zai-thudm",
+      "notes": "Exact upstream for GLM-4.7-Flash should be verified before marking primary.",
+      "owner": "Z.ai / THUDM",
+      "platform": "unknown",
+      "title": "GLM original model family",
+      "trust": "needs_review",
+      "url": "unknown"
+    },
+    {
+      "applies_to": [
+        "nanbeige4-1-3b"
+      ],
+      "category": "original_model",
+      "id": "nanbeige",
+      "owner": "unknown",
+      "platform": "unknown",
+      "title": "Nanbeige original model family",
+      "trust": "needs_review",
+      "url": "unknown"
+    },
+    {
+      "applies_to": [
+        "adcsr-x4"
+      ],
+      "category": "original_model",
+      "id": "adcsr",
+      "owner": "unknown",
+      "platform": "unknown",
+      "title": "AdcSR original model family",
+      "trust": "needs_review",
+      "url": "unknown"
+    },
+    {
+      "applies_to": [
+        "unlimited-ocr"
+      ],
+      "category": "original_model",
+      "id": "unlimited-ocr",
+      "owner": "unknown",
+      "platform": "unknown",
+      "title": "Unlimited-OCR original model family",
+      "trust": "needs_review",
+      "url": "unknown"
+    },
+    {
+      "applies_to": [
+        "minicpm5-1b"
+      ],
+      "category": "original_model",
+      "id": "openbmb-minicpm5",
+      "notes": "1.08B hybrid Think/No-Think LLM; 128K context.",
+      "owner": "openbmb",
+      "platform": "huggingface",
+      "title": "OpenBMB MiniCPM5 original model family",
+      "trust": "original_model_primary",
+      "url": "https://huggingface.co/openbmb/MiniCPM5-1B"
+    },
+    {
+      "applies_to": [
+        "fastcontext-1-0-4b"
+      ],
+      "category": "original_model",
+      "id": "microsoft-fastcontext",
+      "notes": "Repo-exploration agent; Qwen3-4B-Instruct backbone SFT.",
+      "owner": "microsoft",
+      "platform": "huggingface",
+      "title": "Microsoft FastContext original model family",
+      "trust": "original_model_primary",
+      "url": "https://huggingface.co/microsoft/FastContext-1.0-4B-SFT"
+    },
+    {
+      "applies_to": [
+        "bitcpm-8b"
+      ],
+      "category": "original_model",
+      "id": "openbmb-bitcpm",
+      "notes": "1.58-bit ternary LLM; MiniCPM4-8B arch quantization-aware trained to ternary.",
+      "owner": "openbmb",
+      "platform": "huggingface",
+      "title": "OpenBMB BitCPM original model family",
+      "trust": "original_model_primary",
+      "url": "https://huggingface.co/openbmb/BitCPM-CANN-8B"
+    },
+    {
+      "applies_to": [
+        "holo2-4b"
+      ],
+      "category": "original_model",
+      "id": "h-company-holo",
+      "notes": "GUI-grounding / computer-use VLM; Qwen3-VL-4B backbone.",
+      "owner": "Hcompany",
+      "platform": "huggingface",
+      "title": "H Company Holo original model family",
+      "trust": "original_model_primary",
+      "url": "https://huggingface.co/Hcompany/Holo2-4B"
+    },
+    {
+      "applies_to": [
+        "colmodernvbert"
+      ],
+      "category": "original_model",
+      "id": "modernvbert",
+      "notes": "Visual document retriever; ModernBERT + SigLIP2; ColBERT/MaxSim.",
+      "owner": "ModernVBERT",
+      "platform": "huggingface",
+      "title": "ModernVBERT original model family",
+      "trust": "original_model_primary",
+      "url": "https://huggingface.co/ModernVBERT/colmodernvbert"
+    },
+    {
+      "applies_to": [
+        "parakeet-tdt-0-6b"
+      ],
+      "category": "original_model",
+      "id": "nvidia-parakeet",
+      "notes": "Token-and-duration transducer (RNN-T); FastConformer + LSTM predictor.",
+      "owner": "nvidia",
+      "platform": "huggingface",
+      "title": "NVIDIA Parakeet TDT original model family",
+      "trust": "original_model_primary",
+      "url": "https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3"
+    },
+    {
+      "applies_to": [
+        "yolox-s"
+      ],
+      "category": "original_model",
+      "id": "megvii-yolox",
+      "notes": "Single-stage anchor-free detector; CSPDarknet + PAFPN.",
+      "owner": "Megvii-BaseDetection",
+      "platform": "github",
+      "repo": "YOLOX",
+      "title": "Megvii YOLOX original model family",
+      "trust": "original_model_primary",
+      "url": "https://github.com/Megvii-BaseDetection/YOLOX"
+    },
+    {
+      "applies_to": [
+        "tripo-splat"
+      ],
+      "category": "original_model",
+      "id": "vast-triposplat",
+      "notes": "Single image → 3D Gaussian splats; DINOv3 + flow-matching DiT. Exact HF page to be verified.",
+      "owner": "VAST",
+      "platform": "huggingface",
+      "title": "VAST TripoSplat original model family",
+      "trust": "needs_review",
+      "url": "https://huggingface.co/VAST"
+    },
+    {
+      "applies_to": [
+        "ltx-video-2b"
+      ],
+      "category": "original_model",
+      "id": "lightricks-ltxvideo",
+      "notes": "Text → video; T5-XXL + 8-step flow-matching DiT + causal video VAE.",
+      "owner": "Lightricks",
+      "platform": "github",
+      "repo": "LTX-Video",
+      "title": "Lightricks LTX-Video original model family",
+      "trust": "original_model_primary",
+      "url": "https://github.com/Lightricks/LTX-Video"
+    },
+    {
+      "applies_to": [
+        "official-clip-vit-base-patch32"
+      ],
+      "category": "original_model",
+      "id": "openai-clip",
+      "notes": "CLIP ViT-B/32 — image+text joint embedding model.",
+      "owner": "openai",
+      "platform": "huggingface",
+      "title": "OpenAI CLIP original model family",
+      "trust": "original_model_primary",
+      "url": "https://huggingface.co/openai/clip-vit-base-patch32"
+    },
+    {
+      "applies_to": [
+        "llada-8b-dllm"
+      ],
+      "category": "original_model",
+      "id": "gsai-ml-llada",
+      "notes": "Masked diffusion LLM (dLLM); bidirectional text generation.",
+      "owner": "GSAI-ML",
+      "platform": "huggingface",
+      "title": "LLaDA original model family",
+      "trust": "original_model_primary",
+      "url": "https://huggingface.co/GSAI-ML/LLaDA-8B-Instruct"
+    },
+    {
+      "applies_to": [
+        "bitvla"
+      ],
+      "category": "original_model",
+      "id": "lxsy-bitvla",
+      "notes": "1.58-bit ternary Vision-Language-Action policy; BitNet b1.58 LLM + BitSigLIP vision.",
+      "owner": "lxsy",
+      "platform": "huggingface",
+      "title": "BitVLA original model family",
+      "trust": "original_model_primary",
+      "url": "https://huggingface.co/lxsy/bitvla-bf16"
+    },
+    {
+      "applies_to": [
+        "stable-audio-open-small"
+      ],
+      "category": "original_model",
+      "id": "stability-ai",
+      "notes": "Generative audio; Stable Audio Open Small.",
+      "owner": "stabilityai",
+      "platform": "huggingface",
+      "title": "Stability AI original model family",
+      "trust": "original_model_primary",
+      "url": "https://huggingface.co/stabilityai"
+    },
+    {
+      "applies_to": [
+        "vibevoice-0-5b",
+        "vibevoice-1-5b",
+        "vibevoice-7b",
+        "vibevoice-asr"
+      ],
+      "category": "original_model",
+      "id": "microsoft-vibevoice",
+      "owner": "Microsoft",
+      "platform": "huggingface",
+      "title": "Microsoft VibeVoice",
+      "trust": "original_model_primary",
+      "url": "https://huggingface.co/microsoft"
+    },
+    {
+      "applies_to": [
+        "nemotron-3-5-asr-streaming"
+      ],
+      "category": "original_model",
+      "id": "nvidia-nemotron",
+      "owner": "NVIDIA",
+      "platform": "huggingface",
+      "title": "NVIDIA Nemotron ASR",
+      "trust": "original_model_primary",
+      "url": "https://huggingface.co/nvidia"
+    },
+    {
+      "applies_to": [
+        "z-image-turbo"
+      ],
+      "category": "original_model",
+      "id": "tongyi-mai-z-image",
+      "owner": "Tongyi-MAI",
+      "platform": "huggingface",
+      "title": "Tongyi-MAI Z-Image",
+      "trust": "original_model_primary",
+      "url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo"
+    },
+    {
+      "applies_to": [
+        "real-esrgan-x4v3"
+      ],
+      "category": "original_model",
+      "id": "xinntao-realesrgan",
+      "owner": "xinntao",
+      "platform": "github",
+      "title": "Real-ESRGAN (xinntao)",
+      "trust": "original_model_primary",
+      "url": "https://github.com/xinntao/Real-ESRGAN"
+    },
+    {
+      "applies_to": [
+        "efficientsam3-tinyvit"
+      ],
+      "category": "original_model",
+      "id": "facebook-efficientsam3",
+      "owner": "Meta",
+      "platform": "huggingface",
+      "title": "Meta EfficientSAM3",
+      "trust": "original_model_primary",
+      "url": "https://huggingface.co/facebook"
+    },
+    {
+      "applies_to": [
+        "rwkv7-goose-1-5b"
+      ],
+      "category": "original_model",
+      "id": "rwkv",
+      "owner": "RWKV",
+      "platform": "huggingface",
+      "title": "RWKV Foundation",
+      "trust": "original_model_primary",
+      "url": "https://huggingface.co/RWKV"
+    }
+  ],
+  "sample_sources": [
+    {
+      "applies_to": [
+        "mac-samples",
+        "chat-samples",
+        "runtime-usage"
+      ],
+      "category": "samples",
+      "id": "john-rocky-coreai-samples",
+      "owner": "john-rocky",
+      "repo": "coreai-samples",
+      "title": "john-rocky/coreai-samples",
+      "trust": "community_primary",
+      "url": "https://github.com/john-rocky/coreai-samples"
+    }
+  ]
+}

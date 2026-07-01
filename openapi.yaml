@@ -3,11 +3,11 @@ info:
   title: Core AI Catalog API
   version: 1.3.1
   description: |
-    Source-grounded catalog of 78+ Apple Core AI models. All endpoints are
+    Source-grounded catalog of 79 Apple Core AI models. All endpoints are
     read-only. This OpenAPI spec mirrors the MCP server's 11 tools as REST
     endpoints for agents and automation that don't use MCP.
 
-    JSON exports are also available as static files under `dist/`:
+    JSON exports are committed to `dist/` and available via raw GitHub:
     - `dist/catalog.json` — all models
     - `dist/search-index.json` — denormalized search entries
     - `dist/coreai-catalog.json` — complete bundle

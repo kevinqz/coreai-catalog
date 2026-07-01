@@ -75,6 +75,8 @@ All CLI commands support `--json` for structured output.
 
 ### JSON exports (agents/automation)
 
+All exports are committed to `dist/` and available via raw GitHub (no clone needed). Base URL: `https://raw.githubusercontent.com/kevinqz/coreai-catalog/main/dist/`
+
 - `dist/catalog.json` — all model records
 - `dist/artifacts.json` — all artifact provenance records
 - `dist/benchmarks.json` — all benchmark measurements

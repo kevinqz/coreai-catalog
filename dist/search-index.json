@@ -1,0 +1,4704 @@
+{
+  "count": 79,
+  "export_schema_version": "1.0",
+  "export_catalog_version": "1.3.1",
+  "models": [
+    {
+      "id": "qwen3-5-0-8b",
+      "name": "Qwen3.5-0.8B",
+      "family": "Qwen",
+      "source_group": "zoo",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "0.8B",
+      "precision": "int8",
+      "quantization": "int8lin",
+      "artifact_size": "969MB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": true,
+      "aot_required": false,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 78,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/qwen3.5-0.8B-CoreAI",
+        "huggingface_repo": "mlboydaisuke/qwen3.5-0.8B-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 71.9,
+          "device": "iPhone 17 Pro",
+          "compute_unit": "GPU",
+          "environment": "iOS 27 beta, coreai-pipelined engine",
+          "observed": "2026-06-25",
+          "confidence": "medium",
+          "precision": "inferred:int8",
+          "notes": "Decode throughput from upstream README table."
+        },
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 14.7,
+          "device": "iPhone 17 Pro",
+          "compute_unit": "ANE",
+          "environment": "iOS 27 beta, coreai-pipelined engine",
+          "observed": "2026-06-25",
+          "confidence": "medium",
+          "precision": "inferred:int8",
+          "notes": "Decode throughput from upstream README table."
+        },
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 210,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "macOS 27 beta, coreai-pipelined engine",
+          "observed": "2026-06-25",
+          "confidence": "medium",
+          "precision": "inferred:int8",
+          "notes": "Decode throughput from upstream README table."
+        }
+      ],
+      "last_verified": "2026-06-24",
+      "notes": "Top-1 exact vs Hugging Face reference according to upstream."
+    },
+    {
+      "id": "qwen3-5-2b",
+      "name": "Qwen3.5-2B",
+      "family": "Qwen",
+      "source_group": "zoo",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "2B",
+      "precision": "int8",
+      "quantization": "int8lin",
+      "artifact_size": "not_published",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": true,
+      "aot_required": false,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 78,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/qwen3.5-2B-CoreAI",
+        "huggingface_repo": "mlboydaisuke/qwen3.5-2B-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 29,
+          "device": "iPhone 17 Pro",
+          "compute_unit": "GPU",
+          "environment": "iOS 27 beta, coreai-pipelined engine",
+          "observed": "2026-06-25",
+          "confidence": "medium",
+          "precision": "inferred:int8",
+          "notes": "Decode throughput from upstream README table."
+        },
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 161,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "macOS 27 beta, coreai-pipelined engine",
+          "observed": "2026-06-25",
+          "confidence": "medium",
+          "precision": "inferred:int8",
+          "notes": "Decode throughput from upstream README table."
+        }
+      ],
+      "last_verified": "2026-06-24",
+      "notes": "Top-1 exact vs Hugging Face reference according to upstream."
+    },
+    {
+      "id": "qwen3-6-35b-a3b",
+      "name": "Qwen3.6-35B-A3B",
+      "family": "Qwen",
+      "source_group": "zoo",
+      "capabilities": [
+        "chat",
+        "text-generation",
+        "moe"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [
+        "mac"
+      ],
+      "parameters": "35B / ~3B active",
+      "precision": "int8",
+      "quantization": "sym8-gather",
+      "artifact_size": "35GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": true,
+      "patch_required": true,
+      "aot_required": false,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 63,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen3.6-35B-A3B-CoreAI",
+        "huggingface_repo": "mlboydaisuke/Qwen3.6-35B-A3B-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 64.9,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "macOS 27 beta, coreai-pipelined engine",
+          "observed": "2026-06-25",
+          "confidence": "medium",
+          "precision": "inferred:int8",
+          "notes": "Decode throughput from upstream README table. MoE; custom gather_qmm Metal kernel per upstream caveat."
+        }
+      ],
+      "last_verified": "2026-06-24",
+      "notes": "Mac-only MoE; custom gather_qmm Metal kernel."
+    },
+    {
+      "id": "qwen3-6-27b",
+      "name": "Qwen3.6-27B",
+      "family": "Qwen",
+      "source_group": "zoo",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [
+        "mac"
+      ],
+      "parameters": "27B",
+      "precision": "int8",
+      "quantization": "int8hu",
+      "artifact_size": "28GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": true,
+      "patch_required": true,
+      "aot_required": false,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 63,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen3.6-27B-CoreAI",
+        "huggingface_repo": "mlboydaisuke/Qwen3.6-27B-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 15.9,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "macOS 27 beta, coreai-pipelined engine",
+          "observed": "2026-06-25",
+          "confidence": "medium",
+          "precision": "inferred:int8",
+          "notes": "Decode throughput from upstream README table."
+        }
+      ],
+      "last_verified": "2026-06-24",
+      "notes": "Dense Mac-only LLM."
+    },
+    {
+      "id": "glm-4-7-flash",
+      "name": "GLM-4.7-Flash",
+      "family": "GLM",
+      "source_group": "zoo",
+      "capabilities": [
+        "chat",
+        "text-generation",
+        "moe",
+        "mla"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [
+        "mac"
+      ],
+      "parameters": "30B / ~3B active",
+      "precision": "int8",
+      "quantization": "sym8-gather",
+      "artifact_size": "30GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": true,
+      "patch_required": true,
+      "aot_required": false,
+      "license": "MIT",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 63,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/GLM-4.7-Flash-CoreAI",
+        "huggingface_repo": "mlboydaisuke/GLM-4.7-Flash-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 52.4,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "macOS 27 beta, coreai-pipelined engine",
+          "observed": "2026-06-25",
+          "confidence": "medium",
+          "precision": "inferred:int8",
+          "notes": "Decode throughput from upstream README table. MoE + MLA; custom Metal kernel per upstream caveat."
+        }
+      ],
+      "last_verified": "2026-06-24",
+      "notes": "MoE + MLA; custom gather_qmm Metal kernel."
+    },
+    {
+      "id": "gemma-4-e2b",
+      "name": "Gemma 4 E2B",
+      "family": "Gemma",
+      "source_group": "zoo",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "E2B",
+      "precision": "int4",
+      "quantization": "int4lin",
+      "artifact_size": "1.3GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": true,
+      "aot_required": true,
+      "license": "Gemma Terms",
+      "commercial_use": "check_license",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 63,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/gemma-4-E2B-CoreAI",
+        "huggingface_repo": "mlboydaisuke/gemma-4-E2B-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 30.3,
+          "device": "iPhone 17 Pro",
+          "compute_unit": "GPU",
+          "environment": "iOS 27 beta, coreai-pipelined engine",
+          "observed": "2026-06-25",
+          "confidence": "medium",
+          "precision": "inferred:int4",
+          "notes": "Decode throughput from upstream README table."
+        },
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 30.7,
+          "device": "iPhone 17 Pro",
+          "compute_unit": "GPU",
+          "environment": "iOS 27 beta, coreai-pipelined engine",
+          "observed": "2026-06-25",
+          "confidence": "medium",
+          "precision": "official-QAT-int4",
+          "notes": "QAT-int4 variant from upstream README."
+        },
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 6,
+          "device": "iPhone 17 Pro",
+          "compute_unit": "ANE",
+          "environment": "iOS 27 beta, coreai-pipelined engine",
+          "observed": "2026-06-25",
+          "confidence": "medium",
+          "precision": "inferred:int4",
+          "notes": "Decode throughput from upstream README table."
+        },
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 77.0,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "macOS 27 beta, coreai-pipelined engine",
+          "observed": "2026-06-25",
+          "confidence": "medium",
+          "precision": "inferred:int4",
+          "notes": "Decode throughput from upstream README table."
+        },
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 78.9,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "macOS 27 beta, coreai-pipelined engine",
+          "observed": "2026-06-25",
+          "confidence": "medium",
+          "precision": "official-QAT-int4",
+          "notes": "QAT-int4 variant from upstream README."
+        }
+      ],
+      "last_verified": "2026-06-24",
+      "notes": "Text decoder; upstream reports 8/8 exact vs HF."
+    },
+    {
+      "id": "gemma-4-e4b",
+      "name": "Gemma 4 E4B",
+      "family": "Gemma",
+      "source_group": "zoo",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "E4B",
+      "precision": "int4",
+      "quantization": "int4lin-QAT",
+      "artifact_size": "3.7GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": true,
+      "aot_required": true,
+      "license": "Gemma Terms",
+      "commercial_use": "check_license",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 63,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/gemma-4-E4B-CoreAI",
+        "huggingface_repo": "mlboydaisuke/gemma-4-E4B-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 15.1,
+          "device": "iPhone 17 Pro",
+          "compute_unit": "GPU",
+          "environment": "iOS 27 beta, coreai-pipelined engine",
+          "observed": "2026-06-25",
+          "confidence": "medium",
+          "precision": "inferred:int4",
+          "notes": "Decode throughput from upstream README table."
+        },
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 55.8,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "macOS 27 beta, coreai-pipelined engine",
+          "observed": "2026-06-25",
+          "confidence": "medium",
+          "precision": "inferred:int4",
+          "notes": "Decode throughput from upstream README table."
+        },
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 53.2,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "macOS 27 beta, pipelined engine, COREAI_CHUNK_THRESHOLD=1",
+          "observed": "2026-06-29",
+          "confidence": "medium",
+          "precision": "int4lin-QAT",
+          "notes": "Prefill throughput from upstream card. 3.7 GB bundle."
+        }
+      ],
+      "last_verified": "2026-06-24",
+      "notes": "Official-QAT int4."
+    },
+    {
+      "id": "gemma-4-12b",
+      "name": "Gemma 4 12B",
+      "family": "Gemma",
+      "source_group": "zoo",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [
+        "mac"
+      ],
+      "parameters": "12B",
+      "precision": "int4",
+      "quantization": "int4linsym",
+      "artifact_size": "8.2GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": true,
+      "patch_required": true,
+      "aot_required": false,
+      "license": "Gemma Terms",
+      "commercial_use": "check_license",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 53,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/Gemma-4-12B-CoreAI",
+        "huggingface_repo": "mlboydaisuke/Gemma-4-12B-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 23,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "macOS 27 beta, coreai-pipelined engine",
+          "observed": "2026-06-25",
+          "confidence": "medium",
+          "precision": "int8",
+          "notes": "Decode throughput from upstream README table. int8; custom flash-decode kernel."
+        },
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 33,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "macOS 27 beta, coreai-pipelined engine",
+          "observed": "2026-06-25",
+          "confidence": "medium",
+          "precision": "int4",
+          "notes": "Decode throughput from upstream README table. int4; custom flash-decode kernel."
+        }
+      ],
+      "last_verified": "2026-06-24",
+      "notes": "Custom flash-decode kernel."
+    },
+    {
+      "id": "gemma-4-31b",
+      "name": "Gemma 4 31B",
+      "family": "Gemma",
+      "source_group": "zoo",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [
+        "mac"
+      ],
+      "parameters": "31B",
+      "precision": "int4",
+      "quantization": "int4linsym",
+      "artifact_size": "19GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": true,
+      "patch_required": true,
+      "aot_required": false,
+      "license": "Gemma Terms",
+      "commercial_use": "check_license",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 53,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/Gemma-4-31B-CoreAI",
+        "huggingface_repo": "mlboydaisuke/Gemma-4-31B-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 17.2,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "macOS 27 beta, coreai-pipelined engine",
+          "observed": "2026-06-25",
+          "confidence": "medium",
+          "precision": "int4",
+          "notes": "Decode throughput from upstream README table. custom flash-decode kernel."
+        }
+      ],
+      "last_verified": "2026-06-24",
+      "notes": "Custom flash-decode kernel."
+    },
+    {
+      "id": "lfm2-5-1-2b-instruct",
+      "name": "LFM2.5-1.2B-Instruct",
+      "family": "LFM",
+      "source_group": "zoo",
+      "capabilities": [
+        "chat",
+        "text-generation",
+        "instruction-following"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "1.2B",
+      "precision": "int8",
+      "quantization": "int8hu",
+      "artifact_size": "1.6GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": true,
+      "aot_required": false,
+      "license": "LFM Open License v1.0",
+      "commercial_use": "check_license",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 68,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/LFM2.5-1.2B-CoreAI",
+        "huggingface_repo": "mlboydaisuke/LFM2.5-1.2B-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 45.4,
+          "device": "iPhone 17 Pro",
+          "compute_unit": "GPU",
+          "environment": "iOS 27 beta, coreai-pipelined engine",
+          "observed": "2026-06-25",
+          "confidence": "medium",
+          "precision": "inferred:int8",
+          "notes": "Decode throughput from upstream README table."
+        },
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 276.5,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "macOS 27 beta, coreai-pipelined engine",
+          "observed": "2026-06-25",
+          "confidence": "medium",
+          "precision": "inferred:int8",
+          "notes": "Decode throughput from upstream README table."
+        }
+      ],
+      "last_verified": "2026-06-24",
+      "notes": "Hybrid architecture."
+    },
+    {
+      "id": "lfm2-5-8b-a1b",
+      "name": "LFM2.5-8B-A1B",
+      "family": "LFM",
+      "source_group": "zoo",
+      "capabilities": [
+        "chat",
+        "text-generation",
+        "moe"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "8B / ~1B active",
+      "precision": "int8",
+      "quantization": "sym8-gather",
+      "artifact_size": "8.8GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": true,
+      "patch_required": true,
+      "aot_required": false,
+      "license": "LFM Open License v1.0",
+      "commercial_use": "check_license",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 53,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/LFM2.5-8B-A1B-CoreAI",
+        "huggingface_repo": "mlboydaisuke/LFM2.5-8B-A1B-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-06-24",
+      "notes": "MoE path with gather_qmm."
+    },
+    {
+      "id": "granite-4-0-h-1b",
+      "name": "Granite 4.0-H 1B",
+      "family": "Granite",
+      "source_group": "zoo",
+      "capabilities": [
+        "chat",
+        "text-generation",
+        "hybrid-llm"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "1B",
+      "precision": "int8",
+      "quantization": "int8hu",
+      "artifact_size": "1.8GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": true,
+      "aot_required": false,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 78,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/granite-4.0-h-CoreAI",
+        "huggingface_repo": "mlboydaisuke/granite-4.0-h-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 36.3,
+          "device": "iPhone 17 Pro",
+          "compute_unit": "GPU",
+          "environment": "iOS 27 beta, coreai-pipelined engine",
+          "observed": "2026-06-25",
+          "confidence": "medium",
+          "precision": "inferred:int8",
+          "notes": "Decode throughput from upstream README table."
+        },
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 136.5,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "macOS 27 beta, coreai-pipelined engine",
+          "observed": "2026-06-25",
+          "confidence": "medium",
+          "precision": "inferred:int8",
+          "notes": "Decode throughput from upstream README table."
+        }
+      ],
+      "last_verified": "2026-06-24",
+      "notes": "Mamba2 + attention hybrid."
+    },
+    {
+      "id": "granite-4-0-h-350m",
+      "name": "Granite 4.0-H 350M",
+      "family": "Granite",
+      "source_group": "zoo",
+      "capabilities": [
+        "chat",
+        "text-generation",
+        "hybrid-llm"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "350M",
+      "precision": "fp16",
+      "quantization": "none",
+      "artifact_size": "not_published",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": true,
+      "aot_required": false,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 68,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/granite-4.0-h-CoreAI",
+        "huggingface_repo": "mlboydaisuke/granite-4.0-h-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-06-24",
+      "notes": "Same upstream card as Granite 4.0-H 1B."
+    },
+    {
+      "id": "nanbeige4-1-3b",
+      "name": "Nanbeige4.1-3B",
+      "family": "Nanbeige",
+      "source_group": "zoo",
+      "capabilities": [
+        "chat",
+        "reasoning",
+        "agentic",
+        "text-generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "3.93B",
+      "precision": "int8",
+      "quantization": "int8hu",
+      "artifact_size": "4.3GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": true,
+      "aot_required": false,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 78,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/Nanbeige4.1-3B-CoreAI",
+        "huggingface_repo": "mlboydaisuke/Nanbeige4.1-3B-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 15.9,
+          "device": "iPhone 17 Pro",
+          "compute_unit": "GPU",
+          "environment": "iOS 27 beta, coreai-pipelined engine",
+          "observed": "2026-06-25",
+          "confidence": "medium",
+          "precision": "inferred:int8",
+          "notes": "Decode throughput from upstream README table."
+        },
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 114.5,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "macOS 27 beta, coreai-pipelined engine",
+          "observed": "2026-06-25",
+          "confidence": "medium",
+          "precision": "inferred:int8",
+          "notes": "Decode throughput from upstream README table."
+        }
+      ],
+      "last_verified": "2026-06-24",
+      "notes": "Dense reasoning/agentic."
+    },
+    {
+      "id": "qwen3-vl-2b",
+      "name": "Qwen3-VL 2B",
+      "family": "Qwen",
+      "source_group": "zoo",
+      "capabilities": [
+        "vision-language"
+      ],
+      "input_modalities": [
+        "image",
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "2B",
+      "precision": "int8",
+      "quantization": "int8hu",
+      "artifact_size": "2.3GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": true,
+      "aot_required": false,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 78,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen3-VL-2B-CoreAI",
+        "huggingface_repo": "mlboydaisuke/Qwen3-VL-2B-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 33.5,
+          "device": "iPhone 17 Pro",
+          "compute_unit": "GPU",
+          "environment": "iOS 27 beta, pipelined engine, settled",
+          "observed": "2026-06-29",
+          "confidence": "medium",
+          "precision": "int8hu",
+          "notes": "Multimodal oracle 24/24 × 8 runs — token-identical to M4 Max. ~92% of naive BW ceiling."
+        },
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 191.0,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "macOS 27 beta, pipelined engine",
+          "observed": "2026-06-29",
+          "confidence": "medium",
+          "precision": "int8hu",
+          "notes": "Multimodal sweep 4/4 + decode 16/16 token-exact vs fp32-HF."
+        }
+      ],
+      "last_verified": "2026-06-24",
+      "notes": "Vision-language model."
+    },
+    {
+      "id": "qwen3-vl-4b",
+      "name": "Qwen3-VL 4B",
+      "family": "Qwen",
+      "source_group": "zoo",
+      "capabilities": [
+        "vision-language"
+      ],
+      "input_modalities": [
+        "image",
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "4B",
+      "precision": "int8",
+      "quantization": "int8hu",
+      "artifact_size": "not_published",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": true,
+      "aot_required": false,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 68,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen3-VL-4B-CoreAI",
+        "huggingface_repo": "mlboydaisuke/Qwen3-VL-4B-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-06-24",
+      "notes": "Vision-language model."
+    },
+    {
+      "id": "qwen3-vl-8b",
+      "name": "Qwen3-VL 8B",
+      "family": "Qwen",
+      "source_group": "zoo",
+      "capabilities": [
+        "vision-language"
+      ],
+      "input_modalities": [
+        "image",
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "8B",
+      "precision": "int8",
+      "quantization": "int8hu",
+      "artifact_size": "not_published",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": true,
+      "aot_required": false,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 68,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen3-VL-8B-CoreAI",
+        "huggingface_repo": "mlboydaisuke/Qwen3-VL-8B-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-06-24",
+      "notes": "Vision-language model."
+    },
+    {
+      "id": "minicpm-v-4-6",
+      "name": "MiniCPM-V 4.6",
+      "family": "MiniCPM",
+      "source_group": "zoo",
+      "capabilities": [
+        "vision-language"
+      ],
+      "input_modalities": [
+        "image",
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "sub-2B",
+      "precision": "int8",
+      "quantization": "int8hu",
+      "artifact_size": "not_published",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": true,
+      "aot_required": false,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 78,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/MiniCPM-V-4.6-CoreAI",
+        "huggingface_repo": "mlboydaisuke/MiniCPM-V-4.6-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 53.4,
+          "device": "iPhone 17 Pro",
+          "compute_unit": "GPU",
+          "environment": "iOS 27 beta, coreai-pipelined engine",
+          "observed": "2026-06-25",
+          "confidence": "medium",
+          "precision": "inferred:int8",
+          "notes": "Decode throughput from upstream README table."
+        },
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 224.3,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "macOS 27 beta, coreai-pipelined engine",
+          "observed": "2026-06-25",
+          "confidence": "medium",
+          "precision": "inferred:int8",
+          "notes": "Decode throughput from upstream README table."
+        }
+      ],
+      "last_verified": "2026-06-24",
+      "notes": "Tiny VLM."
+    },
+    {
+      "id": "gemma-4-e2b-vision",
+      "name": "Gemma 4 E2B Vision",
+      "family": "Gemma",
+      "source_group": "zoo",
+      "capabilities": [
+        "vision-language"
+      ],
+      "input_modalities": [
+        "image",
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "E2B",
+      "precision": "int4",
+      "quantization": "int4linsym",
+      "artifact_size": "not_published",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": true,
+      "aot_required": true,
+      "license": "Gemma Terms",
+      "commercial_use": "check_license",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 63,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/gemma-4-E2B-CoreAI/tree/main/vl",
+        "huggingface_repo": "mlboydaisuke/gemma-4-E2B-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 25.5,
+          "device": "iPhone 17 Pro",
+          "compute_unit": "GPU",
+          "environment": "iOS 27 beta, pipelined engine, AOT h18p, provider mode",
+          "observed": "2026-06-29",
+          "confidence": "medium",
+          "precision": "int4linsym",
+          "notes": "Footprint 1.96 GB, headroom 4.5 GB. Vision encode ~100-170ms per image."
+        },
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 82.4,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "macOS 27 beta, coreai-pipelined engine",
+          "observed": "2026-06-25",
+          "confidence": "medium",
+          "precision": "inferred:int4",
+          "notes": "Decode throughput from upstream README table."
+        }
+      ],
+      "last_verified": "2026-06-24",
+      "notes": "Image+text to text."
+    },
+    {
+      "id": "unlimited-ocr",
+      "name": "Unlimited-OCR",
+      "family": "Unlimited-OCR",
+      "source_group": "zoo",
+      "capabilities": [
+        "document-ocr"
+      ],
+      "input_modalities": [
+        "document_image",
+        "image"
+      ],
+      "output_modalities": [
+        "markdown",
+        "html",
+        "latex"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "not_published",
+      "precision": "fp32",
+      "quantization": "none",
+      "artifact_size": "not_published",
+      "runtime": "apple-core-ai",
+      "runner": "stock-runner",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "MIT",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 83,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/Unlimited-OCR-CoreAI",
+        "huggingface_repo": "mlboydaisuke/Unlimited-OCR-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-06-24",
+      "notes": "Document OCR to markdown; tables to HTML; formulas to LaTeX."
+    },
+    {
+      "id": "qwen2-5-omni-3b-audio",
+      "name": "Qwen2.5-Omni-3B Audio",
+      "family": "Qwen",
+      "source_group": "zoo",
+      "capabilities": [
+        "audio-understanding"
+      ],
+      "input_modalities": [
+        "audio"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "3B",
+      "precision": "int8",
+      "quantization": "int8lin",
+      "artifact_size": "5.1GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": true,
+      "aot_required": true,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 63,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen2.5-Omni-3B-Audio-CoreAI",
+        "huggingface_repo": "mlboydaisuke/Qwen2.5-Omni-3B-Audio-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-06-24",
+      "notes": "Audio understanding; describes sounds, not literal transcript."
+    },
+    {
+      "id": "kokoro-82m",
+      "name": "Kokoro-82M",
+      "family": "Kokoro",
+      "source_group": "zoo",
+      "capabilities": [
+        "text-to-speech"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "audio"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "82M",
+      "precision": "fp32",
+      "quantization": "none",
+      "artifact_size": "335MB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 73,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/Kokoro-82M-CoreAI",
+        "huggingface_repo": "mlboydaisuke/Kokoro-82M-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-06-24",
+      "notes": "StyleTTS2 + iSTFTNet; 28 English voices."
+    },
+    {
+      "id": "voxcpm-0-5b",
+      "name": "VoxCPM-0.5B",
+      "family": "VoxCPM",
+      "source_group": "zoo",
+      "capabilities": [
+        "text-to-speech"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "audio"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "0.5B",
+      "precision": "int8",
+      "quantization": "int8-LM",
+      "artifact_size": "1.0GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": true,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 78,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/VoxCPM-0.5B-CoreAI",
+        "huggingface_repo": "mlboydaisuke/VoxCPM-0.5B-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [
+        {
+          "metric": "realtime_factor",
+          "unit": "realtime_factor",
+          "value": 0.9,
+          "device": "iPhone 17 Pro",
+          "compute_unit": "GPU",
+          "environment": "iOS 27 beta, pipelined engine, AOT h18p, streaming mode",
+          "observed": "2026-06-29",
+          "confidence": "medium",
+          "precision": "int8",
+          "notes": "RTF ~0.9 with int8 backbone + streaming. First-audio 0.43s. 12.5 Hz token rate."
+        }
+      ],
+      "last_verified": "2026-06-24",
+      "notes": "Diffusion TTS."
+    },
+    {
+      "id": "embeddinggemma-300m",
+      "name": "EmbeddingGemma 300M",
+      "family": "Gemma",
+      "source_group": "zoo",
+      "capabilities": [
+        "embedding"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "vector"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "300M",
+      "precision": "fp16",
+      "quantization": "none",
+      "artifact_size": "not_published",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "Gemma Terms",
+      "commercial_use": "check_license",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 73,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/embeddinggemma-300m-CoreAI",
+        "huggingface_repo": "mlboydaisuke/embeddinggemma-300m-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-06-24",
+      "notes": "Text embeddings for on-device RAG / semantic search."
+    },
+    {
+      "id": "qwen3-embedding-0-6b",
+      "name": "Qwen3-Embedding 0.6B",
+      "family": "Qwen",
+      "source_group": "zoo",
+      "capabilities": [
+        "embedding"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "vector"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "0.6B",
+      "precision": "fp16",
+      "quantization": "none",
+      "artifact_size": "1.1GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 93,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen3-Embedding-0.6B-CoreAI",
+        "huggingface_repo": "mlboydaisuke/Qwen3-Embedding-0.6B-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [
+        {
+          "metric": "inference_latency",
+          "unit": "milliseconds",
+          "value": 12.0,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "macOS 27 beta, S=512 grid, warm",
+          "observed": "2026-06-29",
+          "confidence": "medium",
+          "precision": "fp16",
+          "notes": "~83 embeddings/s at S=512 grid. Cosine 0.999998 vs torch reference."
+        }
+      ],
+      "last_verified": "2026-06-24",
+      "notes": "Multilingual embeddings; last-token pooling + MRL."
+    },
+    {
+      "id": "qwen3-reranker-0-6b",
+      "name": "Qwen3-Reranker 0.6B",
+      "family": "Qwen",
+      "source_group": "zoo",
+      "capabilities": [
+        "reranking"
+      ],
+      "input_modalities": [
+        "query",
+        "documents"
+      ],
+      "output_modalities": [
+        "score"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "0.6B",
+      "precision": "fp16",
+      "quantization": "none",
+      "artifact_size": "1.1GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 93,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen3-Reranker-0.6B-CoreAI",
+        "huggingface_repo": "mlboydaisuke/Qwen3-Reranker-0.6B-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [
+        {
+          "metric": "inference_latency",
+          "unit": "milliseconds",
+          "value": 45.7,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "macOS 27 beta, S=512 grid, warm",
+          "observed": "2026-06-29",
+          "confidence": "medium",
+          "precision": "fp16",
+          "notes": "~22 pair-scores/s at S=512 grid. P(yes) within |Δ| < 0.0005."
+        }
+      ],
+      "last_verified": "2026-06-24",
+      "notes": "Cross-encoder reranker."
+    },
+    {
+      "id": "rf-detr-nano",
+      "name": "RF-DETR Nano",
+      "family": "RF-DETR",
+      "source_group": "zoo",
+      "capabilities": [
+        "object-detection"
+      ],
+      "input_modalities": [
+        "image"
+      ],
+      "output_modalities": [
+        "boxes",
+        "classes",
+        "scores"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "nano",
+      "precision": "fp32",
+      "quantization": "none",
+      "artifact_size": "108MB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 93,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI",
+        "huggingface_repo": "mlboydaisuke/RF-DETR-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [
+        {
+          "metric": "inference_latency",
+          "unit": "milliseconds",
+          "value": 8.6,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "macOS 27 beta, median",
+          "observed": "2026-06-29",
+          "confidence": "medium",
+          "precision": "fp32",
+          "notes": "~116 FPS on M4 Max GPU. iPhone 17 Pro ~25ms / 33-39 FPS end-to-end."
+        }
+      ],
+      "last_verified": "2026-06-24",
+      "notes": "Object detection; no NMS."
+    },
+    {
+      "id": "rf-detr-small",
+      "name": "RF-DETR Small",
+      "family": "RF-DETR",
+      "source_group": "zoo",
+      "capabilities": [
+        "object-detection"
+      ],
+      "input_modalities": [
+        "image"
+      ],
+      "output_modalities": [
+        "boxes",
+        "classes",
+        "scores"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "small",
+      "precision": "fp32",
+      "quantization": "none",
+      "artifact_size": "115MB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 93,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI",
+        "huggingface_repo": "mlboydaisuke/RF-DETR-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [
+        {
+          "metric": "inference_latency",
+          "unit": "milliseconds",
+          "value": 12.0,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "macOS 27 beta, median",
+          "observed": "2026-06-29",
+          "confidence": "medium",
+          "precision": "fp32",
+          "notes": "~83 FPS on M4 Max GPU."
+        }
+      ],
+      "last_verified": "2026-06-24",
+      "notes": "Object detection; no NMS."
+    },
+    {
+      "id": "rf-detr-medium",
+      "name": "RF-DETR Medium",
+      "family": "RF-DETR",
+      "source_group": "zoo",
+      "capabilities": [
+        "object-detection"
+      ],
+      "input_modalities": [
+        "image"
+      ],
+      "output_modalities": [
+        "boxes",
+        "classes",
+        "scores"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "medium",
+      "precision": "fp32",
+      "quantization": "none",
+      "artifact_size": "121MB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 93,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI",
+        "huggingface_repo": "mlboydaisuke/RF-DETR-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [
+        {
+          "metric": "inference_latency",
+          "unit": "milliseconds",
+          "value": 14.8,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "macOS 27 beta, median",
+          "observed": "2026-06-29",
+          "confidence": "medium",
+          "precision": "fp32",
+          "notes": "~68 FPS on M4 Max GPU. iPhone 17 Pro 56-63ms / 15-17 FPS."
+        }
+      ],
+      "last_verified": "2026-06-24",
+      "notes": "Object detection; no NMS."
+    },
+    {
+      "id": "rf-detr-large",
+      "name": "RF-DETR Large",
+      "family": "RF-DETR",
+      "source_group": "zoo",
+      "capabilities": [
+        "object-detection"
+      ],
+      "input_modalities": [
+        "image"
+      ],
+      "output_modalities": [
+        "boxes",
+        "classes",
+        "scores"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "large",
+      "precision": "fp32",
+      "quantization": "none",
+      "artifact_size": "122MB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 93,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI",
+        "huggingface_repo": "mlboydaisuke/RF-DETR-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [
+        {
+          "metric": "inference_latency",
+          "unit": "milliseconds",
+          "value": 19.1,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "macOS 27 beta, median",
+          "observed": "2026-06-29",
+          "confidence": "medium",
+          "precision": "fp32",
+          "notes": "~52 FPS on M4 Max GPU."
+        }
+      ],
+      "last_verified": "2026-06-24",
+      "notes": "Object detection; no NMS."
+    },
+    {
+      "id": "rf-detr-seg-nano",
+      "name": "RF-DETR-Seg Nano",
+      "family": "RF-DETR-Seg",
+      "source_group": "zoo",
+      "capabilities": [
+        "instance-segmentation"
+      ],
+      "input_modalities": [
+        "image"
+      ],
+      "output_modalities": [
+        "masks",
+        "boxes",
+        "classes",
+        "scores"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "nano",
+      "precision": "fp32",
+      "quantization": "none",
+      "artifact_size": "108MB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 83,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI",
+        "huggingface_repo": "mlboydaisuke/RF-DETR-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-06-24",
+      "notes": "Instance segmentation."
+    },
+    {
+      "id": "rf-detr-seg-small",
+      "name": "RF-DETR-Seg Small",
+      "family": "RF-DETR-Seg",
+      "source_group": "zoo",
+      "capabilities": [
+        "instance-segmentation"
+      ],
+      "input_modalities": [
+        "image"
+      ],
+      "output_modalities": [
+        "masks",
+        "boxes",
+        "classes",
+        "scores"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "small",
+      "precision": "fp32",
+      "quantization": "none",
+      "artifact_size": "115MB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 83,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI",
+        "huggingface_repo": "mlboydaisuke/RF-DETR-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-06-24",
+      "notes": "Instance segmentation."
+    },
+    {
+      "id": "rf-detr-seg-medium",
+      "name": "RF-DETR-Seg Medium",
+      "family": "RF-DETR-Seg",
+      "source_group": "zoo",
+      "capabilities": [
+        "instance-segmentation"
+      ],
+      "input_modalities": [
+        "image"
+      ],
+      "output_modalities": [
+        "masks",
+        "boxes",
+        "classes",
+        "scores"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "medium",
+      "precision": "fp32",
+      "quantization": "none",
+      "artifact_size": "121MB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 83,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI",
+        "huggingface_repo": "mlboydaisuke/RF-DETR-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-06-24",
+      "notes": "Instance segmentation."
+    },
+    {
+      "id": "rf-detr-seg-large",
+      "name": "RF-DETR-Seg Large",
+      "family": "RF-DETR-Seg",
+      "source_group": "zoo",
+      "capabilities": [
+        "instance-segmentation"
+      ],
+      "input_modalities": [
+        "image"
+      ],
+      "output_modalities": [
+        "masks",
+        "boxes",
+        "classes",
+        "scores"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "large",
+      "precision": "fp32",
+      "quantization": "none",
+      "artifact_size": "122MB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 83,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI",
+        "huggingface_repo": "mlboydaisuke/RF-DETR-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-06-24",
+      "notes": "Instance segmentation."
+    },
+    {
+      "id": "rf-detr-seg-xlarge",
+      "name": "RF-DETR-Seg Xlarge",
+      "family": "RF-DETR-Seg",
+      "source_group": "zoo",
+      "capabilities": [
+        "instance-segmentation"
+      ],
+      "input_modalities": [
+        "image"
+      ],
+      "output_modalities": [
+        "masks",
+        "boxes",
+        "classes",
+        "scores"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "xlarge",
+      "precision": "fp32",
+      "quantization": "none",
+      "artifact_size": "not_published",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 83,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI",
+        "huggingface_repo": "mlboydaisuke/RF-DETR-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-06-24",
+      "notes": "Instance segmentation."
+    },
+    {
+      "id": "rf-detr-seg-2xlarge",
+      "name": "RF-DETR-Seg 2Xlarge",
+      "family": "RF-DETR-Seg",
+      "source_group": "zoo",
+      "capabilities": [
+        "instance-segmentation"
+      ],
+      "input_modalities": [
+        "image"
+      ],
+      "output_modalities": [
+        "masks",
+        "boxes",
+        "classes",
+        "scores"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "2xlarge",
+      "precision": "fp32",
+      "quantization": "none",
+      "artifact_size": "not_published",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 83,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI",
+        "huggingface_repo": "mlboydaisuke/RF-DETR-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-06-24",
+      "notes": "Instance segmentation."
+    },
+    {
+      "id": "adcsr-x4",
+      "name": "AdcSR ×4",
+      "family": "AdcSR",
+      "source_group": "zoo",
+      "capabilities": [
+        "super-resolution"
+      ],
+      "input_modalities": [
+        "image"
+      ],
+      "output_modalities": [
+        "image"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "×4",
+      "precision": "fp32",
+      "quantization": "none",
+      "artifact_size": "1.7GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "Apache-2.0 + OpenRAIL++",
+      "commercial_use": "check_license",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 83,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/AdcSR-CoreAI",
+        "huggingface_repo": "mlboydaisuke/AdcSR-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [
+        {
+          "metric": "inference_latency",
+          "unit": "milliseconds",
+          "value": "not_published",
+          "device": "iPhone 17 Pro",
+          "compute_unit": "GPU",
+          "environment": "iOS 27 beta, 128→512 tile, ~2.7GB peak",
+          "observed": "2026-06-29",
+          "confidence": "low",
+          "precision": "fp32",
+          "notes": "fp32 ship precision; tiling + feather-blend on host. Value not published as single-tile ms; iPhone 17 Pro verified."
+        }
+      ],
+      "last_verified": "2026-06-24",
+      "notes": "Super-resolution; one-step diffusion-GAN."
+    },
+    {
+      "id": "depth-anything-3-small",
+      "name": "Depth Anything 3 Small",
+      "family": "Depth Anything",
+      "source_group": "zoo",
+      "capabilities": [
+        "monocular-depth"
+      ],
+      "input_modalities": [
+        "image"
+      ],
+      "output_modalities": [
+        "depth_map"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "small",
+      "precision": "fp16",
+      "quantization": "none",
+      "artifact_size": "54.5MB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 93,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/Depth-Anything-3-CoreAI",
+        "huggingface_repo": "mlboydaisuke/Depth-Anything-3-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [
+        {
+          "metric": "inference_latency",
+          "unit": "milliseconds",
+          "value": 15.2,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "macOS 27 beta",
+          "observed": "2026-06-29",
+          "confidence": "medium",
+          "precision": "fp16",
+          "notes": "~65.7 FPS; 54.5 MB. iPhone hero config."
+        }
+      ],
+      "last_verified": "2026-06-24",
+      "notes": "Monocular depth; small variant."
+    },
+    {
+      "id": "depth-anything-3-base",
+      "name": "Depth Anything 3 Base",
+      "family": "Depth Anything",
+      "source_group": "zoo",
+      "capabilities": [
+        "monocular-depth"
+      ],
+      "input_modalities": [
+        "image"
+      ],
+      "output_modalities": [
+        "depth_map"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "base",
+      "precision": "fp16",
+      "quantization": "none",
+      "artifact_size": "202MB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 93,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/Depth-Anything-3-CoreAI",
+        "huggingface_repo": "mlboydaisuke/Depth-Anything-3-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [
+        {
+          "metric": "inference_latency",
+          "unit": "milliseconds",
+          "value": 37.7,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "macOS 27 beta",
+          "observed": "2026-06-29",
+          "confidence": "medium",
+          "precision": "fp16",
+          "notes": "~26.5 FPS; 202 MB."
+        }
+      ],
+      "last_verified": "2026-06-24",
+      "notes": "Monocular depth; base variant."
+    },
+    {
+      "id": "official-gpt-oss-20b",
+      "name": "gpt-oss-20B",
+      "family": "gpt-oss",
+      "source_group": "official",
+      "capabilities": [
+        "chat",
+        "text-generation",
+        "moe"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [
+        "mac"
+      ],
+      "parameters": "20B / ~13GB",
+      "precision": "MXFP4",
+      "quantization": "MXFP4",
+      "artifact_size": "13GB",
+      "runtime": "apple-core-ai",
+      "runner": "stock-runner",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "high",
+      "readiness_score": 85,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/gpt-oss-20b-CoreAI-official",
+        "huggingface_repo": "mlboydaisuke/gpt-oss-20b-CoreAI-official",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": true,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 78.1,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "stock CoreAI runtime, M4 Max",
+          "observed": "2026-06-25",
+          "confidence": "medium",
+          "precision": "inferred:MXFP4",
+          "notes": "Decode throughput from upstream official/ performance table (512/1024 greedy, 5 trials)."
+        }
+      ],
+      "last_verified": "2026-06-24",
+      "notes": "Official-recipe conversion; stock runtime."
+    },
+    {
+      "id": "official-qwen3-0-6b",
+      "name": "Qwen3 0.6B",
+      "family": "Qwen",
+      "source_group": "official",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "0.6B",
+      "precision": "int4",
+      "quantization": "palettized",
+      "artifact_size": "not_published",
+      "runtime": "apple-core-ai",
+      "runner": "stock-runner",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": true,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "high",
+      "readiness_score": 90,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/qwen3-0.6b-CoreAI-official",
+        "huggingface_repo": "mlboydaisuke/qwen3-0.6b-CoreAI-official",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": true,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 484,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "stock CoreAI runtime, M4 Max",
+          "observed": "2026-06-25",
+          "confidence": "medium",
+          "precision": "inferred:int4",
+          "notes": "Decode throughput from upstream official/ performance table (512/1024 greedy, 5 trials)."
+        },
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 1121,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "macOS 26",
+          "observed": "2026-06-24",
+          "confidence": "needs_review",
+          "precision": "inferred:int4",
+          "notes": "Figure recorded at catalog authoring (macOS 26); not reproduced in current upstream, which reports 484 tok/s on M4 Max (macOS 27 beta). Retained for provenance."
+        }
+      ],
+      "last_verified": "2026-06-24",
+      "notes": "Official-recipe conversion; stock runtime."
+    },
+    {
+      "id": "official-qwen3-4b",
+      "name": "Qwen3 4B",
+      "family": "Qwen",
+      "source_group": "official",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "4B",
+      "precision": "int4",
+      "quantization": "palettized",
+      "artifact_size": "not_published",
+      "runtime": "apple-core-ai",
+      "runner": "stock-runner",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": true,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "high",
+      "readiness_score": 90,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/qwen3-4b-CoreAI-official",
+        "huggingface_repo": "mlboydaisuke/qwen3-4b-CoreAI-official",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": true,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 145.4,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "stock CoreAI runtime, M4 Max",
+          "observed": "2026-06-25",
+          "confidence": "medium",
+          "precision": "inferred:int4",
+          "notes": "Decode throughput from upstream official/ performance table (512/1024 greedy, 5 trials)."
+        }
+      ],
+      "last_verified": "2026-06-24",
+      "notes": "Official-recipe conversion; stock runtime."
+    },
+    {
+      "id": "official-qwen3-8b",
+      "name": "Qwen3 8B",
+      "family": "Qwen",
+      "source_group": "official",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [
+        "mac"
+      ],
+      "parameters": "8B",
+      "precision": "int4",
+      "quantization": "palettized",
+      "artifact_size": "not_published",
+      "runtime": "apple-core-ai",
+      "runner": "stock-runner",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": true,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "high",
+      "readiness_score": 80,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/qwen3-8b-CoreAI-official",
+        "huggingface_repo": "mlboydaisuke/qwen3-8b-CoreAI-official",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": true,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 94.1,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "stock CoreAI runtime, M4 Max",
+          "observed": "2026-06-25",
+          "confidence": "medium",
+          "precision": "inferred:int4",
+          "notes": "Decode throughput from upstream official/ performance table (512/1024 greedy, 5 trials)."
+        }
+      ],
+      "last_verified": "2026-06-24",
+      "notes": "Official-recipe conversion; stock runtime."
+    },
+    {
+      "id": "official-gemma-3-4b-it",
+      "name": "Gemma 3 4B IT",
+      "family": "Gemma",
+      "source_group": "official",
+      "capabilities": [
+        "chat",
+        "instruction-following",
+        "text-generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [
+        "mac"
+      ],
+      "parameters": "4B",
+      "precision": "int4",
+      "quantization": "palettized",
+      "artifact_size": "not_published",
+      "runtime": "apple-core-ai",
+      "runner": "stock-runner",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": true,
+      "license": "Gemma Terms",
+      "commercial_use": "check_license",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "high",
+      "readiness_score": 70,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/gemma-3-4b-it-CoreAI-official",
+        "huggingface_repo": "mlboydaisuke/gemma-3-4b-it-CoreAI-official",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": true,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 141.5,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "stock CoreAI runtime, M4 Max",
+          "observed": "2026-06-25",
+          "confidence": "medium",
+          "precision": "inferred:int4",
+          "notes": "Decode throughput from upstream official/ performance table (512/1024 greedy, 5 trials)."
+        }
+      ],
+      "last_verified": "2026-06-24",
+      "notes": "Official-recipe conversion; stock runtime."
+    },
+    {
+      "id": "official-gemma-3-12b-it",
+      "name": "Gemma 3 12B IT",
+      "family": "Gemma",
+      "source_group": "official",
+      "capabilities": [
+        "chat",
+        "instruction-following",
+        "text-generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [
+        "mac"
+      ],
+      "parameters": "12B",
+      "precision": "int4",
+      "quantization": "palettized",
+      "artifact_size": "not_published",
+      "runtime": "apple-core-ai",
+      "runner": "stock-runner",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": true,
+      "license": "Gemma Terms",
+      "commercial_use": "check_license",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "high",
+      "readiness_score": 70,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/gemma-3-12b-it-CoreAI-official",
+        "huggingface_repo": "mlboydaisuke/gemma-3-12b-it-CoreAI-official",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": true,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 55.0,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "stock CoreAI runtime, M4 Max",
+          "observed": "2026-06-25",
+          "confidence": "medium",
+          "precision": "inferred:int4",
+          "notes": "Decode throughput from upstream official/ performance table (512/1024 greedy, 5 trials)."
+        }
+      ],
+      "last_verified": "2026-06-24",
+      "notes": "Official-recipe conversion; stock runtime."
+    },
+    {
+      "id": "official-mistral-7b-v0-3",
+      "name": "Mistral 7B v0.3",
+      "family": "Mistral",
+      "source_group": "official",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [
+        "mac"
+      ],
+      "parameters": "7B",
+      "precision": "int4",
+      "quantization": "palettized",
+      "artifact_size": "not_published",
+      "runtime": "apple-core-ai",
+      "runner": "stock-runner",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": true,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "high",
+      "readiness_score": 80,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/mistral-7b-v0.3-CoreAI-official",
+        "huggingface_repo": "mlboydaisuke/mistral-7b-v0.3-CoreAI-official",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": true,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 101.7,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "stock CoreAI runtime, M4 Max",
+          "observed": "2026-06-25",
+          "confidence": "medium",
+          "precision": "inferred:int4",
+          "notes": "Decode throughput from upstream official/ performance table (512/1024 greedy, 5 trials)."
+        }
+      ],
+      "last_verified": "2026-06-24",
+      "notes": "Official-recipe conversion; stock runtime."
+    },
+    {
+      "id": "official-flux-2-klein-4b",
+      "name": "FLUX.2 klein 4B",
+      "family": "FLUX",
+      "source_group": "official",
+      "capabilities": [
+        "image-generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "image"
+      ],
+      "devices": [
+        "mac"
+      ],
+      "parameters": "4B / ~4GB",
+      "precision": "int4",
+      "quantization": "int4-per-block",
+      "artifact_size": "4GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIDiffusionPipeline",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "high",
+      "readiness_score": 85,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/FLUX.2-klein-4B-CoreAI",
+        "huggingface_repo": "mlboydaisuke/FLUX.2-klein-4B-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": true,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [
+        {
+          "metric": "image_generation_latency",
+          "unit": "seconds",
+          "value": 17.4,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "stock CoreAI runtime, M4 Max",
+          "observed": "2026-06-25",
+          "confidence": "medium",
+          "precision": "inferred:int4",
+          "notes": "From upstream official/ table. 1024px at 4 steps; stock CoreAIDiffusionPipeline."
+        }
+      ],
+      "last_verified": "2026-06-24",
+      "notes": "Official diffusion export; stock CoreAIDiffusionPipeline."
+    },
+    {
+      "id": "official-sam-3",
+      "name": "SAM 3",
+      "family": "SAM",
+      "source_group": "official",
+      "capabilities": [
+        "promptable-segmentation"
+      ],
+      "input_modalities": [
+        "image",
+        "text"
+      ],
+      "output_modalities": [
+        "masks",
+        "boxes",
+        "scores"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "~1.7GB",
+      "precision": "fp16",
+      "quantization": "none",
+      "artifact_size": "1.7GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIImageSegmenter",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": true,
+      "license": "Meta SAM License",
+      "commercial_use": "check_license",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "high",
+      "readiness_score": 80,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/sam3-CoreAI-official",
+        "huggingface_repo": "mlboydaisuke/sam3-CoreAI-official",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": true,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [
+        {
+          "metric": "segmentation_latency",
+          "unit": "seconds_per_image",
+          "value": 0.55,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "stock CoreAI runtime, M4 Max",
+          "observed": "2026-06-25",
+          "confidence": "medium",
+          "precision": "inferred:fp16",
+          "notes": "From upstream official/ table. Warm; stock CoreAIImageSegmenter."
+        }
+      ],
+      "last_verified": "2026-06-24",
+      "notes": "Promptable open-vocabulary segmentation; stock CoreAIImageSegmenter."
+    },
+    {
+      "id": "official-whisper-large-v3-turbo",
+      "name": "Whisper large-v3-turbo",
+      "family": "Whisper",
+      "source_group": "official",
+      "capabilities": [
+        "speech-to-text"
+      ],
+      "input_modalities": [
+        "audio"
+      ],
+      "output_modalities": [
+        "transcript"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "809M / ~1.5GB",
+      "precision": "fp16",
+      "quantization": "none",
+      "artifact_size": "1.5GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAITranscribe",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": true,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "high",
+      "readiness_score": 90,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/whisper-large-v3-turbo-CoreAI-official",
+        "huggingface_repo": "mlboydaisuke/whisper-large-v3-turbo-CoreAI-official",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": true,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [
+        {
+          "metric": "transcription_latency",
+          "unit": "milliseconds",
+          "value": 180,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "stock CoreAI runtime, M4 Max",
+          "observed": "2026-06-25",
+          "confidence": "medium",
+          "precision": "inferred:fp16",
+          "notes": "From upstream official/ table. Warm; stock CoreAITranscribe."
+        }
+      ],
+      "last_verified": "2026-06-24",
+      "notes": "Bundle includes tokenizer and mel filterbank."
+    },
+    {
+      "id": "minicpm5-1b",
+      "name": "MiniCPM5-1B",
+      "family": "MiniCPM",
+      "source_group": "zoo",
+      "capabilities": [
+        "chat",
+        "text-generation",
+        "reasoning"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "1.08B",
+      "precision": "int8",
+      "quantization": "int8",
+      "artifact_size": "1.0GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 83,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/MiniCPM5-1B-CoreAI",
+        "huggingface_repo": "mlboydaisuke/MiniCPM5-1B-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 66.8,
+          "device": "iPhone 17 Pro",
+          "compute_unit": "GPU",
+          "environment": "iOS 27 beta, coreai-pipelined engine",
+          "observed": "2026-06-29",
+          "confidence": "medium",
+          "precision": "int8",
+          "notes": "Decode throughput from upstream README table. int8 lossless (24/24 exact vs HF)."
+        },
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 59.4,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "macOS 27 beta, coreai-pipelined engine",
+          "observed": "2026-06-29",
+          "confidence": "medium",
+          "precision": "int8",
+          "notes": "Decode throughput from upstream README table."
+        }
+      ],
+      "last_verified": "2026-06-29",
+      "notes": "Hybrid Think/No-Think reasoning; 128K context; int8 lossless (24/24 exact vs HF)."
+    },
+    {
+      "id": "fastcontext-1-0-4b",
+      "name": "FastContext-1.0-4B",
+      "family": "FastContext",
+      "source_group": "zoo",
+      "capabilities": [
+        "chat",
+        "text-generation",
+        "agentic"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "4B",
+      "precision": "int4",
+      "quantization": "int4",
+      "artifact_size": "2.1GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": true,
+      "license": "MIT",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 78,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/FastContext-1.0-4B-CoreAI",
+        "huggingface_repo": "mlboydaisuke/FastContext-1.0-4B-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 20.4,
+          "device": "iPhone 17 Pro",
+          "compute_unit": "GPU",
+          "environment": "iOS 27 beta, coreai-pipelined engine, AOT h18p",
+          "observed": "2026-06-29",
+          "confidence": "medium",
+          "precision": "int4",
+          "notes": "Decode throughput from upstream README table. ANE inference unsupported."
+        }
+      ],
+      "last_verified": "2026-06-29",
+      "notes": "Repository-exploration agent (Microsoft); Qwen3-4B arch; AOT h18p; ANE unsupported."
+    },
+    {
+      "id": "bitcpm-8b",
+      "name": "BitCPM-8B",
+      "family": "BitCPM",
+      "source_group": "zoo",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "8B / ternary {-1,0,+1}",
+      "precision": "1.58-bit ternary",
+      "quantization": "ternary-TQ2.0",
+      "artifact_size": "2.1GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": true,
+      "patch_required": true,
+      "aot_required": true,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 68,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/BitCPM-8B-CoreAI",
+        "huggingface_repo": "mlboydaisuke/BitCPM-8B-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 17,
+          "device": "iPhone 17 Pro",
+          "compute_unit": "GPU",
+          "environment": "iOS 27 beta, coreai-pipelined engine, AOT h18p",
+          "observed": "2026-06-29",
+          "confidence": "medium",
+          "precision": "1.58-bit ternary",
+          "notes": "Decode throughput from upstream README table. Custom 2-bit packed-GEMM kernel; ~2.1 GB resident."
+        },
+        {
+          "metric": "decode_throughput",
+          "unit": "tokens_per_second",
+          "value": 62.7,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "macOS 27 beta, coreai-pipelined engine",
+          "observed": "2026-06-29",
+          "confidence": "medium",
+          "precision": "1.58-bit ternary",
+          "notes": "Decode throughput from upstream README table. Engine token-identical to torch ternary reference."
+        }
+      ],
+      "last_verified": "2026-06-29",
+      "notes": "First 1.58-bit ternary LLM; custom 2-bit packed-GEMM Metal kernel; ~2.1 GB resident on iPhone."
+    },
+    {
+      "id": "holo2-4b",
+      "name": "Holo2-4B",
+      "family": "Holo",
+      "source_group": "zoo",
+      "capabilities": [
+        "vision-language",
+        "gui-grounding"
+      ],
+      "input_modalities": [
+        "image",
+        "text"
+      ],
+      "output_modalities": [
+        "coordinates"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "4B",
+      "precision": "int8",
+      "quantization": "int8",
+      "artifact_size": "not_published",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 73,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/Holo2-4B-CoreAI",
+        "huggingface_repo": "mlboydaisuke/Holo2-4B-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-06-29",
+      "notes": "GUI-grounding / computer-use VLM (H Company); Qwen3-VL-4B backbone; screenshot → click coordinates."
+    },
+    {
+      "id": "colmodernvbert",
+      "name": "ColModernVBERT",
+      "family": "ModernVBERT",
+      "source_group": "zoo",
+      "capabilities": [
+        "visual-document-retrieval"
+      ],
+      "input_modalities": [
+        "image",
+        "text"
+      ],
+      "output_modalities": [
+        "vector"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "250M",
+      "precision": "fp16",
+      "quantization": "none",
+      "artifact_size": "705MB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIKit-GraphModel",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "MIT",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 83,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/ColModernVBERT-CoreAI",
+        "huggingface_repo": "mlboydaisuke/ColModernVBERT-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-06-29",
+      "notes": "Visual document retriever; ColBERT/MaxSim late-interaction; ModernBERT + SigLIP2."
+    },
+    {
+      "id": "qwen3-asr-1-7b",
+      "name": "Qwen3-ASR-1.7B",
+      "family": "Qwen",
+      "source_group": "zoo",
+      "capabilities": [
+        "speech-to-text"
+      ],
+      "input_modalities": [
+        "audio"
+      ],
+      "output_modalities": [
+        "transcript"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "1.7B",
+      "precision": "int8",
+      "quantization": "int8lin",
+      "artifact_size": "not_published",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 73,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen3-ASR-1.7B-CoreAI",
+        "huggingface_repo": "mlboydaisuke/Qwen3-ASR-1.7B-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-06-29",
+      "notes": "Zoo's first ASR; AuT encoder + Qwen3 decoder; 52 languages."
+    },
+    {
+      "id": "parakeet-tdt-0-6b",
+      "name": "Parakeet-TDT-0.6B",
+      "family": "Parakeet",
+      "source_group": "zoo",
+      "capabilities": [
+        "speech-to-text"
+      ],
+      "input_modalities": [
+        "audio"
+      ],
+      "output_modalities": [
+        "transcript"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "0.6B",
+      "precision": "fp16",
+      "quantization": "none",
+      "artifact_size": "1.2GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIKit-GraphModel",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": true,
+      "license": "CC-BY-4.0",
+      "commercial_use": "check_license",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 78,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/Parakeet-TDT-0.6B-CoreAI",
+        "huggingface_repo": "mlboydaisuke/Parakeet-TDT-0.6B-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [
+        {
+          "metric": "realtime_factor",
+          "unit": "realtime_factor",
+          "value": 47.9,
+          "device": "iPhone 17 Pro",
+          "compute_unit": "GPU",
+          "environment": "iOS 27 beta, Release, AOT h18p encoder",
+          "observed": "2026-06-29",
+          "confidence": "medium",
+          "precision": "fp16",
+          "notes": "14.84s clip transcribes in 0.31s warm (47.9× real-time). AOT-compiled encoder bundle."
+        },
+        {
+          "metric": "transcription_latency",
+          "unit": "milliseconds",
+          "value": 310,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "macOS 27 beta, warm, 14.84s clip",
+          "observed": "2026-06-29",
+          "confidence": "medium",
+          "precision": "fp16",
+          "notes": "0.31s for a 14.84s clip warm; AOT-compiled encoder bundle loads in 3.9s."
+        }
+      ],
+      "last_verified": "2026-06-29",
+      "notes": "First transducer/TDT (RNN-T); NVIDIA FastConformer + LSTM predictor; 25 EU languages; iPhone 47.9× realtime."
+    },
+    {
+      "id": "voxcpm2-2b",
+      "name": "VoxCPM2 2B",
+      "family": "VoxCPM",
+      "source_group": "zoo",
+      "capabilities": [
+        "text-to-speech"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "audio"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "2B",
+      "precision": "int8",
+      "quantization": "int8",
+      "artifact_size": "4.9GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": true,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 68,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/VoxCPM2-CoreAI",
+        "huggingface_repo": "mlboydaisuke/VoxCPM2-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-06-29",
+      "notes": "2B successor at 48 kHz; MiniCPM4 28L LM + LocDiT-12L flow-matching + 48 kHz AudioVAE."
+    },
+    {
+      "id": "yolox-s",
+      "name": "YOLOX-S",
+      "family": "YOLOX",
+      "source_group": "zoo",
+      "capabilities": [
+        "object-detection"
+      ],
+      "input_modalities": [
+        "image"
+      ],
+      "output_modalities": [
+        "boxes",
+        "classes",
+        "scores"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "8.97M",
+      "precision": "fp32",
+      "quantization": "none",
+      "artifact_size": "36.2MB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIKit-GraphModel",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 93,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/YOLOX-S-CoreAI",
+        "huggingface_repo": "mlboydaisuke/YOLOX-S-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [
+        {
+          "metric": "inference_latency",
+          "unit": "milliseconds",
+          "value": 4.8,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "macOS 27 beta, median of 80",
+          "observed": "2026-06-29",
+          "confidence": "medium",
+          "precision": "fp32",
+          "notes": "Median inference latency; 208 FPS on M4 Max GPU."
+        },
+        {
+          "metric": "inference_latency",
+          "unit": "milliseconds",
+          "value": 22,
+          "device": "iPhone 17 Pro",
+          "compute_unit": "GPU",
+          "environment": "iOS 27 beta, Release, Low Power Mode ON",
+          "observed": "2026-06-29",
+          "confidence": "medium",
+          "precision": "fp32",
+          "notes": "~45 model FPS on-device; first load specializes in ~2.6s."
+        }
+      ],
+      "last_verified": "2026-06-29",
+      "notes": "First single-stage anchor-free detector (YOLO family); CSPDarknet + PAFPN; per-class NMS; 208 FPS on M4 Max GPU."
+    },
+    {
+      "id": "tripo-splat",
+      "name": "TripoSplat",
+      "family": "TripoSplat",
+      "source_group": "zoo",
+      "capabilities": [
+        "image-to-3d"
+      ],
+      "input_modalities": [
+        "image"
+      ],
+      "output_modalities": [
+        "gaussian-splats"
+      ],
+      "devices": [
+        "mac"
+      ],
+      "parameters": "not_published",
+      "precision": "fp16",
+      "quantization": "none",
+      "artifact_size": "not_published",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "MIT",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 63,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/TripoSplat-CoreAI",
+        "huggingface_repo": "mlboydaisuke/TripoSplat-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-06-29",
+      "notes": "Single image → 3D Gaussian splats; DINOv3 ViT-H + 20-step flow-matching DiT; .ply/.splat → RealityKit / MetalSplatter; VAST; Mac-only."
+    },
+    {
+      "id": "ltx-video-2b",
+      "name": "LTX-Video 2B distilled",
+      "family": "LTX-Video",
+      "source_group": "zoo",
+      "capabilities": [
+        "text-to-video"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "video"
+      ],
+      "devices": [
+        "mac"
+      ],
+      "parameters": "2B / DiT 1.9B + T5-XXL 4.76B",
+      "precision": "fp16",
+      "quantization": "none",
+      "artifact_size": "13.5GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIVideoPipeline",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "OpenRAIL-M",
+      "commercial_use": "check_license",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 63,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/LTX-Video-2B-CoreAI",
+        "huggingface_repo": "mlboydaisuke/LTX-Video-2B-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-06-29",
+      "notes": "First video model; T5-XXL + 8-step flow-matching DiT + causal video VAE; 512×768×49f ~14s Mac GPU; Lightricks; Mac-only."
+    },
+    {
+      "id": "official-qwen3-1-7b",
+      "name": "Qwen3 1.7B",
+      "family": "Qwen",
+      "source_group": "official",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "1.7B",
+      "precision": "int4",
+      "quantization": "palettized",
+      "artifact_size": "not_published",
+      "runtime": "apple-core-ai",
+      "runner": "stock-runner",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": true,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 78,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/qwen3-1.7b-CoreAI-official",
+        "huggingface_repo": "mlboydaisuke/qwen3-1.7b-CoreAI-official",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": true,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-06-29",
+      "notes": "Fills the missing 1.7B rung in the dense Qwen3 Core AI line. GPU-only — ANE export omitted (loads but fails on iOS 27)."
+    },
+    {
+      "id": "official-clip-vit-base-patch32",
+      "name": "CLIP ViT-B/32",
+      "family": "CLIP",
+      "source_group": "official",
+      "capabilities": [
+        "image-text-similarity"
+      ],
+      "input_modalities": [
+        "image",
+        "text"
+      ],
+      "output_modalities": [
+        "vector"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "151M",
+      "precision": "fp16",
+      "quantization": "none",
+      "artifact_size": "not_published",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIKit-GraphModel",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "MIT",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 83,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/clip-vit-base-patch32-CoreAI-official",
+        "huggingface_repo": "mlboydaisuke/clip-vit-base-patch32-CoreAI-official",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": true,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-06-29",
+      "notes": "Official recipe CLIP export (models/clip/export.py); fp16 static; text padded to 77 tokens for free-text queries. Image+text → cosine similarity."
+    },
+    {
+      "id": "llada-8b-dllm",
+      "name": "LLaDA-8B dLLM",
+      "family": "LLaDA",
+      "source_group": "zoo",
+      "capabilities": [
+        "chat",
+        "text-generation",
+        "diffusion-lm"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [
+        "mac"
+      ],
+      "parameters": "8B",
+      "precision": "int4",
+      "quantization": "int4-per-block-32",
+      "artifact_size": "4.9GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "MIT",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 63,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/LLaDA-8B-dLLM-CoreAI",
+        "huggingface_repo": "mlboydaisuke/LLaDA-8B-dLLM-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-06-29",
+      "notes": "First diffusion LM (dLLM) on Core AI. Masked bidirectional text generation, no KV cache. int4 viable (not a cliff). ~38 tok/s at threshold 1.0."
+    },
+    {
+      "id": "bitvla",
+      "name": "BitVLA",
+      "family": "BitVLA",
+      "source_group": "zoo",
+      "capabilities": [
+        "vision-language-action",
+        "robotics"
+      ],
+      "input_modalities": [
+        "image",
+        "text"
+      ],
+      "output_modalities": [
+        "action-tokens"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "2B (BitNet b1.58)",
+      "precision": "1.58-bit ternary",
+      "quantization": "ternary-W1.58-A8",
+      "artifact_size": "not_published",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": true,
+      "patch_required": true,
+      "aot_required": false,
+      "license": "MIT",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 63,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/BitVLA-CoreAI",
+        "huggingface_repo": "mlboydaisuke/BitVLA-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-06-29",
+      "notes": "First VLA / robotics model on Core AI. 1.58-bit ternary VLA: BitNet LLM + BitSigLIP vision → 7-DoF robot action. Generalized ternary kernel (arbitrary K/N)."
+    },
+    {
+      "id": "stable-audio-open-small",
+      "name": "Stable Audio Open Small",
+      "family": "Stable Audio",
+      "source_group": "zoo",
+      "capabilities": [
+        "text-to-audio",
+        "music-generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "audio"
+      ],
+      "devices": [
+        "mac"
+      ],
+      "parameters": "not_published",
+      "precision": "fp16",
+      "quantization": "none",
+      "artifact_size": "1GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIDiffusionPipeline",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "Stability Community",
+      "commercial_use": "check_license",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 63,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/Stable-Audio-Open-Small-CoreAI",
+        "huggingface_repo": "mlboydaisuke/Stable-Audio-Open-Small-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-06-29",
+      "notes": "First generative audio model. Latent diffusion: T5 encoder + DiT (8-step rectified-flow) + Oobleck VAE. ~11s 44.1 kHz stereo in ~0.4s on M4 Max (≈30× real-time)."
+    },
+    {
+      "id": "whisper-large-v3-turbo-carstenl",
+      "name": "Whisper large-v3-turbo (CarstenL)",
+      "family": "Whisper",
+      "source_group": "external",
+      "capabilities": [
+        "speech-to-text"
+      ],
+      "input_modalities": [
+        "audio"
+      ],
+      "output_modalities": [
+        "transcript"
+      ],
+      "devices": [
+        "mac"
+      ],
+      "parameters": "809M",
+      "precision": "fp16",
+      "quantization": "none",
+      "artifact_size": "3.1GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAITranscribe",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "active",
+      "confidence": "medium",
+      "readiness_score": 78,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/CarstenL/whisper-large-v3-turbo-coreai",
+        "huggingface_repo": "CarstenL/whisper-large-v3-turbo-coreai",
+        "github_source": "CarstenL/whisper-large-v3-turbo-coreai",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": false
+      },
+      "benchmarks": [],
+      "last_verified": "2026-06-30",
+      "notes": "Independent conversion with split encoder/decoder .aimodel bundles. 99 languages."
+    },
+    {
+      "id": "whisper-tiny-en-intiser",
+      "name": "Whisper tiny.en (Intiser)",
+      "family": "Whisper",
+      "source_group": "external",
+      "capabilities": [
+        "speech-to-text"
+      ],
+      "input_modalities": [
+        "audio"
+      ],
+      "output_modalities": [
+        "transcript"
+      ],
+      "devices": [
+        "mac"
+      ],
+      "parameters": "39M",
+      "precision": "fp16",
+      "quantization": "none",
+      "artifact_size": "not_published",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAITranscribe",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "MIT",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "active",
+      "confidence": "medium",
+      "readiness_score": 78,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/Intiser/whisper-tiny-en-coreai",
+        "huggingface_repo": "Intiser/whisper-tiny-en-coreai",
+        "github_source": "Intiser/whisper-coreai",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": false
+      },
+      "benchmarks": [],
+      "last_verified": "2026-06-30",
+      "notes": "English-only Whisper tiny variant. Minimal footprint ASR."
+    },
+    {
+      "id": "whisper-medium-intiser",
+      "name": "Whisper medium (Intiser)",
+      "family": "Whisper",
+      "source_group": "external",
+      "capabilities": [
+        "speech-to-text"
+      ],
+      "input_modalities": [
+        "audio"
+      ],
+      "output_modalities": [
+        "transcript"
+      ],
+      "devices": [
+        "mac"
+      ],
+      "parameters": "769M",
+      "precision": "fp16",
+      "quantization": "none",
+      "artifact_size": "not_published",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAITranscribe",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "MIT",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "active",
+      "confidence": "medium",
+      "readiness_score": 78,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/Intiser/whisper-medium-coreai",
+        "huggingface_repo": "Intiser/whisper-medium-coreai",
+        "github_source": "Intiser/whisper-coreai",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": false
+      },
+      "benchmarks": [],
+      "last_verified": "2026-06-30",
+      "notes": "Multilingual Whisper medium variant."
+    },
+    {
+      "id": "gemma-4-12b-mm-warshanks",
+      "name": "Gemma 4 12B IT Multimodal (warshanks)",
+      "family": "Gemma",
+      "source_group": "external",
+      "capabilities": [
+        "chat",
+        "vision-language",
+        "text-generation"
+      ],
+      "input_modalities": [
+        "text",
+        "image",
+        "audio"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [
+        "mac"
+      ],
+      "parameters": "12B",
+      "precision": "int4",
+      "quantization": "int4linsym",
+      "artifact_size": "6.4GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": true,
+      "aot_required": false,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 58,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/warshanks/gemma-4-12B-it-coreai",
+        "huggingface_repo": "warshanks/gemma-4-12B-it-coreai",
+        "github_source": "warshanks/gemma-4-12B-it-coreai",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": false
+      },
+      "benchmarks": [],
+      "last_verified": "2026-06-30",
+      "notes": "First multimodal Gemma 4 conversion: text+image+audio input via encoder-free architecture. Custom conversion recipe extending coreai-models. INT4 block-32 weight-only decoder. Multi-function bundle (main, prefill_multimodal, embed_vision, embed_audio)."
+    },
+    {
+      "id": "gemma-4-12b-assistant-warshanks",
+      "name": "Gemma 4 12B IT Assistant (MTP draft)",
+      "family": "Gemma",
+      "source_group": "external",
+      "capabilities": [
+        "speculative-decoding"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [
+        "mac"
+      ],
+      "parameters": "12B",
+      "precision": "int4",
+      "quantization": "int4linsym",
+      "artifact_size": "not_published",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": true,
+      "aot_required": false,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 68,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/warshanks/gemma-4-12B-it-assistant-coreai",
+        "huggingface_repo": "warshanks/gemma-4-12B-it-assistant-coreai",
+        "github_source": "warshanks/gemma-4-12B-it-assistant-coreai",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": false
+      },
+      "benchmarks": [
+        {
+          "metric": "inference_latency",
+          "unit": "milliseconds",
+          "value": 3,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "macOS 27 beta, Core AI, draft model step",
+          "observed": "2026-06-30",
+          "confidence": "medium",
+          "precision": "int4",
+          "notes": "~3ms per draft step vs ~21ms for the 12B main model."
+        }
+      ],
+      "last_verified": "2026-06-30",
+      "notes": "Multi-token-prediction draft model for speculative decoding with Gemma 4 12B. Cross-attends main model KV cache (layers 46/47) zero-copy. ~3ms/step on M4 Max vs ~21ms for the 12B. Companion to warshanks/gemma-4-12B-it-coreai."
+    },
+    {
+      "id": "vibevoice-0-5b",
+      "name": "VibeVoice 0.5B",
+      "family": "VibeVoice",
+      "source_group": "external",
+      "capabilities": [
+        "text-to-speech"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "audio"
+      ],
+      "devices": [
+        "mac"
+      ],
+      "parameters": "0.5B",
+      "precision": "fp16",
+      "quantization": "int4",
+      "artifact_size": "not_published",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "MIT",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 73,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/gafiatulin/vibevoice-0.5b-coreai",
+        "huggingface_repo": "gafiatulin/vibevoice-0.5b-coreai",
+        "github_source": "gafiatulin/vibevoice-coreai",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": false
+      },
+      "benchmarks": [
+        {
+          "metric": "realtime_factor",
+          "unit": "realtime_factor",
+          "value": 10.2,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "macOS 27 beta, Core AI",
+          "observed": "2026-06-30",
+          "confidence": "medium",
+          "precision": "fp16",
+          "notes": "10.2x faster than real-time streaming TTS."
+        }
+      ],
+      "last_verified": "2026-06-30",
+      "notes": "Streaming TTS with 0.5B Qwen2 backbone. 10.2x RTF on M4 Max. Multi-bundle pipeline: LM + diffusion sampler + acoustic decoder/connector. Microsoft VibeVoice original weights."
+    },
+    {
+      "id": "vibevoice-1-5b",
+      "name": "VibeVoice 1.5B",
+      "family": "VibeVoice",
+      "source_group": "external",
+      "capabilities": [
+        "text-to-speech"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "audio"
+      ],
+      "devices": [
+        "mac"
+      ],
+      "parameters": "1.5B",
+      "precision": "fp16",
+      "quantization": "int8",
+      "artifact_size": "not_published",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "MIT",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 73,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/gafiatulin/vibevoice-1.5b-coreai",
+        "huggingface_repo": "gafiatulin/vibevoice-1.5b-coreai",
+        "github_source": "gafiatulin/vibevoice-coreai",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": false
+      },
+      "benchmarks": [
+        {
+          "metric": "realtime_factor",
+          "unit": "realtime_factor",
+          "value": 4.99,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "macOS 27 beta, Core AI",
+          "observed": "2026-06-30",
+          "confidence": "medium",
+          "precision": "int8",
+          "notes": "4.99x RTF multi-speaker TTS with INT8 LM."
+        }
+      ],
+      "last_verified": "2026-06-30",
+      "notes": "Multi-speaker TTS with 1.5B Qwen2 backbone. INT8 LM. 4.99x RTF on M4 Max."
+    },
+    {
+      "id": "vibevoice-7b",
+      "name": "VibeVoice 7B",
+      "family": "VibeVoice",
+      "source_group": "external",
+      "capabilities": [
+        "text-to-speech"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "audio"
+      ],
+      "devices": [
+        "mac"
+      ],
+      "parameters": "7B",
+      "precision": "fp16",
+      "quantization": "int8",
+      "artifact_size": "not_published",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "MIT",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 73,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/gafiatulin/vibevoice-7b-coreai",
+        "huggingface_repo": "gafiatulin/vibevoice-7b-coreai",
+        "github_source": "gafiatulin/vibevoice-coreai",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": false
+      },
+      "benchmarks": [
+        {
+          "metric": "realtime_factor",
+          "unit": "realtime_factor",
+          "value": 2.37,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "macOS 27 beta, Core AI",
+          "observed": "2026-06-30",
+          "confidence": "medium",
+          "precision": "int8",
+          "notes": "2.37x RTF high-quality multi-speaker TTS with INT8/4 LM."
+        }
+      ],
+      "last_verified": "2026-06-30",
+      "notes": "High-quality multi-speaker TTS with 7B Qwen2 backbone. INT8/4 LM. 2.37x RTF on M4 Max."
+    },
+    {
+      "id": "vibevoice-asr",
+      "name": "VibeVoice ASR",
+      "family": "VibeVoice",
+      "source_group": "external",
+      "capabilities": [
+        "speech-to-text"
+      ],
+      "input_modalities": [
+        "audio"
+      ],
+      "output_modalities": [
+        "transcript"
+      ],
+      "devices": [
+        "mac"
+      ],
+      "parameters": "7B",
+      "precision": "fp16",
+      "quantization": "int8",
+      "artifact_size": "not_published",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "MIT",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 73,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/gafiatulin/vibevoice-asr-coreai",
+        "huggingface_repo": "gafiatulin/vibevoice-asr-coreai",
+        "github_source": "gafiatulin/vibevoice-coreai",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": false
+      },
+      "benchmarks": [
+        {
+          "metric": "realtime_factor",
+          "unit": "realtime_factor",
+          "value": 11.1,
+          "device": "M4 Max",
+          "compute_unit": "GPU",
+          "environment": "macOS 27 beta, Core AI",
+          "observed": "2026-06-30",
+          "confidence": "medium",
+          "precision": "int8",
+          "notes": "11.1x RTF on-device transcription."
+        }
+      ],
+      "last_verified": "2026-06-30",
+      "notes": "On-device transcription, Qwen2-7B. INT8/4 LM. 11.1x RTF on M4 Max. Microsoft VibeVoice ASR original weights."
+    },
+    {
+      "id": "nemotron-3-5-asr-streaming",
+      "name": "Nemotron 3.5 ASR Streaming 0.6B",
+      "family": "Nemotron",
+      "source_group": "external",
+      "capabilities": [
+        "speech-to-text"
+      ],
+      "input_modalities": [
+        "audio"
+      ],
+      "output_modalities": [
+        "transcript"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "0.6B",
+      "precision": "fp16",
+      "quantization": "none",
+      "artifact_size": "not_published",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAITranscribe",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": true,
+      "license": "OpenMDW-1.1",
+      "commercial_use": "check_license",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "high",
+      "readiness_score": 70,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mweinbach/nemotron-3.5-asr-streaming-0.6b-coreai",
+        "huggingface_repo": "mweinbach/nemotron-3.5-asr-streaming-0.6b-coreai",
+        "github_source": "mweinbach/NemotronCoreAI",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": false
+      },
+      "benchmarks": [],
+      "last_verified": "2026-06-30",
+      "notes": "NVIDIA FastConformer + RNN-T streaming ASR. Cache-aware 320ms encoder mode. AOT artifacts for iOS (A19 h18p) + macOS (M3-M5). Companion Swift package mweinbach/NemotronCoreAI. Multiple quantization variants (int8, lut6, lut8). 174 files."
+    },
+    {
+      "id": "z-image-turbo",
+      "name": "Z-Image Turbo",
+      "family": "Z-Image",
+      "source_group": "external",
+      "capabilities": [
+        "image-generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "image"
+      ],
+      "devices": [
+        "iphone",
+        "ipad",
+        "mac"
+      ],
+      "parameters": "not_published",
+      "precision": "fp16",
+      "quantization": "none",
+      "artifact_size": "not_published",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIDiffusionPipeline",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 73,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/bryanbblewis11/Z-Image-Turbo-CoreAI",
+        "huggingface_repo": "bryanbblewis11/Z-Image-Turbo-CoreAI",
+        "github_source": "bryanbblewis11/CoreAI-models",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": false
+      },
+      "benchmarks": [],
+      "last_verified": "2026-06-30",
+      "notes": "Tongyi-MAI Z-Image Turbo text-to-image. GPU (fast-512) and ANE (ane-1024, hoisted-adaLN) bundles at 512 and 1024 resolution. For CoreAIStudio on macOS/iOS/iPadOS/visionOS."
+    },
+    {
+      "id": "real-esrgan-x4v3",
+      "name": "Real-ESRGAN x4v3",
+      "family": "Real-ESRGAN",
+      "source_group": "external",
+      "capabilities": [
+        "super-resolution"
+      ],
+      "input_modalities": [
+        "image"
+      ],
+      "output_modalities": [
+        "image"
+      ],
+      "devices": [
+        "mac"
+      ],
+      "parameters": "not_published",
+      "precision": "fp16",
+      "quantization": "none",
+      "artifact_size": "not_published",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIImageSegmenter",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "BSD-3-Clause",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "active",
+      "confidence": "medium",
+      "readiness_score": 78,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/bryanbblewis11/RealESRGAN-x4v3-CoreAI",
+        "huggingface_repo": "bryanbblewis11/RealESRGAN-x4v3-CoreAI",
+        "github_source": "bryanbblewis11/CoreAI-models",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": false
+      },
+      "benchmarks": [],
+      "last_verified": "2026-06-30",
+      "notes": "4x super-resolution (SRVGGNetCompact). fp16, 256 tile size. For CoreAIStudio."
+    },
+    {
+      "id": "efficientsam3-tinyvit",
+      "name": "EfficientSAM3-TinyViT",
+      "family": "SAM",
+      "source_group": "external",
+      "capabilities": [
+        "promptable-segmentation"
+      ],
+      "input_modalities": [
+        "image"
+      ],
+      "output_modalities": [
+        "masks"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "not_published",
+      "precision": "fp16",
+      "quantization": "none",
+      "artifact_size": "374MB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIImageSegmenter",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "active",
+      "confidence": "medium",
+      "readiness_score": 88,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/lenitas/coreai-artifacts/tree/main/artifacts/efficientsam3-tinyvit/default",
+        "huggingface_repo": "lenitas/coreai-artifacts",
+        "github_source": "lenitas/coreai-artifacts",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": false
+      },
+      "benchmarks": [],
+      "last_verified": "2026-06-30",
+      "notes": "Lightweight promptable segmentation. Hosted by Lenitas app distribution. 392MB total with tokenizer. SHA-256 verified."
+    },
+    {
+      "id": "rwkv7-goose-1-5b",
+      "name": "RWKV-7 Goose 1.5B",
+      "family": "RWKV",
+      "source_group": "zoo",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [
+        "mac"
+      ],
+      "parameters": "1.5B",
+      "precision": "int8",
+      "quantization": "int8-per-block-32",
+      "artifact_size": "not_published",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 63,
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/RWKV7-Goose-1.5B-CoreAI",
+        "huggingface_repo": "mlboydaisuke/RWKV7-Goose-1.5B-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-07-01",
+      "notes": "First pure-recurrent / linear-attention LLM on Core AI. No attention, no KV cache — O(1) per-token decode with constant memory and unbounded context. WKV7 delta-rule matrix-state time-mix + sqrelu channel-mix. int8 weight-only quant (FFN only; recurrence projections kept fp16)."
+    }
+  ]
+}

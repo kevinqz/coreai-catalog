@@ -8,9 +8,6 @@ venv/
 # Claude Code worktrees (ephemeral, should not be committed)
 .claude/worktrees/
 
-# Generated JSON exports (produced by scripts/generate.py --json)
-dist/
-
 # Build artifacts (pip install -e .)
 build/
 *.egg-info/

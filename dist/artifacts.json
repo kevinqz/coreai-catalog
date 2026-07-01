@@ -1,0 +1,1510 @@
+{
+  "artifacts": [
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/qwen3.5.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "qwen3.5-0.8B-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/qwen3.5-0.8B-CoreAI"
+      },
+      "id": "qwen3-5-0-8b",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/qwen3.5.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "qwen3.5-2B-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/qwen3.5-2B-CoreAI"
+      },
+      "id": "qwen3-5-2b",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/qwen3.6.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "Qwen3.6-35B-A3B-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/Qwen3.6-35B-A3B-CoreAI"
+      },
+      "id": "qwen3-6-35b-a3b",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/qwen3.6-27b.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "Qwen3.6-27B-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/Qwen3.6-27B-CoreAI"
+      },
+      "id": "qwen3-6-27b",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/glm-4.7-flash.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "GLM-4.7-Flash-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/GLM-4.7-Flash-CoreAI"
+      },
+      "id": "glm-4-7-flash",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/gemma4-e2b.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "gemma-4-E2B-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/gemma-4-E2B-CoreAI"
+      },
+      "id": "gemma-4-e2b",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/gemma4-e4b.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "gemma-4-E4B-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/gemma-4-E4B-CoreAI"
+      },
+      "id": "gemma-4-e4b",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/gemma4-12b.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "Gemma-4-12B-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/Gemma-4-12B-CoreAI"
+      },
+      "id": "gemma-4-12b",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/gemma4-31b.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "Gemma-4-31B-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/Gemma-4-31B-CoreAI"
+      },
+      "id": "gemma-4-31b",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/lfm2.5.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "LFM2.5-1.2B-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/LFM2.5-1.2B-CoreAI"
+      },
+      "id": "lfm2-5-1-2b-instruct",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/lfm2.5-8b-a1b-moe.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "LFM2.5-8B-A1B-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/LFM2.5-8B-A1B-CoreAI"
+      },
+      "id": "lfm2-5-8b-a1b",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/granite-4.0-h.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "granite-4.0-h-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/granite-4.0-h-CoreAI"
+      },
+      "id": "granite-4-0-h-1b",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/granite-4.0-h.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "granite-4.0-h-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/granite-4.0-h-CoreAI"
+      },
+      "id": "granite-4-0-h-350m",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/nanbeige4.1-3b.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "Nanbeige4.1-3B-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/Nanbeige4.1-3B-CoreAI"
+      },
+      "id": "nanbeige4-1-3b",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/qwen3-vl.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "Qwen3-VL-2B-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/Qwen3-VL-2B-CoreAI"
+      },
+      "id": "qwen3-vl-2b",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/qwen3-vl.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "Qwen3-VL-4B-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/Qwen3-VL-4B-CoreAI"
+      },
+      "id": "qwen3-vl-4b",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/qwen3-vl.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "Qwen3-VL-8B-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/Qwen3-VL-8B-CoreAI"
+      },
+      "id": "qwen3-vl-8b",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/minicpm-v-4.6.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "MiniCPM-V-4.6-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/MiniCPM-V-4.6-CoreAI"
+      },
+      "id": "minicpm-v-4-6",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/gemma4-vl.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "path": "tree/main/vl",
+        "repo": "gemma-4-E2B-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/gemma-4-E2B-CoreAI/tree/main/vl"
+      },
+      "id": "gemma-4-e2b-vision",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/unlimited-ocr.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "Unlimited-OCR-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/Unlimited-OCR-CoreAI"
+      },
+      "id": "unlimited-ocr",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/knowledge/qwen2.5-omni-audio-understanding.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "Qwen2.5-Omni-3B-Audio-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/Qwen2.5-Omni-3B-Audio-CoreAI"
+      },
+      "id": "qwen2-5-omni-3b-audio",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/kokoro-82m.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "Kokoro-82M-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/Kokoro-82M-CoreAI"
+      },
+      "id": "kokoro-82m",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/knowledge/voxcpm-tts.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "VoxCPM-0.5B-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/VoxCPM-0.5B-CoreAI"
+      },
+      "id": "voxcpm-0-5b",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "embeddinggemma-300m-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/embeddinggemma-300m-CoreAI"
+      },
+      "id": "embeddinggemma-300m",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/qwen3-embedding.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "Qwen3-Embedding-0.6B-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/Qwen3-Embedding-0.6B-CoreAI"
+      },
+      "id": "qwen3-embedding-0-6b",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/qwen3-reranker.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "Qwen3-Reranker-0.6B-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/Qwen3-Reranker-0.6B-CoreAI"
+      },
+      "id": "qwen3-reranker-0-6b",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/rf-detr.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "RF-DETR-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI"
+      },
+      "id": "rf-detr-nano",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/rf-detr.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "RF-DETR-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI"
+      },
+      "id": "rf-detr-small",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/rf-detr.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "RF-DETR-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI"
+      },
+      "id": "rf-detr-medium",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/rf-detr.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "RF-DETR-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI"
+      },
+      "id": "rf-detr-large",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/rf-detr.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "RF-DETR-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI"
+      },
+      "id": "rf-detr-seg-nano",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/rf-detr.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "RF-DETR-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI"
+      },
+      "id": "rf-detr-seg-small",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/rf-detr.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "RF-DETR-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI"
+      },
+      "id": "rf-detr-seg-medium",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/rf-detr.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "RF-DETR-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI"
+      },
+      "id": "rf-detr-seg-large",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/rf-detr.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "RF-DETR-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI"
+      },
+      "id": "rf-detr-seg-xlarge",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/rf-detr.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "RF-DETR-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI"
+      },
+      "id": "rf-detr-seg-2xlarge",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/knowledge/adcsr-super-resolution.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "AdcSR-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/AdcSR-CoreAI"
+      },
+      "id": "adcsr-x4",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/depth-anything-3.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "Depth-Anything-3-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/Depth-Anything-3-CoreAI"
+      },
+      "id": "depth-anything-3-small",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/depth-anything-3.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "Depth-Anything-3-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/Depth-Anything-3-CoreAI"
+      },
+      "id": "depth-anything-3-base",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/tree/main/official",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "official",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "gpt-oss-20b-CoreAI-official",
+        "url": "https://huggingface.co/mlboydaisuke/gpt-oss-20b-CoreAI-official"
+      },
+      "id": "official-gpt-oss-20b",
+      "officiality": {
+        "apple_export_recipe": true,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/tree/main/official",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "official",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "qwen3-0.6b-CoreAI-official",
+        "url": "https://huggingface.co/mlboydaisuke/qwen3-0.6b-CoreAI-official"
+      },
+      "id": "official-qwen3-0-6b",
+      "officiality": {
+        "apple_export_recipe": true,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/tree/main/official",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "official",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "qwen3-4b-CoreAI-official",
+        "url": "https://huggingface.co/mlboydaisuke/qwen3-4b-CoreAI-official"
+      },
+      "id": "official-qwen3-4b",
+      "officiality": {
+        "apple_export_recipe": true,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/tree/main/official",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "official",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "qwen3-8b-CoreAI-official",
+        "url": "https://huggingface.co/mlboydaisuke/qwen3-8b-CoreAI-official"
+      },
+      "id": "official-qwen3-8b",
+      "officiality": {
+        "apple_export_recipe": true,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/tree/main/official",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "official",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "gemma-3-4b-it-CoreAI-official",
+        "url": "https://huggingface.co/mlboydaisuke/gemma-3-4b-it-CoreAI-official"
+      },
+      "id": "official-gemma-3-4b-it",
+      "officiality": {
+        "apple_export_recipe": true,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/tree/main/official",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "official",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "gemma-3-12b-it-CoreAI-official",
+        "url": "https://huggingface.co/mlboydaisuke/gemma-3-12b-it-CoreAI-official"
+      },
+      "id": "official-gemma-3-12b-it",
+      "officiality": {
+        "apple_export_recipe": true,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/tree/main/official",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "official",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "mistral-7b-v0.3-CoreAI-official",
+        "url": "https://huggingface.co/mlboydaisuke/mistral-7b-v0.3-CoreAI-official"
+      },
+      "id": "official-mistral-7b-v0-3",
+      "officiality": {
+        "apple_export_recipe": true,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/tree/main/official",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "official",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "FLUX.2-klein-4B-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/FLUX.2-klein-4B-CoreAI"
+      },
+      "id": "official-flux-2-klein-4b",
+      "officiality": {
+        "apple_export_recipe": true,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/tree/main/official",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "official",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "sam3-CoreAI-official",
+        "url": "https://huggingface.co/mlboydaisuke/sam3-CoreAI-official"
+      },
+      "id": "official-sam-3",
+      "officiality": {
+        "apple_export_recipe": true,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/tree/main/official",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "official",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "whisper-large-v3-turbo-CoreAI-official",
+        "url": "https://huggingface.co/mlboydaisuke/whisper-large-v3-turbo-CoreAI-official"
+      },
+      "id": "official-whisper-large-v3-turbo",
+      "officiality": {
+        "apple_export_recipe": true,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/minicpm5-1b.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "MiniCPM5-1B-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/MiniCPM5-1B-CoreAI"
+      },
+      "id": "minicpm5-1b",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/fastcontext.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "FastContext-1.0-4B-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/FastContext-1.0-4B-CoreAI"
+      },
+      "id": "fastcontext-1-0-4b",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/bitcpm-8b.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "BitCPM-8B-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/BitCPM-8B-CoreAI"
+      },
+      "id": "bitcpm-8b",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/holo2.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "Holo2-4B-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/Holo2-4B-CoreAI"
+      },
+      "id": "holo2-4b",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/colmodernvbert.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "ColModernVBERT-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/ColModernVBERT-CoreAI"
+      },
+      "id": "colmodernvbert",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/README.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "Qwen3-ASR-1.7B-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/Qwen3-ASR-1.7B-CoreAI"
+      },
+      "id": "qwen3-asr-1-7b",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/parakeet.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "Parakeet-TDT-0.6B-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/Parakeet-TDT-0.6B-CoreAI"
+      },
+      "id": "parakeet-tdt-0-6b",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/README.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "VoxCPM2-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/VoxCPM2-CoreAI"
+      },
+      "id": "voxcpm2-2b",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/yolox.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "YOLOX-S-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/YOLOX-S-CoreAI"
+      },
+      "id": "yolox-s",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/README.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "TripoSplat-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/TripoSplat-CoreAI"
+      },
+      "id": "tripo-splat",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/ltxvideo.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "LTX-Video-2B-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/LTX-Video-2B-CoreAI"
+      },
+      "id": "ltx-video-2b",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/tree/main/official",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "official",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "qwen3-1.7b-CoreAI-official",
+        "url": "https://huggingface.co/mlboydaisuke/qwen3-1.7b-CoreAI-official"
+      },
+      "id": "official-qwen3-1-7b",
+      "officiality": {
+        "apple_export_recipe": true,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/tree/main/official",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "official",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "clip-vit-base-patch32-CoreAI-official",
+        "url": "https://huggingface.co/mlboydaisuke/clip-vit-base-patch32-CoreAI-official"
+      },
+      "id": "official-clip-vit-base-patch32",
+      "officiality": {
+        "apple_export_recipe": true,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "LLaDA-8B-dLLM-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/LLaDA-8B-dLLM-CoreAI"
+      },
+      "id": "llada-8b-dllm",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "BitVLA-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/BitVLA-CoreAI"
+      },
+      "id": "bitvla",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "Stable-Audio-Open-Small-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/Stable-Audio-Open-Small-CoreAI"
+      },
+      "id": "stable-audio-open-small",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "github": {
+        "owner": "CarstenL",
+        "repo": "whisper-large-v3-turbo-coreai"
+      },
+      "group": "external",
+      "huggingface": {
+        "owner": "CarstenL",
+        "repo": "whisper-large-v3-turbo-coreai",
+        "url": "https://huggingface.co/CarstenL/whisper-large-v3-turbo-coreai"
+      },
+      "id": "whisper-large-v3-turbo-carstenl",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": false
+      }
+    },
+    {
+      "github": {
+        "owner": "Intiser",
+        "path": null,
+        "repo": "whisper-coreai"
+      },
+      "group": "external",
+      "huggingface": {
+        "owner": "Intiser",
+        "repo": "whisper-tiny-en-coreai",
+        "url": "https://huggingface.co/Intiser/whisper-tiny-en-coreai"
+      },
+      "id": "whisper-tiny-en-intiser",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": false
+      }
+    },
+    {
+      "github": {
+        "owner": "Intiser",
+        "path": null,
+        "repo": "whisper-coreai"
+      },
+      "group": "external",
+      "huggingface": {
+        "owner": "Intiser",
+        "repo": "whisper-medium-coreai",
+        "url": "https://huggingface.co/Intiser/whisper-medium-coreai"
+      },
+      "id": "whisper-medium-intiser",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": false
+      }
+    },
+    {
+      "github": {
+        "owner": "warshanks",
+        "repo": "gemma-4-12B-it-coreai"
+      },
+      "group": "external",
+      "huggingface": {
+        "owner": "warshanks",
+        "repo": "gemma-4-12B-it-coreai",
+        "url": "https://huggingface.co/warshanks/gemma-4-12B-it-coreai"
+      },
+      "id": "gemma-4-12b-mm-warshanks",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": false
+      }
+    },
+    {
+      "github": {
+        "owner": "warshanks",
+        "repo": "gemma-4-12B-it-assistant-coreai"
+      },
+      "group": "external",
+      "huggingface": {
+        "owner": "warshanks",
+        "repo": "gemma-4-12B-it-assistant-coreai",
+        "url": "https://huggingface.co/warshanks/gemma-4-12B-it-assistant-coreai"
+      },
+      "id": "gemma-4-12b-assistant-warshanks",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": false
+      }
+    },
+    {
+      "github": {
+        "owner": "gafiatulin",
+        "path": "https://github.com/gafiatulin/vibevoice-coreai",
+        "repo": "vibevoice-coreai"
+      },
+      "group": "external",
+      "huggingface": {
+        "owner": "gafiatulin",
+        "repo": "vibevoice-0.5b-coreai",
+        "url": "https://huggingface.co/gafiatulin/vibevoice-0.5b-coreai"
+      },
+      "id": "vibevoice-0-5b",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": false
+      }
+    },
+    {
+      "github": {
+        "owner": "gafiatulin",
+        "path": "https://github.com/gafiatulin/vibevoice-coreai",
+        "repo": "vibevoice-coreai"
+      },
+      "group": "external",
+      "huggingface": {
+        "owner": "gafiatulin",
+        "repo": "vibevoice-1.5b-coreai",
+        "url": "https://huggingface.co/gafiatulin/vibevoice-1.5b-coreai"
+      },
+      "id": "vibevoice-1-5b",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": false
+      }
+    },
+    {
+      "github": {
+        "owner": "gafiatulin",
+        "path": "https://github.com/gafiatulin/vibevoice-coreai",
+        "repo": "vibevoice-coreai"
+      },
+      "group": "external",
+      "huggingface": {
+        "owner": "gafiatulin",
+        "repo": "vibevoice-7b-coreai",
+        "url": "https://huggingface.co/gafiatulin/vibevoice-7b-coreai"
+      },
+      "id": "vibevoice-7b",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": false
+      }
+    },
+    {
+      "github": {
+        "owner": "gafiatulin",
+        "path": "https://github.com/gafiatulin/vibevoice-coreai",
+        "repo": "vibevoice-coreai"
+      },
+      "group": "external",
+      "huggingface": {
+        "owner": "gafiatulin",
+        "repo": "vibevoice-asr-coreai",
+        "url": "https://huggingface.co/gafiatulin/vibevoice-asr-coreai"
+      },
+      "id": "vibevoice-asr",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": false
+      }
+    },
+    {
+      "github": {
+        "owner": "mweinbach",
+        "path": "https://github.com/mweinbach/NemotronCoreAI",
+        "repo": "NemotronCoreAI"
+      },
+      "group": "external",
+      "huggingface": {
+        "owner": "mweinbach",
+        "repo": "nemotron-3.5-asr-streaming-0.6b-coreai",
+        "url": "https://huggingface.co/mweinbach/nemotron-3.5-asr-streaming-0.6b-coreai"
+      },
+      "id": "nemotron-3-5-asr-streaming",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": false
+      }
+    },
+    {
+      "github": {
+        "owner": "bryanbblewis11",
+        "path": null,
+        "repo": "CoreAI-models"
+      },
+      "group": "external",
+      "huggingface": {
+        "owner": "bryanbblewis11",
+        "repo": "Z-Image-Turbo-CoreAI",
+        "url": "https://huggingface.co/bryanbblewis11/Z-Image-Turbo-CoreAI"
+      },
+      "id": "z-image-turbo",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": false
+      }
+    },
+    {
+      "github": {
+        "owner": "bryanbblewis11",
+        "path": null,
+        "repo": "CoreAI-models"
+      },
+      "group": "external",
+      "huggingface": {
+        "owner": "bryanbblewis11",
+        "repo": "RealESRGAN-x4v3-CoreAI",
+        "url": "https://huggingface.co/bryanbblewis11/RealESRGAN-x4v3-CoreAI"
+      },
+      "id": "real-esrgan-x4v3",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": false
+      }
+    },
+    {
+      "github": {
+        "owner": "lenitas",
+        "repo": "coreai-artifacts"
+      },
+      "group": "external",
+      "huggingface": {
+        "owner": "lenitas",
+        "path": "tree/main/artifacts/efficientsam3-tinyvit/default",
+        "repo": "coreai-artifacts",
+        "url": "https://huggingface.co/lenitas/coreai-artifacts/tree/main/artifacts/efficientsam3-tinyvit/default"
+      },
+      "id": "efficientsam3-tinyvit",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": false
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/conversion/export_rwkv7_decode.py",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "RWKV7-Goose-1.5B-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/RWKV7-Goose-1.5B-CoreAI"
+      },
+      "id": "rwkv7-goose-1-5b",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    }
+  ],
+  "export_catalog_version": "1.3.1",
+  "export_schema_version": "1.0",
+  "metadata": {
+    "count": 79,
+    "last_verified": "2026-07-01",
+    "name": "Core AI Catalog artifact provenance"
+  }
+}
