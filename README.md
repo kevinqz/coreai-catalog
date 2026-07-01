@@ -560,7 +560,7 @@ Earlier:
 
 - v1.3.0 — CLI↔MCP parity, TASK_MAP expanded 40→89, `version` command, terminology alignment ("Core AI").
 - v1.2.x — Fuzzy search, capability aliases, ANSI auto-detect, recommend --license, installer hardening, DX improvements.
-- v1.0 — Error resilience SotAAA+++: 8 crash fixes + 63-test suite + CI integration.
+- v1.0 — Error resilience: 8 crash fixes + 63-test suite + CI integration.
 - v0.6 — Technical backfill (precision, quantization, runtime flags), non-LLM benchmarks, terminology to 42 terms.
 - v0.5 — Expanded model coverage: ternary LLM, GUI grounding, visual retrieval, transducer ASR, video, 3D, diffusion LLM, VLA.
 - v0.4 — Verified Apple AI terminology layer, artifact officiality, benchmark provenance.
