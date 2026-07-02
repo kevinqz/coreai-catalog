@@ -6,20 +6,6 @@
   "model_count": 2,
   "models": [
     {
-      "id": "adcsr-x4",
-      "name": "AdcSR ×4",
-      "score": 83,
-      "parameters": "×4",
-      "devices": {
-        "iphone": true,
-        "ipad": false,
-        "mac": true
-      },
-      "license": "Apache-2.0 + OpenRAIL++",
-      "commercial_use": "check_license",
-      "has_benchmark": true
-    },
-    {
       "id": "real-esrgan-x4v3",
       "name": "Real-ESRGAN x4v3",
       "score": 78,
@@ -32,11 +18,25 @@
       "license": "BSD-3-Clause",
       "commercial_use": "likely",
       "has_benchmark": false
+    },
+    {
+      "id": "adcsr-x4",
+      "name": "AdcSR ×4",
+      "score": 73,
+      "parameters": "×4",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0 + OpenRAIL++",
+      "commercial_use": "check_license",
+      "has_benchmark": false
     }
   ],
   "export_schema_version": "1.0",
   "export_catalog_version": "2.1.0",
-  "best_overall": "adcsr-x4",
+  "best_overall": "real-esrgan-x4v3",
   "best_iphone": "adcsr-x4",
   "best_commercial": "real-esrgan-x4v3"
 }

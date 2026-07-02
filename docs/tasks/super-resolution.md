@@ -10,13 +10,13 @@
 
 | Model | Score | Parameters | Devices | License | Commercial | Benchmark | Source |
 |---|---|---|---|---|---|---|---|
-| [AdcSR ×4](../../catalog.yaml#L1) | 83 | ×4 | 📱💻 | Apache-2.0 + OpenRAIL++ | ⚠️ check_license | 📊 | 🐼 |
 | [Real-ESRGAN x4v3](../../catalog.yaml#L1) | 78 | not_published | 💻 | BSD-3-Clause | ✅ likely | — | 🔗 |
+| [AdcSR ×4](../../catalog.yaml#L1) | 73 | ×4 | 📱💻 | Apache-2.0 + OpenRAIL++ | ⚠️ check_license | — | 🐼 |
 
 ## Install
 
 ```bash
-coreai-catalog install adcsr-x4
+coreai-catalog install real-esrgan-x4v3
 ```
 
 ## Related

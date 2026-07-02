@@ -18,6 +18,11 @@ from pathlib import Path
 from typing import Any
 
 from .catalog import Catalog as _Catalog, resolve_task as _resolve_task
+from .formatters import (
+    build_task_reverse_map,
+    count_capabilities,
+    get_catalog_version,
+)
 
 
 class Catalog:
@@ -60,13 +65,7 @@ class Catalog:
     def version(self) -> str:
         """Catalog version string (e.g. '1.6.0')."""
         self._cat._load()
-        # Read from the raw YAML metadata
-        import yaml
-        cat_path = self._cat.root / "catalog.yaml"
-        if cat_path.exists():
-            data = yaml.safe_load(cat_path.read_text()) or {}
-            return data.get("metadata", {}).get("version", "unknown")
-        return "unknown"
+        return get_catalog_version(self._cat.root)
 
     @property
     def model_count(self) -> int:
@@ -217,15 +216,7 @@ class Catalog:
         Returns:
             Dict mapping capability name to list of task synonyms.
         """
-        from .catalog import TASK_MAP
-        from collections import defaultdict
-
-        cap_to_tasks: dict[str, list[str]] = defaultdict(list)
-        for task_syn, caps in TASK_MAP.items():
-            for cap in caps:
-                cap_to_tasks[cap].append(task_syn)
-
-        return {cap: sorted(syns) for cap, syns in sorted(cap_to_tasks.items())}
+        return build_task_reverse_map()
 
     def capabilities(self) -> list[dict[str, Any]]:
         """List all capabilities with model counts.
@@ -233,25 +224,7 @@ class Catalog:
         Returns:
             List of dicts with capability name, model count, and benchmark count.
         """
-        from collections import Counter
-
-        cap_counts: Counter = Counter()
-        bench_counts: Counter = Counter()
-        for m in self._cat.models:
-            has_bench = bool(self._cat.get_benchmarks(m["id"]))
-            for c in m.get("capabilities", []):
-                cap_counts[c] += 1
-                if has_bench:
-                    bench_counts[c] += 1
-
-        return [
-            {
-                "capability": cap,
-                "model_count": count,
-                "benchmark_count": bench_counts.get(cap, 0),
-            }
-            for cap, count in cap_counts.most_common()
-        ]
+        return count_capabilities(self._cat.models, self._cat.get_benchmarks)
 
     def transforms(self) -> dict[str, list[str]]:
         """Get the full modality transformation reachability matrix.

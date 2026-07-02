@@ -62,7 +62,23 @@ def validate_cross_references() -> tuple[int, int, int, int]:
     artifacts = read_yaml(ROOT / 'artifacts.yaml')
     sources = read_yaml(ROOT / 'sources.yaml')
     upstreams = read_yaml(ROOT / 'upstreams.yaml')
-    benchmarks = read_yaml(ROOT / 'benchmarks.yaml')
+
+    # Load benchmarks from JSONL (preferred) or YAML (legacy)
+    jsonl_path = ROOT / 'benchmarks.jsonl'
+    if jsonl_path.exists():
+        import json as _json
+        benchmark_list = []
+        for line in jsonl_path.read_text().splitlines():
+            line = line.strip()
+            if not line or line.startswith('#'):
+                continue
+            try:
+                benchmark_list.append(_json.loads(line))
+            except _json.JSONDecodeError:
+                pass
+    else:
+        benchmarks_yaml = read_yaml(ROOT / 'benchmarks.yaml')
+        benchmark_list = benchmarks_yaml.get('benchmarks', [])
 
     model_ids = {item['id'] for item in catalog.get('models', [])}
     artifact_ids = {item['id'] for item in artifacts.get('artifacts', [])}
@@ -89,13 +105,13 @@ def validate_cross_references() -> tuple[int, int, int, int]:
                     f"is inconsistent with owner/repo {owner}/{repo}"
                 )
 
-    for benchmark in benchmarks.get('benchmarks', []):
+    for benchmark in benchmark_list:
         model_id = benchmark.get('model_id')
         if model_id not in model_ids:
-            fail(f"benchmark {benchmark['id']} points to missing model_id {model_id}")
+            fail(f"benchmark {benchmark.get('id', '?')} points to missing model_id {model_id}")
         source_id = benchmark.get('source')
-        if source_id not in source_ids and source_id not in upstream_ids:
-            fail(f"benchmark {benchmark['id']} points to missing source {source_id}")
+        if source_id and source_id not in source_ids and source_id not in upstream_ids:
+            fail(f"benchmark {benchmark.get('id', '?')} points to missing source {source_id}")
 
     original_model_sources = upstreams.get('original_model_sources', []) or []
     for upstream in original_model_sources:
@@ -103,13 +119,36 @@ def validate_cross_references() -> tuple[int, int, int, int]:
             if target not in model_ids and target not in artifact_ids:
                 fail(f"original model upstream {upstream['id']} applies_to missing target {target}")
 
-    return len(model_ids), len(artifact_ids), len(upstream_ids), len(benchmarks.get('benchmarks', []))
+    return len(model_ids), len(artifact_ids), len(upstream_ids), len(benchmark_list)
 
 
 def main() -> None:
     validate_file(ROOT / 'catalog.yaml', ROOT / 'schema' / 'model.schema.json', 'models')
     validate_file(ROOT / 'artifacts.yaml', ROOT / 'schema' / 'artifact.schema.json', 'artifacts')
-    validate_file(ROOT / 'benchmarks.yaml', ROOT / 'schema' / 'benchmark.schema.json', 'benchmarks')
+
+    # Validate benchmarks: JSONL is the new source of truth; YAML is legacy
+    jsonl_path = ROOT / 'benchmarks.jsonl'
+    yaml_path = ROOT / 'benchmarks.yaml'
+    if jsonl_path.exists():
+        # Validate JSONL entries (one per line, strip _signature before validating)
+        import json as _json
+        schema = _json.loads((ROOT / 'schema' / 'benchmark.schema.json').read_text())
+        validator = Draft202012Validator(schema)
+        bm_count = 0
+        for line in jsonl_path.read_text().splitlines():
+            line = line.strip()
+            if not line or line.startswith('#'):
+                continue
+            entry = _json.loads(line)
+            entry.pop('_signature', None)  # signature is not part of the schema
+            errors = list(validator.iter_errors(entry))
+            if errors:
+                for e in errors:
+                    fail(f"benchmark {entry.get('id', '?')}: {e.message}")
+            bm_count += 1
+        print(f'OK: {bm_count} benchmarks (JSONL) validated against schema.')
+    elif yaml_path.exists():
+        validate_file(yaml_path, ROOT / 'schema' / 'benchmark.schema.json', 'benchmarks')
 
     upstream_data = read_yaml(ROOT / 'upstreams.yaml')
     validate_items(flatten_upstreams(upstream_data), ROOT / 'schema' / 'upstream.schema.json', 'upstream')

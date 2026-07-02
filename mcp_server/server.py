@@ -35,6 +35,16 @@ if str(_ROOT) not in sys.path:
 from mcp.server.fastmcp import FastMCP
 
 from coreai_catalog.catalog import Catalog, resolve_task
+from coreai_catalog.formatters import (
+    build_task_capability_entries,
+    count_capabilities,
+    extract_device_list,
+    extract_device_unknown,
+    get_catalog_last_verified,
+    get_catalog_version,
+    reshape_benchmark,
+    reshape_benchmarks,
+)
 
 # Catalog singleton — auto-reloads when source files change (mtime check in Catalog._load)
 catalog = Catalog(_ROOT)
@@ -98,18 +108,9 @@ def search_models(
     output = []
     for m in results[:limit] if limit > 0 else []:
         ds = m.get("device_support", {})
-        devices = []
-        if ds.get("iphone") is True:
-            devices.append("iphone")
-        if ds.get("ipad") is True:
-            devices.append("ipad")
-        if ds.get("mac") is True:
-            devices.append("mac")
+        devices = extract_device_list(ds)
         # Surface unknown device support explicitly
-        devices_unknown = []
-        for dev in ("iphone", "ipad", "mac"):
-            if ds.get(dev) not in (True, False):
-                devices_unknown.append(dev)
+        devices_unknown = extract_device_unknown(ds) or None
         art = catalog.get_artifact(m["id"])
         hf_url = ""
         if art:
@@ -188,16 +189,7 @@ def get_model(model_id: str) -> str:
         }
 
     for b in benchmarks:
-        result["benchmarks"].append({
-            "metric": b.get("metric"),
-            "unit": b.get("unit"),
-            "value": b.get("value"),
-            "device": b.get("device"),
-            "compute_unit": b.get("compute_unit"),
-            "environment": b.get("environment"),
-            "observed": b.get("observed"),
-            "confidence": b.get("confidence"),
-        })
+        result["benchmarks"].append(reshape_benchmark(b, include_extras=False))
 
     return json.dumps(result, indent=2)
 
@@ -286,8 +278,7 @@ def recommend_model(
         "resolved_capabilities": capabilities,
         "device": device,
         "recommendations": [
-            {**r, "devices": [d for d in ("iphone", "ipad", "mac")
-                              if r.get("devices", {}).get(d) is True]}
+            {**r, "devices": extract_device_list(r.get("devices", {}))}
             for r in recommendations
         ],
     }, indent=2)
@@ -349,20 +340,7 @@ def get_benchmarks(model_id: str) -> str:
         return json.dumps({"error": f"Model '{model_id}' not found"})
 
     benches = catalog.get_benchmarks(model["id"])
-    output = []
-    for b in benches:
-        output.append({
-            "metric": b.get("metric"),
-            "unit": b.get("unit"),
-            "value": b.get("value"),
-            "device": b.get("device"),
-            "compute_unit": b.get("compute_unit"),
-            "precision": b.get("precision"),
-            "environment": b.get("environment"),
-            "observed": b.get("observed"),
-            "confidence": b.get("confidence"),
-            "notes": b.get("notes"),
-        })
+    output = reshape_benchmarks(benches)
     return json.dumps({
         "model_id": model_id,
         "count": len(output),
@@ -462,20 +440,7 @@ def get_capabilities() -> str:
         JSON array of capabilities sorted by frequency, each with the
         number of models that have it.
     """
-    from collections import Counter
-    cap_counts: Counter = Counter()
-    bench_counts: Counter = Counter()
-    for m in catalog.models:
-        has_bench = bool(catalog.get_benchmarks(m["id"]))
-        for c in m.get("capabilities", []):
-            cap_counts[c] += 1
-            if has_bench:
-                bench_counts[c] += 1
-    output = [
-        {"capability": cap, "model_count": count,
-         "benchmark_count": bench_counts.get(cap, 0)}
-        for cap, count in cap_counts.most_common()
-    ]
+    output = count_capabilities(catalog.models, catalog.get_benchmarks)
     return json.dumps({"count": len(output), "capabilities": output}, indent=2)
 
 
@@ -490,21 +455,8 @@ def get_tasks() -> str:
         synonym counts and the total number of unique tasks.
     """
     from coreai_catalog.catalog import TASK_MAP
-    from collections import defaultdict
 
-    cap_to_tasks: dict[str, list[str]] = defaultdict(list)
-    for task_syn, caps in TASK_MAP.items():
-        for cap in caps:
-            cap_to_tasks[cap].append(task_syn)
-
-    capabilities = []
-    for cap in sorted(cap_to_tasks.keys()):
-        synonyms = sorted(cap_to_tasks[cap])
-        capabilities.append({
-            "capability": cap,
-            "task_synonyms": synonyms,
-            "synonym_count": len(synonyms),
-        })
+    capabilities = build_task_capability_entries()
 
     return json.dumps({
         "count": len(TASK_MAP),
@@ -582,15 +534,8 @@ def get_version() -> str:
         JSON with the catalog version, model count, benchmark count,
         term count, and last_verified date.
     """
-    import yaml as _yaml
-    cat_path = _ROOT / "catalog.yaml"
-    version = "unknown"
-    last_verified = None
-    if cat_path.exists():
-        data = _yaml.safe_load(cat_path.read_text()) or {}
-        meta = data.get("metadata", {})
-        version = meta.get("version", "unknown")
-        last_verified = meta.get("last_verified")
+    version = get_catalog_version(_ROOT)
+    last_verified = get_catalog_last_verified(_ROOT)
 
     bench_count = len(catalog.benchmarks)
     term_count = len(catalog.terms)

@@ -24,6 +24,15 @@ import sys
 from pathlib import Path
 
 from .catalog import Catalog, resolve_task, _parse_params
+from .formatters import (
+    build_task_capability_entries,
+    count_capabilities,
+    extract_device_list,
+    extract_device_unknown,
+    get_catalog_last_verified,
+    get_catalog_version,
+    reshape_benchmark,
+)
 from .installer import (
     get_model_dir,
     install_model,
@@ -153,9 +162,8 @@ def cmd_search(args: argparse.Namespace) -> int:
         enriched = []
         for m in results:
             ds = m.get("device_support", {})
-            devices = [d for d in ("iphone", "ipad", "mac") if ds.get(d) is True]
-            devices_unknown = [d for d in ("iphone", "ipad", "mac")
-                               if ds.get(d) not in (True, False)] or None
+            devices = extract_device_list(ds)
+            devices_unknown = extract_device_unknown(ds) or None
             # Artifact URL for direct download
             art = cat.get_artifact(m["id"])
             hf_url = ""
@@ -249,16 +257,7 @@ def cmd_show(args: argparse.Namespace) -> int:
                 "officiality": art.get("officiality", {}),
             }
         for b in benchmarks:
-            result["benchmarks"].append({
-                "metric": b.get("metric"),
-                "unit": b.get("unit"),
-                "value": b.get("value"),
-                "device": b.get("device"),
-                "compute_unit": b.get("compute_unit"),
-                "environment": b.get("environment"),
-                "observed": b.get("observed"),
-                "confidence": b.get("confidence"),
-            })
+            result["benchmarks"].append(reshape_benchmark(b, include_extras=False))
         print(json.dumps(result, indent=2))
         return 0
 
@@ -378,9 +377,8 @@ def cmd_list(args: argparse.Namespace) -> int:
         results = []
         for m in models:
             ds = m.get("device_support", {})
-            devices = [d for d in ("iphone", "ipad", "mac") if ds.get(d) is True]
-            devices_unknown = [d for d in ("iphone", "ipad", "mac")
-                               if ds.get(d) not in (True, False)] or None
+            devices = extract_device_list(ds)
+            devices_unknown = extract_device_unknown(ds) or None
             art = cat.get_artifact(m["id"])
             hf_url = ""
             if art:
@@ -558,8 +556,7 @@ def cmd_recommend(args: argparse.Namespace) -> int:
     if args.json:
         results = []
         for rec in recommendations:
-            ds = rec.get("devices", {})
-            devices = [d for d in ("iphone", "ipad", "mac") if ds.get(d) is True]
+            devices = extract_device_list(rec.get("devices", {}))
             results.append({
                 "id": rec["id"],
                 "name": rec["name"],
@@ -770,30 +767,26 @@ def cmd_uninstall(args: argparse.Namespace) -> int:
 def cmd_capabilities(args: argparse.Namespace) -> int:
     """List all capabilities with model and benchmark counts."""
     cat = Catalog()
-    from collections import Counter
-    cap_counts: Counter = Counter()
-    bench_counts: Counter = Counter()
-    for m in cat.models:
-        has_bench = bool(cat.get_benchmarks(m["id"]))
-        for c in m.get("capabilities", []):
-            cap_counts[c] += 1
-            if has_bench:
-                bench_counts[c] += 1
+    cap_list = count_capabilities(cat.models, cat.get_benchmarks)
 
     if args.json:
-        output = [
-            {"capability": cap, "model_count": count,
-             "benchmark_count": bench_counts.get(cap, 0)}
-            for cap, count in cap_counts.most_common()
-        ]
+        output = cap_list
         print(json.dumps({"count": len(output), "capabilities": output}, indent=2))
         return 0
+
+    # Build Counter for display from the structured result
+    from collections import Counter
+    cap_counts = Counter()
+    bench_counts_map = {}
+    for entry in cap_list:
+        cap_counts[entry["capability"]] = entry["model_count"]
+        bench_counts_map[entry["capability"]] = entry["benchmark_count"]
 
     print(f"\n  {BOLD}Core AI Model Capabilities{RESET}\n")
     print(f"  {'Capability':35s}  Models  Benchmarked")
     print(f"  {'─' * 35}  {'─' * 6}  {'─' * 12}")
     for cap, count in cap_counts.most_common():
-        bcount = bench_counts.get(cap, 0)
+        bcount = bench_counts_map.get(cap, 0)
         print(f"  {cap:35s}  {count:>6}  {bcount:>12}")
     print(f"\n  {DIM}{len(cap_counts)} capabilities across {len(cat.models)} models{RESET}\n")
     return 0
@@ -802,34 +795,23 @@ def cmd_capabilities(args: argparse.Namespace) -> int:
 def cmd_tasks(args: argparse.Namespace) -> int:
     """Browse all supported task keywords, grouped by capability."""
     from .catalog import TASK_MAP
-    from collections import defaultdict
 
-    # Build reverse map: capability → list of task synonyms
-    cap_to_tasks: dict[str, list[str]] = defaultdict(list)
-    for task_syn, caps in TASK_MAP.items():
-        for cap in caps:
-            cap_to_tasks[cap].append(task_syn)
+    # Structured entries: one per capability, sorted, with synonym counts
+    entries = build_task_capability_entries()
 
     if args.json:
-        tasks_out = []
-        for cap in sorted(cap_to_tasks.keys()):
-            synonyms = sorted(cap_to_tasks[cap])
-            tasks_out.append({
-                "capability": cap,
-                "task_synonyms": synonyms,
-                "synonym_count": len(synonyms),
-            })
         print(json.dumps({
             "count": len(TASK_MAP),
-            "capabilities": tasks_out,
+            "capabilities": entries,
         }, indent=2))
         return 0
 
     print(f"\n  {BOLD}Core AI Catalog — Task Keywords{RESET}")
-    print(f"  {DIM}{len(TASK_MAP)} task synonyms across {len(cap_to_tasks)} capabilities{RESET}\n")
+    print(f"  {DIM}{len(TASK_MAP)} task synonyms across {len(entries)} capabilities{RESET}\n")
 
-    for cap in sorted(cap_to_tasks.keys()):
-        synonyms = sorted(cap_to_tasks[cap])
+    for entry in entries:
+        cap = entry["capability"]
+        synonyms = entry["task_synonyms"]
         syn_str = ", ".join(synonyms)
         print(f"  {BOLD}{cap}{RESET} ({len(synonyms)})")
         print(f"    {DIM}{syn_str}{RESET}\n")
@@ -1071,16 +1053,9 @@ def cmd_installed(args: argparse.Namespace) -> int:
 
 def cmd_version(args: argparse.Namespace) -> int:
     """Show catalog version and content statistics."""
-    import yaml as _yaml
     cat = Catalog()
-    cat_path = cat.root / "catalog.yaml"
-    version = "unknown"
-    last_verified = None
-    if cat_path.exists():
-        data = _yaml.safe_load(cat_path.read_text()) or {}
-        meta = data.get("metadata", {})
-        version = meta.get("version", "unknown")
-        last_verified = meta.get("last_verified")
+    version = get_catalog_version(cat.root)
+    last_verified = get_catalog_last_verified(cat.root)
 
     bench_count = len(cat.benchmarks)
     term_count = len(cat.terms)
@@ -1243,13 +1218,8 @@ def main() -> None:
 
     # Handle --version / -V flag
     if getattr(args, "version", False):
-        import yaml as _yaml
         cat = Catalog()
-        cat_path = cat.root / "catalog.yaml"
-        version = "unknown"
-        if cat_path.exists():
-            data = _yaml.safe_load(cat_path.read_text()) or {}
-            version = data.get("metadata", {}).get("version", "unknown")
+        version = get_catalog_version(cat.root)
         print(f"coreai-catalog {version}")
         sys.exit(0)
 

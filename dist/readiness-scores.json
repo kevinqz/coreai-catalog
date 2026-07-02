@@ -76,11 +76,6 @@
       "score": 85
     },
     {
-      "id": "adcsr-x4",
-      "name": "AdcSR ×4",
-      "score": 83
-    },
-    {
       "id": "colmodernvbert",
       "name": "ColModernVBERT",
       "score": 83
@@ -214,6 +209,11 @@
       "id": "whisper-tiny-en-intiser",
       "name": "Whisper tiny.en (Intiser)",
       "score": 78
+    },
+    {
+      "id": "adcsr-x4",
+      "name": "AdcSR ×4",
+      "score": 73
     },
     {
       "id": "embeddinggemma-300m",

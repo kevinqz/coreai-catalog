@@ -97,13 +97,7 @@ def export_search_index(catalog_root: Path, dist: Path | None = None) -> int:
         off = art.get("officiality", {}) if art else {}
 
         ds = m.get("device_support", {})
-        devices = []
-        if ds.get("iphone") is True:
-            devices.append("iphone")
-        if ds.get("ipad") is True:
-            devices.append("ipad")
-        if ds.get("mac") is True:
-            devices.append("mac")
+        devices = extract_device_list(ds)
 
         rt = m.get("runtime", {})
         size = m.get("size", {})

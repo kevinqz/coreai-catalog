@@ -36,7 +36,10 @@
         "peak_memory",
         "image_generation_latency",
         "transcription_realtime_factor",
+        "realtime_factor",
+        "transcription_latency",
         "inference_fps",
+        "inference_latency",
         "segmentation_latency"
       ]
     },
