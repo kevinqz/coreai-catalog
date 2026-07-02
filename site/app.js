@@ -107,10 +107,14 @@
       MODELS = data.models || [];
 
       CAPABILITIES = {};
+      var inputSet = {}, outputSet = {};
       MODELS.forEach(function (m) {
         (m.capabilities || []).forEach(function (c) { CAPABILITIES[c] = true; });
+        (m.input_modalities || []).forEach(function (i) { inputSet[i] = true; });
+        (m.output_modalities || []).forEach(function (o) { outputSet[o] = true; });
       });
 
+      // Populate capability filter
       var sel = $('filter-capability');
       Object.keys(CAPABILITIES).sort().forEach(function (cap) {
         var opt = document.createElement('option');
@@ -118,6 +122,14 @@
         opt.textContent = cap.replace(/-/g, ' ');
         sel.appendChild(opt);
       });
+
+      // Populate input/output filters (Explore sidebar)
+      populateModalitySelect('filter-input', Object.keys(inputSet).sort());
+      populateModalitySelect('filter-output', Object.keys(outputSet).sort());
+
+      // Populate leaderboard filters
+      populateModalitySelect('lb-filter-input', Object.keys(inputSet).sort());
+      populateModalitySelect('lb-filter-output', Object.keys(outputSet).sort());
 
       $('search-box').placeholder = 'Search ' + MODELS.length + ' models\u2026';
 
@@ -135,10 +147,23 @@
     }
   }
 
+  function populateModalitySelect(id, items) {
+    var sel = $(id);
+    if (!sel) return;
+    items.forEach(function (m) {
+      var opt = document.createElement('option');
+      opt.value = m;
+      opt.textContent = m.replace(/-/g, ' ');
+      sel.appendChild(opt);
+    });
+  }
+
   // ── Filter ──
   function applyFilters() {
     var search = $('search-box').value.toLowerCase().trim();
     var cap = $('filter-capability').value;
+    var inpFilter = $('filter-input').value;
+    var outFilter = $('filter-output').value;
     var lic = $('filter-license').value;
     var src = $('filter-source').value;
     var sort = $('sort-by').value;
@@ -149,6 +174,8 @@
         if (hay.indexOf(search) < 0) return false;
       }
       if (cap && (m.capabilities || []).indexOf(cap) < 0) return false;
+      if (inpFilter && (m.input_modalities || []).indexOf(inpFilter) < 0) return false;
+      if (outFilter && (m.output_modalities || []).indexOf(outFilter) < 0) return false;
       var devs = m.devices || [];
       var anyDevice = deviceFilters.iphone || deviceFilters.ipad || deviceFilters.mac;
       if (anyDevice) {
@@ -167,15 +194,17 @@
     else if (sort === 'params') FILTERED.sort(function (a, b) { return paramSortValue(a.parameters) - paramSortValue(b.parameters); });
     else FILTERED.sort(function (a, b) { return b.readiness_score - a.readiness_score; });
 
-    renderPills(search, cap, lic, src);
+    renderPills(search, cap, inpFilter, outFilter, lic, src);
     renderGrid();
   }
 
   // ── Filter pills ──
-  function renderPills(search, cap, lic, src) {
+  function renderPills(search, cap, inpFilter, outFilter, lic, src) {
     var pills = [];
     if (search) pills.push({ label: '"' + search + '"', clear: function () { $('search-box').value = ''; } });
     if (cap) pills.push({ label: cap.replace(/-/g, ' '), clear: function () { $('filter-capability').value = ''; } });
+    if (inpFilter) pills.push({ label: 'in: ' + inpFilter.replace(/-/g, ' '), clear: function () { $('filter-input').value = ''; } });
+    if (outFilter) pills.push({ label: 'out: ' + outFilter.replace(/-/g, ' '), clear: function () { $('filter-output').value = ''; } });
     if (!deviceFilters.iphone) pills.push({ label: 'no iPhone', clear: function () { toggleDevice('iphone', true); } });
     if (!deviceFilters.ipad) pills.push({ label: 'no iPad', clear: function () { toggleDevice('ipad', true); } });
     if (!deviceFilters.mac) pills.push({ label: 'no Mac', clear: function () { toggleDevice('mac', true); } });
@@ -385,6 +414,14 @@
       if (!resp.ok) throw new Error('HTTP ' + resp.status);
       var data = await resp.json();
       LB_DATA = data.leaderboard || [];
+      // Also load search-index for modality data (leaderboard doesn't have it)
+      if (!MODELS.length) {
+        try {
+          var resp2 = await fetch(DATA_URL);
+          var data2 = await resp2.json();
+          MODELS = data2.models || [];
+        } catch (e) {}
+      }
       renderLeaderboard();
     } catch (err) {
       $('lb-body').innerHTML = '<tr><td colspan="6" class="lb-empty">Failed to load leaderboard.</td></tr>';
@@ -392,11 +429,15 @@
     }
   }
 
+  function getModelModalities(id) {
+    var m = MODELS.find(function (x) { return x.id === id; });
+    return m ? { input: m.input_modalities || [], output: m.output_modalities || [], devices: m.devices || [] } : { input: [], output: [], devices: [] };
+  }
+
   function lbParamSortValue(p) {
     if (!p) return 9999;
     var s = String(p);
     if (s === 'unknown' || s === 'not_published') return 9999;
-    // Handle size tiers (small/base/large/xl) → rough mapping
     var tierMap = { tiny: 0.2, small: 0.5, base: 1, medium: 2, large: 7, xl: 30 };
     var tier = tierMap[s.toLowerCase()];
     if (tier !== undefined) return tier;
@@ -407,17 +448,33 @@
 
   function renderLeaderboard() {
     var search = ($('lb-search').value || '').toLowerCase().trim();
+    var inpF = $('lb-filter-input').value;
+    var outF = $('lb-filter-output').value;
+    var devF = $('lb-filter-device').value;
 
     var rows = LB_DATA.filter(function (m) {
-      if (!search) return true;
-      var hay = (m.name + ' ' + m.id + ' ' + (m.capabilities || []).join(' ')).toLowerCase();
-      return hay.indexOf(search) >= 0;
+      if (search) {
+        var hay = (m.name + ' ' + m.id + ' ' + (m.capabilities || []).join(' ')).toLowerCase();
+        if (hay.indexOf(search) < 0) return false;
+      }
+      if (inpF || outF || devF) {
+        var mods = getModelModalities(m.id);
+        if (inpF && mods.input.indexOf(inpF) < 0) return false;
+        if (outF && mods.output.indexOf(outF) < 0) return false;
+        if (devF && mods.devices.indexOf(devF) < 0) return false;
+      }
+      return true;
     });
 
     // Sort
     if (LB_SORT.col === 'params') {
       rows.sort(function (a, b) {
         var cmp = lbParamSortValue(a.parameters) - lbParamSortValue(b.parameters);
+        return LB_SORT.dir === 'asc' ? cmp : -cmp;
+      });
+    } else if (LB_SORT.col === 'name') {
+      rows.sort(function (a, b) {
+        var cmp = a.name.localeCompare(b.name);
         return LB_SORT.dir === 'asc' ? cmp : -cmp;
       });
     } else {
@@ -439,15 +496,20 @@
     });
 
     if (!rows.length) {
-      $('lb-body').innerHTML = '<tr><td colspan="6" class="lb-empty">No models match your search.</td></tr>';
+      $('lb-body').innerHTML = '<tr><td colspan="6" class="lb-empty">No models match your filters.</td></tr>';
       return;
     }
 
     $('lb-body').innerHTML = rows.map(function (m, i) {
       var s = m.readiness_score;
-      var caps = (m.capabilities || []).slice(0, 3).map(function (c) {
-        return '<span class="' + capChip(c) + '">' + c.replace(/-/g, ' ') + '</span>';
-      }).join('');
+      var mods = getModelModalities(m.id);
+      var inp = (mods.input[0] || '—').replace(/-/g, ' ');
+      var out = (mods.output[0] || '—').replace(/-/g, ' ');
+      if (mods.input.length > 1) inp += '+' + (mods.input.length - 1);
+      if (mods.output.length > 1) out += '+' + (mods.output.length - 1);
+      var ioCell = '<span>' + escapeHtml(inp) + '</span>' +
+        '<span class="lb-io-arrow">\u2192</span>' +
+        '<span>' + escapeHtml(out) + '</span>';
       var params = m.parameters === 'unknown' ? '—' : escapeHtml(m.parameters);
       var bench = m.benchmark_count > 0
         ? '<span class="card-bench">' + m.benchmark_count + '</span>'
@@ -456,14 +518,14 @@
       return '<tr data-id="' + m.id + '">' +
         '<td class="lb-rank">' + (i + 1) + '</td>' +
         '<td class="lb-model">' + escapeHtml(m.name) + '</td>' +
-        '<td class="lb-caps"><div class="card-caps">' + caps + '</div></td>' +
+        '<td class="lb-io">' + ioCell + '</td>' +
         '<td class="lb-params">' + params + '</td>' +
         '<td class="lb-score"><span class="card-score ' + scoreClass(s) + '">' + s + ' ' + gradeLetter(s) + '</span></td>' +
         '<td class="lb-bench">' + bench + '</td>' +
       '</tr>';
     }).join('');
 
-    // Row click → open detail modal (if model exists in MODELS)
+    // Row click -> open detail modal
     $('lb-body').querySelectorAll('tr[data-id]').forEach(function (tr) {
       tr.addEventListener('click', function () { showDetail(tr.dataset.id); });
     });
@@ -488,6 +550,20 @@
     $('lb-search').addEventListener('input', function () {
       clearTimeout(lbSearchTimer);
       lbSearchTimer = setTimeout(renderLeaderboard, 150);
+    });
+
+    // Filter dropdowns
+    ['lb-filter-input', 'lb-filter-output', 'lb-filter-device'].forEach(function (id) {
+      $(id).addEventListener('change', renderLeaderboard);
+    });
+
+    // Reset button
+    $('lb-reset').addEventListener('click', function () {
+      $('lb-search').value = '';
+      $('lb-filter-input').value = '';
+      $('lb-filter-output').value = '';
+      $('lb-filter-device').value = '';
+      renderLeaderboard();
     });
   }
 
@@ -575,13 +651,15 @@
       clearTimeout(searchTimer);
       searchTimer = setTimeout(applyFilters, 150);
     });
-    ['filter-capability', 'filter-license', 'filter-source', 'sort-by'].forEach(function (id) {
+    ['filter-capability', 'filter-input', 'filter-output', 'filter-license', 'filter-source', 'sort-by'].forEach(function (id) {
       $(id).addEventListener('change', applyFilters);
     });
 
     $('reset-filters').addEventListener('click', function () {
       $('search-box').value = '';
       $('filter-capability').value = '';
+      $('filter-input').value = '';
+      $('filter-output').value = '';
       $('filter-license').value = '';
       $('filter-source').value = '';
       $('sort-by').value = 'score';

@@ -65,6 +65,14 @@
         <select id="filter-capability"><option value="">All</option></select>
       </div>
       <div class="filter-group">
+        <label>Input</label>
+        <select id="filter-input"><option value="">Any</option></select>
+      </div>
+      <div class="filter-group">
+        <label>Output</label>
+        <select id="filter-output"><option value="">Any</option></select>
+      </div>
+      <div class="filter-group">
         <label>Device</label>
         <div class="seg-group">
           <button class="seg active" data-filter="iphone">iPhone</button>
@@ -125,11 +133,32 @@
   <main id="scores" class="tab-content">
     <div class="about-content">
       <h2>Readiness Leaderboard</h2>
-      <p class="lede">All models ranked by deployment readiness score. Click column headers to sort, or search to filter.</p>
+      <p class="lede">All models ranked by deployment readiness score. Filter by what you have and what you need.</p>
 
-      <div class="lb-controls">
-        <input type="text" id="lb-search" placeholder="Search leaderboard…" autocomplete="off" spellcheck="false" class="lb-search">
+      <div class="lb-filter-bar">
+        <div class="lb-filter-group">
+          <label>Input</label>
+          <select id="lb-filter-input"><option value="">Any</option></select>
+        </div>
+        <div class="lb-filter-group">
+          <label>Output</label>
+          <select id="lb-filter-output"><option value="">Any</option></select>
+        </div>
+        <div class="lb-filter-group">
+          <label>Device</label>
+          <select id="lb-filter-device">
+            <option value="">Any</option>
+            <option value="iphone">iPhone</option>
+            <option value="ipad">iPad</option>
+            <option value="mac">Mac</option>
+          </select>
+        </div>
+        <div class="lb-filter-group lb-search-wrap">
+          <label>Search</label>
+          <input type="text" id="lb-search" placeholder="Model name…" autocomplete="off" spellcheck="false" class="lb-search">
+        </div>
         <span id="lb-count" class="result-count">Loading…</span>
+        <button id="lb-reset" class="btn-link">Reset</button>
       </div>
 
       <div class="lb-table-wrap">
@@ -137,16 +166,40 @@
           <thead>
             <tr>
               <th class="lb-rank">#</th>
-              <th class="lb-model">Model</th>
-              <th class="lb-caps">Capabilities</th>
-              <th class="lb-params sortable" data-sort="params">Parameters <span class="sort-arrow"></span></th>
+              <th class="lb-model sortable" data-sort="name">Model <span class="sort-arrow"></span></th>
+              <th class="lb-io">In&nbsp;→ Out</th>
+              <th class="lb-params sortable" data-sort="params">Params <span class="sort-arrow"></span></th>
               <th class="lb-score sortable" data-sort="score">Score <span class="sort-arrow"></span></th>
-              <th class="lb-bench">Benchmarks</th>
+              <th class="lb-bench">Bench</th>
             </tr>
           </thead>
           <tbody id="lb-body"></tbody>
         </table>
       </div>
+
+      <details class="score-details" style="margin-top:1.5rem">
+        <summary>How readiness scores are calculated</summary>
+        <p style="margin-top:.5rem;font-size:.85rem;color:var(--text-2)">Each model gets a <strong>readiness score</strong> (0–100) based on 13 deployment factors:</p>
+        <div class="scoring-table" style="margin-top:.5rem">
+          <div class="score-grade-row"><span class="card-score score-a">85–100 A</span> Production-ready</div>
+          <div class="score-grade-row"><span class="card-score score-b">70–84 B</span> Good, minor gaps</div>
+          <div class="score-grade-row"><span class="card-score score-c">55–69 C</span> Usable, verify caveats</div>
+          <div class="score-grade-row"><span class="card-score score-d">40–54 D</span> Experimental</div>
+          <div class="score-grade-row"><span class="card-score score-f">0–39 F</span> Early / unverified</div>
+        </div>
+        <table class="modal-table" style="font-size:.82rem;margin-top:.75rem">
+          <tr><td>Artifact available</td><td>+15</td></tr>
+          <tr><td>License: commercial likely</td><td>+10</td></tr>
+          <tr><td>iPhone supported</td><td>+10</td></tr>
+          <tr><td>Mac supported</td><td>+10</td></tr>
+          <tr><td>Has benchmark</td><td>+10</td></tr>
+          <tr><td>Stock runtime (no custom)</td><td>+10</td></tr>
+          <tr><td>No custom kernel / patch / AOT</td><td>+5 each</td></tr>
+          <tr><td>Status: confirmed</td><td>+10</td></tr>
+          <tr><td>Confidence: high +5 / medium +3 / low −10</td><td>variable</td></tr>
+          <tr><td>Maturity: stable or active</td><td>+5</td></tr>
+        </table>
+      </details>
     </div>
   </main>
 
@@ -240,29 +293,14 @@ catalog.recommend(task="ocr", device="iphone")</code></pre>
       </div>
 
       <h3>Scoring</h3>
-      <p>Each model gets a <strong>readiness score</strong> (0-100) based on 13 factors:</p>
+      <p>Each model gets a <strong>readiness score</strong> (0–100). See the <strong>Scores</strong> tab for the full breakdown and leaderboard.</p>
       <div class="scoring-table">
-        <div class="score-grade-row"><span class="card-score score-a">85-100 A</span> Production-ready</div>
-        <div class="score-grade-row"><span class="card-score score-b">70-84 B</span> Good, minor gaps</div>
-        <div class="score-grade-row"><span class="card-score score-c">55-69 C</span> Usable, verify caveats</div>
-        <div class="score-grade-row"><span class="card-score score-d">40-54 D</span> Experimental</div>
-        <div class="score-grade-row"><span class="card-score score-f">0-39 F</span> Early / unverified</div>
+        <div class="score-grade-row"><span class="card-score score-a">85–100 A</span> Production-ready</div>
+        <div class="score-grade-row"><span class="card-score score-b">70–84 B</span> Good, minor gaps</div>
+        <div class="score-grade-row"><span class="card-score score-c">55–69 C</span> Usable, verify caveats</div>
+        <div class="score-grade-row"><span class="card-score score-d">40–54 D</span> Experimental</div>
+        <div class="score-grade-row"><span class="card-score score-f">0–39 F</span> Early / unverified</div>
       </div>
-      <details class="score-details">
-        <summary>How scores are calculated</summary>
-        <table class="modal-table" style="font-size:.82rem;margin-top:.5rem">
-          <tr><td>Artifact available</td><td>+15</td></tr>
-          <tr><td>License: commercial likely</td><td>+10</td></tr>
-          <tr><td>iPhone supported</td><td>+10</td></tr>
-          <tr><td>Mac supported</td><td>+10</td></tr>
-          <tr><td>Has benchmark</td><td>+10</td></tr>
-          <tr><td>Stock runtime (no custom)</td><td>+10</td></tr>
-          <tr><td>No custom kernel / patch / AOT</td><td>+5 each</td></tr>
-          <tr><td>Status: confirmed</td><td>+10</td></tr>
-          <tr><td>Confidence: high +5 / medium +3 / low -10</td><td>variable</td></tr>
-          <tr><td>Maturity: stable or active</td><td>+5</td></tr>
-        </table>
-      </details>
 
       <p class="legal">MIT License. Not affiliated with or endorsed by Apple. <code>commercial_use</code> fields are triage labels, not legal advice.</p>
     </div>
