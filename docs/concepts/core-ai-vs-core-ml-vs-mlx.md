@@ -15,7 +15,7 @@ focuses on Core AI while cataloging all formats.
 | **Primary use** | On-device generative AI (LLMs, diffusion, VLMs) | Classic on-device ML (classification, detection) | Research & training on Apple Silicon |
 | **Unified memory** | Yes (zero-copy) | No (weights copied to compute device) | Yes (zero-copy) |
 | **Developer experience** | Swift-native, pipeline-based | Swift-native, model-centric | Python-first, NumPy-like |
-| **Runs on** | iOS 26+ / macOS 26+ | iOS 11+ / macOS 10.13+ | macOS 13.5+ |
+| **Runs on** | iOS 27+ / macOS 27+ | iOS 11+ / macOS 10.13+ | macOS 13.5+ |
 
 ## Core AI
 
@@ -171,7 +171,7 @@ them.
 | On-device LLM, VLM, diffusion, or TTS | **Core AI** |
 | Classic classification, detection, or tabular ML | **Core ML** |
 | To train or fine-tune on Mac | **MLX** |
-| Maximum OS compatibility (pre-iOS 26) | **Core ML** |
+| Maximum OS compatibility (pre-iOS 27) | **Core ML** |
 | Research prototyping with PyTorch ergonomics | **MLX** |
 
 The catalog's 79 models are all `.aimodel` (Core AI) artifacts today, but the framework

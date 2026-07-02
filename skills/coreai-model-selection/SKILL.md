@@ -4,7 +4,7 @@
 Use this skill when asked to recommend, select, or evaluate Apple Core AI models for a specific use case, device target, or constraint set.
 
 ## Prerequisites
-The CoreAI Catalog must be available at the working directory or installed via `pip install -e .`.
+The Core AI Catalog must be available at the working directory or installed via `pip install -e .`.
 
 ## Procedure
 

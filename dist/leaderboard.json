@@ -1,0 +1,1193 @@
+{
+  "export_schema_version": "1.0",
+  "export_catalog_version": "2.1.0",
+  "description": "Ranked model leaderboard by readiness score. Each entry includes best-known benchmarks per metric.",
+  "total_models": 79,
+  "leaderboard": [
+    {
+      "id": "qwen3-embedding-0-6b",
+      "name": "Qwen3-Embedding 0.6B",
+      "capabilities": [
+        "embedding"
+      ],
+      "parameters": "0.6B",
+      "readiness_score": 93,
+      "benchmark_count": 1,
+      "best_metrics": {
+        "inference_latency": {
+          "value": 12.0,
+          "device": "M4 Max",
+          "unit": "milliseconds"
+        }
+      }
+    },
+    {
+      "id": "qwen3-reranker-0-6b",
+      "name": "Qwen3-Reranker 0.6B",
+      "capabilities": [
+        "reranking"
+      ],
+      "parameters": "0.6B",
+      "readiness_score": 93,
+      "benchmark_count": 1,
+      "best_metrics": {
+        "inference_latency": {
+          "value": 45.7,
+          "device": "M4 Max",
+          "unit": "milliseconds"
+        }
+      }
+    },
+    {
+      "id": "rf-detr-nano",
+      "name": "RF-DETR Nano",
+      "capabilities": [
+        "object-detection"
+      ],
+      "parameters": "nano",
+      "readiness_score": 93,
+      "benchmark_count": 1,
+      "best_metrics": {
+        "inference_latency": {
+          "value": 8.6,
+          "device": "M4 Max",
+          "unit": "milliseconds"
+        }
+      }
+    },
+    {
+      "id": "rf-detr-small",
+      "name": "RF-DETR Small",
+      "capabilities": [
+        "object-detection"
+      ],
+      "parameters": "small",
+      "readiness_score": 93,
+      "benchmark_count": 1,
+      "best_metrics": {
+        "inference_latency": {
+          "value": 12.0,
+          "device": "M4 Max",
+          "unit": "milliseconds"
+        }
+      }
+    },
+    {
+      "id": "rf-detr-medium",
+      "name": "RF-DETR Medium",
+      "capabilities": [
+        "object-detection"
+      ],
+      "parameters": "medium",
+      "readiness_score": 93,
+      "benchmark_count": 1,
+      "best_metrics": {
+        "inference_latency": {
+          "value": 14.8,
+          "device": "M4 Max",
+          "unit": "milliseconds"
+        }
+      }
+    },
+    {
+      "id": "rf-detr-large",
+      "name": "RF-DETR Large",
+      "capabilities": [
+        "object-detection"
+      ],
+      "parameters": "large",
+      "readiness_score": 93,
+      "benchmark_count": 1,
+      "best_metrics": {
+        "inference_latency": {
+          "value": 19.1,
+          "device": "M4 Max",
+          "unit": "milliseconds"
+        }
+      }
+    },
+    {
+      "id": "depth-anything-3-small",
+      "name": "Depth Anything 3 Small",
+      "capabilities": [
+        "monocular-depth"
+      ],
+      "parameters": "small",
+      "readiness_score": 93,
+      "benchmark_count": 1,
+      "best_metrics": {
+        "inference_latency": {
+          "value": 15.2,
+          "device": "M4 Max",
+          "unit": "milliseconds"
+        }
+      }
+    },
+    {
+      "id": "depth-anything-3-base",
+      "name": "Depth Anything 3 Base",
+      "capabilities": [
+        "monocular-depth"
+      ],
+      "parameters": "base",
+      "readiness_score": 93,
+      "benchmark_count": 1,
+      "best_metrics": {
+        "inference_latency": {
+          "value": 37.7,
+          "device": "M4 Max",
+          "unit": "milliseconds"
+        }
+      }
+    },
+    {
+      "id": "yolox-s",
+      "name": "YOLOX-S",
+      "capabilities": [
+        "object-detection"
+      ],
+      "parameters": "8.97M",
+      "readiness_score": 93,
+      "benchmark_count": 2,
+      "best_metrics": {
+        "inference_latency": {
+          "value": 22.0,
+          "device": "A18 Pro",
+          "unit": "milliseconds"
+        }
+      }
+    },
+    {
+      "id": "official-qwen3-0-6b",
+      "name": "Qwen3 0.6B",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "parameters": "0.6B",
+      "readiness_score": 90,
+      "benchmark_count": 2,
+      "best_metrics": {
+        "decode_throughput": {
+          "value": 1121.0,
+          "device": "M4 Max",
+          "unit": "tokens_per_second"
+        }
+      }
+    },
+    {
+      "id": "official-qwen3-4b",
+      "name": "Qwen3 4B",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "parameters": "4B",
+      "readiness_score": 90,
+      "benchmark_count": 1,
+      "best_metrics": {
+        "decode_throughput": {
+          "value": 145.4,
+          "device": "M4 Max",
+          "unit": "tokens_per_second"
+        }
+      }
+    },
+    {
+      "id": "official-whisper-large-v3-turbo",
+      "name": "Whisper large-v3-turbo",
+      "capabilities": [
+        "speech-to-text"
+      ],
+      "parameters": "809M / ~1.5GB",
+      "readiness_score": 90,
+      "benchmark_count": 1,
+      "best_metrics": {
+        "transcription_latency": {
+          "value": 180.0,
+          "device": "M4 Max",
+          "unit": "milliseconds"
+        }
+      }
+    },
+    {
+      "id": "efficientsam3-tinyvit",
+      "name": "EfficientSAM3-TinyViT",
+      "capabilities": [
+        "promptable-segmentation"
+      ],
+      "parameters": "not_published",
+      "readiness_score": 88,
+      "benchmark_count": 0,
+      "best_metrics": null
+    },
+    {
+      "id": "official-gpt-oss-20b",
+      "name": "gpt-oss-20B",
+      "capabilities": [
+        "chat",
+        "text-generation",
+        "moe"
+      ],
+      "parameters": "20B / ~13GB",
+      "readiness_score": 85,
+      "benchmark_count": 1,
+      "best_metrics": {
+        "decode_throughput": {
+          "value": 78.1,
+          "device": "M4 Max",
+          "unit": "tokens_per_second"
+        }
+      }
+    },
+    {
+      "id": "official-flux-2-klein-4b",
+      "name": "FLUX.2 klein 4B",
+      "capabilities": [
+        "image-generation"
+      ],
+      "parameters": "4B / ~4GB",
+      "readiness_score": 85,
+      "benchmark_count": 1,
+      "best_metrics": {
+        "image_generation_latency": {
+          "value": 17.4,
+          "device": "M4 Max",
+          "unit": "seconds"
+        }
+      }
+    },
+    {
+      "id": "unlimited-ocr",
+      "name": "Unlimited-OCR",
+      "capabilities": [
+        "document-ocr"
+      ],
+      "parameters": "not_published",
+      "readiness_score": 83,
+      "benchmark_count": 0,
+      "best_metrics": null
+    },
+    {
+      "id": "rf-detr-seg-nano",
+      "name": "RF-DETR-Seg Nano",
+      "capabilities": [
+        "instance-segmentation"
+      ],
+      "parameters": "nano",
+      "readiness_score": 83,
+      "benchmark_count": 0,
+      "best_metrics": null
+    },
+    {
+      "id": "rf-detr-seg-small",
+      "name": "RF-DETR-Seg Small",
+      "capabilities": [
+        "instance-segmentation"
+      ],
+      "parameters": "small",
+      "readiness_score": 83,
+      "benchmark_count": 0,
+      "best_metrics": null
+    },
+    {
+      "id": "rf-detr-seg-medium",
+      "name": "RF-DETR-Seg Medium",
+      "capabilities": [
+        "instance-segmentation"
+      ],
+      "parameters": "medium",
+      "readiness_score": 83,
+      "benchmark_count": 0,
+      "best_metrics": null
+    },
+    {
+      "id": "rf-detr-seg-large",
+      "name": "RF-DETR-Seg Large",
+      "capabilities": [
+        "instance-segmentation"
+      ],
+      "parameters": "large",
+      "readiness_score": 83,
+      "benchmark_count": 0,
+      "best_metrics": null
+    },
+    {
+      "id": "rf-detr-seg-xlarge",
+      "name": "RF-DETR-Seg Xlarge",
+      "capabilities": [
+        "instance-segmentation"
+      ],
+      "parameters": "xlarge",
+      "readiness_score": 83,
+      "benchmark_count": 0,
+      "best_metrics": null
+    },
+    {
+      "id": "rf-detr-seg-2xlarge",
+      "name": "RF-DETR-Seg 2Xlarge",
+      "capabilities": [
+        "instance-segmentation"
+      ],
+      "parameters": "2xlarge",
+      "readiness_score": 83,
+      "benchmark_count": 0,
+      "best_metrics": null
+    },
+    {
+      "id": "minicpm5-1b",
+      "name": "MiniCPM5-1B",
+      "capabilities": [
+        "chat",
+        "text-generation",
+        "reasoning"
+      ],
+      "parameters": "1.08B",
+      "readiness_score": 83,
+      "benchmark_count": 2,
+      "best_metrics": {
+        "decode_throughput": {
+          "value": 66.8,
+          "device": "A18 Pro",
+          "unit": "tokens_per_second"
+        }
+      }
+    },
+    {
+      "id": "colmodernvbert",
+      "name": "ColModernVBERT",
+      "capabilities": [
+        "visual-document-retrieval"
+      ],
+      "parameters": "250M",
+      "readiness_score": 83,
+      "benchmark_count": 0,
+      "best_metrics": null
+    },
+    {
+      "id": "official-clip-vit-base-patch32",
+      "name": "CLIP ViT-B/32",
+      "capabilities": [
+        "image-text-similarity"
+      ],
+      "parameters": "151M",
+      "readiness_score": 83,
+      "benchmark_count": 0,
+      "best_metrics": null
+    },
+    {
+      "id": "official-qwen3-8b",
+      "name": "Qwen3 8B",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "parameters": "8B",
+      "readiness_score": 80,
+      "benchmark_count": 1,
+      "best_metrics": {
+        "decode_throughput": {
+          "value": 94.1,
+          "device": "M4 Max",
+          "unit": "tokens_per_second"
+        }
+      }
+    },
+    {
+      "id": "official-mistral-7b-v0-3",
+      "name": "Mistral 7B v0.3",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "parameters": "7B",
+      "readiness_score": 80,
+      "benchmark_count": 1,
+      "best_metrics": {
+        "decode_throughput": {
+          "value": 101.7,
+          "device": "M4 Max",
+          "unit": "tokens_per_second"
+        }
+      }
+    },
+    {
+      "id": "official-sam-3",
+      "name": "SAM 3",
+      "capabilities": [
+        "promptable-segmentation"
+      ],
+      "parameters": "~1.7GB",
+      "readiness_score": 80,
+      "benchmark_count": 1,
+      "best_metrics": {
+        "segmentation_latency": {
+          "value": 0.55,
+          "device": "M4 Max",
+          "unit": "seconds_per_image"
+        }
+      }
+    },
+    {
+      "id": "qwen3-5-0-8b",
+      "name": "Qwen3.5-0.8B",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "parameters": "0.8B",
+      "readiness_score": 78,
+      "benchmark_count": 3,
+      "best_metrics": {
+        "decode_throughput": {
+          "value": 210.0,
+          "device": "M4 Max",
+          "unit": "tokens_per_second"
+        }
+      }
+    },
+    {
+      "id": "qwen3-5-2b",
+      "name": "Qwen3.5-2B",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "parameters": "2B",
+      "readiness_score": 78,
+      "benchmark_count": 2,
+      "best_metrics": {
+        "decode_throughput": {
+          "value": 161.0,
+          "device": "M4 Max",
+          "unit": "tokens_per_second"
+        }
+      }
+    },
+    {
+      "id": "granite-4-0-h-1b",
+      "name": "Granite 4.0-H 1B",
+      "capabilities": [
+        "chat",
+        "text-generation",
+        "hybrid-llm"
+      ],
+      "parameters": "1B",
+      "readiness_score": 78,
+      "benchmark_count": 2,
+      "best_metrics": {
+        "decode_throughput": {
+          "value": 136.5,
+          "device": "M4 Max",
+          "unit": "tokens_per_second"
+        }
+      }
+    },
+    {
+      "id": "nanbeige4-1-3b",
+      "name": "Nanbeige4.1-3B",
+      "capabilities": [
+        "chat",
+        "reasoning",
+        "agentic",
+        "text-generation"
+      ],
+      "parameters": "3.93B",
+      "readiness_score": 78,
+      "benchmark_count": 2,
+      "best_metrics": {
+        "decode_throughput": {
+          "value": 114.5,
+          "device": "M4 Max",
+          "unit": "tokens_per_second"
+        }
+      }
+    },
+    {
+      "id": "qwen3-vl-2b",
+      "name": "Qwen3-VL 2B",
+      "capabilities": [
+        "vision-language"
+      ],
+      "parameters": "2B",
+      "readiness_score": 78,
+      "benchmark_count": 2,
+      "best_metrics": {
+        "decode_throughput": {
+          "value": 191.0,
+          "device": "M4 Max",
+          "unit": "tokens_per_second"
+        }
+      }
+    },
+    {
+      "id": "minicpm-v-4-6",
+      "name": "MiniCPM-V 4.6",
+      "capabilities": [
+        "vision-language"
+      ],
+      "parameters": "sub-2B",
+      "readiness_score": 78,
+      "benchmark_count": 2,
+      "best_metrics": {
+        "decode_throughput": {
+          "value": 224.3,
+          "device": "M4 Max",
+          "unit": "tokens_per_second"
+        }
+      }
+    },
+    {
+      "id": "voxcpm-0-5b",
+      "name": "VoxCPM-0.5B",
+      "capabilities": [
+        "text-to-speech"
+      ],
+      "parameters": "0.5B",
+      "readiness_score": 78,
+      "benchmark_count": 1,
+      "best_metrics": {
+        "realtime_factor": {
+          "value": 0.9,
+          "device": "A18 Pro",
+          "unit": "realtime_factor"
+        }
+      }
+    },
+    {
+      "id": "fastcontext-1-0-4b",
+      "name": "FastContext-1.0-4B",
+      "capabilities": [
+        "chat",
+        "text-generation",
+        "agentic"
+      ],
+      "parameters": "4B",
+      "readiness_score": 78,
+      "benchmark_count": 1,
+      "best_metrics": {
+        "decode_throughput": {
+          "value": 20.4,
+          "device": "A18 Pro",
+          "unit": "tokens_per_second"
+        }
+      }
+    },
+    {
+      "id": "parakeet-tdt-0-6b",
+      "name": "Parakeet-TDT-0.6B",
+      "capabilities": [
+        "speech-to-text"
+      ],
+      "parameters": "0.6B",
+      "readiness_score": 78,
+      "benchmark_count": 2,
+      "best_metrics": {
+        "realtime_factor": {
+          "value": 47.9,
+          "device": "A18 Pro",
+          "unit": "realtime_factor"
+        },
+        "transcription_latency": {
+          "value": 310.0,
+          "device": "M4 Max",
+          "unit": "milliseconds"
+        }
+      }
+    },
+    {
+      "id": "official-qwen3-1-7b",
+      "name": "Qwen3 1.7B",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "parameters": "1.7B",
+      "readiness_score": 78,
+      "benchmark_count": 0,
+      "best_metrics": null
+    },
+    {
+      "id": "whisper-large-v3-turbo-carstenl",
+      "name": "Whisper large-v3-turbo (CarstenL)",
+      "capabilities": [
+        "speech-to-text"
+      ],
+      "parameters": "809M",
+      "readiness_score": 78,
+      "benchmark_count": 0,
+      "best_metrics": null
+    },
+    {
+      "id": "whisper-tiny-en-intiser",
+      "name": "Whisper tiny.en (Intiser)",
+      "capabilities": [
+        "speech-to-text"
+      ],
+      "parameters": "39M",
+      "readiness_score": 78,
+      "benchmark_count": 0,
+      "best_metrics": null
+    },
+    {
+      "id": "whisper-medium-intiser",
+      "name": "Whisper medium (Intiser)",
+      "capabilities": [
+        "speech-to-text"
+      ],
+      "parameters": "769M",
+      "readiness_score": 78,
+      "benchmark_count": 0,
+      "best_metrics": null
+    },
+    {
+      "id": "real-esrgan-x4v3",
+      "name": "Real-ESRGAN x4v3",
+      "capabilities": [
+        "super-resolution"
+      ],
+      "parameters": "not_published",
+      "readiness_score": 78,
+      "benchmark_count": 0,
+      "best_metrics": null
+    },
+    {
+      "id": "kokoro-82m",
+      "name": "Kokoro-82M",
+      "capabilities": [
+        "text-to-speech"
+      ],
+      "parameters": "82M",
+      "readiness_score": 73,
+      "benchmark_count": 0,
+      "best_metrics": null
+    },
+    {
+      "id": "embeddinggemma-300m",
+      "name": "EmbeddingGemma 300M",
+      "capabilities": [
+        "embedding"
+      ],
+      "parameters": "300M",
+      "readiness_score": 73,
+      "benchmark_count": 0,
+      "best_metrics": null
+    },
+    {
+      "id": "adcsr-x4",
+      "name": "AdcSR ×4",
+      "capabilities": [
+        "super-resolution"
+      ],
+      "parameters": "×4",
+      "readiness_score": 73,
+      "benchmark_count": 0,
+      "best_metrics": null
+    },
+    {
+      "id": "holo2-4b",
+      "name": "Holo2-4B",
+      "capabilities": [
+        "vision-language",
+        "gui-grounding"
+      ],
+      "parameters": "4B",
+      "readiness_score": 73,
+      "benchmark_count": 0,
+      "best_metrics": null
+    },
+    {
+      "id": "qwen3-asr-1-7b",
+      "name": "Qwen3-ASR-1.7B",
+      "capabilities": [
+        "speech-to-text"
+      ],
+      "parameters": "1.7B",
+      "readiness_score": 73,
+      "benchmark_count": 0,
+      "best_metrics": null
+    },
+    {
+      "id": "vibevoice-0-5b",
+      "name": "VibeVoice 0.5B",
+      "capabilities": [
+        "text-to-speech"
+      ],
+      "parameters": "0.5B",
+      "readiness_score": 73,
+      "benchmark_count": 1,
+      "best_metrics": {
+        "realtime_factor": {
+          "value": 10.2,
+          "device": "M4 Max",
+          "unit": "realtime_factor"
+        }
+      }
+    },
+    {
+      "id": "vibevoice-1-5b",
+      "name": "VibeVoice 1.5B",
+      "capabilities": [
+        "text-to-speech"
+      ],
+      "parameters": "1.5B",
+      "readiness_score": 73,
+      "benchmark_count": 1,
+      "best_metrics": {
+        "realtime_factor": {
+          "value": 4.99,
+          "device": "M4 Max",
+          "unit": "realtime_factor"
+        }
+      }
+    },
+    {
+      "id": "vibevoice-7b",
+      "name": "VibeVoice 7B",
+      "capabilities": [
+        "text-to-speech"
+      ],
+      "parameters": "7B",
+      "readiness_score": 73,
+      "benchmark_count": 1,
+      "best_metrics": {
+        "realtime_factor": {
+          "value": 2.37,
+          "device": "M4 Max",
+          "unit": "realtime_factor"
+        }
+      }
+    },
+    {
+      "id": "vibevoice-asr",
+      "name": "VibeVoice ASR",
+      "capabilities": [
+        "speech-to-text"
+      ],
+      "parameters": "7B",
+      "readiness_score": 73,
+      "benchmark_count": 1,
+      "best_metrics": {
+        "realtime_factor": {
+          "value": 11.1,
+          "device": "M4 Max",
+          "unit": "realtime_factor"
+        }
+      }
+    },
+    {
+      "id": "z-image-turbo",
+      "name": "Z-Image Turbo",
+      "capabilities": [
+        "image-generation"
+      ],
+      "parameters": "not_published",
+      "readiness_score": 73,
+      "benchmark_count": 0,
+      "best_metrics": null
+    },
+    {
+      "id": "official-gemma-3-4b-it",
+      "name": "Gemma 3 4B IT",
+      "capabilities": [
+        "chat",
+        "instruction-following",
+        "text-generation"
+      ],
+      "parameters": "4B",
+      "readiness_score": 70,
+      "benchmark_count": 1,
+      "best_metrics": {
+        "decode_throughput": {
+          "value": 141.5,
+          "device": "M4 Max",
+          "unit": "tokens_per_second"
+        }
+      }
+    },
+    {
+      "id": "official-gemma-3-12b-it",
+      "name": "Gemma 3 12B IT",
+      "capabilities": [
+        "chat",
+        "instruction-following",
+        "text-generation"
+      ],
+      "parameters": "12B",
+      "readiness_score": 70,
+      "benchmark_count": 1,
+      "best_metrics": {
+        "decode_throughput": {
+          "value": 55.0,
+          "device": "M4 Max",
+          "unit": "tokens_per_second"
+        }
+      }
+    },
+    {
+      "id": "nemotron-3-5-asr-streaming",
+      "name": "Nemotron 3.5 ASR Streaming 0.6B",
+      "capabilities": [
+        "speech-to-text"
+      ],
+      "parameters": "0.6B",
+      "readiness_score": 70,
+      "benchmark_count": 0,
+      "best_metrics": null
+    },
+    {
+      "id": "lfm2-5-1-2b-instruct",
+      "name": "LFM2.5-1.2B-Instruct",
+      "capabilities": [
+        "chat",
+        "text-generation",
+        "instruction-following"
+      ],
+      "parameters": "1.2B",
+      "readiness_score": 68,
+      "benchmark_count": 2,
+      "best_metrics": {
+        "decode_throughput": {
+          "value": 276.5,
+          "device": "M4 Max",
+          "unit": "tokens_per_second"
+        }
+      }
+    },
+    {
+      "id": "granite-4-0-h-350m",
+      "name": "Granite 4.0-H 350M",
+      "capabilities": [
+        "chat",
+        "text-generation",
+        "hybrid-llm"
+      ],
+      "parameters": "350M",
+      "readiness_score": 68,
+      "benchmark_count": 0,
+      "best_metrics": null
+    },
+    {
+      "id": "qwen3-vl-4b",
+      "name": "Qwen3-VL 4B",
+      "capabilities": [
+        "vision-language"
+      ],
+      "parameters": "4B",
+      "readiness_score": 68,
+      "benchmark_count": 0,
+      "best_metrics": null
+    },
+    {
+      "id": "qwen3-vl-8b",
+      "name": "Qwen3-VL 8B",
+      "capabilities": [
+        "vision-language"
+      ],
+      "parameters": "8B",
+      "readiness_score": 68,
+      "benchmark_count": 0,
+      "best_metrics": null
+    },
+    {
+      "id": "bitcpm-8b",
+      "name": "BitCPM-8B",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "parameters": "8B / ternary {-1,0,+1}",
+      "readiness_score": 68,
+      "benchmark_count": 2,
+      "best_metrics": {
+        "decode_throughput": {
+          "value": 62.7,
+          "device": "M4 Max",
+          "unit": "tokens_per_second"
+        }
+      }
+    },
+    {
+      "id": "voxcpm2-2b",
+      "name": "VoxCPM2 2B",
+      "capabilities": [
+        "text-to-speech"
+      ],
+      "parameters": "2B",
+      "readiness_score": 68,
+      "benchmark_count": 0,
+      "best_metrics": null
+    },
+    {
+      "id": "gemma-4-12b-assistant-warshanks",
+      "name": "Gemma 4 12B IT Assistant (MTP draft)",
+      "capabilities": [
+        "speculative-decoding"
+      ],
+      "parameters": "12B",
+      "readiness_score": 68,
+      "benchmark_count": 1,
+      "best_metrics": {
+        "inference_latency": {
+          "value": 3.0,
+          "device": "M4 Max",
+          "unit": "milliseconds"
+        }
+      }
+    },
+    {
+      "id": "qwen3-6-35b-a3b",
+      "name": "Qwen3.6-35B-A3B",
+      "capabilities": [
+        "chat",
+        "text-generation",
+        "moe"
+      ],
+      "parameters": "35B / ~3B active",
+      "readiness_score": 63,
+      "benchmark_count": 1,
+      "best_metrics": {
+        "decode_throughput": {
+          "value": 64.9,
+          "device": "M4 Max",
+          "unit": "tokens_per_second"
+        }
+      }
+    },
+    {
+      "id": "qwen3-6-27b",
+      "name": "Qwen3.6-27B",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "parameters": "27B",
+      "readiness_score": 63,
+      "benchmark_count": 1,
+      "best_metrics": {
+        "decode_throughput": {
+          "value": 15.9,
+          "device": "M4 Max",
+          "unit": "tokens_per_second"
+        }
+      }
+    },
+    {
+      "id": "glm-4-7-flash",
+      "name": "GLM-4.7-Flash",
+      "capabilities": [
+        "chat",
+        "text-generation",
+        "moe",
+        "mla"
+      ],
+      "parameters": "30B / ~3B active",
+      "readiness_score": 63,
+      "benchmark_count": 1,
+      "best_metrics": {
+        "decode_throughput": {
+          "value": 52.4,
+          "device": "M4 Max",
+          "unit": "tokens_per_second"
+        }
+      }
+    },
+    {
+      "id": "gemma-4-e2b",
+      "name": "Gemma 4 E2B",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "parameters": "E2B",
+      "readiness_score": 63,
+      "benchmark_count": 5,
+      "best_metrics": {
+        "decode_throughput": {
+          "value": 78.9,
+          "device": "M4 Max",
+          "unit": "tokens_per_second"
+        }
+      }
+    },
+    {
+      "id": "gemma-4-e4b",
+      "name": "Gemma 4 E4B",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "parameters": "E4B",
+      "readiness_score": 63,
+      "benchmark_count": 3,
+      "best_metrics": {
+        "decode_throughput": {
+          "value": 55.8,
+          "device": "M4 Max",
+          "unit": "tokens_per_second"
+        }
+      }
+    },
+    {
+      "id": "gemma-4-e2b-vision",
+      "name": "Gemma 4 E2B Vision",
+      "capabilities": [
+        "vision-language"
+      ],
+      "parameters": "E2B",
+      "readiness_score": 63,
+      "benchmark_count": 2,
+      "best_metrics": {
+        "decode_throughput": {
+          "value": 82.4,
+          "device": "M4 Max",
+          "unit": "tokens_per_second"
+        }
+      }
+    },
+    {
+      "id": "qwen2-5-omni-3b-audio",
+      "name": "Qwen2.5-Omni-3B Audio",
+      "capabilities": [
+        "audio-understanding"
+      ],
+      "parameters": "3B",
+      "readiness_score": 63,
+      "benchmark_count": 0,
+      "best_metrics": null
+    },
+    {
+      "id": "tripo-splat",
+      "name": "TripoSplat",
+      "capabilities": [
+        "image-to-3d"
+      ],
+      "parameters": "not_published",
+      "readiness_score": 63,
+      "benchmark_count": 0,
+      "best_metrics": null
+    },
+    {
+      "id": "ltx-video-2b",
+      "name": "LTX-Video 2B distilled",
+      "capabilities": [
+        "text-to-video"
+      ],
+      "parameters": "2B / DiT 1.9B + T5-XXL 4.76B",
+      "readiness_score": 63,
+      "benchmark_count": 0,
+      "best_metrics": null
+    },
+    {
+      "id": "llada-8b-dllm",
+      "name": "LLaDA-8B dLLM",
+      "capabilities": [
+        "chat",
+        "text-generation",
+        "diffusion-lm"
+      ],
+      "parameters": "8B",
+      "readiness_score": 63,
+      "benchmark_count": 0,
+      "best_metrics": null
+    },
+    {
+      "id": "bitvla",
+      "name": "BitVLA",
+      "capabilities": [
+        "vision-language-action",
+        "robotics"
+      ],
+      "parameters": "2B (BitNet b1.58)",
+      "readiness_score": 63,
+      "benchmark_count": 0,
+      "best_metrics": null
+    },
+    {
+      "id": "stable-audio-open-small",
+      "name": "Stable Audio Open Small",
+      "capabilities": [
+        "text-to-audio",
+        "music-generation"
+      ],
+      "parameters": "not_published",
+      "readiness_score": 63,
+      "benchmark_count": 0,
+      "best_metrics": null
+    },
+    {
+      "id": "rwkv7-goose-1-5b",
+      "name": "RWKV-7 Goose 1.5B",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "parameters": "1.5B",
+      "readiness_score": 63,
+      "benchmark_count": 0,
+      "best_metrics": null
+    },
+    {
+      "id": "gemma-4-12b-mm-warshanks",
+      "name": "Gemma 4 12B IT Multimodal (warshanks)",
+      "capabilities": [
+        "chat",
+        "vision-language",
+        "text-generation"
+      ],
+      "parameters": "12B",
+      "readiness_score": 58,
+      "benchmark_count": 0,
+      "best_metrics": null
+    },
+    {
+      "id": "gemma-4-12b",
+      "name": "Gemma 4 12B",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "parameters": "12B",
+      "readiness_score": 53,
+      "benchmark_count": 2,
+      "best_metrics": {
+        "decode_throughput": {
+          "value": 33.0,
+          "device": "M4 Max",
+          "unit": "tokens_per_second"
+        }
+      }
+    },
+    {
+      "id": "gemma-4-31b",
+      "name": "Gemma 4 31B",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "parameters": "31B",
+      "readiness_score": 53,
+      "benchmark_count": 1,
+      "best_metrics": {
+        "decode_throughput": {
+          "value": 17.2,
+          "device": "M4 Max",
+          "unit": "tokens_per_second"
+        }
+      }
+    },
+    {
+      "id": "lfm2-5-8b-a1b",
+      "name": "LFM2.5-8B-A1B",
+      "capabilities": [
+        "chat",
+        "text-generation",
+        "moe"
+      ],
+      "parameters": "8B / ~1B active",
+      "readiness_score": 53,
+      "benchmark_count": 0,
+      "best_metrics": null
+    }
+  ]
+}

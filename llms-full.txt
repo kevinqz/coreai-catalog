@@ -2,7 +2,7 @@
 
 ## Identity
 
-Core AI Catalog is a source-grounded registry of Apple Core AI (CoreML/MLX) models,
+Core AI Catalog is a source-grounded registry of Apple Core AI (.aimodel) models,
 artifacts, benchmarks, provenance, and verified Apple AI terminology. It is an
 independent community project — not affiliated with or endorsed by Apple.
 

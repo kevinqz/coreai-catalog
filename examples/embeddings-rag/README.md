@@ -14,28 +14,37 @@ Artifact: https://huggingface.co/mlboydaisuke/embeddinggemma-300m-CoreAI
 
 ## Integration
 
+> **Note:** The snippet below is conceptual — see [apple/coreai-models](https://github.com/apple/coreai-models) for complete, compiling working examples of the `AIModel` GraphModel API.
+
 ```swift
 import CoreAI
 
 /// On-device embedding engine for semantic search and RAG.
 /// Converts text into dense vectors for similarity matching.
 class EmbeddingEngine {
-    private let model: CoreAIModel
+    private let model: AIModel
 
     init() throws {
         guard let bundleURL = Bundle.main.url(forResource: "embeddinggemma-300m", withExtension: "aimodel") else {
             throw EmbeddingError.bundleNotFound
         }
-        model = try CoreAIModel(contentsOf: bundleURL)
+        model = try AIModel(contentsOf: bundleURL)
     }
 
     /// Generate an embedding vector for a piece of text.
     /// - Parameter text: Input text to embed
     /// - Returns: Dense vector (typically 768 or 1536 dimensions)
     func embed(_ text: String) async throws -> [Float] {
-        let request = CoreAIRequest.input(text: text)
-        let response = try await model.predict(request)
-        return response.vector
+        // Input key names vary by model; see the model spec in apple/coreai-models.
+        let request = try model.makeRequest(inputs: [
+            "text": text,
+        ])
+        let result = try await model.run(request)
+        // Cast the output feature to a float array.
+        guard let vector = result.outputs["embedding"] as? [Float] else {
+            throw EmbeddingError.outputMismatch
+        }
+        return vector
     }
 
     /// Compute cosine similarity between two embedding vectors.
@@ -87,6 +96,7 @@ class VectorStore {
 
 enum EmbeddingError: Error {
     case bundleNotFound
+    case outputMismatch
 }
 ```
 

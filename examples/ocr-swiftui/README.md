@@ -13,6 +13,8 @@ Artifact: https://huggingface.co/mlboydaisuke/Unlimited-OCR-CoreAI
 
 ## Integration
 
+> **Note:** The snippet below is conceptual — see [apple/coreai-models](https://github.com/apple/coreai-models) for complete, compiling working examples of the `AIModel` GraphModel API.
+
 ```swift
 import CoreAI
 import UIKit
@@ -20,7 +22,7 @@ import UIKit
 /// OCR engine that runs Unlimited-OCR entirely on-device.
 /// No network calls, no data leaves the device.
 class OCREngine {
-    private let model: CoreAIModel
+    private let model: AIModel
 
     init() throws {
         // 1. Load the .aimodel bundle from your app bundle
@@ -29,20 +31,24 @@ class OCREngine {
         guard let bundleURL = Bundle.main.url(forResource: "unlimited-ocr", withExtension: "aimodel") else {
             throw OCRError.bundleNotFound
         }
-        model = try CoreAIModel(contentsOf: bundleURL)
+        model = try AIModel(contentsOf: bundleURL)
     }
 
     /// Extract text from a UIImage.
     /// - Parameter image: Input image (document, receipt, screenshot, etc.)
     /// - Returns: Extracted text, bounding boxes, and confidence scores
     func extractText(from image: UIImage) async throws -> OCRResult {
-        let request = CoreAIRequest.input(image.cgImage!)
-        let response = try await model.predict(request)
+        // Build a request with the image input (exact input key names vary by model;
+        // see the model's spec in apple/coreai-models for the required inputs)
+        let request = try model.makeRequest(inputs: [
+            "image": image.cgImage!,
+        ])
+        let result = try await model.run(request)
 
         return OCRResult(
-            text: response.text,
-            boundingBoxes: response.boxes,
-            confidenceScores: response.scores
+            text: result.outputs["text"] as? String ?? "",
+            boundingBoxes: result.outputs["boxes"] as? [[Float]] ?? [],
+            confidenceScores: result.outputs["scores"] as? [Float] ?? []
         )
     }
 }

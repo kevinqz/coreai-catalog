@@ -1,4 +1,4 @@
-# Agent Instructions for CoreAI Catalog
+# Agent Instructions for Core AI Catalog
 
 ## Source of truth
 

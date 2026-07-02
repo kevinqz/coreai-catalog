@@ -89,6 +89,11 @@ See [`examples/`](../examples/) for complete integration guides:
 - [VLM chat with Qwen3-VL](../examples/vlm-chat/) — image + text → response
 - [Embeddings + RAG](../examples/embeddings-rag/) — on-device semantic search
 
+> **Note:** Swift snippets in the catalog are conceptual and intended to show the
+> correct API surface (`AIModel` for non-LLM models, `ChatSession` for LLMs,
+> `SpeechModel` for transcription). For complete, compiling examples, see
+> [apple/coreai-models](https://github.com/apple/coreai-models).
+
 ## For agents: MCP server
 
 Connect the catalog to Claude Desktop, Cursor, or any MCP-compatible client:

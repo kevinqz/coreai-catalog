@@ -4,7 +4,7 @@
 Use this skill when evaluating whether a Core AI model can be used commercially, or when reviewing license risk for a project.
 
 ## Prerequisites
-Access to the CoreAI Catalog data (`catalog.yaml` or the CLI/MCP tools).
+Access to the Core AI Catalog data (`catalog.yaml` or the CLI/MCP tools).
 
 ## Procedure
 

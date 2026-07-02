@@ -327,8 +327,8 @@ def main() -> int:
     else:
         print(format_report(report))
 
-    # Exit non-zero if new models found (for CI integration)
-    if report["hf_new_count"] > 0:
+    # Exit non-zero if new models found (HF or Zoo) for CI integration
+    if report["hf_new_count"] > 0 or report.get("zoo_status", {}).get("new"):
         return 1  # Signal: new models need review
 
     return 0
