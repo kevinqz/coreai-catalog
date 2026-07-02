@@ -137,6 +137,24 @@ class TestPublicAPI(unittest.TestCase):
             self.assertIn("model_count", c)
             self.assertGreater(c["model_count"], 0)
 
+    def test_transforms_matrix(self):
+        """Catalog.transforms() returns reachability matrix."""
+        matrix = self.cat.transforms()
+        self.assertIsInstance(matrix, dict)
+        self.assertIn("text", matrix)
+
+    def test_transform_pipeline(self):
+        """Catalog.transform_pipeline() returns a pipeline."""
+        pipeline = self.cat.transform_pipeline("text", "audio")
+        self.assertIsNotNone(pipeline)
+        self.assertEqual(pipeline["output_modality"], "audio")
+
+    def test_transform_reachable(self):
+        """Catalog.reachable_outputs() returns list of modalities."""
+        reachable = self.cat.reachable_outputs("image")
+        self.assertIn("text", reachable)
+        self.assertIn("audio", reachable)
+
 
 if __name__ == "__main__":
     unittest.main()

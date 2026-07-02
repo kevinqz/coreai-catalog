@@ -252,3 +252,45 @@ class Catalog:
             }
             for cap, count in cap_counts.most_common()
         ]
+
+    def transforms(self) -> dict[str, list[str]]:
+        """Get the full modality transformation reachability matrix.
+
+        Returns:
+            Dict mapping each input modality to the list of output
+            modalities reachable from it (direct or multi-hop).
+        """
+        from .transform_graph import TransformGraph
+        graph = TransformGraph(self._cat.models, self._cat)
+        matrix = graph.reachability_matrix()
+        return {k: sorted(v) for k, v in matrix.items()}
+
+    def reachable_outputs(self, input_modality: str) -> list[str]:
+        """List all output modalities reachable from a given input.
+
+        Args:
+            input_modality: e.g. 'text', 'image', 'audio'.
+
+        Returns:
+            Sorted list of reachable output modalities.
+        """
+        from .transform_graph import TransformGraph
+        graph = TransformGraph(self._cat.models, self._cat)
+        return sorted(graph.reachable_outputs(input_modality))
+
+    def transform_pipeline(
+        self, input_modality: str, output_modality: str,
+    ) -> dict | None:
+        """Find a transformation pipeline between two modalities.
+
+        Args:
+            input_modality: Starting modality (e.g. 'audio').
+            output_modality: Target modality (e.g. 'image').
+
+        Returns:
+            Pipeline dict with stages, or None if no path exists.
+        """
+        from .transform_graph import TransformGraph
+        graph = TransformGraph(self._cat.models, self._cat)
+        pipeline = graph.shortest_path(input_modality, output_modality)
+        return pipeline.to_dict() if pipeline else None
