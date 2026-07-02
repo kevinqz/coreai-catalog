@@ -192,3 +192,140 @@ def export_search_index(catalog_root: Path, dist: Path | None = None) -> int:
     )
 
     return len(entries)
+
+
+def export_transform_graph(catalog_root: Path, dist: Path | None = None) -> dict:
+    """Export the transform graph as JSON for programmatic consumption.
+
+    Writes:
+      dist/transforms-graph.json
+
+    Structure:
+    {
+      "input_modalities": [...],
+      "output_modalities": [...],
+      "direct_edges": [
+        {"input": "text", "output": "audio", "model_ids": ["kokoro-82m", ...]},
+        ...
+      ],
+      "reachability_matrix": {
+        "text": ["audio", "image", "text", "vector", ...],
+        ...
+      },
+      "pipelines": {
+        "text\u2192audio": { "stages": [...], "hop_count": 1 },
+        "audio\u2192image": { "stages": [...], "hop_count": 2 },
+        ...
+      }
+    }
+    """
+    dist = dist or catalog_root / "dist"
+    dist.mkdir(exist_ok=True)
+
+    from .transform_graph import TransformGraph
+    cat = Catalog(catalog_root)
+    graph = TransformGraph(cat.models, cat)
+
+    direct_edges: list[dict] = []
+    for (inp, out) in sorted(graph.get_all_modality_pairs()):
+        edges = graph.get_edges(inp, out)
+        direct_edges.append({
+            "input": inp,
+            "output": out,
+            "model_ids": sorted(e.model_id for e in edges),
+            "model_count": len(edges),
+        })
+
+    matrix = graph.reachability_matrix()
+    serializable_matrix = {k: sorted(v) for k, v in sorted(matrix.items())}
+
+    pipelines: dict[str, dict] = {}
+    for inp in sorted(graph.input_modalities):
+        for out in sorted(matrix.get(inp, set())):
+            pipeline = graph.shortest_path(inp, out)
+            if pipeline:
+                pipelines[f"{inp}\u2192{out}"] = pipeline.to_dict()
+
+    catalog_version = _get_catalog_version(catalog_root)
+    output = {
+        "export_schema_version": EXPORT_SCHEMA_VERSION,
+        "export_catalog_version": catalog_version,
+        "input_modalities": sorted(graph.input_modalities),
+        "output_modalities": sorted(graph.output_modalities),
+        "direct_edge_count": len(direct_edges),
+        "total_reachable_pairs": sum(len(v) for v in matrix.values()),
+        "direct_edges": direct_edges,
+        "reachability_matrix": serializable_matrix,
+        "pipelines": pipelines,
+    }
+
+    (dist / "transforms-graph.json").write_text(
+        json.dumps(output, indent=2, ensure_ascii=False) + "\n"
+    )
+    return output
+
+
+def export_model_manifest(catalog_root: Path, dist: Path | None = None) -> dict:
+    """Export a model download manifest for on-demand fetching.
+
+    Each entry has: id, name, runner, huggingface_url, artifact_size,
+    parameters, precision, bundle_kind (inferred from runner/capabilities).
+
+    Writes:
+      dist/model-manifest.json
+    """
+    dist = dist or catalog_root / "dist"
+    cat = Catalog(catalog_root)
+
+    entries: list[dict] = []
+    for m in cat.models:
+        art = cat.get_artifact(m["id"])
+        hf_url = ""
+        if art:
+            hf_url = art.get("huggingface", {}).get("url", "")
+
+        runner = m.get("runtime", {}).get("runner", "")
+        caps = m.get("capabilities", [])
+
+        # Infer bundle kind from runner/capabilities
+        if runner in ("CoreAIRunner", "stock-runner"):
+            bundle_kind = "vlm" if "vision-language" in caps else "llm"
+        elif runner == "CoreAIDiffusionPipeline":
+            bundle_kind = "diffusion"
+        elif runner == "CoreAIImageSegmenter":
+            bundle_kind = "segmenter"
+        elif runner == "CoreAITranscribe":
+            bundle_kind = "speech"
+        elif runner == "CoreAIKit-GraphModel":
+            bundle_kind = "detector" if "object-detection" in caps or "instance-segmentation" in caps else "graph"
+        else:
+            bundle_kind = "unknown"
+
+        entries.append({
+            "id": m["id"],
+            "name": m.get("name", m["id"]),
+            "bundle_kind": bundle_kind,
+            "runner": runner,
+            "capabilities": caps,
+            "input_modalities": m.get("modalities", {}).get("input", []),
+            "output_modalities": m.get("modalities", {}).get("output", []),
+            "parameters": m.get("size", {}).get("parameters", ""),
+            "precision": m.get("size", {}).get("precision", ""),
+            "artifact_size": m.get("size", {}).get("artifact_size", ""),
+            "huggingface_url": hf_url,
+            "license": m.get("license", {}).get("name", ""),
+            "commercial_use": m.get("license", {}).get("commercial_use", ""),
+        })
+
+    catalog_version = _get_catalog_version(catalog_root)
+    output = {
+        "export_schema_version": EXPORT_SCHEMA_VERSION,
+        "export_catalog_version": catalog_version,
+        "model_count": len(entries),
+        "models": entries,
+    }
+
+    (dist / "model-manifest.json").write_text(
+        json.dumps(output, indent=2, ensure_ascii=False) + "\n"
+    )
+    return output

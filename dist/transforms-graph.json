@@ -1,0 +1,2286 @@
+{
+  "export_schema_version": "1.0",
+  "export_catalog_version": "2.0.5",
+  "input_modalities": [
+    "audio",
+    "document_image",
+    "documents",
+    "image",
+    "query",
+    "text"
+  ],
+  "output_modalities": [
+    "action-tokens",
+    "audio",
+    "boxes",
+    "classes",
+    "coordinates",
+    "depth_map",
+    "gaussian-splats",
+    "html",
+    "image",
+    "latex",
+    "markdown",
+    "masks",
+    "score",
+    "scores",
+    "text",
+    "transcript",
+    "vector",
+    "video"
+  ],
+  "direct_edge_count": 31,
+  "total_reachable_pairs": 55,
+  "direct_edges": [
+    {
+      "input": "audio",
+      "output": "text",
+      "model_ids": [
+        "gemma-4-12b-mm-warshanks",
+        "qwen2-5-omni-3b-audio"
+      ],
+      "model_count": 2
+    },
+    {
+      "input": "audio",
+      "output": "transcript",
+      "model_ids": [
+        "nemotron-3-5-asr-streaming",
+        "official-whisper-large-v3-turbo",
+        "parakeet-tdt-0-6b",
+        "qwen3-asr-1-7b",
+        "vibevoice-asr",
+        "whisper-large-v3-turbo-carstenl",
+        "whisper-medium-intiser",
+        "whisper-tiny-en-intiser"
+      ],
+      "model_count": 8
+    },
+    {
+      "input": "document_image",
+      "output": "html",
+      "model_ids": [
+        "unlimited-ocr"
+      ],
+      "model_count": 1
+    },
+    {
+      "input": "document_image",
+      "output": "latex",
+      "model_ids": [
+        "unlimited-ocr"
+      ],
+      "model_count": 1
+    },
+    {
+      "input": "document_image",
+      "output": "markdown",
+      "model_ids": [
+        "unlimited-ocr"
+      ],
+      "model_count": 1
+    },
+    {
+      "input": "documents",
+      "output": "score",
+      "model_ids": [
+        "qwen3-reranker-0-6b"
+      ],
+      "model_count": 1
+    },
+    {
+      "input": "image",
+      "output": "action-tokens",
+      "model_ids": [
+        "bitvla"
+      ],
+      "model_count": 1
+    },
+    {
+      "input": "image",
+      "output": "boxes",
+      "model_ids": [
+        "official-sam-3",
+        "rf-detr-large",
+        "rf-detr-medium",
+        "rf-detr-nano",
+        "rf-detr-seg-2xlarge",
+        "rf-detr-seg-large",
+        "rf-detr-seg-medium",
+        "rf-detr-seg-nano",
+        "rf-detr-seg-small",
+        "rf-detr-seg-xlarge",
+        "rf-detr-small",
+        "yolox-s"
+      ],
+      "model_count": 12
+    },
+    {
+      "input": "image",
+      "output": "classes",
+      "model_ids": [
+        "rf-detr-large",
+        "rf-detr-medium",
+        "rf-detr-nano",
+        "rf-detr-seg-2xlarge",
+        "rf-detr-seg-large",
+        "rf-detr-seg-medium",
+        "rf-detr-seg-nano",
+        "rf-detr-seg-small",
+        "rf-detr-seg-xlarge",
+        "rf-detr-small",
+        "yolox-s"
+      ],
+      "model_count": 11
+    },
+    {
+      "input": "image",
+      "output": "coordinates",
+      "model_ids": [
+        "holo2-4b"
+      ],
+      "model_count": 1
+    },
+    {
+      "input": "image",
+      "output": "depth_map",
+      "model_ids": [
+        "depth-anything-3-base",
+        "depth-anything-3-small"
+      ],
+      "model_count": 2
+    },
+    {
+      "input": "image",
+      "output": "gaussian-splats",
+      "model_ids": [
+        "tripo-splat"
+      ],
+      "model_count": 1
+    },
+    {
+      "input": "image",
+      "output": "html",
+      "model_ids": [
+        "unlimited-ocr"
+      ],
+      "model_count": 1
+    },
+    {
+      "input": "image",
+      "output": "image",
+      "model_ids": [
+        "adcsr-x4",
+        "real-esrgan-x4v3"
+      ],
+      "model_count": 2
+    },
+    {
+      "input": "image",
+      "output": "latex",
+      "model_ids": [
+        "unlimited-ocr"
+      ],
+      "model_count": 1
+    },
+    {
+      "input": "image",
+      "output": "markdown",
+      "model_ids": [
+        "unlimited-ocr"
+      ],
+      "model_count": 1
+    },
+    {
+      "input": "image",
+      "output": "masks",
+      "model_ids": [
+        "efficientsam3-tinyvit",
+        "official-sam-3",
+        "rf-detr-seg-2xlarge",
+        "rf-detr-seg-large",
+        "rf-detr-seg-medium",
+        "rf-detr-seg-nano",
+        "rf-detr-seg-small",
+        "rf-detr-seg-xlarge"
+      ],
+      "model_count": 8
+    },
+    {
+      "input": "image",
+      "output": "scores",
+      "model_ids": [
+        "official-sam-3",
+        "rf-detr-large",
+        "rf-detr-medium",
+        "rf-detr-nano",
+        "rf-detr-seg-2xlarge",
+        "rf-detr-seg-large",
+        "rf-detr-seg-medium",
+        "rf-detr-seg-nano",
+        "rf-detr-seg-small",
+        "rf-detr-seg-xlarge",
+        "rf-detr-small",
+        "yolox-s"
+      ],
+      "model_count": 12
+    },
+    {
+      "input": "image",
+      "output": "text",
+      "model_ids": [
+        "gemma-4-12b-mm-warshanks",
+        "gemma-4-e2b-vision",
+        "minicpm-v-4-6",
+        "qwen3-vl-2b",
+        "qwen3-vl-4b",
+        "qwen3-vl-8b"
+      ],
+      "model_count": 6
+    },
+    {
+      "input": "image",
+      "output": "vector",
+      "model_ids": [
+        "colmodernvbert",
+        "official-clip-vit-base-patch32"
+      ],
+      "model_count": 2
+    },
+    {
+      "input": "query",
+      "output": "score",
+      "model_ids": [
+        "qwen3-reranker-0-6b"
+      ],
+      "model_count": 1
+    },
+    {
+      "input": "text",
+      "output": "action-tokens",
+      "model_ids": [
+        "bitvla"
+      ],
+      "model_count": 1
+    },
+    {
+      "input": "text",
+      "output": "audio",
+      "model_ids": [
+        "kokoro-82m",
+        "stable-audio-open-small",
+        "vibevoice-0-5b",
+        "vibevoice-1-5b",
+        "vibevoice-7b",
+        "voxcpm-0-5b",
+        "voxcpm2-2b"
+      ],
+      "model_count": 7
+    },
+    {
+      "input": "text",
+      "output": "boxes",
+      "model_ids": [
+        "official-sam-3"
+      ],
+      "model_count": 1
+    },
+    {
+      "input": "text",
+      "output": "coordinates",
+      "model_ids": [
+        "holo2-4b"
+      ],
+      "model_count": 1
+    },
+    {
+      "input": "text",
+      "output": "image",
+      "model_ids": [
+        "official-flux-2-klein-4b",
+        "z-image-turbo"
+      ],
+      "model_count": 2
+    },
+    {
+      "input": "text",
+      "output": "masks",
+      "model_ids": [
+        "official-sam-3"
+      ],
+      "model_count": 1
+    },
+    {
+      "input": "text",
+      "output": "scores",
+      "model_ids": [
+        "official-sam-3"
+      ],
+      "model_count": 1
+    },
+    {
+      "input": "text",
+      "output": "text",
+      "model_ids": [
+        "bitcpm-8b",
+        "fastcontext-1-0-4b",
+        "gemma-4-12b",
+        "gemma-4-12b-assistant-warshanks",
+        "gemma-4-12b-mm-warshanks",
+        "gemma-4-31b",
+        "gemma-4-e2b",
+        "gemma-4-e2b-vision",
+        "gemma-4-e4b",
+        "glm-4-7-flash",
+        "granite-4-0-h-1b",
+        "granite-4-0-h-350m",
+        "lfm2-5-1-2b-instruct",
+        "lfm2-5-8b-a1b",
+        "llada-8b-dllm",
+        "minicpm-v-4-6",
+        "minicpm5-1b",
+        "nanbeige4-1-3b",
+        "official-gemma-3-12b-it",
+        "official-gemma-3-4b-it",
+        "official-gpt-oss-20b",
+        "official-mistral-7b-v0-3",
+        "official-qwen3-0-6b",
+        "official-qwen3-1-7b",
+        "official-qwen3-4b",
+        "official-qwen3-8b",
+        "qwen3-5-0-8b",
+        "qwen3-5-2b",
+        "qwen3-6-27b",
+        "qwen3-6-35b-a3b",
+        "qwen3-vl-2b",
+        "qwen3-vl-4b",
+        "qwen3-vl-8b",
+        "rwkv7-goose-1-5b"
+      ],
+      "model_count": 34
+    },
+    {
+      "input": "text",
+      "output": "vector",
+      "model_ids": [
+        "colmodernvbert",
+        "embeddinggemma-300m",
+        "official-clip-vit-base-patch32",
+        "qwen3-embedding-0-6b"
+      ],
+      "model_count": 4
+    },
+    {
+      "input": "text",
+      "output": "video",
+      "model_ids": [
+        "ltx-video-2b"
+      ],
+      "model_count": 1
+    }
+  ],
+  "reachability_matrix": {
+    "audio": [
+      "action-tokens",
+      "boxes",
+      "classes",
+      "coordinates",
+      "depth_map",
+      "gaussian-splats",
+      "html",
+      "image",
+      "latex",
+      "markdown",
+      "masks",
+      "scores",
+      "text",
+      "transcript",
+      "vector",
+      "video"
+    ],
+    "document_image": [
+      "html",
+      "latex",
+      "markdown"
+    ],
+    "documents": [
+      "score"
+    ],
+    "image": [
+      "action-tokens",
+      "audio",
+      "boxes",
+      "classes",
+      "coordinates",
+      "depth_map",
+      "gaussian-splats",
+      "html",
+      "image",
+      "latex",
+      "markdown",
+      "masks",
+      "scores",
+      "text",
+      "transcript",
+      "vector",
+      "video"
+    ],
+    "query": [
+      "score"
+    ],
+    "text": [
+      "action-tokens",
+      "audio",
+      "boxes",
+      "classes",
+      "coordinates",
+      "depth_map",
+      "gaussian-splats",
+      "html",
+      "image",
+      "latex",
+      "markdown",
+      "masks",
+      "scores",
+      "text",
+      "transcript",
+      "vector",
+      "video"
+    ]
+  },
+  "pipelines": {
+    "audio→action-tokens": {
+      "input_modality": "audio",
+      "output_modality": "action-tokens",
+      "hop_count": 2,
+      "modality_chain": [
+        "audio",
+        "text",
+        "action-tokens"
+      ],
+      "model_ids": [
+        "qwen2-5-omni-3b-audio",
+        "bitvla"
+      ],
+      "total_artifact_size": "5.1GB + not_published",
+      "stages": [
+        {
+          "model_id": "qwen2-5-omni-3b-audio",
+          "model_name": "Qwen2.5-Omni-3B Audio",
+          "input_modality": "audio",
+          "output_modality": "text",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "3B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "5.1GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen2.5-Omni-3B-Audio-CoreAI"
+        },
+        {
+          "model_id": "bitvla",
+          "model_name": "BitVLA",
+          "input_modality": "text",
+          "output_modality": "action-tokens",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "2B (BitNet b1.58)",
+          "runner": "CoreAIRunner",
+          "artifact_size": "not_published",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/BitVLA-CoreAI"
+        }
+      ]
+    },
+    "audio→boxes": {
+      "input_modality": "audio",
+      "output_modality": "boxes",
+      "hop_count": 2,
+      "modality_chain": [
+        "audio",
+        "text",
+        "boxes"
+      ],
+      "model_ids": [
+        "qwen2-5-omni-3b-audio",
+        "official-sam-3"
+      ],
+      "total_artifact_size": "5.1GB + 1.7GB",
+      "stages": [
+        {
+          "model_id": "qwen2-5-omni-3b-audio",
+          "model_name": "Qwen2.5-Omni-3B Audio",
+          "input_modality": "audio",
+          "output_modality": "text",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "3B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "5.1GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen2.5-Omni-3B-Audio-CoreAI"
+        },
+        {
+          "model_id": "official-sam-3",
+          "model_name": "SAM 3",
+          "input_modality": "text",
+          "output_modality": "boxes",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "~1.7GB",
+          "runner": "CoreAIImageSegmenter",
+          "artifact_size": "1.7GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/sam3-CoreAI-official"
+        }
+      ]
+    },
+    "audio→classes": {
+      "input_modality": "audio",
+      "output_modality": "classes",
+      "hop_count": 3,
+      "modality_chain": [
+        "audio",
+        "text",
+        "image",
+        "classes"
+      ],
+      "model_ids": [
+        "qwen2-5-omni-3b-audio",
+        "official-flux-2-klein-4b",
+        "rf-detr-nano"
+      ],
+      "total_artifact_size": "5.1GB + 4GB + 108MB",
+      "stages": [
+        {
+          "model_id": "qwen2-5-omni-3b-audio",
+          "model_name": "Qwen2.5-Omni-3B Audio",
+          "input_modality": "audio",
+          "output_modality": "text",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "3B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "5.1GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen2.5-Omni-3B-Audio-CoreAI"
+        },
+        {
+          "model_id": "official-flux-2-klein-4b",
+          "model_name": "FLUX.2 klein 4B",
+          "input_modality": "text",
+          "output_modality": "image",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "4B / ~4GB",
+          "runner": "CoreAIDiffusionPipeline",
+          "artifact_size": "4GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/FLUX.2-klein-4B-CoreAI"
+        },
+        {
+          "model_id": "rf-detr-nano",
+          "model_name": "RF-DETR Nano",
+          "input_modality": "image",
+          "output_modality": "classes",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "nano",
+          "runner": "CoreAIRunner",
+          "artifact_size": "108MB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI"
+        }
+      ]
+    },
+    "audio→coordinates": {
+      "input_modality": "audio",
+      "output_modality": "coordinates",
+      "hop_count": 2,
+      "modality_chain": [
+        "audio",
+        "text",
+        "coordinates"
+      ],
+      "model_ids": [
+        "qwen2-5-omni-3b-audio",
+        "holo2-4b"
+      ],
+      "total_artifact_size": "5.1GB + not_published",
+      "stages": [
+        {
+          "model_id": "qwen2-5-omni-3b-audio",
+          "model_name": "Qwen2.5-Omni-3B Audio",
+          "input_modality": "audio",
+          "output_modality": "text",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "3B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "5.1GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen2.5-Omni-3B-Audio-CoreAI"
+        },
+        {
+          "model_id": "holo2-4b",
+          "model_name": "Holo2-4B",
+          "input_modality": "text",
+          "output_modality": "coordinates",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "4B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "not_published",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Holo2-4B-CoreAI"
+        }
+      ]
+    },
+    "audio→depth_map": {
+      "input_modality": "audio",
+      "output_modality": "depth_map",
+      "hop_count": 3,
+      "modality_chain": [
+        "audio",
+        "text",
+        "image",
+        "depth_map"
+      ],
+      "model_ids": [
+        "qwen2-5-omni-3b-audio",
+        "official-flux-2-klein-4b",
+        "depth-anything-3-small"
+      ],
+      "total_artifact_size": "5.1GB + 4GB + 54.5MB",
+      "stages": [
+        {
+          "model_id": "qwen2-5-omni-3b-audio",
+          "model_name": "Qwen2.5-Omni-3B Audio",
+          "input_modality": "audio",
+          "output_modality": "text",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "3B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "5.1GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen2.5-Omni-3B-Audio-CoreAI"
+        },
+        {
+          "model_id": "official-flux-2-klein-4b",
+          "model_name": "FLUX.2 klein 4B",
+          "input_modality": "text",
+          "output_modality": "image",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "4B / ~4GB",
+          "runner": "CoreAIDiffusionPipeline",
+          "artifact_size": "4GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/FLUX.2-klein-4B-CoreAI"
+        },
+        {
+          "model_id": "depth-anything-3-small",
+          "model_name": "Depth Anything 3 Small",
+          "input_modality": "image",
+          "output_modality": "depth_map",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "small",
+          "runner": "CoreAIRunner",
+          "artifact_size": "54.5MB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Depth-Anything-3-CoreAI"
+        }
+      ]
+    },
+    "audio→gaussian-splats": {
+      "input_modality": "audio",
+      "output_modality": "gaussian-splats",
+      "hop_count": 3,
+      "modality_chain": [
+        "audio",
+        "text",
+        "image",
+        "gaussian-splats"
+      ],
+      "model_ids": [
+        "qwen2-5-omni-3b-audio",
+        "official-flux-2-klein-4b",
+        "tripo-splat"
+      ],
+      "total_artifact_size": "5.1GB + 4GB + not_published",
+      "stages": [
+        {
+          "model_id": "qwen2-5-omni-3b-audio",
+          "model_name": "Qwen2.5-Omni-3B Audio",
+          "input_modality": "audio",
+          "output_modality": "text",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "3B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "5.1GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen2.5-Omni-3B-Audio-CoreAI"
+        },
+        {
+          "model_id": "official-flux-2-klein-4b",
+          "model_name": "FLUX.2 klein 4B",
+          "input_modality": "text",
+          "output_modality": "image",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "4B / ~4GB",
+          "runner": "CoreAIDiffusionPipeline",
+          "artifact_size": "4GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/FLUX.2-klein-4B-CoreAI"
+        },
+        {
+          "model_id": "tripo-splat",
+          "model_name": "TripoSplat",
+          "input_modality": "image",
+          "output_modality": "gaussian-splats",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "not_published",
+          "runner": "CoreAIRunner",
+          "artifact_size": "not_published",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/TripoSplat-CoreAI"
+        }
+      ]
+    },
+    "audio→html": {
+      "input_modality": "audio",
+      "output_modality": "html",
+      "hop_count": 3,
+      "modality_chain": [
+        "audio",
+        "text",
+        "image",
+        "html"
+      ],
+      "model_ids": [
+        "qwen2-5-omni-3b-audio",
+        "official-flux-2-klein-4b",
+        "unlimited-ocr"
+      ],
+      "total_artifact_size": "5.1GB + 4GB + not_published",
+      "stages": [
+        {
+          "model_id": "qwen2-5-omni-3b-audio",
+          "model_name": "Qwen2.5-Omni-3B Audio",
+          "input_modality": "audio",
+          "output_modality": "text",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "3B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "5.1GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen2.5-Omni-3B-Audio-CoreAI"
+        },
+        {
+          "model_id": "official-flux-2-klein-4b",
+          "model_name": "FLUX.2 klein 4B",
+          "input_modality": "text",
+          "output_modality": "image",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "4B / ~4GB",
+          "runner": "CoreAIDiffusionPipeline",
+          "artifact_size": "4GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/FLUX.2-klein-4B-CoreAI"
+        },
+        {
+          "model_id": "unlimited-ocr",
+          "model_name": "Unlimited-OCR",
+          "input_modality": "image",
+          "output_modality": "html",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "not_published",
+          "runner": "stock-runner",
+          "artifact_size": "not_published",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Unlimited-OCR-CoreAI"
+        }
+      ]
+    },
+    "audio→image": {
+      "input_modality": "audio",
+      "output_modality": "image",
+      "hop_count": 2,
+      "modality_chain": [
+        "audio",
+        "text",
+        "image"
+      ],
+      "model_ids": [
+        "qwen2-5-omni-3b-audio",
+        "official-flux-2-klein-4b"
+      ],
+      "total_artifact_size": "5.1GB + 4GB",
+      "stages": [
+        {
+          "model_id": "qwen2-5-omni-3b-audio",
+          "model_name": "Qwen2.5-Omni-3B Audio",
+          "input_modality": "audio",
+          "output_modality": "text",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "3B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "5.1GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen2.5-Omni-3B-Audio-CoreAI"
+        },
+        {
+          "model_id": "official-flux-2-klein-4b",
+          "model_name": "FLUX.2 klein 4B",
+          "input_modality": "text",
+          "output_modality": "image",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "4B / ~4GB",
+          "runner": "CoreAIDiffusionPipeline",
+          "artifact_size": "4GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/FLUX.2-klein-4B-CoreAI"
+        }
+      ]
+    },
+    "audio→latex": {
+      "input_modality": "audio",
+      "output_modality": "latex",
+      "hop_count": 3,
+      "modality_chain": [
+        "audio",
+        "text",
+        "image",
+        "latex"
+      ],
+      "model_ids": [
+        "qwen2-5-omni-3b-audio",
+        "official-flux-2-klein-4b",
+        "unlimited-ocr"
+      ],
+      "total_artifact_size": "5.1GB + 4GB + not_published",
+      "stages": [
+        {
+          "model_id": "qwen2-5-omni-3b-audio",
+          "model_name": "Qwen2.5-Omni-3B Audio",
+          "input_modality": "audio",
+          "output_modality": "text",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "3B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "5.1GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen2.5-Omni-3B-Audio-CoreAI"
+        },
+        {
+          "model_id": "official-flux-2-klein-4b",
+          "model_name": "FLUX.2 klein 4B",
+          "input_modality": "text",
+          "output_modality": "image",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "4B / ~4GB",
+          "runner": "CoreAIDiffusionPipeline",
+          "artifact_size": "4GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/FLUX.2-klein-4B-CoreAI"
+        },
+        {
+          "model_id": "unlimited-ocr",
+          "model_name": "Unlimited-OCR",
+          "input_modality": "image",
+          "output_modality": "latex",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "not_published",
+          "runner": "stock-runner",
+          "artifact_size": "not_published",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Unlimited-OCR-CoreAI"
+        }
+      ]
+    },
+    "audio→markdown": {
+      "input_modality": "audio",
+      "output_modality": "markdown",
+      "hop_count": 3,
+      "modality_chain": [
+        "audio",
+        "text",
+        "image",
+        "markdown"
+      ],
+      "model_ids": [
+        "qwen2-5-omni-3b-audio",
+        "official-flux-2-klein-4b",
+        "unlimited-ocr"
+      ],
+      "total_artifact_size": "5.1GB + 4GB + not_published",
+      "stages": [
+        {
+          "model_id": "qwen2-5-omni-3b-audio",
+          "model_name": "Qwen2.5-Omni-3B Audio",
+          "input_modality": "audio",
+          "output_modality": "text",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "3B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "5.1GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen2.5-Omni-3B-Audio-CoreAI"
+        },
+        {
+          "model_id": "official-flux-2-klein-4b",
+          "model_name": "FLUX.2 klein 4B",
+          "input_modality": "text",
+          "output_modality": "image",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "4B / ~4GB",
+          "runner": "CoreAIDiffusionPipeline",
+          "artifact_size": "4GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/FLUX.2-klein-4B-CoreAI"
+        },
+        {
+          "model_id": "unlimited-ocr",
+          "model_name": "Unlimited-OCR",
+          "input_modality": "image",
+          "output_modality": "markdown",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "not_published",
+          "runner": "stock-runner",
+          "artifact_size": "not_published",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Unlimited-OCR-CoreAI"
+        }
+      ]
+    },
+    "audio→masks": {
+      "input_modality": "audio",
+      "output_modality": "masks",
+      "hop_count": 2,
+      "modality_chain": [
+        "audio",
+        "text",
+        "masks"
+      ],
+      "model_ids": [
+        "qwen2-5-omni-3b-audio",
+        "official-sam-3"
+      ],
+      "total_artifact_size": "5.1GB + 1.7GB",
+      "stages": [
+        {
+          "model_id": "qwen2-5-omni-3b-audio",
+          "model_name": "Qwen2.5-Omni-3B Audio",
+          "input_modality": "audio",
+          "output_modality": "text",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "3B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "5.1GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen2.5-Omni-3B-Audio-CoreAI"
+        },
+        {
+          "model_id": "official-sam-3",
+          "model_name": "SAM 3",
+          "input_modality": "text",
+          "output_modality": "masks",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "~1.7GB",
+          "runner": "CoreAIImageSegmenter",
+          "artifact_size": "1.7GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/sam3-CoreAI-official"
+        }
+      ]
+    },
+    "audio→scores": {
+      "input_modality": "audio",
+      "output_modality": "scores",
+      "hop_count": 2,
+      "modality_chain": [
+        "audio",
+        "text",
+        "scores"
+      ],
+      "model_ids": [
+        "qwen2-5-omni-3b-audio",
+        "official-sam-3"
+      ],
+      "total_artifact_size": "5.1GB + 1.7GB",
+      "stages": [
+        {
+          "model_id": "qwen2-5-omni-3b-audio",
+          "model_name": "Qwen2.5-Omni-3B Audio",
+          "input_modality": "audio",
+          "output_modality": "text",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "3B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "5.1GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen2.5-Omni-3B-Audio-CoreAI"
+        },
+        {
+          "model_id": "official-sam-3",
+          "model_name": "SAM 3",
+          "input_modality": "text",
+          "output_modality": "scores",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "~1.7GB",
+          "runner": "CoreAIImageSegmenter",
+          "artifact_size": "1.7GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/sam3-CoreAI-official"
+        }
+      ]
+    },
+    "audio→text": {
+      "input_modality": "audio",
+      "output_modality": "text",
+      "hop_count": 1,
+      "modality_chain": [
+        "audio",
+        "text"
+      ],
+      "model_ids": [
+        "qwen2-5-omni-3b-audio"
+      ],
+      "total_artifact_size": "5.1GB",
+      "stages": [
+        {
+          "model_id": "qwen2-5-omni-3b-audio",
+          "model_name": "Qwen2.5-Omni-3B Audio",
+          "input_modality": "audio",
+          "output_modality": "text",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "3B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "5.1GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen2.5-Omni-3B-Audio-CoreAI"
+        }
+      ]
+    },
+    "audio→transcript": {
+      "input_modality": "audio",
+      "output_modality": "transcript",
+      "hop_count": 1,
+      "modality_chain": [
+        "audio",
+        "transcript"
+      ],
+      "model_ids": [
+        "official-whisper-large-v3-turbo"
+      ],
+      "total_artifact_size": "1.5GB",
+      "stages": [
+        {
+          "model_id": "official-whisper-large-v3-turbo",
+          "model_name": "Whisper large-v3-turbo",
+          "input_modality": "audio",
+          "output_modality": "transcript",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "809M / ~1.5GB",
+          "runner": "CoreAITranscribe",
+          "artifact_size": "1.5GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/whisper-large-v3-turbo-CoreAI-official"
+        }
+      ]
+    },
+    "audio→vector": {
+      "input_modality": "audio",
+      "output_modality": "vector",
+      "hop_count": 2,
+      "modality_chain": [
+        "audio",
+        "text",
+        "vector"
+      ],
+      "model_ids": [
+        "qwen2-5-omni-3b-audio",
+        "qwen3-embedding-0-6b"
+      ],
+      "total_artifact_size": "5.1GB + 1.1GB",
+      "stages": [
+        {
+          "model_id": "qwen2-5-omni-3b-audio",
+          "model_name": "Qwen2.5-Omni-3B Audio",
+          "input_modality": "audio",
+          "output_modality": "text",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "3B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "5.1GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen2.5-Omni-3B-Audio-CoreAI"
+        },
+        {
+          "model_id": "qwen3-embedding-0-6b",
+          "model_name": "Qwen3-Embedding 0.6B",
+          "input_modality": "text",
+          "output_modality": "vector",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "0.6B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "1.1GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen3-Embedding-0.6B-CoreAI"
+        }
+      ]
+    },
+    "audio→video": {
+      "input_modality": "audio",
+      "output_modality": "video",
+      "hop_count": 2,
+      "modality_chain": [
+        "audio",
+        "text",
+        "video"
+      ],
+      "model_ids": [
+        "qwen2-5-omni-3b-audio",
+        "ltx-video-2b"
+      ],
+      "total_artifact_size": "5.1GB + 13.5GB",
+      "stages": [
+        {
+          "model_id": "qwen2-5-omni-3b-audio",
+          "model_name": "Qwen2.5-Omni-3B Audio",
+          "input_modality": "audio",
+          "output_modality": "text",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "3B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "5.1GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen2.5-Omni-3B-Audio-CoreAI"
+        },
+        {
+          "model_id": "ltx-video-2b",
+          "model_name": "LTX-Video 2B distilled",
+          "input_modality": "text",
+          "output_modality": "video",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "2B / DiT 1.9B + T5-XXL 4.76B",
+          "runner": "CoreAIVideoPipeline",
+          "artifact_size": "13.5GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/LTX-Video-2B-CoreAI"
+        }
+      ]
+    },
+    "document_image→html": {
+      "input_modality": "document_image",
+      "output_modality": "html",
+      "hop_count": 1,
+      "modality_chain": [
+        "document_image",
+        "html"
+      ],
+      "model_ids": [
+        "unlimited-ocr"
+      ],
+      "total_artifact_size": "not_published",
+      "stages": [
+        {
+          "model_id": "unlimited-ocr",
+          "model_name": "Unlimited-OCR",
+          "input_modality": "document_image",
+          "output_modality": "html",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "not_published",
+          "runner": "stock-runner",
+          "artifact_size": "not_published",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Unlimited-OCR-CoreAI"
+        }
+      ]
+    },
+    "document_image→latex": {
+      "input_modality": "document_image",
+      "output_modality": "latex",
+      "hop_count": 1,
+      "modality_chain": [
+        "document_image",
+        "latex"
+      ],
+      "model_ids": [
+        "unlimited-ocr"
+      ],
+      "total_artifact_size": "not_published",
+      "stages": [
+        {
+          "model_id": "unlimited-ocr",
+          "model_name": "Unlimited-OCR",
+          "input_modality": "document_image",
+          "output_modality": "latex",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "not_published",
+          "runner": "stock-runner",
+          "artifact_size": "not_published",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Unlimited-OCR-CoreAI"
+        }
+      ]
+    },
+    "document_image→markdown": {
+      "input_modality": "document_image",
+      "output_modality": "markdown",
+      "hop_count": 1,
+      "modality_chain": [
+        "document_image",
+        "markdown"
+      ],
+      "model_ids": [
+        "unlimited-ocr"
+      ],
+      "total_artifact_size": "not_published",
+      "stages": [
+        {
+          "model_id": "unlimited-ocr",
+          "model_name": "Unlimited-OCR",
+          "input_modality": "document_image",
+          "output_modality": "markdown",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "not_published",
+          "runner": "stock-runner",
+          "artifact_size": "not_published",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Unlimited-OCR-CoreAI"
+        }
+      ]
+    },
+    "documents→score": {
+      "input_modality": "documents",
+      "output_modality": "score",
+      "hop_count": 1,
+      "modality_chain": [
+        "documents",
+        "score"
+      ],
+      "model_ids": [
+        "qwen3-reranker-0-6b"
+      ],
+      "total_artifact_size": "1.1GB",
+      "stages": [
+        {
+          "model_id": "qwen3-reranker-0-6b",
+          "model_name": "Qwen3-Reranker 0.6B",
+          "input_modality": "documents",
+          "output_modality": "score",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "0.6B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "1.1GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen3-Reranker-0.6B-CoreAI"
+        }
+      ]
+    },
+    "image→action-tokens": {
+      "input_modality": "image",
+      "output_modality": "action-tokens",
+      "hop_count": 1,
+      "modality_chain": [
+        "image",
+        "action-tokens"
+      ],
+      "model_ids": [
+        "bitvla"
+      ],
+      "total_artifact_size": "not_published",
+      "stages": [
+        {
+          "model_id": "bitvla",
+          "model_name": "BitVLA",
+          "input_modality": "image",
+          "output_modality": "action-tokens",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "2B (BitNet b1.58)",
+          "runner": "CoreAIRunner",
+          "artifact_size": "not_published",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/BitVLA-CoreAI"
+        }
+      ]
+    },
+    "image→audio": {
+      "input_modality": "image",
+      "output_modality": "audio",
+      "hop_count": 2,
+      "modality_chain": [
+        "image",
+        "text",
+        "audio"
+      ],
+      "model_ids": [
+        "qwen3-vl-2b",
+        "voxcpm-0-5b"
+      ],
+      "total_artifact_size": "2.3GB + 1.0GB",
+      "stages": [
+        {
+          "model_id": "qwen3-vl-2b",
+          "model_name": "Qwen3-VL 2B",
+          "input_modality": "image",
+          "output_modality": "text",
+          "estimated_tokens_per_sec": 191.0,
+          "parameters": "2B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "2.3GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen3-VL-2B-CoreAI"
+        },
+        {
+          "model_id": "voxcpm-0-5b",
+          "model_name": "VoxCPM-0.5B",
+          "input_modality": "text",
+          "output_modality": "audio",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "0.5B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "1.0GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/VoxCPM-0.5B-CoreAI"
+        }
+      ]
+    },
+    "image→boxes": {
+      "input_modality": "image",
+      "output_modality": "boxes",
+      "hop_count": 1,
+      "modality_chain": [
+        "image",
+        "boxes"
+      ],
+      "model_ids": [
+        "rf-detr-nano"
+      ],
+      "total_artifact_size": "108MB",
+      "stages": [
+        {
+          "model_id": "rf-detr-nano",
+          "model_name": "RF-DETR Nano",
+          "input_modality": "image",
+          "output_modality": "boxes",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "nano",
+          "runner": "CoreAIRunner",
+          "artifact_size": "108MB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI"
+        }
+      ]
+    },
+    "image→classes": {
+      "input_modality": "image",
+      "output_modality": "classes",
+      "hop_count": 1,
+      "modality_chain": [
+        "image",
+        "classes"
+      ],
+      "model_ids": [
+        "rf-detr-nano"
+      ],
+      "total_artifact_size": "108MB",
+      "stages": [
+        {
+          "model_id": "rf-detr-nano",
+          "model_name": "RF-DETR Nano",
+          "input_modality": "image",
+          "output_modality": "classes",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "nano",
+          "runner": "CoreAIRunner",
+          "artifact_size": "108MB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI"
+        }
+      ]
+    },
+    "image→coordinates": {
+      "input_modality": "image",
+      "output_modality": "coordinates",
+      "hop_count": 1,
+      "modality_chain": [
+        "image",
+        "coordinates"
+      ],
+      "model_ids": [
+        "holo2-4b"
+      ],
+      "total_artifact_size": "not_published",
+      "stages": [
+        {
+          "model_id": "holo2-4b",
+          "model_name": "Holo2-4B",
+          "input_modality": "image",
+          "output_modality": "coordinates",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "4B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "not_published",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Holo2-4B-CoreAI"
+        }
+      ]
+    },
+    "image→depth_map": {
+      "input_modality": "image",
+      "output_modality": "depth_map",
+      "hop_count": 1,
+      "modality_chain": [
+        "image",
+        "depth_map"
+      ],
+      "model_ids": [
+        "depth-anything-3-small"
+      ],
+      "total_artifact_size": "54.5MB",
+      "stages": [
+        {
+          "model_id": "depth-anything-3-small",
+          "model_name": "Depth Anything 3 Small",
+          "input_modality": "image",
+          "output_modality": "depth_map",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "small",
+          "runner": "CoreAIRunner",
+          "artifact_size": "54.5MB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Depth-Anything-3-CoreAI"
+        }
+      ]
+    },
+    "image→gaussian-splats": {
+      "input_modality": "image",
+      "output_modality": "gaussian-splats",
+      "hop_count": 1,
+      "modality_chain": [
+        "image",
+        "gaussian-splats"
+      ],
+      "model_ids": [
+        "tripo-splat"
+      ],
+      "total_artifact_size": "not_published",
+      "stages": [
+        {
+          "model_id": "tripo-splat",
+          "model_name": "TripoSplat",
+          "input_modality": "image",
+          "output_modality": "gaussian-splats",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "not_published",
+          "runner": "CoreAIRunner",
+          "artifact_size": "not_published",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/TripoSplat-CoreAI"
+        }
+      ]
+    },
+    "image→html": {
+      "input_modality": "image",
+      "output_modality": "html",
+      "hop_count": 1,
+      "modality_chain": [
+        "image",
+        "html"
+      ],
+      "model_ids": [
+        "unlimited-ocr"
+      ],
+      "total_artifact_size": "not_published",
+      "stages": [
+        {
+          "model_id": "unlimited-ocr",
+          "model_name": "Unlimited-OCR",
+          "input_modality": "image",
+          "output_modality": "html",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "not_published",
+          "runner": "stock-runner",
+          "artifact_size": "not_published",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Unlimited-OCR-CoreAI"
+        }
+      ]
+    },
+    "image→image": {
+      "input_modality": "image",
+      "output_modality": "image",
+      "hop_count": 1,
+      "modality_chain": [
+        "image",
+        "image"
+      ],
+      "model_ids": [
+        "adcsr-x4"
+      ],
+      "total_artifact_size": "1.7GB",
+      "stages": [
+        {
+          "model_id": "adcsr-x4",
+          "model_name": "AdcSR ×4",
+          "input_modality": "image",
+          "output_modality": "image",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "×4",
+          "runner": "CoreAIRunner",
+          "artifact_size": "1.7GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/AdcSR-CoreAI"
+        }
+      ]
+    },
+    "image→latex": {
+      "input_modality": "image",
+      "output_modality": "latex",
+      "hop_count": 1,
+      "modality_chain": [
+        "image",
+        "latex"
+      ],
+      "model_ids": [
+        "unlimited-ocr"
+      ],
+      "total_artifact_size": "not_published",
+      "stages": [
+        {
+          "model_id": "unlimited-ocr",
+          "model_name": "Unlimited-OCR",
+          "input_modality": "image",
+          "output_modality": "latex",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "not_published",
+          "runner": "stock-runner",
+          "artifact_size": "not_published",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Unlimited-OCR-CoreAI"
+        }
+      ]
+    },
+    "image→markdown": {
+      "input_modality": "image",
+      "output_modality": "markdown",
+      "hop_count": 1,
+      "modality_chain": [
+        "image",
+        "markdown"
+      ],
+      "model_ids": [
+        "unlimited-ocr"
+      ],
+      "total_artifact_size": "not_published",
+      "stages": [
+        {
+          "model_id": "unlimited-ocr",
+          "model_name": "Unlimited-OCR",
+          "input_modality": "image",
+          "output_modality": "markdown",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "not_published",
+          "runner": "stock-runner",
+          "artifact_size": "not_published",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Unlimited-OCR-CoreAI"
+        }
+      ]
+    },
+    "image→masks": {
+      "input_modality": "image",
+      "output_modality": "masks",
+      "hop_count": 1,
+      "modality_chain": [
+        "image",
+        "masks"
+      ],
+      "model_ids": [
+        "efficientsam3-tinyvit"
+      ],
+      "total_artifact_size": "374MB",
+      "stages": [
+        {
+          "model_id": "efficientsam3-tinyvit",
+          "model_name": "EfficientSAM3-TinyViT",
+          "input_modality": "image",
+          "output_modality": "masks",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "not_published",
+          "runner": "CoreAIImageSegmenter",
+          "artifact_size": "374MB",
+          "huggingface_url": "https://huggingface.co/lenitas/coreai-artifacts/tree/main/artifacts/efficientsam3-tinyvit/default"
+        }
+      ]
+    },
+    "image→scores": {
+      "input_modality": "image",
+      "output_modality": "scores",
+      "hop_count": 1,
+      "modality_chain": [
+        "image",
+        "scores"
+      ],
+      "model_ids": [
+        "rf-detr-nano"
+      ],
+      "total_artifact_size": "108MB",
+      "stages": [
+        {
+          "model_id": "rf-detr-nano",
+          "model_name": "RF-DETR Nano",
+          "input_modality": "image",
+          "output_modality": "scores",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "nano",
+          "runner": "CoreAIRunner",
+          "artifact_size": "108MB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI"
+        }
+      ]
+    },
+    "image→text": {
+      "input_modality": "image",
+      "output_modality": "text",
+      "hop_count": 1,
+      "modality_chain": [
+        "image",
+        "text"
+      ],
+      "model_ids": [
+        "qwen3-vl-2b"
+      ],
+      "total_artifact_size": "2.3GB",
+      "stages": [
+        {
+          "model_id": "qwen3-vl-2b",
+          "model_name": "Qwen3-VL 2B",
+          "input_modality": "image",
+          "output_modality": "text",
+          "estimated_tokens_per_sec": 191.0,
+          "parameters": "2B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "2.3GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen3-VL-2B-CoreAI"
+        }
+      ]
+    },
+    "image→transcript": {
+      "input_modality": "image",
+      "output_modality": "transcript",
+      "hop_count": 3,
+      "modality_chain": [
+        "image",
+        "text",
+        "audio",
+        "transcript"
+      ],
+      "model_ids": [
+        "qwen3-vl-2b",
+        "voxcpm-0-5b",
+        "official-whisper-large-v3-turbo"
+      ],
+      "total_artifact_size": "2.3GB + 1.0GB + 1.5GB",
+      "stages": [
+        {
+          "model_id": "qwen3-vl-2b",
+          "model_name": "Qwen3-VL 2B",
+          "input_modality": "image",
+          "output_modality": "text",
+          "estimated_tokens_per_sec": 191.0,
+          "parameters": "2B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "2.3GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen3-VL-2B-CoreAI"
+        },
+        {
+          "model_id": "voxcpm-0-5b",
+          "model_name": "VoxCPM-0.5B",
+          "input_modality": "text",
+          "output_modality": "audio",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "0.5B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "1.0GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/VoxCPM-0.5B-CoreAI"
+        },
+        {
+          "model_id": "official-whisper-large-v3-turbo",
+          "model_name": "Whisper large-v3-turbo",
+          "input_modality": "audio",
+          "output_modality": "transcript",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "809M / ~1.5GB",
+          "runner": "CoreAITranscribe",
+          "artifact_size": "1.5GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/whisper-large-v3-turbo-CoreAI-official"
+        }
+      ]
+    },
+    "image→vector": {
+      "input_modality": "image",
+      "output_modality": "vector",
+      "hop_count": 1,
+      "modality_chain": [
+        "image",
+        "vector"
+      ],
+      "model_ids": [
+        "colmodernvbert"
+      ],
+      "total_artifact_size": "705MB",
+      "stages": [
+        {
+          "model_id": "colmodernvbert",
+          "model_name": "ColModernVBERT",
+          "input_modality": "image",
+          "output_modality": "vector",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "250M",
+          "runner": "CoreAIKit-GraphModel",
+          "artifact_size": "705MB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/ColModernVBERT-CoreAI"
+        }
+      ]
+    },
+    "image→video": {
+      "input_modality": "image",
+      "output_modality": "video",
+      "hop_count": 2,
+      "modality_chain": [
+        "image",
+        "text",
+        "video"
+      ],
+      "model_ids": [
+        "qwen3-vl-2b",
+        "ltx-video-2b"
+      ],
+      "total_artifact_size": "2.3GB + 13.5GB",
+      "stages": [
+        {
+          "model_id": "qwen3-vl-2b",
+          "model_name": "Qwen3-VL 2B",
+          "input_modality": "image",
+          "output_modality": "text",
+          "estimated_tokens_per_sec": 191.0,
+          "parameters": "2B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "2.3GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen3-VL-2B-CoreAI"
+        },
+        {
+          "model_id": "ltx-video-2b",
+          "model_name": "LTX-Video 2B distilled",
+          "input_modality": "text",
+          "output_modality": "video",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "2B / DiT 1.9B + T5-XXL 4.76B",
+          "runner": "CoreAIVideoPipeline",
+          "artifact_size": "13.5GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/LTX-Video-2B-CoreAI"
+        }
+      ]
+    },
+    "query→score": {
+      "input_modality": "query",
+      "output_modality": "score",
+      "hop_count": 1,
+      "modality_chain": [
+        "query",
+        "score"
+      ],
+      "model_ids": [
+        "qwen3-reranker-0-6b"
+      ],
+      "total_artifact_size": "1.1GB",
+      "stages": [
+        {
+          "model_id": "qwen3-reranker-0-6b",
+          "model_name": "Qwen3-Reranker 0.6B",
+          "input_modality": "query",
+          "output_modality": "score",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "0.6B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "1.1GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen3-Reranker-0.6B-CoreAI"
+        }
+      ]
+    },
+    "text→action-tokens": {
+      "input_modality": "text",
+      "output_modality": "action-tokens",
+      "hop_count": 1,
+      "modality_chain": [
+        "text",
+        "action-tokens"
+      ],
+      "model_ids": [
+        "bitvla"
+      ],
+      "total_artifact_size": "not_published",
+      "stages": [
+        {
+          "model_id": "bitvla",
+          "model_name": "BitVLA",
+          "input_modality": "text",
+          "output_modality": "action-tokens",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "2B (BitNet b1.58)",
+          "runner": "CoreAIRunner",
+          "artifact_size": "not_published",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/BitVLA-CoreAI"
+        }
+      ]
+    },
+    "text→audio": {
+      "input_modality": "text",
+      "output_modality": "audio",
+      "hop_count": 1,
+      "modality_chain": [
+        "text",
+        "audio"
+      ],
+      "model_ids": [
+        "voxcpm-0-5b"
+      ],
+      "total_artifact_size": "1.0GB",
+      "stages": [
+        {
+          "model_id": "voxcpm-0-5b",
+          "model_name": "VoxCPM-0.5B",
+          "input_modality": "text",
+          "output_modality": "audio",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "0.5B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "1.0GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/VoxCPM-0.5B-CoreAI"
+        }
+      ]
+    },
+    "text→boxes": {
+      "input_modality": "text",
+      "output_modality": "boxes",
+      "hop_count": 1,
+      "modality_chain": [
+        "text",
+        "boxes"
+      ],
+      "model_ids": [
+        "official-sam-3"
+      ],
+      "total_artifact_size": "1.7GB",
+      "stages": [
+        {
+          "model_id": "official-sam-3",
+          "model_name": "SAM 3",
+          "input_modality": "text",
+          "output_modality": "boxes",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "~1.7GB",
+          "runner": "CoreAIImageSegmenter",
+          "artifact_size": "1.7GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/sam3-CoreAI-official"
+        }
+      ]
+    },
+    "text→classes": {
+      "input_modality": "text",
+      "output_modality": "classes",
+      "hop_count": 2,
+      "modality_chain": [
+        "text",
+        "image",
+        "classes"
+      ],
+      "model_ids": [
+        "official-flux-2-klein-4b",
+        "rf-detr-nano"
+      ],
+      "total_artifact_size": "4GB + 108MB",
+      "stages": [
+        {
+          "model_id": "official-flux-2-klein-4b",
+          "model_name": "FLUX.2 klein 4B",
+          "input_modality": "text",
+          "output_modality": "image",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "4B / ~4GB",
+          "runner": "CoreAIDiffusionPipeline",
+          "artifact_size": "4GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/FLUX.2-klein-4B-CoreAI"
+        },
+        {
+          "model_id": "rf-detr-nano",
+          "model_name": "RF-DETR Nano",
+          "input_modality": "image",
+          "output_modality": "classes",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "nano",
+          "runner": "CoreAIRunner",
+          "artifact_size": "108MB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI"
+        }
+      ]
+    },
+    "text→coordinates": {
+      "input_modality": "text",
+      "output_modality": "coordinates",
+      "hop_count": 1,
+      "modality_chain": [
+        "text",
+        "coordinates"
+      ],
+      "model_ids": [
+        "holo2-4b"
+      ],
+      "total_artifact_size": "not_published",
+      "stages": [
+        {
+          "model_id": "holo2-4b",
+          "model_name": "Holo2-4B",
+          "input_modality": "text",
+          "output_modality": "coordinates",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "4B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "not_published",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Holo2-4B-CoreAI"
+        }
+      ]
+    },
+    "text→depth_map": {
+      "input_modality": "text",
+      "output_modality": "depth_map",
+      "hop_count": 2,
+      "modality_chain": [
+        "text",
+        "image",
+        "depth_map"
+      ],
+      "model_ids": [
+        "official-flux-2-klein-4b",
+        "depth-anything-3-small"
+      ],
+      "total_artifact_size": "4GB + 54.5MB",
+      "stages": [
+        {
+          "model_id": "official-flux-2-klein-4b",
+          "model_name": "FLUX.2 klein 4B",
+          "input_modality": "text",
+          "output_modality": "image",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "4B / ~4GB",
+          "runner": "CoreAIDiffusionPipeline",
+          "artifact_size": "4GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/FLUX.2-klein-4B-CoreAI"
+        },
+        {
+          "model_id": "depth-anything-3-small",
+          "model_name": "Depth Anything 3 Small",
+          "input_modality": "image",
+          "output_modality": "depth_map",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "small",
+          "runner": "CoreAIRunner",
+          "artifact_size": "54.5MB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Depth-Anything-3-CoreAI"
+        }
+      ]
+    },
+    "text→gaussian-splats": {
+      "input_modality": "text",
+      "output_modality": "gaussian-splats",
+      "hop_count": 2,
+      "modality_chain": [
+        "text",
+        "image",
+        "gaussian-splats"
+      ],
+      "model_ids": [
+        "official-flux-2-klein-4b",
+        "tripo-splat"
+      ],
+      "total_artifact_size": "4GB + not_published",
+      "stages": [
+        {
+          "model_id": "official-flux-2-klein-4b",
+          "model_name": "FLUX.2 klein 4B",
+          "input_modality": "text",
+          "output_modality": "image",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "4B / ~4GB",
+          "runner": "CoreAIDiffusionPipeline",
+          "artifact_size": "4GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/FLUX.2-klein-4B-CoreAI"
+        },
+        {
+          "model_id": "tripo-splat",
+          "model_name": "TripoSplat",
+          "input_modality": "image",
+          "output_modality": "gaussian-splats",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "not_published",
+          "runner": "CoreAIRunner",
+          "artifact_size": "not_published",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/TripoSplat-CoreAI"
+        }
+      ]
+    },
+    "text→html": {
+      "input_modality": "text",
+      "output_modality": "html",
+      "hop_count": 2,
+      "modality_chain": [
+        "text",
+        "image",
+        "html"
+      ],
+      "model_ids": [
+        "official-flux-2-klein-4b",
+        "unlimited-ocr"
+      ],
+      "total_artifact_size": "4GB + not_published",
+      "stages": [
+        {
+          "model_id": "official-flux-2-klein-4b",
+          "model_name": "FLUX.2 klein 4B",
+          "input_modality": "text",
+          "output_modality": "image",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "4B / ~4GB",
+          "runner": "CoreAIDiffusionPipeline",
+          "artifact_size": "4GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/FLUX.2-klein-4B-CoreAI"
+        },
+        {
+          "model_id": "unlimited-ocr",
+          "model_name": "Unlimited-OCR",
+          "input_modality": "image",
+          "output_modality": "html",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "not_published",
+          "runner": "stock-runner",
+          "artifact_size": "not_published",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Unlimited-OCR-CoreAI"
+        }
+      ]
+    },
+    "text→image": {
+      "input_modality": "text",
+      "output_modality": "image",
+      "hop_count": 1,
+      "modality_chain": [
+        "text",
+        "image"
+      ],
+      "model_ids": [
+        "official-flux-2-klein-4b"
+      ],
+      "total_artifact_size": "4GB",
+      "stages": [
+        {
+          "model_id": "official-flux-2-klein-4b",
+          "model_name": "FLUX.2 klein 4B",
+          "input_modality": "text",
+          "output_modality": "image",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "4B / ~4GB",
+          "runner": "CoreAIDiffusionPipeline",
+          "artifact_size": "4GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/FLUX.2-klein-4B-CoreAI"
+        }
+      ]
+    },
+    "text→latex": {
+      "input_modality": "text",
+      "output_modality": "latex",
+      "hop_count": 2,
+      "modality_chain": [
+        "text",
+        "image",
+        "latex"
+      ],
+      "model_ids": [
+        "official-flux-2-klein-4b",
+        "unlimited-ocr"
+      ],
+      "total_artifact_size": "4GB + not_published",
+      "stages": [
+        {
+          "model_id": "official-flux-2-klein-4b",
+          "model_name": "FLUX.2 klein 4B",
+          "input_modality": "text",
+          "output_modality": "image",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "4B / ~4GB",
+          "runner": "CoreAIDiffusionPipeline",
+          "artifact_size": "4GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/FLUX.2-klein-4B-CoreAI"
+        },
+        {
+          "model_id": "unlimited-ocr",
+          "model_name": "Unlimited-OCR",
+          "input_modality": "image",
+          "output_modality": "latex",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "not_published",
+          "runner": "stock-runner",
+          "artifact_size": "not_published",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Unlimited-OCR-CoreAI"
+        }
+      ]
+    },
+    "text→markdown": {
+      "input_modality": "text",
+      "output_modality": "markdown",
+      "hop_count": 2,
+      "modality_chain": [
+        "text",
+        "image",
+        "markdown"
+      ],
+      "model_ids": [
+        "official-flux-2-klein-4b",
+        "unlimited-ocr"
+      ],
+      "total_artifact_size": "4GB + not_published",
+      "stages": [
+        {
+          "model_id": "official-flux-2-klein-4b",
+          "model_name": "FLUX.2 klein 4B",
+          "input_modality": "text",
+          "output_modality": "image",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "4B / ~4GB",
+          "runner": "CoreAIDiffusionPipeline",
+          "artifact_size": "4GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/FLUX.2-klein-4B-CoreAI"
+        },
+        {
+          "model_id": "unlimited-ocr",
+          "model_name": "Unlimited-OCR",
+          "input_modality": "image",
+          "output_modality": "markdown",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "not_published",
+          "runner": "stock-runner",
+          "artifact_size": "not_published",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Unlimited-OCR-CoreAI"
+        }
+      ]
+    },
+    "text→masks": {
+      "input_modality": "text",
+      "output_modality": "masks",
+      "hop_count": 1,
+      "modality_chain": [
+        "text",
+        "masks"
+      ],
+      "model_ids": [
+        "official-sam-3"
+      ],
+      "total_artifact_size": "1.7GB",
+      "stages": [
+        {
+          "model_id": "official-sam-3",
+          "model_name": "SAM 3",
+          "input_modality": "text",
+          "output_modality": "masks",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "~1.7GB",
+          "runner": "CoreAIImageSegmenter",
+          "artifact_size": "1.7GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/sam3-CoreAI-official"
+        }
+      ]
+    },
+    "text→scores": {
+      "input_modality": "text",
+      "output_modality": "scores",
+      "hop_count": 1,
+      "modality_chain": [
+        "text",
+        "scores"
+      ],
+      "model_ids": [
+        "official-sam-3"
+      ],
+      "total_artifact_size": "1.7GB",
+      "stages": [
+        {
+          "model_id": "official-sam-3",
+          "model_name": "SAM 3",
+          "input_modality": "text",
+          "output_modality": "scores",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "~1.7GB",
+          "runner": "CoreAIImageSegmenter",
+          "artifact_size": "1.7GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/sam3-CoreAI-official"
+        }
+      ]
+    },
+    "text→text": {
+      "input_modality": "text",
+      "output_modality": "text",
+      "hop_count": 1,
+      "modality_chain": [
+        "text",
+        "text"
+      ],
+      "model_ids": [
+        "official-qwen3-0-6b"
+      ],
+      "total_artifact_size": "not_published",
+      "stages": [
+        {
+          "model_id": "official-qwen3-0-6b",
+          "model_name": "Qwen3 0.6B",
+          "input_modality": "text",
+          "output_modality": "text",
+          "estimated_tokens_per_sec": 1121.0,
+          "parameters": "0.6B",
+          "runner": "stock-runner",
+          "artifact_size": "not_published",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/qwen3-0.6b-CoreAI-official"
+        }
+      ]
+    },
+    "text→transcript": {
+      "input_modality": "text",
+      "output_modality": "transcript",
+      "hop_count": 2,
+      "modality_chain": [
+        "text",
+        "audio",
+        "transcript"
+      ],
+      "model_ids": [
+        "voxcpm-0-5b",
+        "official-whisper-large-v3-turbo"
+      ],
+      "total_artifact_size": "1.0GB + 1.5GB",
+      "stages": [
+        {
+          "model_id": "voxcpm-0-5b",
+          "model_name": "VoxCPM-0.5B",
+          "input_modality": "text",
+          "output_modality": "audio",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "0.5B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "1.0GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/VoxCPM-0.5B-CoreAI"
+        },
+        {
+          "model_id": "official-whisper-large-v3-turbo",
+          "model_name": "Whisper large-v3-turbo",
+          "input_modality": "audio",
+          "output_modality": "transcript",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "809M / ~1.5GB",
+          "runner": "CoreAITranscribe",
+          "artifact_size": "1.5GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/whisper-large-v3-turbo-CoreAI-official"
+        }
+      ]
+    },
+    "text→vector": {
+      "input_modality": "text",
+      "output_modality": "vector",
+      "hop_count": 1,
+      "modality_chain": [
+        "text",
+        "vector"
+      ],
+      "model_ids": [
+        "qwen3-embedding-0-6b"
+      ],
+      "total_artifact_size": "1.1GB",
+      "stages": [
+        {
+          "model_id": "qwen3-embedding-0-6b",
+          "model_name": "Qwen3-Embedding 0.6B",
+          "input_modality": "text",
+          "output_modality": "vector",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "0.6B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "1.1GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen3-Embedding-0.6B-CoreAI"
+        }
+      ]
+    },
+    "text→video": {
+      "input_modality": "text",
+      "output_modality": "video",
+      "hop_count": 1,
+      "modality_chain": [
+        "text",
+        "video"
+      ],
+      "model_ids": [
+        "ltx-video-2b"
+      ],
+      "total_artifact_size": "13.5GB",
+      "stages": [
+        {
+          "model_id": "ltx-video-2b",
+          "model_name": "LTX-Video 2B distilled",
+          "input_modality": "text",
+          "output_modality": "video",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "2B / DiT 1.9B + T5-XXL 4.76B",
+          "runner": "CoreAIVideoPipeline",
+          "artifact_size": "13.5GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/LTX-Video-2B-CoreAI"
+        }
+      ]
+    }
+  }
+}

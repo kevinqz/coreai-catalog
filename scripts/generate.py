@@ -25,7 +25,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
 
 sys.path.insert(0, str(ROOT))
-from coreai_catalog.exports import export_json, export_search_index
+from coreai_catalog.exports import export_json, export_search_index, export_transform_graph, export_model_manifest
 
 
 def read_yaml(path: Path) -> dict:
@@ -300,7 +300,11 @@ def main() -> int:
         print("Generating JSON exports...")
         export_json(ROOT)
         count = export_search_index(ROOT)
-        print(f"  {count} entries → search-index.json, models.jsonl, readiness-scores.json")
+        print(f"  {count} entries -> search-index.json, models.jsonl, readiness-scores.json")
+        export_transform_graph(ROOT)
+        print(f"  transforms-graph.json")
+        export_model_manifest(ROOT)
+        print(f"  model-manifest.json")
 
     # Sync YAML data into package for pip distribution
     print("Syncing package data...")
