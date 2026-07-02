@@ -877,7 +877,7 @@ def cmd_transforms(args: argparse.Namespace) -> int:
                     "pipeline": None,
                     "error": "No transform path found",
                 }, indent=2))
-            return 0
+                return 1
         elif args.from_modality:
             reachable = sorted(graph.reachable_outputs(args.from_modality))
             print(json.dumps({

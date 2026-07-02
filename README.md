@@ -21,7 +21,7 @@ Not affiliated with or endorsed by Apple. `commercial_use` fields are triage lab
 
 ## Status
 
-**Version:** v2.0.5 — [PyPI](https://pypi.org/project/coreai-catalog/) · [Live site](https://kevinqz.github.io/coreai-catalog/) · [CI](https://github.com/kevinqz/coreai-catalog/actions/workflows/validate.yml)
+**Version:** v2.1.0 — [PyPI](https://pypi.org/project/coreai-catalog/) · [Live site](https://kevinqz.github.io/coreai-catalog/) · [CI](https://github.com/kevinqz/coreai-catalog/actions/workflows/validate.yml)
 
 79 Apple Core AI models with artifact provenance, benchmarks, verified terminology, readiness scores, and an MCP server for agent-native model discovery, comparison, and recommendation.
 
@@ -409,6 +409,11 @@ coreai-catalog list                          # all models, sorted by readiness s
 coreai-catalog scores                        # 0-100 readiness scores with grade distribution
 coreai-catalog capabilities                  # list all capabilities with model counts
 
+# Plan modality transformation pipelines
+coreai-catalog transforms                    # show the full transform graph
+coreai-catalog transforms --from audio       # list models that accept audio input
+coreai-catalog transforms --from audio --to image  # plan a pipeline from audio to image
+
 # Inspect a model
 coreai-catalog show qwen3-vl-2b              # full details: caps, devices, runtime, provenance, benchmarks
 coreai-catalog show qwen3-vl-2b -v           # verbose — full notes, not truncated
@@ -433,7 +438,7 @@ All commands support `--json` for programmatic consumption by agents and automat
 
 ## MCP server (Agent API)
 
-The catalog ships an [MCP server](https://modelcontextprotocol.io/) that exposes 11 tools to AI agents (Claude Desktop, Cursor, any MCP-compatible client).
+The catalog ships an [MCP server](https://modelcontextprotocol.io/) that exposes 12 tools to AI agents (Claude Desktop, Cursor, any MCP-compatible client).
 
 ### Setup
 
@@ -495,6 +500,7 @@ Or use the installed entry point:
 | `get_capabilities` | List all capabilities with model counts |
 | `get_tasks` | List all supported task synonyms and their mappings |
 | `get_version` | Catalog version, model count, last-verified date |
+| `transforms` | Plan multi-hop modality transformation pipelines between Core AI models (graph, `--from`, `--from --to`) |
 
 ### Example agent interaction
 

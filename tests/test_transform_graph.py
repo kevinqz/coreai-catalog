@@ -139,5 +139,93 @@ class TestReachability(unittest.TestCase):
         self.assertGreaterEqual(total, 45)
 
 
+class TestPipelineDetails(unittest.TestCase):
+    """Direct tests for Pipeline properties and to_dict()."""
+
+    @classmethod
+    def setUpClass(cls):
+        from coreai_catalog.catalog import Catalog
+        cat = Catalog()
+        cls.graph = TransformGraph(cat.models, cat)
+        # Get a real pipeline to test
+        cls.pipeline = cat and cls.graph.shortest_path("text", "audio")
+        cls.two_hop = cls.graph.shortest_path("audio", "image")
+
+    def test_to_dict_structure(self):
+        """Pipeline.to_dict() has all required keys."""
+        d = self.pipeline.to_dict()
+        required = {"input_modality", "output_modality", "hop_count",
+                    "modality_chain", "model_ids", "stages", "total_artifact_size"}
+        self.assertTrue(required.issubset(d.keys()))
+        stage = d["stages"][0]
+        stage_keys = {"model_id", "model_name", "input_modality",
+                      "output_modality", "estimated_tokens_per_sec",
+                      "parameters", "runner", "artifact_size", "huggingface_url"}
+        self.assertTrue(stage_keys.issubset(stage.keys()))
+
+    def test_to_dict_hop_count_matches(self):
+        """to_dict hop_count matches actual stage count."""
+        d = self.two_hop.to_dict()
+        self.assertEqual(d["hop_count"], len(d["stages"]))
+        self.assertEqual(d["hop_count"], 2)
+
+    def test_total_artifact_size(self):
+        """total_artifact_size joins non-empty sizes."""
+        # Force a pipeline with known artifact sizes
+        d = self.pipeline.to_dict()
+        size = d["total_artifact_size"]
+        self.assertIsInstance(size, str)
+        self.assertGreater(len(size), 0)
+
+    def test_total_artifact_size_empty(self):
+        """total_artifact_size returns 'unknown' when all stages have empty sizes."""
+        from coreai_catalog.transform_graph import Pipeline, PipelineStage
+        empty_pipeline = Pipeline(
+            input_modality="text",
+            output_modality="audio",
+            stages=[PipelineStage(
+                model_id="test", input_modality="text",
+                output_modality="audio", artifact_size=""
+            )]
+        )
+        self.assertEqual(empty_pipeline.total_artifact_size, "unknown")
+
+
+class TestModelSelection(unittest.TestCase):
+    """Tests for _pick_best_model determinism and correctness."""
+
+    @classmethod
+    def setUpClass(cls):
+        from coreai_catalog.catalog import Catalog
+        cat = Catalog()
+        cls.graph = TransformGraph(cat.models, cat)
+
+    def test_pick_best_model_is_deterministic(self):
+        """Running _pick_best_model twice returns the same result."""
+        from coreai_catalog.transform_graph import TransformEdge
+        edge = TransformEdge("text", "audio", "test")
+        result1 = self.graph._pick_best_model(edge)
+        result2 = self.graph._pick_best_model(edge)
+        self.assertEqual(result1.model_id, result2.model_id)
+        self.assertEqual(result1.model_name, result2.model_name)
+
+    def test_pick_best_model_has_metadata(self):
+        """Picked model has name, runner, and parameters."""
+        from coreai_catalog.transform_graph import TransformEdge
+        edge = TransformEdge("text", "text", "test")
+        result = self.graph._pick_best_model(edge)
+        self.assertTrue(result.model_name)
+        self.assertTrue(result.runner)
+        self.assertTrue(result.parameters)
+
+    def test_pick_best_model_empty_edge(self):
+        """_pick_best_model with no matching edges returns a minimal stage."""
+        from coreai_catalog.transform_graph import TransformEdge
+        edge = TransformEdge("nonexistent", "also_nonexistent", "fake")
+        result = self.graph._pick_best_model(edge)
+        self.assertEqual(result.model_id, "fake")
+        self.assertEqual(result.model_name, "")
+
+
 if __name__ == "__main__":
     unittest.main()

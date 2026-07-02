@@ -540,9 +540,9 @@
       "model_ids": [
         "qwen2-5-omni-3b-audio",
         "official-flux-2-klein-4b",
-        "rf-detr-nano"
+        "rf-detr-large"
       ],
-      "total_artifact_size": "5.1GB + 4GB + 108MB",
+      "total_artifact_size": "5.1GB + 4GB + 122MB",
       "stages": [
         {
           "model_id": "qwen2-5-omni-3b-audio",
@@ -567,14 +567,14 @@
           "huggingface_url": "https://huggingface.co/mlboydaisuke/FLUX.2-klein-4B-CoreAI"
         },
         {
-          "model_id": "rf-detr-nano",
-          "model_name": "RF-DETR Nano",
+          "model_id": "rf-detr-large",
+          "model_name": "RF-DETR Large",
           "input_modality": "image",
           "output_modality": "classes",
           "estimated_tokens_per_sec": 0.0,
-          "parameters": "nano",
+          "parameters": "large",
           "runner": "CoreAIRunner",
-          "artifact_size": "108MB",
+          "artifact_size": "122MB",
           "huggingface_url": "https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI"
         }
       ]
@@ -631,9 +631,9 @@
       "model_ids": [
         "qwen2-5-omni-3b-audio",
         "official-flux-2-klein-4b",
-        "depth-anything-3-small"
+        "depth-anything-3-base"
       ],
-      "total_artifact_size": "5.1GB + 4GB + 54.5MB",
+      "total_artifact_size": "5.1GB + 4GB + 202MB",
       "stages": [
         {
           "model_id": "qwen2-5-omni-3b-audio",
@@ -658,14 +658,14 @@
           "huggingface_url": "https://huggingface.co/mlboydaisuke/FLUX.2-klein-4B-CoreAI"
         },
         {
-          "model_id": "depth-anything-3-small",
-          "model_name": "Depth Anything 3 Small",
+          "model_id": "depth-anything-3-base",
+          "model_name": "Depth Anything 3 Base",
           "input_modality": "image",
           "output_modality": "depth_map",
           "estimated_tokens_per_sec": 0.0,
-          "parameters": "small",
+          "parameters": "base",
           "runner": "CoreAIRunner",
-          "artifact_size": "54.5MB",
+          "artifact_size": "202MB",
           "huggingface_url": "https://huggingface.co/mlboydaisuke/Depth-Anything-3-CoreAI"
         }
       ]
@@ -1265,21 +1265,21 @@
         "audio"
       ],
       "model_ids": [
-        "qwen3-vl-2b",
+        "minicpm-v-4-6",
         "voxcpm-0-5b"
       ],
-      "total_artifact_size": "2.3GB + 1.0GB",
+      "total_artifact_size": "not_published + 1.0GB",
       "stages": [
         {
-          "model_id": "qwen3-vl-2b",
-          "model_name": "Qwen3-VL 2B",
+          "model_id": "minicpm-v-4-6",
+          "model_name": "MiniCPM-V 4.6",
           "input_modality": "image",
           "output_modality": "text",
-          "estimated_tokens_per_sec": 191.0,
-          "parameters": "2B",
+          "estimated_tokens_per_sec": 224.3,
+          "parameters": "sub-2B",
           "runner": "CoreAIRunner",
-          "artifact_size": "2.3GB",
-          "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen3-VL-2B-CoreAI"
+          "artifact_size": "not_published",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/MiniCPM-V-4.6-CoreAI"
         },
         {
           "model_id": "voxcpm-0-5b",
@@ -1303,19 +1303,19 @@
         "boxes"
       ],
       "model_ids": [
-        "rf-detr-nano"
+        "rf-detr-large"
       ],
-      "total_artifact_size": "108MB",
+      "total_artifact_size": "122MB",
       "stages": [
         {
-          "model_id": "rf-detr-nano",
-          "model_name": "RF-DETR Nano",
+          "model_id": "rf-detr-large",
+          "model_name": "RF-DETR Large",
           "input_modality": "image",
           "output_modality": "boxes",
           "estimated_tokens_per_sec": 0.0,
-          "parameters": "nano",
+          "parameters": "large",
           "runner": "CoreAIRunner",
-          "artifact_size": "108MB",
+          "artifact_size": "122MB",
           "huggingface_url": "https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI"
         }
       ]
@@ -1329,19 +1329,19 @@
         "classes"
       ],
       "model_ids": [
-        "rf-detr-nano"
+        "rf-detr-large"
       ],
-      "total_artifact_size": "108MB",
+      "total_artifact_size": "122MB",
       "stages": [
         {
-          "model_id": "rf-detr-nano",
-          "model_name": "RF-DETR Nano",
+          "model_id": "rf-detr-large",
+          "model_name": "RF-DETR Large",
           "input_modality": "image",
           "output_modality": "classes",
           "estimated_tokens_per_sec": 0.0,
-          "parameters": "nano",
+          "parameters": "large",
           "runner": "CoreAIRunner",
-          "artifact_size": "108MB",
+          "artifact_size": "122MB",
           "huggingface_url": "https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI"
         }
       ]
@@ -1381,19 +1381,19 @@
         "depth_map"
       ],
       "model_ids": [
-        "depth-anything-3-small"
+        "depth-anything-3-base"
       ],
-      "total_artifact_size": "54.5MB",
+      "total_artifact_size": "202MB",
       "stages": [
         {
-          "model_id": "depth-anything-3-small",
-          "model_name": "Depth Anything 3 Small",
+          "model_id": "depth-anything-3-base",
+          "model_name": "Depth Anything 3 Base",
           "input_modality": "image",
           "output_modality": "depth_map",
           "estimated_tokens_per_sec": 0.0,
-          "parameters": "small",
+          "parameters": "base",
           "runner": "CoreAIRunner",
-          "artifact_size": "54.5MB",
+          "artifact_size": "202MB",
           "huggingface_url": "https://huggingface.co/mlboydaisuke/Depth-Anything-3-CoreAI"
         }
       ]
@@ -1563,19 +1563,19 @@
         "scores"
       ],
       "model_ids": [
-        "rf-detr-nano"
+        "rf-detr-large"
       ],
-      "total_artifact_size": "108MB",
+      "total_artifact_size": "122MB",
       "stages": [
         {
-          "model_id": "rf-detr-nano",
-          "model_name": "RF-DETR Nano",
+          "model_id": "rf-detr-large",
+          "model_name": "RF-DETR Large",
           "input_modality": "image",
           "output_modality": "scores",
           "estimated_tokens_per_sec": 0.0,
-          "parameters": "nano",
+          "parameters": "large",
           "runner": "CoreAIRunner",
-          "artifact_size": "108MB",
+          "artifact_size": "122MB",
           "huggingface_url": "https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI"
         }
       ]
@@ -1589,20 +1589,20 @@
         "text"
       ],
       "model_ids": [
-        "qwen3-vl-2b"
+        "minicpm-v-4-6"
       ],
-      "total_artifact_size": "2.3GB",
+      "total_artifact_size": "not_published",
       "stages": [
         {
-          "model_id": "qwen3-vl-2b",
-          "model_name": "Qwen3-VL 2B",
+          "model_id": "minicpm-v-4-6",
+          "model_name": "MiniCPM-V 4.6",
           "input_modality": "image",
           "output_modality": "text",
-          "estimated_tokens_per_sec": 191.0,
-          "parameters": "2B",
+          "estimated_tokens_per_sec": 224.3,
+          "parameters": "sub-2B",
           "runner": "CoreAIRunner",
-          "artifact_size": "2.3GB",
-          "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen3-VL-2B-CoreAI"
+          "artifact_size": "not_published",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/MiniCPM-V-4.6-CoreAI"
         }
       ]
     },
@@ -1617,22 +1617,22 @@
         "transcript"
       ],
       "model_ids": [
-        "qwen3-vl-2b",
+        "minicpm-v-4-6",
         "voxcpm-0-5b",
         "official-whisper-large-v3-turbo"
       ],
-      "total_artifact_size": "2.3GB + 1.0GB + 1.5GB",
+      "total_artifact_size": "not_published + 1.0GB + 1.5GB",
       "stages": [
         {
-          "model_id": "qwen3-vl-2b",
-          "model_name": "Qwen3-VL 2B",
+          "model_id": "minicpm-v-4-6",
+          "model_name": "MiniCPM-V 4.6",
           "input_modality": "image",
           "output_modality": "text",
-          "estimated_tokens_per_sec": 191.0,
-          "parameters": "2B",
+          "estimated_tokens_per_sec": 224.3,
+          "parameters": "sub-2B",
           "runner": "CoreAIRunner",
-          "artifact_size": "2.3GB",
-          "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen3-VL-2B-CoreAI"
+          "artifact_size": "not_published",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/MiniCPM-V-4.6-CoreAI"
         },
         {
           "model_id": "voxcpm-0-5b",
@@ -1694,21 +1694,21 @@
         "video"
       ],
       "model_ids": [
-        "qwen3-vl-2b",
+        "minicpm-v-4-6",
         "ltx-video-2b"
       ],
-      "total_artifact_size": "2.3GB + 13.5GB",
+      "total_artifact_size": "not_published + 13.5GB",
       "stages": [
         {
-          "model_id": "qwen3-vl-2b",
-          "model_name": "Qwen3-VL 2B",
+          "model_id": "minicpm-v-4-6",
+          "model_name": "MiniCPM-V 4.6",
           "input_modality": "image",
           "output_modality": "text",
-          "estimated_tokens_per_sec": 191.0,
-          "parameters": "2B",
+          "estimated_tokens_per_sec": 224.3,
+          "parameters": "sub-2B",
           "runner": "CoreAIRunner",
-          "artifact_size": "2.3GB",
-          "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen3-VL-2B-CoreAI"
+          "artifact_size": "not_published",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/MiniCPM-V-4.6-CoreAI"
         },
         {
           "model_id": "ltx-video-2b",
@@ -1838,9 +1838,9 @@
       ],
       "model_ids": [
         "official-flux-2-klein-4b",
-        "rf-detr-nano"
+        "rf-detr-large"
       ],
-      "total_artifact_size": "4GB + 108MB",
+      "total_artifact_size": "4GB + 122MB",
       "stages": [
         {
           "model_id": "official-flux-2-klein-4b",
@@ -1854,14 +1854,14 @@
           "huggingface_url": "https://huggingface.co/mlboydaisuke/FLUX.2-klein-4B-CoreAI"
         },
         {
-          "model_id": "rf-detr-nano",
-          "model_name": "RF-DETR Nano",
+          "model_id": "rf-detr-large",
+          "model_name": "RF-DETR Large",
           "input_modality": "image",
           "output_modality": "classes",
           "estimated_tokens_per_sec": 0.0,
-          "parameters": "nano",
+          "parameters": "large",
           "runner": "CoreAIRunner",
-          "artifact_size": "108MB",
+          "artifact_size": "122MB",
           "huggingface_url": "https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI"
         }
       ]
@@ -1903,9 +1903,9 @@
       ],
       "model_ids": [
         "official-flux-2-klein-4b",
-        "depth-anything-3-small"
+        "depth-anything-3-base"
       ],
-      "total_artifact_size": "4GB + 54.5MB",
+      "total_artifact_size": "4GB + 202MB",
       "stages": [
         {
           "model_id": "official-flux-2-klein-4b",
@@ -1919,14 +1919,14 @@
           "huggingface_url": "https://huggingface.co/mlboydaisuke/FLUX.2-klein-4B-CoreAI"
         },
         {
-          "model_id": "depth-anything-3-small",
-          "model_name": "Depth Anything 3 Small",
+          "model_id": "depth-anything-3-base",
+          "model_name": "Depth Anything 3 Base",
           "input_modality": "image",
           "output_modality": "depth_map",
           "estimated_tokens_per_sec": 0.0,
-          "parameters": "small",
+          "parameters": "base",
           "runner": "CoreAIRunner",
-          "artifact_size": "54.5MB",
+          "artifact_size": "202MB",
           "huggingface_url": "https://huggingface.co/mlboydaisuke/Depth-Anything-3-CoreAI"
         }
       ]

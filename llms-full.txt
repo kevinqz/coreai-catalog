@@ -8,7 +8,7 @@ independent community project — not affiliated with or endorsed by Apple.
 
 - **Repository:** https://github.com/kevinqz/coreai-catalog
 - **License:** MIT
-- **Version:** 2.0.5
+- **Version:** 2.1.0
 - **Last verified:** 2026-07-01
 
 ## What this catalog IS
@@ -68,6 +68,7 @@ coreai-catalog show qwen3-vl-2b
 coreai-catalog compare qwen3-vl-2b gemma-4-e2b-vision
 coreai-catalog install qwen3-vl-2b
 coreai-catalog scores
+coreai-catalog transforms --from audio --to image  # plan transform pipeline
 coreai-catalog doctor
 ```
 
@@ -87,12 +88,14 @@ All exports are committed to `dist/` and available via raw GitHub (no clone need
 - `dist/models.jsonl` — one model per line (streaming-friendly)
 - `dist/readiness-scores.json` — 0-100 deployment readiness scores
 - `dist/coreai-catalog.json` — everything bundled
+- `dist/transforms-graph.json` — modality transformation graph (nodes = models, edges = transformable input/output pairs)
+- `dist/model-manifest.json` — install manifest template (model metadata + runtime requirements)
 
 MCP server (for Claude Desktop, Cursor, MCP-compatible agents):
 
-11 tools: `search_models`, `get_model`, `compare_models`, `recommend_model`,
+12 tools: `search_models`, `get_model`, `compare_models`, `recommend_model`,
 `check_license`, `get_benchmarks`, `get_artifact`, `explain_term`,
-`get_capabilities`, `get_tasks`, `get_version`.
+`get_capabilities`, `get_tasks`, `get_version`, `transforms`.
 
 All tools are read-only. Configuration:
 
@@ -119,6 +122,35 @@ Source groups:
 - `official` — Apple's own Core AI model zoo exports
 - `zoo` — Community-packaged from the Core AI model zoo
 - `external` — Independent HF converters not in the zoo
+
+## Transform graph engine
+
+Plan multi-hop modality transformation pipelines between Core AI models. The
+catalog's transform graph treats every model as a node and every input→output
+modality pair as a directed edge, then finds shortest paths between any source
+and target modality.
+
+### `transforms` CLI command
+
+```bash
+# No args — print the full transform graph (all models, all edges)
+coreai-catalog transforms
+
+# --from <modality> — list all models that accept that input modality
+coreai-catalog transforms --from audio
+
+# --from <modality> --to <modality> — plan a pipeline from source to target
+coreai-catalog transforms --from audio --to image
+```
+
+All modes support `--json` for structured output. The planned pipeline lists
+each hop with the model, its capabilities, and runtime requirements.
+
+### Dist exports
+
+- `dist/transforms-graph.json` — the full modality transformation graph
+- `dist/model-manifest.json` — model manifest with runtime requirements used
+  for pipeline planning
 
 ## Readiness score breakdown (0-100)
 

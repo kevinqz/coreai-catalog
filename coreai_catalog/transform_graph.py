@@ -299,7 +299,7 @@ class TransformGraph:
 
         best_edge = edges[0]
         best_score = -1
-        for e in edges:
+        for e in sorted(edges, key=lambda e: e.model_id):  # deterministic order
             score = self._model_score(e.model_id)
             if score > best_score:
                 best_score = score

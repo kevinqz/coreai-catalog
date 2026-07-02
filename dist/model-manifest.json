@@ -1326,7 +1326,7 @@
     {
       "id": "ltx-video-2b",
       "name": "LTX-Video 2B distilled",
-      "bundle_kind": "unknown",
+      "bundle_kind": "video",
       "runner": "CoreAIVideoPipeline",
       "capabilities": [
         "text-to-video"

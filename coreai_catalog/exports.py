@@ -296,6 +296,8 @@ def export_model_manifest(catalog_root: Path, dist: Path | None = None) -> dict:
             bundle_kind = "segmenter"
         elif runner == "CoreAITranscribe":
             bundle_kind = "speech"
+        elif runner == "CoreAIVideoPipeline":
+            bundle_kind = "video"
         elif runner == "CoreAIKit-GraphModel":
             bundle_kind = "detector" if "object-detection" in caps or "instance-segmentation" in caps else "graph"
         else:

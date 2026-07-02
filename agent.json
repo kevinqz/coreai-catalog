@@ -4,7 +4,7 @@
   "description": "A source-grounded catalog of 79 Apple Core AI models with artifact provenance, benchmarks, verified terminology, readiness scores, and an MCP server for agent-native model discovery, comparison, and recommendation.",
   "primary_language": "en",
   "entity_type": "open_source_database",
-  "version": "2.0.5",
+  "version": "2.1.0",
   "license": "MIT",
   "capabilities": [
     {
@@ -83,6 +83,18 @@
       "description": "Returns catalog version, model count, benchmark count, term count, and last_verified date.",
       "human_approval_required": false,
       "transport": ["cli", "mcp"]
+    },
+    {
+      "id": "transforms",
+      "name": "Plan transform pipeline",
+      "description": "Plan multi-hop modality transformation pipelines between Core AI models. With no arguments, returns the full transform graph. With --from, lists models that accept a given input modality. With --from and --to, computes the shortest transform pipeline from source to target modality.",
+      "human_approval_required": false,
+      "transport": ["cli", "mcp", "json"],
+      "parameters": {
+        "from": { "type": "string", "required": false, "description": "Source input modality (e.g. audio, text, image)" },
+        "to": { "type": "string", "required": false, "description": "Target output modality (e.g. image, text, audio)" },
+        "json": { "type": "boolean", "required": false, "description": "Output structured JSON instead of human-readable text" }
+      }
     }
   ],
   "canonical_files": {
@@ -98,7 +110,7 @@
   "mcp_server": {
     "transport": "stdio",
     "command": "coreai-catalog-mcp",
-    "tools": 11,
+    "tools": 12,
     "read_only": true
   },
   "data_quality": {

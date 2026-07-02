@@ -1,10 +1,10 @@
 openapi: 3.1.0
 info:
   title: Core AI Catalog API
-  version: 2.0.5
+  version: 2.1.0
   description: |
     Source-grounded catalog of 79 Apple Core AI models. All endpoints are
-    read-only. This OpenAPI spec mirrors the MCP server's 11 tools as REST
+    read-only. This OpenAPI spec mirrors the MCP server's 12 tools as REST
     endpoints for agents and automation that don't use MCP.
 
     JSON exports are committed to `dist/` and available via raw GitHub:
@@ -38,6 +38,8 @@ tags:
     description: Verified Apple AI terminology
   - name: meta
     description: Catalog metadata
+  - name: transforms
+    description: Modality transformation pipeline planning
 
 paths:
   /api/models:
@@ -297,6 +299,54 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/TaskList"
+
+  /api/transforms:
+    get:
+      tags: [transforms]
+      summary: Plan a modality transformation pipeline
+      description: |
+        Plan multi-hop modality transformation pipelines between Core AI models.
+        - No parameters: returns the full transform graph (all models and their input→output modality edges).
+        - `from` only: lists all models that accept the given input modality.
+        - `from` + `to`: computes the shortest transform pipeline from source to target modality.
+      operationId: transforms
+      parameters:
+        - name: from
+          in: query
+          schema: { type: string }
+          description: Source input modality (e.g. audio, text, image)
+          example: audio
+        - name: to
+          in: query
+          schema: { type: string }
+          description: Target output modality (e.g. image, text, audio)
+          example: image
+      responses:
+        "200":
+          description: Transform graph or planned pipeline
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  from: { type: string, nullable: true }
+                  to: { type: string, nullable: true }
+                  nodes:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        model_id: { type: string }
+                        capabilities: { type: array, items: { type: string } }
+                        modalities: { type: object }
+                  edges:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        from: { type: string }
+                        to: { type: string }
+                        model_id: { type: string }
 
   /api/version:
     get:

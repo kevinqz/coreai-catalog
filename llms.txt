@@ -27,6 +27,7 @@ coreai-catalog search --capability vision-language --device iphone
 coreai-catalog recommend --task "robot vision" --device iphone
 coreai-catalog show qwen3-vl-2b
 coreai-catalog install qwen3-vl-2b
+coreai-catalog transforms --from audio --to image  # plan transform pipeline
 coreai-catalog doctor
 ```
 
@@ -58,7 +59,7 @@ MCP server (for Claude Desktop, Cursor, MCP-compatible agents):
 
 Available MCP tools: `search_models`, `get_model`, `compare_models`,
 `recommend_model`, `check_license`, `get_benchmarks`, `get_artifact`,
-`explain_term`, `get_capabilities`, `get_tasks`, `get_version`.
+`explain_term`, `get_capabilities`, `get_tasks`, `get_version`, `transforms`.
 
 ## Key files
 
