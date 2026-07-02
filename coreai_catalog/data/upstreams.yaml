@@ -1,8 +1,8 @@
 metadata:
   name: Core AI Catalog upstream source taxonomy
   last_verified: '2026-06-29'
-  purpose: Track upstream framework, original model, benchmark, sample, artifact host and license sources separately from
-    converted artifacts.
+  purpose: Track upstream framework, original model, benchmark, sample, artifact host
+    and license sources separately from converted artifacts.
 framework_sources:
 - id: apple-coreai-docs
   title: Apple Core AI Developer Documentation
@@ -60,7 +60,8 @@ framework_sources:
   - pytorch-bridge
   - metal-kernels
   - composite-ops
-  notes: 'PyTorch Extensions (coreai-torch) — TorchConverter, composite_ops, Metal kernels. PyPI: coreai-torch.'
+  notes: 'PyTorch Extensions (coreai-torch) — TorchConverter, composite_ops, Metal
+    kernels. PyPI: coreai-torch.'
 - id: apple-coreai-optimization
   title: apple/coreai-optimization
   category: framework_tooling
@@ -73,7 +74,8 @@ framework_sources:
   - palettization
   - pruning
   - compression
-  notes: 'Core AI Optimization (coreai-opt) — quantization, palettization, pruning for Apple Silicon deployment. PyPI: coreai-opt.'
+  notes: 'Core AI Optimization (coreai-opt) — quantization, palettization, pruning
+    for Apple Silicon deployment. PyPI: coreai-opt.'
 conversion_sources:
 - id: john-rocky-coreai-model-zoo
   title: john-rocky/coreai-model-zoo
@@ -108,7 +110,8 @@ conversion_sources:
   applies_to:
   - onnx-conversion
   - onnx-to-aimodel
-  notes: 'Converts ONNX models directly to .aimodel. PyPI: coreai-onnx. Independent from Apple''s PyTorch path.'
+  notes: 'Converts ONNX models directly to .aimodel. PyPI: coreai-onnx. Independent
+    from Apple''s PyTorch path.'
 - id: lucasnewman-mlx2coreai
   title: lucasnewman/mlx2coreai
   category: conversion_and_zoo
@@ -130,7 +133,8 @@ conversion_sources:
   applies_to:
   - agentic-demos
   - foundation-models-demos
-  notes: On-device agentic API demos running CoreAI zoo bundles through Foundation Models.
+  notes: On-device agentic API demos running CoreAI zoo bundles through Foundation
+    Models.
 artifact_hosts:
 - id: hf-mlboydaisuke
   title: mlboydaisuke on Hugging Face
@@ -210,7 +214,6 @@ artifact_hosts:
   trust: artifact_host
   applies_to:
   - efficientsam3-tinyvit
-
 benchmark_sources:
 - id: john-rocky-apple-silicon-llm-bench
   title: john-rocky/apple-silicon-llm-bench
@@ -379,7 +382,8 @@ original_model_sources:
   applies_to:
   - depth-anything-3-small
   - depth-anything-3-base
-  notes: Current Core AI catalog uses Depth Anything 3; keep model-specific upstream under review.
+  notes: Current Core AI catalog uses Depth Anything 3; keep model-specific upstream
+    under review.
 - id: hexgrad-kokoro
   title: Kokoro original model family
   category: original_model
@@ -394,7 +398,7 @@ original_model_sources:
   category: original_model
   platform: unknown
   owner: Z.ai / THUDM
-  url: unknown
+  url: https://huggingface.co/zai-org
   trust: needs_review
   applies_to:
   - glm-4-7-flash
@@ -404,7 +408,7 @@ original_model_sources:
   category: original_model
   platform: unknown
   owner: unknown
-  url: unknown
+  url: https://huggingface.co/Nanbeige
   trust: needs_review
   applies_to:
   - nanbeige4-1-3b
@@ -413,7 +417,7 @@ original_model_sources:
   category: original_model
   platform: unknown
   owner: unknown
-  url: unknown
+  url: https://github.com/jaewon-lee-b/AdcSR
   trust: needs_review
   applies_to:
   - adcsr-x4
@@ -422,7 +426,7 @@ original_model_sources:
   category: original_model
   platform: unknown
   owner: unknown
-  url: unknown
+  url: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/unlimited-ocr.md
   trust: needs_review
   applies_to:
   - unlimited-ocr
@@ -506,7 +510,8 @@ original_model_sources:
   trust: needs_review
   applies_to:
   - tripo-splat
-  notes: Single image → 3D Gaussian splats; DINOv3 + flow-matching DiT. Exact HF page to be verified.
+  notes: Single image → 3D Gaussian splats; DINOv3 + flow-matching DiT. Exact HF page
+    to be verified.
 - id: lightricks-ltxvideo
   title: Lightricks LTX-Video original model family
   category: original_model
@@ -547,7 +552,8 @@ original_model_sources:
   trust: original_model_primary
   applies_to:
   - bitvla
-  notes: 1.58-bit ternary Vision-Language-Action policy; BitNet b1.58 LLM + BitSigLIP vision.
+  notes: 1.58-bit ternary Vision-Language-Action policy; BitNet b1.58 LLM + BitSigLIP
+    vision.
 - id: stability-ai
   title: Stability AI original model family
   category: original_model
@@ -615,7 +621,6 @@ original_model_sources:
   trust: original_model_primary
   applies_to:
   - rwkv7-goose-1-5b
-
 license_sources:
 - id: apache-2-0
   title: Apache License 2.0
@@ -650,7 +655,7 @@ license_sources:
 - id: openrail
   title: OpenRAIL-style license family
   category: license
-  url: unknown
+  url: https://huggingface.co/docs/hub/restricted-access
   trust: needs_review
   review_required: true
 - id: cc-by-4-0

@@ -2687,7 +2687,7 @@ models:
   family: Qwen
   source_group: zoo
   artifact_ref: qwen3-asr-1-7b
-  source_path: https://github.com/john-rocky/coreai-model-zoo/README.md
+  source_path: https://github.com/john-rocky/coreai-model-zoo/blob/main/README.md
   capabilities:
   - speech-to-text
   modalities:
@@ -2782,7 +2782,7 @@ models:
   family: VoxCPM
   source_group: zoo
   artifact_ref: voxcpm2-2b
-  source_path: https://github.com/john-rocky/coreai-model-zoo/README.md
+  source_path: https://github.com/john-rocky/coreai-model-zoo/blob/main/README.md
   capabilities:
   - text-to-speech
   modalities:
@@ -2879,7 +2879,7 @@ models:
   family: TripoSplat
   source_group: zoo
   artifact_ref: tripo-splat
-  source_path: https://github.com/john-rocky/coreai-model-zoo/README.md
+  source_path: https://github.com/john-rocky/coreai-model-zoo/blob/main/README.md
   capabilities:
   - image-to-3d
   modalities:
@@ -3172,7 +3172,7 @@ models:
   family: Stable Audio
   source_group: zoo
   artifact_ref: stable-audio-open-small
-  source_path: https://github.com/john-rocky/coreai-model-zoo/README.md
+  source_path: https://github.com/john-rocky/coreai-model-zoo/blob/main/README.md
   capabilities:
   - text-to-audio
   - music-generation

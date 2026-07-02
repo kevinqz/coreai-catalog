@@ -332,6 +332,17 @@ select {
 .btn-copy:hover { background: var(--accent-3); }
 .btn-copy.copied { background: var(--green-bg); color: var(--green); }
 
+/* Scoring section */
+.scoring-table { display: flex; flex-direction: column; gap: .4rem; margin: .5rem 0; }
+.score-grade-row {
+  display: flex; align-items: center; gap: .65rem;
+  font-size: .83rem; color: var(--text-2);
+}
+.score-grade-row .card-score { min-width: 65px; text-align: center; }
+.score-details { margin-top: .5rem; }
+.score-details summary { cursor: pointer; font-size: .82rem; color: var(--accent); font-weight: 500; }
+.score-details summary:hover { text-decoration: underline; }
+
 /* MCP client cards */
 .mcp-intro { font-size: .82rem; color: var(--text-2); margin-bottom: .5rem; }
 .mcp-clients { display: flex; flex-direction: column; gap: .5rem; margin: .5rem 0; }

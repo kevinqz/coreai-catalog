@@ -208,6 +208,31 @@ catalog.recommend(task="ocr", device="iphone")</code></pre>
         </div>
       </div>
 
+      <h3>Scoring</h3>
+      <p>Each model gets a <strong>readiness score</strong> (0-100) based on 13 factors:</p>
+      <div class="scoring-table">
+        <div class="score-grade-row"><span class="card-score score-a">85-100 A</span> Production-ready</div>
+        <div class="score-grade-row"><span class="card-score score-b">70-84 B</span> Good, minor gaps</div>
+        <div class="score-grade-row"><span class="card-score score-c">55-69 C</span> Usable, verify caveats</div>
+        <div class="score-grade-row"><span class="card-score score-d">40-54 D</span> Experimental</div>
+        <div class="score-grade-row"><span class="card-score score-f">0-39 F</span> Early / unverified</div>
+      </div>
+      <details class="score-details">
+        <summary>How scores are calculated</summary>
+        <table class="modal-table" style="font-size:.82rem;margin-top:.5rem">
+          <tr><td>Artifact available</td><td>+15</td></tr>
+          <tr><td>License: commercial likely</td><td>+10</td></tr>
+          <tr><td>iPhone supported</td><td>+10</td></tr>
+          <tr><td>Mac supported</td><td>+10</td></tr>
+          <tr><td>Has benchmark</td><td>+10</td></tr>
+          <tr><td>Stock runtime (no custom)</td><td>+10</td></tr>
+          <tr><td>No custom kernel / patch / AOT</td><td>+5 each</td></tr>
+          <tr><td>Status: confirmed</td><td>+10</td></tr>
+          <tr><td>Confidence: high +5 / medium +3 / low -10</td><td>variable</td></tr>
+          <tr><td>Maturity: stable or active</td><td>+5</td></tr>
+        </table>
+      </details>
+
       <p class="legal">MIT License. Not affiliated with or endorsed by Apple. <code>commercial_use</code> fields are triage labels, not legal advice.</p>
     </div>
   </main>

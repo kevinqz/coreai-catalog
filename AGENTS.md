@@ -79,3 +79,50 @@ The catalog enforces:
 - Not affiliated with or endorsed by Apple
 - Not a model host — it does not redistribute weights or artifacts
 - Not legal advice — `commercial_use` fields are triage labels, not permissions
+
+## Handling GitHub Issues
+
+When an agent processes issues on this repo, follow these patterns:
+
+### Model request issues (label: `model-request`)
+1. Verify the model doesn't already exist in `catalog.yaml`
+2. Check Hugging Face / GitHub for a Core AI `.aimodel` artifact
+3. If found: add entries using `templates/model-entry.yaml` + `templates/artifact-entry.yaml`
+4. Add upstream source to `upstreams.yaml` if missing
+5. Validate: `python scripts/validate.py && python scripts/generate.py && python scripts/audit.py`
+6. Close issue with: `Added MODEL_NAME in commit ABC123 (closes #N)`
+
+### Bug report issues (label: `bug`)
+1. Read the affected model ID and field
+2. Verify against the upstream source URL in the artifact record
+3. Fix in the YAML source of truth
+4. Regenerate: `python scripts/generate.py`
+5. Close with the fix summary
+
+### Benchmark submission issues (label: `benchmark`)
+1. Validate the submission against `schema/benchmark.schema.json`
+2. Add to `benchmarks.yaml` — append-only, never overwrite
+3. If superseding: mark old entry `confidence: needs_review` + `superseded_by`
+4. Validate and regenerate
+
+## Scoring algorithm
+
+The readiness score (0-100) rewards deployment confidence:
+
+| Factor | Points |
+|---|---|
+| Artifact available | +15 |
+| License: commercial likely | +10 |
+| iPhone supported | +10 |
+| Mac supported | +10 |
+| Has benchmark | +10 |
+| Stock runtime (no custom) | +10 |
+| No custom kernel | +5 |
+| No patch needed | +5 |
+| No AOT needed | +5 |
+| Status: confirmed | +10 |
+| Confidence: high +5 / medium +3 / low -10 | variable |
+| Maturity: stable/active | +5 |
+| Quality bonus (>2B for quality tasks) | +3 |
+
+Grades: **A** (85+) / **B** (70-84) / **C** (55-69) / **D** (40-54) / **F** (<40)

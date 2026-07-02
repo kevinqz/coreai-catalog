@@ -5963,7 +5963,7 @@
           "quantization": "int8lin"
         },
         "source_group": "zoo",
-        "source_path": "https://github.com/john-rocky/coreai-model-zoo/README.md",
+        "source_path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/README.md",
         "sources": [
           "coreai-model-zoo-readme"
         ],
@@ -6082,7 +6082,7 @@
           "quantization": "int8"
         },
         "source_group": "zoo",
-        "source_path": "https://github.com/john-rocky/coreai-model-zoo/README.md",
+        "source_path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/README.md",
         "sources": [
           "coreai-model-zoo-readme"
         ],
@@ -6203,7 +6203,7 @@
           "quantization": "none"
         },
         "source_group": "zoo",
-        "source_path": "https://github.com/john-rocky/coreai-model-zoo/README.md",
+        "source_path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/README.md",
         "sources": [
           "coreai-model-zoo-readme"
         ],
@@ -6569,7 +6569,7 @@
           "quantization": "none"
         },
         "source_group": "zoo",
-        "source_path": "https://github.com/john-rocky/coreai-model-zoo/README.md",
+        "source_path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/README.md",
         "sources": [
           "coreai-model-zoo-readme"
         ],
@@ -8455,7 +8455,7 @@
         "review_required": true,
         "title": "OpenRAIL-style license family",
         "trust": "needs_review",
-        "url": "unknown"
+        "url": "https://huggingface.co/docs/hub/restricted-access"
       },
       {
         "category": "license",
@@ -8692,7 +8692,7 @@
         "platform": "unknown",
         "title": "GLM original model family",
         "trust": "needs_review",
-        "url": "unknown"
+        "url": "https://huggingface.co/zai-org"
       },
       {
         "applies_to": [
@@ -8704,7 +8704,7 @@
         "platform": "unknown",
         "title": "Nanbeige original model family",
         "trust": "needs_review",
-        "url": "unknown"
+        "url": "https://huggingface.co/Nanbeige"
       },
       {
         "applies_to": [
@@ -8716,7 +8716,7 @@
         "platform": "unknown",
         "title": "AdcSR original model family",
         "trust": "needs_review",
-        "url": "unknown"
+        "url": "https://github.com/jaewon-lee-b/AdcSR"
       },
       {
         "applies_to": [
@@ -8728,7 +8728,7 @@
         "platform": "unknown",
         "title": "Unlimited-OCR original model family",
         "trust": "needs_review",
-        "url": "unknown"
+        "url": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/unlimited-ocr.md"
       },
       {
         "applies_to": [
