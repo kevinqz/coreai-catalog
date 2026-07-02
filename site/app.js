@@ -188,6 +188,67 @@
     grid.querySelectorAll('.model-card').forEach(function (card) {
       card.addEventListener('click', function () { showDetail(card.dataset.id); });
     });
+
+    // Score popover on hover
+    grid.querySelectorAll('.card-score').forEach(function (badge) {
+      badge.addEventListener('mouseenter', function (e) { showScorePopover(badge); });
+      badge.addEventListener('mouseleave', function () { hideScorePopover(); });
+    });
+  }
+
+  // ── Score Popover ──
+  function showScorePopover(badge) {
+    var card = badge.closest('.model-card');
+    if (!card) return;
+    var m = MODELS.find(function (x) { return x.id === card.dataset.id; });
+    if (!m) return;
+    var s = m.readiness_score;
+
+    var factors = [];
+    if (m.artifact_availability === 'available' || (m.artifact && m.artifact.availability === 'available')) factors.push(['Artifact available', '+15']);
+    if (m.commercial_use === 'likely') factors.push(['License: commercial likely', '+10']);
+    var devs = m.devices || [];
+    if (devs.indexOf('iphone') >= 0) factors.push(['iPhone supported', '+10']);
+    if (devs.indexOf('mac') >= 0) factors.push(['Mac supported', '+10']);
+    if (m.benchmarks && m.benchmarks.length) factors.push(['Has benchmark', '+10']);
+    if (m.stock_runtime === true) factors.push(['Stock runtime', '+10']);
+    if (m.custom_kernel === false) factors.push(['No custom kernel', '+5']);
+    if (m.patch_required === false) factors.push(['No patch needed', '+5']);
+    if (m.aot_required === false) factors.push(['No AOT needed', '+5']);
+
+    var gradeDesc = '';
+    if (s >= 85) gradeDesc = 'Production-ready';
+    else if (s >= 70) gradeDesc = 'Good, minor gaps';
+    else if (s >= 55) gradeDesc = 'Usable, verify caveats';
+    else if (s >= 40) gradeDesc = 'Experimental';
+    else gradeDesc = 'Early / unverified';
+
+    var html = '<div class="pop-grade">' +
+      '<span class="card-score ' + scoreClass(s) + '">' + s + ' ' + gradeLetter(s) + '</span>' +
+      escapeHtml(gradeDesc) + '</div>';
+    factors.forEach(function (f) {
+      html += '<div class="pop-factor"><span>' + escapeHtml(f[0]) + '</span><span class="pop-pts">' + f[1] + '</span></div>';
+    });
+    html += '<div class="pop-hint">Click card for full details</div>';
+
+    var pop = $('score-popover');
+    pop.innerHTML = html;
+    pop.style.display = 'block';
+
+    // Position near badge
+    var rect = badge.getBoundingClientRect();
+    var popRect = pop.getBoundingClientRect();
+    var left = rect.left - 10;
+    if (left + popRect.width > window.innerWidth - 16) {
+      left = window.innerWidth - popRect.width - 16;
+    }
+    var top = rect.bottom + 6;
+    pop.style.left = Math.max(8, left) + 'px';
+    pop.style.top = top + 'px';
+  }
+
+  function hideScorePopover() {
+    $('score-popover').style.display = 'none';
   }
 
   // ── Modal ──
@@ -229,7 +290,24 @@
       '</table>' +
       (benchRows ? '<div class="modal-section"><h4>Benchmarks</h4><table class="modal-table"><tr><td>Metric</td><td>Value</td><td>Device</td><td>Compute</td></tr>' + benchRows + '</table></div>' : '') +
       (m.notes ? '<div class="modal-section"><h4>Notes</h4><p style="font-size:.8rem;color:var(--text-2)">' + escapeHtml(m.notes) + '</p></div>' : '') +
-      (hfUrl ? '<div class="modal-section"><h4>Artifact</h4><p><a href="' + hfUrl + '" target="_blank" rel="noopener">' + escapeHtml(hfRepo || hfUrl) + '</a></p></div>' : '') +
+
+      '<div class="modal-section"><h4>Provenance</h4>' +
+        '<div class="provenance-chain">' +
+          (art.huggingface_repo ?
+            '<div class="prov-step"><span class="prov-dot"></span>' +
+            '<span class="prov-text">Artifact: <a href="' + (hfUrl || '#') + '" target="_blank" rel="noopener">' + escapeHtml(art.huggingface_repo) + '</a></span></div>' : '') +
+          (art.github_source ?
+            '<div class="prov-step"><span class="prov-dot"></span>' +
+            '<span class="prov-text">Conversion: <a href="https://github.com/' + escapeHtml(art.github_source) + '" target="_blank" rel="noopener">' + escapeHtml(art.github_source) + '</a></span></div>' : '') +
+          (art.apple_export_recipe !== undefined ?
+            '<div class="prov-step"><span class="prov-dot ' + (art.apple_export_recipe ? 'prov-dot-apple' : 'prov-dot-community') + '"></span>' +
+            '<span class="prov-text">' + (art.apple_export_recipe ? 'Apple official recipe' : (art.community_packaged ? 'Community packaged' : 'Independent')) + '</span></div>' : '') +
+          (art.apple_hosted_artifact === false ?
+            '<div class="prov-step"><span class="prov-dot prov-dot-muted"></span>' +
+            '<span class="prov-text">Not hosted by Apple</span></div>' : '') +
+        '</div>' +
+      '</div>' +
+
       '<div class="modal-section"><h4>Install</h4><div class="code-inline"><pre><code>coreai-catalog install ' + m.id + '</code></pre></div></div>';
 
     $('modal-overlay').style.display = 'flex';

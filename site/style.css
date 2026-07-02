@@ -404,6 +404,48 @@ footer a:hover { text-decoration: underline; }
 /* ═══ EMPTY STATE ═══ */
 .empty-state { grid-column: 1/-1; text-align: center; padding: 2rem 1rem; color: var(--text-3); font-size: .85rem; }
 
+/* ═══ SCORE POPOVER ═══ */
+.score-popover {
+  position: fixed; z-index: 90;
+  background: var(--bg-elevated); border: 1px solid var(--border-strong);
+  border-radius: var(--r); padding: .65rem .8rem;
+  box-shadow: var(--shadow-md); max-width: 240px;
+  animation: fadeIn .15s ease;
+}
+.score-popover .pop-grade { font-size: .82rem; font-weight: 700; margin-bottom: .35rem; }
+.score-popover .pop-grade .card-score { margin-right: .35rem; }
+.score-popover .pop-factor {
+  display: flex; justify-content: space-between;
+  font-size: .72rem; padding: .1rem 0;
+  color: var(--text-2);
+}
+.score-popover .pop-factor .pop-pts { color: var(--green); font-weight: 600; font-variant-numeric: tabular-nums; }
+.score-popover .pop-factor .pop-neg { color: var(--red); }
+.score-popover .pop-hint { font-size: .66rem; color: var(--text-3); margin-top: .3rem; padding-top: .3rem; border-top: 1px solid var(--border); }
+
+/* ═══ PROVENANCE CHAIN ═══ */
+.provenance-chain { display: flex; flex-direction: column; gap: 0; }
+.prov-step {
+  display: flex; align-items: flex-start; gap: .5rem;
+  font-size: .78rem; color: var(--text-2); padding: .2rem 0;
+  position: relative;
+}
+.prov-step:not(:last-child)::before {
+  content: ''; position: absolute;
+  left: 3px; top: 18px; bottom: -2px;
+  width: 1px; background: var(--border);
+}
+.prov-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--accent); margin-top: 4px; flex-shrink: 0;
+  z-index: 1;
+}
+.prov-dot-apple { background: var(--accent); }
+.prov-dot-community { background: var(--green); }
+.prov-dot-muted { background: var(--text-3); }
+.prov-text a { color: var(--accent); text-decoration: none; }
+.prov-text a:hover { text-decoration: underline; }
+
 /* ═══ RESPONSIVE ═══ */
 @media (max-width: 820px) {
   #filters { width: 100%; position: static; max-height: none; flex-direction: row; flex-wrap: wrap; gap: .5rem; }
