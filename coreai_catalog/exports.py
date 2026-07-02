@@ -13,6 +13,11 @@ from typing import Any
 import yaml
 
 from .catalog import Catalog
+from .formatters import (
+    extract_device_list,
+    get_catalog_version,
+    reshape_benchmark,
+)
 
 #: Schema version included in every export so consumers can detect format changes.
 EXPORT_SCHEMA_VERSION = "1.0"
@@ -24,11 +29,7 @@ def read_yaml(path: Path) -> dict[str, Any]:
 
 def _get_catalog_version(catalog_root: Path) -> str:
     """Extract the catalog version from catalog.yaml metadata."""
-    cat_path = catalog_root / "catalog.yaml"
-    if cat_path.exists():
-        data = read_yaml(cat_path)
-        return data.get("metadata", {}).get("version", "unknown")
-    return "unknown"
+    return get_catalog_version(catalog_root)
 
 
 def export_json(catalog_root: Path, dist: Path | None = None) -> None:
@@ -85,18 +86,7 @@ def export_search_index(catalog_root: Path, dist: Path | None = None) -> int:
     bench_by_model: dict[str, list[dict]] = {}
     for b in cat.benchmarks:
         mid = b.get("model_id", "")
-        bench_by_model.setdefault(mid, []).append({
-            "metric": b.get("metric"),
-            "unit": b.get("unit"),
-            "value": b.get("value"),
-            "device": b.get("device"),
-            "compute_unit": b.get("compute_unit"),
-            "environment": b.get("environment"),
-            "observed": b.get("observed"),
-            "confidence": b.get("confidence"),
-            "precision": b.get("precision"),
-            "notes": b.get("notes"),
-        })
+        bench_by_model.setdefault(mid, []).append(reshape_benchmark(b))
 
     entries = []
     scores = []
