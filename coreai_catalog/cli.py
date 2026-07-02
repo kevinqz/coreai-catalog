@@ -23,7 +23,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-from .catalog import Catalog, resolve_task
+from .catalog import Catalog, resolve_task, _parse_params
 from .installer import (
     get_model_dir,
     install_model,
@@ -88,21 +88,6 @@ def _fmt_source(model: dict) -> str:
     elif sg == "zoo":
         return f"{BLUE}🐼 Zoo{RESET}"
     return sg
-
-
-def _parse_params(val) -> float:
-    """Parse a parameter string like '2B', '350M', 'unknown' into a float for sorting."""
-    if not val or val == "unknown":
-        return float("inf")
-    s = str(val).strip().upper()
-    try:
-        if s.endswith("B"):
-            return float(s[:-1])
-        if s.endswith("M"):
-            return float(s[:-1]) / 1000
-        return float(s)
-    except (ValueError, IndexError):
-        return float("inf")
 
 
 def _format_model_compact(cat: Catalog, model: dict) -> str:
