@@ -17,3 +17,4 @@ dist/coreai_catalog-*
 # Hermes workspace (agent runtime, not catalog content)
 .hermes/
 .source-watch-state.json
+.internal/relay-privkey.pem

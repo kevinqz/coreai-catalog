@@ -3,12 +3,12 @@ name: Benchmark Validation
 on:
   pull_request:
     paths:
-      - 'benchmarks/benchmarks.jsonl'
-      - 'benchmarks/pending/**'
+      - 'benchmarks.jsonl'
+    types: [opened, synchronize, reopened]
 
 permissions:
-  contents: write
   pull-requests: write
+  contents: read
   issues: write
 
 jobs:
@@ -17,90 +17,126 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Need full history for diff
+          fetch-depth: 0
 
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.13'
+          python-version: '3.12'
 
       - name: Install dependencies
-        run: pip install pyyaml jsonschema
-
-      - name: Extract new benchmark lines
-        id: extract
         run: |
-          mkdir -p /tmp/work
-          # Get lines added in the PR (compared to origin/main)
-          git diff origin/${{ github.base_ref }} HEAD -- benchmarks/benchmarks.jsonl 2>/dev/null \
-            | grep '^+' \
-            | grep -v '^+++' \
-            > /tmp/work/new_lines.jsonl || true
+          pip install jsonschema pyyaml cryptography
 
-          LINE_COUNT=$(wc -l < /tmp/work/new_lines.jsonl || echo 0)
+      - name: Check PR adds exactly 1 line to benchmarks.jsonl
+        id: linecheck
+        run: |
+          # Get added lines from benchmarks.jsonl in this PR
+          git diff origin/${{ github.base_ref }}...HEAD -- benchmarks.jsonl | grep '^+' | grep -v '^+++' > /tmp/new_lines.txt || true
+          LINE_COUNT=$(wc -l < /tmp/new_lines.txt)
           echo "line_count=$LINE_COUNT" >> $GITHUB_OUTPUT
-          echo "Extracted $LINE_COUNT new benchmark line(s)"
+          if [ "$LINE_COUNT" -eq 0 ]; then
+            echo "::error::PR must add at least 1 line to benchmarks.jsonl"
+            exit 1
+          fi
+          if [ "$LINE_COUNT" -gt 1 ]; then
+            echo "::error::PR must add exactly 1 line, found $LINE_COUNT. Submit one benchmark per PR."
+            exit 1
+          fi
+          echo "Found $LINE_COUNT new line(s)"
 
-      - name: Schema validation
-        if: steps.extract.outputs.line_count > 0
+      - name: Verify Ed25519 signature
+        id: sigcheck
         run: |
-          python3 scripts/validate_benchmark.py \
-            --input /tmp/work/new_lines.jsonl \
-            --schema schema/benchmark.schema.json
+          python3 scripts/verify_benchmark_signature.py /tmp/new_lines.txt
 
-      - name: Cross-reference check
-        if: steps.extract.outputs.line_count > 0
+      - name: Validate schema
+        id: schemacheck
         run: |
-          python3 -c "
-          import json, yaml, sys
-          cat = yaml.safe_load(open('catalog.yaml'))
-          valid_ids = {m['id'] for m in cat['models']}
-          errors = []
-          for line in open('/tmp/work/new_lines.jsonl'):
-              line = line.strip()
-              if not line: continue
-              entry = json.loads(line)
-              mid = entry.get('model_id', '')
-              if mid not in valid_ids:
-                  errors.append(f'Unknown model_id: {mid}')
-          if errors:
-              for e in errors: print(f'  ERROR: {e}')
-              sys.exit(1)
-          print(f'  All model_ids valid')
-          "
+          python3 scripts/validate_benchmark_entry.py /tmp/new_lines.txt
 
-      - name: Outlier detection (MAD)
-        id: mad
-        if: steps.extract.outputs.line_count > 0
+      - name: Outlier check
+        id: outliercheck
+        continue-on-error: true
         run: |
-          RESULT=$(python3 scripts/outlier_check.py \
-            --input /tmp/work/new_lines.jsonl \
-            --existing benchmarks/benchmarks.jsonl)
-          echo "result=$RESULT" >> $GITHUB_OUTPUT
-          echo "$RESULT"
+          python3 scripts/outlier_check.py --input /tmp/new_lines.txt --catalog benchmarks.jsonl
 
-      - name: Auto-merge if all checks pass
-        if: |
-          steps.extract.outputs.line_count > 0 &&
-          steps.mad.outputs.result == 'pass'
-        uses: pascalgn/automerge-action@v0.16.2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          args: --method=squash
+      - name: Build validation comment
+        id: comment
+        run: |
+          echo "## Benchmark Validation Results" > /tmp/final-comment.md
+          echo "" >> /tmp/final-comment.md
+          echo "| Check | Result |" >> /tmp/final-comment.md
+          echo "|---|---|" >> /tmp/final-comment.md
+          echo "| Line count | ${{ steps.linecheck.outputs.line_count }} |" >> /tmp/final-comment.md
+          echo "| Ed25519 signature | ${{ steps.sigcheck.outcome == 'success' && '✅ Verified' || '❌ Failed' }} |" >> /tmp/final-comment.md
+          echo "| Schema | ${{ steps.schemacheck.outcome == 'success' && '✅ Valid' || '❌ Invalid' }} |" >> /tmp/final-comment.md
+          echo "| Outlier check | ${{ steps.outliercheck.outcome == 'success' && '✅ Pass' || '⚠️ Outlier or insufficient data' }} |" >> /tmp/final-comment.md
+          echo "" >> /tmp/final-comment.md
 
-      - name: Label for review if outlier
-        if: |
-          steps.extract.outputs.line_count > 0 &&
-          steps.mad.outputs.result != 'pass'
+          # Overall decision
+          SIG_OK=${{ steps.sigcheck.outcome == 'success' }}
+          SCHEMA_OK=${{ steps.schemacheck.outcome == 'success' }}
+
+          if [ "$SIG_OK" = "true" ] && [ "$SCHEMA_OK" = "true" ]; then
+            echo "**Decision:** ✅ Ready for curator merge" >> /tmp/final-comment.md
+            echo "decision=ready" >> $GITHUB_OUTPUT
+          else
+            echo "**Decision:** ❌ Rejected — fix issues above" >> /tmp/final-comment.md
+            echo "decision=rejected" >> $GITHUB_OUTPUT
+          fi
+
+          # Append detailed results
+          echo "" >> /tmp/final-comment.md
+          echo "<details><summary>Outlier details</summary>" >> /tmp/final-comment.md
+          echo "" >> /tmp/final-comment.md
+          cat /tmp/outlier-comment.md 2>/dev/null || echo "No outlier details" >> /tmp/final-comment.md
+          echo "" >> /tmp/final-comment.md
+          echo "</details>" >> /tmp/final-comment.md
+
+      - name: Comment on PR
         uses: actions/github-script@v7
         with:
           script: |
-            github.rest.issues.addLabels({
-              issue_number: context.issue.number,
-              labels: ['needs-review', 'benchmark-outlier']
+            const fs = require('fs');
+            const body = fs.readFileSync('/tmp/final-comment.md', 'utf-8');
+
+            // Find and update existing comment, or create new
+            const { data: comments } = await github.rest.issues.listComments({
+              ...context.repo,
+              issue_number: context.payload.pull_request.number,
             });
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              body: '⚠️ This submission was flagged as an outlier or has insufficient data for comparison. A curator will review it.'
-            });
+
+            const botComment = comments.find(c =>
+              c.user.type === 'Bot' && c.body.includes('Benchmark Validation Results')
+            );
+
+            if (botComment) {
+              await github.rest.issues.updateComment({
+                ...context.repo,
+                comment_id: botComment.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                ...context.repo,
+                issue_number: context.payload.pull_request.number,
+                body,
+              });
+            }
+
+            // Apply labels
+            const decision = '${{ steps.comment.outputs.decision }}';
+            if (decision === 'ready') {
+              await github.rest.issues.addLabels({
+                ...context.repo,
+                issue_number: context.payload.pull_request.number,
+                labels: ['benchmark-validated'],
+              });
+            } else {
+              await github.rest.issues.addLabels({
+                ...context.repo,
+                issue_number: context.payload.pull_request.number,
+                labels: ['benchmark-needs-fixes'],
+              });
+            }

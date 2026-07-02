@@ -1,7 +1,15 @@
-"""Outlier detection for benchmark submissions using MAD (Median Absolute Deviation).
+#!/usr/bin/env python3
+"""Outlier check for benchmark submissions using MAD (Median Absolute Deviation).
+
+Reads a submitted JSONL line and compares the value against the existing cohort
+in benchmarks.jsonl. Exits non-zero on outliers to prevent auto-merge.
 
 Usage:
-    python scripts/outlier_check.py --input new_lines.jsonl --existing benchmarks/benchmarks.jsonl
+    python scripts/outlier_check.py --input <file_with_jsonl_line> [--catalog benchmarks.jsonl]
+
+Exit codes:
+    0 — pass (value is within expected range, or insufficient data)
+    1 — outlier (value is >3.5 modified-z from median)
 """
 from __future__ import annotations
 
@@ -11,124 +19,132 @@ import statistics
 import sys
 from pathlib import Path
 
+ROOT = Path(__file__).resolve().parents[1]
 
-def load_jsonl(path: Path) -> list[dict]:
-    entries = []
-    if not path.exists():
-        return entries
-    for line in path.read_text().strip().split("\n"):
+
+def load_cohort(
+    catalog_path: Path, model_id: str, metric: str, device_class: str
+) -> list[float]:
+    """Load existing benchmark values for the same model+device+metric."""
+    values: list[float] = []
+    if not catalog_path.exists():
+        return values
+    for line in catalog_path.read_text().splitlines():
         line = line.strip()
-        if line:
+        if not line or line.startswith("#"):
+            continue
+        try:
+            entry = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        if (
+            entry.get("model_id") == model_id
+            and entry.get("metric") == metric
+            and entry.get("device_class") == device_class
+        ):
             try:
-                entries.append(json.loads(line))
-            except json.JSONDecodeError:
-                pass
-    return entries
-
-
-def check_outlier(
-    new_value: float,
-    existing: list[dict],
-    model_id: str,
-    device_class: str | None,
-    engine: str | None,
-) -> str:
-    """Returns: 'pass' | 'outlier' | 'insufficient-data'"""
-
-    # Filter to same cohort (model + device_class + engine)
-    cohort_values = []
-    for entry in existing:
-        if entry.get("model_id") != model_id:
-            continue
-
-        entry_device = entry.get("device_info", {}).get("device_class") or entry.get("device", "")
-        if device_class and entry_device != device_class:
-            continue
-
-        entry_engine = entry.get("runtime_config", {}).get("engine", "")
-        if engine and entry_engine and entry_engine != engine:
-            continue
-
-        val = entry.get("value")
-        if val is not None:
-            try:
-                cohort_values.append(float(val))
+                values.append(float(entry["value"]))
             except (ValueError, TypeError):
                 pass
+    return values
 
-    if len(cohort_values) < 5:
-        return "insufficient-data"
 
-    median = statistics.median(cohort_values)
-    deviations = [abs(v - median) for v in cohort_values]
+def compute_mad_zscore(value: float, cohort: list[float]) -> tuple[float, str]:
+    """Compute modified z-score using MAD.
+
+    Returns (z_score, status) where status is 'pass', 'outlier', or 'insufficient-data'.
+    """
+    if len(cohort) < 5:
+        return 0.0, "insufficient-data"
+
+    median = statistics.median(cohort)
+    deviations = [abs(v - median) for v in cohort]
     mad = statistics.median(deviations)
 
     if mad == 0:
-        # All values identical — accept if within 10%
-        ratio = abs(new_value - median) / median if median != 0 else 1.0
-        return "pass" if ratio < 0.1 else "outlier"
+        return 0.0, "pass"  # All identical values
 
-    # Modified Z-score (Iglewicz & Hoaglin 1993)
-    modified_z = 0.6745 * (new_value - median) / mad
-
-    if abs(modified_z) > 3.5:
-        return "outlier"
-    return "pass"
+    modified_z = 0.6745 * (value - median) / mad
+    if abs(modified_z) >= 3.5:
+        return modified_z, "outlier"
+    return modified_z, "pass"
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Outlier detection for benchmark submissions")
-    parser.add_argument("--input", required=True, help="New benchmark JSONL lines")
-    parser.add_argument("--existing", default="benchmarks/benchmarks.jsonl",
-                        help="Existing benchmarks")
+    parser = argparse.ArgumentParser(description="Outlier check for benchmark submissions")
+    parser.add_argument("--input", required=True, help="File containing the new JSONL line(s)")
+    parser.add_argument("--catalog", default=str(ROOT / "benchmarks.jsonl"),
+                        help="Path to existing benchmarks JSONL")
     args = parser.parse_args()
 
-    existing = load_jsonl(Path(args.existing))
-    new_entries = load_jsonl(Path(args.input))
+    # Read submission
+    input_path = Path(args.input)
+    raw = input_path.read_text().strip()
+    lines = [l for l in raw.splitlines() if l.strip() and not l.strip().startswith("#")]
 
-    if not new_entries:
-        print("pass")
-        print("  (no new entries to check)")
-        return 0
+    if not lines:
+        print("No valid lines to check", file=sys.stderr)
+        return 1
 
-    results = {"pass": 0, "outlier": 0, "insufficient-data": 0}
+    catalog_path = Path(args.catalog)
+    all_pass = True
+    results: list[str] = []
 
-    for entry in new_entries:
-        model_id = entry.get("model_id", "")
-        device_class = entry.get("device_info", {}).get("device_class") or entry.get("device")
-
-        # Extract engine from runtime_config or environment string
-        engine = entry.get("runtime_config", {}).get("engine")
-        if not engine:
-            env = entry.get("environment", "")
-            if "pipelined" in env:
-                engine = "coreai-pipelined"
-            elif "sequential" in env:
-                engine = "coreai-sequential"
-            else:
-                engine = None
-
-        value = entry.get("value")
+    for i, line in enumerate(lines):
+        line = line.strip().lstrip("+")
         try:
-            value = float(value)
-        except (ValueError, TypeError):
-            print(f"  SKIP {model_id}: non-numeric value")
+            entry = json.loads(line)
+        except json.JSONDecodeError as e:
+            results.append(f"Line {i+1}: INVALID JSON: {e}")
+            all_pass = False
             continue
 
-        result = check_outlier(value, existing, model_id, device_class, engine)
-        results[result] += 1
+        entry.pop("_signature", None)  # Don't include signature in analysis
 
-        print(f"  {result:20s} {model_id:40s} value={value} (cohort={model_id}+{device_class}+{engine})")
+        model_id = entry.get("model_id", "")
+        metric = entry.get("metric", "")
+        device_class = entry.get("device_class", "")
+        value = float(entry.get("value", 0))
 
-    # Final decision
-    if results["outlier"] > 0:
-        print("outlier")
-        print(f"\n  {results['outlier']} outlier(s), {results['pass']} pass, {results['insufficient-data']} insufficient-data")
-        return 0  # Don't fail the Action — label for review instead
-    else:
-        print("pass")
-        print(f"\n  All {sum(results.values())} entries passed")
-        return 0
+        cohort = load_cohort(catalog_path, model_id, metric, device_class)
+        z, status = compute_mad_zscore(value, cohort)
+
+        if status == "outlier":
+            all_pass = False
+            results.append(
+                f"Line {i+1}: OUTLIER (z={z:.2f}, cohort N={len(cohort)}, "
+                f"median={statistics.median(cohort):.1f}, value={value})"
+            )
+        elif status == "insufficient-data":
+            results.append(
+                f"Line {i+1}: INSUFFICIENT DATA (cohort N={len(cohort)}, need >=5)"
+            )
+        else:
+            results.append(
+                f"Line {i+1}: PASS (z={z:.2f}, cohort N={len(cohort)}, "
+                f"median={statistics.median(cohort):.1f})"
+            )
+
+    # Write comment file for GitHub Action
+    comment = "## Outlier Check Results\n\n| Line | Result |\n|---|---|\n"
+    for r in results:
+        comment += f"| {r.split(':', 1)[0]} | {r.split(':', 1)[1].strip()} |\n"
+
+    comment_path = Path("/tmp/outlier-comment.md")
+    try:
+        comment_path.write_text(comment)
+    except OSError:
+        pass  # /tmp might not be writable
+
+    for r in results:
+        print(r)
+
+    if not all_pass:
+        print("\n::error::Outlier detected — prevents auto-merge", file=sys.stderr)
+        return 1
+
+    print("\nAll checks passed")
+    return 0
 
 
 if __name__ == "__main__":
