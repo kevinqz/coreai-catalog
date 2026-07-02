@@ -13,7 +13,7 @@ Artifact: https://huggingface.co/mlboydaisuke/Unlimited-OCR-CoreAI
 
 ## Integration
 
-> **Note:** The snippet below is conceptual — see [apple/coreai-models](https://github.com/apple/coreai-models) for complete, compiling working examples of the `AIModel` GraphModel API.
+> **Note:** The snippet below is conceptual — see [apple/coreai-models](https://github.com/apple/coreai-models) for complete, compiling working examples of the `LanguageModelSession` API for vision/OCR models.
 
 ```swift
 import CoreAI
@@ -22,45 +22,33 @@ import UIKit
 /// OCR engine that runs Unlimited-OCR entirely on-device.
 /// No network calls, no data leaves the device.
 class OCREngine {
-    private let model: AIModel
+    private let session: LanguageModelSession
 
-    init() throws {
-        // 1. Load the .aimodel bundle from your app bundle
-        //    After installing, copy the .aimodel from
-        //    ~/.coreai-catalog/models/unlimited-ocr/artifacts/ into your Xcode project
-        guard let bundleURL = Bundle.main.url(forResource: "unlimited-ocr", withExtension: "aimodel") else {
-            throw OCRError.bundleNotFound
-        }
-        model = try AIModel(contentsOf: bundleURL)
+    init() async throws {
+        // Unlimited-OCR is a stock-runner model, so use LanguageModelSession
+        // with CoreAILanguageModel (wraps the installed .aimodel bundle).
+        session = LanguageModelSession(model: CoreAILanguageModel())
     }
 
     /// Extract text from a UIImage.
     /// - Parameter image: Input image (document, receipt, screenshot, etc.)
-    /// - Returns: Extracted text, bounding boxes, and confidence scores
-    func extractText(from image: UIImage) async throws -> OCRResult {
-        // Build a request with the image input (exact input key names vary by model;
-        // see the model's spec in apple/coreai-models for the required inputs)
-        let request = try model.makeRequest(inputs: [
-            "image": image.cgImage!,
-        ])
-        let result = try await model.run(request)
-
-        return OCRResult(
-            text: result.outputs["text"] as? String ?? "",
-            boundingBoxes: result.outputs["boxes"] as? [[Float]] ?? [],
-            confidenceScores: result.outputs["scores"] as? [Float] ?? []
+    /// - Returns: Extracted text (markdown, HTML, or LaTeX depending on content)
+    func extractText(from image: UIImage) async throws -> String {
+        guard let imageData = image.jpegData(compressionQuality: 0.8) else {
+            throw OCRError.imageEncodingFailed
+        }
+        // Attach the image and ask the model to extract text.
+        let attachment = Attachment(data: imageData, type: .image)
+        let response = try await session.respond(
+            to: "Extract all text from this image, preserving structure as markdown.",
+            attachments: [attachment]
         )
+        return response.content
     }
 }
 
-struct OCRResult {
-    let text: String
-    let boundingBoxes: [[Float]]
-    let confidenceScores: [Float]
-}
-
 enum OCRError: Error {
-    case bundleNotFound
+    case imageEncodingFailed
 }
 ```
 
@@ -72,11 +60,7 @@ import SwiftUI
 struct OCRView: View {
     @State private var extractedText = ""
     @State private var isProcessing = false
-    private let engine: OCREngine?
-
-    init() {
-        engine = try? OCREngine()
-    }
+    @State private var engine: OCREngine?
 
     var body: some View {
         VStack {
@@ -89,6 +73,10 @@ struct OCRView: View {
                 Task { await performOCR() }
             }
         }
+        .task {
+            // Initialize the engine asynchronously when the view appears
+            engine = try? await OCREngine()
+        }
     }
 
     private func performOCR() async {
@@ -99,7 +87,7 @@ struct OCRView: View {
         // Get image from camera or photo picker
         let image = // ... your image source
         let result = try? await engine.extractText(from: image)
-        extractedText = result?.text ?? "(no text found)"
+        extractedText = result ?? "(no text found)"
     }
 }
 ```

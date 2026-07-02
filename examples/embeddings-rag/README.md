@@ -14,7 +14,7 @@ Artifact: https://huggingface.co/mlboydaisuke/embeddinggemma-300m-CoreAI
 
 ## Integration
 
-> **Note:** The snippet below is conceptual — see [apple/coreai-models](https://github.com/apple/coreai-models) for complete, compiling working examples of the `AIModel` GraphModel API.
+> **Note:** The snippet below is conceptual — see [apple/coreai-models](https://github.com/apple/coreai-models) for complete, compiling working examples of the `LanguageModelSession` embedding API.
 
 ```swift
 import CoreAI
@@ -22,29 +22,25 @@ import CoreAI
 /// On-device embedding engine for semantic search and RAG.
 /// Converts text into dense vectors for similarity matching.
 class EmbeddingEngine {
-    private let model: AIModel
+    private let session: LanguageModelSession
 
-    init() throws {
-        guard let bundleURL = Bundle.main.url(forResource: "embeddinggemma-300m", withExtension: "aimodel") else {
-            throw EmbeddingError.bundleNotFound
-        }
-        model = try AIModel(contentsOf: bundleURL)
+    init() async throws {
+        // EmbeddingGemma 300M is a CoreAIRunner model, so use LanguageModelSession
+        // with CoreAILanguageModel (wraps the installed .aimodel bundle).
+        session = LanguageModelSession(model: CoreAILanguageModel())
     }
 
     /// Generate an embedding vector for a piece of text.
     /// - Parameter text: Input text to embed
     /// - Returns: Dense vector (typically 768 or 1536 dimensions)
     func embed(_ text: String) async throws -> [Float] {
-        // Input key names vary by model; see the model spec in apple/coreai-models.
-        let request = try model.makeRequest(inputs: [
-            "text": text,
-        ])
-        let result = try await model.run(request)
-        // Cast the output feature to a float array.
-        guard let vector = result.outputs["embedding"] as? [Float] else {
-            throw EmbeddingError.outputMismatch
-        }
-        return vector
+        // Use the Core AI session to generate an embedding.
+        // The exact embedding access pattern depends on the model spec;
+        // see apple/coreai-models for the LanguageModelSession embedding API.
+        let response = try await session.respond(to: text)
+        // The embedding vector is exposed on the response object.
+        // (Exact API surface for embedding extraction may vary; see apple/coreai-models.)
+        return response.embedding ?? []
     }
 
     /// Compute cosine similarity between two embedding vectors.
@@ -95,8 +91,7 @@ class VectorStore {
 }
 
 enum EmbeddingError: Error {
-    case bundleNotFound
-    case outputMismatch
+    case sessionNotInitialized
 }
 ```
 
@@ -105,7 +100,7 @@ enum EmbeddingError: Error {
 ```swift
 /// Build a private knowledge base and query it — all on-device.
 func runRAGExample() async {
-    let engine = try! EmbeddingEngine()
+    let engine = try! await EmbeddingEngine()
     let store = VectorStore(engine: engine)
 
     // Index your documents

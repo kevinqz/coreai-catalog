@@ -69,6 +69,7 @@ coreai-catalog compare qwen3-vl-2b gemma-4-e2b-vision
 coreai-catalog install qwen3-vl-2b
 coreai-catalog scores
 coreai-catalog transforms --from audio --to image  # plan transform pipeline
+coreai-catalog publish --dry-run                    # preview release steps
 coreai-catalog doctor
 ```
 

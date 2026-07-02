@@ -14,22 +14,22 @@ Artifact: https://huggingface.co/mlboydaisuke/Qwen3-VL-2B-CoreAI
 
 ## Integration
 
-> **Note:** The snippet below is conceptual — see [apple/coreai-models](https://github.com/apple/coreai-models) for complete, compiling working examples of the `ChatSession` CoreAIKit API for LLMs.
+> **Note:** The snippet below is conceptual — see [apple/coreai-models](https://github.com/apple/coreai-models) for complete, compiling working examples of the `LanguageModelSession` API for LLMs.
 
 ```swift
-import CoreAIKit
+import CoreAI
 import UIKit
 
 /// Vision-Language Model chat engine.
 /// Accepts image + text, returns text descriptions, answers, or captions.
-/// Uses the CoreAIKit ChatSession API (the model runs via CoreAIRunner under the hood).
+/// Uses the Core AI LanguageModelSession API with CoreAILanguageModel.
 class VLMEngine {
-    private var chat: ChatSession?
+    private var session: LanguageModelSession?
 
     init() async throws {
-        // Qwen3-VL-2B is an LLM (runner: CoreAIRunner), so use the CoreAIKit
-        // ChatSession API with the catalog model identifier.
-        chat = try await ChatSession(catalog: "qwen3-vl-2b")
+        // Qwen3-VL-2B is an LLM, so use the LanguageModelSession API
+        // with CoreAILanguageModel (wraps the .aimodel bundle).
+        session = LanguageModelSession(model: CoreAILanguageModel())
     }
 
     /// Send an image with a text prompt and get a response.
@@ -38,29 +38,34 @@ class VLMEngine {
     ///   - prompt: Text instruction (e.g. "Describe what you see")
     /// - Returns: Model's text response
     func analyze(image: UIImage, prompt: String) async throws -> String {
-        guard let chat else { throw VLMError.notInitialized }
+        guard let session else { throw VLMError.notInitialized }
         // Attach the image and the text prompt to the session.
-        let response = try await chat.respond(to: prompt, attachments: [image])
+        guard let imageData = image.jpegData(compressionQuality: 0.8) else {
+            throw VLMError.imageEncodingFailed
+        }
+        let attachment = Attachment(data: imageData, type: .image)
+        let response = try await session.respond(to: prompt, attachments: [attachment])
         return response.content
     }
 
     /// Multi-turn conversation with image context.
-    /// Maintains conversation state across turns (ChatSession is stateful).
+    /// Maintains conversation state across turns (LanguageModelSession is stateful).
     func chatTurn(_ text: String) async throws -> String {
-        guard let chat else { throw VLMError.notInitialized }
-        let response = try await chat.respond(to: text)
+        guard let session else { throw VLMError.notInitialized }
+        let response = try await session.respond(to: text)
         return response.content
     }
 }
 
 enum VLMError: Error {
     case notInitialized
+    case imageEncodingFailed
 }
 ```
 
 ## Usage in SwiftUI
 
-> The `VLMEngine` initializer is `async throws` because `ChatSession(catalog:)` loads the model asynchronously.
+> The `VLMEngine` initializer is `async throws` because loading the model via `CoreAILanguageModel()` may need to resolve and prepare the `.aimodel` bundle asynchronously.
 
 ```swift
 import SwiftUI

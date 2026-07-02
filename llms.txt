@@ -31,6 +31,7 @@ coreai-catalog recommend --task "robot vision" --device iphone
 coreai-catalog show qwen3-vl-2b
 coreai-catalog install qwen3-vl-2b
 coreai-catalog transforms --from audio --to image  # plan transform pipeline
+coreai-catalog publish --dry-run                    # preview release steps
 coreai-catalog doctor
 ```
 

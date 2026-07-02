@@ -442,6 +442,13 @@ coreai-catalog uninstall qwen3-vl-2b
 
 # Check your environment
 coreai-catalog doctor                        # checks Python, Xcode, coreai-torch, coreai-opt, HF CLI, disk
+
+# Discover models worth porting to Core AI
+python scripts/discover.py                     # scan Hugging Face for models with Core AI potential
+
+# Release a new version (pre-flight checks → version bump → tag → build → PyPI)
+coreai-catalog publish --version 2.2.0       # full release
+coreai-catalog publish --dry-run             # preview the release steps without uploading
 ```
 
 All commands support `--json` for programmatic consumption by agents and automation.

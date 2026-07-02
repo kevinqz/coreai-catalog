@@ -12,6 +12,7 @@ Usage:
   coreai-catalog recommend --task "robot vision" --device iphone
   coreai-catalog install qwen3-vl-2b
   coreai-catalog doctor
+  coreai-catalog publish --dry-run
 """
 from __future__ import annotations
 
@@ -39,6 +40,18 @@ from .installer import (
     is_installed,
     list_installed,
     uninstall_model,
+)
+from .publish import (
+    PreflightError,
+    bump_version_in_catalog_yaml,
+    bump_version_in_pyproject,
+    build_dist,
+    git_commit_and_tag,
+    git_push,
+    run_preflight_checks,
+    suggest_next_version,
+    upload_to_pypi,
+    validate_version,
 )
 
 
@@ -1051,6 +1064,172 @@ def cmd_installed(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_publish(args: argparse.Namespace) -> int:
+    """Automate the release workflow: validate, test, bump, tag, build, upload.
+
+    Steps (in order):
+      1. Pre-flight: ``scripts/validate.py`` + ``pytest``
+      2. Confirm target version (or use ``--version``)
+      3. Bump version in ``catalog.yaml`` + ``pyproject.toml``
+      4. Regenerate ``dist/`` via ``scripts/generate.py``
+      5. Git commit + tag ``v{version}``
+      6. Build sdist + wheel (``python -m build``)
+      7. Upload to PyPI via ``twine upload dist/*``
+      8. Optionally ``git push --follow-tags``
+
+    With ``--dry-run`` steps 7 and 8 are skipped (everything else runs
+    so you can verify the version bump, git tag, and build succeed).
+    """
+    from .catalog import _find_catalog_root
+
+    repo_root = _find_catalog_root()
+    cat_yaml = repo_root / "catalog.yaml"
+    pyproject = repo_root / "pyproject.toml"
+
+    dry_run = getattr(args, "dry_run", False)
+    push = getattr(args, "push", False)
+    yes = getattr(args, "yes", False)
+
+    tag_msg = f"{BOLD}Core AI Catalog — Publish{RESET}"
+    print(f"\n  {tag_msg}")
+    print(f"  {'─' * 60}\n")
+
+    # ── 1. Pre-flight checks ──
+    print(f"  {BOLD}Step 1/8: Pre-flight checks{RESET}")
+    try:
+        results = run_preflight_checks(repo_root)
+        for r in results:
+            print(f"    {r}")
+    except PreflightError as exc:
+        print(f"\n  {RED}{exc}{RESET}")
+        print(f"  {DIM}Fix the issues above, then re-run.{RESET}\n")
+        return 1
+    print()
+
+    # ── 2. Determine target version ──
+    print(f"  {BOLD}Step 2/8: Version{RESET}")
+    from .formatters import get_catalog_version
+    current = get_catalog_version(repo_root)
+    print(f"    Current version: {current}")
+
+    if args.version:
+        target = args.version
+        validate_version(target)
+    else:
+        patch_v = suggest_next_version(current, "patch")
+        minor_v = suggest_next_version(current, "minor")
+        major_v = suggest_next_version(current, "major")
+        print(f"    Suggested bumps:")
+        print(f"      patch → {patch_v}")
+        print(f"      minor → {minor_v}")
+        print(f"      major → {major_v}")
+        if yes:
+            target = patch_v
+            print(f"    {DIM}--yes: auto-selecting patch → {target}{RESET}")
+        else:
+            try:
+                raw = input(
+                    f"    Target version [{patch_v}]: "
+                ).strip()
+            except (EOFError, KeyboardInterrupt):
+                print(f"\n  {YELLOW}Aborted.{RESET}\n")
+                return 1
+            target = raw or patch_v
+            try:
+                validate_version(target)
+            except ValueError as exc:
+                print(f"\n  {RED}{exc}{RESET}\n")
+                return 1
+
+    if target == current:
+        print(f"\n  {RED}Target version '{target}' equals current version. "
+              f"Nothing to do.{RESET}\n")
+        return 1
+
+    print(f"    Target version: {GREEN}{target}{RESET}\n")
+
+    # ── 3. Bump version ──
+    print(f"  {BOLD}Step 3/8: Bump version{RESET}")
+    bump_version_in_catalog_yaml(cat_yaml, target)
+    print(f"    {GREEN}✅{RESET} catalog.yaml → {target}")
+    bump_version_in_pyproject(pyproject, target)
+    print(f"    {GREEN}✅{RESET} pyproject.toml → {target}\n")
+
+    # ── 4. Regenerate dist/ ──
+    print(f"  {BOLD}Step 4/8: Regenerate exports{RESET}")
+    import subprocess as _sp
+    gen_result = _sp.run(
+        [sys.executable, "scripts/generate.py"],
+        cwd=str(repo_root),
+    )
+    if gen_result.returncode != 0:
+        print(f"\n  {RED}generate.py failed (exit "
+              f"{gen_result.returncode}).{RESET}")
+        print(f"  {DIM}Version files were bumped but exports were not "
+              f"regenerated. Review and commit manually.{RESET}\n")
+        return 1
+    print(f"    {GREEN}✅{RESET} dist/ regenerated\n")
+
+    # ── 5. Git commit + tag ──
+    print(f"  {BOLD}Step 5/8: Git commit + tag{RESET}")
+    tag = git_commit_and_tag(repo_root, target)
+    print(f"    {GREEN}✅{RESET} committed + tagged {tag}\n")
+
+    # ── 6. Build ──
+    print(f"  {BOLD}Step 6/8: Build sdist + wheel{RESET}")
+    build_dist(repo_root)
+    print(f"    {GREEN}✅{RESET} built\n")
+
+    # ── 7. Upload ──
+    if dry_run:
+        print(f"  {BOLD}Step 7/8: Upload to PyPI{RESET}")
+        print(f"    {YELLOW}⏭  Skipped (--dry-run){RESET}\n")
+    else:
+        print(f"  {BOLD}Step 7/8: Upload to PyPI{RESET}")
+        try:
+            upload_to_pypi(repo_root)
+            print(f"    {GREEN}✅{RESET} uploaded\n")
+        except RuntimeError as exc:
+            print(f"\n  {RED}{exc}{RESET}")
+            print(f"  {DIM}Build artifacts are ready in dist/. "
+                  f"Set PYPI_API_TOKEN and upload manually:{RESET}")
+            print(f"  {DIM}  twine upload dist/*{RESET}\n")
+            return 1
+        except Exception as exc:
+            print(f"\n  {RED}twine upload failed: {exc}{RESET}\n")
+            return 1
+
+    # ── 8. Push ──
+    print(f"  {BOLD}Step 8/8: Push to remote{RESET}")
+    if dry_run:
+        print(f"    {YELLOW}⏭  Skipped (--dry-run){RESET}")
+    elif push:
+        try:
+            git_push(repo_root)
+            print(f"    {GREEN}✅{RESET} pushed\n")
+        except Exception as exc:
+            print(f"\n  {RED}git push failed: {exc}{RESET}")
+            print(f"  {DIM}Push manually: git push --follow-tags{RESET}\n")
+            return 1
+    else:
+        print(f"    {DIM}Skipped (use --push to push automatically){RESET}")
+        print(f"    {DIM}Run: git push --follow-tags{RESET}")
+
+    # ── Summary ──
+    print(f"  {'─' * 60}")
+    if dry_run:
+        print(f"  {GREEN}✅ Dry run complete for v{target}.{RESET}")
+        print(f"  {DIM}Re-run without --dry-run to publish.{RESET}")
+    else:
+        print(f"  {GREEN}✅ Released v{target} to PyPI.{RESET}")
+        if push:
+            print(f"  {DIM}Tags pushed to remote.{RESET}")
+        else:
+            print(f"  {DIM}Don't forget: git push --follow-tags{RESET}")
+    print()
+    return 0
+
+
 def cmd_version(args: argparse.Namespace) -> int:
     """Show catalog version and content statistics."""
     cat = Catalog()
@@ -1203,6 +1382,19 @@ def build_parser() -> argparse.ArgumentParser:
                    help="Target output modality")
     p.add_argument("--json", action="store_true", help="Output as JSON")
     p.set_defaults(func=cmd_transforms)
+
+    # publish
+    p = sub.add_parser("publish",
+                       help="Release workflow: validate, bump, tag, build, upload to PyPI")
+    p.add_argument("-v", "--version",
+                   help="Target version (e.g. 2.2.0). If omitted, interactively prompt.")
+    p.add_argument("--dry-run", action="store_true",
+                   help="Run everything except the PyPI upload and git push")
+    p.add_argument("--push", action="store_true",
+                   help="Push commits and tags to the remote after upload")
+    p.add_argument("-y", "--yes", action="store_true",
+                   help="Skip interactive prompts (defaults to patch bump)")
+    p.set_defaults(func=cmd_publish)
 
     return parser
 

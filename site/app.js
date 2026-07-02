@@ -7,12 +7,18 @@
 
   var DATA_URL = 'https://raw.githubusercontent.com/kevinqz/coreai-catalog/main/dist/search-index.json';
   var TASKS_URL = 'https://raw.githubusercontent.com/kevinqz/coreai-catalog/main/dist/tasks/index.json';
+  var LEADERBOARD_URL = 'https://raw.githubusercontent.com/kevinqz/coreai-catalog/main/dist/leaderboard.json';
 
   var MODELS = [];
   var FILTERED = [];
   var CAPABILITIES = {};
   var searchTimer = null;
   var deviceFilters = { iphone: true, ipad: true, mac: true };
+
+  // Leaderboard state
+  var LB_DATA = [];
+  var LB_SORT = { col: 'score', dir: 'desc' };
+  var lbSearchTimer = null;
 
   function $(id) { return document.getElementById(id); }
 
@@ -364,6 +370,119 @@
     }
   }
 
+  // ── Leaderboard ──
+  async function loadLeaderboard() {
+    try {
+      var resp = await fetch(LEADERBOARD_URL);
+      if (!resp.ok) throw new Error('HTTP ' + resp.status);
+      var data = await resp.json();
+      LB_DATA = data.leaderboard || [];
+      renderLeaderboard();
+    } catch (err) {
+      $('lb-body').innerHTML = '<tr><td colspan="6" class="lb-empty">Failed to load leaderboard.</td></tr>';
+      $('lb-count').textContent = 'Error';
+    }
+  }
+
+  function lbParamSortValue(p) {
+    if (!p) return 9999;
+    var s = String(p);
+    if (s === 'unknown' || s === 'not_published') return 9999;
+    // Handle size tiers (small/base/large/xl) → rough mapping
+    var tierMap = { tiny: 0.2, small: 0.5, base: 1, medium: 2, large: 7, xl: 30 };
+    var tier = tierMap[s.toLowerCase()];
+    if (tier !== undefined) return tier;
+    var m = s.toUpperCase().match(/([\d.]+)\s*(B|M|K)?/);
+    if (!m) return 9999;
+    return parseFloat(m[1]) * ({ B: 1000, M: 1, K: 0.001 }[m[2]] || 1000);
+  }
+
+  function renderLeaderboard() {
+    var search = ($('lb-search').value || '').toLowerCase().trim();
+
+    var rows = LB_DATA.filter(function (m) {
+      if (!search) return true;
+      var hay = (m.name + ' ' + m.id + ' ' + (m.capabilities || []).join(' ')).toLowerCase();
+      return hay.indexOf(search) >= 0;
+    });
+
+    // Sort
+    if (LB_SORT.col === 'params') {
+      rows.sort(function (a, b) {
+        var cmp = lbParamSortValue(a.parameters) - lbParamSortValue(b.parameters);
+        return LB_SORT.dir === 'asc' ? cmp : -cmp;
+      });
+    } else {
+      rows.sort(function (a, b) {
+        var cmp = b.readiness_score - a.readiness_score;
+        if (cmp === 0) cmp = a.name.localeCompare(b.name);
+        return LB_SORT.dir === 'asc' ? -cmp : cmp;
+      });
+    }
+
+    $('lb-count').textContent = rows.length + ' of ' + LB_DATA.length + ' models';
+
+    // Update sort indicators
+    document.querySelectorAll('.lb-table th.sortable').forEach(function (th) {
+      th.classList.remove('sort-asc', 'sort-desc');
+      if (th.dataset.sort === LB_SORT.col) {
+        th.classList.add(LB_SORT.dir === 'asc' ? 'sort-asc' : 'sort-desc');
+      }
+    });
+
+    if (!rows.length) {
+      $('lb-body').innerHTML = '<tr><td colspan="6" class="lb-empty">No models match your search.</td></tr>';
+      return;
+    }
+
+    $('lb-body').innerHTML = rows.map(function (m, i) {
+      var s = m.readiness_score;
+      var caps = (m.capabilities || []).slice(0, 3).map(function (c) {
+        return '<span class="' + capChip(c) + '">' + c.replace(/-/g, ' ') + '</span>';
+      }).join('');
+      var params = m.parameters === 'unknown' ? '—' : escapeHtml(m.parameters);
+      var bench = m.benchmark_count > 0
+        ? '<span class="card-bench">' + m.benchmark_count + '</span>'
+        : '<span class="card-bench">0</span>';
+
+      return '<tr data-id="' + m.id + '">' +
+        '<td class="lb-rank">' + (i + 1) + '</td>' +
+        '<td class="lb-model">' + escapeHtml(m.name) + '</td>' +
+        '<td class="lb-caps"><div class="card-caps">' + caps + '</div></td>' +
+        '<td class="lb-params">' + params + '</td>' +
+        '<td class="lb-score"><span class="card-score ' + scoreClass(s) + '">' + s + ' ' + gradeLetter(s) + '</span></td>' +
+        '<td class="lb-bench">' + bench + '</td>' +
+      '</tr>';
+    }).join('');
+
+    // Row click → open detail modal (if model exists in MODELS)
+    $('lb-body').querySelectorAll('tr[data-id]').forEach(function (tr) {
+      tr.addEventListener('click', function () { showDetail(tr.dataset.id); });
+    });
+  }
+
+  function initLeaderboard() {
+    // Sort header clicks
+    document.querySelectorAll('.lb-table th.sortable').forEach(function (th) {
+      th.addEventListener('click', function () {
+        var col = th.dataset.sort;
+        if (LB_SORT.col === col) {
+          LB_SORT.dir = LB_SORT.dir === 'asc' ? 'desc' : 'asc';
+        } else {
+          LB_SORT.col = col;
+          LB_SORT.dir = col === 'params' ? 'asc' : 'desc';
+        }
+        renderLeaderboard();
+      });
+    });
+
+    // Search input
+    $('lb-search').addEventListener('input', function () {
+      clearTimeout(lbSearchTimer);
+      lbSearchTimer = setTimeout(renderLeaderboard, 150);
+    });
+  }
+
   // ── Tabs ──
   function initTabs() {
     document.querySelectorAll('.tab').forEach(function (tab) {
@@ -373,6 +492,7 @@
         tab.classList.add('active');
         $(tab.dataset.tab).classList.add('active');
         if (tab.dataset.tab === 'tasks' && !$('task-list').innerHTML) loadTasks();
+        if (tab.dataset.tab === 'scores' && !LB_DATA.length) loadLeaderboard();
       });
     });
   }
@@ -440,6 +560,7 @@
     initTheme();
     initTabs();
     initDeviceSegs();
+    initLeaderboard();
     loadData();
 
     $('search-box').addEventListener('input', function () {

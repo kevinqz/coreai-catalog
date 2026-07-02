@@ -90,8 +90,10 @@ See [`examples/`](../examples/) for complete integration guides:
 - [Embeddings + RAG](../examples/embeddings-rag/) — on-device semantic search
 
 > **Note:** Swift snippets in the catalog are conceptual and intended to show the
-> correct API surface (`AIModel` for non-LLM models, `ChatSession` for LLMs,
-> `SpeechModel` for transcription). For complete, compiling examples, see
+> correct API surface (`LanguageModelSession` + `CoreAILanguageModel` for LLMs,
+> `SpeechModel` for transcription, `DiffusionPipeline` for image generation,
+> `ImageSegmenter` for segmentation, `ObjectDetector` for detection).
+> For complete, compiling examples, see
 > [apple/coreai-models](https://github.com/apple/coreai-models).
 
 ## For agents: MCP server
