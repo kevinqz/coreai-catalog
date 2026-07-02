@@ -1,434 +1,466 @@
 {
   "export_schema_version": "1.0",
   "export_catalog_version": "2.1.0",
-  "description": "Maps canonical catalog IDs to alternative names used by CoreAIKit (ChatSession catalog:), Zoo card names, and HuggingFace repo names. Enables cross-system lookup.",
+  "description": "Alias mappings resolving catalog IDs to Zoo card names, CoreAIKit strings, and HF repo names.",
+  "total_models": 80,
   "aliases": {
     "qwen3-5-0-8b": [
-      "qwen3.5",
-      "qwen3.5-0-8b",
-      "qwen3.5-0.8b",
-      "qwen3.5-0.8b-coreai"
+      "qwen3-5-0-8b-coreai",
+      "qwen3.5-0.8B-CoreAI",
+      "qwen3.5.0-8b",
+      "qwen3.5.md"
     ],
     "qwen3-5-2b": [
-      "qwen3.5",
-      "qwen3.5-2b",
-      "qwen3.5-2b-coreai"
+      "qwen3-5-2b-coreai",
+      "qwen3.5-2B-CoreAI",
+      "qwen3.5.2b",
+      "qwen3.5.md"
     ],
     "qwen3-6-35b-a3b": [
-      "qwen3.6",
-      "qwen3.6-35b-a3b",
-      "qwen3.6-35b-a3b-coreai"
+      "Qwen3.6-35B-A3B-CoreAI",
+      "qwen3-6-35b-a3b-coreai",
+      "qwen3.6.35b-a3b",
+      "qwen3.6.md"
     ],
     "qwen3-6-27b": [
-      "qwen3.6",
-      "qwen3.6-27b",
-      "qwen3.6-27b-coreai"
+      "Qwen3.6-27B-CoreAI",
+      "qwen3-6-27b-coreai",
+      "qwen3.6-27b.md",
+      "qwen3.6.27b"
     ],
     "glm-4-7-flash": [
-      "glm",
-      "glm-4.7-flash",
-      "glm-4.7-flash-coreai"
+      "GLM-4.7-Flash-CoreAI",
+      "glm-4-7-flash-coreai",
+      "glm-4.7-flash.md",
+      "glm.4.7-flash"
     ],
     "gemma-4-e2b": [
-      "gemma",
-      "gemma 4 e2b",
-      "gemma-4-e2b-coreai"
+      "gemma-4-E2B-CoreAI",
+      "gemma-4-e2b-coreai",
+      "gemma.4.e2b",
+      "gemma4-e2b.md"
     ],
     "gemma-4-e4b": [
-      "gemma",
-      "gemma 4 e4b",
-      "gemma-4-e4b-coreai"
+      "gemma-4-E4B-CoreAI",
+      "gemma-4-e4b-coreai",
+      "gemma.4.e4b",
+      "gemma4-e4b.md"
     ],
     "gemma-4-12b": [
-      "gemma",
-      "gemma 4 12b",
-      "gemma-4-12b-coreai"
+      "Gemma-4-12B-CoreAI",
+      "gemma-4-12b-coreai",
+      "gemma.4.12b",
+      "gemma4-12b.md"
     ],
     "gemma-4-31b": [
-      "gemma",
-      "gemma 4 31b",
-      "gemma-4-31b-coreai"
+      "Gemma-4-31B-CoreAI",
+      "gemma-4-31b-coreai",
+      "gemma.4.31b",
+      "gemma4-31b.md"
     ],
     "lfm2-5-1-2b-instruct": [
-      "lfm2.5",
-      "lfm2.5-1-2b-instruct",
-      "lfm2.5-1.2b",
-      "lfm2.5-1.2b-coreai",
-      "lfm2.5-1.2b-instruct"
+      "LFM2.5-1.2B-CoreAI",
+      "lfm2-5-1-2b-coreai",
+      "lfm2.5.1-2b-instruct",
+      "lfm2.5.md"
     ],
     "lfm2-5-8b-a1b": [
-      "lfm2.5",
-      "lfm2.5-8b-a1b",
-      "lfm2.5-8b-a1b-coreai"
+      "LFM2.5-8B-A1B-CoreAI",
+      "lfm2-5-8b-a1b-coreai",
+      "lfm2.5-8b-a1b-moe.md",
+      "lfm2.5.8b-a1b"
     ],
     "granite-4-0-h-1b": [
-      "granite",
-      "granite 4.0-h 1b",
-      "granite-4.0-h",
-      "granite-4.0-h-coreai"
+      "granite-4-0-h-coreai",
+      "granite-4.0-h-CoreAI",
+      "granite-4.0-h.md",
+      "granite.4.0-h-1b"
     ],
     "granite-4-0-h-350m": [
-      "granite",
-      "granite 4.0-h 350m",
-      "granite-4.0-h",
-      "granite-4.0-h-coreai"
+      "granite-4-0-h-coreai",
+      "granite-4.0-h-CoreAI",
+      "granite-4.0-h.md",
+      "granite.4.0-h-350m"
     ],
     "nanbeige4-1-3b": [
-      "nanbeige4.1",
-      "nanbeige4.1-3b",
-      "nanbeige4.1-3b-coreai"
+      "Nanbeige4.1-3B-CoreAI",
+      "nanbeige4-1-3b-coreai",
+      "nanbeige4.1-3b.md",
+      "nanbeige4.1.3b"
     ],
     "qwen3-vl-2b": [
-      "qwen3",
-      "qwen3-vl 2b",
-      "qwen3-vl-2b-coreai"
+      "Qwen3-VL-2B-CoreAI",
+      "qwen3-vl-2b-coreai",
+      "qwen3-vl.md",
+      "qwen3.vl.2b"
     ],
     "qwen3-vl-4b": [
-      "qwen3",
-      "qwen3-vl 4b",
-      "qwen3-vl-4b-coreai"
+      "Qwen3-VL-4B-CoreAI",
+      "qwen3-vl-4b-coreai",
+      "qwen3-vl.md",
+      "qwen3.vl.4b"
     ],
     "qwen3-vl-8b": [
-      "qwen3",
-      "qwen3-vl 8b",
-      "qwen3-vl-8b-coreai"
+      "Qwen3-VL-8B-CoreAI",
+      "qwen3-vl-8b-coreai",
+      "qwen3-vl.md",
+      "qwen3.vl.8b"
     ],
     "minicpm-v-4-6": [
-      "minicpm",
-      "minicpm-v 4.6",
-      "minicpm-v-4.6",
-      "minicpm-v-4.6-coreai"
+      "MiniCPM-V-4.6-CoreAI",
+      "minicpm-v-4-6-coreai",
+      "minicpm-v-4.6.md",
+      "minicpm.v.4-6"
     ],
     "gemma-4-e2b-vision": [
-      "gemma",
-      "gemma 4 e2b vision",
-      "gemma-4-e2b",
-      "gemma-4-e2b-coreai"
+      "gemma-4-E2B-CoreAI",
+      "gemma-4-e2b-coreai",
+      "gemma.4.e2b-vision",
+      "gemma4-vl.md"
     ],
     "unlimited-ocr": [
-      "unlimited",
-      "unlimited-ocr-coreai"
+      "Unlimited-OCR-CoreAI",
+      "unlimited-ocr-coreai",
+      "unlimited-ocr.md",
+      "unlimited.ocr"
     ],
     "qwen2-5-omni-3b-audio": [
-      "qwen2.5",
-      "qwen2.5-omni-3b audio",
-      "qwen2.5-omni-3b-audio",
-      "qwen2.5-omni-3b-audio-coreai"
+      "Qwen2.5-Omni-3B-Audio-CoreAI",
+      "qwen2-5-omni-3b-audio-coreai",
+      "qwen2.5-omni-audio-understanding.md",
+      "qwen2.5.omni-3b-audio"
     ],
     "kokoro-82m": [
-      "kokoro",
-      "kokoro-82m-coreai"
+      "Kokoro-82M-CoreAI",
+      "kokoro-82m-coreai",
+      "kokoro-82m.md",
+      "kokoro.82m"
     ],
     "voxcpm-0-5b": [
-      "voxcpm",
-      "voxcpm-0.5b",
-      "voxcpm-0.5b-coreai"
+      "VoxCPM-0.5B-CoreAI",
+      "voxcpm-0-5b-coreai",
+      "voxcpm-tts.md",
+      "voxcpm.0.5b"
     ],
     "embeddinggemma-300m": [
-      "embeddinggemma",
-      "embeddinggemma 300m",
-      "embeddinggemma-300m-coreai"
+      "coreai-model-zoo",
+      "embeddinggemma-300m-CoreAI",
+      "embeddinggemma-300m-coreai",
+      "embeddinggemma.300m"
     ],
     "qwen3-embedding-0-6b": [
-      "qwen3",
-      "qwen3-embedding 0.6b",
-      "qwen3-embedding-0.6b",
-      "qwen3-embedding-0.6b-coreai"
+      "Qwen3-Embedding-0.6B-CoreAI",
+      "qwen3-embedding-0-6b-coreai",
+      "qwen3-embedding.md",
+      "qwen3.embedding.0-6b"
     ],
     "qwen3-reranker-0-6b": [
-      "qwen3",
-      "qwen3-reranker 0.6b",
-      "qwen3-reranker-0.6b",
-      "qwen3-reranker-0.6b-coreai"
+      "Qwen3-Reranker-0.6B-CoreAI",
+      "qwen3-reranker-0-6b-coreai",
+      "qwen3-reranker.md",
+      "qwen3.reranker.0-6b"
     ],
     "rf-detr-nano": [
-      "rf",
-      "rf-detr",
-      "rf-detr nano",
-      "rf-detr-coreai"
+      "RF-DETR-CoreAI",
+      "rf-detr-coreai",
+      "rf-detr.md",
+      "rf.detr.nano"
     ],
     "rf-detr-small": [
-      "rf",
-      "rf-detr",
-      "rf-detr small",
-      "rf-detr-coreai"
+      "RF-DETR-CoreAI",
+      "rf-detr-coreai",
+      "rf-detr.md",
+      "rf.detr.small"
     ],
     "rf-detr-medium": [
-      "rf",
-      "rf-detr",
-      "rf-detr medium",
-      "rf-detr-coreai"
+      "RF-DETR-CoreAI",
+      "rf-detr-coreai",
+      "rf-detr.md",
+      "rf.detr.medium"
     ],
     "rf-detr-large": [
-      "rf",
-      "rf-detr",
-      "rf-detr large",
-      "rf-detr-coreai"
+      "RF-DETR-CoreAI",
+      "rf-detr-coreai",
+      "rf-detr.md",
+      "rf.detr.large"
     ],
     "rf-detr-seg-nano": [
-      "rf",
-      "rf-detr",
+      "RF-DETR-CoreAI",
       "rf-detr-coreai",
-      "rf-detr-seg nano"
+      "rf-detr.md",
+      "rf.detr.seg-nano"
     ],
     "rf-detr-seg-small": [
-      "rf",
-      "rf-detr",
+      "RF-DETR-CoreAI",
       "rf-detr-coreai",
-      "rf-detr-seg small"
+      "rf-detr.md",
+      "rf.detr.seg-small"
     ],
     "rf-detr-seg-medium": [
-      "rf",
-      "rf-detr",
+      "RF-DETR-CoreAI",
       "rf-detr-coreai",
-      "rf-detr-seg medium"
+      "rf-detr.md",
+      "rf.detr.seg-medium"
     ],
     "rf-detr-seg-large": [
-      "rf",
-      "rf-detr",
+      "RF-DETR-CoreAI",
       "rf-detr-coreai",
-      "rf-detr-seg large"
+      "rf-detr.md",
+      "rf.detr.seg-large"
     ],
     "rf-detr-seg-xlarge": [
-      "rf",
-      "rf-detr",
+      "RF-DETR-CoreAI",
       "rf-detr-coreai",
-      "rf-detr-seg xlarge"
+      "rf-detr.md",
+      "rf.detr.seg-xlarge"
     ],
     "rf-detr-seg-2xlarge": [
-      "rf",
-      "rf-detr",
+      "RF-DETR-CoreAI",
       "rf-detr-coreai",
-      "rf-detr-seg 2xlarge"
+      "rf-detr.md",
+      "rf.detr.seg-2xlarge"
     ],
     "adcsr-x4": [
-      "adcsr",
-      "adcsr ×4",
-      "adcsr-coreai"
+      "AdcSR-CoreAI",
+      "adcsr-coreai",
+      "adcsr-super-resolution.md",
+      "adcsr.x4"
     ],
     "depth-anything-3-small": [
-      "depth",
-      "depth anything 3 small",
-      "depth-anything-3",
-      "depth-anything-3-coreai"
+      "Depth-Anything-3-CoreAI",
+      "depth-anything-3-coreai",
+      "depth-anything-3.md",
+      "depth.anything.3-small"
     ],
     "depth-anything-3-base": [
-      "depth",
-      "depth anything 3 base",
-      "depth-anything-3",
-      "depth-anything-3-coreai"
+      "Depth-Anything-3-CoreAI",
+      "depth-anything-3-coreai",
+      "depth-anything-3.md",
+      "depth.anything.3-base"
     ],
     "official-gpt-oss-20b": [
-      "gpt-oss-20b",
+      "gpt-oss-20b-CoreAI-official",
       "gpt-oss-20b-coreai-official",
-      "official"
+      "official",
+      "official.gpt.oss-20b"
     ],
     "official-qwen3-0-6b": [
       "official",
-      "qwen3 0.6b",
-      "qwen3-0.6b",
-      "qwen3-0.6b-coreai-official"
+      "official.qwen3.0-6b",
+      "qwen3-0-6b-coreai-official",
+      "qwen3-0.6b-CoreAI-official"
     ],
     "official-qwen3-4b": [
       "official",
-      "qwen3 4b",
-      "qwen3-4b",
+      "official.qwen3.4b",
+      "qwen3-4b-CoreAI-official",
       "qwen3-4b-coreai-official"
     ],
     "official-qwen3-8b": [
       "official",
-      "qwen3 8b",
-      "qwen3-8b",
+      "official.qwen3.8b",
+      "qwen3-8b-CoreAI-official",
       "qwen3-8b-coreai-official"
     ],
     "official-gemma-3-4b-it": [
-      "gemma 3 4b it",
-      "gemma-3-4b-it",
+      "gemma-3-4b-it-CoreAI-official",
       "gemma-3-4b-it-coreai-official",
-      "official"
+      "official",
+      "official.gemma.3-4b-it"
     ],
     "official-gemma-3-12b-it": [
-      "gemma 3 12b it",
-      "gemma-3-12b-it",
+      "gemma-3-12b-it-CoreAI-official",
       "gemma-3-12b-it-coreai-official",
-      "official"
+      "official",
+      "official.gemma.3-12b-it"
     ],
     "official-mistral-7b-v0-3": [
-      "mistral 7b v0.3",
-      "mistral-7b-v0.3",
-      "mistral-7b-v0.3-coreai-official",
-      "official"
+      "mistral-7b-v0-3-coreai-official",
+      "mistral-7b-v0.3-CoreAI-official",
+      "official",
+      "official.mistral.7b-v0-3"
     ],
     "official-flux-2-klein-4b": [
-      "flux.2 klein 4b",
-      "flux.2-klein-4b",
-      "flux.2-klein-4b-coreai",
-      "official"
+      "FLUX.2-klein-4B-CoreAI",
+      "flux-2-klein-4b-coreai",
+      "official",
+      "official.flux.2-klein-4b"
     ],
     "official-sam-3": [
       "official",
-      "sam 3",
-      "sam3",
+      "official.sam.3",
+      "sam3-CoreAI-official",
       "sam3-coreai-official"
     ],
     "official-whisper-large-v3-turbo": [
       "official",
-      "whisper large-v3-turbo",
-      "whisper-large-v3-turbo",
+      "official.whisper.large-v3-turbo",
+      "whisper-large-v3-turbo-CoreAI-official",
       "whisper-large-v3-turbo-coreai-official"
     ],
     "minicpm5-1b": [
-      "minicpm5",
-      "minicpm5-1b-coreai"
+      "MiniCPM5-1B-CoreAI",
+      "minicpm5-1b-coreai",
+      "minicpm5-1b.md",
+      "minicpm5.1b"
     ],
     "fastcontext-1-0-4b": [
-      "fastcontext",
-      "fastcontext-1.0-4b",
-      "fastcontext-1.0-4b-coreai"
+      "FastContext-1.0-4B-CoreAI",
+      "fastcontext-1-0-4b-coreai",
+      "fastcontext.1.0-4b",
+      "fastcontext.md"
     ],
     "bitcpm-8b": [
-      "bitcpm",
-      "bitcpm-8b-coreai"
+      "BitCPM-8B-CoreAI",
+      "bitcpm-8b-coreai",
+      "bitcpm-8b.md",
+      "bitcpm.8b"
     ],
     "holo2-4b": [
-      "holo2",
-      "holo2-4b-coreai"
+      "Holo2-4B-CoreAI",
+      "holo2-4b-coreai",
+      "holo2.4b",
+      "holo2.md"
     ],
     "colmodernvbert": [
-      "colmodernvbert-coreai"
+      "ColModernVBERT-CoreAI",
+      "colmodernvbert-coreai",
+      "colmodernvbert.md"
     ],
     "qwen3-asr-1-7b": [
-      "qwen3",
-      "qwen3-asr-1.7b",
-      "qwen3-asr-1.7b-coreai"
+      "Qwen3-ASR-1.7B-CoreAI",
+      "README.md",
+      "qwen3-asr-1-7b-coreai",
+      "qwen3.asr.1-7b"
     ],
     "parakeet-tdt-0-6b": [
-      "parakeet",
-      "parakeet-tdt-0.6b",
-      "parakeet-tdt-0.6b-coreai"
+      "Parakeet-TDT-0.6B-CoreAI",
+      "parakeet-tdt-0-6b-coreai",
+      "parakeet.md",
+      "parakeet.tdt.0-6b"
     ],
     "voxcpm2-2b": [
-      "voxcpm2",
-      "voxcpm2 2b",
-      "voxcpm2-coreai"
+      "README.md",
+      "VoxCPM2-CoreAI",
+      "voxcpm2-coreai",
+      "voxcpm2.2b"
     ],
     "yolox-s": [
-      "yolox",
-      "yolox-s-coreai"
+      "YOLOX-S-CoreAI",
+      "yolox-s-coreai",
+      "yolox.md",
+      "yolox.s"
     ],
     "tripo-splat": [
-      "tripo",
-      "triposplat",
+      "README.md",
+      "TripoSplat-CoreAI",
+      "tripo.splat",
       "triposplat-coreai"
     ],
     "ltx-video-2b": [
-      "ltx",
-      "ltx-video 2b distilled",
-      "ltx-video-2b-coreai"
+      "LTX-Video-2B-CoreAI",
+      "ltx-video-2b-coreai",
+      "ltx.video.2b",
+      "ltxvideo.md"
     ],
     "official-qwen3-1-7b": [
-      "official",
-      "qwen3 1.7b",
-      "qwen3-1.7b",
-      "qwen3-1.7b-coreai-official"
+      "coreai-models",
+      "official.qwen3.1-7b",
+      "qwen3-1-7b-coreai-official",
+      "qwen3-1.7b-CoreAI-official"
     ],
     "official-clip-vit-base-patch32": [
-      "clip vit-b/32",
-      "clip-vit-base-patch32",
+      "clip-vit-base-patch32-CoreAI-official",
       "clip-vit-base-patch32-coreai-official",
-      "official"
+      "coreai-models",
+      "official.clip.vit-base-patch32"
     ],
     "llada-8b-dllm": [
-      "llada",
-      "llada-8b dllm",
-      "llada-8b-dllm-coreai"
+      "LLaDA-8B-dLLM-CoreAI",
+      "diffusion-llms-dllm.md",
+      "llada-8b-dllm-coreai",
+      "llada.8b.dllm"
     ],
     "bitvla": [
+      "BitVLA-CoreAI",
+      "bitvla-1.58bit-vla.md",
       "bitvla-coreai"
     ],
     "stable-audio-open-small": [
-      "stable",
-      "stable audio open small",
-      "stable-audio-open-small-coreai"
+      "README.md",
+      "Stable-Audio-Open-Small-CoreAI",
+      "stable-audio-open-small-coreai",
+      "stable.audio.open-small"
     ],
     "whisper-large-v3-turbo-carstenl": [
-      "whisper",
-      "whisper large-v3-turbo (carstenl)",
-      "whisper-large-v3-turbo",
-      "whisper-large-v3-turbo-coreai"
+      "whisper-large-v3-turbo-coreai",
+      "whisper.large.v3-turbo-carstenl"
     ],
     "whisper-tiny-en-intiser": [
-      "whisper",
-      "whisper tiny.en (intiser)",
-      "whisper-tiny-en",
-      "whisper-tiny-en-coreai"
+      "whisper-tiny-en-coreai",
+      "whisper.tiny.en-intiser"
     ],
     "whisper-medium-intiser": [
-      "whisper",
-      "whisper medium (intiser)",
-      "whisper-medium",
-      "whisper-medium-coreai"
+      "whisper-medium-coreai",
+      "whisper.medium.intiser"
     ],
     "gemma-4-12b-mm-warshanks": [
-      "gemma",
-      "gemma 4 12b it multimodal (warshanks)",
-      "gemma-4-12b-it",
-      "gemma-4-12b-it-coreai"
+      "gemma-4-12B-it-coreai",
+      "gemma-4-12b-it-coreai",
+      "gemma.4.12b-mm-warshanks"
     ],
     "gemma-4-12b-assistant-warshanks": [
-      "gemma",
-      "gemma 4 12b it assistant (mtp draft)",
-      "gemma-4-12b-it-assistant",
-      "gemma-4-12b-it-assistant-coreai"
+      "gemma-4-12B-it-assistant-coreai",
+      "gemma-4-12b-it-assistant-coreai",
+      "gemma.4.12b-assistant-warshanks"
     ],
     "vibevoice-0-5b": [
-      "vibevoice",
-      "vibevoice 0.5b",
-      "vibevoice-0.5b",
-      "vibevoice-0.5b-coreai"
+      "vibevoice-0-5b-coreai",
+      "vibevoice-0.5b-coreai",
+      "vibevoice.0.5b"
     ],
     "vibevoice-1-5b": [
-      "vibevoice",
-      "vibevoice 1.5b",
-      "vibevoice-1.5b",
-      "vibevoice-1.5b-coreai"
+      "vibevoice-1-5b-coreai",
+      "vibevoice-1.5b-coreai",
+      "vibevoice.1.5b"
     ],
     "vibevoice-7b": [
-      "vibevoice",
-      "vibevoice 7b",
-      "vibevoice-7b-coreai"
+      "vibevoice-7b-coreai",
+      "vibevoice.7b"
     ],
     "vibevoice-asr": [
-      "vibevoice",
-      "vibevoice asr",
-      "vibevoice-asr-coreai"
+      "vibevoice-asr-coreai",
+      "vibevoice.asr"
     ],
     "nemotron-3-5-asr-streaming": [
-      "nemotron",
-      "nemotron 3.5 asr streaming 0.6b",
-      "nemotron-3.5-asr-streaming-0.6b",
-      "nemotron-3.5-asr-streaming-0.6b-coreai"
+      "nemotron-3-5-asr-streaming-0-6b-coreai",
+      "nemotron-3.5-asr-streaming-0.6b-coreai",
+      "nemotron.3.5-asr-streaming"
     ],
     "z-image-turbo": [
-      "z",
-      "z-image turbo",
-      "z-image-turbo-coreai"
+      "Z-Image-Turbo-CoreAI",
+      "z-image-turbo-coreai",
+      "z.image.turbo"
     ],
     "real-esrgan-x4v3": [
-      "real",
-      "real-esrgan x4v3",
-      "realesrgan-x4v3",
+      "RealESRGAN-x4v3-CoreAI",
+      "real.esrgan.x4v3",
       "realesrgan-x4v3-coreai"
     ],
     "efficientsam3-tinyvit": [
       "coreai-artifacts",
-      "efficientsam3"
+      "efficientsam3.tinyvit"
     ],
     "rwkv7-goose-1-5b": [
-      "rwkv-7 goose 1.5b",
-      "rwkv7",
-      "rwkv7-goose-1.5b",
-      "rwkv7-goose-1.5b-coreai"
+      "RWKV7-Goose-1.5B-CoreAI",
+      "export_rwkv7_decode.py",
+      "rwkv7-goose-1-5b-coreai",
+      "rwkv7.goose.1-5b"
+    ],
+    "vjepa2-vitl-ssv2": [
+      "VJEPA2-ViTL-SSv2-CoreAI",
+      "vjepa2-vitl-ssv2-coreai",
+      "vjepa2.vitl.ssv2"
     ]
   }
 }

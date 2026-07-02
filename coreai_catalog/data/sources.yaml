@@ -211,3 +211,8 @@ sources:
   volatility: low
   last_checked: '2026-07-01'
   notes: 'RWKV-7 Goose — pure-recurrent / linear-attention LLM. Original model upstream for the Core AI conversion.'
+- id: vjepa2-upstream
+  name: V-JEPA 2 (Meta)
+  type: original_model_source
+  url: https://huggingface.co/facebook/vjepa2-vitl-fpc16-256-ssv2
+  description: Original V-JEPA 2 ViT-L model trained on Something-Something v2.

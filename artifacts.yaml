@@ -1108,3 +1108,27 @@ artifacts:
     apple_export_recipe: false
     apple_hosted_artifact: false
     community_packaged: true
+
+- id: art-vjepa2-vitl-ssv2
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: conversion/vjepa2/export_fp16.py
+  huggingface:
+    owner: mlboydaisuke
+    repo: VJEPA2-ViTL-SSv2-CoreAI
+    url: https://huggingface.co/mlboydaisuke/VJEPA2-ViTL-SSv2-CoreAI
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+  conversion_script: conversion/vjepa2/export_fp16.py
+  verification:
+    zoo_smoke:
+      status: unverified
+      sha: null
+      url: null
+    last_verified: null
+  bundle_kind: video
+  precision: fp16

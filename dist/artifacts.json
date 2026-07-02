@@ -1498,6 +1498,36 @@
         "apple_hosted_artifact": false,
         "community_packaged": true
       }
+    },
+    {
+      "bundle_kind": "video",
+      "conversion_script": "conversion/vjepa2/export_fp16.py",
+      "github": {
+        "owner": "john-rocky",
+        "path": "conversion/vjepa2/export_fp16.py",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "VJEPA2-ViTL-SSv2-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/VJEPA2-ViTL-SSv2-CoreAI"
+      },
+      "id": "art-vjepa2-vitl-ssv2",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "precision": "fp16",
+      "verification": {
+        "last_verified": null,
+        "zoo_smoke": {
+          "sha": null,
+          "status": "unverified",
+          "url": null
+        }
+      }
     }
   ],
   "export_catalog_version": "2.1.0",

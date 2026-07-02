@@ -3883,3 +3883,55 @@ models:
     quant (FFN only; recurrence projections kept fp16).
   architecture: recurrent
   streaming: true
+
+- id: vjepa2-vitl-ssv2
+  name: V-JEPA 2 ViT-L (SSv2)
+  family: V-JEPA
+  source_group: zoo
+  capabilities:
+  - video-classification
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 300M
+    precision: fp16
+    quantization: none
+    artifact_size: 700MB
+  modalities:
+    input:
+    - video
+    output:
+    - action-tokens
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIKit-GraphModel
+    stock_runtime: true
+    custom_kernel: false
+    patch_required: false
+    aot_required: true
+    tokenizer_required: false
+    processor_required: false
+  device_support:
+    iphone: false
+    ipad: unknown
+    mac: true
+    mac_only: true
+  license:
+    name: MIT
+    commercial_use: likely
+  status: unknown
+  maturity: experimental
+  confidence: low
+  source_path: https://huggingface.co/mlboydaisuke/VJEPA2-ViTL-SSv2-CoreAI
+  artifact_ref: art-vjepa2-vitl-ssv2
+  sources:
+  - coreai-model-zoo-readme
+  - vjepa2-upstream
+  last_verified: '2026-07-02'
+  notes: First video world-model on Core AI. JEPA architecture (joint-embedding
+    predictive) from Meta — learns video representations by predicting masked
+    spatiotemporal patches. fp16, AOT h18p specialized. Trained on Something-Something
+    v2 (action recognition). ViT-L backbone.
+  architecture: encoder
+  streaming: false

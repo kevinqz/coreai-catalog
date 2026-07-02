@@ -7,7 +7,8 @@
     "documents",
     "image",
     "query",
-    "text"
+    "text",
+    "video"
   ],
   "output_modalities": [
     "action-tokens",
@@ -29,8 +30,8 @@
     "vector",
     "video"
   ],
-  "direct_edge_count": 31,
-  "total_reachable_pairs": 55,
+  "direct_edge_count": 32,
+  "total_reachable_pairs": 56,
   "direct_edges": [
     {
       "input": "audio",
@@ -377,6 +378,14 @@
         "ltx-video-2b"
       ],
       "model_count": 1
+    },
+    {
+      "input": "video",
+      "output": "action-tokens",
+      "model_ids": [
+        "vjepa2-vitl-ssv2"
+      ],
+      "model_count": 1
     }
   ],
   "reachability_matrix": {
@@ -446,6 +455,9 @@
       "transcript",
       "vector",
       "video"
+    ],
+    "video": [
+      "action-tokens"
     ]
   },
   "pipelines": {
@@ -2279,6 +2291,32 @@
           "runner": "CoreAIVideoPipeline",
           "artifact_size": "13.5GB",
           "huggingface_url": "https://huggingface.co/mlboydaisuke/LTX-Video-2B-CoreAI"
+        }
+      ]
+    },
+    "video→action-tokens": {
+      "input_modality": "video",
+      "output_modality": "action-tokens",
+      "hop_count": 1,
+      "modality_chain": [
+        "video",
+        "action-tokens"
+      ],
+      "model_ids": [
+        "vjepa2-vitl-ssv2"
+      ],
+      "total_artifact_size": "700MB",
+      "stages": [
+        {
+          "model_id": "vjepa2-vitl-ssv2",
+          "model_name": "V-JEPA 2 ViT-L (SSv2)",
+          "input_modality": "video",
+          "output_modality": "action-tokens",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "300M",
+          "runner": "CoreAIKit-GraphModel",
+          "artifact_size": "700MB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/VJEPA2-ViTL-SSv2-CoreAI"
         }
       ]
     }

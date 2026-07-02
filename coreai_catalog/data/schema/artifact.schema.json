@@ -66,7 +66,29 @@
         "apple_hosted_artifact": { "type": "boolean" },
         "community_packaged": { "type": "boolean" }
       }
-    }
+    },
+    "conversion_script": {
+      "type": ["string", "null"],
+      "description": "Path to the conversion/export script in the Zoo (e.g. conversion/export_qwen3_5_decode_pipelined.py)"
+    },
+    "verification": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "zoo_smoke": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "status": { "type": "string", "enum": ["passed", "failed", "unverified"] },
+            "sha": { "type": ["string", "null"] },
+            "url": { "type": ["string", "null"] }
+          }
+        },
+        "last_verified": { "type": ["string", "null"] }
+      }
+    },
+    "bundle_kind": { "type": "string" },
+    "precision": { "type": "string" }
   },
   "allOf": [
     {

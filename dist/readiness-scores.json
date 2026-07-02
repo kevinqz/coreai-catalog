@@ -394,6 +394,11 @@
       "id": "lfm2-5-8b-a1b",
       "name": "LFM2.5-8B-A1B",
       "score": 53
+    },
+    {
+      "id": "vjepa2-vitl-ssv2",
+      "name": "V-JEPA 2 ViT-L (SSv2)",
+      "score": 45
     }
   ],
   "export_schema_version": "1.0",

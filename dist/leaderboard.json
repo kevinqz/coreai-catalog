@@ -2,106 +2,21 @@
   "export_schema_version": "1.0",
   "export_catalog_version": "2.1.0",
   "description": "Ranked model leaderboard by readiness score. Each entry includes best-known benchmarks per metric.",
-  "total_models": 79,
+  "total_models": 80,
   "leaderboard": [
     {
-      "id": "qwen3-embedding-0-6b",
-      "name": "Qwen3-Embedding 0.6B",
+      "id": "depth-anything-3-base",
+      "name": "Depth Anything 3 Base",
       "capabilities": [
-        "embedding"
+        "monocular-depth"
       ],
-      "parameters": "0.6B",
+      "parameters": "base",
       "readiness_score": 93,
       "benchmark_count": 1,
       "best_metrics": {
         "inference_latency": {
-          "value": 12.0,
-          "device": "M4 Max",
-          "unit": "milliseconds"
-        }
-      }
-    },
-    {
-      "id": "qwen3-reranker-0-6b",
-      "name": "Qwen3-Reranker 0.6B",
-      "capabilities": [
-        "reranking"
-      ],
-      "parameters": "0.6B",
-      "readiness_score": 93,
-      "benchmark_count": 1,
-      "best_metrics": {
-        "inference_latency": {
-          "value": 45.7,
-          "device": "M4 Max",
-          "unit": "milliseconds"
-        }
-      }
-    },
-    {
-      "id": "rf-detr-nano",
-      "name": "RF-DETR Nano",
-      "capabilities": [
-        "object-detection"
-      ],
-      "parameters": "nano",
-      "readiness_score": 93,
-      "benchmark_count": 1,
-      "best_metrics": {
-        "inference_latency": {
-          "value": 8.6,
-          "device": "M4 Max",
-          "unit": "milliseconds"
-        }
-      }
-    },
-    {
-      "id": "rf-detr-small",
-      "name": "RF-DETR Small",
-      "capabilities": [
-        "object-detection"
-      ],
-      "parameters": "small",
-      "readiness_score": 93,
-      "benchmark_count": 1,
-      "best_metrics": {
-        "inference_latency": {
-          "value": 12.0,
-          "device": "M4 Max",
-          "unit": "milliseconds"
-        }
-      }
-    },
-    {
-      "id": "rf-detr-medium",
-      "name": "RF-DETR Medium",
-      "capabilities": [
-        "object-detection"
-      ],
-      "parameters": "medium",
-      "readiness_score": 93,
-      "benchmark_count": 1,
-      "best_metrics": {
-        "inference_latency": {
-          "value": 14.8,
-          "device": "M4 Max",
-          "unit": "milliseconds"
-        }
-      }
-    },
-    {
-      "id": "rf-detr-large",
-      "name": "RF-DETR Large",
-      "capabilities": [
-        "object-detection"
-      ],
-      "parameters": "large",
-      "readiness_score": 93,
-      "benchmark_count": 1,
-      "best_metrics": {
-        "inference_latency": {
-          "value": 19.1,
-          "device": "M4 Max",
+          "value": 37.7,
+          "device": null,
           "unit": "milliseconds"
         }
       }
@@ -118,24 +33,109 @@
       "best_metrics": {
         "inference_latency": {
           "value": 15.2,
-          "device": "M4 Max",
+          "device": null,
           "unit": "milliseconds"
         }
       }
     },
     {
-      "id": "depth-anything-3-base",
-      "name": "Depth Anything 3 Base",
+      "id": "qwen3-embedding-0-6b",
+      "name": "Qwen3-Embedding 0.6B",
       "capabilities": [
-        "monocular-depth"
+        "embedding"
       ],
-      "parameters": "base",
+      "parameters": "0.6B",
       "readiness_score": 93,
       "benchmark_count": 1,
       "best_metrics": {
         "inference_latency": {
-          "value": 37.7,
-          "device": "M4 Max",
+          "value": 12.0,
+          "device": null,
+          "unit": "milliseconds"
+        }
+      }
+    },
+    {
+      "id": "qwen3-reranker-0-6b",
+      "name": "Qwen3-Reranker 0.6B",
+      "capabilities": [
+        "reranking"
+      ],
+      "parameters": "0.6B",
+      "readiness_score": 93,
+      "benchmark_count": 1,
+      "best_metrics": {
+        "inference_latency": {
+          "value": 45.7,
+          "device": null,
+          "unit": "milliseconds"
+        }
+      }
+    },
+    {
+      "id": "rf-detr-large",
+      "name": "RF-DETR Large",
+      "capabilities": [
+        "object-detection"
+      ],
+      "parameters": "large",
+      "readiness_score": 93,
+      "benchmark_count": 1,
+      "best_metrics": {
+        "inference_latency": {
+          "value": 19.1,
+          "device": null,
+          "unit": "milliseconds"
+        }
+      }
+    },
+    {
+      "id": "rf-detr-medium",
+      "name": "RF-DETR Medium",
+      "capabilities": [
+        "object-detection"
+      ],
+      "parameters": "medium",
+      "readiness_score": 93,
+      "benchmark_count": 1,
+      "best_metrics": {
+        "inference_latency": {
+          "value": 14.8,
+          "device": null,
+          "unit": "milliseconds"
+        }
+      }
+    },
+    {
+      "id": "rf-detr-nano",
+      "name": "RF-DETR Nano",
+      "capabilities": [
+        "object-detection"
+      ],
+      "parameters": "nano",
+      "readiness_score": 93,
+      "benchmark_count": 1,
+      "best_metrics": {
+        "inference_latency": {
+          "value": 8.6,
+          "device": null,
+          "unit": "milliseconds"
+        }
+      }
+    },
+    {
+      "id": "rf-detr-small",
+      "name": "RF-DETR Small",
+      "capabilities": [
+        "object-detection"
+      ],
+      "parameters": "small",
+      "readiness_score": 93,
+      "benchmark_count": 1,
+      "best_metrics": {
+        "inference_latency": {
+          "value": 12.0,
+          "device": null,
           "unit": "milliseconds"
         }
       }
@@ -151,8 +151,8 @@
       "benchmark_count": 2,
       "best_metrics": {
         "inference_latency": {
-          "value": 22.0,
-          "device": "A18 Pro",
+          "value": 4.8,
+          "device": null,
           "unit": "milliseconds"
         }
       }
@@ -169,8 +169,8 @@
       "benchmark_count": 2,
       "best_metrics": {
         "decode_throughput": {
-          "value": 1121.0,
-          "device": "M4 Max",
+          "value": 484,
+          "device": null,
           "unit": "tokens_per_second"
         }
       }
@@ -188,7 +188,7 @@
       "best_metrics": {
         "decode_throughput": {
           "value": 145.4,
-          "device": "M4 Max",
+          "device": null,
           "unit": "tokens_per_second"
         }
       }
@@ -204,8 +204,8 @@
       "benchmark_count": 1,
       "best_metrics": {
         "transcription_latency": {
-          "value": 180.0,
-          "device": "M4 Max",
+          "value": 180,
+          "device": null,
           "unit": "milliseconds"
         }
       }
@@ -219,7 +219,24 @@
       "parameters": "not_published",
       "readiness_score": 88,
       "benchmark_count": 0,
-      "best_metrics": null
+      "best_metrics": {}
+    },
+    {
+      "id": "official-flux-2-klein-4b",
+      "name": "FLUX.2 klein 4B",
+      "capabilities": [
+        "image-generation"
+      ],
+      "parameters": "4B / ~4GB",
+      "readiness_score": 85,
+      "benchmark_count": 1,
+      "best_metrics": {
+        "image_generation_latency": {
+          "value": 17.4,
+          "device": null,
+          "unit": "seconds"
+        }
+      }
     },
     {
       "id": "official-gpt-oss-20b",
@@ -235,104 +252,21 @@
       "best_metrics": {
         "decode_throughput": {
           "value": 78.1,
-          "device": "M4 Max",
+          "device": null,
           "unit": "tokens_per_second"
         }
       }
     },
     {
-      "id": "official-flux-2-klein-4b",
-      "name": "FLUX.2 klein 4B",
+      "id": "colmodernvbert",
+      "name": "ColModernVBERT",
       "capabilities": [
-        "image-generation"
+        "visual-document-retrieval"
       ],
-      "parameters": "4B / ~4GB",
-      "readiness_score": 85,
-      "benchmark_count": 1,
-      "best_metrics": {
-        "image_generation_latency": {
-          "value": 17.4,
-          "device": "M4 Max",
-          "unit": "seconds"
-        }
-      }
-    },
-    {
-      "id": "unlimited-ocr",
-      "name": "Unlimited-OCR",
-      "capabilities": [
-        "document-ocr"
-      ],
-      "parameters": "not_published",
+      "parameters": "250M",
       "readiness_score": 83,
       "benchmark_count": 0,
-      "best_metrics": null
-    },
-    {
-      "id": "rf-detr-seg-nano",
-      "name": "RF-DETR-Seg Nano",
-      "capabilities": [
-        "instance-segmentation"
-      ],
-      "parameters": "nano",
-      "readiness_score": 83,
-      "benchmark_count": 0,
-      "best_metrics": null
-    },
-    {
-      "id": "rf-detr-seg-small",
-      "name": "RF-DETR-Seg Small",
-      "capabilities": [
-        "instance-segmentation"
-      ],
-      "parameters": "small",
-      "readiness_score": 83,
-      "benchmark_count": 0,
-      "best_metrics": null
-    },
-    {
-      "id": "rf-detr-seg-medium",
-      "name": "RF-DETR-Seg Medium",
-      "capabilities": [
-        "instance-segmentation"
-      ],
-      "parameters": "medium",
-      "readiness_score": 83,
-      "benchmark_count": 0,
-      "best_metrics": null
-    },
-    {
-      "id": "rf-detr-seg-large",
-      "name": "RF-DETR-Seg Large",
-      "capabilities": [
-        "instance-segmentation"
-      ],
-      "parameters": "large",
-      "readiness_score": 83,
-      "benchmark_count": 0,
-      "best_metrics": null
-    },
-    {
-      "id": "rf-detr-seg-xlarge",
-      "name": "RF-DETR-Seg Xlarge",
-      "capabilities": [
-        "instance-segmentation"
-      ],
-      "parameters": "xlarge",
-      "readiness_score": 83,
-      "benchmark_count": 0,
-      "best_metrics": null
-    },
-    {
-      "id": "rf-detr-seg-2xlarge",
-      "name": "RF-DETR-Seg 2Xlarge",
-      "capabilities": [
-        "instance-segmentation"
-      ],
-      "parameters": "2xlarge",
-      "readiness_score": 83,
-      "benchmark_count": 0,
-      "best_metrics": null
+      "best_metrics": {}
     },
     {
       "id": "minicpm5-1b",
@@ -348,21 +282,10 @@
       "best_metrics": {
         "decode_throughput": {
           "value": 66.8,
-          "device": "A18 Pro",
+          "device": null,
           "unit": "tokens_per_second"
         }
       }
-    },
-    {
-      "id": "colmodernvbert",
-      "name": "ColModernVBERT",
-      "capabilities": [
-        "visual-document-retrieval"
-      ],
-      "parameters": "250M",
-      "readiness_score": 83,
-      "benchmark_count": 0,
-      "best_metrics": null
     },
     {
       "id": "official-clip-vit-base-patch32",
@@ -373,25 +296,84 @@
       "parameters": "151M",
       "readiness_score": 83,
       "benchmark_count": 0,
-      "best_metrics": null
+      "best_metrics": {}
     },
     {
-      "id": "official-qwen3-8b",
-      "name": "Qwen3 8B",
+      "id": "rf-detr-seg-2xlarge",
+      "name": "RF-DETR-Seg 2Xlarge",
       "capabilities": [
-        "chat",
-        "text-generation"
+        "instance-segmentation"
       ],
-      "parameters": "8B",
-      "readiness_score": 80,
-      "benchmark_count": 1,
-      "best_metrics": {
-        "decode_throughput": {
-          "value": 94.1,
-          "device": "M4 Max",
-          "unit": "tokens_per_second"
-        }
-      }
+      "parameters": "2xlarge",
+      "readiness_score": 83,
+      "benchmark_count": 0,
+      "best_metrics": {}
+    },
+    {
+      "id": "rf-detr-seg-large",
+      "name": "RF-DETR-Seg Large",
+      "capabilities": [
+        "instance-segmentation"
+      ],
+      "parameters": "large",
+      "readiness_score": 83,
+      "benchmark_count": 0,
+      "best_metrics": {}
+    },
+    {
+      "id": "rf-detr-seg-medium",
+      "name": "RF-DETR-Seg Medium",
+      "capabilities": [
+        "instance-segmentation"
+      ],
+      "parameters": "medium",
+      "readiness_score": 83,
+      "benchmark_count": 0,
+      "best_metrics": {}
+    },
+    {
+      "id": "rf-detr-seg-nano",
+      "name": "RF-DETR-Seg Nano",
+      "capabilities": [
+        "instance-segmentation"
+      ],
+      "parameters": "nano",
+      "readiness_score": 83,
+      "benchmark_count": 0,
+      "best_metrics": {}
+    },
+    {
+      "id": "rf-detr-seg-small",
+      "name": "RF-DETR-Seg Small",
+      "capabilities": [
+        "instance-segmentation"
+      ],
+      "parameters": "small",
+      "readiness_score": 83,
+      "benchmark_count": 0,
+      "best_metrics": {}
+    },
+    {
+      "id": "rf-detr-seg-xlarge",
+      "name": "RF-DETR-Seg Xlarge",
+      "capabilities": [
+        "instance-segmentation"
+      ],
+      "parameters": "xlarge",
+      "readiness_score": 83,
+      "benchmark_count": 0,
+      "best_metrics": {}
+    },
+    {
+      "id": "unlimited-ocr",
+      "name": "Unlimited-OCR",
+      "capabilities": [
+        "document-ocr"
+      ],
+      "parameters": "not_published",
+      "readiness_score": 83,
+      "benchmark_count": 0,
+      "best_metrics": {}
     },
     {
       "id": "official-mistral-7b-v0-3",
@@ -406,7 +388,25 @@
       "best_metrics": {
         "decode_throughput": {
           "value": 101.7,
-          "device": "M4 Max",
+          "device": null,
+          "unit": "tokens_per_second"
+        }
+      }
+    },
+    {
+      "id": "official-qwen3-8b",
+      "name": "Qwen3 8B",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "parameters": "8B",
+      "readiness_score": 80,
+      "benchmark_count": 1,
+      "best_metrics": {
+        "decode_throughput": {
+          "value": 94.1,
+          "device": null,
           "unit": "tokens_per_second"
         }
       }
@@ -423,43 +423,26 @@
       "best_metrics": {
         "segmentation_latency": {
           "value": 0.55,
-          "device": "M4 Max",
+          "device": null,
           "unit": "seconds_per_image"
         }
       }
     },
     {
-      "id": "qwen3-5-0-8b",
-      "name": "Qwen3.5-0.8B",
+      "id": "fastcontext-1-0-4b",
+      "name": "FastContext-1.0-4B",
       "capabilities": [
         "chat",
-        "text-generation"
+        "text-generation",
+        "agentic"
       ],
-      "parameters": "0.8B",
+      "parameters": "4B",
       "readiness_score": 78,
-      "benchmark_count": 3,
+      "benchmark_count": 1,
       "best_metrics": {
         "decode_throughput": {
-          "value": 210.0,
-          "device": "M4 Max",
-          "unit": "tokens_per_second"
-        }
-      }
-    },
-    {
-      "id": "qwen3-5-2b",
-      "name": "Qwen3.5-2B",
-      "capabilities": [
-        "chat",
-        "text-generation"
-      ],
-      "parameters": "2B",
-      "readiness_score": 78,
-      "benchmark_count": 2,
-      "best_metrics": {
-        "decode_throughput": {
-          "value": 161.0,
-          "device": "M4 Max",
+          "value": 20.4,
+          "device": null,
           "unit": "tokens_per_second"
         }
       }
@@ -477,8 +460,25 @@
       "benchmark_count": 2,
       "best_metrics": {
         "decode_throughput": {
-          "value": 136.5,
-          "device": "M4 Max",
+          "value": 36.3,
+          "device": null,
+          "unit": "tokens_per_second"
+        }
+      }
+    },
+    {
+      "id": "minicpm-v-4-6",
+      "name": "MiniCPM-V 4.6",
+      "capabilities": [
+        "vision-language"
+      ],
+      "parameters": "sub-2B",
+      "readiness_score": 78,
+      "benchmark_count": 2,
+      "best_metrics": {
+        "decode_throughput": {
+          "value": 53.4,
+          "device": null,
           "unit": "tokens_per_second"
         }
       }
@@ -497,8 +497,78 @@
       "benchmark_count": 2,
       "best_metrics": {
         "decode_throughput": {
-          "value": 114.5,
-          "device": "M4 Max",
+          "value": 15.9,
+          "device": null,
+          "unit": "tokens_per_second"
+        }
+      }
+    },
+    {
+      "id": "official-qwen3-1-7b",
+      "name": "Qwen3 1.7B",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "parameters": "1.7B",
+      "readiness_score": 78,
+      "benchmark_count": 0,
+      "best_metrics": {}
+    },
+    {
+      "id": "parakeet-tdt-0-6b",
+      "name": "Parakeet-TDT-0.6B",
+      "capabilities": [
+        "speech-to-text"
+      ],
+      "parameters": "0.6B",
+      "readiness_score": 78,
+      "benchmark_count": 2,
+      "best_metrics": {
+        "realtime_factor": {
+          "value": 47.9,
+          "device": null,
+          "unit": "realtime_factor"
+        },
+        "transcription_latency": {
+          "value": 310,
+          "device": null,
+          "unit": "milliseconds"
+        }
+      }
+    },
+    {
+      "id": "qwen3-5-0-8b",
+      "name": "Qwen3.5-0.8B",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "parameters": "0.8B",
+      "readiness_score": 78,
+      "benchmark_count": 3,
+      "best_metrics": {
+        "decode_throughput": {
+          "value": 71.9,
+          "device": null,
+          "unit": "tokens_per_second"
+        }
+      }
+    },
+    {
+      "id": "qwen3-5-2b",
+      "name": "Qwen3.5-2B",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "parameters": "2B",
+      "readiness_score": 78,
+      "benchmark_count": 2,
+      "best_metrics": {
+        "decode_throughput": {
+          "value": 29,
+          "device": null,
           "unit": "tokens_per_second"
         }
       }
@@ -514,28 +584,22 @@
       "benchmark_count": 2,
       "best_metrics": {
         "decode_throughput": {
-          "value": 191.0,
-          "device": "M4 Max",
+          "value": 33.5,
+          "device": null,
           "unit": "tokens_per_second"
         }
       }
     },
     {
-      "id": "minicpm-v-4-6",
-      "name": "MiniCPM-V 4.6",
+      "id": "real-esrgan-x4v3",
+      "name": "Real-ESRGAN x4v3",
       "capabilities": [
-        "vision-language"
+        "super-resolution"
       ],
-      "parameters": "sub-2B",
+      "parameters": "not_published",
       "readiness_score": 78,
-      "benchmark_count": 2,
-      "best_metrics": {
-        "decode_throughput": {
-          "value": 224.3,
-          "device": "M4 Max",
-          "unit": "tokens_per_second"
-        }
-      }
+      "benchmark_count": 0,
+      "best_metrics": {}
     },
     {
       "id": "voxcpm-0-5b",
@@ -549,63 +613,10 @@
       "best_metrics": {
         "realtime_factor": {
           "value": 0.9,
-          "device": "A18 Pro",
+          "device": null,
           "unit": "realtime_factor"
         }
       }
-    },
-    {
-      "id": "fastcontext-1-0-4b",
-      "name": "FastContext-1.0-4B",
-      "capabilities": [
-        "chat",
-        "text-generation",
-        "agentic"
-      ],
-      "parameters": "4B",
-      "readiness_score": 78,
-      "benchmark_count": 1,
-      "best_metrics": {
-        "decode_throughput": {
-          "value": 20.4,
-          "device": "A18 Pro",
-          "unit": "tokens_per_second"
-        }
-      }
-    },
-    {
-      "id": "parakeet-tdt-0-6b",
-      "name": "Parakeet-TDT-0.6B",
-      "capabilities": [
-        "speech-to-text"
-      ],
-      "parameters": "0.6B",
-      "readiness_score": 78,
-      "benchmark_count": 2,
-      "best_metrics": {
-        "realtime_factor": {
-          "value": 47.9,
-          "device": "A18 Pro",
-          "unit": "realtime_factor"
-        },
-        "transcription_latency": {
-          "value": 310.0,
-          "device": "M4 Max",
-          "unit": "milliseconds"
-        }
-      }
-    },
-    {
-      "id": "official-qwen3-1-7b",
-      "name": "Qwen3 1.7B",
-      "capabilities": [
-        "chat",
-        "text-generation"
-      ],
-      "parameters": "1.7B",
-      "readiness_score": 78,
-      "benchmark_count": 0,
-      "best_metrics": null
     },
     {
       "id": "whisper-large-v3-turbo-carstenl",
@@ -616,18 +627,7 @@
       "parameters": "809M",
       "readiness_score": 78,
       "benchmark_count": 0,
-      "best_metrics": null
-    },
-    {
-      "id": "whisper-tiny-en-intiser",
-      "name": "Whisper tiny.en (Intiser)",
-      "capabilities": [
-        "speech-to-text"
-      ],
-      "parameters": "39M",
-      "readiness_score": 78,
-      "benchmark_count": 0,
-      "best_metrics": null
+      "best_metrics": {}
     },
     {
       "id": "whisper-medium-intiser",
@@ -638,40 +638,18 @@
       "parameters": "769M",
       "readiness_score": 78,
       "benchmark_count": 0,
-      "best_metrics": null
+      "best_metrics": {}
     },
     {
-      "id": "real-esrgan-x4v3",
-      "name": "Real-ESRGAN x4v3",
+      "id": "whisper-tiny-en-intiser",
+      "name": "Whisper tiny.en (Intiser)",
       "capabilities": [
-        "super-resolution"
+        "speech-to-text"
       ],
-      "parameters": "not_published",
+      "parameters": "39M",
       "readiness_score": 78,
       "benchmark_count": 0,
-      "best_metrics": null
-    },
-    {
-      "id": "kokoro-82m",
-      "name": "Kokoro-82M",
-      "capabilities": [
-        "text-to-speech"
-      ],
-      "parameters": "82M",
-      "readiness_score": 73,
-      "benchmark_count": 0,
-      "best_metrics": null
-    },
-    {
-      "id": "embeddinggemma-300m",
-      "name": "EmbeddingGemma 300M",
-      "capabilities": [
-        "embedding"
-      ],
-      "parameters": "300M",
-      "readiness_score": 73,
-      "benchmark_count": 0,
-      "best_metrics": null
+      "best_metrics": {}
     },
     {
       "id": "adcsr-x4",
@@ -682,7 +660,18 @@
       "parameters": "×4",
       "readiness_score": 73,
       "benchmark_count": 0,
-      "best_metrics": null
+      "best_metrics": {}
+    },
+    {
+      "id": "embeddinggemma-300m",
+      "name": "EmbeddingGemma 300M",
+      "capabilities": [
+        "embedding"
+      ],
+      "parameters": "300M",
+      "readiness_score": 73,
+      "benchmark_count": 0,
+      "best_metrics": {}
     },
     {
       "id": "holo2-4b",
@@ -694,7 +683,18 @@
       "parameters": "4B",
       "readiness_score": 73,
       "benchmark_count": 0,
-      "best_metrics": null
+      "best_metrics": {}
+    },
+    {
+      "id": "kokoro-82m",
+      "name": "Kokoro-82M",
+      "capabilities": [
+        "text-to-speech"
+      ],
+      "parameters": "82M",
+      "readiness_score": 73,
+      "benchmark_count": 0,
+      "best_metrics": {}
     },
     {
       "id": "qwen3-asr-1-7b",
@@ -705,7 +705,7 @@
       "parameters": "1.7B",
       "readiness_score": 73,
       "benchmark_count": 0,
-      "best_metrics": null
+      "best_metrics": {}
     },
     {
       "id": "vibevoice-0-5b",
@@ -719,7 +719,7 @@
       "best_metrics": {
         "realtime_factor": {
           "value": 10.2,
-          "device": "M4 Max",
+          "device": null,
           "unit": "realtime_factor"
         }
       }
@@ -736,7 +736,7 @@
       "best_metrics": {
         "realtime_factor": {
           "value": 4.99,
-          "device": "M4 Max",
+          "device": null,
           "unit": "realtime_factor"
         }
       }
@@ -753,7 +753,7 @@
       "best_metrics": {
         "realtime_factor": {
           "value": 2.37,
-          "device": "M4 Max",
+          "device": null,
           "unit": "realtime_factor"
         }
       }
@@ -770,7 +770,7 @@
       "best_metrics": {
         "realtime_factor": {
           "value": 11.1,
-          "device": "M4 Max",
+          "device": null,
           "unit": "realtime_factor"
         }
       }
@@ -784,26 +784,18 @@
       "parameters": "not_published",
       "readiness_score": 73,
       "benchmark_count": 0,
-      "best_metrics": null
+      "best_metrics": {}
     },
     {
-      "id": "official-gemma-3-4b-it",
-      "name": "Gemma 3 4B IT",
+      "id": "nemotron-3-5-asr-streaming",
+      "name": "Nemotron 3.5 ASR Streaming 0.6B",
       "capabilities": [
-        "chat",
-        "instruction-following",
-        "text-generation"
+        "speech-to-text"
       ],
-      "parameters": "4B",
+      "parameters": "0.6B",
       "readiness_score": 70,
-      "benchmark_count": 1,
-      "best_metrics": {
-        "decode_throughput": {
-          "value": 141.5,
-          "device": "M4 Max",
-          "unit": "tokens_per_second"
-        }
-      }
+      "benchmark_count": 0,
+      "best_metrics": {}
     },
     {
       "id": "official-gemma-3-12b-it",
@@ -819,38 +811,62 @@
       "best_metrics": {
         "decode_throughput": {
           "value": 55.0,
-          "device": "M4 Max",
+          "device": null,
           "unit": "tokens_per_second"
         }
       }
     },
     {
-      "id": "nemotron-3-5-asr-streaming",
-      "name": "Nemotron 3.5 ASR Streaming 0.6B",
-      "capabilities": [
-        "speech-to-text"
-      ],
-      "parameters": "0.6B",
-      "readiness_score": 70,
-      "benchmark_count": 0,
-      "best_metrics": null
-    },
-    {
-      "id": "lfm2-5-1-2b-instruct",
-      "name": "LFM2.5-1.2B-Instruct",
+      "id": "official-gemma-3-4b-it",
+      "name": "Gemma 3 4B IT",
       "capabilities": [
         "chat",
-        "text-generation",
-        "instruction-following"
+        "instruction-following",
+        "text-generation"
       ],
-      "parameters": "1.2B",
+      "parameters": "4B",
+      "readiness_score": 70,
+      "benchmark_count": 1,
+      "best_metrics": {
+        "decode_throughput": {
+          "value": 141.5,
+          "device": null,
+          "unit": "tokens_per_second"
+        }
+      }
+    },
+    {
+      "id": "bitcpm-8b",
+      "name": "BitCPM-8B",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "parameters": "8B / ternary {-1,0,+1}",
       "readiness_score": 68,
       "benchmark_count": 2,
       "best_metrics": {
         "decode_throughput": {
-          "value": 276.5,
-          "device": "M4 Max",
+          "value": 17,
+          "device": null,
           "unit": "tokens_per_second"
+        }
+      }
+    },
+    {
+      "id": "gemma-4-12b-assistant-warshanks",
+      "name": "Gemma 4 12B IT Assistant (MTP draft)",
+      "capabilities": [
+        "speculative-decoding"
+      ],
+      "parameters": "12B",
+      "readiness_score": 68,
+      "benchmark_count": 1,
+      "best_metrics": {
+        "inference_latency": {
+          "value": 3,
+          "device": null,
+          "unit": "milliseconds"
         }
       }
     },
@@ -865,7 +881,26 @@
       "parameters": "350M",
       "readiness_score": 68,
       "benchmark_count": 0,
-      "best_metrics": null
+      "best_metrics": {}
+    },
+    {
+      "id": "lfm2-5-1-2b-instruct",
+      "name": "LFM2.5-1.2B-Instruct",
+      "capabilities": [
+        "chat",
+        "text-generation",
+        "instruction-following"
+      ],
+      "parameters": "1.2B",
+      "readiness_score": 68,
+      "benchmark_count": 2,
+      "best_metrics": {
+        "decode_throughput": {
+          "value": 45.4,
+          "device": null,
+          "unit": "tokens_per_second"
+        }
+      }
     },
     {
       "id": "qwen3-vl-4b",
@@ -876,7 +911,7 @@
       "parameters": "4B",
       "readiness_score": 68,
       "benchmark_count": 0,
-      "best_metrics": null
+      "best_metrics": {}
     },
     {
       "id": "qwen3-vl-8b",
@@ -887,25 +922,7 @@
       "parameters": "8B",
       "readiness_score": 68,
       "benchmark_count": 0,
-      "best_metrics": null
-    },
-    {
-      "id": "bitcpm-8b",
-      "name": "BitCPM-8B",
-      "capabilities": [
-        "chat",
-        "text-generation"
-      ],
-      "parameters": "8B / ternary {-1,0,+1}",
-      "readiness_score": 68,
-      "benchmark_count": 2,
-      "best_metrics": {
-        "decode_throughput": {
-          "value": 62.7,
-          "device": "M4 Max",
-          "unit": "tokens_per_second"
-        }
-      }
+      "best_metrics": {}
     },
     {
       "id": "voxcpm2-2b",
@@ -916,58 +933,69 @@
       "parameters": "2B",
       "readiness_score": 68,
       "benchmark_count": 0,
-      "best_metrics": null
+      "best_metrics": {}
     },
     {
-      "id": "gemma-4-12b-assistant-warshanks",
-      "name": "Gemma 4 12B IT Assistant (MTP draft)",
+      "id": "bitvla",
+      "name": "BitVLA",
       "capabilities": [
-        "speculative-decoding"
+        "vision-language-action",
+        "robotics"
       ],
-      "parameters": "12B",
-      "readiness_score": 68,
-      "benchmark_count": 1,
-      "best_metrics": {
-        "inference_latency": {
-          "value": 3.0,
-          "device": "M4 Max",
-          "unit": "milliseconds"
-        }
-      }
+      "parameters": "2B (BitNet b1.58)",
+      "readiness_score": 63,
+      "benchmark_count": 0,
+      "best_metrics": {}
     },
     {
-      "id": "qwen3-6-35b-a3b",
-      "name": "Qwen3.6-35B-A3B",
+      "id": "gemma-4-e2b",
+      "name": "Gemma 4 E2B",
       "capabilities": [
         "chat",
-        "text-generation",
-        "moe"
+        "text-generation"
       ],
-      "parameters": "35B / ~3B active",
+      "parameters": "E2B",
       "readiness_score": 63,
-      "benchmark_count": 1,
+      "benchmark_count": 5,
       "best_metrics": {
         "decode_throughput": {
-          "value": 64.9,
-          "device": "M4 Max",
+          "value": 30.3,
+          "device": null,
           "unit": "tokens_per_second"
         }
       }
     },
     {
-      "id": "qwen3-6-27b",
-      "name": "Qwen3.6-27B",
+      "id": "gemma-4-e2b-vision",
+      "name": "Gemma 4 E2B Vision",
+      "capabilities": [
+        "vision-language"
+      ],
+      "parameters": "E2B",
+      "readiness_score": 63,
+      "benchmark_count": 2,
+      "best_metrics": {
+        "decode_throughput": {
+          "value": 25.5,
+          "device": null,
+          "unit": "tokens_per_second"
+        }
+      }
+    },
+    {
+      "id": "gemma-4-e4b",
+      "name": "Gemma 4 E4B",
       "capabilities": [
         "chat",
         "text-generation"
       ],
-      "parameters": "27B",
+      "parameters": "E4B",
       "readiness_score": 63,
-      "benchmark_count": 1,
+      "benchmark_count": 3,
       "best_metrics": {
         "decode_throughput": {
-          "value": 15.9,
-          "device": "M4 Max",
+          "value": 15.1,
+          "device": null,
           "unit": "tokens_per_second"
         }
       }
@@ -987,96 +1015,10 @@
       "best_metrics": {
         "decode_throughput": {
           "value": 52.4,
-          "device": "M4 Max",
+          "device": null,
           "unit": "tokens_per_second"
         }
       }
-    },
-    {
-      "id": "gemma-4-e2b",
-      "name": "Gemma 4 E2B",
-      "capabilities": [
-        "chat",
-        "text-generation"
-      ],
-      "parameters": "E2B",
-      "readiness_score": 63,
-      "benchmark_count": 5,
-      "best_metrics": {
-        "decode_throughput": {
-          "value": 78.9,
-          "device": "M4 Max",
-          "unit": "tokens_per_second"
-        }
-      }
-    },
-    {
-      "id": "gemma-4-e4b",
-      "name": "Gemma 4 E4B",
-      "capabilities": [
-        "chat",
-        "text-generation"
-      ],
-      "parameters": "E4B",
-      "readiness_score": 63,
-      "benchmark_count": 3,
-      "best_metrics": {
-        "decode_throughput": {
-          "value": 55.8,
-          "device": "M4 Max",
-          "unit": "tokens_per_second"
-        }
-      }
-    },
-    {
-      "id": "gemma-4-e2b-vision",
-      "name": "Gemma 4 E2B Vision",
-      "capabilities": [
-        "vision-language"
-      ],
-      "parameters": "E2B",
-      "readiness_score": 63,
-      "benchmark_count": 2,
-      "best_metrics": {
-        "decode_throughput": {
-          "value": 82.4,
-          "device": "M4 Max",
-          "unit": "tokens_per_second"
-        }
-      }
-    },
-    {
-      "id": "qwen2-5-omni-3b-audio",
-      "name": "Qwen2.5-Omni-3B Audio",
-      "capabilities": [
-        "audio-understanding"
-      ],
-      "parameters": "3B",
-      "readiness_score": 63,
-      "benchmark_count": 0,
-      "best_metrics": null
-    },
-    {
-      "id": "tripo-splat",
-      "name": "TripoSplat",
-      "capabilities": [
-        "image-to-3d"
-      ],
-      "parameters": "not_published",
-      "readiness_score": 63,
-      "benchmark_count": 0,
-      "best_metrics": null
-    },
-    {
-      "id": "ltx-video-2b",
-      "name": "LTX-Video 2B distilled",
-      "capabilities": [
-        "text-to-video"
-      ],
-      "parameters": "2B / DiT 1.9B + T5-XXL 4.76B",
-      "readiness_score": 63,
-      "benchmark_count": 0,
-      "best_metrics": null
     },
     {
       "id": "llada-8b-dllm",
@@ -1089,31 +1031,66 @@
       "parameters": "8B",
       "readiness_score": 63,
       "benchmark_count": 0,
-      "best_metrics": null
+      "best_metrics": {}
     },
     {
-      "id": "bitvla",
-      "name": "BitVLA",
+      "id": "ltx-video-2b",
+      "name": "LTX-Video 2B distilled",
       "capabilities": [
-        "vision-language-action",
-        "robotics"
+        "text-to-video"
       ],
-      "parameters": "2B (BitNet b1.58)",
+      "parameters": "2B / DiT 1.9B + T5-XXL 4.76B",
       "readiness_score": 63,
       "benchmark_count": 0,
-      "best_metrics": null
+      "best_metrics": {}
     },
     {
-      "id": "stable-audio-open-small",
-      "name": "Stable Audio Open Small",
+      "id": "qwen2-5-omni-3b-audio",
+      "name": "Qwen2.5-Omni-3B Audio",
       "capabilities": [
-        "text-to-audio",
-        "music-generation"
+        "audio-understanding"
       ],
-      "parameters": "not_published",
+      "parameters": "3B",
       "readiness_score": 63,
       "benchmark_count": 0,
-      "best_metrics": null
+      "best_metrics": {}
+    },
+    {
+      "id": "qwen3-6-27b",
+      "name": "Qwen3.6-27B",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "parameters": "27B",
+      "readiness_score": 63,
+      "benchmark_count": 1,
+      "best_metrics": {
+        "decode_throughput": {
+          "value": 15.9,
+          "device": null,
+          "unit": "tokens_per_second"
+        }
+      }
+    },
+    {
+      "id": "qwen3-6-35b-a3b",
+      "name": "Qwen3.6-35B-A3B",
+      "capabilities": [
+        "chat",
+        "text-generation",
+        "moe"
+      ],
+      "parameters": "35B / ~3B active",
+      "readiness_score": 63,
+      "benchmark_count": 1,
+      "best_metrics": {
+        "decode_throughput": {
+          "value": 64.9,
+          "device": null,
+          "unit": "tokens_per_second"
+        }
+      }
     },
     {
       "id": "rwkv7-goose-1-5b",
@@ -1125,7 +1102,30 @@
       "parameters": "1.5B",
       "readiness_score": 63,
       "benchmark_count": 0,
-      "best_metrics": null
+      "best_metrics": {}
+    },
+    {
+      "id": "stable-audio-open-small",
+      "name": "Stable Audio Open Small",
+      "capabilities": [
+        "text-to-audio",
+        "music-generation"
+      ],
+      "parameters": "not_published",
+      "readiness_score": 63,
+      "benchmark_count": 0,
+      "best_metrics": {}
+    },
+    {
+      "id": "tripo-splat",
+      "name": "TripoSplat",
+      "capabilities": [
+        "image-to-3d"
+      ],
+      "parameters": "not_published",
+      "readiness_score": 63,
+      "benchmark_count": 0,
+      "best_metrics": {}
     },
     {
       "id": "gemma-4-12b-mm-warshanks",
@@ -1138,7 +1138,7 @@
       "parameters": "12B",
       "readiness_score": 58,
       "benchmark_count": 0,
-      "best_metrics": null
+      "best_metrics": {}
     },
     {
       "id": "gemma-4-12b",
@@ -1152,8 +1152,8 @@
       "benchmark_count": 2,
       "best_metrics": {
         "decode_throughput": {
-          "value": 33.0,
-          "device": "M4 Max",
+          "value": 23,
+          "device": null,
           "unit": "tokens_per_second"
         }
       }
@@ -1171,7 +1171,7 @@
       "best_metrics": {
         "decode_throughput": {
           "value": 17.2,
-          "device": "M4 Max",
+          "device": null,
           "unit": "tokens_per_second"
         }
       }
@@ -1187,7 +1187,18 @@
       "parameters": "8B / ~1B active",
       "readiness_score": 53,
       "benchmark_count": 0,
-      "best_metrics": null
+      "best_metrics": {}
+    },
+    {
+      "id": "vjepa2-vitl-ssv2",
+      "name": "V-JEPA 2 ViT-L (SSv2)",
+      "capabilities": [
+        "video-classification"
+      ],
+      "parameters": "300M",
+      "readiness_score": 45,
+      "benchmark_count": 0,
+      "best_metrics": {}
     }
   ]
 }

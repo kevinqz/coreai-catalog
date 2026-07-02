@@ -315,3 +315,144 @@ def export_model_manifest(catalog_root: Path, dist: Path | None = None) -> dict:
         json.dumps(output, indent=2, ensure_ascii=False) + "\n"
     )
     return output
+
+
+def export_leaderboard(catalog_root: Path, dist: Path | None = None) -> dict:
+    """Export a ranked leaderboard joining readiness scores with best benchmarks.
+
+    Writes:
+      dist/leaderboard.json
+
+    Each entry: id, name, capabilities, parameters, readiness_score,
+    benchmark_count, best_metrics (dict of metric → {value, device, unit}).
+    """
+    dist = dist or catalog_root / "dist"
+    dist.mkdir(exist_ok=True)
+    cat = Catalog(catalog_root)
+
+    # Group benchmarks by model
+    bench_by_model: dict[str, list[dict]] = {}
+    for b in cat.benchmarks:
+        mid = b.get("model_id", "")
+        bench_by_model.setdefault(mid, []).append(reshape_benchmark(b))
+
+    entries = []
+    for m in cat.models:
+        mid = m["id"]
+        score = cat.readiness_score(m)
+        model_benchmarks = bench_by_model.get(mid, [])
+
+        # Extract best metric per metric type
+        best_metrics: dict[str, dict] = {}
+        for b in model_benchmarks:
+            metric = b.get("metric", "")
+            if not metric:
+                continue
+            val = b.get("value")
+            if val is None:
+                continue
+            existing = best_metrics.get(metric)
+            # For latency/RTF lower is better; for throughput/accuracy higher is better.
+            # Simple heuristic: keep the first value per metric (benchmarks are append-only,
+            # latest = most relevant). A more sophisticated comparison would need metric
+            # direction metadata.
+            if existing is None:
+                best_metrics[metric] = {
+                    "value": val,
+                    "device": b.get("device", "unknown"),
+                    "unit": b.get("unit", ""),
+                }
+
+        entries.append({
+            "id": mid,
+            "name": m["name"],
+            "capabilities": m.get("capabilities", []),
+            "parameters": m.get("size", {}).get("parameters", "unknown"),
+            "readiness_score": score,
+            "benchmark_count": len(model_benchmarks),
+            "best_metrics": best_metrics,
+        })
+
+    # Sort by readiness score descending, then by id for stability
+    entries.sort(key=lambda e: (-e["readiness_score"], e["id"]))
+
+    catalog_version = _get_catalog_version(catalog_root)
+    output = {
+        "export_schema_version": EXPORT_SCHEMA_VERSION,
+        "export_catalog_version": catalog_version,
+        "description": "Ranked model leaderboard by readiness score. Each entry includes best-known benchmarks per metric.",
+        "total_models": len(entries),
+        "leaderboard": entries,
+    }
+
+    (dist / "leaderboard.json").write_text(
+        json.dumps(output, indent=2, ensure_ascii=False) + "\n"
+    )
+    return output
+
+
+def export_aliases(catalog_root: Path, dist: Path | None = None) -> dict:
+    """Export alias mappings resolving naming mismatches across ecosystems.
+
+    Maps catalog model IDs to lists of alternative names found in:
+    - Hugging Face repo names (from artifact provenance)
+    - Source paths (URL-derived)
+    - Common formatting variants (dots vs dashes, version normalisation)
+
+    Writes:
+      dist/aliases.json
+    """
+    dist = dist or catalog_root / "dist"
+    dist.mkdir(exist_ok=True)
+    cat = Catalog(catalog_root)
+
+    aliases: dict[str, list[str]] = {}
+
+    for m in cat.models:
+        mid = m["id"]
+        alts: set[str] = set()
+
+        # From HuggingFace repo name
+        art = cat.get_artifact(mid)
+        if art:
+            hf = art.get("huggingface", {})
+            repo = hf.get("repo", "")
+            if repo:
+                alts.add(repo)
+                # Normalised variant: lowercase, dots→dashes
+                normalised = repo.lower().replace(".", "-")
+                if normalised != repo:
+                    alts.add(normalised)
+
+        # From source path URL
+        source_path = m.get("source_path", "")
+        if source_path and "/" in source_path:
+            # Last path segment often contains model name variant
+            last_segment = source_path.rstrip("/").split("/")[-1]
+            if last_segment and last_segment != mid:
+                alts.add(last_segment)
+
+        # Generate common format variants from the model ID itself
+        # e.g. "qwen3-5-0-8b" → "qwen3.5-0.8b", "qwen3.5-0-8b"
+        parts = mid.split("-")
+        # Try dot-joining version-like segments
+        dotted = mid.replace("-", ".", 2)  # qwen3.5.0-8b style
+        if dotted != mid:
+            alts.add(dotted)
+
+        if alts:
+            aliases[mid] = sorted(alts)
+
+    catalog_version = _get_catalog_version(catalog_root)
+    output = {
+        "export_schema_version": EXPORT_SCHEMA_VERSION,
+        "export_catalog_version": catalog_version,
+        "description": "Alias mappings resolving catalog IDs to Zoo card names, CoreAIKit strings, and HF repo names.",
+        "total_models": len(aliases),
+        "aliases": aliases,
+    }
+
+    (dist / "aliases.json").write_text(
+        json.dumps(output, indent=2, ensure_ascii=False) + "\n"
+    )
+    return output

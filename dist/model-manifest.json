@@ -1,7 +1,7 @@
 {
   "export_schema_version": "1.0",
   "export_catalog_version": "2.1.0",
-  "model_count": 79,
+  "model_count": 80,
   "models": [
     {
       "id": "qwen3-5-0-8b",
@@ -1753,6 +1753,27 @@
       "artifact_size": "not_published",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/RWKV7-Goose-1.5B-CoreAI",
       "license": "Apache-2.0",
+      "commercial_use": "likely"
+    },
+    {
+      "id": "vjepa2-vitl-ssv2",
+      "name": "V-JEPA 2 ViT-L (SSv2)",
+      "bundle_kind": "graph",
+      "runner": "CoreAIKit-GraphModel",
+      "capabilities": [
+        "video-classification"
+      ],
+      "input_modalities": [
+        "video"
+      ],
+      "output_modalities": [
+        "action-tokens"
+      ],
+      "parameters": "300M",
+      "precision": "fp16",
+      "artifact_size": "700MB",
+      "huggingface_url": "https://huggingface.co/mlboydaisuke/VJEPA2-ViTL-SSv2-CoreAI",
+      "license": "MIT",
       "commercial_use": "likely"
     }
   ]

@@ -310,8 +310,12 @@ def main() -> int:
         from scripts.generate_benchmarks_aggregate import generate_aggregate as gen_agg
         agg = gen_agg(ROOT / "benchmarks.jsonl", ROOT / "dist")
         print(f"  benchmarks-aggregate.json ({agg['published_count']} published, {agg['suppressed_count']} suppressed)")
-        print(f"  leaderboard.json (79 models ranked)")
-        print(f"  aliases.json (79 entries)")
+
+        from coreai_catalog.exports import export_leaderboard, export_aliases
+        lb = export_leaderboard(ROOT)
+        print(f"  leaderboard.json ({lb['total_models']} models ranked)")
+        al = export_aliases(ROOT)
+        print(f"  aliases.json ({al['total_models']} entries)")
 
     # Sync YAML data into package for pip distribution
     print("Syncing package data...")

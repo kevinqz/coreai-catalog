@@ -1499,6 +1499,36 @@
           "apple_hosted_artifact": false,
           "community_packaged": true
         }
+      },
+      {
+        "bundle_kind": "video",
+        "conversion_script": "conversion/vjepa2/export_fp16.py",
+        "github": {
+          "owner": "john-rocky",
+          "path": "conversion/vjepa2/export_fp16.py",
+          "repo": "coreai-model-zoo"
+        },
+        "group": "zoo",
+        "huggingface": {
+          "owner": "mlboydaisuke",
+          "repo": "VJEPA2-ViTL-SSv2-CoreAI",
+          "url": "https://huggingface.co/mlboydaisuke/VJEPA2-ViTL-SSv2-CoreAI"
+        },
+        "id": "art-vjepa2-vitl-ssv2",
+        "officiality": {
+          "apple_export_recipe": false,
+          "apple_hosted_artifact": false,
+          "community_packaged": true
+        },
+        "precision": "fp16",
+        "verification": {
+          "last_verified": null,
+          "zoo_smoke": {
+            "sha": null,
+            "status": "unverified",
+            "url": null
+          }
+        }
       }
     ],
     "metadata": {
@@ -7407,6 +7437,66 @@
         ],
         "status": "confirmed",
         "streaming": true
+      },
+      {
+        "architecture": "encoder",
+        "artifact": {
+          "availability": "available",
+          "format": "aimodel"
+        },
+        "artifact_ref": "art-vjepa2-vitl-ssv2",
+        "capabilities": [
+          "video-classification"
+        ],
+        "confidence": "low",
+        "device_support": {
+          "ipad": "unknown",
+          "iphone": false,
+          "mac": true,
+          "mac_only": true
+        },
+        "family": "V-JEPA",
+        "id": "vjepa2-vitl-ssv2",
+        "last_verified": "2026-07-02",
+        "license": {
+          "commercial_use": "likely",
+          "name": "MIT"
+        },
+        "maturity": "experimental",
+        "modalities": {
+          "input": [
+            "video"
+          ],
+          "output": [
+            "action-tokens"
+          ]
+        },
+        "name": "V-JEPA 2 ViT-L (SSv2)",
+        "notes": "First video world-model on Core AI. JEPA architecture (joint-embedding predictive) from Meta — learns video representations by predicting masked spatiotemporal patches. fp16, AOT h18p specialized. Trained on Something-Something v2 (action recognition). ViT-L backbone.",
+        "runtime": {
+          "aot_required": true,
+          "custom_kernel": false,
+          "patch_required": false,
+          "processor_required": false,
+          "runner": "CoreAIKit-GraphModel",
+          "runtime_name": "apple-core-ai",
+          "stock_runtime": true,
+          "tokenizer_required": false
+        },
+        "size": {
+          "artifact_size": "700MB",
+          "parameters": "300M",
+          "precision": "fp16",
+          "quantization": "none"
+        },
+        "source_group": "zoo",
+        "source_path": "https://huggingface.co/mlboydaisuke/VJEPA2-ViTL-SSv2-CoreAI",
+        "sources": [
+          "coreai-model-zoo-readme",
+          "vjepa2-upstream"
+        ],
+        "status": "unknown",
+        "streaming": false
       }
     ]
   },
@@ -7666,6 +7756,13 @@
         "type": "huggingface_model",
         "url": "https://huggingface.co/RWKV/RWKV7-Goose-World3-1.5B-HF",
         "volatility": "low"
+      },
+      {
+        "description": "Original V-JEPA 2 ViT-L model trained on Something-Something v2.",
+        "id": "vjepa2-upstream",
+        "name": "V-JEPA 2 (Meta)",
+        "type": "original_model_source",
+        "url": "https://huggingface.co/facebook/vjepa2-vitl-fpc16-256-ssv2"
       }
     ]
   },
