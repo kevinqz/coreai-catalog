@@ -1,0 +1,418 @@
+{
+  "aggregates": [
+    {
+      "model_id": "bitcpm-8b",
+      "device_class": "A18 Pro",
+      "metric": "decode_throughput",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "bitcpm-8b",
+      "device_class": "M4 Max",
+      "metric": "decode_throughput",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "depth-anything-3-base",
+      "device_class": "M4 Max",
+      "metric": "inference_latency",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "depth-anything-3-small",
+      "device_class": "M4 Max",
+      "metric": "inference_latency",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "fastcontext-1-0-4b",
+      "device_class": "A18 Pro",
+      "metric": "decode_throughput",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "gemma-4-12b",
+      "device_class": "M4 Max",
+      "metric": "decode_throughput",
+      "sample_count": 2,
+      "suppressed": true
+    },
+    {
+      "model_id": "gemma-4-12b-assistant-warshanks",
+      "device_class": "M4 Max",
+      "metric": "inference_latency",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "gemma-4-31b",
+      "device_class": "M4 Max",
+      "metric": "decode_throughput",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "gemma-4-e2b",
+      "device_class": "A18 Pro",
+      "metric": "decode_throughput",
+      "sample_count": 3,
+      "suppressed": false,
+      "median": 30.3,
+      "p25": 6.0,
+      "p75": 30.7,
+      "min": 6.0,
+      "max": 30.7
+    },
+    {
+      "model_id": "gemma-4-e2b",
+      "device_class": "M4 Max",
+      "metric": "decode_throughput",
+      "sample_count": 2,
+      "suppressed": true
+    },
+    {
+      "model_id": "gemma-4-e2b-vision",
+      "device_class": "A18 Pro",
+      "metric": "decode_throughput",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "gemma-4-e2b-vision",
+      "device_class": "M4 Max",
+      "metric": "decode_throughput",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "gemma-4-e4b",
+      "device_class": "A18 Pro",
+      "metric": "decode_throughput",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "gemma-4-e4b",
+      "device_class": "M4 Max",
+      "metric": "decode_throughput",
+      "sample_count": 2,
+      "suppressed": true
+    },
+    {
+      "model_id": "glm-4-7-flash",
+      "device_class": "M4 Max",
+      "metric": "decode_throughput",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "granite-4-0-h-1b",
+      "device_class": "A18 Pro",
+      "metric": "decode_throughput",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "granite-4-0-h-1b",
+      "device_class": "M4 Max",
+      "metric": "decode_throughput",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "lfm2-5-1-2b-instruct",
+      "device_class": "A18 Pro",
+      "metric": "decode_throughput",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "lfm2-5-1-2b-instruct",
+      "device_class": "M4 Max",
+      "metric": "decode_throughput",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "minicpm-v-4-6",
+      "device_class": "A18 Pro",
+      "metric": "decode_throughput",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "minicpm-v-4-6",
+      "device_class": "M4 Max",
+      "metric": "decode_throughput",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "minicpm5-1b",
+      "device_class": "A18 Pro",
+      "metric": "decode_throughput",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "minicpm5-1b",
+      "device_class": "M4 Max",
+      "metric": "decode_throughput",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "nanbeige4-1-3b",
+      "device_class": "A18 Pro",
+      "metric": "decode_throughput",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "nanbeige4-1-3b",
+      "device_class": "M4 Max",
+      "metric": "decode_throughput",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "official-flux-2-klein-4b",
+      "device_class": "M4 Max",
+      "metric": "image_generation_latency",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "official-gemma-3-12b-it",
+      "device_class": "M4 Max",
+      "metric": "decode_throughput",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "official-gemma-3-4b-it",
+      "device_class": "M4 Max",
+      "metric": "decode_throughput",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "official-gpt-oss-20b",
+      "device_class": "M4 Max",
+      "metric": "decode_throughput",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "official-mistral-7b-v0-3",
+      "device_class": "M4 Max",
+      "metric": "decode_throughput",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "official-qwen3-0-6b",
+      "device_class": "M4 Max",
+      "metric": "decode_throughput",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "official-qwen3-4b",
+      "device_class": "M4 Max",
+      "metric": "decode_throughput",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "official-qwen3-8b",
+      "device_class": "M4 Max",
+      "metric": "decode_throughput",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "official-sam-3",
+      "device_class": "M4 Max",
+      "metric": "segmentation_latency",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "official-whisper-large-v3-turbo",
+      "device_class": "M4 Max",
+      "metric": "transcription_latency",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "parakeet-tdt-0-6b",
+      "device_class": "A18 Pro",
+      "metric": "realtime_factor",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "parakeet-tdt-0-6b",
+      "device_class": "M4 Max",
+      "metric": "transcription_latency",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "qwen3-5-0-8b",
+      "device_class": "A18 Pro",
+      "metric": "decode_throughput",
+      "sample_count": 2,
+      "suppressed": true
+    },
+    {
+      "model_id": "qwen3-5-0-8b",
+      "device_class": "M4 Max",
+      "metric": "decode_throughput",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "qwen3-5-2b",
+      "device_class": "A18 Pro",
+      "metric": "decode_throughput",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "qwen3-5-2b",
+      "device_class": "M4 Max",
+      "metric": "decode_throughput",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "qwen3-6-27b",
+      "device_class": "M4 Max",
+      "metric": "decode_throughput",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "qwen3-6-35b-a3b",
+      "device_class": "M4 Max",
+      "metric": "decode_throughput",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "qwen3-embedding-0-6b",
+      "device_class": "M4 Max",
+      "metric": "inference_latency",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "qwen3-reranker-0-6b",
+      "device_class": "M4 Max",
+      "metric": "inference_latency",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "qwen3-vl-2b",
+      "device_class": "A18 Pro",
+      "metric": "decode_throughput",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "qwen3-vl-2b",
+      "device_class": "M4 Max",
+      "metric": "decode_throughput",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "rf-detr-large",
+      "device_class": "M4 Max",
+      "metric": "inference_latency",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "rf-detr-medium",
+      "device_class": "M4 Max",
+      "metric": "inference_latency",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "rf-detr-nano",
+      "device_class": "M4 Max",
+      "metric": "inference_latency",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "rf-detr-small",
+      "device_class": "M4 Max",
+      "metric": "inference_latency",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "vibevoice-0-5b",
+      "device_class": "M4 Max",
+      "metric": "realtime_factor",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "vibevoice-1-5b",
+      "device_class": "M4 Max",
+      "metric": "realtime_factor",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "vibevoice-7b",
+      "device_class": "M4 Max",
+      "metric": "realtime_factor",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "vibevoice-asr",
+      "device_class": "M4 Max",
+      "metric": "realtime_factor",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "voxcpm-0-5b",
+      "device_class": "A18 Pro",
+      "metric": "realtime_factor",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "yolox-s",
+      "device_class": "A18 Pro",
+      "metric": "inference_latency",
+      "sample_count": 1,
+      "suppressed": true
+    },
+    {
+      "model_id": "yolox-s",
+      "device_class": "M4 Max",
+      "metric": "inference_latency",
+      "sample_count": 1,
+      "suppressed": true
+    }
+  ],
+  "suppressed_count": 57,
+  "total_count": 58,
+  "published_count": 1
+}

@@ -306,6 +306,11 @@ def main() -> int:
         export_model_manifest(ROOT)
         print(f"  model-manifest.json")
 
+        # Phase 3: Generate aggregate benchmarks with minimum-k=3 suppression
+        from scripts.generate_benchmarks_aggregate import generate_aggregate as gen_agg
+        agg = gen_agg(ROOT / "benchmarks.jsonl", ROOT / "dist")
+        print(f"  benchmarks-aggregate.json ({agg['published_count']} published, {agg['suppressed_count']} suppressed)")
+
     # Sync YAML data into package for pip distribution
     print("Syncing package data...")
     import subprocess, sys

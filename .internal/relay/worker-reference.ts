@@ -278,7 +278,200 @@ export default {
   },
 };
 
+// Phase 3 additions: DeviceCheck verification + confidence upgrade
+// Add these functions to the CF Worker (worker-reference.ts)
+
+/**
+ * Verify a DeviceCheck JWT token with Apple's API.
+ * Proves the submission came from genuine Apple hardware.
+ *
+ * Requires env vars:
+ *   APPLE_TEAM_ID     — Apple Developer Team ID
+ *   APPLE_KEY_ID      — DeviceCheck key ID
+ *   APPLE_PRIVATE_KEY — ES256 private key (PEM)
+ */
+async function verifyDeviceCheck(
+  deviceToken: string,
+  transactionId: string,
+  env: Env
+): Promise<boolean> {
+  // Generate JWT for Apple API auth
+  const appleJwt = await generateAppleJWT(
+    env.APPLE_TEAM_ID!,
+    env.APPLE_KEY_ID!,
+    env.APPLE_PRIVATE_KEY!
+  );
+
+  const payload = JSON.stringify({
+    device_token: deviceToken,
+    transaction_id: transactionId,
+    timestamp: Date.now(),
+  });
+
+  const response = await fetch(
+    'https://api.developer.apple.com/devicecheck/validate_token',
+    {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${appleJwt}`,
+        'Content-Type': 'application/json',
+      },
+      body: payload,
+    }
+  );
+
+  if (!response.ok) {
+    console.error(`DeviceCheck API error: ${response.status}`);
+    return false;
+  }
+
+  const result = await response.json() as { status?: string };
+  return result.status === 'valid';
+}
+
+/**
+ * Generate an ES256 JWT for Apple API authentication.
+ * Uses Web Crypto API (available in CF Workers).
+ */
+async function generateAppleJWT(
+  teamId: string,
+  keyId: string,
+  privateKeyPem: string
+): Promise<string> {
+  // Import the ES256 key
+  const keyData = pemToDer(privateKeyPem);
+  const key = await crypto.subtle.importKey(
+    'pkcs8',
+    keyData,
+    { name: 'ECDSA', namedCurve: 'P-256' },
+    false,
+    ['sign']
+  );
+
+  // Build JWT
+  const header = { alg: 'ES256', kid: keyId, typ: 'JWT' };
+  const payload = {
+    iss: teamId,
+    iat: Math.floor(Date.now() / 1000),
+    aud: 'devicecheck-apple',
+  };
+
+  const headerB64 = base64Url(JSON.stringify(header));
+  const payloadB64 = base64Url(JSON.stringify(payload));
+  const signingInput = `${headerB64}.${payloadB64}`;
+
+  // Sign with ECDSA P-256 SHA-256
+  const signature = await crypto.subtle.sign(
+    { name: 'ECDSA', hash: 'SHA-256' },
+    key,
+    new TextEncoder().encode(signingInput)
+  );
+
+  // Convert DER signature to raw r||s (for JWT)
+  const sigBytes = new Uint8Array(signature);
+  // Apple expects raw r||s format (64 bytes)
+  // Web Crypto returns DER format — need to extract r and s
+  const rawSig = derToRaw(sigBytes);
+  const sigB64 = base64UrlBytes(rawSig);
+
+  return `${headerB64}.${payloadB64}.${sigB64}`;
+}
+
+function derToRaw(der: Uint8Array): Uint8Array {
+  // DER format: 0x30 <len> 0x02 <r_len> <r> 0x02 <s_len> <s>
+  // Extract r and s
+  let offset = 2; // skip 0x30 and len
+  if (der[offset] !== 0x02) throw new Error('Invalid DER');
+  offset++;
+  const rLen = der[offset++];
+  const r = der.slice(offset, offset + rLen);
+  offset += rLen;
+  if (der[offset] !== 0x02) throw new Error('Invalid DER');
+  offset++;
+  const sLen = der[offset++];
+  const s = der.slice(offset, offset + sLen);
+
+  // Pad/truncate to 32 bytes each
+  const rPadded = padToLength(r, 32);
+  const sPadded = padToLength(s, 32);
+
+  const result = new Uint8Array(64);
+  result.set(rPadded, 0);
+  result.set(sPadded, 32);
+  return result;
+}
+
+function padToLength(arr: Uint8Array, len: number): Uint8Array {
+  if (arr.length === len) return arr;
+  if (arr.length > len) return arr.slice(arr.length - len);
+  const padded = new Uint8Array(len);
+  padded.set(arr, len - arr.length);
+  return padded;
+}
+
+function base64Url(str: string): string {
+  return btoa(str).replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '');
+}
+
+function base64UrlBytes(bytes: Uint8Array): string {
+  let binary = '';
+  for (let i = 0; i < bytes.length; i++) {
+    binary += String.fromCharCode(bytes[i]);
+  }
+  return btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '');
+}
+
+/**
+ * Updated coarsenReport with DeviceCheck support.
+ * When DeviceCheck is verified, confidence is upgraded to 'high'.
+ */
+function coarsenReportV3(
+  report: BenchmarkReport,
+  deviceCheckValid: boolean
+): SanitizedReport {
+  const base = coarsenReport(report);
+
+  return {
+    ...base,
+    device_verified: deviceCheckValid,
+    confidence: deviceCheckValid ? 'high' : 'medium',  // Upgrade with DeviceCheck
+    model_verified: !!report.model_hash,  // Phase 3.5: verify against registry
+  };
+}
+
+// Updated fetch handler (Phase 3):
+// async fetch(request: Request, env: Env): Promise<Response> {
+//   ...
+//   const report = await request.json() as BenchmarkReport;
+//
+//   // Phase 3: Verify DeviceCheck if provided
+//   let deviceCheckValid = false;
+//   if (report.device_check_jwt) {
+//     deviceCheckValid = await verifyDeviceCheck(
+//       report.device_check_jwt,
+//       crypto.randomUUID(),
+//       env
+//     );
+//   }
+//
+//   // Phase 3: Verify model hash against registry
+//   let modelHashValid = false;
+//   if (report.model_hash) {
+//     modelHashValid = await verifyModelHash(report.model_hash, report.model_id, env);
+//   }
+//
+//   const sanitized = coarsenReportV3(report, deviceCheckValid);
+//   sanitized.model_verified = modelHashValid;
+//
+//   // Sign and submit (same as Phase 2)
+//   ...
+// }
+
 interface Env {
   RELAY_PRIVATE_KEY: string;     // Ed25519 PEM, set via wrangler secret
   GITHUB_APP_TOKEN: string;       // Fine-grained PAT, set via wrangler secret
+  // Phase 3:
+  APPLE_TEAM_ID: string;          // Apple Developer Team ID
+  APPLE_KEY_ID: string;           // DeviceCheck key ID
+  APPLE_PRIVATE_KEY: string;      // ES256 private key (PEM)
 }
