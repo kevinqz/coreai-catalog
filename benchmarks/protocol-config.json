@@ -1,0 +1,90 @@
+{
+  "protocol_version": "1.0",
+  "standard_prompt": {
+    "text": "The quick brown fox jumps over the lazy dog. ",
+    "repeat_until_tokens": 128
+  },
+  "metrics": [
+    {
+      "metric": "decode_throughput",
+      "applicable_model_types": ["llm", "vlm"],
+      "standard_input": "128-token standard prompt, 256-token generation",
+      "unit": "tokens_per_second",
+      "warmup_runs": 3,
+      "measured_runs": 10,
+      "statistic": "median"
+    },
+    {
+      "metric": "time_to_first_token",
+      "applicable_model_types": ["llm", "vlm"],
+      "standard_input": "128-token standard prompt",
+      "unit": "milliseconds",
+      "warmup_runs": 3,
+      "measured_runs": 10,
+      "statistic": "median"
+    },
+    {
+      "metric": "image_generation_latency",
+      "applicable_model_types": ["diffusion"],
+      "standard_input": "Prompt: 'a cat sitting on a table', 28 steps",
+      "unit": "seconds",
+      "warmup_runs": 1,
+      "measured_runs": 3,
+      "statistic": "median"
+    },
+    {
+      "metric": "realtime_factor",
+      "applicable_model_types": ["speech"],
+      "standard_input": "30-second standard audio clip",
+      "unit": "realtime_factor",
+      "warmup_runs": 1,
+      "measured_runs": 3,
+      "statistic": "median"
+    },
+    {
+      "metric": "segmentation_latency",
+      "applicable_model_types": ["segmenter"],
+      "standard_input": "Standard 512x512 test image, prompt: 'object'",
+      "unit": "seconds_per_image",
+      "warmup_runs": 1,
+      "measured_runs": 5,
+      "statistic": "median"
+    },
+    {
+      "metric": "inference_fps",
+      "applicable_model_types": ["detector"],
+      "standard_input": "Standard test image",
+      "unit": "frames_per_second",
+      "warmup_runs": 3,
+      "measured_runs": 10,
+      "statistic": "median"
+    },
+    {
+      "metric": "audio_generation_rtf",
+      "applicable_model_types": ["diffusion"],
+      "standard_input": "Text: 'Hello world'",
+      "unit": "realtime_factor",
+      "warmup_runs": 1,
+      "measured_runs": 3,
+      "statistic": "median"
+    }
+  ],
+  "environment_capture": {
+    "thermal_state": true,
+    "low_power_mode": true,
+    "battery_level": true,
+    "plugged_in": true
+  },
+  "device_coarsening": {
+    "mapping": [
+      { "raw_prefix": "iPhone17", "device_class": "iphone-a18-pro", "chip_family": "A18 Pro" },
+      { "raw_prefix": "iPhone16", "device_class": "iphone-a17-pro", "chip_family": "A17 Pro" },
+      { "raw_prefix": "iPhone15", "device_class": "iphone-a16", "chip_family": "A16" },
+      { "raw_prefix": "iPad16", "device_class": "ipad-m4", "chip_family": "M4" },
+      { "raw_prefix": "iPad14", "device_class": "ipad-m2", "chip_family": "M2" },
+      { "raw_prefix": "Mac16", "device_class": "mac-m4-max", "chip_family": "M4 Max" },
+      { "raw_prefix": "Mac15", "device_class": "mac-m3-max", "chip_family": "M3 Max" },
+      { "raw_prefix": "Mac14", "device_class": "mac-m2", "chip_family": "M2" }
+    ]
+  }
+}

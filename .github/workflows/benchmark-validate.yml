@@ -1,0 +1,106 @@
+name: Benchmark Validation
+
+on:
+  pull_request:
+    paths:
+      - 'benchmarks/benchmarks.jsonl'
+      - 'benchmarks/pending/**'
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Need full history for diff
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Install dependencies
+        run: pip install pyyaml jsonschema
+
+      - name: Extract new benchmark lines
+        id: extract
+        run: |
+          mkdir -p /tmp/work
+          # Get lines added in the PR (compared to origin/main)
+          git diff origin/${{ github.base_ref }} HEAD -- benchmarks/benchmarks.jsonl 2>/dev/null \
+            | grep '^+' \
+            | grep -v '^+++' \
+            > /tmp/work/new_lines.jsonl || true
+
+          LINE_COUNT=$(wc -l < /tmp/work/new_lines.jsonl || echo 0)
+          echo "line_count=$LINE_COUNT" >> $GITHUB_OUTPUT
+          echo "Extracted $LINE_COUNT new benchmark line(s)"
+
+      - name: Schema validation
+        if: steps.extract.outputs.line_count > 0
+        run: |
+          python3 scripts/validate_benchmark.py \
+            --input /tmp/work/new_lines.jsonl \
+            --schema schema/benchmark.schema.json
+
+      - name: Cross-reference check
+        if: steps.extract.outputs.line_count > 0
+        run: |
+          python3 -c "
+          import json, yaml, sys
+          cat = yaml.safe_load(open('catalog.yaml'))
+          valid_ids = {m['id'] for m in cat['models']}
+          errors = []
+          for line in open('/tmp/work/new_lines.jsonl'):
+              line = line.strip()
+              if not line: continue
+              entry = json.loads(line)
+              mid = entry.get('model_id', '')
+              if mid not in valid_ids:
+                  errors.append(f'Unknown model_id: {mid}')
+          if errors:
+              for e in errors: print(f'  ERROR: {e}')
+              sys.exit(1)
+          print(f'  All model_ids valid')
+          "
+
+      - name: Outlier detection (MAD)
+        id: mad
+        if: steps.extract.outputs.line_count > 0
+        run: |
+          RESULT=$(python3 scripts/outlier_check.py \
+            --input /tmp/work/new_lines.jsonl \
+            --existing benchmarks/benchmarks.jsonl)
+          echo "result=$RESULT" >> $GITHUB_OUTPUT
+          echo "$RESULT"
+
+      - name: Auto-merge if all checks pass
+        if: |
+          steps.extract.outputs.line_count > 0 &&
+          steps.mad.outputs.result == 'pass'
+        uses: pascalgn/automerge-action@v0.16.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          args: --method=squash
+
+      - name: Label for review if outlier
+        if: |
+          steps.extract.outputs.line_count > 0 &&
+          steps.mad.outputs.result != 'pass'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.addLabels({
+              issue_number: context.issue.number,
+              labels: ['needs-review', 'benchmark-outlier']
+            });
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              body: '⚠️ This submission was flagged as an outlier or has insufficient data for comparison. A curator will review it.'
+            });
