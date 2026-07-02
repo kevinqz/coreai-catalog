@@ -85,7 +85,7 @@
       "transport": ["cli", "mcp"]
     },
     {
-      "id": "transforms",
+      "id": "query_transforms",
       "name": "Plan transform pipeline",
       "description": "Plan multi-hop modality transformation pipelines between Core AI models. With no arguments, returns the full transform graph. With --from, lists models that accept a given input modality. With --from and --to, computes the shortest transform pipeline from source to target modality.",
       "human_approval_required": false,

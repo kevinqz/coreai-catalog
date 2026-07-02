@@ -309,7 +309,7 @@ paths:
         - No parameters: returns the full transform graph (all models and their input→output modality edges).
         - `from` only: lists all models that accept the given input modality.
         - `from` + `to`: computes the shortest transform pipeline from source to target modality.
-      operationId: transforms
+      operationId: query_transforms
       parameters:
         - name: from
           in: query

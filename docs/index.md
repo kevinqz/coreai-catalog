@@ -1,7 +1,5 @@
 # Core AI Catalog Docs
 
-> **Version:** 2.1.0 · **Last updated:** 2026-07-02
-
 ## Core views
 
 - [Model Registry](./model-registry.md)
@@ -10,9 +8,6 @@
 - [Artifact Provenance](./artifact-provenance.md)
 - [Upstream Map](./upstream-map.md)
 - [Benchmark Map](./benchmark-map.md)
-- [Benchmark Protocol](./benchmark-protocol.md)
-- [Anchor Cohort](./anchor-cohort.md)
-- [Privacy Policy](./privacy-policy.md)
 - [Source Map](./source-map.md)
 - [Apple Terminology Map](./apple-terminology-map.md)
 - [Data Model](./data-model.md)

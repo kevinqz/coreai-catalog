@@ -2,7 +2,7 @@
 """
 Core AI Catalog MCP Server — exposes catalog tools to AI agents.
 
-Provides 11 tools for model discovery, comparison, recommendation,
+Provides 12 tools for model discovery, comparison, recommendation,
 license triage, and terminology explanation via the Model Context Protocol.
 
 Usage (stdio transport — standard for Claude Desktop, Cursor, etc.):

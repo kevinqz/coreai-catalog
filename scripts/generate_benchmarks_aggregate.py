@@ -19,6 +19,19 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def _get_catalog_version_safe(jsonl_path: Path) -> str:
+    """Try to read catalog version from catalog.yaml."""
+    import yaml
+    catalog_path = jsonl_path.parent / "catalog.yaml"
+    if catalog_path.exists():
+        try:
+            data = yaml.safe_load(catalog_path.read_text()) or {}
+            return data.get("metadata", {}).get("version", "unknown")
+        except Exception:
+            pass
+    return "unknown"
+
+
 def generate_aggregate(jsonl_path: Path | None = None, dist: Path | None = None) -> dict:
     """Generate aggregate statistics from benchmarks.jsonl.
 
@@ -95,6 +108,9 @@ def generate_aggregate(jsonl_path: Path | None = None, dist: Path | None = None)
         })
 
     output = {
+        "export_schema_version": "1.0",
+        "export_catalog_version": _get_catalog_version_safe(jsonl_path),
+        "description": "Aggregate benchmark statistics grouped by model_id + device_class + metric. Entries with sample_count < 3 are suppressed (suppressed: true) to protect privacy. Only high/medium confidence entries are included.",
         "aggregates": aggregates,
         "suppressed_count": suppressed_count,
         "total_count": len(aggregates),

@@ -95,7 +95,7 @@ MCP server (for Claude Desktop, Cursor, MCP-compatible agents):
 
 12 tools: `search_models`, `get_model`, `compare_models`, `recommend_model`,
 `check_license`, `get_benchmarks`, `get_artifact`, `explain_term`,
-`get_capabilities`, `get_tasks`, `get_version`, `transforms`.
+`get_capabilities`, `get_tasks`, `get_version`, `query_transforms`.
 
 All tools are read-only. Configuration:
 
