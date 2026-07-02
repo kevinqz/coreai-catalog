@@ -21,7 +21,7 @@
     }
   ],
   "export_schema_version": "1.0",
-  "export_catalog_version": "2.0.5",
+  "export_catalog_version": "2.1.0",
   "best_overall": "qwen2-5-omni-3b-audio",
   "best_iphone": "qwen2-5-omni-3b-audio",
   "best_commercial": "qwen2-5-omni-3b-audio"

@@ -44,8 +44,9 @@ mcp = FastMCP(
     "coreai-catalog",
     instructions=(
         "Core AI Catalog — a source-grounded registry of 79 Apple Core AI models. "
-        "Use these tools to discover, compare, and recommend models for on-device "
-        "Apple Silicon deployment. All data is grounded in upstream sources "
+        "Use these tools to discover, compare, recommend models and plan multi-modal "
+        "transformation pipelines for on-device Apple Silicon deployment. "
+        "All data is grounded in upstream sources "
         "(Hugging Face, GitHub, Apple documentation). Never fabricate model "
         "specifications — if a tool returns 'unknown', report it as unknown."
     ),
@@ -511,7 +512,67 @@ def get_tasks() -> str:
     }, indent=2)
 
 
-# ── Tool 11: get_version ──
+# ── Tool 11: query_transforms ──
+
+@mcp.tool()
+def query_transforms(
+    from_modality: str | None = None,
+    to_modality: str | None = None,
+) -> str:
+    """Query the modality transformation graph.
+
+    Discover how to transform one media type into another by chaining
+    Core AI models on-device. Supports multi-hop pipelines.
+
+    Args:
+        from_modality: Input modality (e.g. 'text', 'image', 'audio',
+            'document_image'). If omitted, returns the full reachability matrix.
+        to_modality: Target output modality. If omitted (but from is set),
+            returns all reachable outputs from that input.
+
+    Returns:
+        JSON with the transformation pipeline or reachability data.
+        Pipeline includes model IDs for each stage, with install commands.
+    """
+    from coreai_catalog.transform_graph import TransformGraph
+    graph = TransformGraph(catalog.models, catalog)
+
+    if from_modality and to_modality:
+        pipeline = graph.shortest_path(from_modality, to_modality)
+        if not pipeline:
+            return json.dumps({
+                "from": from_modality,
+                "to": to_modality,
+                "error": "No transform path found",
+                "hint": f"Check reachable outputs: query_transforms(from_modality='{from_modality}')",
+            }, indent=2)
+        result = pipeline.to_dict()
+        result["from"] = from_modality
+        result["to"] = to_modality
+        for stage in result["stages"]:
+            stage["install"] = f"coreai-catalog install {stage['model_id']}"
+        return json.dumps(result, indent=2)
+
+    elif from_modality:
+        reachable = sorted(graph.reachable_outputs(from_modality))
+        return json.dumps({
+            "from": from_modality,
+            "reachable_outputs": reachable,
+            "count": len(reachable),
+        }, indent=2)
+
+    else:
+        matrix = graph.reachability_matrix()
+        return json.dumps({
+            "input_modalities": sorted(graph.input_modalities),
+            "output_modalities": sorted(graph.output_modalities),
+            "reachability": {k: sorted(v) for k, v in sorted(matrix.items())},
+            "direct_transforms": len(graph.get_all_modality_pairs()),
+            "total_reachable_pairs": sum(len(v) for v in matrix.values()),
+        }, indent=2)
+
+
+# ── Tool 12: get_version ──
 
 @mcp.tool()
 def get_version() -> str:
