@@ -75,6 +75,30 @@ def _parse_params(val) -> float:
     return float("inf")
 
 
+#: Readiness-score weights. Single source of truth for every point value
+#: used in `Catalog.readiness_score()`. Keep keys names aligned with the
+#: field being checked so they are easy to audit.
+SCORING_WEIGHTS: dict[str, int] = {
+    "artifact_available": 15,
+    "license_likely": 10,
+    "device_iphone": 10,
+    "device_mac": 10,
+    "has_benchmark": 10,
+    "stock_runtime": 10,
+    "no_custom_kernel": 5,
+    "no_patch_required": 5,
+    "no_aot_required": 5,
+    "status_confirmed": 10,
+    "confidence_high": 5,
+    "confidence_medium": 3,
+    "confidence_low": -10,
+    "maturity_stable_active": 5,
+    "quality_bonus_large_model": 3,
+    # Separate from readiness_score but used in recommend_models
+    "recommend_benchmark_boost": 5,
+}
+
+
 #: Common abbreviations and aliases → canonical capability names.
 CAPABILITY_ALIASES: dict[str, str] = {
     "vlm": "vision-language",
@@ -135,9 +159,25 @@ class Catalog:
         self._sources: list[dict] = []
         self._art_by_id: dict[str, dict] = {}
         self._bench_by_model: dict[str, list[dict]] = {}
+        self._known_caps: set[str] = set()
+        self._models_by_id: dict[str, dict] = {}
+        self._load_mtime: float = 0.0
+
+    def _check_mtime_changed(self) -> bool:
+        """Check if source files have been modified since last load."""
+        import os
+        max_mtime = 0.0
+        for name in ("catalog.yaml", "benchmarks.jsonl", "benchmarks.yaml", "artifacts.yaml"):
+            p = self.root / name
+            if p.exists():
+                try:
+                    max_mtime = max(max_mtime, os.path.getmtime(p))
+                except OSError:
+                    pass
+        return max_mtime != self._load_mtime
 
     def _load(self) -> None:
-        if self._loaded:
+        if self._loaded and not self._check_mtime_changed():
             return
 
         def read_yml(name: str) -> dict:
@@ -168,7 +208,26 @@ class Catalog:
             mid = b.get("model_id", "")
             self._bench_by_model.setdefault(mid, []).append(b)
 
+        # Cache the union of all capability names (used by search())
+        self._known_caps: set[str] = set()
+        for m in self._models:
+            for c in m.get("capabilities", []):
+                self._known_caps.add(c)
+
+        # O(1) model lookup by lowercased ID
+        self._models_by_id = {m["id"].lower(): m for m in self._models if "id" in m}
+
         self._loaded = True
+        self._load_mtime = self._check_mtime_changed() and 0.0  # force re-eval next time if mtime check fails
+        # Actually just record current mtime
+        import os
+        for name in ("catalog.yaml", "benchmarks.jsonl", "benchmarks.yaml", "artifacts.yaml"):
+            p = self.root / name
+            if p.exists():
+                try:
+                    self._load_mtime = max(self._load_mtime, os.path.getmtime(p))
+                except OSError:
+                    pass
 
     def _load_benchmarks(self) -> list[dict]:
         """Load benchmarks from JSONL (preferred) or YAML (legacy fallback)."""
@@ -202,6 +261,15 @@ class Catalog:
         return bench.get("benchmarks", [])
 
     @property
+    def transform_graph(self):
+        """Cached TransformGraph — rebuilt only when catalog reloads."""
+        if not hasattr(self, '_graph_cache') or self._check_mtime_changed():
+            from .transform_graph import TransformGraph
+            self._load()
+            self._graph_cache = TransformGraph(self._models, self)
+        return self._graph_cache
+
+    @property
     def models(self) -> list[dict]:
         self._load()
         return self._models
@@ -226,11 +294,7 @@ class Catalog:
         self._load()
         if not isinstance(model_id, str) or not model_id.strip():
             return None
-        lower = model_id.lower().strip()
-        for m in self._models:
-            if m["id"].lower() == lower:
-                return m
-        return None
+        return self._models_by_id.get(model_id.lower().strip())
 
     def get_artifact(self, model_id: str) -> dict | None:
         """Get the artifact record for a model."""
@@ -270,11 +334,7 @@ class Catalog:
     def _known_capabilities(self) -> set[str]:
         """Return the set of all canonical capability names defined in the catalog."""
         self._load()
-        caps: set[str] = set()
-        for m in self._models:
-            for c in m.get("capabilities", []):
-                caps.add(c)
-        return caps
+        return self._known_caps
 
     def search(
         self,
@@ -355,38 +415,39 @@ class Catalog:
         """
         if not model or not isinstance(model, dict):
             return 0
+        sw = SCORING_WEIGHTS
         has_bench = bool(self._bench_by_model.get(model.get("id", "")))
         score = 0
         if model.get("artifact", {}).get("availability") == "available":
-            score += 15
+            score += sw["artifact_available"]
         if model.get("license", {}).get("commercial_use") == "likely":
-            score += 10
+            score += sw["license_likely"]
         if model.get("device_support", {}).get("iphone") is True:
-            score += 10
+            score += sw["device_iphone"]
         if model.get("device_support", {}).get("mac") is True:
-            score += 10
+            score += sw["device_mac"]
         if has_bench:
-            score += 10
+            score += sw["has_benchmark"]
         rt = model.get("runtime", {})
         if rt.get("stock_runtime") is True:
-            score += 10
+            score += sw["stock_runtime"]
         if rt.get("custom_kernel") is False:
-            score += 5
+            score += sw["no_custom_kernel"]
         if rt.get("patch_required") is False:
-            score += 5
+            score += sw["no_patch_required"]
         if rt.get("aot_required") is False:
-            score += 5
+            score += sw["no_aot_required"]
         if model.get("status") == "confirmed":
-            score += 10
+            score += sw["status_confirmed"]
         conf = model.get("confidence", "")
         if conf == "high":
-            score += 5
+            score += sw["confidence_high"]
         elif conf == "medium":
-            score += 3
+            score += sw["confidence_medium"]
         elif conf == "low":
-            score -= 10
+            score += sw["confidence_low"]
         if model.get("maturity") in ("stable", "active"):
-            score += 5
+            score += sw["maturity_stable_active"]
 
         # Quality-proxy: boost large models for quality-sensitive tasks
         # unless the task explicitly targets on-device/edge/mobile.
@@ -396,7 +457,7 @@ class Catalog:
             if not is_edge:
                 params = _parse_params(model.get("size", {}).get("parameters"))
                 if params != float("inf") and params > 2.0:
-                    score += 3
+                    score += sw["quality_bonus_large_model"]
 
         return max(0, min(100, score))
 
@@ -453,7 +514,7 @@ class Catalog:
                     continue
             score = self.readiness_score(m, task=task)
             if self._bench_by_model.get(m["id"]):
-                score += 5
+                score += SCORING_WEIGHTS["recommend_benchmark_boost"]
             candidates.append({
                 "id": m["id"],
                 "name": m["name"],

@@ -63,11 +63,13 @@ jobs:
           "
           coreai-catalog doctor || true
           python -c "
-          import sys; sys.path.insert(0, '.')
+          import sys, json; sys.path.insert(0, '.')
           from mcp_server.server import mcp
           tools = mcp._tool_manager._tools
+          agent_json = json.load(open('agent.json'))
+          expected = agent_json.get("mcp_server", {}).get("tools", len(tools))
           print(f'MCP tools: {len(tools)}')
-          assert len(tools) == 11, f'Expected 11 tools, got {len(tools)}'
+          assert len(tools) == expected, f'Expected {expected} tools, got {len(tools)}'
           print('MCP server OK')
           "
 

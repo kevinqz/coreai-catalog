@@ -36,7 +36,7 @@ from mcp.server.fastmcp import FastMCP
 
 from coreai_catalog.catalog import Catalog, resolve_task
 
-# Initialize catalog once at startup
+# Catalog singleton — auto-reloads when source files change (mtime check in Catalog._load)
 catalog = Catalog(_ROOT)
 
 # Create MCP server
