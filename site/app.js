@@ -120,6 +120,14 @@
       });
 
       $('search-box').placeholder = 'Search ' + MODELS.length + ' models\u2026';
+
+      // Populate dynamic About stats
+      var statModels = $('stat-models');
+      if (statModels) statModels.textContent = MODELS.length;
+      var totalBench = MODELS.reduce(function (s, m) { return s + ((m.benchmarks && m.benchmarks.length) || 0); }, 0);
+      var statBench = $('stat-benchmarks');
+      if (statBench) statBench.textContent = totalBench;
+
       applyFilters();
     } catch (err) {
       $('model-grid').innerHTML = '<div class="empty-state"><p>Failed to load data.</p></div>';

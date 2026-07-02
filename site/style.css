@@ -527,7 +527,9 @@ footer a:hover { text-decoration: underline; }
   .tab-content.active { flex-direction: column; }
   #model-grid { grid-template-columns: 1fr; }
   .contribute-grid { grid-template-columns: 1fr; }
-  #scores.active { max-width: 100%; }
+  #scores.active, #about.active, #contribute.active { max-width: 100%; }
+  /* Ensure block-display tabs don't inherit flex column */
+  #tasks.active, #about.active, #contribute.active, #scores.active { display: block; }
 }
 @media (max-width: 480px) {
   .header-inner { padding: .5rem .85rem; }
@@ -536,4 +538,14 @@ footer a:hover { text-decoration: underline; }
   .header-tagline { display: none; }
   .stat-row { gap: 1rem; }
   .stat-num { font-size: 1.1rem; }
+  /* Contribute cards: stack icons tighter, prevent code overflow */
+  .contribute-card { padding: .65rem; overflow-wrap: break-word; word-break: break-word; }
+  .contribute-card .code-block pre { font-size: .68rem; }
+  .contribute-card .resource-list li { font-size: .78rem; }
+  /* Leaderboard: tighter columns on narrow screens */
+  .lb-table { font-size: .72rem; min-width: 480px; }
+  .lb-caps { max-width: 120px; }
+  .lb-params { width: 70px; }
+  .lb-score { width: 60px; }
+  .lb-bench { width: 50px; }
 }
