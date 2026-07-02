@@ -1,204 +1,135 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Core AI Catalog Benchmark",
-  "description": "Benchmark measurement for a Core AI model. v2 adds optional methodology, device_info, runtime_config, provenance, and environment_state blocks for crowdsourced benchmarks. All new fields are optional — existing v1 entries remain valid.",
+  "title": "Core AI Benchmark Entry v2.0",
+  "description": "Benchmark entry for Core AI models. Designed for JSONL append-only storage with full provenance.",
   "type": "object",
+  "additionalProperties": false,
   "required": [
+    "id",
     "model_id",
     "metric",
-    "unit",
     "value",
-    "observed",
-    "source",
-    "confidence"
+    "unit",
+    "device_class",
+    "os_major",
+    "compute_unit",
+    "extraction_method",
+    "confidence",
+    "observed_date",
+    "source"
   ],
   "properties": {
     "id": {
       "type": "string",
-      "minLength": 1,
-      "description": "Unique benchmark ID. Auto-generated for crowdsourced entries."
+      "minLength": 1
     },
     "model_id": {
       "type": "string",
-      "minLength": 1,
-      "description": "Must resolve to a model in catalog.yaml."
+      "minLength": 1
     },
     "metric": {
       "type": "string",
       "enum": [
         "decode_throughput",
-        "time_to_first_token",
         "prompt_processing_throughput",
+        "time_to_first_token",
+        "peak_memory",
         "image_generation_latency",
-        "segmentation_latency",
-        "transcription_latency",
-        "prefill_latency",
-        "memory_footprint",
-        "inference_latency",
+        "transcription_realtime_factor",
         "inference_fps",
-        "realtime_factor",
-        "audio_generation_rtf",
-        "embedding_throughput"
+        "segmentation_latency"
       ]
+    },
+    "value": {
+      "type": "number",
+      "exclusiveMinimum": 0
     },
     "unit": {
       "type": "string",
       "enum": [
         "tokens_per_second",
-        "seconds",
-        "seconds_per_image",
-        "seconds_per_token",
-        "megabytes",
         "milliseconds",
+        "seconds",
+        "megabytes",
         "frames_per_second",
+        "seconds_per_image",
         "realtime_factor"
       ]
     },
-    "value": { "type": ["number", "null", "string"] },
-    "device": {
-      "type": ["string", "null"],
-      "description": "Human-readable device name or coarsened device class (e.g. 'iphone-a18-pro')."
+    "device_class": {
+      "type": "string",
+      "description": "Coarsened hardware class (e.g. 'A18 Pro', 'M4 Max'). Never raw device model.",
+      "minLength": 1
+    },
+    "os_major": {
+      "type": "string",
+      "description": "Major OS version only (e.g. '27', '26').",
+      "minLength": 1
     },
     "compute_unit": {
-      "type": ["string", "null"],
-      "enum": ["GPU", "ANE", "CPU", "mixed", null]
-    },
-    "precision": { "type": ["string", "null"] },
-    "environment": {
-      "type": ["string", "null"],
-      "minLength": 1,
-      "description": "Free-text environment description (e.g. 'iOS 27.0, coreai-pipelined engine')."
-    },
-    "observed": {
       "type": "string",
-      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-      "description": "Date of measurement (date only, no time component)."
+      "enum": ["GPU", "ANE", "CPU", "mixed", "unknown"]
     },
-    "source": {
+    "precision": {
+      "type": "string"
+    },
+    "extraction_method": {
       "type": "string",
-      "minLength": 1,
-      "description": "Provenance source identifier (sources.yaml ref, 'crowdsourced', or upstream ID)."
+      "enum": [
+        "app_benchmark_protocol",
+        "upstream_readme_manual",
+        "upstream_readme_scripted",
+        "hf_metadata_api",
+        "community_submission",
+        "derived_calculated",
+        "apple_documentation"
+      ]
     },
     "confidence": {
       "type": "string",
       "enum": ["high", "medium", "low", "needs_review"]
     },
-    "higher_is_better": { "type": "boolean" },
-    "superseded_by": { "type": ["string", "null"] },
-    "notes": { "type": ["string", "null"] },
-
-    "methodology": {
-      "type": "object",
-      "description": "Reproducibility metadata. How the benchmark was measured.",
-      "properties": {
-        "protocol_version": { "type": "string", "description": "e.g. '1.0'" },
-        "prompt_tokens": { "type": ["integer", "null"] },
-        "generation_tokens": { "type": ["integer", "null"] },
-        "warmup_runs": { "type": ["integer", "null"] },
-        "measured_runs": { "type": ["integer", "null"] },
-        "statistic": {
-          "type": ["string", "null"],
-          "enum": ["median", "mean", "max", "min", null]
-        },
-        "stddev": { "type": ["number", "null"] },
-        "p50": { "type": ["number", "null"] },
-        "p95": { "type": ["number", "null"] }
-      },
-      "additionalProperties": false
+    "observed_date": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "description": "Date only (YYYY-MM-DD). Never includes time."
     },
-
-    "device_info": {
-      "type": "object",
-      "description": "Coarsened device fingerprint. Exact model is never stored — only the class.",
-      "properties": {
-        "device_class": {
-          "type": "string",
-          "description": "Coarsened device class (e.g. 'iphone-a18-pro', 'mac-m4-max')."
-        },
-        "chip_family": {
-          "type": "string",
-          "description": "Chip family (e.g. 'A18 Pro', 'M4 Max')."
-        },
-        "ram_gb": { "type": ["integer", "null"] },
-        "os_major_version": { "type": ["string", "null"] }
-      },
-      "additionalProperties": false
+    "source": {
+      "type": "string",
+      "minLength": 1
     },
-
-    "runtime_config": {
-      "type": "object",
-      "description": "Exact runtime configuration used for the benchmark.",
-      "properties": {
-        "engine": {
-          "type": "string",
-          "enum": ["coreai-pipelined", "coreai-sequential", "coreai", "unknown"]
-        },
-        "batch_size": { "type": ["integer", "null"] },
-        "context_length": { "type": ["integer", "null"] }
-      },
-      "additionalProperties": false
+    "device_verified": {
+      "type": "boolean",
+      "description": "DeviceCheck JWT verified by relay. False for historical/CLI data."
     },
-
-    "environment_state": {
-      "type": "object",
-      "description": "Environmental factors that affect performance.",
-      "properties": {
-        "thermal_state": {
-          "type": ["string", "null"],
-          "enum": ["nominal", "fair", "serious", "critical", null]
-        },
-        "low_power_mode": { "type": ["boolean", "null"] },
-        "battery_level": {
-          "type": ["number", "null"],
-          "description": "Coarsened to 0.1 steps (0.0-1.0)."
-        },
-        "plugged_in": { "type": ["boolean", "null"] }
-      },
-      "additionalProperties": false
+    "model_verified": {
+      "type": "boolean",
+      "description": "SHA256 of model matches catalog registry. Verified by relay."
     },
-
-    "model_hash": {
-      "type": ["string", "null"],
-      "description": "SHA256 of .aimodel bundle contents (weights only, no paths). Used for reproducibility verification."
+    "higher_is_better": {
+      "type": "boolean"
     },
-
-    "provenance": {
+    "submission_channel": {
+      "type": "string",
+      "description": "App identifier (e.g. 'ditto-ios-0.1.0')."
+    },
+    "environment": {
       "type": "object",
-      "description": "Full provenance chain for this benchmark.",
+      "additionalProperties": true,
       "properties": {
-        "source": {
-          "type": "string",
-          "enum": ["crowdsourced", "manual", "upstream", "derived"]
-        },
-        "extraction_method": {
-          "type": "string",
-          "enum": [
-            "app_benchmark_protocol",
-            "app_benchmark_user_initiated",
-            "hf_metadata_api",
-            "hf_file_listing",
-            "apple_documentation",
-            "upstream_readme_scripted",
-            "upstream_readme_manual",
-            "upstream_release_notes",
-            "derived_calculated",
-            "community_submission"
-          ]
-        },
-        "device_attestation": {
-          "type": "boolean",
-          "description": "True if Apple App Attest verified the submission."
-        },
-        "verification_status": {
-          "type": "string",
-          "enum": ["accepted", "pending", "quarantined", "rejected"]
-        },
-        "auto_merged": {
-          "type": "boolean",
-          "description": "True if auto-merged by GitHub Action (MAD passed + attestation valid)."
-        }
-      },
-      "additionalProperties": false
+        "protocol_version": { "type": "string" },
+        "engine": { "type": "string" },
+        "warmup_runs": { "type": "integer", "minimum": 0 },
+        "measured_runs": { "type": "integer", "minimum": 1 },
+        "statistic": { "type": "string" },
+        "stddev": { "type": "number", "minimum": 0 },
+        "thermal_state": { "type": "string" },
+        "battery_state": { "type": "string" },
+        "low_power_mode": { "type": "boolean" }
+      }
+    },
+    "notes": {
+      "type": ["string", "null"]
     }
   }
 }

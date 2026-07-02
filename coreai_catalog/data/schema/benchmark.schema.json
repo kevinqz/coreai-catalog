@@ -1,17 +1,22 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Core AI Catalog Benchmark",
+  "title": "Core AI Benchmark Entry v2.0",
+  "description": "Benchmark entry for Core AI models. Designed for JSONL append-only storage with full provenance.",
   "type": "object",
   "additionalProperties": false,
   "required": [
     "id",
     "model_id",
     "metric",
+    "value",
     "unit",
-    "source",
-    "environment",
-    "observed",
-    "confidence"
+    "device_class",
+    "os_major",
+    "compute_unit",
+    "extraction_method",
+    "confidence",
+    "observed_date",
+    "source"
   ],
   "properties": {
     "id": {
@@ -26,52 +31,105 @@
       "type": "string",
       "enum": [
         "decode_throughput",
+        "prompt_processing_throughput",
+        "time_to_first_token",
+        "peak_memory",
         "image_generation_latency",
-        "segmentation_latency",
-        "transcription_latency",
-        "prefill_latency",
-        "memory_footprint",
-        "inference_latency",
-        "realtime_factor"
+        "transcription_realtime_factor",
+        "inference_fps",
+        "segmentation_latency"
       ]
+    },
+    "value": {
+      "type": "number",
+      "exclusiveMinimum": 0
     },
     "unit": {
       "type": "string",
       "enum": [
         "tokens_per_second",
-        "seconds",
-        "seconds_per_image",
-        "seconds_per_token",
-        "megabytes",
         "milliseconds",
+        "seconds",
+        "megabytes",
         "frames_per_second",
+        "seconds_per_image",
         "realtime_factor"
       ]
     },
-    "value": { "type": ["number", "null", "string"] },
-    "device": { "type": ["string", "null"] },
-    "compute_unit": {
-      "type": ["string", "null"],
-      "enum": ["GPU", "ANE", "CPU", null]
-    },
-    "precision": { "type": ["string", "null"] },
-    "environment": { "type": "string", "minLength": 1 },
-    "observed": {
+    "device_class": {
       "type": "string",
-      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
-    },
-    "source": {
-      "type": "string",
+      "description": "Coarsened hardware class (e.g. 'A18 Pro', 'M4 Max'). Never raw device model.",
       "minLength": 1
+    },
+    "os_major": {
+      "type": "string",
+      "description": "Major OS version only (e.g. '27', '26').",
+      "minLength": 1
+    },
+    "compute_unit": {
+      "type": "string",
+      "enum": ["GPU", "ANE", "CPU", "mixed", "unknown"]
+    },
+    "precision": {
+      "type": "string"
+    },
+    "extraction_method": {
+      "type": "string",
+      "enum": [
+        "app_benchmark_protocol",
+        "upstream_readme_manual",
+        "upstream_readme_scripted",
+        "hf_metadata_api",
+        "community_submission",
+        "derived_calculated",
+        "apple_documentation"
+      ]
     },
     "confidence": {
       "type": "string",
       "enum": ["high", "medium", "low", "needs_review"]
     },
+    "observed_date": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "description": "Date only (YYYY-MM-DD). Never includes time."
+    },
+    "source": {
+      "type": "string",
+      "minLength": 1
+    },
+    "device_verified": {
+      "type": "boolean",
+      "description": "DeviceCheck JWT verified by relay. False for historical/CLI data."
+    },
+    "model_verified": {
+      "type": "boolean",
+      "description": "SHA256 of model matches catalog registry. Verified by relay."
+    },
     "higher_is_better": {
       "type": "boolean"
     },
-    "superseded_by": { "type": ["string", "null"] },
-    "notes": { "type": ["string", "null"] }
+    "submission_channel": {
+      "type": "string",
+      "description": "App identifier (e.g. 'ditto-ios-0.1.0')."
+    },
+    "environment": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "protocol_version": { "type": "string" },
+        "engine": { "type": "string" },
+        "warmup_runs": { "type": "integer", "minimum": 0 },
+        "measured_runs": { "type": "integer", "minimum": 1 },
+        "statistic": { "type": "string" },
+        "stddev": { "type": "number", "minimum": 0 },
+        "thermal_state": { "type": "string" },
+        "battery_state": { "type": "string" },
+        "low_power_mode": { "type": "boolean" }
+      }
+    },
+    "notes": {
+      "type": ["string", "null"]
+    }
   }
 }

@@ -1,0 +1,33 @@
+name: Benchmark Submission
+description: Submit a benchmark result for a Core AI model
+title: "benchmark: [model-id] on [device-class]"
+labels: ["benchmark-submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Benchmark Submission
+
+        Submit benchmark data as a single JSONL line. A maintainer will review and merge.
+
+        **Schema:** See `schema/benchmark.schema.json` for required fields.
+        **Privacy:** Do NOT include device serial numbers, user identifiers, or timestamps more precise than a date.
+
+  - type: textarea
+    id: benchmark-json
+    attributes:
+      label: Benchmark JSONL line
+      description: One JSON object per line, following the benchmark schema
+      render: json
+      placeholder: |
+        {"id":"bm-001","model_id":"official-qwen3-4b","metric":"decode_throughput","value":145.4,"unit":"tokens_per_second","device_class":"A18 Pro","os_major":"27","compute_unit":"GPU","precision":"int4","extraction_method":"app_benchmark_protocol","confidence":"high","observed_date":"2026-07-02","source":"manual-submission","device_verified":false,"model_verified":false,"higher_is_better":true,"environment":{"protocol_version":"1.0","warmup_runs":3,"measured_runs":10,"statistic":"median","stddev":2.1,"thermal_state":"nominal","battery_state":"charging"}}
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional context
+      description: How was this benchmark measured? What device and conditions?
+    validations:
+      required: false

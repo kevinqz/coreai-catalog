@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Core AI Catalog Benchmark Protocol",
+  "description": "Specification for the device-side benchmark protocol. Defines how the app measures performance to ensure reproducibility across devices.",
+  "type": "object",
+  "required": ["protocol_version", "metrics"],
+  "properties": {
+    "protocol_version": {
+      "type": "string",
+      "description": "Protocol version. Benchmarks from different versions are not directly comparable.",
+      "const": "1.0"
+    },
+    "standard_prompt": {
+      "type": "object",
+      "description": "The fixed prompt used for all decode throughput benchmarks.",
+      "properties": {
+        "text": {
+          "type": "string",
+          "description": "The prompt text. Same for all devices."
+        },
+        "token_count": {
+          "type": "integer",
+          "description": "Exact token count when tokenized by the model under test."
+        }
+      }
+    },
+    "metrics": {
+      "type": "array",
+      "description": "Metric definitions with their standard inputs.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "metric": {
+            "type": "string",
+            "enum": [
+              "decode_throughput",
+              "time_to_first_token",
+              "prompt_processing_throughput",
+              "image_generation_latency",
+              "segmentation_latency",
+              "transcription_latency",
+              "inference_fps",
+              "realtime_factor",
+              "audio_generation_rtf",
+              "embedding_throughput"
+            ]
+          },
+          "applicable_model_types": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "bundle_kind values this metric applies to (llm, vlm, diffusion, segmenter, speech, detector)."
+          },
+          "standard_input": {
+            "type": "string",
+            "description": "Description of the standard input used."
+          },
+          "unit": { "type": "string" },
+          "warmup_runs": { "type": "integer", "default": 3 },
+          "measured_runs": { "type": "integer", "default": 10 },
+          "statistic": {
+            "type": "string",
+            "enum": ["median", "mean", "max", "min"],
+            "default": "median"
+          }
+        }
+      }
+    },
+    "environment_capture": {
+      "type": "object",
+      "description": "Environmental data captured during the benchmark.",
+      "properties": {
+        "thermal_state": { "type": "boolean", "default": true },
+        "low_power_mode": { "type": "boolean", "default": true },
+        "battery_level": { "type": "boolean", "default": true },
+        "plugged_in": { "type": "boolean", "default": true }
+      }
+    },
+    "device_coarsening": {
+      "type": "object",
+      "description": "How raw device identifiers are coarsened before storage.",
+      "properties": {
+        "mapping": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "raw_prefix": { "type": "string" },
+              "device_class": { "type": "string" },
+              "chip_family": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

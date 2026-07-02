@@ -152,16 +152,16 @@ class Catalog:
 
         cat = read_yml("catalog")
         art = read_yml("artifacts")
-        bench = read_yml("benchmarks")
         terms = read_yml("terms")
         sources = read_yml("sources")
 
         self._models = cat.get("models", [])
         self._artifacts = art.get("artifacts", [])
-        self._benchmarks = bench.get("benchmarks", [])
         self._terms = terms.get("terms", [])
         self._sources = sources.get("sources", [])
 
+        # Load benchmarks: prefer JSONL (append-only), fall back to YAML
+        self._benchmarks = self._load_benchmarks()
         self._art_by_id = {a["id"]: a for a in self._artifacts if "id" in a}
         self._bench_by_model = {}
         for b in self._benchmarks:
@@ -169,6 +169,28 @@ class Catalog:
             self._bench_by_model.setdefault(mid, []).append(b)
 
         self._loaded = True
+
+    def _load_benchmarks(self) -> list[dict]:
+        """Load benchmarks from JSONL (preferred) or YAML (fallback)."""
+        import json as _json
+
+        jsonl_path = self.root / "benchmarks.jsonl"
+        if jsonl_path.exists():
+            benchmarks = []
+            for line in jsonl_path.read_text().splitlines():
+                line = line.strip()
+                if not line or line.startswith("#"):
+                    continue
+                try:
+                    benchmarks.append(_json.loads(line))
+                except _json.JSONDecodeError as e:
+                    print(f"Warning: invalid JSONL line in benchmarks.jsonl: {e}", file=sys.stderr)
+            if benchmarks:
+                return benchmarks
+
+        # Fallback: YAML
+        bench = yaml.safe_load((self.root / "benchmarks.yaml").read_text()) or {} if (self.root / "benchmarks.yaml").exists() else {}
+        return bench.get("benchmarks", [])
 
     @property
     def models(self) -> list[dict]:
@@ -210,10 +232,25 @@ class Catalog:
         ref = model.get("artifact_ref", "")
         return self._art_by_id.get(ref)
 
-    def get_benchmarks(self, model_id: str) -> list[dict]:
-        """Get benchmark records for a model."""
+    def get_benchmarks(self, model_id: str, min_confidence: str | None = None) -> list[dict]:
+        """Get benchmark records for a model, optionally filtered by confidence.
+
+        Args:
+            model_id: Model ID to look up.
+            min_confidence: If set, filter to entries at or above this level.
+                Valid values: 'high', 'medium', 'low'.
+                None returns all benchmarks (backward compat).
+        """
         self._load()
-        return self._bench_by_model.get(model_id, [])
+        bms = self._bench_by_model.get(model_id, [])
+        if min_confidence:
+            confidence_order = {"high": 3, "medium": 2, "low": 1, "needs_review": 0}
+            min_val = confidence_order.get(min_confidence, 0)
+            bms = [
+                b for b in bms
+                if confidence_order.get(b.get("confidence", "low"), 0) >= min_val
+            ]
+        return bms
 
     def _known_capabilities(self) -> set[str]:
         """Return the set of all canonical capability names defined in the catalog."""

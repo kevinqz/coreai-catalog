@@ -53,10 +53,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 71.9,
-          "device": "iPhone 17 Pro",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "iOS 27 beta, coreai-pipelined engine",
-          "observed": "2026-06-25",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai-pipelined",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "inferred:int8",
           "notes": "Decode throughput from upstream README table."
@@ -65,10 +71,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 14.7,
-          "device": "iPhone 17 Pro",
+          "device": null,
           "compute_unit": "ANE",
-          "environment": "iOS 27 beta, coreai-pipelined engine",
-          "observed": "2026-06-25",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai-pipelined",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "inferred:int8",
           "notes": "Decode throughput from upstream README table."
@@ -77,10 +89,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 210,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "macOS 27 beta, coreai-pipelined engine",
-          "observed": "2026-06-25",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai-pipelined",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "inferred:int8",
           "notes": "Decode throughput from upstream README table."
@@ -139,10 +157,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 29,
-          "device": "iPhone 17 Pro",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "iOS 27 beta, coreai-pipelined engine",
-          "observed": "2026-06-25",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai-pipelined",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "inferred:int8",
           "notes": "Decode throughput from upstream README table."
@@ -151,10 +175,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 161,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "macOS 27 beta, coreai-pipelined engine",
-          "observed": "2026-06-25",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai-pipelined",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "inferred:int8",
           "notes": "Decode throughput from upstream README table."
@@ -213,10 +243,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 64.9,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "macOS 27 beta, coreai-pipelined engine",
-          "observed": "2026-06-25",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai-pipelined",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "inferred:int8",
           "notes": "Decode throughput from upstream README table. MoE; custom gather_qmm Metal kernel per upstream caveat."
@@ -274,10 +310,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 15.9,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "macOS 27 beta, coreai-pipelined engine",
-          "observed": "2026-06-25",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai-pipelined",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "inferred:int8",
           "notes": "Decode throughput from upstream README table."
@@ -337,10 +379,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 52.4,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "macOS 27 beta, coreai-pipelined engine",
-          "observed": "2026-06-25",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai-pipelined",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "inferred:int8",
           "notes": "Decode throughput from upstream README table. MoE + MLA; custom Metal kernel per upstream caveat."
@@ -399,10 +447,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 30.3,
-          "device": "iPhone 17 Pro",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "iOS 27 beta, coreai-pipelined engine",
-          "observed": "2026-06-25",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai-pipelined",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "inferred:int4",
           "notes": "Decode throughput from upstream README table."
@@ -411,10 +465,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 30.7,
-          "device": "iPhone 17 Pro",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "iOS 27 beta, coreai-pipelined engine",
-          "observed": "2026-06-25",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai-pipelined",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "official-QAT-int4",
           "notes": "QAT-int4 variant from upstream README."
@@ -423,10 +483,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 6,
-          "device": "iPhone 17 Pro",
+          "device": null,
           "compute_unit": "ANE",
-          "environment": "iOS 27 beta, coreai-pipelined engine",
-          "observed": "2026-06-25",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai-pipelined",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "inferred:int4",
           "notes": "Decode throughput from upstream README table."
@@ -435,10 +501,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 77.0,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "macOS 27 beta, coreai-pipelined engine",
-          "observed": "2026-06-25",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai-pipelined",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "inferred:int4",
           "notes": "Decode throughput from upstream README table."
@@ -447,10 +519,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 78.9,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "macOS 27 beta, coreai-pipelined engine",
-          "observed": "2026-06-25",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai-pipelined",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "official-QAT-int4",
           "notes": "QAT-int4 variant from upstream README."
@@ -509,10 +587,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 15.1,
-          "device": "iPhone 17 Pro",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "iOS 27 beta, coreai-pipelined engine",
-          "observed": "2026-06-25",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai-pipelined",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "inferred:int4",
           "notes": "Decode throughput from upstream README table."
@@ -521,10 +605,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 55.8,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "macOS 27 beta, coreai-pipelined engine",
-          "observed": "2026-06-25",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai-pipelined",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "inferred:int4",
           "notes": "Decode throughput from upstream README table."
@@ -533,10 +623,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 53.2,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "macOS 27 beta, pipelined engine, COREAI_CHUNK_THRESHOLD=1",
-          "observed": "2026-06-29",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai-pipelined",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "int4lin-QAT",
           "notes": "Prefill throughput from upstream card. 3.7 GB bundle."
@@ -594,10 +690,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 23,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "macOS 27 beta, coreai-pipelined engine",
-          "observed": "2026-06-25",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai-pipelined",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "int8",
           "notes": "Decode throughput from upstream README table. int8; custom flash-decode kernel."
@@ -606,10 +708,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 33,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "macOS 27 beta, coreai-pipelined engine",
-          "observed": "2026-06-25",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai-pipelined",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "int4",
           "notes": "Decode throughput from upstream README table. int4; custom flash-decode kernel."
@@ -667,10 +775,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 17.2,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "macOS 27 beta, coreai-pipelined engine",
-          "observed": "2026-06-25",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai-pipelined",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "int4",
           "notes": "Decode throughput from upstream README table. custom flash-decode kernel."
@@ -730,10 +844,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 45.4,
-          "device": "iPhone 17 Pro",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "iOS 27 beta, coreai-pipelined engine",
-          "observed": "2026-06-25",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai-pipelined",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "inferred:int8",
           "notes": "Decode throughput from upstream README table."
@@ -742,10 +862,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 276.5,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "macOS 27 beta, coreai-pipelined engine",
-          "observed": "2026-06-25",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai-pipelined",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "inferred:int8",
           "notes": "Decode throughput from upstream README table."
@@ -855,10 +981,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 36.3,
-          "device": "iPhone 17 Pro",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "iOS 27 beta, coreai-pipelined engine",
-          "observed": "2026-06-25",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai-pipelined",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "inferred:int8",
           "notes": "Decode throughput from upstream README table."
@@ -867,10 +999,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 136.5,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "macOS 27 beta, coreai-pipelined engine",
-          "observed": "2026-06-25",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai-pipelined",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "inferred:int8",
           "notes": "Decode throughput from upstream README table."
@@ -981,10 +1119,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 15.9,
-          "device": "iPhone 17 Pro",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "iOS 27 beta, coreai-pipelined engine",
-          "observed": "2026-06-25",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai-pipelined",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "inferred:int8",
           "notes": "Decode throughput from upstream README table."
@@ -993,10 +1137,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 114.5,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "macOS 27 beta, coreai-pipelined engine",
-          "observed": "2026-06-25",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai-pipelined",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "inferred:int8",
           "notes": "Decode throughput from upstream README table."
@@ -1055,10 +1205,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 33.5,
-          "device": "iPhone 17 Pro",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "iOS 27 beta, pipelined engine, settled",
-          "observed": "2026-06-29",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai-pipelined",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "int8hu",
           "notes": "Multimodal oracle 24/24 × 8 runs — token-identical to M4 Max. ~92% of naive BW ceiling."
@@ -1067,10 +1223,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 191.0,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "macOS 27 beta, pipelined engine",
-          "observed": "2026-06-29",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai-pipelined",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "int8hu",
           "notes": "Multimodal sweep 4/4 + decode 16/16 token-exact vs fp32-HF."
@@ -1227,10 +1389,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 53.4,
-          "device": "iPhone 17 Pro",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "iOS 27 beta, coreai-pipelined engine",
-          "observed": "2026-06-25",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai-pipelined",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "inferred:int8",
           "notes": "Decode throughput from upstream README table."
@@ -1239,10 +1407,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 224.3,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "macOS 27 beta, coreai-pipelined engine",
-          "observed": "2026-06-25",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai-pipelined",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "inferred:int8",
           "notes": "Decode throughput from upstream README table."
@@ -1301,10 +1475,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 25.5,
-          "device": "iPhone 17 Pro",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "iOS 27 beta, pipelined engine, AOT h18p, provider mode",
-          "observed": "2026-06-29",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai-pipelined",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "int4linsym",
           "notes": "Footprint 1.96 GB, headroom 4.5 GB. Vision encode ~100-170ms per image."
@@ -1313,10 +1493,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 82.4,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "macOS 27 beta, coreai-pipelined engine",
-          "observed": "2026-06-25",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai-pipelined",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "inferred:int4",
           "notes": "Decode throughput from upstream README table."
@@ -1521,10 +1707,16 @@
           "metric": "realtime_factor",
           "unit": "realtime_factor",
           "value": 0.9,
-          "device": "iPhone 17 Pro",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "iOS 27 beta, pipelined engine, AOT h18p, streaming mode",
-          "observed": "2026-06-29",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai-pipelined",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "int8",
           "notes": "RTF ~0.9 with int8 backbone + streaming. First-audio 0.43s. 12.5 Hz token rate."
@@ -1630,10 +1822,16 @@
           "metric": "inference_latency",
           "unit": "milliseconds",
           "value": 12.0,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "macOS 27 beta, S=512 grid, warm",
-          "observed": "2026-06-29",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "fp16",
           "notes": "~83 embeddings/s at S=512 grid. Cosine 0.999998 vs torch reference."
@@ -1692,10 +1890,16 @@
           "metric": "inference_latency",
           "unit": "milliseconds",
           "value": 45.7,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "macOS 27 beta, S=512 grid, warm",
-          "observed": "2026-06-29",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "fp16",
           "notes": "~22 pair-scores/s at S=512 grid. P(yes) within |Δ| < 0.0005."
@@ -1755,10 +1959,16 @@
           "metric": "inference_latency",
           "unit": "milliseconds",
           "value": 8.6,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "macOS 27 beta, median",
-          "observed": "2026-06-29",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "fp32",
           "notes": "~116 FPS on M4 Max GPU. iPhone 17 Pro ~25ms / 33-39 FPS end-to-end."
@@ -1818,10 +2028,16 @@
           "metric": "inference_latency",
           "unit": "milliseconds",
           "value": 12.0,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "macOS 27 beta, median",
-          "observed": "2026-06-29",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "fp32",
           "notes": "~83 FPS on M4 Max GPU."
@@ -1881,10 +2097,16 @@
           "metric": "inference_latency",
           "unit": "milliseconds",
           "value": 14.8,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "macOS 27 beta, median",
-          "observed": "2026-06-29",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "fp32",
           "notes": "~68 FPS on M4 Max GPU. iPhone 17 Pro 56-63ms / 15-17 FPS."
@@ -1944,10 +2166,16 @@
           "metric": "inference_latency",
           "unit": "milliseconds",
           "value": 19.1,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "macOS 27 beta, median",
-          "observed": "2026-06-29",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "fp32",
           "notes": "~52 FPS on M4 Max GPU."
@@ -2311,10 +2539,16 @@
           "metric": "inference_latency",
           "unit": "milliseconds",
           "value": "not_published",
-          "device": "iPhone 17 Pro",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "iOS 27 beta, 128→512 tile, ~2.7GB peak",
-          "observed": "2026-06-29",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "low",
           "precision": "fp32",
           "notes": "fp32 ship precision; tiling + feather-blend on host. Value not published as single-tile ms; iPhone 17 Pro verified."
@@ -2372,10 +2606,16 @@
           "metric": "inference_latency",
           "unit": "milliseconds",
           "value": 15.2,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "macOS 27 beta",
-          "observed": "2026-06-29",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "fp16",
           "notes": "~65.7 FPS; 54.5 MB. iPhone hero config."
@@ -2433,10 +2673,16 @@
           "metric": "inference_latency",
           "unit": "milliseconds",
           "value": 37.7,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "macOS 27 beta",
-          "observed": "2026-06-29",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "fp16",
           "notes": "~26.5 FPS; 202 MB."
@@ -2495,10 +2741,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 78.1,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "stock CoreAI runtime, M4 Max",
-          "observed": "2026-06-25",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "inferred:MXFP4",
           "notes": "Decode throughput from upstream official/ performance table (512/1024 greedy, 5 trials)."
@@ -2557,10 +2809,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 484,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "stock CoreAI runtime, M4 Max",
-          "observed": "2026-06-25",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "inferred:int4",
           "notes": "Decode throughput from upstream official/ performance table (512/1024 greedy, 5 trials)."
@@ -2569,10 +2827,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 1121,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "macOS 26",
-          "observed": "2026-06-24",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "needs_review",
           "precision": "inferred:int4",
           "notes": "Figure recorded at catalog authoring (macOS 26); not reproduced in current upstream, which reports 484 tok/s on M4 Max (macOS 27 beta). Retained for provenance."
@@ -2631,10 +2895,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 145.4,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "stock CoreAI runtime, M4 Max",
-          "observed": "2026-06-25",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "inferred:int4",
           "notes": "Decode throughput from upstream official/ performance table (512/1024 greedy, 5 trials)."
@@ -2692,10 +2962,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 94.1,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "stock CoreAI runtime, M4 Max",
-          "observed": "2026-06-25",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "inferred:int4",
           "notes": "Decode throughput from upstream official/ performance table (512/1024 greedy, 5 trials)."
@@ -2754,10 +3030,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 141.5,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "stock CoreAI runtime, M4 Max",
-          "observed": "2026-06-25",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "inferred:int4",
           "notes": "Decode throughput from upstream official/ performance table (512/1024 greedy, 5 trials)."
@@ -2816,10 +3098,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 55.0,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "stock CoreAI runtime, M4 Max",
-          "observed": "2026-06-25",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "inferred:int4",
           "notes": "Decode throughput from upstream official/ performance table (512/1024 greedy, 5 trials)."
@@ -2877,10 +3165,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 101.7,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "stock CoreAI runtime, M4 Max",
-          "observed": "2026-06-25",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "inferred:int4",
           "notes": "Decode throughput from upstream official/ performance table (512/1024 greedy, 5 trials)."
@@ -2937,10 +3231,16 @@
           "metric": "image_generation_latency",
           "unit": "seconds",
           "value": 17.4,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "stock CoreAI runtime, M4 Max",
-          "observed": "2026-06-25",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "inferred:int4",
           "notes": "From upstream official/ table. 1024px at 4 steps; stock CoreAIDiffusionPipeline."
@@ -3001,10 +3301,16 @@
           "metric": "segmentation_latency",
           "unit": "seconds_per_image",
           "value": 0.55,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "stock CoreAI runtime, M4 Max",
-          "observed": "2026-06-25",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "inferred:fp16",
           "notes": "From upstream official/ table. Warm; stock CoreAIImageSegmenter."
@@ -3062,10 +3368,16 @@
           "metric": "transcription_latency",
           "unit": "milliseconds",
           "value": 180,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "stock CoreAI runtime, M4 Max",
-          "observed": "2026-06-25",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "inferred:fp16",
           "notes": "From upstream official/ table. Warm; stock CoreAITranscribe."
@@ -3125,10 +3437,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 66.8,
-          "device": "iPhone 17 Pro",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "iOS 27 beta, coreai-pipelined engine",
-          "observed": "2026-06-29",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai-pipelined",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "int8",
           "notes": "Decode throughput from upstream README table. int8 lossless (24/24 exact vs HF)."
@@ -3137,10 +3455,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 59.4,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "macOS 27 beta, coreai-pipelined engine",
-          "observed": "2026-06-29",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai-pipelined",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "int8",
           "notes": "Decode throughput from upstream README table."
@@ -3200,10 +3524,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 20.4,
-          "device": "iPhone 17 Pro",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "iOS 27 beta, coreai-pipelined engine, AOT h18p",
-          "observed": "2026-06-29",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai-pipelined",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "int4",
           "notes": "Decode throughput from upstream README table. ANE inference unsupported."
@@ -3262,10 +3592,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 17,
-          "device": "iPhone 17 Pro",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "iOS 27 beta, coreai-pipelined engine, AOT h18p",
-          "observed": "2026-06-29",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai-pipelined",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "1.58-bit ternary",
           "notes": "Decode throughput from upstream README table. Custom 2-bit packed-GEMM kernel; ~2.1 GB resident."
@@ -3274,10 +3610,16 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 62.7,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "macOS 27 beta, coreai-pipelined engine",
-          "observed": "2026-06-29",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai-pipelined",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "1.58-bit ternary",
           "notes": "Decode throughput from upstream README table. Engine token-identical to torch ternary reference."
@@ -3482,10 +3824,16 @@
           "metric": "realtime_factor",
           "unit": "realtime_factor",
           "value": 47.9,
-          "device": "iPhone 17 Pro",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "iOS 27 beta, Release, AOT h18p encoder",
-          "observed": "2026-06-29",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai-aot",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "fp16",
           "notes": "14.84s clip transcribes in 0.31s warm (47.9× real-time). AOT-compiled encoder bundle."
@@ -3494,10 +3842,16 @@
           "metric": "transcription_latency",
           "unit": "milliseconds",
           "value": 310,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "macOS 27 beta, warm, 14.84s clip",
-          "observed": "2026-06-29",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "fp16",
           "notes": "0.31s for a 14.84s clip warm; AOT-compiled encoder bundle loads in 3.9s."
@@ -3605,10 +3959,16 @@
           "metric": "inference_latency",
           "unit": "milliseconds",
           "value": 4.8,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "macOS 27 beta, median of 80",
-          "observed": "2026-06-29",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "fp32",
           "notes": "Median inference latency; 208 FPS on M4 Max GPU."
@@ -3617,10 +3977,16 @@
           "metric": "inference_latency",
           "unit": "milliseconds",
           "value": 22,
-          "device": "iPhone 17 Pro",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "iOS 27 beta, Release, Low Power Mode ON",
-          "observed": "2026-06-29",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": true
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "fp32",
           "notes": "~45 model FPS on-device; first load specializes in ~2.6s."
@@ -4208,10 +4574,16 @@
           "metric": "inference_latency",
           "unit": "milliseconds",
           "value": 3,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "macOS 27 beta, Core AI, draft model step",
-          "observed": "2026-06-30",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "int4",
           "notes": "~3ms per draft step vs ~21ms for the 12B main model."
@@ -4268,10 +4640,16 @@
           "metric": "realtime_factor",
           "unit": "realtime_factor",
           "value": 10.2,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "macOS 27 beta, Core AI",
-          "observed": "2026-06-30",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "fp16",
           "notes": "10.2x faster than real-time streaming TTS."
@@ -4328,10 +4706,16 @@
           "metric": "realtime_factor",
           "unit": "realtime_factor",
           "value": 4.99,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "macOS 27 beta, Core AI",
-          "observed": "2026-06-30",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "int8",
           "notes": "4.99x RTF multi-speaker TTS with INT8 LM."
@@ -4388,10 +4772,16 @@
           "metric": "realtime_factor",
           "unit": "realtime_factor",
           "value": 2.37,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "macOS 27 beta, Core AI",
-          "observed": "2026-06-30",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "int8",
           "notes": "2.37x RTF high-quality multi-speaker TTS with INT8/4 LM."
@@ -4448,10 +4838,16 @@
           "metric": "realtime_factor",
           "unit": "realtime_factor",
           "value": 11.1,
-          "device": "M4 Max",
+          "device": null,
           "compute_unit": "GPU",
-          "environment": "macOS 27 beta, Core AI",
-          "observed": "2026-06-30",
+          "environment": {
+            "protocol_version": "0",
+            "engine": "coreai",
+            "thermal_state": "unknown",
+            "battery_state": "unknown",
+            "low_power_mode": false
+          },
+          "observed": null,
           "confidence": "medium",
           "precision": "int8",
           "notes": "11.1x RTF on-device transcription."
