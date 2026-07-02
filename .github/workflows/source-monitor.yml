@@ -145,6 +145,10 @@ jobs:
           if [[ "$CHANGES_FOUND" -eq 1 ]]; then
             REPORT+="---\n"
             REPORT+="Review findings and update \`catalog.yaml\` if new models are confirmed."
+            # Create labels if they don't exist
+            gh label create "source-monitor" --color "0052cc" --description "Automated source monitor" 2>/dev/null || true
+            gh label create "automated" --color "5319e7" --description "Automated process" 2>/dev/null || true
+
             # Create GitHub issue
             TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M UTC")
             echo -e "$REPORT" > /tmp/source-report.md
