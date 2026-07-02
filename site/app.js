@@ -57,6 +57,13 @@
   function licIcon(cu) { return cu === 'likely' ? '' : ''; }
 
   // ── Score factor computation (matches catalog.py readiness_score) ──
+  function gradeDescription(s) {
+    if (s >= 85) return 'Production-ready';
+    if (s >= 70) return 'Good, minor gaps';
+    if (s >= 55) return 'Usable, verify caveats';
+    if (s >= 40) return 'Experimental';
+    return 'Early / unverified';
+  }
   function scoreFactors(m) {
     var max = 100;
     var factors = [];
@@ -231,14 +238,6 @@
   function scoreBreakdownHTML(m) {
     var s = scoreFactors(m);
     var earned = s.earned;
-    var grade = gradeLetter(earned);
-    var desc = '';
-    if (earned >= 85) desc = 'Production-ready';
-    else if (earned >= 70) desc = 'Good, minor gaps';
-    else if (earned >= 55) desc = 'Usable, verify caveats';
-    else if (earned >= 40) desc = 'Experimental';
-    else desc = 'Early / unverified';
-
     var rows = s.factors.map(function (f) {
       var cls = f.earned ? 'sb-earned' : 'sb-missed';
       var sign = f.points >= 0 ? '+' : '';
@@ -250,12 +249,7 @@
       '</div>';
     }).join('');
 
-    return '<div class="sb-header">' +
-      '<span class="card-score ' + scoreClass(earned) + '">' + earned + ' ' + grade + '</span>' +
-      '<span class="sb-desc">' + escapeHtml(desc) + '</span>' +
-      '<span class="sb-total">' + earned + ' / 100</span>' +
-    '</div>' +
-    '<div class="sb-factors">' + rows + '</div>';
+    return '<div class="sb-factors">' + rows + '</div>';
   }
 
   function toggleScoreBreakdown(badge) {
@@ -305,7 +299,7 @@
       '<p class="modal-id">' + m.id + ' &middot; ' + escapeHtml(sourceLabel(m.source_group)) + '</p>' +
       '<div class="modal-score-row">' +
         '<span class="card-score ' + scoreClass(s) + '" id="modal-score-btn" title="Click to see score breakdown">' + s + ' ' + gradeLetter(s) + '</span>' +
-        '<span class="modal-score-desc">' + escapeHtml(m.maturity || 'unknown') + ' &middot; click score for details</span>' +
+        '<span class="modal-score-desc">' + escapeHtml(gradeDescription(s)) + ' &middot; click to expand</span>' +
       '</div>' +
       '<div class="score-breakdown modal-score-details" style="display:none;">' +
         scoreBreakdownHTML(m) +
