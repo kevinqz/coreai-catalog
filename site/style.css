@@ -404,24 +404,46 @@ footer a:hover { text-decoration: underline; }
 /* ═══ EMPTY STATE ═══ */
 .empty-state { grid-column: 1/-1; text-align: center; padding: 2rem 1rem; color: var(--text-3); font-size: .85rem; }
 
-/* ═══ SCORE POPOVER ═══ */
-.score-popover {
-  position: fixed; z-index: 90;
-  background: var(--bg-elevated); border: 1px solid var(--border-strong);
-  border-radius: var(--r); padding: .65rem .8rem;
-  box-shadow: var(--shadow-md); max-width: 240px;
-  animation: fadeIn .15s ease;
+/* ═══ SCORE BREAKDOWN ═══ */
+.card-score { cursor: pointer; transition: transform var(--t); }
+.card-score.active { transform: scale(1.08); box-shadow: 0 0 0 2px rgba(91,127,251,.3); }
+.card-score:hover { transform: scale(1.08); }
+
+.score-breakdown {
+  grid-column: 1 / -1;
+  margin-top: .35rem; padding: .55rem .65rem;
+  background: var(--bg-elevated); border: 1px solid var(--border);
+  border-radius: var(--r); animation: fadeIn .15s ease;
 }
-.score-popover .pop-grade { font-size: .82rem; font-weight: 700; margin-bottom: .35rem; }
-.score-popover .pop-grade .card-score { margin-right: .35rem; }
-.score-popover .pop-factor {
-  display: flex; justify-content: space-between;
-  font-size: .72rem; padding: .1rem 0;
-  color: var(--text-2);
+.sb-header {
+  display: flex; align-items: center; gap: .5rem;
+  margin-bottom: .35rem; padding-bottom: .35rem;
+  border-bottom: 1px solid var(--border);
 }
-.score-popover .pop-factor .pop-pts { color: var(--green); font-weight: 600; font-variant-numeric: tabular-nums; }
-.score-popover .pop-factor .pop-neg { color: var(--red); }
-.score-popover .pop-hint { font-size: .66rem; color: var(--text-3); margin-top: .3rem; padding-top: .3rem; border-top: 1px solid var(--border); }
+.sb-header .card-score { cursor: default; }
+.sb-desc { font-size: .74rem; color: var(--text-2); flex: 1; font-weight: 500; }
+.sb-total { font-size: .7rem; color: var(--text-3); font-variant-numeric: tabular-nums; }
+.sb-factors { display: flex; flex-direction: column; gap: .08rem; }
+.sb-row {
+  display: flex; align-items: center; gap: .4rem;
+  font-size: .72rem; padding: .15rem 0;
+}
+.sb-icon { width: 14px; text-align: center; font-size: .68rem; flex-shrink: 0; }
+.sb-label { flex: 1; color: var(--text-2); }
+.sb-pts { font-variant-numeric: tabular-nums; font-weight: 600; flex-shrink: 0; }
+.sb-earned .sb-icon { color: var(--green); }
+.sb-earned .sb-pts { color: var(--green); }
+.sb-missed { opacity: .45; }
+.sb-missed .sb-icon { color: var(--text-3); }
+.sb-missed .sb-pts { color: var(--text-3); }
+
+/* Modal score breakdown */
+.modal-score-breakdown { margin: .5rem 0 .75rem; }
+.modal-score-breakdown .score-breakdown {
+  grid-column: auto; margin-top: 0;
+  border: none; background: transparent; padding: 0;
+}
+.modal-score-breakdown .sb-header { padding-bottom: .35rem; }
 
 /* ═══ PROVENANCE CHAIN ═══ */
 .provenance-chain { display: flex; flex-direction: column; gap: 0; }

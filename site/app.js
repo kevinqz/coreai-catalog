@@ -56,6 +56,35 @@
   function licClass(cu) { return cu === 'likely' ? 'lic-ok' : 'lic-warn'; }
   function licIcon(cu) { return cu === 'likely' ? '' : ''; }
 
+  // ── Score factor computation (matches catalog.py readiness_score) ──
+  function scoreFactors(m) {
+    var max = 100;
+    var factors = [];
+    function add(label, pts, condition) {
+      factors.push({ label: label, points: pts, earned: condition });
+    }
+    var artAvail = (m.artifact && m.artifact.availability === 'available');
+    add('Artifact available', 15, artAvail);
+    add('License: commercial likely', 10, m.commercial_use === 'likely');
+    var devs = m.devices || [];
+    add('iPhone supported', 10, devs.indexOf('iphone') >= 0);
+    add('Mac supported', 10, devs.indexOf('mac') >= 0);
+    add('Has benchmark', 10, !!(m.benchmarks && m.benchmarks.length));
+    add('Stock runtime', 10, m.stock_runtime === true);
+    add('No custom kernel', 5, m.custom_kernel === false);
+    add('No patch needed', 5, m.patch_required === false);
+    add('No AOT needed', 5, m.aot_required === false);
+    add('Status: confirmed', 10, m.status === 'confirmed');
+    var confPts = 0;
+    if (m.confidence === 'high') confPts = 5;
+    else if (m.confidence === 'medium') confPts = 3;
+    else if (m.confidence === 'low') confPts = -10;
+    add('Confidence: ' + (m.confidence || 'unknown') + ' (' + (confPts >= 0 ? '+' : '') + confPts + ')', confPts, confPts !== 0);
+    add('Maturity: stable/active', 5, m.maturity === 'stable' || m.maturity === 'active');
+    var earned = factors.filter(function (f) { return f.earned; }).reduce(function (s, f) { return s + f.points; }, 0);
+    return { factors: factors, earned: Math.max(0, Math.min(100, earned)), max: max };
+  }
+
   // ── Data ──
   async function loadData() {
     try {
@@ -169,7 +198,7 @@
       return '<div class="model-card" data-id="' + m.id + '" style="animation-delay:' + delay + 'ms">' +
         '<div class="card-top">' +
           '<span class="card-name">' + escapeHtml(m.name) + '</span>' +
-          '<span class="card-score ' + scoreClass(s) + '">' + s + ' ' + gradeLetter(s) + '</span>' +
+          '<span class="card-score ' + scoreClass(s) + '" title="Click to see score breakdown">' + s + ' ' + gradeLetter(s) + '</span>' +
         '</div>' +
         '<div class="card-caps">' + caps + '</div>' +
         '<div class="card-bottom">' +
@@ -189,66 +218,65 @@
       card.addEventListener('click', function () { showDetail(card.dataset.id); });
     });
 
-    // Score popover on hover
+    // Score badge click → toggle inline breakdown (not card click)
     grid.querySelectorAll('.card-score').forEach(function (badge) {
-      badge.addEventListener('mouseenter', function (e) { showScorePopover(badge); });
-      badge.addEventListener('mouseleave', function () { hideScorePopover(); });
+      badge.addEventListener('click', function (e) {
+        e.stopPropagation();
+        toggleScoreBreakdown(badge);
+      });
     });
   }
 
-  // ── Score Popover ──
-  function showScorePopover(badge) {
+  // ── Score Breakdown (card inline) ──
+  function scoreBreakdownHTML(m) {
+    var s = scoreFactors(m);
+    var earned = s.earned;
+    var grade = gradeLetter(earned);
+    var desc = '';
+    if (earned >= 85) desc = 'Production-ready';
+    else if (earned >= 70) desc = 'Good, minor gaps';
+    else if (earned >= 55) desc = 'Usable, verify caveats';
+    else if (earned >= 40) desc = 'Experimental';
+    else desc = 'Early / unverified';
+
+    var rows = s.factors.map(function (f) {
+      var cls = f.earned ? 'sb-earned' : 'sb-missed';
+      var sign = f.points >= 0 ? '+' : '';
+      var icon = f.earned ? '&#10003;' : '&middot;';
+      return '<div class="sb-row ' + cls + '">' +
+        '<span class="sb-icon">' + icon + '</span>' +
+        '<span class="sb-label">' + escapeHtml(f.label) + '</span>' +
+        '<span class="sb-pts">' + sign + f.points + '</span>' +
+      '</div>';
+    }).join('');
+
+    return '<div class="sb-header">' +
+      '<span class="card-score ' + scoreClass(earned) + '">' + earned + ' ' + grade + '</span>' +
+      '<span class="sb-desc">' + escapeHtml(desc) + '</span>' +
+      '<span class="sb-total">' + earned + ' / 100</span>' +
+    '</div>' +
+    '<div class="sb-factors">' + rows + '</div>';
+  }
+
+  function toggleScoreBreakdown(badge) {
     var card = badge.closest('.model-card');
     if (!card) return;
+    // Remove existing
+    var existing = card.querySelector('.score-breakdown');
+    if (existing) { existing.remove(); badge.classList.remove('active'); return; }
+
+    // Close any other open breakdowns
+    document.querySelectorAll('.score-breakdown').forEach(function (el) { el.remove(); });
+    document.querySelectorAll('.card-score.active').forEach(function (el) { el.classList.remove('active'); });
+
     var m = MODELS.find(function (x) { return x.id === card.dataset.id; });
     if (!m) return;
-    var s = m.readiness_score;
-
-    var factors = [];
-    if (m.artifact_availability === 'available' || (m.artifact && m.artifact.availability === 'available')) factors.push(['Artifact available', '+15']);
-    if (m.commercial_use === 'likely') factors.push(['License: commercial likely', '+10']);
-    var devs = m.devices || [];
-    if (devs.indexOf('iphone') >= 0) factors.push(['iPhone supported', '+10']);
-    if (devs.indexOf('mac') >= 0) factors.push(['Mac supported', '+10']);
-    if (m.benchmarks && m.benchmarks.length) factors.push(['Has benchmark', '+10']);
-    if (m.stock_runtime === true) factors.push(['Stock runtime', '+10']);
-    if (m.custom_kernel === false) factors.push(['No custom kernel', '+5']);
-    if (m.patch_required === false) factors.push(['No patch needed', '+5']);
-    if (m.aot_required === false) factors.push(['No AOT needed', '+5']);
-
-    var gradeDesc = '';
-    if (s >= 85) gradeDesc = 'Production-ready';
-    else if (s >= 70) gradeDesc = 'Good, minor gaps';
-    else if (s >= 55) gradeDesc = 'Usable, verify caveats';
-    else if (s >= 40) gradeDesc = 'Experimental';
-    else gradeDesc = 'Early / unverified';
-
-    var html = '<div class="pop-grade">' +
-      '<span class="card-score ' + scoreClass(s) + '">' + s + ' ' + gradeLetter(s) + '</span>' +
-      escapeHtml(gradeDesc) + '</div>';
-    factors.forEach(function (f) {
-      html += '<div class="pop-factor"><span>' + escapeHtml(f[0]) + '</span><span class="pop-pts">' + f[1] + '</span></div>';
-    });
-    html += '<div class="pop-hint">Click card for full details</div>';
-
-    var pop = $('score-popover');
-    pop.innerHTML = html;
-    pop.style.display = 'block';
-
-    // Position near badge
-    var rect = badge.getBoundingClientRect();
-    var popRect = pop.getBoundingClientRect();
-    var left = rect.left - 10;
-    if (left + popRect.width > window.innerWidth - 16) {
-      left = window.innerWidth - popRect.width - 16;
-    }
-    var top = rect.bottom + 6;
-    pop.style.left = Math.max(8, left) + 'px';
-    pop.style.top = top + 'px';
-  }
-
-  function hideScorePopover() {
-    $('score-popover').style.display = 'none';
+    badge.classList.add('active');
+    var div = document.createElement('div');
+    div.className = 'score-breakdown';
+    div.innerHTML = scoreBreakdownHTML(m);
+    div.addEventListener('click', function (e) { e.stopPropagation(); });
+    card.appendChild(div);
   }
 
   // ── Modal ──
@@ -275,9 +303,8 @@
       '<button class="modal-close" id="modal-close-btn" aria-label="Close">&times;</button>' +
       '<h2>' + escapeHtml(m.name) + '</h2>' +
       '<p class="modal-id">' + m.id + ' &middot; ' + escapeHtml(sourceLabel(m.source_group)) + '</p>' +
-      '<div class="modal-score-row">' +
-        '<span class="modal-score ' + scoreClass(s) + '">' + s + ' ' + gradeLetter(s) + '</span>' +
-        '<span class="modal-score-desc">Readiness &middot; ' + escapeHtml(m.maturity || 'unknown') + '</span>' +
+      '<div class="modal-score-breakdown">' +
+        scoreBreakdownHTML(m) +
       '</div>' +
       (capsList ? '<div class="modal-section"><h4>Capabilities</h4><div class="card-caps">' + capsList + '</div></div>' : '') +
       (devList ? '<div class="modal-section"><h4>Devices</h4><div class="card-caps">' + devList + '</div></div>' : '') +
