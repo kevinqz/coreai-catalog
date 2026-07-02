@@ -854,6 +854,98 @@ def cmd_tasks(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_transforms(args: argparse.Namespace) -> int:
+    """Browse and query modality transformation pipelines."""
+    from .transform_graph import TransformGraph
+
+    cat = Catalog()
+    graph = TransformGraph(cat.models, cat)
+
+    if args.json:
+        if args.from_modality and args.to_modality:
+            pipeline = graph.shortest_path(args.from_modality, args.to_modality)
+            if pipeline:
+                print(json.dumps({
+                    "from": args.from_modality,
+                    "to": args.to_modality,
+                    "pipeline": pipeline.to_dict(),
+                }, indent=2))
+            else:
+                print(json.dumps({
+                    "from": args.from_modality,
+                    "to": args.to_modality,
+                    "pipeline": None,
+                    "error": "No transform path found",
+                }, indent=2))
+            return 0
+        elif args.from_modality:
+            reachable = sorted(graph.reachable_outputs(args.from_modality))
+            print(json.dumps({
+                "from": args.from_modality,
+                "reachable_outputs": reachable,
+                "count": len(reachable),
+            }, indent=2))
+            return 0
+        else:
+            matrix = graph.reachability_matrix()
+            serializable = {k: sorted(v) for k, v in sorted(matrix.items())}
+            print(json.dumps({
+                "input_modalities": sorted(graph.input_modalities),
+                "output_modalities": sorted(graph.output_modalities),
+                "reachability": serializable,
+            }, indent=2))
+            return 0
+
+    # Human-readable
+    if args.from_modality and args.to_modality:
+        pipeline = graph.shortest_path(args.from_modality, args.to_modality)
+        if not pipeline:
+            print(f"\n  {RED}No transform path: {args.from_modality} -> {args.to_modality}{RESET}")
+            print(f"  {DIM}Try: coreai-catalog transforms --from {args.from_modality}{RESET}\n")
+            return 1
+
+        chain = " -> ".join(pipeline.modality_chain)
+        print(f"\n  {BOLD}Transform: {args.from_modality} -> {args.to_modality}{RESET}")
+        print(f"  {BOLD}Route:{RESET} {pipeline.hop_count} hop(s)")
+        print(f"  {BOLD}Chain:{RESET} {chain}")
+        print(f"  {BOLD}Download:{RESET} {pipeline.total_artifact_size}\n")
+
+        for i, stage in enumerate(pipeline.stages, 1):
+            tps = f"{stage.estimated_tokens_per_sec:.0f} tok/s" if stage.estimated_tokens_per_sec > 0 else "no benchmark"
+            print(f"  {BOLD}{i}.{RESET} {stage.model_name}")
+            print(f"     {DIM}{stage.input_modality} -> {stage.output_modality}{RESET}")
+            print(f"     {DIM}{stage.parameters} | {tps} | {stage.runner}{RESET}")
+            print(f"     {GREEN}coreai-catalog install {stage.model_id}{RESET}\n")
+        return 0
+
+    elif args.from_modality:
+        reachable = sorted(graph.reachable_outputs(args.from_modality))
+        print(f"\n  {BOLD}From: {args.from_modality}{RESET}")
+        print(f"  {BOLD}Reachable outputs ({len(reachable)}):{RESET}\n")
+        for mod in reachable:
+            print(f"    {mod}")
+        print()
+        return 0
+
+    else:
+        all_inputs = sorted(graph.input_modalities)
+        print(f"\n  {BOLD}Core AI Transform Graph{RESET}")
+        print(f"  {DIM}{len(all_inputs)} input modalities -> {len(graph.output_modalities)} output modalities{RESET}\n")
+        for inp in all_inputs:
+            reachable = sorted(graph.reachable_outputs(inp))
+            direct = {e.output_modality for e in graph.get_all_edges_from(inp)}
+            print(f"  {BOLD}{inp}{RESET}")
+            for out in reachable:
+                marker = "  " if out in direct else "-> "
+                print(f"    {marker}{out}")
+            print()
+        pairs = graph.get_all_modality_pairs()
+        matrix = graph.reachability_matrix()
+        total = sum(len(v) for v in matrix.values())
+        print(f"  {DIM}Direct transforms: {len(pairs)} | Total reachable: {total}{RESET}\n")
+        return 0
+
+
 def cmd_doctor(args: argparse.Namespace) -> int:
     """Check the local environment for Core AI development readiness."""
     print(f"\n  {BOLD}Core AI Catalog — Environment Check{RESET}")
@@ -1042,6 +1134,7 @@ def build_parser() -> argparse.ArgumentParser:
             "  coreai-catalog capabilities          # see all capabilities\n"
             "  coreai-catalog search -c chat -d iphone  # find chat models for iPhone\n"
             "  coreai-catalog recommend -t 'robot vision' -d iphone\n"
+            "  coreai-catalog transforms --from audio --to image  # plan transform pipeline\n"
             "  coreai-catalog show qwen3-vl-2b       # full model details\n"
             "  coreai-catalog install qwen3-vl-2b    # download + Swift snippet\n"
             "  coreai-catalog doctor                 # check your environment\n"
@@ -1140,6 +1233,16 @@ def build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("tasks", help="Browse all supported task keywords")
     p.add_argument("--json", action="store_true", help="Output as JSON")
     p.set_defaults(func=cmd_tasks)
+
+    # transforms
+    p = sub.add_parser("transforms", aliases=["tx"],
+                       help="Browse and query modality transformation pipelines")
+    p.add_argument("--from", dest="from_modality",
+                   help="Input modality (text, image, audio, document_image)")
+    p.add_argument("--to", dest="to_modality",
+                   help="Target output modality")
+    p.add_argument("--json", action="store_true", help="Output as JSON")
+    p.set_defaults(func=cmd_transforms)
 
     return parser
 
