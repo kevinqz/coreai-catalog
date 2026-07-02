@@ -437,13 +437,15 @@ footer a:hover { text-decoration: underline; }
 .sb-missed .sb-icon { color: var(--text-3); }
 .sb-missed .sb-pts { color: var(--text-3); }
 
-/* Modal score breakdown */
-.modal-score-breakdown { margin: .5rem 0 .75rem; }
-.modal-score-breakdown .score-breakdown {
-  grid-column: auto; margin-top: 0;
-  border: none; background: transparent; padding: 0;
+/* Modal score (compact row, click to expand details) */
+.modal-score-row { display: flex; align-items: center; gap: .5rem; margin: .5rem 0 .75rem; }
+.modal-score-desc { color: var(--text-3); font-size: .75rem; }
+.modal-score-details {
+  grid-column: auto; margin-top: 0; margin-bottom: .75rem;
+  border: 1px solid var(--border); background: var(--bg-elevated);
+  border-radius: var(--r); padding: .55rem .65rem;
 }
-.modal-score-breakdown .sb-header { padding-bottom: .35rem; }
+.modal-score-details .sb-header { padding-bottom: .35rem; }
 
 /* ═══ PROVENANCE CHAIN ═══ */
 .provenance-chain { display: flex; flex-direction: column; gap: 0; }

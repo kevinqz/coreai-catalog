@@ -303,7 +303,11 @@
       '<button class="modal-close" id="modal-close-btn" aria-label="Close">&times;</button>' +
       '<h2>' + escapeHtml(m.name) + '</h2>' +
       '<p class="modal-id">' + m.id + ' &middot; ' + escapeHtml(sourceLabel(m.source_group)) + '</p>' +
-      '<div class="modal-score-breakdown">' +
+      '<div class="modal-score-row">' +
+        '<span class="card-score ' + scoreClass(s) + '" id="modal-score-btn" title="Click to see score breakdown">' + s + ' ' + gradeLetter(s) + '</span>' +
+        '<span class="modal-score-desc">' + escapeHtml(m.maturity || 'unknown') + ' &middot; click score for details</span>' +
+      '</div>' +
+      '<div class="score-breakdown modal-score-details" style="display:none;">' +
         scoreBreakdownHTML(m) +
       '</div>' +
       (capsList ? '<div class="modal-section"><h4>Capabilities</h4><div class="card-caps">' + capsList + '</div></div>' : '') +
@@ -339,6 +343,11 @@
 
     $('modal-overlay').style.display = 'flex';
     $('modal-close-btn').addEventListener('click', closeModal);
+    $('modal-score-btn').addEventListener('click', function () {
+      var details = document.querySelector('.modal-score-details');
+      if (details.style.display === 'none') { details.style.display = 'block'; this.classList.add('active'); }
+      else { details.style.display = 'none'; this.classList.remove('active'); }
+    });
   }
 
   // ── Tasks ──
