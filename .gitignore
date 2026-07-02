@@ -5,8 +5,10 @@ __pycache__/
 .venv*
 venv/
 
-# Claude Code worktrees (ephemeral, should not be committed)
-.claude/worktrees/
+# Editor/IDE/agent state
+.claude/
+.pytest_cache/
+.mypy_cache/
 
 # Build artifacts (pip install -e .)
 build/
@@ -17,4 +19,6 @@ dist/coreai_catalog-*
 # Hermes workspace (agent runtime, not catalog content)
 .hermes/
 .source-watch-state.json
-.internal/relay-privkey.pem
+
+# Internal (design docs, relay reference code, private keys)
+.internal/

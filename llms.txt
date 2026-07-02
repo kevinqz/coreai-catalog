@@ -8,6 +8,9 @@ models. It maps Core AI-compatible model artifacts with granular metadata,
 source links, Hugging Face artifact references, runtime requirements, device
 support, benchmark records, and verification status.
 
+- **Version:** 2.1.0
+- **Last verified:** 2026-07-02
+
 ## Catalog facts
 
 - 79 model records (chat, vision-language, speech, embeddings, detection, more)
@@ -42,6 +45,8 @@ Machine-readable JSON exports (available via raw GitHub, no clone needed):
 - `dist/models.jsonl` — one model per line (streaming-friendly)
 - `dist/readiness-scores.json` — 0-100 deployment readiness scores
 - `dist/coreai-catalog.json` — everything bundled
+- `dist/transforms-graph.json` — modality transform graph
+- `dist/model-manifest.json` — installable model manifest
 
 Base URL: `https://raw.githubusercontent.com/kevinqz/coreai-catalog/main/dist/`
 

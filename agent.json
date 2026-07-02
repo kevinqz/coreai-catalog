@@ -105,6 +105,9 @@
     "catalog_json": "https://raw.githubusercontent.com/kevinqz/coreai-catalog/main/dist/catalog.json",
     "search_index": "https://raw.githubusercontent.com/kevinqz/coreai-catalog/main/dist/search-index.json",
     "bundled": "https://raw.githubusercontent.com/kevinqz/coreai-catalog/main/dist/coreai-catalog.json",
+    "transforms_graph": "https://raw.githubusercontent.com/kevinqz/coreai-catalog/main/dist/transforms-graph.json",
+    "model_manifest": "https://raw.githubusercontent.com/kevinqz/coreai-catalog/main/dist/model-manifest.json",
+    "benchmarks_aggregate": "https://raw.githubusercontent.com/kevinqz/coreai-catalog/main/dist/benchmarks-aggregate.json",
     "agents_instructions": "https://raw.githubusercontent.com/kevinqz/coreai-catalog/main/AGENTS.md"
   },
   "mcp_server": {

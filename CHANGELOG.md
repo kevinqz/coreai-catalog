@@ -4,6 +4,118 @@ All notable changes to Core AI Catalog are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/), and this
 project adheres to [Semantic Versioning](https://semver.org/).
 
+## [2.1.0] — 2026-07-02
+
+### Added — Transform Graph Engine
+
+- **`coreai_catalog/transform_graph.py`** — directed modality graph where each
+  model is an edge (input_modality → output_modality). Provides BFS
+  shortest-path between any two modalities, all-paths enumeration, and a
+  full reachability matrix.
+- **CLI `coreai-catalog transforms`** (alias `tx`) — browse direct transforms,
+  query reachable outputs, or plan multi-hop pipelines:
+  ```
+  coreai-catalog transforms                       # full reachability matrix
+  coreai-catalog transforms --from audio           # reachable from audio
+  coreai-catalog transforms --from audio --to image  # shortest pipeline
+  ```
+  Supports `--json`.
+- **Python API** — three new methods on `Catalog`:
+  - `Catalog.transforms()` — full reachability matrix
+  - `Catalog.transform_pipeline(input, output)` — shortest-path pipeline
+  - `Catalog.reachable_outputs(input)` — sorted reachable output modalities
+- **MCP tool #12 `query_transforms`** — agents can plan modality pipelines
+  and discover reachable outputs without leaving the tool surface.
+- **`dist/transforms-graph.json`** — 55 transform pipelines with model
+  metadata per stage (tokens/sec, parameters, artifact size, HF URL).
+- **`dist/model-manifest.json`** — 79 models with inferred `bundle_kind`
+  (vlm, llm, diffusion, segmenter, speech, video, detector, graph).
+
+### Added — Provenance Phase 1: JSONL benchmark migration
+
+- **`benchmarks.yaml` → `benchmarks.jsonl`** — 66 entries migrated to
+  append-only JSONL (one JSON object per line). Enables atomic appends
+  and line-level diffing for benchmark PRs.
+- **Schema v2.0** — benchmark entries now carry methodology + provenance
+  fields: `extraction_method`, `device_verified`, `model_verified`,
+  `higher_is_better`, and structured `environment` block (protocol_version,
+  engine, thermal_state, battery_state, low_power_mode).
+- **Confidence filtering** — `Catalog.get_benchmarks(min_confidence=)`
+  filters entries at or above a confidence tier (high/medium/low).
+- **`scripts/migrate_benchmarks_to_jsonl.py`** — one-shot migration script
+  handling free-text environments and human-readable device names.
+- **`.github/ISSUE_TEMPLATE/benchmark-submission.yml`** — structured GitHub
+  Issue template for manual benchmark submissions.
+
+### Added — Provenance Phase 2: Ed25519 signed intake
+
+- **Ed25519 keypair** — relay signs each benchmark payload before opening
+  a PR; public key committed at `.github/relay-pubkey.pem`. Direct PRs
+  (bypassing the relay) are rejected.
+- **`scripts/verify_benchmark_signature.py`** — verifies the `_signature`
+  field on a JSONL line; exits non-zero on missing/invalid/tampered
+  signatures.
+- **`scripts/outlier_check.py`** — MAD (Median Absolute Deviation)
+  detection: compares submitted value against existing cohort for the
+  same model + device + metric; exits non-zero on outliers
+  (|modified-z| > 3.5).
+- **`scripts/validate_benchmark_entry.py`** — validates JSONL entries
+  against `schema/benchmark.schema.json` with field-level error paths.
+- **`.github/workflows/benchmark-validate.yml`** — GitHub Action with
+  4 gates: (1) exactly 1 line added, (2) Ed25519 signature valid,
+  (3) schema + model_id cross-reference valid, (4) outlier check
+  (non-blocking advisory).
+- **CF Worker reference** — `.internal/relay/worker-reference.ts` for
+  the Cloudflare Worker that receives app submissions, verifies
+  DeviceCheck, and signs payloads before opening PRs.
+
+### Added — Provenance Phase 3: Auto-merge + DeviceCheck + aggregate
+
+- **All 8 auto-merge gates** — `schema_valid`, `model_id_exists`,
+  `signature_valid`, `device_verified`, `extraction_method`,
+  `outlier_pass`, `thermal_ok`, `not_duplicate`. PR auto-merges via
+  squash only when all gates pass; otherwise labeled
+  `benchmark-needs-review` for curator review. Gate results posted as
+  a formatted table comment on the PR.
+- **`scripts/verify_devicecheck.py`** — verifies Apple DeviceCheck JWT
+  tokens (ES256). Runs in the CF Worker (Apple private key cannot be
+  in the public repo); the Action trusts the relay's Ed25519 signature
+  as proof of device verification.
+- **`scripts/generate_benchmarks_aggregate.py`** — groups benchmarks by
+  (model_id, device_class, metric) and computes medians, percentiles,
+  and sample counts.
+- **`dist/benchmarks-aggregate.json`** — aggregate statistics with
+  **minimum-k=3 suppression**: combos with fewer than 3 samples are
+  suppressed to prevent k=1 de-anonymization.
+- **`docs/anchor-cohort.md`** — documents the curator-verified anchor
+  device reference cohort that defines the baseline for outlier
+  detection. Anchor PRs bypass the outlier check by definition.
+- **`docs/privacy-policy.md`** — full data-collection and consent
+  policy. Aware of GDPR (EU), LGPD (Brazil), and CCPA (California).
+  Documents what is collected, what is NOT collected, coarsening
+  strategy, and user rights.
+
+### Added — test suite expanded (88 → 122, +34)
+
+- **`tests/test_transform_graph.py`** (25 tests) — graph construction,
+  direct/multi-hop shortest paths, reachability matrix, pipeline
+  serialization, deterministic model selection, artifact size totals.
+- **`tests/test_benchmark_pipeline.py`** (7 tests) — Ed25519 sign/verify
+  round-trip, unsigned rejection, tampered-signature rejection, schema
+  validation, outlier detection (insufficient data + extreme value).
+- **`tests/test_public_api.py`** (+3 tests) — `transforms()`,
+  `transform_pipeline()`, `reachable_outputs()`.
+
+### Fixed — red-team review
+
+- **`CoreAIVideoPipeline` bundle_kind** — correctly classified as `video`
+  in `model-manifest.json` (was falling through to `unknown`).
+- **Deterministic model selection** — transform graph picks the best
+  model per edge deterministically (score → parameter count → model ID
+  tie-break), ensuring reproducible pipelines.
+- **CLI exit codes** — `transforms` command returns proper exit codes
+  (0 on success, 1 when no path exists between requested modalities).
+
 ## [2.0.5] — 2026-07-01
 
 ### Fixed — MCP install + CI smoke test

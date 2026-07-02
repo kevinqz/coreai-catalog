@@ -17,7 +17,7 @@ When you choose to share benchmark results from the app:
 | Thermal state | `nominal` | Thermal throttling affects results |
 | Battery state | `charging` | Power mode affects results |
 | Protocol version | `2.0` | Ensures comparability |
-| App version | `ditto-ios-0.1.0` | Identifies submission source |
+| App version | `coreai-benchmark-app` | Identifies submission source |
 | DeviceCheck attestation | Verified, then **discarded** | Proves genuine hardware |
 
 ## What we NEVER collect

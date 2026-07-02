@@ -96,20 +96,17 @@ If the converter, original model, or artifact host is not already in `sources.ya
 
 ### 4. Add benchmark rows (if published)
 
-```yaml
-- id: my-model-1b-iphone17pro-gpu-toks
-  model_id: my-model-1b
-  metric: decode_throughput
-  unit: tokens_per_second
-  value: 52.3
-  device: iPhone 17 Pro
-  compute_unit: GPU
-  environment: iOS 27 beta, coreai-pipelined engine
-  observed: '2026-06-30'
-  source: coreai-model-zoo-readme
-  confidence: medium
-  notes: Decode throughput from upstream README table.
+Benchmarks are submitted as JSONL (one JSON object per line). Each entry
+carries per-entry provenance so downstream consumers can assess trust:
+
+```json
+{"id":"my-model-1b-a18pro-gpu-toks","model_id":"my-model-1b","metric":"decode_throughput","unit":"tokens_per_second","value":52.3,"device_class":"A18 Pro","os_major":27,"compute_unit":"GPU","extraction_method":"upstream-readme","device_verified":false,"observed":"2026-06-30","source":"coreai-model-zoo-readme","confidence":"medium","notes":"Decode throughput from upstream README table."}
 ```
+
+Required fields: `id`, `model_id`, `metric`, `unit`, `value`, `device_class`,
+`os_major`, `extraction_method`, `device_verified`, `observed`, `source`,
+`confidence`. Append each entry as a new line — never overwrite or delete
+existing rows.
 
 ## Required checks
 
