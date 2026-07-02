@@ -617,7 +617,7 @@ Earlier:
 - v1.6.0 — Task-first discovery: `tasks` command, `recommend --explain`, enriched MCP get_tasks.
 - v1.5.0 — Structured docs (philosophy, getting-started, concepts, task pages), community templates, issue templates.
 - v1.4.0 — PyPI-ready, 60-second demo, Swift examples, recommend redesign.
-- v1.3.x — RWKV-7 Goose 1.5B, source-monitor cron, 3-round red-team, dist/ committed, docs sync.
+- v1.3.x — RWKV-7 Goose 1.5B, source-monitor cron, adversarial review, dist/ committed, docs sync.
 
 - v1.3.0 — CLI↔MCP parity, TASK_MAP expanded 40→89, `version` command, terminology alignment ("Core AI").
 - v1.2.x — Fuzzy search, capability aliases, ANSI auto-detect, recommend --license, installer hardening, DX improvements.
