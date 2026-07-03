@@ -308,15 +308,44 @@
             <span class="skill-head-rule"></span>
           </div>
           <div class="skill-body">
+            <h3>Plan a transform pipeline</h3>
+            <p>Have audio, need an image? The transform graph chains models across modalities and returns the shortest multi-hop pipeline.</p>
+          </div>
+          <div class="skill-columns">
+            <div class="skill-col">
+              <div class="code-block">
+                <div class="code-header"><span>mcp</span><button class="btn-copy" data-copy-target="skill-5-mcp">Copy</button></div>
+                <pre><code id="skill-5-mcp">query_transforms(
+  from="audio",
+  to="image"
+)</code></pre>
+              </div>
+            </div>
+            <div class="skill-col">
+              <div class="code-block">
+                <div class="code-header"><span>cli</span><button class="btn-copy" data-copy-target="skill-5-cli">Copy</button></div>
+                <pre><code id="skill-5-cli">coreai-catalog transforms \
+  --from audio --to image</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-card-head">
+            <span class="skill-num">6</span>
+            <span class="skill-head-rule"></span>
+          </div>
+          <div class="skill-body">
             <h3>Add a model to the catalog</h3>
-            <p>Found an <code>.aimodel</code> artifact that's missing? This is the exact fork → edit → PR sequence, step by step.</p>
+            <p>Found an <code>.aimodel</code> artifact that's missing? This is the exact draft → validate → PR sequence — from the CLI or the model-request form.</p>
           </div>
           <button type="button" class="skill-jump" data-jump-tab="contribute" data-jump-target="contribute-add-model">Open the Add a Model guide →</button>
         </div>
 
         <div class="skill-card">
           <div class="skill-card-head">
-            <span class="skill-num">6</span>
+            <span class="skill-num">7</span>
             <span class="skill-head-rule"></span>
           </div>
           <div class="skill-body">

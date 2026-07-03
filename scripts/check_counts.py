@@ -85,7 +85,48 @@ def check() -> list[str]:
                  "site meta description model count")
     must_contain("site/index.html", f'id="stat-models">{m}<', "site stat-models fallback")
     must_contain("site/index.html", f'id="stat-mcp">{c["mcp_tools"]}<', "site stat-mcp count")
+    # README MCP-tools count must match the live server (feedback: README said
+    # 12 while the server and every other surface said 16).
+    must_contain("README.md", f"exposes {c['mcp_tools']} tools",
+                 "README MCP-server tool count")
+    must_contain("README.md", f"### Available tools ({c['mcp_tools']})",
+                 "README MCP-tools section header count")
+
+    errors.extend(_version_errors())
     return errors
+
+
+def _read_versions() -> dict[str, str | None]:
+    """Extract the declared version string from every surface that carries one."""
+    import re
+
+    def rx(rel: str, pattern: str) -> str | None:
+        mo = re.search(pattern, (ROOT / rel).read_text())
+        return mo.group(1) if mo else None
+
+    return {
+        "pyproject.toml": rx("pyproject.toml", r'(?m)^version\s*=\s*"([^"]+)"'),
+        "catalog.yaml": yaml.safe_load((ROOT / "catalog.yaml").read_text())["metadata"].get("version"),
+        "agent.json": json.loads((ROOT / "agent.json").read_text()).get("version"),
+        "openapi.yaml": rx("openapi.yaml", r"(?m)^\s+version:\s*['\"]?([0-9][^'\"\n]+)"),
+        "README.md": rx("README.md", r"\*\*Version:\*\*\s*v([0-9][0-9.]+)"),
+    }
+
+
+def _version_errors() -> list[str]:
+    """The version contract: every surface must carry the same version."""
+    versions = _read_versions()
+    canonical_version = versions["pyproject.toml"]
+    errs: list[str] = []
+    for surface, ver in versions.items():
+        if ver is None:
+            errs.append(f"{surface}: could not read a version string")
+        elif ver != canonical_version:
+            errs.append(
+                f"{surface}: version {ver!r} != pyproject.toml {canonical_version!r} "
+                "(the version contract requires all surfaces to match)"
+            )
+    return errs
 
 
 def main() -> int:

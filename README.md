@@ -21,7 +21,7 @@ Not affiliated with or endorsed by Apple. `commercial_use` fields are triage lab
 
 ## Status
 
-**Version:** v2.2.0 — [PyPI](https://pypi.org/project/coreai-catalog/) · [Live site](https://kevinqz.github.io/coreai-catalog/) · [CI](https://github.com/kevinqz/coreai-catalog/actions/workflows/validate.yml)
+**Version:** v2.2.1 — [PyPI](https://pypi.org/project/coreai-catalog/) · [Live site](https://kevinqz.github.io/coreai-catalog/) · [CI](https://github.com/kevinqz/coreai-catalog/actions/workflows/validate.yml)
 
 81 Apple Core AI models with artifact provenance, benchmarks, verified terminology, readiness scores, and an MCP server for agent-native model discovery, comparison, and recommendation.
 
@@ -452,7 +452,7 @@ All commands support `--json` for programmatic consumption by agents and automat
 
 ## MCP server (Agent API)
 
-The catalog ships an [MCP server](https://modelcontextprotocol.io/) that exposes 12 tools to AI agents (Claude Desktop, Cursor, any MCP-compatible client).
+The catalog ships an [MCP server](https://modelcontextprotocol.io/) that exposes 16 tools to AI agents (Claude Desktop, Cursor, any MCP-compatible client).
 
 ### Setup
 
@@ -499,7 +499,9 @@ Or use the installed entry point:
 }
 ```
 
-### Available tools
+### Available tools (16)
+
+**Read-only query tools (12)** — also mirrored in the OpenAPI spec:
 
 | Tool | Description |
 |---|---|
@@ -514,7 +516,21 @@ Or use the installed entry point:
 | `get_capabilities` | List all capabilities with model counts |
 | `get_tasks` | List all supported task synonyms and their mappings |
 | `get_version` | Catalog version, model count, last-verified date |
-| `transforms` | Plan multi-hop modality transformation pipelines between Core AI models (graph, `--from`, `--from --to`) |
+| `query_transforms` | Plan multi-hop modality transformation pipelines between Core AI models (graph, `--from`, `--from --to`) |
+
+**Write / contribution tools (3)** — MCP-only, gated (no static-hosting equivalent):
+
+| Tool | Description |
+|---|---|
+| `validate_entry` | Pre-flight a candidate model/artifact/benchmark/source entry against its schema + cross-reference rules (aggregated errors, fix hints); no writes |
+| `draft_model` | Assemble `catalog.yaml` + `artifacts.yaml` entries from a payload, validate, and return the would-be diff; no writes |
+| `submit_model` | Write the drafted entries, run the local validate/audit gate (rolled back on failure), and open a PR (`confirm=true` required; a human merges) |
+
+**Integration tool (1)** — MCP-only:
+
+| Tool | Description |
+|---|---|
+| `get_integration_snippet` | Contract-driven Swift integration code for a model without installing it (typed `io_contract`, image code path for image-input models) |
 
 ### Example agent interaction
 

@@ -1,7 +1,7 @@
 metadata:
   name: Core AI Catalog
   repo: coreai-catalog
-  version: 2.2.0
+  version: 2.2.1
   last_verified: '2026-07-03'
   upstream:
   - coreai-model-zoo

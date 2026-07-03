@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
   title: Core AI Catalog API
-  version: 2.2.0
+  version: 2.2.1
   description: |
     Source-grounded catalog of 81 Apple Core AI models. All endpoints here
     are read-only: this OpenAPI spec mirrors 12 of the MCP server's 16

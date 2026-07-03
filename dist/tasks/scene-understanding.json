@@ -176,7 +176,7 @@
     }
   ],
   "export_schema_version": "1.0",
-  "export_catalog_version": "2.2.0",
+  "export_catalog_version": "2.2.1",
   "best_overall": "rf-detr-large",
   "best_iphone": "rf-detr-large",
   "best_commercial": "rf-detr-large"

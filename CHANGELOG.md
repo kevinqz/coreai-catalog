@@ -4,6 +4,32 @@ All notable changes to Core AI Catalog are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/), and this
 project adheres to [Semantic Versioning](https://semver.org/).
 
+## [2.2.1] — 2026-07-03
+
+Version-contract + docs sync patch (no new features). Closes public-surface
+drift flagged in review.
+
+### Fixed
+
+- README MCP section said "12 tools" while the server, site, and `agent.json`
+  said 16 — corrected to 16 and the tool table now lists all 16, grouped into
+  read-only query tools, write/contribution tools (`validate_entry`,
+  `draft_model`, `submit_model`), and the integration tool
+  (`get_integration_snippet`); `transforms` renamed to the real tool id
+  `query_transforms`.
+- `scripts/generate_templates.py` no longer crashes on a schema example value
+  containing `': '` (e.g. a Swift call `CoreAILanguageModel(resourcesAt: url)`)
+  — the YAML re-interpretation probe is now guarded and treated as needs-quote.
+
+### Added
+
+- `scripts/check_counts.py` (CI guard) now also enforces the **version
+  contract** — `pyproject.toml`, `catalog.yaml`, `agent.json`, `openapi.yaml`,
+  and the README version string must all match — and the README MCP-tool count.
+- Site: a "Plan a transform pipeline" skill card surfaces the transform graph
+  (`query_transforms` / `coreai-catalog transforms --from … --to …`), which was
+  previously invisible on the site.
+
 ## [2.2.0] — 2026-07-03
 
 Agent Experience (AX) release: everything a human can do, an agent can now do

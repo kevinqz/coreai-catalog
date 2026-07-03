@@ -457,5 +457,38 @@ class TestVersionSurfaces(unittest.TestCase):
         self.assertIn(f"**Version:** v{version}", (REPO_ROOT / "README.md").read_text())
 
 
+class TestCountSyncGuard(unittest.TestCase):
+    """scripts/check_counts.py — the CI guard against count + version drift
+    (the 79/80/81, 12/16, and pyproject-2.1.0-vs-catalog-2.2.0 class)."""
+
+    def _guard(self):
+        return importlib.import_module("check_counts")
+
+    def test_guard_passes_on_real_repo(self):
+        self.assertEqual(self._guard().main(), 0,
+                         "check_counts must pass on the real repo")
+
+    def test_version_guard_catches_drift(self):
+        guard = self._guard()
+        original = guard._read_versions
+        try:
+            guard._read_versions = lambda: {
+                "pyproject.toml": "2.1.0", "catalog.yaml": "2.2.0",
+                "agent.json": "2.2.0", "openapi.yaml": "2.2.0", "README.md": "2.2.0",
+            }
+            errs = guard._version_errors()
+            self.assertTrue(errs, "a pyproject-vs-catalog version mismatch must be caught")
+            self.assertEqual(len(errs), 4)
+        finally:
+            guard._read_versions = original
+
+    def test_readme_mcp_tool_count_matches_canonical(self):
+        guard = self._guard()
+        tools = guard.canonical()["mcp_tools"]
+        readme = (REPO_ROOT / "README.md").read_text()
+        self.assertIn(f"exposes {tools} tools", readme)
+        self.assertIn(f"### Available tools ({tools})", readme)
+
+
 if __name__ == "__main__":
     unittest.main()
