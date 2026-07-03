@@ -16,7 +16,7 @@
       "best_metrics": {
         "inference_latency": {
           "value": 37.7,
-          "device": null,
+          "device": "M4 Max",
           "unit": "milliseconds"
         }
       }
@@ -33,7 +33,7 @@
       "best_metrics": {
         "inference_latency": {
           "value": 15.2,
-          "device": null,
+          "device": "M4 Max",
           "unit": "milliseconds"
         }
       }
@@ -50,7 +50,7 @@
       "best_metrics": {
         "inference_latency": {
           "value": 12.0,
-          "device": null,
+          "device": "M4 Max",
           "unit": "milliseconds"
         }
       }
@@ -67,7 +67,7 @@
       "best_metrics": {
         "inference_latency": {
           "value": 45.7,
-          "device": null,
+          "device": "M4 Max",
           "unit": "milliseconds"
         }
       }
@@ -84,7 +84,7 @@
       "best_metrics": {
         "inference_latency": {
           "value": 19.1,
-          "device": null,
+          "device": "M4 Max",
           "unit": "milliseconds"
         }
       }
@@ -101,7 +101,7 @@
       "best_metrics": {
         "inference_latency": {
           "value": 14.8,
-          "device": null,
+          "device": "M4 Max",
           "unit": "milliseconds"
         }
       }
@@ -118,7 +118,7 @@
       "best_metrics": {
         "inference_latency": {
           "value": 8.6,
-          "device": null,
+          "device": "M4 Max",
           "unit": "milliseconds"
         }
       }
@@ -135,7 +135,7 @@
       "best_metrics": {
         "inference_latency": {
           "value": 12.0,
-          "device": null,
+          "device": "M4 Max",
           "unit": "milliseconds"
         }
       }
@@ -152,7 +152,7 @@
       "best_metrics": {
         "inference_latency": {
           "value": 4.8,
-          "device": null,
+          "device": "M4 Max",
           "unit": "milliseconds"
         }
       }
@@ -170,7 +170,7 @@
       "best_metrics": {
         "decode_throughput": {
           "value": 484,
-          "device": null,
+          "device": "M4 Max",
           "unit": "tokens_per_second"
         }
       }
@@ -188,7 +188,7 @@
       "best_metrics": {
         "decode_throughput": {
           "value": 145.4,
-          "device": null,
+          "device": "M4 Max",
           "unit": "tokens_per_second"
         }
       }
@@ -205,7 +205,7 @@
       "best_metrics": {
         "transcription_latency": {
           "value": 180,
-          "device": null,
+          "device": "M4 Max",
           "unit": "milliseconds"
         }
       }
@@ -233,7 +233,7 @@
       "best_metrics": {
         "image_generation_latency": {
           "value": 17.4,
-          "device": null,
+          "device": "M4 Max",
           "unit": "seconds"
         }
       }
@@ -252,7 +252,7 @@
       "best_metrics": {
         "decode_throughput": {
           "value": 78.1,
-          "device": null,
+          "device": "M4 Max",
           "unit": "tokens_per_second"
         }
       }
@@ -282,7 +282,7 @@
       "best_metrics": {
         "decode_throughput": {
           "value": 66.8,
-          "device": null,
+          "device": "A18 Pro",
           "unit": "tokens_per_second"
         }
       }
@@ -365,17 +365,6 @@
       "best_metrics": {}
     },
     {
-      "id": "unlimited-ocr",
-      "name": "Unlimited-OCR",
-      "capabilities": [
-        "document-ocr"
-      ],
-      "parameters": "not_published",
-      "readiness_score": 83,
-      "benchmark_count": 0,
-      "best_metrics": {}
-    },
-    {
       "id": "official-mistral-7b-v0-3",
       "name": "Mistral 7B v0.3",
       "capabilities": [
@@ -388,7 +377,7 @@
       "best_metrics": {
         "decode_throughput": {
           "value": 101.7,
-          "device": null,
+          "device": "M4 Max",
           "unit": "tokens_per_second"
         }
       }
@@ -406,7 +395,7 @@
       "best_metrics": {
         "decode_throughput": {
           "value": 94.1,
-          "device": null,
+          "device": "M4 Max",
           "unit": "tokens_per_second"
         }
       }
@@ -423,7 +412,7 @@
       "best_metrics": {
         "segmentation_latency": {
           "value": 0.55,
-          "device": null,
+          "device": "M4 Max",
           "unit": "seconds_per_image"
         }
       }
@@ -442,7 +431,7 @@
       "best_metrics": {
         "decode_throughput": {
           "value": 20.4,
-          "device": null,
+          "device": "A18 Pro",
           "unit": "tokens_per_second"
         }
       }
@@ -461,7 +450,7 @@
       "best_metrics": {
         "decode_throughput": {
           "value": 36.3,
-          "device": null,
+          "device": "A18 Pro",
           "unit": "tokens_per_second"
         }
       }
@@ -478,27 +467,7 @@
       "best_metrics": {
         "decode_throughput": {
           "value": 53.4,
-          "device": null,
-          "unit": "tokens_per_second"
-        }
-      }
-    },
-    {
-      "id": "nanbeige4-1-3b",
-      "name": "Nanbeige4.1-3B",
-      "capabilities": [
-        "chat",
-        "reasoning",
-        "agentic",
-        "text-generation"
-      ],
-      "parameters": "3.93B",
-      "readiness_score": 78,
-      "benchmark_count": 2,
-      "best_metrics": {
-        "decode_throughput": {
-          "value": 15.9,
-          "device": null,
+          "device": "A18 Pro",
           "unit": "tokens_per_second"
         }
       }
@@ -527,12 +496,12 @@
       "best_metrics": {
         "realtime_factor": {
           "value": 47.9,
-          "device": null,
+          "device": "A18 Pro",
           "unit": "realtime_factor"
         },
         "transcription_latency": {
           "value": 310,
-          "device": null,
+          "device": "M4 Max",
           "unit": "milliseconds"
         }
       }
@@ -550,7 +519,7 @@
       "best_metrics": {
         "decode_throughput": {
           "value": 71.9,
-          "device": null,
+          "device": "A18 Pro",
           "unit": "tokens_per_second"
         }
       }
@@ -568,7 +537,7 @@
       "best_metrics": {
         "decode_throughput": {
           "value": 29,
-          "device": null,
+          "device": "A18 Pro",
           "unit": "tokens_per_second"
         }
       }
@@ -585,7 +554,7 @@
       "best_metrics": {
         "decode_throughput": {
           "value": 33.5,
-          "device": null,
+          "device": "A18 Pro",
           "unit": "tokens_per_second"
         }
       }
@@ -613,7 +582,7 @@
       "best_metrics": {
         "realtime_factor": {
           "value": 0.9,
-          "device": null,
+          "device": "A18 Pro",
           "unit": "realtime_factor"
         }
       }
@@ -708,6 +677,17 @@
       "best_metrics": {}
     },
     {
+      "id": "unlimited-ocr",
+      "name": "Unlimited-OCR",
+      "capabilities": [
+        "document-ocr"
+      ],
+      "parameters": "not_published",
+      "readiness_score": 73,
+      "benchmark_count": 0,
+      "best_metrics": {}
+    },
+    {
       "id": "vibevoice-0-5b",
       "name": "VibeVoice 0.5B",
       "capabilities": [
@@ -719,7 +699,7 @@
       "best_metrics": {
         "realtime_factor": {
           "value": 10.2,
-          "device": null,
+          "device": "M4 Max",
           "unit": "realtime_factor"
         }
       }
@@ -736,7 +716,7 @@
       "best_metrics": {
         "realtime_factor": {
           "value": 4.99,
-          "device": null,
+          "device": "M4 Max",
           "unit": "realtime_factor"
         }
       }
@@ -753,7 +733,7 @@
       "best_metrics": {
         "realtime_factor": {
           "value": 2.37,
-          "device": null,
+          "device": "M4 Max",
           "unit": "realtime_factor"
         }
       }
@@ -770,7 +750,7 @@
       "best_metrics": {
         "realtime_factor": {
           "value": 11.1,
-          "device": null,
+          "device": "M4 Max",
           "unit": "realtime_factor"
         }
       }
@@ -811,7 +791,7 @@
       "best_metrics": {
         "decode_throughput": {
           "value": 55.0,
-          "device": null,
+          "device": "M4 Max",
           "unit": "tokens_per_second"
         }
       }
@@ -830,7 +810,7 @@
       "best_metrics": {
         "decode_throughput": {
           "value": 141.5,
-          "device": null,
+          "device": "M4 Max",
           "unit": "tokens_per_second"
         }
       }
@@ -848,7 +828,7 @@
       "best_metrics": {
         "decode_throughput": {
           "value": 17,
-          "device": null,
+          "device": "A18 Pro",
           "unit": "tokens_per_second"
         }
       }
@@ -865,7 +845,7 @@
       "best_metrics": {
         "inference_latency": {
           "value": 3,
-          "device": null,
+          "device": "M4 Max",
           "unit": "milliseconds"
         }
       }
@@ -897,7 +877,27 @@
       "best_metrics": {
         "decode_throughput": {
           "value": 45.4,
-          "device": null,
+          "device": "A18 Pro",
+          "unit": "tokens_per_second"
+        }
+      }
+    },
+    {
+      "id": "nanbeige4-1-3b",
+      "name": "Nanbeige4.1-3B",
+      "capabilities": [
+        "chat",
+        "reasoning",
+        "agentic",
+        "text-generation"
+      ],
+      "parameters": "3.93B",
+      "readiness_score": 68,
+      "benchmark_count": 2,
+      "best_metrics": {
+        "decode_throughput": {
+          "value": 15.9,
+          "device": "A18 Pro",
           "unit": "tokens_per_second"
         }
       }
@@ -960,7 +960,7 @@
       "best_metrics": {
         "decode_throughput": {
           "value": 30.3,
-          "device": null,
+          "device": "A18 Pro",
           "unit": "tokens_per_second"
         }
       }
@@ -977,7 +977,7 @@
       "best_metrics": {
         "decode_throughput": {
           "value": 25.5,
-          "device": null,
+          "device": "A18 Pro",
           "unit": "tokens_per_second"
         }
       }
@@ -995,27 +995,7 @@
       "best_metrics": {
         "decode_throughput": {
           "value": 15.1,
-          "device": null,
-          "unit": "tokens_per_second"
-        }
-      }
-    },
-    {
-      "id": "glm-4-7-flash",
-      "name": "GLM-4.7-Flash",
-      "capabilities": [
-        "chat",
-        "text-generation",
-        "moe",
-        "mla"
-      ],
-      "parameters": "30B / ~3B active",
-      "readiness_score": 63,
-      "benchmark_count": 1,
-      "best_metrics": {
-        "decode_throughput": {
-          "value": 52.4,
-          "device": null,
+          "device": "A18 Pro",
           "unit": "tokens_per_second"
         }
       }
@@ -1068,7 +1048,7 @@
       "best_metrics": {
         "decode_throughput": {
           "value": 15.9,
-          "device": null,
+          "device": "M4 Max",
           "unit": "tokens_per_second"
         }
       }
@@ -1087,7 +1067,7 @@
       "best_metrics": {
         "decode_throughput": {
           "value": 64.9,
-          "device": null,
+          "device": "M4 Max",
           "unit": "tokens_per_second"
         }
       }
@@ -1110,17 +1090,6 @@
       "capabilities": [
         "text-to-audio",
         "music-generation"
-      ],
-      "parameters": "not_published",
-      "readiness_score": 63,
-      "benchmark_count": 0,
-      "best_metrics": {}
-    },
-    {
-      "id": "tripo-splat",
-      "name": "TripoSplat",
-      "capabilities": [
-        "image-to-3d"
       ],
       "parameters": "not_published",
       "readiness_score": 63,
@@ -1153,7 +1122,7 @@
       "best_metrics": {
         "decode_throughput": {
           "value": 23,
-          "device": null,
+          "device": "M4 Max",
           "unit": "tokens_per_second"
         }
       }
@@ -1171,7 +1140,27 @@
       "best_metrics": {
         "decode_throughput": {
           "value": 17.2,
-          "device": null,
+          "device": "M4 Max",
+          "unit": "tokens_per_second"
+        }
+      }
+    },
+    {
+      "id": "glm-4-7-flash",
+      "name": "GLM-4.7-Flash",
+      "capabilities": [
+        "chat",
+        "text-generation",
+        "moe",
+        "mla"
+      ],
+      "parameters": "30B / ~3B active",
+      "readiness_score": 53,
+      "benchmark_count": 1,
+      "best_metrics": {
+        "decode_throughput": {
+          "value": 52.4,
+          "device": "M4 Max",
           "unit": "tokens_per_second"
         }
       }
@@ -1185,6 +1174,17 @@
         "moe"
       ],
       "parameters": "8B / ~1B active",
+      "readiness_score": 53,
+      "benchmark_count": 0,
+      "best_metrics": {}
+    },
+    {
+      "id": "tripo-splat",
+      "name": "TripoSplat",
+      "capabilities": [
+        "image-to-3d"
+      ],
+      "parameters": "not_published",
       "readiness_score": 53,
       "benchmark_count": 0,
       "best_metrics": {}

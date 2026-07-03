@@ -22,7 +22,7 @@
     {
       "id": "nanbeige4-1-3b",
       "name": "Nanbeige4.1-3B",
-      "score": 78,
+      "score": 68,
       "parameters": "3.93B",
       "devices": {
         "iphone": true,
@@ -30,7 +30,7 @@
         "mac": true
       },
       "license": "Apache-2.0",
-      "commercial_use": "likely",
+      "commercial_use": "check_license",
       "has_benchmark": true
     }
   ],

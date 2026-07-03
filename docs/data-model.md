@@ -67,7 +67,7 @@ Converted artifact provenance: where it was converted, where it is hosted, and i
 | `officiality.apple_hosted_artifact` | bool | True only if Apple hosts the artifact |
 | `officiality.community_packaged` | bool | True for community-zoo packaged artifacts |
 
-### Benchmark (`benchmarks.yaml`)
+### Benchmark (`benchmarks.jsonl`)
 
 Normalized measurement: a single environment-scoped data point, append-only.
 

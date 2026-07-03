@@ -96,7 +96,7 @@ coreai-catalog/
 ├── artifacts.yaml
 ├── sources.yaml
 ├── upstreams.yaml
-├── benchmarks.yaml
+├── benchmarks.jsonl
 ├── terms.yaml
 ├── requirements.txt
 ├── schema/
@@ -112,7 +112,7 @@ coreai-catalog/
 │   ├── derive_fields.py
 │   ├── generate.py
 │   ├── sync_upstream.py
-│   └── check_sources.sh
+│   └── validate_links.py
 ├── coreai_catalog/
 │   ├── __init__.py
 │   ├── __main__.py
@@ -163,11 +163,11 @@ See [`docs/anchor-cohort.md`](./docs/anchor-cohort.md) for the anchor-device ref
 
 | File | Purpose |
 |---|---|
-| `catalog.yaml` | Model facts: name, family, capabilities, modalities, size, runtime, device support, license status and verification status. Measurements live in `benchmarks.yaml`, not here. |
+| `catalog.yaml` | Model facts: name, family, capabilities, modalities, size, runtime, device support, license status and verification status. Measurements live in `benchmarks.jsonl`, not here. |
 | `artifacts.yaml` | Converted artifact provenance: GitHub conversion source, Hugging Face owner/repo/url and official recipe status. |
 | `sources.yaml` | Compact registry of primary/supporting sources already used by the catalog. |
 | `upstreams.yaml` | Source taxonomy for framework, conversion, artifact host, benchmark, sample, original model and license sources. |
-| `benchmarks.yaml` | Normalized benchmark records by model, metric, device, compute unit and source. |
+| `benchmarks.jsonl` | Normalized benchmark records by model, metric, device, compute unit and source (append-only JSONL, one JSON object per line). |
 | `terms.yaml` | Verified Apple AI terminology, tagged by ecosystem layer, each citing an official Apple source. |
 | `CREDITS.md` | Human-readable attribution for GitHub and Hugging Face users/repositories. |
 | `schema/*.json` | Validation contracts for model, artifact, upstream and benchmark records. |
@@ -235,23 +235,14 @@ An upstream entry in `upstreams.yaml` represents source taxonomy:
     - qwen3-vl-2b
 ```
 
-A benchmark entry in `benchmarks.yaml` represents a normalized measurement:
+A benchmark entry in `benchmarks.jsonl` represents a normalized measurement
+(one JSON object per line):
 
-```yaml
-- id: qwen3-5-0-8b-iphone17pro-gpu-toks
-  model_id: qwen3-5-0-8b
-  metric: decode_throughput
-  unit: tokens_per_second
-  value: 71.9
-  device: iPhone 17 Pro
-  compute_unit: GPU
-  environment: iOS 27 beta, coreai-pipelined engine
-  observed: '2026-06-25'
-  source: john-rocky-coreai-model-zoo
-  confidence: medium
+```json
+{"id": "qwen3-5-0-8b-iphone17pro-gpu-toks", "model_id": "qwen3-5-0-8b", "metric": "decode_throughput", "value": 71.9, "unit": "tokens_per_second", "device_class": "A18 Pro", "os_major": "27", "compute_unit": "GPU", "extraction_method": "upstream_readme_manual", "device_verified": false, "confidence": "medium", "observed_date": "2026-06-25", "source": "john-rocky-coreai-model-zoo", "notes": "Decode throughput from upstream README table."}
 ```
 
-Measurements are the single source of truth in `benchmarks.yaml` (model records carry no inline numbers). Each row is environment-scoped and append-only: values that differ across OS/runtime versions are kept as separate dated records, and a superseded value is retained with `confidence: needs_review` and a `superseded_by` pointer rather than overwritten.
+Measurements are the single source of truth in `benchmarks.jsonl` (model records carry no inline numbers). Each row is environment-scoped and append-only: values that differ across OS/runtime versions are kept as separate dated records, and a superseded value is retained with `confidence: needs_review` and a `superseded_by` pointer rather than overwritten.
 
 ## Source layers
 
@@ -262,7 +253,7 @@ Measurements are the single source of truth in `benchmarks.yaml` (model records 
 | Framework/runtime | `upstreams.yaml > framework_sources` | Apple Core AI, Core ML and tooling context. |
 | Original model | `upstreams.yaml > original_model_sources` | Original creators/model-family sources. |
 | License | `upstreams.yaml > license_sources` | License documents and review flags. |
-| Benchmarks | `benchmarks.yaml` | Measurement rows, source IDs and confidence. |
+| Benchmarks | `benchmarks.jsonl` | Measurement rows, source IDs and confidence. |
 | Human docs | `docs/*.md` | Tables, maps and curated summaries. |
 | Machine exports | `dist/*.json` | Generated JSON outputs for agents/APIs. |
 
@@ -604,7 +595,7 @@ For sensitive licenses such as Gemma Terms, Meta SAM License, LFM Open License o
 4. Keep `catalog.yaml` focused on model facts.
 5. Keep `artifacts.yaml` focused on converted artifact provenance and hosting.
 6. Keep `upstreams.yaml` focused on original model, framework, license and benchmark sources.
-7. Keep `benchmarks.yaml` focused on normalized measurement records.
+7. Keep `benchmarks.jsonl` focused on normalized measurement records.
 8. Keep `sources.yaml` focused on compact source registry.
 9. Generate Markdown and JSON views from YAML whenever possible.
 10. Credit original model creator, conversion source and artifact host separately.
@@ -639,7 +630,7 @@ Later:
 - Split large YAML files into `data/models/*.yaml` if the catalog grows significantly.
 - Richer model cards, per-model pages, and SEO optimization on the web UI.
 - Additional filters: runtime, maturity, confidence, artifact availability, modality.
-- Automated source verification (in progress via `scripts/check_sources.sh`).
+- Automated source verification (via `scripts/validate_links.py`).
 
 ## Non-goals
 

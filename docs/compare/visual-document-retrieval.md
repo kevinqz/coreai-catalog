@@ -6,5 +6,5 @@ Side-by-side comparison of all 1 model(s) with the `visual-document-retrieval` c
 |---|---|---|---|---|---|---|---|---|
 | ColModernVBERT | ModernVBERT | 250M | fp16 | iPhone/Mac | MIT | CoreAIKit-GraphModel | — | 🐼 Zoo |
 
-> Generated automatically by `scripts/generate.py` from `catalog.yaml` + `benchmarks.yaml`.
+> Generated automatically by `scripts/generate.py` from `catalog.yaml` + `benchmarks.jsonl`.
 

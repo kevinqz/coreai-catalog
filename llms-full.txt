@@ -41,7 +41,7 @@ search indexes) are generated from them.
 |---|---|---|
 | `catalog.yaml` | Model metadata | `models[].id` |
 | `artifacts.yaml` | Artifact provenance | `artifacts[].id` |
-| `benchmarks.yaml` | Benchmark measurements | `benchmarks[].model_id` |
+| `benchmarks.jsonl` | Benchmark measurements (append-only JSONL) | `benchmarks[].model_id` |
 | `sources.yaml` | Source registry | `sources[].id` |
 | `upstreams.yaml` | Source taxonomy | group-based |
 | `terms.yaml` | Apple AI terminology | `terms[].id` |

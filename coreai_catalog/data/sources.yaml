@@ -212,7 +212,21 @@ sources:
   last_checked: '2026-07-01'
   notes: 'RWKV-7 Goose — pure-recurrent / linear-attention LLM. Original model upstream for the Core AI conversion.'
 - id: vjepa2-upstream
-  name: V-JEPA 2 (Meta)
-  type: original_model_source
+  title: V-JEPA 2 (Meta)
+  type: huggingface_model
   url: https://huggingface.co/facebook/vjepa2-vitl-fpc16-256-ssv2
-  description: Original V-JEPA 2 ViT-L model trained on Something-Something v2.
+  owner: facebook
+  trust: original_model_primary
+  volatility: low
+  last_checked: '2026-07-01'
+  notes: 'V-JEPA 2 ViT-L trained on Something-Something v2. Original model upstream for the Core AI conversion.'
+- id: coreai-fabric
+  title: kevinqz/coreai-fabric
+  type: github_repository
+  url: https://github.com/kevinqz/coreai-fabric
+  owner: kevinqz
+  repo: coreai-fabric
+  trust: maintainer_primary
+  volatility: low
+  last_checked: '2026-07-03'
+  notes: 'First-party agent-first conversion pipeline; recipe-based conversions publish artifacts to contributors'' own Hugging Face repos and register here via PR.'

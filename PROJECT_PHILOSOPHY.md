@@ -81,7 +81,7 @@ Superseded values are retained with `confidence: needs_review` and a `superseded
 |---|---|---|
 | Model facts | `catalog.yaml` | Capabilities, modalities, runtime, device support, license |
 | Artifact provenance | `artifacts.yaml` | GitHub source, HF host, officiality |
-| Benchmarks | `benchmarks.yaml` | Measurements (append-only, environment-scoped) |
+| Benchmarks | `benchmarks.jsonl` | Measurements (append-only JSONL, environment-scoped) |
 | Sources | `sources.yaml` | Compact registry of primary/supporting sources |
 | Upstream taxonomy | `upstreams.yaml` | Framework, conversion, host, benchmark, license sources |
 | Terminology | `terms.yaml` | Verified Apple AI terms with official source citations |

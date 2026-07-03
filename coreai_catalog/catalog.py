@@ -167,7 +167,7 @@ class Catalog:
         """Check if source files have been modified since last load."""
         import os
         max_mtime = 0.0
-        for name in ("catalog.yaml", "benchmarks.jsonl", "benchmarks.yaml", "artifacts.yaml"):
+        for name in ("catalog.yaml", "benchmarks.jsonl", "artifacts.yaml"):
             p = self.root / name
             if p.exists():
                 try:
@@ -200,7 +200,7 @@ class Catalog:
         self._terms = terms.get("terms", [])
         self._sources = sources.get("sources", [])
 
-        # Load benchmarks: prefer JSONL (append-only), fall back to YAML
+        # Load benchmarks from JSONL (single source of truth)
         self._benchmarks = self._load_benchmarks()
         self._art_by_id = {a["id"]: a for a in self._artifacts if "id" in a}
         self._bench_by_model = {}
@@ -221,7 +221,7 @@ class Catalog:
         self._load_mtime = self._check_mtime_changed() and 0.0  # force re-eval next time if mtime check fails
         # Actually just record current mtime
         import os
-        for name in ("catalog.yaml", "benchmarks.jsonl", "benchmarks.yaml", "artifacts.yaml"):
+        for name in ("catalog.yaml", "benchmarks.jsonl", "artifacts.yaml"):
             p = self.root / name
             if p.exists():
                 try:
@@ -230,35 +230,35 @@ class Catalog:
                     pass
 
     def _load_benchmarks(self) -> list[dict]:
-        """Load benchmarks from JSONL (preferred) or YAML (legacy fallback)."""
+        """Load benchmarks from benchmarks.jsonl (single source of truth).
+
+        The legacy benchmarks.yaml store is retired — a missing JSONL file
+        means "no benchmarks", never "fall back to old data".
+        """
         import json as _json
 
         jsonl_path = self.root / "benchmarks.jsonl"
-        if jsonl_path.exists():
-            benchmarks = []
-            skipped = 0
-            for line in jsonl_path.read_text().splitlines():
-                line = line.strip()
-                if not line or line.startswith("#"):
-                    continue
-                try:
-                    entry = _json.loads(line)
-                    # Minimal schema validation: must have model_id
-                    if not isinstance(entry, dict) or "model_id" not in entry:
-                        print(f"Warning: skipping malformed benchmark entry (no model_id)", file=sys.stderr)
-                        skipped += 1
-                        continue
-                    benchmarks.append(entry)
-                except _json.JSONDecodeError as e:
-                    print(f"Warning: invalid JSONL line in benchmarks.jsonl: {e}", file=sys.stderr)
+        if not jsonl_path.exists():
+            return []
+        benchmarks = []
+        skipped = 0
+        for line in jsonl_path.read_text().splitlines():
+            line = line.strip()
+            if not line or line.startswith("#"):
+                continue
+            try:
+                entry = _json.loads(line)
+                # Minimal schema validation: must have model_id
+                if not isinstance(entry, dict) or "model_id" not in entry:
+                    print(f"Warning: skipping malformed benchmark entry (no model_id)", file=sys.stderr)
                     skipped += 1
-            # CRITICAL: If JSONL exists, NEVER fall back to YAML.
-            # An empty result means corruption — not "use old data".
-            return benchmarks
-
-        # Fallback: YAML (only if JSONL doesn't exist — legacy support)
-        bench = yaml.safe_load((self.root / "benchmarks.yaml").read_text()) or {} if (self.root / "benchmarks.yaml").exists() else {}
-        return bench.get("benchmarks", [])
+                    continue
+                benchmarks.append(entry)
+            except _json.JSONDecodeError as e:
+                print(f"Warning: invalid JSONL line in benchmarks.jsonl: {e}", file=sys.stderr)
+                skipped += 1
+        # An empty result means corruption or no data — never "use old data".
+        return benchmarks
 
     @property
     def transform_graph(self):

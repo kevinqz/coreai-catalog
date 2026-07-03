@@ -1,15 +1,17 @@
-# Core AI model entry template
-# Copy this file, fill in the fields, and add to catalog.yaml
-# See CONTRIBUTING.md for full instructions
+# GENERATED from schema/model.schema.json by scripts/generate_templates.py.
+# Do not edit by hand — edit the schema and re-run the generator.
+# Copy this entry, fill in the fields, and append to catalog.yaml under `models:`.
+# Fields marked "optional" may be omitted entirely; never invent values
+# for fields you cannot source (leave optional fields absent instead).
 
-- id: model-id-here          # kebab-case, unique
+- id: model-id-here
   name: Model Display Name
-  family: ModelFamily          # e.g. Qwen, Gemma, Whisper
-  source_group: zoo           # zoo | official | external
-  artifact_ref: model-id-here # must match id in artifacts.yaml
-  source_path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/model.md
+  family: ModelFamily
+  source_group: zoo   # zoo | official | external | fabric | unknown
+  source_path: 'https://example.com/replace-me'
+  artifact_ref: model-id-here
   capabilities:
-  - chat                      # see: coreai-catalog capabilities
+  - chat
   - text-generation
   modalities:
     input:
@@ -17,36 +19,37 @@
     output:
     - text
   artifact:
-    format: aimodel
-    availability: available   # available | unavailable | not_published
+    format: aimodel   # aimodel | mlpackage | unknown
+    availability: available   # available | unavailable | unknown
   size:
-    parameters: 2B            # e.g. 2B, 350M, 809M
-    precision: int4           # int4 | int8 | fp16 | fp32 | mixed
-    quantization: int4-per-block-32
-    artifact_size: 1.2GB      # or not_published
+    parameters: 1B
+    precision: int8
+    quantization: int8lin
+    artifact_size: 850MB
   runtime:
-    runtime_name: apple-core-ai
-    runner: CoreAIRunner      # or stock-runner
-    stock_runtime: false
-    custom_kernel: false
-    patch_required: false
-    aot_required: false
-    tokenizer_required: true
-    processor_required: false
+    runtime_name: apple-core-ai   # apple-core-ai | coreml | unknown
+    runner: CoreAIRunner   # CoreAIRunner | stock-runner | CoreAIDiffusionPipeline | CoreAIImageSegmenter | CoreAITranscribe | CoreAIVideoPipeline | CoreAIKit-GraphModel | unknown
+    stock_runtime: true   # true | false | unknown
+    custom_kernel: true   # true | false | unknown
+    patch_required: true   # true | false | unknown
+    tokenizer_required: true   # true | false | unknown
+    processor_required: true   # true | false | unknown
+    aot_required: true   # true | false | unknown
   device_support:
-    iphone: true              # true | false | unknown
-    ipad: true
-    mac: true
-    mac_only: false
+    iphone: true   # true | false | unknown
+    ipad: true   # true | false | unknown
+    mac: true   # true | false | unknown
+    mac_only: true   # true | false | unknown
   license:
     name: Apache-2.0
-    commercial_use: likely    # likely | check_license
-  status: confirmed           # confirmed | unverified
-  maturity: active            # active | experimental | deprecated
-  confidence: medium          # high | medium | low
+    commercial_use: likely   # likely | check_license
+  status: confirmed   # confirmed | needs_review | deprecated | unknown
+  maturity: stable   # stable | active | experimental | research | unknown
+  confidence: high   # high | medium | low | needs_review
   sources:
   - coreai-model-zoo-readme
-  last_verified: '2026-07-01'
-  notes: One-line description of what this model does.
-  architecture: transformer   # transformer | diffusion | cnn/transformer | encoder | recurrent | unknown
-  streaming: true
+  last_verified: '2026-01-01'
+  architecture: transformer   # transformer | diffusion | cnn/transformer | encoder | recurrent | unknown; optional
+  context_window: replace-me   # optional
+  streaming: false   # optional
+  notes: One-line description or caveats.

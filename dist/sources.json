@@ -256,11 +256,27 @@
       "volatility": "low"
     },
     {
-      "description": "Original V-JEPA 2 ViT-L model trained on Something-Something v2.",
       "id": "vjepa2-upstream",
-      "name": "V-JEPA 2 (Meta)",
-      "type": "original_model_source",
-      "url": "https://huggingface.co/facebook/vjepa2-vitl-fpc16-256-ssv2"
+      "last_checked": "2026-07-01",
+      "notes": "V-JEPA 2 ViT-L trained on Something-Something v2. Original model upstream for the Core AI conversion.",
+      "owner": "facebook",
+      "title": "V-JEPA 2 (Meta)",
+      "trust": "original_model_primary",
+      "type": "huggingface_model",
+      "url": "https://huggingface.co/facebook/vjepa2-vitl-fpc16-256-ssv2",
+      "volatility": "low"
+    },
+    {
+      "id": "coreai-fabric",
+      "last_checked": "2026-07-03",
+      "notes": "First-party agent-first conversion pipeline; recipe-based conversions publish artifacts to contributors' own Hugging Face repos and register here via PR.",
+      "owner": "kevinqz",
+      "repo": "coreai-fabric",
+      "title": "kevinqz/coreai-fabric",
+      "trust": "maintainer_primary",
+      "type": "github_repository",
+      "url": "https://github.com/kevinqz/coreai-fabric",
+      "volatility": "low"
     }
   ]
 }

@@ -27,6 +27,7 @@ _BENCHMARK_FIELDS: tuple[str, ...] = (
     "unit",
     "value",
     "device",
+    "device_class",
     "compute_unit",
     "precision",
     "environment",
@@ -41,11 +42,22 @@ _BENCHMARK_FIELDS_COMPACT: tuple[str, ...] = (
     "unit",
     "value",
     "device",
+    "device_class",
     "compute_unit",
     "environment",
     "observed",
     "confidence",
 )
+
+#: JSONL (benchmark schema v2) field names backing legacy output field names.
+#: benchmarks.jsonl stores ``device_class`` / ``observed_date``; the legacy
+#: export shape uses ``device`` / ``observed``. When the legacy key is absent
+#: we fill it from the v2 field so downstream consumers (leaderboard, site,
+#: CLI/MCP get_model) never see null device/observed for JSONL entries.
+_BENCHMARK_FIELD_ALIASES: dict[str, str] = {
+    "device": "device_class",
+    "observed": "observed_date",
+}
 
 
 # ── 1. Version reading ──────────────────────────────────────────────────
@@ -146,18 +158,24 @@ def reshape_benchmark(bench: dict, *, include_extras: bool = True) -> dict[str, 
     """Reshape a raw benchmark dict into the canonical output schema.
 
     Args:
-        bench: Raw benchmark dict from catalog/benchmarks.yaml.
+        bench: Raw benchmark dict from benchmarks.jsonl (schema v2).
         include_extras: When True (default), include ``precision`` and
             ``notes`` fields. When False, emit only the compact field set
             used by CLI/MCP ``get_model`` (metric/unit/value/device/
-            compute_unit/environment/observed/confidence).
+            device_class/compute_unit/environment/observed/confidence).
 
     Returns:
         Dict with only the whitelisted fields, each via ``.get()`` so
-        missing keys become ``None`` rather than raising.
+        missing keys become ``None`` rather than raising. Legacy keys
+        (``device``, ``observed``) are filled from their schema-v2
+        counterparts (``device_class``, ``observed_date``) when absent.
     """
     fields = _BENCHMARK_FIELDS if include_extras else _BENCHMARK_FIELDS_COMPACT
-    return {f: bench.get(f) for f in fields}
+    out = {f: bench.get(f) for f in fields}
+    for legacy, v2_field in _BENCHMARK_FIELD_ALIASES.items():
+        if legacy in out and out[legacy] is None:
+            out[legacy] = bench.get(v2_field)
+    return out
 
 
 def reshape_benchmarks(

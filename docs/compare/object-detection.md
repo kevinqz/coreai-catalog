@@ -10,5 +10,5 @@ Side-by-side comparison of all 5 model(s) with the `object-detection` capability
 | RF-DETR Small | RF-DETR | small | fp32 | iPhone/Mac | Apache-2.0 | CoreAIRunner | 12.0 milliseconds (M4 Max) | 🐼 Zoo |
 | YOLOX-S | YOLOX | 8.97M | fp32 | iPhone/Mac | Apache-2.0 | CoreAIKit-GraphModel | 4.8 milliseconds (M4 Max) | 🐼 Zoo |
 
-> Generated automatically by `scripts/generate.py` from `catalog.yaml` + `benchmarks.yaml`.
+> Generated automatically by `scripts/generate.py` from `catalog.yaml` + `benchmarks.jsonl`.
 

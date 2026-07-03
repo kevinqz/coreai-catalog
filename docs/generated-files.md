@@ -10,7 +10,7 @@ These files are intended to be edited directly:
 - `artifacts.yaml`
 - `sources.yaml`
 - `upstreams.yaml`
-- `benchmarks.yaml`
+- `benchmarks.jsonl`
 - `terms.yaml`
 - `schema/*.json`
 - `scripts/*.py` (validate, audit, sync_upstream, generate)

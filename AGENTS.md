@@ -8,7 +8,7 @@ YAML files are authoritative. Markdown docs and JSON exports are derived views.
 |---|---|
 | `catalog.yaml` | Model metadata (facts, capabilities, runtime, device support, license) |
 | `artifacts.yaml` | Converted artifact provenance (GitHub source, Hugging Face host, officiality) |
-| `benchmarks.yaml` | Normalized benchmark measurements (append-only, environment-scoped) |
+| `benchmarks.jsonl` | Normalized benchmark measurements (append-only JSONL, one JSON object per line, environment-scoped) |
 | `sources.yaml` | Compact registry of primary/supporting sources |
 | `upstreams.yaml` | Source taxonomy (framework, conversion, artifact host, benchmark, sample, original model, license) |
 | `terms.yaml` | Verified Apple AI terminology with official source citations |
@@ -19,7 +19,7 @@ YAML files are authoritative. Markdown docs and JSON exports are derived views.
 2. Filter by `modalities` (input/output).
 3. Filter by `device_support` (iphone, ipad, mac, mac_only).
 4. Join `artifact_ref` with `artifacts.yaml` to get provenance and download info.
-5. Join benchmarks by `model_id` with `benchmarks.yaml`.
+5. Join benchmarks by `model_id` with `benchmarks.jsonl`.
 6. Join `sources[]` and upstream IDs with `sources.yaml` / `upstreams.yaml`.
 7. Surface `license.commercial_use` status (`likely` or `check_license`).
 8. **Never infer unknown fields.** If a field is `unknown`, report it as unknown.
@@ -32,7 +32,7 @@ YAML files are authoritative. Markdown docs and JSON exports are derived views.
 
 ```
 catalog.models[].artifact_ref  →  artifacts.artifacts[].id
-benchmarks.benchmarks[].model_id  →  catalog.models[].id
+benchmarks.jsonl lines[].model_id  →  catalog.models[].id
 catalog.models[].sources[]  →  sources.sources[].id  OR  upstreams.*[].id
 upstreams.original_model_sources[].applies_to[]  →  catalog.models[].id
 terms.terms[].relations[]  →  terms.terms[].id  (format: "relation_type:target_id")
@@ -41,7 +41,7 @@ terms.terms[].relations[]  →  terms.terms[].id  (format: "relation_type:target
 ## Common tasks
 
 - **Find models for a capability**: filter `catalog.yaml` by `capabilities` list
-- **Compare two models**: join both with artifacts + benchmarks, present side-by-side
+- **Compare two models**: join both with artifacts + benchmarks (`benchmarks.jsonl`), present side-by-side
 - **Recommend model candidates for a use case**: filter by capability + device + license, rank by confidence and benchmark availability
 - **Check license risk**: read `license.commercial_use` and cross-reference the original model upstream
 - **Explain Apple/Core AI terminology**: look up in `terms.yaml`, cite `official_source`
@@ -88,9 +88,27 @@ When an agent processes issues on this repo, follow these patterns:
 1. Verify the model doesn't already exist in `catalog.yaml`
 2. Check Hugging Face / GitHub for a Core AI `.aimodel` artifact
 3. If found: add entries using `templates/model-entry.yaml` + `templates/artifact-entry.yaml`
-4. Add upstream source to `upstreams.yaml` if missing
-5. Validate: `python scripts/validate.py && python scripts/generate.py && python scripts/audit.py`
-6. Close issue with: `Added MODEL_NAME in commit ABC123 (closes #N)`
+   (both are generated from `schema/*.json` — regenerate with `python scripts/generate_templates.py` if the schema changed)
+4. Bump `artifacts.yaml` `metadata.count` by 1 (the audit checks it)
+5. Add upstream source to `upstreams.yaml` if missing
+6. Validate: `python scripts/validate.py && python scripts/generate.py && python scripts/audit.py`
+7. **Never touch `benchmarks.jsonl` in a model PR** — benchmarks are a separate lane
+8. Close issue with: `Added MODEL_NAME in commit ABC123 (closes #N)`
+
+### Contributing a new conversion (no `.aimodel` exists yet)
+
+New conversions go through **[coreai-fabric](https://github.com/kevinqz/coreai-fabric)**,
+the first-party, agent-first conversion pipeline:
+
+1. Pick or author a conversion **recipe** in coreai-fabric
+2. **Convert** the upstream model to a `.aimodel` bundle
+3. **Verify** with the pipeline's parity gates
+4. **Publish** the artifact to your own Hugging Face repo (the catalog indexes, it never hosts weights)
+5. **Register** it here via a model-lane PR (`catalog.yaml` + `artifacts.yaml` entries)
+
+The community zoo (`john-rocky/coreai-model-zoo`) is an **indexed reference
+upstream**: its existing conversions are cataloged, but do not route new
+contributions through it.
 
 ### Bug report issues (label: `bug`)
 1. Read the affected model ID and field
@@ -101,9 +119,15 @@ When an agent processes issues on this repo, follow these patterns:
 
 ### Benchmark submission issues (label: `benchmark`)
 1. Validate the submission against `schema/benchmark.schema.json`
-2. Add to `benchmarks.yaml` — append-only, never overwrite
-3. If superseding: mark old entry `confidence: needs_review` + `superseded_by`
-4. Validate and regenerate
+2. Append **one JSON line** to `benchmarks.jsonl` — append-only, never overwrite or delete rows
+3. Open it as a **dedicated PR** touching only `benchmarks.jsonl` (one added line; never combine with model changes)
+4. Unsigned entries with `extraction_method: upstream_readme_manual|upstream_readme_scripted`
+   route to the **curator review lane**: CI labels the PR `benchmark-curator-review`,
+   posts a summary comment, and a human curator merges. Signed relay submissions
+   (`_signature` present) go through the strict auto-merge gates. The relay is not yet public —
+   do not fabricate signatures.
+5. If superseding: mark old entry `confidence: needs_review` + `superseded_by`
+6. Validate and regenerate
 
 ## Scoring algorithm
 

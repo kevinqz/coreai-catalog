@@ -10,7 +10,7 @@
 
 | Model | Score | Parameters | Devices | License | Commercial | Benchmark | Source |
 |---|---|---|---|---|---|---|---|
-| [TripoSplat](../../catalog.yaml#L1) | 63 | not_published | 💻 | MIT | ✅ likely | — | 🐼 |
+| [TripoSplat](../../catalog.yaml#L1) | 53 | not_published | 💻 | MIT | ⚠️ check_license | — | 🐼 |
 
 ## Install
 

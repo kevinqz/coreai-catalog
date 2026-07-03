@@ -33,6 +33,12 @@ jobs:
       - name: Run data-quality audit
         run: python scripts/audit.py
 
+      # ── Doc-test: docs examples + templates match the schemas ──
+      - name: Validate documentation examples and templates against schemas
+        run: |
+          python scripts/doc_test.py
+          python scripts/generate_templates.py --check
+
       # ── Generate docs + JSON + scores (single unified generator) ──
       - name: Generate all derived views
         run: |

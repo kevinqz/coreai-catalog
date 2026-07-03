@@ -1,166 +1,238 @@
+#!/usr/bin/env python3
+"""
+Core AI Catalog — aggregated schema + cross-reference validator.
+
+Collects ALL errors across ALL entity categories before exiting — never
+fail-fast (redteam findings A9/F3). Every error carries the file, the
+entity id, the field, and an actionable fix hint (nearest enum value,
+allowed field names, missing-field list, ...). The validation core lives
+in coreai_catalog/contribute.py and is shared with the CLI
+``coreai-catalog contribute`` command and the MCP ``validate_entry`` tool
+(one implementation, three surfaces).
+
+Usage:
+  python scripts/validate.py            # human-readable report
+  python scripts/validate.py --json     # machine-readable JSON report
+  python scripts/validate.py --github   # GitHub Actions ::error annotations
+
+Exit codes: 0 = everything valid, 1 = at least one error.
+
+Validates: catalog.yaml (models), artifacts.yaml, benchmarks.jsonl,
+upstreams.yaml, terms.yaml, sources.yaml (schema/source.schema.json,
+absorbing scripts/validate_sources.py), plus cross-reference integrity
+between all of them.
+"""
 from __future__ import annotations
 
+import argparse
 import json
+import re
+import sys
 from pathlib import Path
-from typing import Iterable
-
-import yaml
-from jsonschema import Draft202012Validator
 
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
-UPSTREAM_GROUPS = [
-    'framework_sources',
-    'conversion_sources',
-    'artifact_hosts',
-    'benchmark_sources',
-    'sample_sources',
-    'original_model_sources',
-    'license_sources',
-]
-
-
-def read_yaml(path: Path) -> dict:
-    return yaml.safe_load(path.read_text()) or {}
-
-
-def validate_items(items: Iterable[dict], schema_path: Path, label: str) -> int:
-    schema = json.loads(schema_path.read_text())
-    validator = Draft202012Validator(schema)
-    count = 0
-    for item in items:
-        errors = sorted(validator.iter_errors(item), key=lambda e: e.path)
-        if errors:
-            print(f"\nInvalid {label}: {item.get('id', '<missing id>')}")
-            for error in errors:
-                path = '.'.join(str(p) for p in error.path)
-                print(f"  - {path}: {error.message}")
-            raise SystemExit(1)
-        count += 1
-    return count
+from coreai_catalog.contribute import (  # noqa: E402
+    UPSTREAM_GROUPS,
+    cross_reference_errors,
+    format_error,
+    ids_context,
+    load_schema,
+    make_error,
+    read_yaml,
+    schema_errors,
+)
 
 
-def validate_file(data_path: Path, schema_path: Path, key: str) -> int:
-    data = read_yaml(data_path)
-    return validate_items(data.get(key, []), schema_path, key[:-1])
-
-
-def flatten_upstreams(data: dict) -> list[dict]:
-    items: list[dict] = []
-    for group in UPSTREAM_GROUPS:
-        items.extend(data.get(group, []) or [])
-    return items
-
-
-def fail(message: str) -> None:
-    print(f"\nCross-reference validation failed: {message}")
-    raise SystemExit(1)
-
-
-def validate_cross_references() -> tuple[int, int, int, int]:
-    catalog = read_yaml(ROOT / 'catalog.yaml')
-    artifacts = read_yaml(ROOT / 'artifacts.yaml')
-    sources = read_yaml(ROOT / 'sources.yaml')
-    upstreams = read_yaml(ROOT / 'upstreams.yaml')
-
-    # Load benchmarks from JSONL (preferred) or YAML (legacy)
-    jsonl_path = ROOT / 'benchmarks.jsonl'
-    if jsonl_path.exists():
-        import json as _json
-        benchmark_list = []
-        for line in jsonl_path.read_text().splitlines():
-            line = line.strip()
-            if not line or line.startswith('#'):
-                continue
-            try:
-                benchmark_list.append(_json.loads(line))
-            except _json.JSONDecodeError:
-                pass
-    else:
-        benchmarks_yaml = read_yaml(ROOT / 'benchmarks.yaml')
-        benchmark_list = benchmarks_yaml.get('benchmarks', [])
-
-    model_ids = {item['id'] for item in catalog.get('models', [])}
-    artifact_ids = {item['id'] for item in artifacts.get('artifacts', [])}
-    source_ids = {item['id'] for item in sources.get('sources', [])}
-    upstream_items = flatten_upstreams(upstreams)
-    upstream_ids = {item['id'] for item in upstream_items}
-
-    for model in catalog.get('models', []):
-        artifact_ref = model.get('artifact_ref')
-        if artifact_ref not in artifact_ids:
-            fail(f"model {model['id']} points to missing artifact_ref {artifact_ref}")
-        for source_id in model.get('sources', []):
-            if source_id not in source_ids and source_id not in upstream_ids:
-                fail(f"model {model['id']} points to missing source {source_id}")
-
-    for artifact in artifacts.get('artifacts', []):
-        github = artifact.get('github', {}) or {}
-        path = github.get('path')
-        owner, repo = github.get('owner'), github.get('repo')
-        if isinstance(path, str) and path.startswith('https://github.com/'):
-            if f'{owner}/{repo}' not in path:
-                fail(
-                    f"artifact {artifact['id']} github.path {path} "
-                    f"is inconsistent with owner/repo {owner}/{repo}"
+def _load_benchmarks_jsonl(root: Path, errors: list[dict]) -> list[dict]:
+    """Parse benchmarks.jsonl, reporting malformed lines as errors."""
+    path = root / "benchmarks.jsonl"
+    benchmarks: list[dict] = []
+    if not path.exists():
+        return benchmarks
+    for lineno, line in enumerate(path.read_text().splitlines(), start=1):
+        stripped = line.strip()
+        if not stripped or stripped.startswith("#"):
+            continue
+        try:
+            benchmarks.append(json.loads(stripped))
+        except json.JSONDecodeError as exc:
+            errors.append(
+                make_error(
+                    "benchmarks.jsonl",
+                    f"<line {lineno}>",
+                    "<root>",
+                    f"invalid JSON: {exc}",
+                    "each line must be exactly one JSON object",
                 )
-
-    for benchmark in benchmark_list:
-        model_id = benchmark.get('model_id')
-        if model_id not in model_ids:
-            fail(f"benchmark {benchmark.get('id', '?')} points to missing model_id {model_id}")
-        source_id = benchmark.get('source')
-        if source_id and source_id not in source_ids and source_id not in upstream_ids:
-            fail(f"benchmark {benchmark.get('id', '?')} points to missing source {source_id}")
-
-    original_model_sources = upstreams.get('original_model_sources', []) or []
-    for upstream in original_model_sources:
-        for target in upstream.get('applies_to', []) or []:
-            if target not in model_ids and target not in artifact_ids:
-                fail(f"original model upstream {upstream['id']} applies_to missing target {target}")
-
-    return len(model_ids), len(artifact_ids), len(upstream_ids), len(benchmark_list)
+            )
+    return benchmarks
 
 
-def main() -> None:
-    validate_file(ROOT / 'catalog.yaml', ROOT / 'schema' / 'model.schema.json', 'models')
-    validate_file(ROOT / 'artifacts.yaml', ROOT / 'schema' / 'artifact.schema.json', 'artifacts')
+def collect_errors(root: Path = ROOT) -> tuple[list[dict], dict]:
+    """Aggregate every schema + cross-reference error across all entities."""
+    errors: list[dict] = []
 
-    # Validate benchmarks: JSONL is the new source of truth; YAML is legacy
-    jsonl_path = ROOT / 'benchmarks.jsonl'
-    yaml_path = ROOT / 'benchmarks.yaml'
-    if jsonl_path.exists():
-        # Validate JSONL entries (one per line, strip _signature before validating)
-        import json as _json
-        schema = _json.loads((ROOT / 'schema' / 'benchmark.schema.json').read_text())
-        validator = Draft202012Validator(schema)
-        bm_count = 0
-        for line in jsonl_path.read_text().splitlines():
-            line = line.strip()
-            if not line or line.startswith('#'):
-                continue
-            entry = _json.loads(line)
-            entry.pop('_signature', None)  # signature is not part of the schema
-            errors = list(validator.iter_errors(entry))
-            if errors:
-                for e in errors:
-                    fail(f"benchmark {entry.get('id', '?')}: {e.message}")
-            bm_count += 1
-        print(f'OK: {bm_count} benchmarks (JSONL) validated against schema.')
-    elif yaml_path.exists():
-        validate_file(yaml_path, ROOT / 'schema' / 'benchmark.schema.json', 'benchmarks')
+    catalog = read_yaml(root / "catalog.yaml")
+    artifacts_data = read_yaml(root / "artifacts.yaml")
+    sources_data = read_yaml(root / "sources.yaml")
+    terms_data = read_yaml(root / "terms.yaml")
+    upstreams_data = read_yaml(root / "upstreams.yaml")
 
-    upstream_data = read_yaml(ROOT / 'upstreams.yaml')
-    validate_items(flatten_upstreams(upstream_data), ROOT / 'schema' / 'upstream.schema.json', 'upstream')
+    models = catalog.get("models", [])
+    artifacts = artifacts_data.get("artifacts", [])
+    sources = sources_data.get("sources", [])
+    terms = terms_data.get("terms", [])
+    upstreams: list[dict] = []
+    for group in UPSTREAM_GROUPS:
+        upstreams.extend(upstreams_data.get(group, []) or [])
 
-    terms = validate_file(ROOT / 'terms.yaml', ROOT / 'schema' / 'term.schema.json', 'terms')
+    benchmarks = _load_benchmarks_jsonl(root, errors)
 
-    models, artifacts, upstreams, benchmarks = validate_cross_references()
-    print(
-        f'OK: {models} models, {artifacts} artifacts, {upstreams} upstreams, '
-        f'{benchmarks} benchmarks and {terms} terms validated.'
+    # ── 1. Schema validation (aggregated per entry, hints included) ──
+    for kind, items in [
+        ("model", models),
+        ("artifact", artifacts),
+        ("benchmark", benchmarks),
+        ("upstream", upstreams),
+        ("term", terms),
+        ("source", sources),
+    ]:
+        schema = load_schema(kind, root)
+        for item in items:
+            errors.extend(schema_errors(kind, item, root, schema=schema))
+
+    # ── 2. Duplicate source ids (absorbs scripts/validate_sources.py) ──
+    seen_source_ids: set[str] = set()
+    for source in sources:
+        source_id = source.get("id")
+        if source_id in seen_source_ids:
+            errors.append(
+                make_error(
+                    "sources.yaml", str(source_id), "id",
+                    "duplicate id", "source ids must be unique",
+                )
+            )
+        if source_id:
+            seen_source_ids.add(source_id)
+
+    # ── 3. Cross-reference integrity (same rules as validate_entry) ──
+    context = ids_context(root)
+    for kind, items in [
+        ("model", models),
+        ("artifact", artifacts),
+        ("benchmark", benchmarks),
+        ("upstream", upstreams),
+    ]:
+        for item in items:
+            errors.extend(cross_reference_errors(kind, item, context))
+
+    counts = {
+        "models": len(models),
+        "artifacts": len(artifacts),
+        "benchmarks": len(benchmarks),
+        "upstreams": len(upstreams),
+        "terms": len(terms),
+        "sources": len(sources),
+    }
+    return errors, counts
+
+
+def find_entity_line(root: Path, err: dict) -> int | None:
+    """Best-effort line number for an error's entity in its source file."""
+    path = root / err["file"]
+    if not path.exists():
+        return None
+    entity_id = err.get("entity_id", "")
+    match = re.match(r"<line (\d+)>", entity_id)
+    if match:
+        return int(match.group(1))
+    if not entity_id or entity_id.startswith("<"):
+        return None
+    try:
+        lines = path.read_text().splitlines()
+    except OSError:
+        return None
+    if err["file"].endswith(".jsonl"):
+        needle = f'"id": "{entity_id}"'
+        for i, line in enumerate(lines, start=1):
+            if needle in line:
+                return i
+        return None
+    pattern = re.compile(
+        rf"^-\s+id:\s*['\"]?{re.escape(entity_id)}['\"]?\s*$"
     )
+    for i, line in enumerate(lines, start=1):
+        if pattern.match(line):
+            return i
+    return None
 
 
-if __name__ == '__main__':
-    main()
+def emit_github_annotations(errors: list[dict], root: Path) -> None:
+    """Emit GitHub Actions ::error annotations with file + line mapping."""
+    for err in errors:
+        location = f"file={err['file']}"
+        line = find_entity_line(root, err)
+        if line is not None:
+            location += f",line={line}"
+        message = f"{err['entity_id']}: {err['field']}: {err['message']}"
+        if err.get("hint"):
+            message += f" | hint: {err['hint']}"
+        # Annotation messages must be single-line.
+        message = message.replace("\n", " ")
+        print(f"::error {location},title=validate::{message}")
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(
+        description="Validate all catalog entities (aggregated, never fail-fast).",
+    )
+    parser.add_argument(
+        "--json", action="store_true",
+        help="Emit a machine-readable JSON report",
+    )
+    parser.add_argument(
+        "--github", action="store_true",
+        help="Emit GitHub Actions ::error annotations (file + line)",
+    )
+    args = parser.parse_args(argv)
+
+    errors, counts = collect_errors(ROOT)
+
+    if args.json:
+        report = {
+            "ok": not errors,
+            "error_count": len(errors),
+            "counts": counts,
+            "errors": [
+                {**err, "line": find_entity_line(ROOT, err)} for err in errors
+            ],
+        }
+        print(json.dumps(report, indent=2))
+        if args.github and errors:
+            emit_github_annotations(errors, ROOT)
+        return 1 if errors else 0
+
+    if args.github and errors:
+        emit_github_annotations(errors, ROOT)
+
+    if errors:
+        print(f"\n{len(errors)} validation error(s) found:\n")
+        for err in errors:
+            print(f"  - {format_error(err)}")
+        print(f"\nTotal: {len(errors)} error(s) across all entity categories.")
+        return 1
+
+    print(f"OK: {counts['benchmarks']} benchmarks (JSONL) validated against schema.")
+    print(
+        f"OK: {counts['models']} models, {counts['artifacts']} artifacts, "
+        f"{counts['upstreams']} upstreams, {counts['benchmarks']} benchmarks, "
+        f"{counts['sources']} sources and {counts['terms']} terms validated."
+    )
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

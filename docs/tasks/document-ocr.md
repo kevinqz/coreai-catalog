@@ -10,7 +10,7 @@
 
 | Model | Score | Parameters | Devices | License | Commercial | Benchmark | Source |
 |---|---|---|---|---|---|---|---|
-| [Unlimited-OCR](../../catalog.yaml#L1) | 83 | not_published | 📱💻 | MIT | ✅ likely | — | 🐼 |
+| [Unlimited-OCR](../../catalog.yaml#L1) | 73 | not_published | 📱💻 | MIT | ⚠️ check_license | — | 🐼 |
 
 ## Install
 

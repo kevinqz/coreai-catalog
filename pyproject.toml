@@ -47,4 +47,4 @@ where = ["."]
 include = ["coreai_catalog*", "mcp_server*"]
 
 [tool.setuptools.package-data]
-coreai_catalog = ["data/*.yaml", "data/schema/*.json"]
+coreai_catalog = ["data/*.yaml", "data/*.jsonl", "data/schema/*.json"]

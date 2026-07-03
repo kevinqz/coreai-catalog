@@ -121,11 +121,6 @@
       "score": 83
     },
     {
-      "id": "unlimited-ocr",
-      "name": "Unlimited-OCR",
-      "score": 83
-    },
-    {
       "id": "official-mistral-7b-v0-3",
       "name": "Mistral 7B v0.3",
       "score": 80
@@ -153,11 +148,6 @@
     {
       "id": "minicpm-v-4-6",
       "name": "MiniCPM-V 4.6",
-      "score": 78
-    },
-    {
-      "id": "nanbeige4-1-3b",
-      "name": "Nanbeige4.1-3B",
       "score": 78
     },
     {
@@ -236,6 +226,11 @@
       "score": 73
     },
     {
+      "id": "unlimited-ocr",
+      "name": "Unlimited-OCR",
+      "score": 73
+    },
+    {
       "id": "vibevoice-0-5b",
       "name": "VibeVoice 0.5B",
       "score": 73
@@ -296,6 +291,11 @@
       "score": 68
     },
     {
+      "id": "nanbeige4-1-3b",
+      "name": "Nanbeige4.1-3B",
+      "score": 68
+    },
+    {
       "id": "qwen3-vl-4b",
       "name": "Qwen3-VL 4B",
       "score": 68
@@ -328,11 +328,6 @@
     {
       "id": "gemma-4-e4b",
       "name": "Gemma 4 E4B",
-      "score": 63
-    },
-    {
-      "id": "glm-4-7-flash",
-      "name": "GLM-4.7-Flash",
       "score": 63
     },
     {
@@ -371,11 +366,6 @@
       "score": 63
     },
     {
-      "id": "tripo-splat",
-      "name": "TripoSplat",
-      "score": 63
-    },
-    {
       "id": "gemma-4-12b-mm-warshanks",
       "name": "Gemma 4 12B IT Multimodal (warshanks)",
       "score": 58
@@ -391,8 +381,18 @@
       "score": 53
     },
     {
+      "id": "glm-4-7-flash",
+      "name": "GLM-4.7-Flash",
+      "score": 53
+    },
+    {
       "id": "lfm2-5-8b-a1b",
       "name": "LFM2.5-8B-A1B",
+      "score": 53
+    },
+    {
+      "id": "tripo-splat",
+      "name": "TripoSplat",
       "score": 53
     },
     {

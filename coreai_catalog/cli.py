@@ -43,8 +43,7 @@ from .installer import (
 )
 from .publish import (
     PreflightError,
-    bump_version_in_catalog_yaml,
-    bump_version_in_pyproject,
+    bump_all_version_surfaces,
     build_dist,
     git_commit_and_tag,
     git_push,
@@ -727,8 +726,17 @@ def cmd_install(args: argparse.Namespace) -> int:
             result["artifact_url"] = hf["url"]
         if not args.dry_run:
             result["path"] = str(get_model_dir(model["id"]))
+            # Machine-readable verification outcome (mismatched/missing
+            # digests) so scripted agents can detect a failed sha256 check.
+            if manifest.get("verification") is not None:
+                result["verification"] = manifest["verification"]
         print(json.dumps(result, indent=2))
-        return 0 if file_layout != "not_checked" else 0
+        # Mirror the human path: only a completed download or an explicit
+        # manual-download handoff is success; download_failed,
+        # verification_failed (sha256 mismatch), etc. must exit non-zero.
+        if args.dry_run or file_layout in ("downloaded", "manual_required"):
+            return 0
+        return 1
 
     if args.dry_run:
         print(f"\n  {DIM}(dry run complete){RESET}\n")
@@ -1148,12 +1156,15 @@ def cmd_publish(args: argparse.Namespace) -> int:
 
     print(f"    Target version: {GREEN}{target}{RESET}\n")
 
-    # ── 3. Bump version ──
+    # ── 3. Bump version (all surfaces: catalog.yaml, pyproject.toml,
+    #      agent.json, openapi.yaml, README.md + CHANGELOG hint) ──
     print(f"  {BOLD}Step 3/8: Bump version{RESET}")
-    bump_version_in_catalog_yaml(cat_yaml, target)
-    print(f"    {GREEN}✅{RESET} catalog.yaml → {target}")
-    bump_version_in_pyproject(pyproject, target)
-    print(f"    {GREEN}✅{RESET} pyproject.toml → {target}\n")
+    for surface_result in bump_all_version_surfaces(repo_root, target):
+        if "missing" in surface_result or "skipped" in surface_result:
+            print(f"    {YELLOW}⚠️{RESET}  {surface_result}")
+        else:
+            print(f"    {GREEN}✅{RESET} {surface_result}")
+    print()
 
     # ── 4. Regenerate dist/ ──
     print(f"  {BOLD}Step 4/8: Regenerate exports{RESET}")
@@ -1228,6 +1239,366 @@ def cmd_publish(args: argparse.Namespace) -> int:
             print(f"  {DIM}Don't forget: git push --follow-tags{RESET}")
     print()
     return 0
+
+
+# ── Contribute (draft → validate → write → PR) ──
+#
+# Field specs drive BOTH the argparse flags and the interactive prompts.
+# Enum values are never hardcoded here: `schema_field` names the dotted
+# path inside the JSON Schema and options are rendered from it at runtime.
+# spec: (dest, flag, required, kind, schema_field, help)
+#   kind: "str" | "csv" (comma-separated list) | "tri" (true/false/unknown)
+
+_MODEL_FIELD_SPECS = [
+    ("id", "--id", True, "str", None, "Model id (kebab-case, unique)"),
+    ("name", "--name", True, "str", None, "Human-readable model name"),
+    ("family", "--family", True, "str", None, "Model family (e.g. Qwen)"),
+    ("source_group", "--source-group", True, "str", "source_group", None),
+    ("source_path", "--source-path", True, "str", None,
+     "Upstream URL documenting the conversion (https://...)"),
+    ("artifact_ref", "--artifact-ref", False, "str", None,
+     "Artifact id (defaults to the model id)"),
+    ("capabilities", "--capabilities", True, "csv", None,
+     "Comma-separated capabilities (e.g. chat,text-generation)"),
+    ("input_modalities", "--input", True, "csv", None,
+     "Comma-separated input modalities (e.g. text,image)"),
+    ("output_modalities", "--output", True, "csv", None,
+     "Comma-separated output modalities"),
+    ("artifact_format", "--artifact-format", True, "str", "artifact.format", None),
+    ("availability", "--availability", True, "str", "artifact.availability", None),
+    ("parameters", "--parameters", True, "str", None, "Parameter count (e.g. 0.8B)"),
+    ("precision", "--precision", True, "str", None, "Weights precision (e.g. int8)"),
+    ("quantization", "--quantization", True, "str", None, "Quantization (e.g. int8lin)"),
+    ("artifact_size", "--artifact-size", True, "str", None, "Download size (e.g. 969MB)"),
+    ("runtime_name", "--runtime-name", True, "str", "runtime.runtime_name", None),
+    ("runner", "--runner", True, "str", "runtime.runner", None),
+    ("stock_runtime", "--stock-runtime", True, "tri", "runtime.stock_runtime", None),
+    ("custom_kernel", "--custom-kernel", True, "tri", "runtime.custom_kernel", None),
+    ("patch_required", "--patch-required", True, "tri", "runtime.patch_required", None),
+    ("tokenizer_required", "--tokenizer-required", True, "tri",
+     "runtime.tokenizer_required", None),
+    ("processor_required", "--processor-required", True, "tri",
+     "runtime.processor_required", None),
+    ("aot_required", "--aot-required", True, "tri", "runtime.aot_required", None),
+    ("iphone", "--iphone", True, "tri", "device_support.iphone", None),
+    ("ipad", "--ipad", True, "tri", "device_support.ipad", None),
+    ("mac", "--mac", True, "tri", "device_support.mac", None),
+    ("mac_only", "--mac-only", True, "tri", "device_support.mac_only", None),
+    ("license_name", "--license-name", True, "str", None, "License (e.g. Apache-2.0)"),
+    ("commercial_use", "--commercial-use", True, "str", "license.commercial_use", None),
+    ("status", "--status", True, "str", "status", None),
+    ("maturity", "--maturity", True, "str", "maturity", None),
+    ("confidence", "--confidence", True, "str", "confidence", None),
+    ("sources", "--sources", True, "csv", None,
+     "Comma-separated sources.yaml/upstreams.yaml record ids"),
+    ("last_verified", "--last-verified", False, "str", None,
+     "YYYY-MM-DD (defaults to today)"),
+    ("notes", "--notes", False, "str", None, "Free-text notes (optional)"),
+    ("architecture", "--architecture", False, "str", "architecture", None),
+    # artifact provenance (anyOf: github and/or huggingface)
+    ("hf_owner", "--hf-owner", False, "str", None, "Hugging Face repo owner"),
+    ("hf_repo", "--hf-repo", False, "str", None, "Hugging Face repo name"),
+    ("github_owner", "--github-owner", False, "str", None, "GitHub conversion repo owner"),
+    ("github_repo", "--github-repo", False, "str", None, "GitHub conversion repo name"),
+    ("github_path", "--github-path", False, "str", None, "GitHub doc/source URL"),
+]
+
+_BENCHMARK_FIELD_SPECS = [
+    ("id", "--id", False, "str", None, "Benchmark id (derived if omitted)"),
+    ("model_id", "--model-id", True, "str", None, "Existing catalog model id"),
+    ("metric", "--metric", True, "str", "metric", None),
+    ("value", "--value", True, "str", None, "Measured value (positive number)"),
+    ("unit", "--unit", True, "str", "unit", None),
+    ("device_class", "--device-class", True, "str", None,
+     "Coarsened hardware class (e.g. 'M4 Max') — never a raw device model"),
+    ("os_major", "--os-major", True, "str", None, "Major OS version (e.g. '26')"),
+    ("compute_unit", "--compute-unit", True, "str", "compute_unit", None),
+    ("precision", "--precision", False, "str", None, "Precision (e.g. int8)"),
+    ("extraction_method", "--extraction-method", True, "str", "extraction_method", None),
+    ("confidence", "--confidence", True, "str", "confidence", None),
+    ("observed_date", "--observed-date", False, "str", None,
+     "YYYY-MM-DD (defaults to today)"),
+    ("source", "--source", True, "str", None,
+     "sources.yaml/upstreams.yaml record id for provenance"),
+    ("notes", "--notes", False, "str", None, "Free-text notes (optional)"),
+]
+
+
+def _parse_tri(value):
+    """Parse a true/false/unknown flag value (schema tri-state)."""
+    if isinstance(value, (bool,)) or value is None:
+        return value
+    lowered = str(value).strip().lower()
+    if lowered in ("true", "yes", "1"):
+        return True
+    if lowered in ("false", "no", "0"):
+        return False
+    if lowered == "unknown":
+        return "unknown"
+    return value  # let the schema flag it with a hint
+
+
+def _spec_value(spec_kind: str, raw):
+    if raw is None:
+        return None
+    if spec_kind == "csv":
+        return [part.strip() for part in str(raw).split(",") if part.strip()]
+    if spec_kind == "tri":
+        return _parse_tri(raw)
+    return raw
+
+
+def _collect_fields(specs, args, schema, interactive: bool) -> tuple[dict, list[str]]:
+    """Collect field values from flags, prompting interactively for gaps.
+
+    Returns (fields, missing_flags). Enum options shown in prompts are
+    rendered from the schema at runtime.
+    """
+    from .contribute import schema_enum
+
+    fields: dict = {}
+    missing: list[str] = []
+    for dest, flag, required, kind, schema_field, _help in specs:
+        raw = getattr(args, dest, None)
+        value = _spec_value(kind, raw)
+        if value in (None, []) and required and interactive:
+            options = schema_enum(schema, schema_field) if schema_field else []
+            if kind == "tri":
+                options = options or [True, False, "unknown"]
+            prompt = f"    {flag.lstrip('-')}"
+            if options:
+                prompt += f" ({' | '.join(str(o) for o in options)})"
+            prompt += ": "
+            try:
+                raw = input(prompt).strip()
+            except (EOFError, KeyboardInterrupt):
+                raw = ""
+            value = _spec_value(kind, raw) if raw else None
+        if value in (None, []):
+            if required:
+                missing.append(flag)
+            continue
+        fields[dest] = value
+    return fields, missing
+
+
+def _print_errors(errors) -> None:
+    from .contribute import format_error
+
+    print(f"\n  {RED}{len(errors)} validation error(s) — all reported at once:{RESET}\n")
+    for err in errors:
+        print(f"    - {format_error(err)}")
+    print()
+
+
+def cmd_contribute_model(args: argparse.Namespace) -> int:
+    """Draft a new model contribution: assemble → validate → write → PR."""
+    from . import contribute as contrib
+
+    root = contrib.find_root()
+    schema = contrib.load_schema("model", root)
+    interactive = getattr(args, "interactive", False) or (
+        sys.stdin.isatty() and not getattr(args, "non_interactive", False)
+        and not args.dry_run
+    )
+
+    fields, missing = _collect_fields(_MODEL_FIELD_SPECS, args, schema, interactive)
+    if "last_verified" not in fields:
+        from datetime import date
+        fields["last_verified"] = date.today().isoformat()
+    fields.setdefault("notes", None)
+
+    problems = list(missing)
+    has_hf = fields.get("hf_owner") and fields.get("hf_repo")
+    has_gh = fields.get("github_owner") and fields.get("github_repo")
+    if not has_hf and not has_gh:
+        problems.append("--hf-owner/--hf-repo (or --github-owner/--github-repo)")
+    if problems:
+        print(f"\n  {RED}Missing required fields (all reported at once):{RESET}")
+        for flag in problems:
+            print(f"    {flag}")
+        print(f"\n  {DIM}Enum values come from schema/model.schema.json + "
+              f"schema/artifact.schema.json — run with no flags on a TTY for "
+              f"interactive prompts.{RESET}\n")
+        return 1
+
+    model_entry = contrib.build_model_entry(fields)
+    artifact_entry = contrib.build_artifact_entry(fields)
+
+    new_source = None
+    if getattr(args, "add_source", None):
+        fields["new_source_id"] = args.add_source
+        if not has_hf:
+            print(f"\n  {RED}--add-source requires --hf-owner/--hf-repo.{RESET}")
+            return 1
+        new_source = contrib.build_hf_source_record(fields)
+
+    # Validate everything against schemas + cross-references, aggregated.
+    base_ctx = contrib.ids_context(root)
+    xref_ctx = {k: set(v) for k, v in base_ctx.items()}
+    xref_ctx["artifact_ids"].add(artifact_entry["id"])
+    if new_source:
+        xref_ctx["source_ids"].add(new_source["id"])
+
+    errors = []
+    for kind, entry in [("model", model_entry), ("artifact", artifact_entry)] + (
+        [("source", new_source)] if new_source else []
+    ):
+        errors.extend(contrib.schema_errors(kind, entry, root))
+        errors.extend(contrib.cross_reference_errors(kind, entry, xref_ctx))
+        dup = contrib.duplicate_id_error(kind, entry, base_ctx)
+        if dup:
+            errors.append(dup)
+    if errors:
+        _print_errors(errors)
+        return 1
+
+    catalog_block = contrib.dump_entry_yaml(model_entry)
+    artifact_block = contrib.dump_entry_yaml(artifact_entry)
+    source_block = contrib.dump_entry_yaml(new_source) if new_source else None
+
+    if args.dry_run:
+        print(f"\n  {BOLD}Dry run — validated entries (nothing written):{RESET}\n")
+        print(f"# ── append to catalog.yaml under models: ──")
+        print(catalog_block)
+        print(f"# ── append to artifacts.yaml under artifacts: "
+              f"(and bump metadata.count) ──")
+        print(artifact_block)
+        if source_block:
+            print(f"# ── append to sources.yaml under sources: ──")
+            print(source_block)
+        return 0
+
+    # Write with rollback-on-gate-failure.
+    touched = {
+        "catalog.yaml": (root / "catalog.yaml").read_text(),
+        "artifacts.yaml": (root / "artifacts.yaml").read_text(),
+        "sources.yaml": (root / "sources.yaml").read_text(),
+    }
+    files_changed = ["catalog.yaml", "artifacts.yaml"]
+    contrib.append_yaml_entry(root / "catalog.yaml", model_entry)
+    contrib.append_yaml_entry(root / "artifacts.yaml", artifact_entry)
+    old_count, new_count = contrib.bump_artifact_count(root)
+    if new_source:
+        contrib.append_yaml_entry(root / "sources.yaml", new_source)
+        files_changed.append("sources.yaml")
+
+    print(f"\n  {BOLD}Running the local gate (validate + audit)...{RESET}")
+    ok, evidence = contrib.run_local_gate(root)
+    if not ok:
+        for name, original in touched.items():
+            (root / name).write_text(original)
+        print(f"\n  {RED}Local gate failed — changes rolled back:{RESET}")
+        for line in evidence:
+            print(f"    {line}")
+        print()
+        return 1
+
+    # Aggregated diff summary.
+    print(f"\n  {GREEN}✅ Local gate passed.{RESET}")
+    print(f"\n  {BOLD}Diff summary:{RESET}")
+    print(f"    catalog.yaml    +{len(catalog_block.splitlines())} lines "
+          f"(model {model_entry['id']})")
+    print(f"    artifacts.yaml  +{len(artifact_block.splitlines())} lines "
+          f"(artifact {artifact_entry['id']}; metadata.count "
+          f"{old_count} → {new_count})")
+    if source_block:
+        print(f"    sources.yaml    +{len(source_block.splitlines())} lines "
+              f"(source {new_source['id']})")
+
+    if getattr(args, "pr", False):
+        print(f"\n  {BOLD}Regenerating exports for the PR...{RESET}")
+        gen = subprocess.run([sys.executable, "scripts/generate.py"],
+                             cwd=str(root), capture_output=True, text=True)
+        if gen.returncode != 0:
+            print(f"  {RED}generate.py failed — fix and open the PR "
+                  f"manually.{RESET}")
+            print((gen.stdout + gen.stderr).strip())
+            return 1
+        pr_files = files_changed + ["docs", "dist", "coreai_catalog/data"]
+        ok, message = contrib.open_contribution_pr(
+            root, model_entry["id"], pr_files, evidence,
+        )
+        if not ok:
+            print(f"\n  {RED}PR step failed:{RESET} {message}")
+            return 1
+        print(f"\n  {GREEN}✅ {message}{RESET}\n")
+        return 0
+
+    print(f"\n  {BOLD}Next steps:{RESET}")
+    print(f"    python scripts/generate.py   # regenerate docs/ + dist/")
+    print(f"    git checkout -b contribute/add-{model_entry['id']} && "
+          f"git add -A && git commit")
+    print(f"    (or re-run with --pr to do this automatically via gh)")
+    print(f"\n  {DIM}Model lane only — never add benchmarks.jsonl lines to a "
+          f"model PR.{RESET}\n")
+    return 0
+
+
+def cmd_contribute_benchmark(args: argparse.Namespace) -> int:
+    """Draft + validate a benchmarks.jsonl line and explain the curator lane."""
+    from . import contribute as contrib
+
+    root = contrib.find_root()
+    schema = contrib.load_schema("benchmark", root)
+    interactive = getattr(args, "interactive", False) or (
+        sys.stdin.isatty() and not getattr(args, "non_interactive", False)
+    )
+
+    fields, missing = _collect_fields(_BENCHMARK_FIELD_SPECS, args, schema, interactive)
+    if missing:
+        print(f"\n  {RED}Missing required fields (all reported at once):{RESET}")
+        for flag in missing:
+            print(f"    {flag}")
+        print(f"\n  {DIM}Enum values come from schema/benchmark.schema.json.{RESET}\n")
+        return 1
+
+    if "observed_date" not in fields:
+        from datetime import date
+        fields["observed_date"] = date.today().isoformat()
+    try:
+        fields["value"] = float(fields["value"])
+        if fields["value"] == int(fields["value"]):
+            fields["value"] = int(fields["value"])
+    except (TypeError, ValueError):
+        pass  # let the schema flag it with a hint
+    if getattr(args, "higher_is_better", None) is not None:
+        fields["higher_is_better"] = args.higher_is_better
+    if "id" not in fields:
+        fields["id"] = contrib.derive_benchmark_id(fields)
+
+    entry = contrib.build_benchmark_entry(fields)
+    errors = contrib.validate_entry("benchmark", entry, root)
+    if errors:
+        _print_errors(errors)
+        return 1
+
+    line = json.dumps(entry, ensure_ascii=False)
+    print(f"\n  {GREEN}✅ Schema-valid benchmark line "
+          f"(schema/benchmark.schema.json + cross-references):{RESET}\n")
+    print(line)
+    print()
+    for text_line in contrib.CURATOR_LANE_EXPLANATION.splitlines():
+        print(f"  {DIM}{text_line}{RESET}")
+    print()
+
+    if getattr(args, "write", False):
+        path = root / "benchmarks.jsonl"
+        text = path.read_text()
+        if not text.endswith("\n"):
+            text += "\n"
+        path.write_text(text + line + "\n")
+        print(f"  {GREEN}Appended to benchmarks.jsonl.{RESET} "
+              f"{DIM}Open a dedicated single-line PR — do not mix with model "
+              f"changes.{RESET}\n")
+    return 0
+
+
+def cmd_contribute(args: argparse.Namespace) -> int:
+    """Dispatch for `coreai-catalog contribute <entity>`."""
+    print(f"\n  {RED}Specify what to contribute: model | benchmark{RESET}")
+    print(f"  {DIM}Try: coreai-catalog contribute model --help{RESET}\n")
+    return 1
 
 
 def cmd_version(args: argparse.Namespace) -> int:
@@ -1382,6 +1753,64 @@ def build_parser() -> argparse.ArgumentParser:
                    help="Target output modality")
     p.add_argument("--json", action="store_true", help="Output as JSON")
     p.set_defaults(func=cmd_transforms)
+
+    # contribute
+    p = sub.add_parser(
+        "contribute",
+        help="Draft a new catalog entry: assemble, validate, write, open a PR",
+        description=(
+            "Draft → validate → write → PR for new catalog entries. "
+            "Enum values are validated against the JSON Schemas at runtime "
+            "(schema/*.schema.json) — run interactively (no flags, TTY) to "
+            "be prompted with the valid options."
+        ),
+    )
+    p.set_defaults(func=cmd_contribute)
+    contrib_sub = p.add_subparsers(dest="entity", help="What to contribute")
+
+    pm = contrib_sub.add_parser(
+        "model",
+        help="Add a model (catalog.yaml + artifacts.yaml [+ sources.yaml])",
+    )
+    for dest, flag, _required, kind, schema_field, help_text in _MODEL_FIELD_SPECS:
+        if help_text is None and schema_field:
+            help_text = f"See enum in schema ({schema_field})"
+        pm.add_argument(flag, dest=dest, help=help_text)
+    pm.add_argument("--add-source", dest="add_source", metavar="SOURCE_ID",
+                    help="Also draft a sources.yaml record (id) for the new "
+                         "HF artifact host — include it in --sources")
+    pm.add_argument("--dry-run", action="store_true",
+                    help="Print the validated YAML without writing anything")
+    pm.add_argument("--pr", action="store_true",
+                    help="After the local gate passes, branch + commit + "
+                         "open a PR via gh")
+    pm.add_argument("--interactive", action="store_true",
+                    help="Prompt for missing fields (default on a TTY)")
+    pm.add_argument("--non-interactive", action="store_true",
+                    help="Never prompt; fail with the aggregated missing list")
+    pm.set_defaults(func=cmd_contribute_model)
+
+    pb = contrib_sub.add_parser(
+        "benchmark",
+        help="Draft + validate a benchmarks.jsonl line (curator lane; no push)",
+    )
+    for dest, flag, _required, kind, schema_field, help_text in _BENCHMARK_FIELD_SPECS:
+        if help_text is None and schema_field:
+            help_text = f"See enum in schema ({schema_field})"
+        pb.add_argument(flag, dest=dest, help=help_text)
+    hib = pb.add_mutually_exclusive_group()
+    hib.add_argument("--higher-is-better", dest="higher_is_better",
+                     action="store_true", default=None)
+    hib.add_argument("--lower-is-better", dest="higher_is_better",
+                     action="store_false", default=None)
+    pb.add_argument("--write", action="store_true",
+                    help="Append the validated line to benchmarks.jsonl "
+                         "(local only — you still open the single-line PR)")
+    pb.add_argument("--interactive", action="store_true",
+                    help="Prompt for missing fields (default on a TTY)")
+    pb.add_argument("--non-interactive", action="store_true",
+                    help="Never prompt; fail with the aggregated missing list")
+    pb.set_defaults(func=cmd_contribute_benchmark)
 
     # publish
     p = sub.add_parser("publish",

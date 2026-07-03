@@ -245,6 +245,7 @@ original_model_sources:
   owner: Qwen
   url: https://huggingface.co/Qwen
   trust: original_model_primary
+  license_terms: permissive
   applies_to:
   - qwen3-5-0-8b
   - qwen3-5-2b
@@ -268,6 +269,7 @@ original_model_sources:
   owner: google
   url: https://huggingface.co/google
   trust: original_model_primary
+  license_terms: review_required
   applies_to:
   - gemma-4-e2b
   - gemma-4-e4b
@@ -284,6 +286,7 @@ original_model_sources:
   owner: openai
   url: https://huggingface.co/openai/gpt-oss-20b
   trust: original_model_primary
+  license_terms: permissive
   applies_to:
   - official-gpt-oss-20b
 - id: mistral-ai
@@ -293,6 +296,7 @@ original_model_sources:
   owner: mistralai
   url: https://huggingface.co/mistralai/Mistral-7B-v0.3
   trust: original_model_primary
+  license_terms: permissive
   applies_to:
   - official-mistral-7b-v0-3
 - id: ibm-granite
@@ -302,6 +306,7 @@ original_model_sources:
   owner: ibm-granite
   url: https://huggingface.co/ibm-granite
   trust: original_model_primary
+  license_terms: permissive
   applies_to:
   - granite-4-0-h-1b
   - granite-4-0-h-350m
@@ -312,6 +317,7 @@ original_model_sources:
   owner: LiquidAI
   url: https://huggingface.co/LiquidAI
   trust: original_model_primary
+  license_terms: review_required
   applies_to:
   - lfm2-5-1-2b-instruct
   - lfm2-5-8b-a1b
@@ -322,6 +328,7 @@ original_model_sources:
   owner: openbmb
   url: https://huggingface.co/openbmb
   trust: original_model_primary
+  license_terms: permissive
   applies_to:
   - minicpm-v-4-6
   - voxcpm-0-5b
@@ -332,6 +339,7 @@ original_model_sources:
   owner: facebook
   url: https://huggingface.co/facebook/sam3
   trust: original_model_primary
+  license_terms: review_required
   applies_to:
   - official-sam-3
 - id: black-forest-labs-flux
@@ -341,6 +349,7 @@ original_model_sources:
   owner: black-forest-labs
   url: https://huggingface.co/black-forest-labs
   trust: original_model_primary
+  license_terms: permissive
   applies_to:
   - official-flux-2-klein-4b
 - id: openai-whisper
@@ -351,6 +360,7 @@ original_model_sources:
   repo: whisper
   url: https://github.com/openai/whisper
   trust: original_model_primary
+  license_terms: permissive
   applies_to:
   - official-whisper-large-v3-turbo
 - id: roboflow-rf-detr
@@ -360,6 +370,7 @@ original_model_sources:
   owner: Roboflow
   url: https://huggingface.co/Roboflow
   trust: original_model_primary
+  license_terms: permissive
   applies_to:
   - rf-detr-nano
   - rf-detr-small
@@ -379,6 +390,7 @@ original_model_sources:
   repo: Depth-Anything-V2
   url: https://github.com/DepthAnything/Depth-Anything-V2
   trust: original_model_primary
+  license_terms: permissive
   applies_to:
   - depth-anything-3-small
   - depth-anything-3-base
@@ -391,6 +403,7 @@ original_model_sources:
   owner: hexgrad
   url: https://huggingface.co/hexgrad/Kokoro-82M
   trust: original_model_primary
+  license_terms: permissive
   applies_to:
   - kokoro-82m
 - id: glm-zai-thudm
@@ -400,6 +413,7 @@ original_model_sources:
   owner: Z.ai / THUDM
   url: https://huggingface.co/zai-org
   trust: needs_review
+  license_terms: review_required
   applies_to:
   - glm-4-7-flash
   notes: Exact upstream for GLM-4.7-Flash should be verified before marking primary.
@@ -410,6 +424,7 @@ original_model_sources:
   owner: unknown
   url: https://huggingface.co/Nanbeige
   trust: needs_review
+  license_terms: review_required
   applies_to:
   - nanbeige4-1-3b
 - id: adcsr
@@ -419,6 +434,7 @@ original_model_sources:
   owner: unknown
   url: https://github.com/jaewon-lee-b/AdcSR
   trust: needs_review
+  license_terms: review_required
   applies_to:
   - adcsr-x4
 - id: unlimited-ocr
@@ -428,6 +444,7 @@ original_model_sources:
   owner: unknown
   url: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/unlimited-ocr.md
   trust: needs_review
+  license_terms: review_required
   applies_to:
   - unlimited-ocr
 - id: openbmb-minicpm5
@@ -437,6 +454,7 @@ original_model_sources:
   owner: openbmb
   url: https://huggingface.co/openbmb/MiniCPM5-1B
   trust: original_model_primary
+  license_terms: permissive
   applies_to:
   - minicpm5-1b
   notes: 1.08B hybrid Think/No-Think LLM; 128K context.
@@ -447,6 +465,7 @@ original_model_sources:
   owner: microsoft
   url: https://huggingface.co/microsoft/FastContext-1.0-4B-SFT
   trust: original_model_primary
+  license_terms: permissive
   applies_to:
   - fastcontext-1-0-4b
   notes: Repo-exploration agent; Qwen3-4B-Instruct backbone SFT.
@@ -457,6 +476,7 @@ original_model_sources:
   owner: openbmb
   url: https://huggingface.co/openbmb/BitCPM-CANN-8B
   trust: original_model_primary
+  license_terms: permissive
   applies_to:
   - bitcpm-8b
   notes: 1.58-bit ternary LLM; MiniCPM4-8B arch quantization-aware trained to ternary.
@@ -467,6 +487,7 @@ original_model_sources:
   owner: Hcompany
   url: https://huggingface.co/Hcompany/Holo2-4B
   trust: original_model_primary
+  license_terms: permissive
   applies_to:
   - holo2-4b
   notes: GUI-grounding / computer-use VLM; Qwen3-VL-4B backbone.
@@ -477,6 +498,7 @@ original_model_sources:
   owner: ModernVBERT
   url: https://huggingface.co/ModernVBERT/colmodernvbert
   trust: original_model_primary
+  license_terms: permissive
   applies_to:
   - colmodernvbert
   notes: Visual document retriever; ModernBERT + SigLIP2; ColBERT/MaxSim.
@@ -487,6 +509,7 @@ original_model_sources:
   owner: nvidia
   url: https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3
   trust: original_model_primary
+  license_terms: permissive
   applies_to:
   - parakeet-tdt-0-6b
   notes: Token-and-duration transducer (RNN-T); FastConformer + LSTM predictor.
@@ -498,6 +521,7 @@ original_model_sources:
   repo: YOLOX
   url: https://github.com/Megvii-BaseDetection/YOLOX
   trust: original_model_primary
+  license_terms: permissive
   applies_to:
   - yolox-s
   notes: Single-stage anchor-free detector; CSPDarknet + PAFPN.
@@ -508,6 +532,7 @@ original_model_sources:
   owner: VAST
   url: https://huggingface.co/VAST
   trust: needs_review
+  license_terms: review_required
   applies_to:
   - tripo-splat
   notes: Single image → 3D Gaussian splats; DINOv3 + flow-matching DiT. Exact HF page
@@ -520,6 +545,7 @@ original_model_sources:
   repo: LTX-Video
   url: https://github.com/Lightricks/LTX-Video
   trust: original_model_primary
+  license_terms: review_required
   applies_to:
   - ltx-video-2b
   notes: Text → video; T5-XXL + 8-step flow-matching DiT + causal video VAE.
@@ -530,6 +556,7 @@ original_model_sources:
   owner: openai
   url: https://huggingface.co/openai/clip-vit-base-patch32
   trust: original_model_primary
+  license_terms: permissive
   applies_to:
   - official-clip-vit-base-patch32
   notes: CLIP ViT-B/32 — image+text joint embedding model.
@@ -540,6 +567,7 @@ original_model_sources:
   owner: GSAI-ML
   url: https://huggingface.co/GSAI-ML/LLaDA-8B-Instruct
   trust: original_model_primary
+  license_terms: permissive
   applies_to:
   - llada-8b-dllm
   notes: Masked diffusion LLM (dLLM); bidirectional text generation.
@@ -550,6 +578,7 @@ original_model_sources:
   owner: lxsy
   url: https://huggingface.co/lxsy/bitvla-bf16
   trust: original_model_primary
+  license_terms: permissive
   applies_to:
   - bitvla
   notes: 1.58-bit ternary Vision-Language-Action policy; BitNet b1.58 LLM + BitSigLIP
@@ -561,6 +590,7 @@ original_model_sources:
   owner: stabilityai
   url: https://huggingface.co/stabilityai
   trust: original_model_primary
+  license_terms: restricted
   applies_to:
   - stable-audio-open-small
   notes: Generative audio; Stable Audio Open Small.
@@ -571,6 +601,7 @@ original_model_sources:
   owner: Microsoft
   url: https://huggingface.co/microsoft
   trust: original_model_primary
+  license_terms: permissive
   applies_to:
   - vibevoice-0-5b
   - vibevoice-1-5b
@@ -583,6 +614,7 @@ original_model_sources:
   owner: NVIDIA
   url: https://huggingface.co/nvidia
   trust: original_model_primary
+  license_terms: review_required
   applies_to:
   - nemotron-3-5-asr-streaming
 - id: tongyi-mai-z-image
@@ -592,6 +624,7 @@ original_model_sources:
   owner: Tongyi-MAI
   url: https://huggingface.co/Tongyi-MAI/Z-Image-Turbo
   trust: original_model_primary
+  license_terms: permissive
   applies_to:
   - z-image-turbo
 - id: xinntao-realesrgan
@@ -601,6 +634,7 @@ original_model_sources:
   owner: xinntao
   url: https://github.com/xinntao/Real-ESRGAN
   trust: original_model_primary
+  license_terms: permissive
   applies_to:
   - real-esrgan-x4v3
 - id: facebook-efficientsam3
@@ -610,6 +644,7 @@ original_model_sources:
   owner: Meta
   url: https://huggingface.co/facebook
   trust: original_model_primary
+  license_terms: permissive
   applies_to:
   - efficientsam3-tinyvit
 - id: rwkv
@@ -619,6 +654,7 @@ original_model_sources:
   owner: RWKV
   url: https://huggingface.co/RWKV
   trust: original_model_primary
+  license_terms: permissive
   applies_to:
   - rwkv7-goose-1-5b
 license_sources:

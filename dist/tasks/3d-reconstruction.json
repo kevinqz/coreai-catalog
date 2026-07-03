@@ -8,7 +8,7 @@
     {
       "id": "tripo-splat",
       "name": "TripoSplat",
-      "score": 63,
+      "score": 53,
       "parameters": "not_published",
       "devices": {
         "iphone": false,
@@ -16,7 +16,7 @@
         "mac": true
       },
       "license": "MIT",
-      "commercial_use": "likely",
+      "commercial_use": "check_license",
       "has_benchmark": false
     }
   ],
@@ -24,5 +24,5 @@
   "export_catalog_version": "2.1.0",
   "best_overall": "tripo-splat",
   "best_iphone": null,
-  "best_commercial": "tripo-splat"
+  "best_commercial": null
 }

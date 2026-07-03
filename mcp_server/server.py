@@ -2,8 +2,9 @@
 """
 Core AI Catalog MCP Server — exposes catalog tools to AI agents.
 
-Provides 12 tools for model discovery, comparison, recommendation,
-license triage, and terminology explanation via the Model Context Protocol.
+Provides 13 tools for model discovery, comparison, recommendation,
+license triage, terminology explanation, and candidate-entry validation
+(validate_entry) via the Model Context Protocol.
 
 Usage (stdio transport — standard for Claude Desktop, Cursor, etc.):
   python mcp_server/server.py
@@ -49,18 +50,50 @@ from coreai_catalog.formatters import (
 # Catalog singleton — auto-reloads when source files change (mtime check in Catalog._load)
 catalog = Catalog(_ROOT)
 
-# Create MCP server
-mcp = FastMCP(
-    "coreai-catalog",
-    instructions=(
-        "Core AI Catalog — a source-grounded registry of 79 Apple Core AI models. "
+
+def _build_instructions(cat: Catalog) -> str:
+    """Server instructions with the model count derived from the loaded
+    catalog — never hardcoded (redteam finding F9)."""
+    return (
+        f"Core AI Catalog — a source-grounded registry of {len(cat.models)} "
+        "Apple Core AI models. "
         "Use these tools to discover, compare, recommend models and plan multi-modal "
         "transformation pipelines for on-device Apple Silicon deployment. "
         "All data is grounded in upstream sources "
         "(Hugging Face, GitHub, Apple documentation). Never fabricate model "
-        "specifications — if a tool returns 'unknown', report it as unknown."
-    ),
+        "specifications — if a tool returns 'unknown', report it as unknown. "
+        "Use validate_entry to pre-flight candidate model/artifact/benchmark/"
+        "source entries before contributing them."
+    )
+
+
+INSTRUCTIONS = _build_instructions(catalog)
+
+# Create MCP server
+mcp = FastMCP(
+    "coreai-catalog",
+    instructions=INSTRUCTIONS,
 )
+
+
+def _model_not_found(model_id: str) -> str:
+    """Actionable not-found error with near-miss suggestions (finding F10).
+
+    Mirrors the CLI's hint behavior: bare {"error": ...} responses force
+    an agent to guess; suggestions + a next-step hint give it the
+    shortest path to recovery.
+    """
+    from coreai_catalog.contribute import suggest
+
+    payload: dict = {"error": f"Model '{model_id}' not found"}
+    near = suggest(model_id, [m["id"] for m in catalog.models])
+    if near:
+        payload["did_you_mean"] = near
+    payload["hint"] = (
+        "Use search_models() to browse valid model ids, or "
+        "recommend_model(task=...) to resolve a task to models."
+    )
+    return json.dumps(payload, indent=2)
 
 
 # ── Tool 1: search_models ──
@@ -154,7 +187,7 @@ def get_model(model_id: str) -> str:
     """
     model = catalog.get_model(model_id)
     if not model:
-        return json.dumps({"error": f"Model '{model_id}' not found"})
+        return _model_not_found(model_id)
 
     art = catalog.get_artifact(model["id"])
     benchmarks = catalog.get_benchmarks(model["id"])
@@ -222,7 +255,12 @@ def compare_models(model_ids: list[str]) -> str:
     for mid in unique_ids:
         m = catalog.get_model(mid)
         if not m:
-            results.append({"id": mid, "error": "not found"})
+            from coreai_catalog.contribute import suggest
+            entry = {"id": mid, "error": "not found"}
+            near = suggest(mid, [mm["id"] for mm in catalog.models])
+            if near:
+                entry["did_you_mean"] = near
+            results.append(entry)
             continue
         results.append({
             "id": m["id"],
@@ -299,7 +337,7 @@ def check_license(model_id: str) -> str:
     """
     model = catalog.get_model(model_id)
     if not model:
-        return json.dumps({"error": f"Model '{model_id}' not found"})
+        return _model_not_found(model_id)
 
     art = catalog.get_artifact(model["id"])
     result = {
@@ -337,7 +375,7 @@ def get_benchmarks(model_id: str) -> str:
     """
     model = catalog.get_model(model_id)
     if not model:
-        return json.dumps({"error": f"Model '{model_id}' not found"})
+        return _model_not_found(model_id)
 
     benches = catalog.get_benchmarks(model["id"])
     output = reshape_benchmarks(benches)
@@ -364,7 +402,7 @@ def get_artifact(model_id: str) -> str:
     """
     model = catalog.get_model(model_id)
     if not model:
-        return json.dumps({"error": f"Model '{model_id}' not found"})
+        return _model_not_found(model_id)
 
     art = catalog.get_artifact(model["id"])
     if not art:
@@ -546,6 +584,66 @@ def get_version() -> str:
         "benchmark_count": bench_count,
         "term_count": term_count,
         "last_verified": last_verified,
+    }, indent=2)
+
+
+# ── Tool 13: validate_entry ──
+
+@mcp.tool()
+def validate_entry(kind: str, payload: dict) -> str:
+    """Validate a candidate catalog entry before contributing it.
+
+    Pre-flights a model / artifact / benchmark / source entry against its
+    JSON Schema plus the cross-reference rules enforced by
+    scripts/validate.py (same shared validation core as the
+    `coreai-catalog contribute` CLI command). Errors are AGGREGATED — every
+    problem is returned at once, each with the offending field and an
+    actionable fix hint (e.g. the nearest valid enum value).
+
+    Args:
+        kind: Entry type — one of 'model', 'artifact', 'benchmark',
+            'source' (also accepts 'upstream' and 'term').
+        payload: The candidate entry as a JSON object, shaped like a
+            catalog.yaml / artifacts.yaml / benchmarks.jsonl / sources.yaml
+            record.
+
+    Returns:
+        JSON with valid (bool), error_count, and errors — each error
+        carries file, entity_id, field, message, and hint.
+    """
+    from coreai_catalog.contribute import ENTITY_KINDS, suggest, validate_entry as _validate
+
+    if not isinstance(kind, str) or kind not in ENTITY_KINDS:
+        response: dict = {
+            "error": f"Unknown kind '{kind}'",
+            "valid_kinds": sorted(ENTITY_KINDS),
+        }
+        near = suggest(kind if isinstance(kind, str) else "", sorted(ENTITY_KINDS))
+        if near:
+            response["did_you_mean"] = near
+        return json.dumps(response, indent=2)
+
+    if not isinstance(payload, dict):
+        return json.dumps({
+            "error": "payload must be a JSON object shaped like a catalog entry",
+            "hint": f"see schema/{ENTITY_KINDS[kind]['schema']}",
+        }, indent=2)
+
+    errors = _validate(kind, payload, root=_ROOT)
+    return json.dumps({
+        "kind": kind,
+        "target_file": ENTITY_KINDS[kind]["file"],
+        "valid": not errors,
+        "error_count": len(errors),
+        "errors": errors,
+        "hint": (
+            "All errors are reported at once — fix them all, then re-validate. "
+            "When valid, contribute via `coreai-catalog contribute` or a PR."
+            if errors else
+            "Entry is schema-valid and cross-reference-clean. Contribute it "
+            "via `coreai-catalog contribute` or a PR (model lane never "
+            "touches benchmarks.jsonl)."
+        ),
     }, indent=2)
 
 

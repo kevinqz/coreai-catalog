@@ -117,6 +117,140 @@ def bump_version_in_pyproject(path: Path, new_version: str) -> None:
     path.write_text(new_content)
 
 
+def bump_version_in_agent_json(path: Path, new_version: str) -> None:
+    """Update the top-level ``version`` field in ``agent.json``.
+
+    Uses a targeted regex on the first ``"version": "x.y.z"`` occurrence so
+    the file's formatting (indentation, key order) is preserved exactly.
+
+    Args:
+        path: Path to ``agent.json``.
+        new_version: The new version string (validated first).
+    """
+    new_version = validate_version(new_version)
+    path = Path(path)
+    content = path.read_text()
+    pattern = re.compile(r'("version"\s*:\s*")\d+\.\d+\.\d+(")')
+    new_content, count = pattern.subn(
+        lambda m: f"{m.group(1)}{new_version}{m.group(2)}", content, count=1
+    )
+    if count == 0:
+        raise ValueError(f"Could not find '\"version\": \"x.y.z\"' in {path}")
+    path.write_text(new_content)
+
+
+def bump_version_in_openapi_yaml(path: Path, new_version: str) -> None:
+    """Update ``info.version`` in ``openapi.yaml``.
+
+    Targets the single ``version: x.y.z`` line whose value is a bare
+    semver (the schema's ``version: { type: string }`` lines don't match).
+
+    Args:
+        path: Path to ``openapi.yaml``.
+        new_version: The new version string (validated first).
+    """
+    new_version = validate_version(new_version)
+    path = Path(path)
+    content = path.read_text()
+    pattern = re.compile(
+        r"^(\s*version:\s*['\"]?)\d+\.\d+\.\d+(['\"]?)\s*$",
+        re.MULTILINE,
+    )
+    new_content, count = pattern.subn(
+        lambda m: f"{m.group(1)}{new_version}{m.group(2)}", content
+    )
+    if count != 1:
+        raise ValueError(
+            f"Expected exactly 1 semver 'version:' line in {path}, found {count}"
+        )
+    path.write_text(new_content)
+
+
+def bump_version_in_readme(path: Path, new_version: str) -> None:
+    """Update the ``**Version:** vX.Y.Z`` badge line in ``README.md``.
+
+    Args:
+        path: Path to ``README.md``.
+        new_version: The new version string (validated first).
+    """
+    new_version = validate_version(new_version)
+    path = Path(path)
+    content = path.read_text()
+    pattern = re.compile(r"(\*\*Version:\*\*\s*v)\d+\.\d+\.\d+")
+    new_content, count = pattern.subn(
+        lambda m: f"{m.group(1)}{new_version}", content, count=1
+    )
+    if count == 0:
+        raise ValueError(f"Could not find '**Version:** vX.Y.Z' in {path}")
+    path.write_text(new_content)
+
+
+def check_changelog_has_version(path: Path, version: str) -> bool:
+    """Return True if ``CHANGELOG.md`` has a ``## [version]`` section.
+
+    This is a hint, not a bump — the changelog entry itself is authored
+    content, so publish only warns when it is missing rather than
+    fabricating one.
+    """
+    version = validate_version(version)
+    path = Path(path)
+    if not path.exists():
+        return False
+    return bool(re.search(
+        rf"^##\s*\[{re.escape(version)}\]", path.read_text(), re.MULTILINE
+    ))
+
+
+def bump_all_version_surfaces(repo_root: Path, new_version: str) -> list[str]:
+    """Bump every version surface in the repo to *new_version*.
+
+    Surfaces (the release version contract — see README "Version contract"):
+      1. ``catalog.yaml``   → ``metadata.version``
+      2. ``pyproject.toml`` → ``version = "..."``
+      3. ``agent.json``     → ``"version": "..."``
+      4. ``openapi.yaml``   → ``info.version``
+      5. ``README.md``      → ``**Version:** vX.Y.Z`` badge
+      6. ``CHANGELOG.md``   → checked only (hint when the section is missing)
+
+    Required surfaces (catalog.yaml, pyproject.toml) raise if the file is
+    missing; optional surfaces are reported as skipped so older checkouts
+    still publish.
+
+    Returns:
+        Human-readable status strings, one per surface.
+    """
+    new_version = validate_version(new_version)
+    repo_root = Path(repo_root)
+    results: list[str] = []
+
+    bump_version_in_catalog_yaml(repo_root / "catalog.yaml", new_version)
+    results.append(f"catalog.yaml → {new_version}")
+    bump_version_in_pyproject(repo_root / "pyproject.toml", new_version)
+    results.append(f"pyproject.toml → {new_version}")
+
+    optional_surfaces = [
+        ("agent.json", bump_version_in_agent_json),
+        ("openapi.yaml", bump_version_in_openapi_yaml),
+        ("README.md", bump_version_in_readme),
+    ]
+    for name, bump_fn in optional_surfaces:
+        path = repo_root / name
+        if path.exists():
+            bump_fn(path, new_version)
+            results.append(f"{name} → {new_version}")
+        else:
+            results.append(f"{name} skipped (file not found)")
+
+    if check_changelog_has_version(repo_root / "CHANGELOG.md", new_version):
+        results.append(f"CHANGELOG.md has a [{new_version}] section")
+    else:
+        results.append(
+            f"CHANGELOG.md missing a '## [{new_version}]' section — add one "
+            "before tagging"
+        )
+    return results
+
+
 def read_catalog_version(path: Path) -> str:
     """Read ``metadata.version`` from a catalog.yaml file."""
     path = Path(path)

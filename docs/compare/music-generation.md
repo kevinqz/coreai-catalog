@@ -6,5 +6,5 @@ Side-by-side comparison of all 1 model(s) with the `music-generation` capability
 |---|---|---|---|---|---|---|---|---|
 | Stable Audio Open Small | Stable Audio | not_published | fp16 | Mac | Stability Community | CoreAIDiffusionPipeline | — | 🐼 Zoo |
 
-> Generated automatically by `scripts/generate.py` from `catalog.yaml` + `benchmarks.yaml`.
+> Generated automatically by `scripts/generate.py` from `catalog.yaml` + `benchmarks.jsonl`.
 

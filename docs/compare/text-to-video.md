@@ -6,5 +6,5 @@ Side-by-side comparison of all 1 model(s) with the `text-to-video` capability.
 |---|---|---|---|---|---|---|---|---|
 | LTX-Video 2B distilled | LTX-Video | 2B / DiT 1.9B + T5-XXL 4.76B | fp16 | Mac | OpenRAIL-M | CoreAIVideoPipeline | — | 🐼 Zoo |
 
-> Generated automatically by `scripts/generate.py` from `catalog.yaml` + `benchmarks.yaml`.
+> Generated automatically by `scripts/generate.py` from `catalog.yaml` + `benchmarks.jsonl`.
 

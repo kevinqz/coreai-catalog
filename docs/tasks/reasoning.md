@@ -11,7 +11,7 @@
 | Model | Score | Parameters | Devices | License | Commercial | Benchmark | Source |
 |---|---|---|---|---|---|---|---|
 | [MiniCPM5-1B](../../catalog.yaml#L1) | 83 | 1.08B | 📱💻 | Apache-2.0 | ✅ likely | 📊 | 🐼 |
-| [Nanbeige4.1-3B](../../catalog.yaml#L1) | 78 | 3.93B | 📱💻 | Apache-2.0 | ✅ likely | 📊 | 🐼 |
+| [Nanbeige4.1-3B](../../catalog.yaml#L1) | 68 | 3.93B | 📱💻 | Apache-2.0 | ⚠️ check_license | 📊 | 🐼 |
 
 ## Install
 

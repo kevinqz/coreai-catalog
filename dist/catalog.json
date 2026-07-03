@@ -282,7 +282,7 @@
       "id": "glm-4-7-flash",
       "last_verified": "2026-06-24",
       "license": {
-        "commercial_use": "likely",
+        "commercial_use": "check_license",
         "name": "MIT"
       },
       "maturity": "experimental",
@@ -839,7 +839,7 @@
       "id": "nanbeige4-1-3b",
       "last_verified": "2026-06-24",
       "license": {
-        "commercial_use": "likely",
+        "commercial_use": "check_license",
         "name": "Apache-2.0"
       },
       "maturity": "experimental",
@@ -1204,7 +1204,7 @@
       "id": "unlimited-ocr",
       "last_verified": "2026-06-24",
       "license": {
-        "commercial_use": "likely",
+        "commercial_use": "check_license",
         "name": "MIT"
       },
       "maturity": "experimental",
@@ -3596,7 +3596,7 @@
       "id": "tripo-splat",
       "last_verified": "2026-06-29",
       "license": {
-        "commercial_use": "likely",
+        "commercial_use": "check_license",
         "name": "MIT"
       },
       "maturity": "experimental",

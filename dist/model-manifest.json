@@ -114,7 +114,7 @@
       "artifact_size": "30GB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/GLM-4.7-Flash-CoreAI",
       "license": "MIT",
-      "commercial_use": "likely"
+      "commercial_use": "check_license"
     },
     {
       "id": "gemma-4-e2b",
@@ -318,7 +318,7 @@
       "artifact_size": "4.3GB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/Nanbeige4.1-3B-CoreAI",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "check_license"
     },
     {
       "id": "qwen3-vl-2b",
@@ -452,7 +452,7 @@
       "artifact_size": "not_published",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/Unlimited-OCR-CoreAI",
       "license": "MIT",
-      "commercial_use": "likely"
+      "commercial_use": "check_license"
     },
     {
       "id": "qwen2-5-omni-3b-audio",
@@ -1321,7 +1321,7 @@
       "artifact_size": "not_published",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/TripoSplat-CoreAI",
       "license": "MIT",
-      "commercial_use": "likely"
+      "commercial_use": "check_license"
     },
     {
       "id": "ltx-video-2b",

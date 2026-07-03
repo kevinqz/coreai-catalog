@@ -1,18 +1,47 @@
-# Core AI artifact entry template
-# Copy this file, fill in the fields, and add to artifacts.yaml
-# The id MUST match the artifact_ref in catalog.yaml
+# GENERATED from schema/artifact.schema.json by scripts/generate_templates.py.
+# Do not edit by hand — edit the schema and re-run the generator.
+# Copy this entry, append to artifacts.yaml under `artifacts:` (id must match the catalog.yaml artifact_ref) and bump metadata.count by 1.
+# Fields marked "optional" may be omitted entirely; never invent values
+# for fields you cannot source (leave optional fields absent instead).
 
-- id: model-id-here          # must match catalog.yaml artifact_ref
-  group: zoo                  # zoo | official | external
-  github:
-    owner: john-rocky
-    repo: coreai-model-zoo
-    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/model.md
-  huggingface:
-    owner: mlboydaisuke
-    repo: Model-Name-CoreAI
-    url: https://huggingface.co/mlboydaisuke/Model-Name-CoreAI
+- id: model-id-here
+  group: zoo   # zoo | official | external | unknown
+  github:   # optional
+    owner: owner-here
+    repo: repo-name-here
+    path: replace-me   # optional
+  huggingface:   # optional
+    owner: owner-here
+    repo: repo-name-here
+    url: 'https://example.com/replace-me'
+    path: replace-me   # optional
+    revision: '0000000000000000000000000000000000000000'   # Pinned Hugging Face commit SHA the catalog entry was verified against — optional
+    files:   # Per-file sha256 digests attested by the HF API (LFS blobs only) at the pinned revision — optional
+    - path: replace-me
+      sha256: '0000000000000000000000000000000000000000000000000000000000000000'
+      size_bytes: 1
   officiality:
-    apple_export_recipe: false   # true ONLY for Apple official recipes
-    apple_hosted_artifact: false # true ONLY if Apple hosts (currently always false)
-    community_packaged: true     # true for community-zoo packaged artifacts
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: false
+  conversion_script: replace-me   # Path to the conversion/export script in the Zoo (e.g. conversion/export_qwen3_5_decode_pipelined.py) — optional
+  provenance:   # optional
+    converted_by:   # optional
+      tool: tool-name-here   # optional
+      version: tool-version-here   # optional
+      recipe_url: 'https://example.com/replace-me'   # optional
+    recipe_source: apple-official   # apple-official | zoo-port | fabric | independent; optional
+    format_version: format-version-here   # optional
+  mirrors:   # Alternative hosts for the same artifact bytes (failover mirrors) — optional
+  - owner: owner-here
+    repo: repo-name-here
+    url: 'https://example.com/replace-me'
+    revision: '0000000000000000000000000000000000000000'   # optional
+  verification:   # optional
+    zoo_smoke:   # optional
+      status: passed   # passed | failed | unverified; optional
+      sha: replace-me   # optional
+      url: replace-me   # optional
+    last_verified: replace-me   # optional
+  bundle_kind: replace-me   # optional
+  precision: int8   # optional

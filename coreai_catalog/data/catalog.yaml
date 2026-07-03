@@ -245,7 +245,7 @@ models:
     mac_only: true
   license:
     name: MIT
-    commercial_use: likely
+    commercial_use: check_license
   status: confirmed
   maturity: experimental
   confidence: medium
@@ -694,7 +694,7 @@ models:
     mac_only: false
   license:
     name: Apache-2.0
-    commercial_use: likely
+    commercial_use: check_license
   status: confirmed
   maturity: experimental
   confidence: medium
@@ -990,7 +990,7 @@ models:
     mac_only: false
   license:
     name: MIT
-    commercial_use: likely
+    commercial_use: check_license
   status: confirmed
   maturity: experimental
   confidence: medium
@@ -2911,7 +2911,7 @@ models:
     mac_only: true
   license:
     name: MIT
-    commercial_use: likely
+    commercial_use: check_license
   status: confirmed
   maturity: experimental
   confidence: medium

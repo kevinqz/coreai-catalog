@@ -19,9 +19,9 @@
 
 - Models: 80
 - Artifacts: 80
-- Sources: 22
+- Sources: 23
 - Upstream taxonomy entries: 66
-- Benchmark records: 66
+- Benchmark records: 65
 - Terminology records: 42
 
 > Counts are generated automatically by `scripts/generate.py`. Never edit this section manually.
@@ -32,7 +32,7 @@
 - `../artifacts.yaml`
 - `../sources.yaml`
 - `../upstreams.yaml`
-- `../benchmarks.yaml`
+- `../benchmarks.jsonl`
 - `../terms.yaml`
 - `../CREDITS.md`
 

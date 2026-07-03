@@ -2,12 +2,13 @@
 """
 Catalog data-quality auditor.
 
-Runs the full 9-category cross-check against the YAML sources and exits
-non-zero if any issue is found. Designed for CI: fast, deterministic,
-no network calls, clear output.
+Runs the full 11-category cross-check against the catalog sources
+(YAML entities + benchmarks.jsonl) and exits non-zero if any issue is
+found. Designed for CI: fast, deterministic, no network calls, clear
+output.
 
 Categories:
-  1. Duplicate IDs
+  1. Duplicate IDs (models, artifacts, benchmarks.jsonl, terms)
   2. Cross-reference integrity (artifact_ref, model_id, source IDs)
   3. Upstream applies_to validity
   4. Hugging Face URL consistency
@@ -16,9 +17,14 @@ Categories:
   7. Term relation integrity
   8. Metadata count accuracy
   9. Date format validation + capability ↔ modality sanity
+ 10. License ↔ upstream consistency (permissive claims over restricted
+     upstreams; unverified upstreams must not claim permissive terms)
+ 11. Retired-store guard (benchmarks.yaml must not reappear — JSONL is the
+     single benchmark source of truth)
 """
 from __future__ import annotations
 
+import json
 import re
 import sys
 from collections import Counter
@@ -28,22 +34,53 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 
+#: Upstream license_terms values that are incompatible with a model claiming
+#: a permissive license + likely commercial use.
+NON_PERMISSIVE_LICENSE_TERMS = {"restricted", "review_required"}
+
+#: model.source_group → artifact.group pairings allowed beyond identity.
+#: The artifact group enum (schema/artifact.schema.json) has no 'fabric';
+#: coreai-fabric conversions are independent/external artifacts, so a
+#: fabric model pairs with an external artifact (the same mapping applied
+#: by coreai_catalog/contribute.py build_artifact_entry and by
+#: coreai-fabric's register command).
+ALLOWED_GROUP_PAIRINGS = {"fabric": {"external"}}
+
+
+def group_pairing_ok(source_group: str, artifact_group: str) -> bool:
+    """True when a model's source_group may pair with an artifact's group."""
+    if artifact_group == source_group:
+        return True
+    return artifact_group in ALLOWED_GROUP_PAIRINGS.get(source_group, set())
+
 
 def read_yaml(path: Path) -> dict:
     return yaml.safe_load(path.read_text()) or {}
 
 
+def read_benchmarks_jsonl(path: Path) -> list[dict]:
+    """Read benchmarks.jsonl (single benchmark source of truth)."""
+    benchmarks: list[dict] = []
+    if not path.exists():
+        return benchmarks
+    for line in path.read_text().splitlines():
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        benchmarks.append(json.loads(line))
+    return benchmarks
+
+
 def main() -> int:
     catalog = read_yaml(ROOT / "catalog.yaml")
     artifacts_data = read_yaml(ROOT / "artifacts.yaml")
-    benchmarks_data = read_yaml(ROOT / "benchmarks.yaml")
     terms_data = read_yaml(ROOT / "terms.yaml")
     upstreams_data = read_yaml(ROOT / "upstreams.yaml")
     sources_data = read_yaml(ROOT / "sources.yaml")
 
     models = catalog.get("models", [])
     artifacts = artifacts_data.get("artifacts", [])
-    benchmarks = benchmarks_data.get("benchmarks", [])
+    benchmarks = read_benchmarks_jsonl(ROOT / "benchmarks.jsonl")
     terms = terms_data.get("terms", [])
     sources = sources_data.get("sources", [])
 
@@ -84,7 +121,7 @@ def main() -> int:
         ref = m.get("artifact_ref")
         if ref not in art_by_id:
             issues.append(f"model {m['id']} → missing artifact_ref '{ref}'")
-        elif art_by_id[ref].get("group") != m["source_group"]:
+        elif not group_pairing_ok(m["source_group"], art_by_id[ref].get("group")):
             issues.append(
                 f"model {m['id']} source_group={m['source_group']} "
                 f"vs artifact group={art_by_id[ref].get('group')}"
@@ -154,6 +191,10 @@ def main() -> int:
                 issues.append(
                     f"model {m['id']} is zoo but apple_export_recipe=True"
                 )
+            if m["source_group"] == "fabric" and off.get("apple_export_recipe"):
+                issues.append(
+                    f"model {m['id']} is fabric but apple_export_recipe=True"
+                )
             if off.get("apple_hosted_artifact"):
                 issues.append(
                     f"artifact {a['id']} claims apple_hosted_artifact=True "
@@ -175,7 +216,8 @@ def main() -> int:
                 )
 
     # ── 8. Metadata count accuracy ──
-    for fname, data_key in [("artifacts", "artifacts"), ("benchmarks", "benchmarks")]:
+    # (benchmarks.jsonl carries no metadata block — nothing to cross-check)
+    for fname, data_key in [("artifacts", "artifacts")]:
         data = read_yaml(ROOT / f"{fname}.yaml")
         meta_count = data.get("metadata", {}).get("count")
         actual = len(data.get(data_key, []))
@@ -207,9 +249,62 @@ def main() -> int:
             issues.append(f"model {m['id']} is text-to-video but no video output")
 
     for b in benchmarks:
-        obs = b.get("observed", "")
-        if obs and not date_re.match(obs):
+        obs = b.get("observed_date", "")
+        if not obs:
+            issues.append(f"benchmark {b['id']} missing observed_date")
+        elif not date_re.match(obs):
             issues.append(f"benchmark {b['id']} bad date '{obs}'")
+
+    # ── 10. License ↔ upstream consistency ──
+    # Join each model to its original_model_sources upstream(s) via
+    # applies_to and compare the model's declared license posture with
+    # the upstream's license_terms. A model must not claim likely
+    # commercial use while its upstream license family is restricted or
+    # review_required (license laundering guard).
+    model_to_upstreams: dict[str, list[dict]] = {}
+    for u in upstreams_data.get("original_model_sources", []) or []:
+        for t in u.get("applies_to", []) or []:
+            model_to_upstreams.setdefault(t, []).append(u)
+        # An upstream whose identity is itself unverified cannot ground a
+        # 'permissive' license claim (schema rule: license_terms must be
+        # grounded in verified license strings; conservative default is
+        # review_required).
+        if (
+            u.get("license_terms") == "permissive"
+            and (u.get("trust") == "needs_review" or u.get("owner") == "unknown")
+        ):
+            issues.append(
+                f"upstream {u['id']} has trust={u.get('trust')} / "
+                f"owner={u.get('owner')} but license_terms=permissive — "
+                "unverified upstreams must stay review_required until the "
+                "upstream identity and license are verified"
+            )
+
+    for m in models:
+        commercial_use = m.get("license", {}).get("commercial_use")
+        for u in model_to_upstreams.get(m["id"], []):
+            terms_val = u.get("license_terms")
+            if commercial_use == "likely" and terms_val in NON_PERMISSIVE_LICENSE_TERMS:
+                issues.append(
+                    f"model {m['id']} claims commercial_use=likely "
+                    f"(license '{m.get('license', {}).get('name')}') but upstream "
+                    f"{u['id']} has license_terms={terms_val} — "
+                    "set commercial_use: check_license or fix the upstream record"
+                )
+
+    # ── 11. Retired-store guard ──
+    # benchmarks.jsonl is the single benchmark source of truth. The legacy
+    # YAML store was retired; if it reappears, exports/docs/audits would
+    # silently drift apart again.
+    for retired in (ROOT / "benchmarks.yaml",
+                    ROOT / "coreai_catalog" / "data" / "benchmarks.yaml"):
+        if retired.exists():
+            issues.append(
+                f"{retired.relative_to(ROOT)} exists but is retired — "
+                "benchmarks.jsonl is the single benchmark store; delete the YAML file"
+            )
+    if not (ROOT / "benchmarks.jsonl").exists():
+        issues.append("benchmarks.jsonl is missing (single benchmark source of truth)")
 
     # ── Output ──
     if issues:

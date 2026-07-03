@@ -11,7 +11,7 @@ question in the catalog: *where did this come from, and can I trust it?*
 | **a** | **Original model** | The team that trained and released the weights | `upstreams.yaml → original_model_sources` |
 | **b** | **Core AI artifact conversion** | The person/repo that wrote the recipe and converted weights → `.aimodel` | `catalog.yaml → source_path`, `artifacts.yaml → github` |
 | **c** | **Artifact host** | The Hugging Face (or other) account that stores the downloadable bundle | `artifacts.yaml → huggingface` |
-| **d** | **Benchmark source** | The repo that measured throughput/latency/RTF | `benchmarks.yaml → source`, `upstreams.yaml → benchmark_sources` |
+| **d** | **Benchmark source** | The repo that measured throughput/latency/RTF | `benchmarks.jsonl → source`, `upstreams.yaml → benchmark_sources` |
 
 These four entities can be — and usually are — **four different people or organizations**.
 
@@ -42,7 +42,7 @@ These four entities can be — and usually are — **four different people or or
 └──────────────────┘
 
   (d) Benchmark    │  john-rocky/apple-silicon-llm-bench measures
-     Source        │  33.5 tok/s on iPhone 17 Pro → benchmarks.yaml
+     Source        │  33.5 tok/s on iPhone 17 Pro → benchmarks.jsonl
 ```
 
 ## Worked example: Qwen3-VL-2B

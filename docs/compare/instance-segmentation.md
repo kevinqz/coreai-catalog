@@ -11,5 +11,5 @@ Side-by-side comparison of all 6 model(s) with the `instance-segmentation` capab
 | RF-DETR-Seg Small | RF-DETR-Seg | small | fp32 | iPhone/Mac | Apache-2.0 | CoreAIRunner | — | 🐼 Zoo |
 | RF-DETR-Seg Xlarge | RF-DETR-Seg | xlarge | fp32 | iPhone/Mac | Apache-2.0 | CoreAIRunner | — | 🐼 Zoo |
 
-> Generated automatically by `scripts/generate.py` from `catalog.yaml` + `benchmarks.yaml`.
+> Generated automatically by `scripts/generate.py` from `catalog.yaml` + `benchmarks.jsonl`.
 

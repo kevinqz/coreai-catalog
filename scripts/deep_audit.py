@@ -14,6 +14,7 @@ Checks for REAL data quality issues the schema/CI audit cannot catch:
 """
 from __future__ import annotations
 
+import json
 import re
 import sys
 from collections import Counter, defaultdict
@@ -28,17 +29,29 @@ def read_yaml(path: Path) -> dict:
     return yaml.safe_load(path.read_text()) or {}
 
 
+def read_benchmarks_jsonl(path: Path) -> list[dict]:
+    """Read benchmarks.jsonl (single benchmark source of truth)."""
+    benchmarks: list[dict] = []
+    if not path.exists():
+        return benchmarks
+    for line in path.read_text().splitlines():
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        benchmarks.append(json.loads(line))
+    return benchmarks
+
+
 def main() -> int:
     catalog = read_yaml(ROOT / "catalog.yaml")
     artifacts_data = read_yaml(ROOT / "artifacts.yaml")
-    benchmarks_data = read_yaml(ROOT / "benchmarks.yaml")
     terms_data = read_yaml(ROOT / "terms.yaml")
     upstreams_data = read_yaml(ROOT / "upstreams.yaml")
     sources_data = read_yaml(ROOT / "sources.yaml")
 
     models = catalog.get("models", [])
     artifacts = artifacts_data.get("artifacts", [])
-    benchmarks = benchmarks_data.get("benchmarks", [])
+    benchmarks = read_benchmarks_jsonl(ROOT / "benchmarks.jsonl")
     terms = terms_data.get("terms", [])
     sources = sources_data.get("sources", [])
 
@@ -61,7 +74,7 @@ def main() -> int:
     # ════════════════════════════════════════════════════════════════════
     # 1. BENCHMARK VALUES
     # ════════════════════════════════════════════════════════════════════
-    BENCH_CRITICAL = ["value", "unit", "metric", "device"]
+    BENCH_CRITICAL = ["value", "unit", "metric", "device_class"]
     for b in benchmarks:
         for f in BENCH_CRITICAL:
             v = b.get(f)
@@ -82,11 +95,17 @@ def main() -> int:
             if "realtime_factor" in metric and val > 100:
                 issues.append(f"[BENCH] {b['id']} realtime_factor={val} unrealistically high (>100)")
 
-    # duplicate benchmark records (same model_id + metric + device + compute_unit + precision)
+    # duplicate benchmark records (same model_id + metric + device_class +
+    # os_major + compute_unit + precision). Benchmarks are environment-scoped
+    # and append-only: the same device on different OS majors is legitimately
+    # two records, so os_major is part of the identity key.
     # Exclude legitimate supersede chains (one has superseded_by pointing to the other)
     seen_keys: dict[str, list[str]] = defaultdict(list)
     for b in benchmarks:
-        key = f"{b.get('model_id')}|{b.get('metric')}|{b.get('device')}|{b.get('compute_unit')}|{b.get('precision')}"
+        key = (
+            f"{b.get('model_id')}|{b.get('metric')}|{b.get('device_class')}|"
+            f"{b.get('os_major')}|{b.get('compute_unit')}|{b.get('precision')}"
+        )
         seen_keys[key].append(b["id"])
     for key, ids in seen_keys.items():
         if len(ids) > 1:
@@ -201,6 +220,20 @@ def main() -> int:
             if not origs:
                 issues.append(
                     f"[LICENSE] model {m['id']} is check_license but has no original_model_source upstream"
+                )
+
+    # License ↔ upstream join (mirror of audit.py category 10):
+    # a model must not claim likely commercial use while its upstream's
+    # license family is restricted/review_required.
+    for m in models:
+        if m.get("license", {}).get("commercial_use") != "likely":
+            continue
+        for o in model_to_orig.get(m["id"], []):
+            terms_val = o.get("license_terms")
+            if terms_val in ("restricted", "review_required"):
+                issues.append(
+                    f"[LICENSE] model {m['id']} commercial_use=likely but upstream "
+                    f"{o['id']} license_terms={terms_val}"
                 )
 
     # ════════════════════════════════════════════════════════════════════

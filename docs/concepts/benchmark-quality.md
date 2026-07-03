@@ -1,13 +1,14 @@
 # Benchmark Quality: How to Read Measurements
 
 Benchmarks in the catalog are **normalized, environment-scoped, and append-only**. This
-page explains the structure of `benchmarks.yaml`, how confidence levels work, why
+page explains the structure of `benchmarks.jsonl`, how confidence levels work, why
 measurements are never overwritten, and how to interpret throughput, latency, and
 realtime factor metrics.
 
 ## Where benchmarks live
 
-Measurements live in **`benchmarks.yaml`**, never inline in `catalog.yaml`. Model
+Measurements live in **`benchmarks.jsonl`** (append-only JSONL, one JSON object
+per line), never inline in `catalog.yaml`. Model
 records carry no numbers. This separation ensures:
 
 - One model can have many measurements (different devices, compute units, precisions).
@@ -18,21 +19,8 @@ records carry no numbers. This separation ensures:
 
 Every benchmark entry has these fields:
 
-```yaml
-- id: qwen3-5-0-8b-iphone17pro-gpu-toks      # unique, descriptive
-  model_id: qwen3-5-0-8b                       # → catalog.models[].id
-  metric: decode_throughput                    # what is being measured
-  unit: tokens_per_second                      # unit of the value
-  value: 71.9                                  # the measured number
-  device: iPhone 17 Pro                        # hardware
-  compute_unit: GPU                            # GPU, ANE, or CPU
-  precision: inferred:int8                     # precision at inference time
-  environment: iOS 27 beta, coreai-pipelined engine  # OS + runtime context
-  observed: '2026-06-25'                       # when the measurement was taken
-  source: john-rocky-coreai-model-zoo          # who measured it
-  confidence: medium                           # trust level
-  notes: Decode throughput from upstream README table.
-  higher_is_better: true                       # direction of goodness
+```json
+{"id": "qwen3-5-0-8b-iphone17pro-gpu-toks", "model_id": "qwen3-5-0-8b", "metric": "decode_throughput", "value": 71.9, "unit": "tokens_per_second", "device_class": "A18 Pro", "os_major": "27", "compute_unit": "GPU", "precision": "inferred:int8", "extraction_method": "upstream_readme_manual", "device_verified": false, "higher_is_better": true, "confidence": "medium", "observed_date": "2026-06-25", "source": "john-rocky-coreai-model-zoo", "notes": "Decode throughput from upstream README table."}
 ```
 
 ### Field reference
@@ -44,11 +32,14 @@ Every benchmark entry has these fields:
 | `metric` | string | What is measured (e.g. `decode_throughput`, `inference_latency`, `realtime_factor`) |
 | `unit` | string | Physical unit (e.g. `tokens_per_second`, `milliseconds`, `seconds`) |
 | `value` | number or `not_published` | The measurement; `not_published` when upstream doesn't disclose a number |
-| `device` | string | Hardware (e.g. `iPhone 17 Pro`, `M4 Max`) |
+| `device_class` | string | Coarsened hardware class (e.g. `A18 Pro`, `M4 Max`) |
+| `os_major` | string | Major OS version only (e.g. `"27"`) |
 | `compute_unit` | enum | `GPU`, `ANE`, or `CPU` |
 | `precision` | string | Inference precision (e.g. `int8`, `int4`, `fp16`, `inferred:int8`) |
-| `environment` | string | OS version + runtime + conditions |
-| `observed` | date | When the measurement was recorded |
+| `environment` | object | Runtime context (engine, thermal state, battery state) |
+| `extraction_method` | enum | How the value was obtained (e.g. `upstream_readme_manual`, `app_benchmark_protocol`) |
+| `device_verified` | boolean | DeviceCheck-verified by the relay; `false` for historical/CLI data |
+| `observed_date` | date | When the measurement was recorded (`YYYY-MM-DD`) |
 | `source` | string | Who produced the measurement |
 | `confidence` | enum | `high`, `medium`, `low`, or `needs_review` |
 | `higher_is_better` | boolean | Whether a higher value is better |
@@ -180,7 +171,7 @@ while Parakeet ASR hits RTF 47.9 (14.84s clip transcribed in 0.31s).
 
 ## Querying benchmarks
 
-Join `benchmarks.yaml` entries by `model_id` to `catalog.yaml` entries by `id`:
+Join `benchmarks.jsonl` entries by `model_id` to `catalog.yaml` entries by `id`:
 
 ```
 benchmarks.benchmarks[].model_id  →  catalog.models[].id
@@ -192,7 +183,7 @@ call `get_benchmarks(model_id="qwen3-vl-2b")`.
 
 ## Summary
 
-- Benchmarks live in `benchmarks.yaml`, not inline in model records.
+- Benchmarks live in `benchmarks.jsonl`, not inline in model records.
 - Every measurement is **environment-scoped** (device, compute unit, precision, OS).
 - The registry is **append-only** — superseded values are demoted, never deleted.
 - Confidence levels (`high` / `medium` / `low` / `needs_review`) tell you how much to

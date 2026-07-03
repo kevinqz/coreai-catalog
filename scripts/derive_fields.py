@@ -205,33 +205,40 @@ def main() -> int:
           f"context_window to {ctx_count} models, "
           f"streaming to {stream_count} models")
 
-    # ── Process benchmarks.yaml ──
-    bench_path = ROOT / "benchmarks.yaml"
-    with open(bench_path) as f:
-        bench_data = yaml.load(f)
+    # ── Process benchmarks.jsonl (single benchmark source of truth) ──
+    import json
+
+    bench_path = ROOT / "benchmarks.jsonl"
 
     # Build model lookup from catalog (re-read to get updated data)
     models_by_id = {m["id"]: m for m in models}
 
-    benchmarks = bench_data["benchmarks"]
     prec_count = 0
     hib_count = 0
 
-    for b in benchmarks:
-        # 5. Fill precision from model if not_published
-        if b.get("precision") == "not_published":
-            model_prec = get_model_precision(models_by_id, b["model_id"])
-            if model_prec:
-                b["precision"] = f"inferred:{model_prec}"
-                prec_count += 1
+    if bench_path.exists():
+        out_lines: list[str] = []
+        for raw in bench_path.read_text().splitlines():
+            line = raw.strip()
+            if not line or line.startswith("#"):
+                out_lines.append(raw)
+                continue
+            b = json.loads(line)
 
-        # 6. Add higher_is_better
-        if "higher_is_better" not in b:
-            b["higher_is_better"] = infer_higher_is_better(b["metric"])
-            hib_count += 1
+            # 5. Fill precision from model if not_published
+            if b.get("precision") == "not_published":
+                model_prec = get_model_precision(models_by_id, b["model_id"])
+                if model_prec:
+                    b["precision"] = f"inferred:{model_prec}"
+                    prec_count += 1
 
-    with open(bench_path, "w") as f:
-        yaml.dump(bench_data, f)
+            # 6. Add higher_is_better
+            if "higher_is_better" not in b:
+                b["higher_is_better"] = infer_higher_is_better(b["metric"])
+                hib_count += 1
+
+            out_lines.append(json.dumps(b, ensure_ascii=False))
+        bench_path.write_text("\n".join(out_lines) + "\n")
 
     print(f"Benchmarks: inferred precision for {prec_count} records, "
           f"added higher_is_better to {hib_count} records")

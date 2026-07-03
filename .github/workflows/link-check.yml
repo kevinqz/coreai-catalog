@@ -1,0 +1,117 @@
+name: Link check
+
+# Daily availability watchdog (E2/E8): checks every catalog URL and diffs the
+# catalog against the upstream zoo README. On regressions it opens or updates
+# a SINGLE pinned "Availability regression" issue (label: availability-regression)
+# instead of filing duplicates.
+
+on:
+  schedule:
+    # Daily at 05:30 UTC
+    - cron: '30 5 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: link-check
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      - name: Check catalog links
+        id: links
+        run: |
+          set +e
+          python scripts/validate_links.py --timeout 15 --workers 8 --retries 2 \
+            --output /tmp/link-report.json --issue-body /tmp/issue-body.md
+          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
+
+      - name: Check upstream removals
+        id: sync
+        run: |
+          set +e
+          python scripts/sync_upstream.py --json > /tmp/sync-report.json
+          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
+
+      - name: Append upstream removals to issue body
+        if: steps.sync.outputs.exit_code != '0'
+        run: |
+          python - <<'EOF'
+          import json
+          from pathlib import Path
+
+          report = json.loads(Path("/tmp/sync-report.json").read_text())
+          removed = report.get("removed_from_upstream", [])
+          zoo_error = report.get("zoo_fetch_error")
+
+          body_path = Path("/tmp/issue-body.md")
+          body = body_path.read_text() if body_path.exists() else "# Availability regression\n"
+          lines = ["", "## Removed from upstream", ""]
+          if zoo_error:
+              lines.append(f"Zoo README fetch failed: `{zoo_error}`")
+              lines.append("")
+          for r in removed:
+              lines.append(
+                  f"- `{r['model_id']}` (artifact `{r['artifact_id']}`, "
+                  f"HF repo `{r['hf_repo']}`) — {r['reason']}"
+              )
+          body_path.write_text(body + "\n".join(lines) + "\n")
+          EOF
+
+      - name: Open or update pinned issue
+        if: steps.links.outputs.exit_code != '0' || steps.sync.outputs.exit_code != '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh label create "availability-regression" --color "d93f0b" \
+            --description "Broken or removed upstream links detected by link-check" \
+            2>/dev/null || true
+
+          if [ ! -f /tmp/issue-body.md ]; then
+            echo "Link check failed without producing a report — see workflow run logs." > /tmp/issue-body.md
+          fi
+
+          EXISTING=$(gh issue list --state open --label availability-regression \
+            --json number --jq '.[0].number // empty')
+          if [ -n "$EXISTING" ]; then
+            gh issue edit "$EXISTING" --body-file /tmp/issue-body.md
+            gh issue comment "$EXISTING" \
+              --body "Updated by scheduled link-check on $(date -u +'%Y-%m-%d %H:%M UTC')."
+          else
+            gh issue create --title "Availability regression" \
+              --label "availability-regression" \
+              --body-file /tmp/issue-body.md
+          fi
+
+      - name: Close pinned issue when everything recovered
+        if: steps.links.outputs.exit_code == '0' && steps.sync.outputs.exit_code == '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          EXISTING=$(gh issue list --state open --label availability-regression \
+            --json number --jq '.[0].number // empty')
+          if [ -n "$EXISTING" ]; then
+            gh issue close "$EXISTING" \
+              --comment "All links recovered on $(date -u +'%Y-%m-%d %H:%M UTC'). Auto-closed by link-check."
+          fi
+
+      - name: Fail job on regression
+        if: steps.links.outputs.exit_code != '0' || steps.sync.outputs.exit_code != '0'
+        run: |
+          echo "Availability regression detected — see the pinned issue."
+          exit 1

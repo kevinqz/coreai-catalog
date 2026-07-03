@@ -13,6 +13,35 @@ artifacts:
     owner: mlboydaisuke
     repo: qwen3.5-0.8B-CoreAI
     url: https://huggingface.co/mlboydaisuke/qwen3.5-0.8B-CoreAI
+    revision: 34ed8b08946395397c3b01d07d0a532237e71af3
+    files:
+    - path: gpu-pipelined/qwen3_5_0_8b_decode_int8hu_perchan_sym/qwen3_5_0_8b_decode_int8hu_perchan_sym.aimodel/main.mlirb
+      sha256: 62c3344ec4a2ee8f6275e7659efe6a9cbb299161dcd41b7898818559661f722d
+      size_bytes: 1309019209
+    - path: gpu-pipelined/qwen3_5_0_8b_decode_int8hu_perchan_sym/tokenizer/tokenizer.json
+      sha256: 87a7830d63fcf43bf241c3c5242e96e62dd3fdc29224ca26fed8ea333db72de4
+      size_bytes: 19989343
+    - path: gpu-pipelined/qwen3_5_0_8b_decode_int8lin/qwen3_5_0_8b_decode_int8lin.aimodel/main.mlirb
+      sha256: 1f190261d9161a7f6fcce5fcd23f5f5abea6106132dee0372c2043d0844a72d3
+      size_bytes: 1038846584
+    - path: gpu-pipelined/qwen3_5_0_8b_decode_int8lin/tokenizer/tokenizer.json
+      sha256: 87a7830d63fcf43bf241c3c5242e96e62dd3fdc29224ca26fed8ea333db72de4
+      size_bytes: 19989343
+    - path: ios-ane/qwen3_5_0_8b_decode_int8.aimodel/main.mlirb
+      sha256: 6802af95ef17b5f85bba42de1b8f4ca467aef6e4de1d72173883b0ae16674c1f
+      size_bytes: 1016041748
+    - path: ios-gpu/qwen3_5_0_8b_ios_hc0.aimodel/main.mlirb
+      sha256: a8fae29c9377018be061dc830dec7e5ae588e820e8a1a89a3c95a84e66f40c2c
+      size_bytes: 1505260435
+    - path: ios-gpu/qwen3_5_0_8b_ios_hc0_int8v3.aimodel/main.mlirb
+      sha256: c062e3c572ca9eeff6fa1f27c74afa5377b6c017d4026d4de0773ca752a64b67
+      size_bytes: 1279073281
+    - path: ios-gpu/qwen3_5_0_8b_ios_hc_prefill_q16_b2048_int8.aimodel/main.mlirb
+      sha256: c98e60fb659697f0afc974e7a985ce501b289a91c5b82e1dbc7fec3aacd767f3
+      size_bytes: 1016608450
+    - path: macos/qwen3_5_0_8b_decode_int8.aimodel/main.mlirb
+      sha256: 6802af95ef17b5f85bba42de1b8f4ca467aef6e4de1d72173883b0ae16674c1f
+      size_bytes: 1016041748
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -27,6 +56,20 @@ artifacts:
     owner: mlboydaisuke
     repo: qwen3.5-2B-CoreAI
     url: https://huggingface.co/mlboydaisuke/qwen3.5-2B-CoreAI
+    revision: b5caa28541397d4b180063962a5e489a584bc0e4
+    files:
+    - path: gpu-pipelined/qwen3_5_2b_decode_int8hu_perchan_sym/qwen3_5_2b_decode_int8hu_perchan_sym.aimodel/main.mlirb
+      sha256: 8ea34353e5757b554a2e48c499ab57298a3d46d2ff64165274c08c50d6c380eb
+      size_bytes: 3017747146
+    - path: gpu-pipelined/qwen3_5_2b_decode_int8hu_perchan_sym/tokenizer/tokenizer.json
+      sha256: 87a7830d63fcf43bf241c3c5242e96e62dd3fdc29224ca26fed8ea333db72de4
+      size_bytes: 19989343
+    - path: gpu-pipelined/qwen3_5_2b_decode_int8lin/qwen3_5_2b_decode_int8lin.aimodel/main.mlirb
+      sha256: db9c0d638f22efd20e94986f39dba5126f726ca48a98f947f82d0825fd188e73
+      size_bytes: 2477402309
+    - path: gpu-pipelined/qwen3_5_2b_decode_int8lin/tokenizer/tokenizer.json
+      sha256: 87a7830d63fcf43bf241c3c5242e96e62dd3fdc29224ca26fed8ea333db72de4
+      size_bytes: 19989343
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -41,6 +84,14 @@ artifacts:
     owner: mlboydaisuke
     repo: Qwen3.6-35B-A3B-CoreAI
     url: https://huggingface.co/mlboydaisuke/Qwen3.6-35B-A3B-CoreAI
+    revision: 445f96345f3cc7844659a2279da89b0d87059440
+    files:
+    - path: gpu-pipelined/qwen3_6_35b_a3b_decode_sym8_gather/qwen3_6_35b_a3b_decode_sym8_gather.aimodel/main.mlirb
+      sha256: 3df1c0c5d04bc8134043dd77dd5101d8a2e65fa179a325440d1947ef0c8a8b4d
+      size_bytes: 37325888502
+    - path: gpu-pipelined/qwen3_6_35b_a3b_decode_sym8_gather/tokenizer/tokenizer.json
+      sha256: 5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42
+      size_bytes: 12807982
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -55,6 +106,14 @@ artifacts:
     owner: mlboydaisuke
     repo: Qwen3.6-27B-CoreAI
     url: https://huggingface.co/mlboydaisuke/Qwen3.6-27B-CoreAI
+    revision: fc04c3c8e84b6bfbd08f7673a56830765e5a54a4
+    files:
+    - path: gpu-pipelined/qwen3_6_27b_decode_int8hu_block32_sym/qwen3_6_27b_decode_int8hu_block32_sym.aimodel/main.mlirb
+      sha256: 020d393a208cd8244452839b54ed872e12dc1c51c5d2ae87a021b188fa1b7f8a
+      size_bytes: 29774040281
+    - path: gpu-pipelined/qwen3_6_27b_decode_int8hu_block32_sym/tokenizer/tokenizer.json
+      sha256: 87a7830d63fcf43bf241c3c5242e96e62dd3fdc29224ca26fed8ea333db72de4
+      size_bytes: 19989343
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -69,6 +128,14 @@ artifacts:
     owner: mlboydaisuke
     repo: GLM-4.7-Flash-CoreAI
     url: https://huggingface.co/mlboydaisuke/GLM-4.7-Flash-CoreAI
+    revision: 4b2475b0f6ebf5ae776cafa4ec47e2fde9fd5483
+    files:
+    - path: gpu-pipelined/glm_4_7_flash_decode_sym8_gather/glm_4_7_flash_decode_sym8_gather.aimodel/main.mlirb
+      sha256: f64c536bb370a14253e5aa5cede1cb4668da4a98d74f8fb860063e9a4de2a448
+      size_bytes: 32119129387
+    - path: gpu-pipelined/glm_4_7_flash_decode_sym8_gather/tokenizer/tokenizer.json
+      sha256: 19e773648cb4e65de8660ea6365e10acca112d42a854923df93db4a6f333a82d
+      size_bytes: 20217442
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -83,6 +150,134 @@ artifacts:
     owner: mlboydaisuke
     repo: gemma-4-E2B-CoreAI
     url: https://huggingface.co/mlboydaisuke/gemma-4-E2B-CoreAI
+    revision: 1b6adc0eb22ea907247833014132f7b1f76cff9a
+    files:
+    - path: gpu-pipelined/gemma4_e2b_decode_int4lin_tbl/gemma4_e2b_decode_int4lin_tbl.aimodel/main.mlirb
+      sha256: 2cc6154d895791adb810e57dec7354d30d580a4778dcc2931459e71d815cfe55
+      size_bytes: 2088901225
+    - path: gpu-pipelined/gemma4_e2b_decode_int4lin_tbl/tokenizer/tokenizer.json
+      sha256: cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f
+      size_bytes: 32169626
+    - path: gpu-pipelined/gemma4_e2b_decode_int4lin_tbl_aotc_h18p/gemma4_e2b_decode_int4lin_tbl.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/original_model_0.mpsgraph
+      sha256: 2f700a20ebf8f168c5346a966e5e6cf9fe5371783f7dcf365889e82c15f2093d
+      size_bytes: 647463
+    - path: gpu-pipelined/gemma4_e2b_decode_int4lin_tbl_aotc_h18p/gemma4_e2b_decode_int4lin_tbl.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/resources.bin
+      sha256: a57f6269e8968fcbd2ad79ba613cfe4d1d99aa7dca96a7cf69e4ac8e46792f85
+      size_bytes: 2088055648
+    - path: gpu-pipelined/gemma4_e2b_decode_int4lin_tbl_aotc_h18p/gemma4_e2b_decode_int4lin_tbl.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/specialized_model_1.mpsgraph
+      sha256: 891457dc39b5e55bebbc8495e12f90f0c8212814f6d968633c6fca86f7a28998
+      size_bytes: 1489410
+    - path: gpu-pipelined/gemma4_e2b_decode_int4lin_tbl_aotc_h18p/tokenizer/tokenizer.json
+      sha256: cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f
+      size_bytes: 32169626
+    - path: gpu-pipelined/gemma4_e2b_qat_decode_int4lin_tbl/gemma4_e2b_qat_decode_int4lin_tbl.aimodel/main.mlirb
+      sha256: 6b3b78a23b1265b4f2371fa465959b5cf5452c332bed52944f6858551b149e79
+      size_bytes: 2088901238
+    - path: gpu-pipelined/gemma4_e2b_qat_decode_int4lin_tbl/tokenizer/tokenizer.json
+      sha256: cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f
+      size_bytes: 32169626
+    - path: gpu-pipelined/gemma4_e2b_qat_decode_int4lin_tbl_aotc_h18p/gemma4_e2b_qat_decode_int4lin_tbl.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/original_model_0.mpsgraph
+      sha256: d8a7ee63a2f012446756b67cafb8e72e0b1412fdf195ab90d6fa6f34d9145500
+      size_bytes: 647432
+    - path: gpu-pipelined/gemma4_e2b_qat_decode_int4lin_tbl_aotc_h18p/gemma4_e2b_qat_decode_int4lin_tbl.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/resources.bin
+      sha256: d63d540a3c2e9faac00094c260be28486ca5488ad0217f1ba2f9665ea1ca447a
+      size_bytes: 2088055648
+    - path: gpu-pipelined/gemma4_e2b_qat_decode_int4lin_tbl_aotc_h18p/gemma4_e2b_qat_decode_int4lin_tbl.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/specialized_model_1.mpsgraph
+      sha256: 57755d3107fcab1d98933b4f1ba52a45cdb2d72000d797e62093914573393e85
+      size_bytes: 1489405
+    - path: gpu-pipelined/gemma4_e2b_qat_decode_int4lin_tbl_aotc_h18p/tokenizer/tokenizer.json
+      sha256: cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f
+      size_bytes: 32169626
+    - path: gpu-pipelined/gemma4_e2b_qat_vl_decode_int4linsym/gemma4_e2b_qat_vl_decode_int4linsym.aimodel/main.mlirb
+      sha256: c95194a02ffeb5f2239336d5cc2d240c96fd82c40f763204e2cb233634893506
+      size_bytes: 2088901565
+    - path: gpu-pipelined/gemma4_e2b_qat_vl_decode_int4linsym/tokenizer/tokenizer.json
+      sha256: cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f
+      size_bytes: 32169626
+    - path: gpu-pipelined/gemma4_e2b_qat_vl_decode_int4linsym_aotc_h18p/gemma4_e2b_qat_vl_decode_int4linsym.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/original_model_0.mpsgraph
+      sha256: f5f54c1469985ffe6eb9a472d379227fa9997478dde86c55c9771f71fea877b8
+      size_bytes: 647260
+    - path: gpu-pipelined/gemma4_e2b_qat_vl_decode_int4linsym_aotc_h18p/gemma4_e2b_qat_vl_decode_int4linsym.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/resources.bin
+      sha256: 2f6314d45678aaaa840e3d788bb5e87e68927f57a49d3114161838267e4a6028
+      size_bytes: 2088055648
+    - path: gpu-pipelined/gemma4_e2b_qat_vl_decode_int4linsym_aotc_h18p/tokenizer/tokenizer.json
+      sha256: cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f
+      size_bytes: 32169626
+    - path: gpu-pipelined/gemma4_e2b_qat_vl_decode_int4linsym_tbl/gemma4_e2b_qat_vl_decode_int4linsym_tbl.aimodel/main.mlirb
+      sha256: f25b9613b9c9b4d444603f7a465018bd00a5011c9048ad568fb7b0a8b2c049c6
+      size_bytes: 2088903037
+    - path: gpu-pipelined/gemma4_e2b_qat_vl_decode_int4linsym_tbl/tokenizer/tokenizer.json
+      sha256: cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f
+      size_bytes: 32169626
+    - path: gpu-pipelined/gemma4_e2b_qat_vl_vision/gemma4_e2b_qat_vl_vision.aimodel/main.mlirb
+      sha256: 1e4b74125afc2879ac0a880111bd3ea1c2cd6dbd1d9d38800c997e6a7af465bb
+      size_bytes: 310015632
+    - path: ios-ane/gemma4_e2b_head_argmax_int8.aimodel/main.mlirb
+      sha256: 479dc5b65a058519d1e8dbb20ca5852d34e0a8165097c50527dfb252585c420e
+      size_bytes: 411044508
+    - path: ios-ane/gemma4_e2b_hostcache_chunk1_int8.aimodel/main.mlirb
+      sha256: 749916c74ff263e9166a6629126720e9bc51e53755ef02f9b4411efc61788270
+      size_bytes: 299344372
+    - path: ios-ane/gemma4_e2b_hostcache_chunk2_int8.aimodel/main.mlirb
+      sha256: 692a10b161074496400903065cdf4c001705a60abd550cdc2dcb94463a2398a3
+      size_bytes: 269937199
+    - path: ios-ane/gemma4_e2b_hostcache_chunk3_int8.aimodel/main.mlirb
+      sha256: 208daa66708bec81a0055cf743384f53900c7615fef98fa6c2917fde7110cfd6
+      size_bytes: 327509156
+    - path: ios-ane/gemma4_e2b_hostcache_chunk4_int8.aimodel/main.mlirb
+      sha256: d7f4d1891553d88dc248655cb9e707ca7358d3df6bbeb88b0ecbc3d33e1d6d00
+      size_bytes: 327509161
+    - path: ios-ane/gemma4_e2b_hostcache_chunk5_int8.aimodel/main.mlirb
+      sha256: 8f785a5bf0630f7d1da04ec4ac1f45fc5d6d1d4d7423e3ccf4c0b8139edd6428
+      size_bytes: 327509043
+    - path: ios-ane/gemma4_e2b_hostcache_chunk6_int8.aimodel/main.mlirb
+      sha256: 54bf49caa6ba521756f65a8875bc7c2ee46baf7713d4a14d62cbd110010f19cd
+      size_bytes: 327512962
+    - path: ios-frontend/gemma4_gather_raw/embed_per_layer.i8
+      sha256: ba8f0578acdbd2f0d00f42909c32ef5789bc9193ed8865763ee3f35cdc11cb29
+      size_bytes: 2348810240
+    - path: ios-frontend/gemma4_gather_raw/embed_per_layer.scale.f32
+      sha256: 720f3bcd8f6318be008278bde1cffa494a658a416c8317af30e58ea232de2b92
+      size_bytes: 1048576
+    - path: ios-frontend/gemma4_gather_raw/embed_tokens.i8
+      sha256: 24c476c2a9444f312d38f6993cffc7d5ef55fded8f554a332f0a845a61677e98
+      size_bytes: 402653184
+    - path: ios-frontend/gemma4_gather_raw/embed_tokens.scale.f32
+      sha256: 09184f20e6aef7ca3691a2c506033ca79e48b304c37673a6f91f7cb2afbdfb57
+      size_bytes: 1048576
+    - path: ios-frontend/gemma4_gather_raw/proj.f32
+      sha256: a60d1d3f6567c1fe6d886d36e53cfe0a1c65e55b31986d6256c84494c5210090
+      size_bytes: 55050240
+    - path: ios-frontend/gemma4_qat_gather_raw/embed_per_layer.i8
+      sha256: cf8818a39f6652df4f20a3d9aa8646cb65a11cb57390738894229f72ee42d76c
+      size_bytes: 2348810240
+    - path: ios-frontend/gemma4_qat_gather_raw/embed_per_layer.scale.f32
+      sha256: f85b1364ba6646b932817b30695a777a51c43a14a321ab7dfd8334a2cddfe789
+      size_bytes: 1048576
+    - path: ios-frontend/gemma4_qat_gather_raw/embed_tokens.i8
+      sha256: 0998515764140526377de4d3f9a47819ccf8db29c866e455b45dffc6aaec0aa4
+      size_bytes: 402653184
+    - path: ios-frontend/gemma4_qat_gather_raw/embed_tokens.scale.f32
+      sha256: e29d1a6d2d0f5911028cc1c5f1d7aee292de0a11f7c0e0245f9db4418ffefafc
+      size_bytes: 1048576
+    - path: ios-frontend/gemma4_qat_gather_raw/proj.f32
+      sha256: 36a9c49bc7b1ee2977a9c25ce243f3284a6e4b6ad041841cd0d8292578f130be
+      size_bytes: 55050240
+    - path: ios-gpu/gemma4_e2b_head_argmax_int4km.aimodel/main.mlirb
+      sha256: 8c0b158928f639dba985f9b1e979d9f0b6604e353377cb3f697a73579fe903da
+      size_bytes: 201592897
+    - path: ios-gpu/gemma4_e2b_metal_int4km_L35.aimodel/main.mlirb
+      sha256: 5fcb12a1e594efa86bb74d0ade2d4a139c7857dea16c361e99fc7ab3764e0f10
+      size_bytes: 1392365289
+    - path: macos/gemma4_e2b_frontend_int8.aimodel/main.mlirb
+      sha256: 0eb87ab64e47aa7b570601849f05496f00501d33158aa00de30c4951182d357b
+      size_bytes: 2780044106
+    - path: macos/gemma4_e2b_head_argmax_kernel.aimodel/main.mlirb
+      sha256: 3e1df01d10683c9c453a21f6e234bfb3e96bffa9739d92cb7a413a8e0a743d2c
+      size_bytes: 406851295
+    - path: macos/gemma4_e2b_metal_int8v3_L35.aimodel/main.mlirb
+      sha256: ec8c9bc928902b9154ac5b5ac1de13455487cc2f29b09d23b33042d6c026517d
+      size_bytes: 2181877083
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -97,6 +292,47 @@ artifacts:
     owner: mlboydaisuke
     repo: gemma-4-E4B-CoreAI
     url: https://huggingface.co/mlboydaisuke/gemma-4-E4B-CoreAI
+    revision: 8da58f38bb72ab74affe9d0d407152b46953044a
+    files:
+    - path: gpu-pipelined/gemma4_e4b_qat_decode_int4lin/gemma4_e4b_qat_decode_int4lin.aimodel/main.mlirb
+      sha256: 528f0a20dce264a2ef393499508a547c5d82359de64fe4b1a5a09f479be44f97
+      size_bytes: 3956521235
+    - path: gpu-pipelined/gemma4_e4b_qat_decode_int4lin/tokenizer/tokenizer.json
+      sha256: cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f
+      size_bytes: 32169626
+    - path: gpu-pipelined/gemma4_e4b_qat_decode_int4lin_aotc_h18p/gemma4_e4b_qat_decode_int4lin.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/original_model_0.mpsgraph
+      sha256: 96178cd4852242622d7c216731f6e18062bb0dd5a18ef9f6f756852409fe595f
+      size_bytes: 825907
+    - path: gpu-pipelined/gemma4_e4b_qat_decode_int4lin_aotc_h18p/gemma4_e4b_qat_decode_int4lin.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/resources.bin
+      sha256: 504b2fbc51199df13366a304ec959552a91f6a473f013ab117e1b30b2ee57688
+      size_bytes: 3955446640
+    - path: gpu-pipelined/gemma4_e4b_qat_decode_int4lin_aotc_h18p/gemma4_e4b_qat_decode_int4lin.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/specialized_model_1.mpsgraph
+      sha256: 84af3602892cfee77b4faf5fb3f43981df8bbebb2c9afaf5ee693434c61284cc
+      size_bytes: 1942558
+    - path: gpu-pipelined/gemma4_e4b_qat_decode_int4lin_aotc_h18p/tokenizer/tokenizer.json
+      sha256: cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f
+      size_bytes: 32169626
+    - path: gpu-pipelined/gemma4_e4b_qat_decode_int4lin_tbl/gemma4_e4b_qat_decode_int4lin_tbl.aimodel/main.mlirb
+      sha256: 8d811d339f7c4a8bf4222dc5982948b30d511fbcea70326353238a820f068c1b
+      size_bytes: 3956522557
+    - path: gpu-pipelined/gemma4_e4b_qat_decode_int4lin_tbl/tokenizer/tokenizer.json
+      sha256: cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f
+      size_bytes: 32169626
+    - path: ios-frontend/gemma4_e4b_qat_gather_raw/embed_per_layer.i8
+      sha256: 891f77177b4ab317e5562b6684c5f7825cd5795a9c4b26f97af121ebf4bb7ccb
+      size_bytes: 2818572288
+    - path: ios-frontend/gemma4_e4b_qat_gather_raw/embed_per_layer.scale.f32
+      sha256: 512d9d0a2b089ae37594ce80e848a08e1b5a6b3f40014a32333e6d191a9b6131
+      size_bytes: 1048576
+    - path: ios-frontend/gemma4_e4b_qat_gather_raw/embed_tokens.i8
+      sha256: 035fd90b534b1c71a50e7d2a5524cda1b3492dd07b78923c1b7fd7f29f6eff7e
+      size_bytes: 671088640
+    - path: ios-frontend/gemma4_e4b_qat_gather_raw/embed_tokens.scale.f32
+      sha256: 11e4a961bb1d30b20ad09a1260b088093312d516453a0e4d5318af470d6575ff
+      size_bytes: 1048576
+    - path: ios-frontend/gemma4_e4b_qat_gather_raw/proj.f32
+      sha256: 529031a1a2774f93a85018ef711e382e004b3e35c9e551a490d2f032e5adbd98
+      size_bytes: 110100480
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -111,6 +347,20 @@ artifacts:
     owner: mlboydaisuke
     repo: Gemma-4-12B-CoreAI
     url: https://huggingface.co/mlboydaisuke/Gemma-4-12B-CoreAI
+    revision: feff92c54c9fbadd4721da0e617214212a498e5a
+    files:
+    - path: gpu-pipelined/gemma4_12b_qat_decode_int4linsym_msdpa_g8/gemma4_12b_qat_decode_int4linsym_msdpa_g8.aimodel/main.mlirb
+      sha256: 62c593358fb4427b308fc5f0c3618e92ef05169f9af425aaf9288334e7a45b55
+      size_bytes: 8713406971
+    - path: gpu-pipelined/gemma4_12b_qat_decode_int4linsym_msdpa_g8/tokenizer/tokenizer.json
+      sha256: cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f
+      size_bytes: 32169626
+    - path: gpu-pipelined/gemma4_12b_qat_decode_int8lin_msdpa_g8/gemma4_12b_qat_decode_int8lin_msdpa_g8.aimodel/main.mlirb
+      sha256: 089c0263b9011331b1ea74bca570d3f610a34e486d9e1a593407dbbae1c1ff64
+      size_bytes: 14666697209
+    - path: gpu-pipelined/gemma4_12b_qat_decode_int8lin_msdpa_g8/tokenizer/tokenizer.json
+      sha256: cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f
+      size_bytes: 32169626
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -125,6 +375,14 @@ artifacts:
     owner: mlboydaisuke
     repo: Gemma-4-31B-CoreAI
     url: https://huggingface.co/mlboydaisuke/Gemma-4-31B-CoreAI
+    revision: c80f188d8e8ad8f8b0aee6acfda8b378294e202d
+    files:
+    - path: gpu-pipelined/gemma4_31b_qat_decode_int4linsym_msdpa_g8/gemma4_31b_qat_decode_int4linsym_msdpa_g8.aimodel/main.mlirb
+      sha256: 8674c095b1e204eda71c3f485f7c11186a2f2b4e9b0a7d78b9edf6e9096e1f87
+      size_bytes: 20089191177
+    - path: gpu-pipelined/gemma4_31b_qat_decode_int4linsym_msdpa_g8/tokenizer/tokenizer.json
+      sha256: cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f
+      size_bytes: 32169626
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -139,6 +397,14 @@ artifacts:
     owner: mlboydaisuke
     repo: LFM2.5-1.2B-CoreAI
     url: https://huggingface.co/mlboydaisuke/LFM2.5-1.2B-CoreAI
+    revision: c85051379867cee70ab77a6b18ce8e442a8c9b51
+    files:
+    - path: gpu-pipelined/lfm2_5_1_2b_instruct_decode_int8hu_block32_sym/lfm2_5_1_2b_instruct_decode_int8hu_block32_sym.aimodel/main.mlirb
+      sha256: 3b9da8fc1533d0efa753b2aee4be941bfcf5657b96a7e1f3a9783b1e89a66120
+      size_bytes: 1697015050
+    - path: gpu-pipelined/lfm2_5_1_2b_instruct_decode_int8lin/lfm2_5_1_2b_instruct_decode_int8lin.aimodel/main.mlirb
+      sha256: 16db0f61e01243ada04bde0082ea7645203bc02ee2a067c208536b21e75b9aff
+      size_bytes: 1554408218
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -153,6 +419,14 @@ artifacts:
     owner: mlboydaisuke
     repo: LFM2.5-8B-A1B-CoreAI
     url: https://huggingface.co/mlboydaisuke/LFM2.5-8B-A1B-CoreAI
+    revision: dae5add3345f047b578e4c39ccce2cc8d38eeb3c
+    files:
+    - path: gpu-pipelined/lfm2_5_8b_a1b_decode_sym8_gather/lfm2_5_8b_a1b_decode_sym8_gather.aimodel/main.mlirb
+      sha256: 89cfbfbb6cff17a9b24eea70664c85b89f039bb1ee82a6283e5224af22b54602
+      size_bytes: 9429481215
+    - path: gpu-pipelined/lfm2_5_8b_a1b_decode_sym8_gather/tokenizer/tokenizer.json
+      sha256: 695be7802a0e4b8a81048f0ff5ebb7fc811a0ba5a6be63dbb24deb5a81096f41
+      size_bytes: 17905598
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -167,6 +441,17 @@ artifacts:
     owner: mlboydaisuke
     repo: granite-4.0-h-CoreAI
     url: https://huggingface.co/mlboydaisuke/granite-4.0-h-CoreAI
+    revision: 617a02c4936c8cad59c406b571df142bf7b94495
+    files:
+    - path: gpu-pipelined/granite_4_0_h_1b_decode_int8hu_block32_sym/granite_4_0_h_1b_decode_int8hu_block32_sym.aimodel/main.mlirb
+      sha256: bc866ca0e8d0ac02994fb1a25f3b747ca6783e47195a6d25a66911235de36a0f
+      size_bytes: 1862573032
+    - path: gpu-pipelined/granite_4_0_h_1b_decode_int8lin/granite_4_0_h_1b_decode_int8lin.aimodel/main.mlirb
+      sha256: fd9f982985324259a77a53210ed6a4c2e37e9d8464cf976be34e0ee1c7cefe4a
+      size_bytes: 1698798094
+    - path: gpu-pipelined/granite_4_0_h_350m_decode_fp16/granite_4_0_h_350m_decode_fp16.aimodel/main.mlirb
+      sha256: e571d450dc1d35d6951614bbe01d84ac9d7e15bf3490be76d6a8fc22c65b2d41
+      size_bytes: 681106231
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -181,6 +466,17 @@ artifacts:
     owner: mlboydaisuke
     repo: granite-4.0-h-CoreAI
     url: https://huggingface.co/mlboydaisuke/granite-4.0-h-CoreAI
+    revision: 617a02c4936c8cad59c406b571df142bf7b94495
+    files:
+    - path: gpu-pipelined/granite_4_0_h_1b_decode_int8hu_block32_sym/granite_4_0_h_1b_decode_int8hu_block32_sym.aimodel/main.mlirb
+      sha256: bc866ca0e8d0ac02994fb1a25f3b747ca6783e47195a6d25a66911235de36a0f
+      size_bytes: 1862573032
+    - path: gpu-pipelined/granite_4_0_h_1b_decode_int8lin/granite_4_0_h_1b_decode_int8lin.aimodel/main.mlirb
+      sha256: fd9f982985324259a77a53210ed6a4c2e37e9d8464cf976be34e0ee1c7cefe4a
+      size_bytes: 1698798094
+    - path: gpu-pipelined/granite_4_0_h_350m_decode_fp16/granite_4_0_h_350m_decode_fp16.aimodel/main.mlirb
+      sha256: e571d450dc1d35d6951614bbe01d84ac9d7e15bf3490be76d6a8fc22c65b2d41
+      size_bytes: 681106231
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -195,6 +491,17 @@ artifacts:
     owner: mlboydaisuke
     repo: Nanbeige4.1-3B-CoreAI
     url: https://huggingface.co/mlboydaisuke/Nanbeige4.1-3B-CoreAI
+    revision: 4a6f7c8ab0f9eeb131a06ca0c0bad7eaf4890a8e
+    files:
+    - path: gpu-pipelined/nanbeige4_1_3b_decode_int8hu_block32_sym_s1/nanbeige4_1_3b_decode_int8hu_block32_sym_s1.aimodel/main.mlirb
+      sha256: 0dee3eb9b2dc0090477e670f71b157e3ea8745093eaf8c34efe30b65c0f951ee
+      size_bytes: 4578687642
+    - path: gpu-pipelined/nanbeige4_1_3b_decode_int8hu_block32_sym_s1/tokenizer/tokenizer.json
+      sha256: 1d858a0fc007f22af6ae18bfa1ae52d30e398aa9cd1ea06e7777176869346a3f
+      size_bytes: 18450979
+    - path: gpu-pipelined/nanbeige4_1_3b_decode_int8hu_block32_sym_s1/tokenizer/tokenizer.model
+      sha256: fb41d04798b714520a9b075727b0226538b7330254299062742c50ec8374bc36
+      size_bytes: 2782298
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -209,6 +516,26 @@ artifacts:
     owner: mlboydaisuke
     repo: Qwen3-VL-2B-CoreAI
     url: https://huggingface.co/mlboydaisuke/Qwen3-VL-2B-CoreAI
+    revision: 6c4f7940259140e8a416c5898fb15de529e86496
+    files:
+    - path: demo.gif
+      sha256: ac5404d86f18ed0fe9b5095ee6ede0f9f11563fe7ff0062dfc12fbad9d38f179
+      size_bytes: 4531217
+    - path: gpu-pipelined/qwen3_vl_2b_instruct_decode_int8hu_s1/qwen3_vl_2b_instruct_decode_int8hu_s1.aimodel/main.mlirb
+      sha256: 6b5d82c0bcf8d05831a3f9ffca30363a52917d3efd14b3245d8243eaafc71cf7
+      size_bytes: 2451020871
+    - path: gpu-pipelined/qwen3_vl_2b_instruct_decode_int8hu_s1/tokenizer/tokenizer.json
+      sha256: aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4
+      size_bytes: 11422654
+    - path: gpu-pipelined/qwen3_vl_2b_instruct_decode_int8lin_s1/qwen3_vl_2b_instruct_decode_int8lin_s1.aimodel/main.mlirb
+      sha256: cd7286f027ed61bd4b2741e1c7fac8e828058c9d1ce90d0b786cbf3beb380d1a
+      size_bytes: 2120407583
+    - path: gpu-pipelined/qwen3_vl_2b_instruct_decode_int8lin_s1/tokenizer/tokenizer.json
+      sha256: aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4
+      size_bytes: 11422654
+    - path: gpu-pipelined/qwen3_vl_2b_instruct_vision/qwen3_vl_2b_instruct_vision.aimodel/main.mlirb
+      sha256: 2c3725a32a2af824d9d7404c97c6558e4c2929c8532e40d8b84eae48a7fecb66
+      size_bytes: 811164733
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -223,6 +550,17 @@ artifacts:
     owner: mlboydaisuke
     repo: Qwen3-VL-4B-CoreAI
     url: https://huggingface.co/mlboydaisuke/Qwen3-VL-4B-CoreAI
+    revision: 1a34e094773d1ed5eb86e85673614ec5697919ee
+    files:
+    - path: gpu-pipelined/qwen3_vl_4b_instruct_decode_int8hu_s1/qwen3_vl_4b_instruct_decode_int8hu_s1.aimodel/main.mlirb
+      sha256: ff8f18d80b0a39b2f8c8d2c341f49b75f83c42cc5af968e2425d96ed5bac512a
+      size_bytes: 5052712911
+    - path: gpu-pipelined/qwen3_vl_4b_instruct_decode_int8hu_s1/tokenizer/tokenizer.json
+      sha256: aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4
+      size_bytes: 11422654
+    - path: gpu-pipelined/qwen3_vl_4b_instruct_vision/qwen3_vl_4b_instruct_vision.aimodel/main.mlirb
+      sha256: c33a081bd288da8e57fc7aba7470a9f1aa7347e4dce15c2c3084ded5eeb7a6d2
+      size_bytes: 827946050
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -237,6 +575,17 @@ artifacts:
     owner: mlboydaisuke
     repo: Qwen3-VL-8B-CoreAI
     url: https://huggingface.co/mlboydaisuke/Qwen3-VL-8B-CoreAI
+    revision: 60724b3d1a23b93fa744cbfade153beb3d89c160
+    files:
+    - path: gpu-pipelined/qwen3_vl_8b_instruct_decode_int8hu_s1/qwen3_vl_8b_instruct_decode_int8hu_s1.aimodel/main.mlirb
+      sha256: a6eb64d59337f3f0c222a5bf7b6f699aa93c42cd7dbd2927bebd6d03733135d0
+      size_bytes: 9287124022
+    - path: gpu-pipelined/qwen3_vl_8b_instruct_decode_int8hu_s1/tokenizer/tokenizer.json
+      sha256: aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4
+      size_bytes: 11422654
+    - path: gpu-pipelined/qwen3_vl_8b_instruct_vision/qwen3_vl_8b_instruct_vision.aimodel/main.mlirb
+      sha256: 625bbf552e8311e07a111e07905dc350d5f7737d518c7d0c4a4e202d2a414069
+      size_bytes: 1149682098
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -251,6 +600,26 @@ artifacts:
     owner: mlboydaisuke
     repo: MiniCPM-V-4.6-CoreAI
     url: https://huggingface.co/mlboydaisuke/MiniCPM-V-4.6-CoreAI
+    revision: 43cdcf1114e3be29e1357400978a738aaee8c798
+    files:
+    - path: gpu-pipelined/minicpmv46_vision/minicpmv46_vision.aimodel/main.mlirb
+      sha256: d75d35569a2266392a0dc99b94ed498338006d8ef47a673846301e60782e659e
+      size_bytes: 1087832055
+    - path: gpu-pipelined/minicpmv46_vision_int8lin/minicpmv46_vision_int8lin.aimodel/main.mlirb
+      sha256: c55b12e3af8c5603c57b37ffee281e15806234e73fb49a1b0ac9a88d7acab7ac
+      size_bytes: 614084764
+    - path: gpu-pipelined/minicpmv46_vlm_decode_int8hu/minicpmv46_vlm_decode_int8hu.aimodel/main.mlirb
+      sha256: 95f8adeb0d62bfa0c0ffed9640aac289c37332c4fb490466a50ba2c8cdcc1963
+      size_bytes: 1308316053
+    - path: gpu-pipelined/minicpmv46_vlm_decode_int8hu/tokenizer/tokenizer.json
+      sha256: 33861e37bb955af1e3f3061182b820f347eba2b9c2c1011c82794bf0d6e77b54
+      size_bytes: 19992481
+    - path: gpu-pipelined/minicpmv46_vlm_decode_int8lin/minicpmv46_vlm_decode_int8lin.aimodel/main.mlirb
+      sha256: 5b349d49379a553d7b26dc9456d102eaf8c06a4af05889b05bc32305adcad41d
+      size_bytes: 1038389246
+    - path: gpu-pipelined/minicpmv46_vlm_decode_int8lin/tokenizer/tokenizer.json
+      sha256: 33861e37bb955af1e3f3061182b820f347eba2b9c2c1011c82794bf0d6e77b54
+      size_bytes: 19992481
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -266,6 +635,134 @@ artifacts:
     repo: gemma-4-E2B-CoreAI
     path: tree/main/vl
     url: https://huggingface.co/mlboydaisuke/gemma-4-E2B-CoreAI/tree/main/vl
+    revision: 1b6adc0eb22ea907247833014132f7b1f76cff9a
+    files:
+    - path: gpu-pipelined/gemma4_e2b_decode_int4lin_tbl/gemma4_e2b_decode_int4lin_tbl.aimodel/main.mlirb
+      sha256: 2cc6154d895791adb810e57dec7354d30d580a4778dcc2931459e71d815cfe55
+      size_bytes: 2088901225
+    - path: gpu-pipelined/gemma4_e2b_decode_int4lin_tbl/tokenizer/tokenizer.json
+      sha256: cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f
+      size_bytes: 32169626
+    - path: gpu-pipelined/gemma4_e2b_decode_int4lin_tbl_aotc_h18p/gemma4_e2b_decode_int4lin_tbl.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/original_model_0.mpsgraph
+      sha256: 2f700a20ebf8f168c5346a966e5e6cf9fe5371783f7dcf365889e82c15f2093d
+      size_bytes: 647463
+    - path: gpu-pipelined/gemma4_e2b_decode_int4lin_tbl_aotc_h18p/gemma4_e2b_decode_int4lin_tbl.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/resources.bin
+      sha256: a57f6269e8968fcbd2ad79ba613cfe4d1d99aa7dca96a7cf69e4ac8e46792f85
+      size_bytes: 2088055648
+    - path: gpu-pipelined/gemma4_e2b_decode_int4lin_tbl_aotc_h18p/gemma4_e2b_decode_int4lin_tbl.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/specialized_model_1.mpsgraph
+      sha256: 891457dc39b5e55bebbc8495e12f90f0c8212814f6d968633c6fca86f7a28998
+      size_bytes: 1489410
+    - path: gpu-pipelined/gemma4_e2b_decode_int4lin_tbl_aotc_h18p/tokenizer/tokenizer.json
+      sha256: cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f
+      size_bytes: 32169626
+    - path: gpu-pipelined/gemma4_e2b_qat_decode_int4lin_tbl/gemma4_e2b_qat_decode_int4lin_tbl.aimodel/main.mlirb
+      sha256: 6b3b78a23b1265b4f2371fa465959b5cf5452c332bed52944f6858551b149e79
+      size_bytes: 2088901238
+    - path: gpu-pipelined/gemma4_e2b_qat_decode_int4lin_tbl/tokenizer/tokenizer.json
+      sha256: cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f
+      size_bytes: 32169626
+    - path: gpu-pipelined/gemma4_e2b_qat_decode_int4lin_tbl_aotc_h18p/gemma4_e2b_qat_decode_int4lin_tbl.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/original_model_0.mpsgraph
+      sha256: d8a7ee63a2f012446756b67cafb8e72e0b1412fdf195ab90d6fa6f34d9145500
+      size_bytes: 647432
+    - path: gpu-pipelined/gemma4_e2b_qat_decode_int4lin_tbl_aotc_h18p/gemma4_e2b_qat_decode_int4lin_tbl.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/resources.bin
+      sha256: d63d540a3c2e9faac00094c260be28486ca5488ad0217f1ba2f9665ea1ca447a
+      size_bytes: 2088055648
+    - path: gpu-pipelined/gemma4_e2b_qat_decode_int4lin_tbl_aotc_h18p/gemma4_e2b_qat_decode_int4lin_tbl.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/specialized_model_1.mpsgraph
+      sha256: 57755d3107fcab1d98933b4f1ba52a45cdb2d72000d797e62093914573393e85
+      size_bytes: 1489405
+    - path: gpu-pipelined/gemma4_e2b_qat_decode_int4lin_tbl_aotc_h18p/tokenizer/tokenizer.json
+      sha256: cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f
+      size_bytes: 32169626
+    - path: gpu-pipelined/gemma4_e2b_qat_vl_decode_int4linsym/gemma4_e2b_qat_vl_decode_int4linsym.aimodel/main.mlirb
+      sha256: c95194a02ffeb5f2239336d5cc2d240c96fd82c40f763204e2cb233634893506
+      size_bytes: 2088901565
+    - path: gpu-pipelined/gemma4_e2b_qat_vl_decode_int4linsym/tokenizer/tokenizer.json
+      sha256: cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f
+      size_bytes: 32169626
+    - path: gpu-pipelined/gemma4_e2b_qat_vl_decode_int4linsym_aotc_h18p/gemma4_e2b_qat_vl_decode_int4linsym.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/original_model_0.mpsgraph
+      sha256: f5f54c1469985ffe6eb9a472d379227fa9997478dde86c55c9771f71fea877b8
+      size_bytes: 647260
+    - path: gpu-pipelined/gemma4_e2b_qat_vl_decode_int4linsym_aotc_h18p/gemma4_e2b_qat_vl_decode_int4linsym.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/resources.bin
+      sha256: 2f6314d45678aaaa840e3d788bb5e87e68927f57a49d3114161838267e4a6028
+      size_bytes: 2088055648
+    - path: gpu-pipelined/gemma4_e2b_qat_vl_decode_int4linsym_aotc_h18p/tokenizer/tokenizer.json
+      sha256: cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f
+      size_bytes: 32169626
+    - path: gpu-pipelined/gemma4_e2b_qat_vl_decode_int4linsym_tbl/gemma4_e2b_qat_vl_decode_int4linsym_tbl.aimodel/main.mlirb
+      sha256: f25b9613b9c9b4d444603f7a465018bd00a5011c9048ad568fb7b0a8b2c049c6
+      size_bytes: 2088903037
+    - path: gpu-pipelined/gemma4_e2b_qat_vl_decode_int4linsym_tbl/tokenizer/tokenizer.json
+      sha256: cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f
+      size_bytes: 32169626
+    - path: gpu-pipelined/gemma4_e2b_qat_vl_vision/gemma4_e2b_qat_vl_vision.aimodel/main.mlirb
+      sha256: 1e4b74125afc2879ac0a880111bd3ea1c2cd6dbd1d9d38800c997e6a7af465bb
+      size_bytes: 310015632
+    - path: ios-ane/gemma4_e2b_head_argmax_int8.aimodel/main.mlirb
+      sha256: 479dc5b65a058519d1e8dbb20ca5852d34e0a8165097c50527dfb252585c420e
+      size_bytes: 411044508
+    - path: ios-ane/gemma4_e2b_hostcache_chunk1_int8.aimodel/main.mlirb
+      sha256: 749916c74ff263e9166a6629126720e9bc51e53755ef02f9b4411efc61788270
+      size_bytes: 299344372
+    - path: ios-ane/gemma4_e2b_hostcache_chunk2_int8.aimodel/main.mlirb
+      sha256: 692a10b161074496400903065cdf4c001705a60abd550cdc2dcb94463a2398a3
+      size_bytes: 269937199
+    - path: ios-ane/gemma4_e2b_hostcache_chunk3_int8.aimodel/main.mlirb
+      sha256: 208daa66708bec81a0055cf743384f53900c7615fef98fa6c2917fde7110cfd6
+      size_bytes: 327509156
+    - path: ios-ane/gemma4_e2b_hostcache_chunk4_int8.aimodel/main.mlirb
+      sha256: d7f4d1891553d88dc248655cb9e707ca7358d3df6bbeb88b0ecbc3d33e1d6d00
+      size_bytes: 327509161
+    - path: ios-ane/gemma4_e2b_hostcache_chunk5_int8.aimodel/main.mlirb
+      sha256: 8f785a5bf0630f7d1da04ec4ac1f45fc5d6d1d4d7423e3ccf4c0b8139edd6428
+      size_bytes: 327509043
+    - path: ios-ane/gemma4_e2b_hostcache_chunk6_int8.aimodel/main.mlirb
+      sha256: 54bf49caa6ba521756f65a8875bc7c2ee46baf7713d4a14d62cbd110010f19cd
+      size_bytes: 327512962
+    - path: ios-frontend/gemma4_gather_raw/embed_per_layer.i8
+      sha256: ba8f0578acdbd2f0d00f42909c32ef5789bc9193ed8865763ee3f35cdc11cb29
+      size_bytes: 2348810240
+    - path: ios-frontend/gemma4_gather_raw/embed_per_layer.scale.f32
+      sha256: 720f3bcd8f6318be008278bde1cffa494a658a416c8317af30e58ea232de2b92
+      size_bytes: 1048576
+    - path: ios-frontend/gemma4_gather_raw/embed_tokens.i8
+      sha256: 24c476c2a9444f312d38f6993cffc7d5ef55fded8f554a332f0a845a61677e98
+      size_bytes: 402653184
+    - path: ios-frontend/gemma4_gather_raw/embed_tokens.scale.f32
+      sha256: 09184f20e6aef7ca3691a2c506033ca79e48b304c37673a6f91f7cb2afbdfb57
+      size_bytes: 1048576
+    - path: ios-frontend/gemma4_gather_raw/proj.f32
+      sha256: a60d1d3f6567c1fe6d886d36e53cfe0a1c65e55b31986d6256c84494c5210090
+      size_bytes: 55050240
+    - path: ios-frontend/gemma4_qat_gather_raw/embed_per_layer.i8
+      sha256: cf8818a39f6652df4f20a3d9aa8646cb65a11cb57390738894229f72ee42d76c
+      size_bytes: 2348810240
+    - path: ios-frontend/gemma4_qat_gather_raw/embed_per_layer.scale.f32
+      sha256: f85b1364ba6646b932817b30695a777a51c43a14a321ab7dfd8334a2cddfe789
+      size_bytes: 1048576
+    - path: ios-frontend/gemma4_qat_gather_raw/embed_tokens.i8
+      sha256: 0998515764140526377de4d3f9a47819ccf8db29c866e455b45dffc6aaec0aa4
+      size_bytes: 402653184
+    - path: ios-frontend/gemma4_qat_gather_raw/embed_tokens.scale.f32
+      sha256: e29d1a6d2d0f5911028cc1c5f1d7aee292de0a11f7c0e0245f9db4418ffefafc
+      size_bytes: 1048576
+    - path: ios-frontend/gemma4_qat_gather_raw/proj.f32
+      sha256: 36a9c49bc7b1ee2977a9c25ce243f3284a6e4b6ad041841cd0d8292578f130be
+      size_bytes: 55050240
+    - path: ios-gpu/gemma4_e2b_head_argmax_int4km.aimodel/main.mlirb
+      sha256: 8c0b158928f639dba985f9b1e979d9f0b6604e353377cb3f697a73579fe903da
+      size_bytes: 201592897
+    - path: ios-gpu/gemma4_e2b_metal_int4km_L35.aimodel/main.mlirb
+      sha256: 5fcb12a1e594efa86bb74d0ade2d4a139c7857dea16c361e99fc7ab3764e0f10
+      size_bytes: 1392365289
+    - path: macos/gemma4_e2b_frontend_int8.aimodel/main.mlirb
+      sha256: 0eb87ab64e47aa7b570601849f05496f00501d33158aa00de30c4951182d357b
+      size_bytes: 2780044106
+    - path: macos/gemma4_e2b_head_argmax_kernel.aimodel/main.mlirb
+      sha256: 3e1df01d10683c9c453a21f6e234bfb3e96bffa9739d92cb7a413a8e0a743d2c
+      size_bytes: 406851295
+    - path: macos/gemma4_e2b_metal_int8v3_L35.aimodel/main.mlirb
+      sha256: ec8c9bc928902b9154ac5b5ac1de13455487cc2f29b09d23b33042d6c026517d
+      size_bytes: 2181877083
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -280,6 +777,17 @@ artifacts:
     owner: mlboydaisuke
     repo: Unlimited-OCR-CoreAI
     url: https://huggingface.co/mlboydaisuke/Unlimited-OCR-CoreAI
+    revision: cf02fad285cadeaf46f3e6fcb215c3cf8930d817
+    files:
+    - path: assets/embed_tokens.f16
+      sha256: 5d1df8b73bdff79c672f53ddc000451158cd16cd04ed143a1c0054b30ca03455
+      size_bytes: 330956800
+    - path: decoder/unlimited_ocr_decoder.aimodel/main.mlirb
+      sha256: 66dd61f0efd6cfd14198baacc6f05b415e6212ce1c3e9db4f7dd52354df7221a
+      size_bytes: 3391059192
+    - path: vision/unlimited_ocr_vision.aimodel/main.mlirb
+      sha256: bb9ab14f645442b6da30db19d5334dfb23cacca6aec0afc8f97e2f4a318bfdec
+      size_bytes: 799498243
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -294,6 +802,29 @@ artifacts:
     owner: mlboydaisuke
     repo: Qwen2.5-Omni-3B-Audio-CoreAI
     url: https://huggingface.co/mlboydaisuke/Qwen2.5-Omni-3B-Audio-CoreAI
+    revision: 0f0fdc89263b558b9a50c9b6860cc0075523ffc8
+    files:
+    - path: gpu-pipelined/qwen2_5_omni_3b_audio_encoder_fp16_k15/qwen2_5_omni_3b_audio_encoder_fp16_k15.aimodel/main.mlirb
+      sha256: e06e7f0dda3fe07eafb6781d31244bbdac0205f14a0eb66829ec188fdd9d78fa
+      size_bytes: 1275843317
+    - path: gpu-pipelined/qwen2_5_omni_3b_thinker_int8lin_n750_s1/qwen2_5_omni_3b_thinker_int8lin_n750_s1.aimodel/main.mlirb
+      sha256: b4c08262e3a382adcfd3365680fe039a9105ac7918a415328f7c03762db91b66
+      size_bytes: 4193422955
+    - path: gpu-pipelined/qwen2_5_omni_3b_thinker_int8lin_n750_s1/tokenizer/tokenizer.json
+      sha256: 8441917e39ae0244e06d704b95b3124795cec478e297f9afac39ba670d7e9d99
+      size_bytes: 11421870
+    - path: ios/qwen2_5_omni_3b_thinker_n750_ios/qwen2_5_omni_3b_thinker_int8lin_n750_s1.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/original_model_0.mpsgraph
+      sha256: 595dc0a81b0a523102425fd5e409ce5107f18736a5fe2f128f7665bbb9e7ca6f
+      size_bytes: 282145
+    - path: ios/qwen2_5_omni_3b_thinker_n750_ios/qwen2_5_omni_3b_thinker_int8lin_n750_s1.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/resources.bin
+      sha256: 310da7a1c059cbc4320ce26e5eb6525879ee21279b1df856a517c155b1877a4f
+      size_bytes: 4815415868
+    - path: ios/qwen2_5_omni_3b_thinker_n750_ios/qwen2_5_omni_3b_thinker_int8lin_n750_s1.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/specialized_model_1.mpsgraph
+      sha256: a4034619f87f676ccf37581732f23f90b52745767dcf973f2a8a2c3f902b8b0a
+      size_bytes: 498219
+    - path: ios/qwen2_5_omni_3b_thinker_n750_ios/tokenizer/tokenizer.json
+      sha256: 8441917e39ae0244e06d704b95b3124795cec478e297f9afac39ba670d7e9d99
+      size_bytes: 11421870
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -308,6 +839,101 @@ artifacts:
     owner: mlboydaisuke
     repo: Kokoro-82M-CoreAI
     url: https://huggingface.co/mlboydaisuke/Kokoro-82M-CoreAI
+    revision: 4a732c9bca660056c83133464b23dc259947d0c5
+    files:
+    - path: kokoro_predictor.aimodel/main.mlirb
+      sha256: a1ec8433cc125519cc051bc17c65adfb3142b36add56fa3c85ab636a759f36fc
+      size_bytes: 83283367
+    - path: kokoro_prosody.aimodel/main.mlirb
+      sha256: 82d466933bd4fe87cc7e80f8a56d7b6c41adc7884825ed7c7d4c6323cdc756f0
+      size_bytes: 38183716
+    - path: kokoro_vocoder.aimodel/main.mlirb
+      sha256: 8a92154211712b93efdf7608b25e1cf14b9c4483e85b6d7fd76ac0185aff68c8
+      size_bytes: 213885093
+    - path: voices/af_alloy.pt
+      sha256: 6d877149dd8b348fbad12e5845b7e43d975390e9f3b68a811d1d86168bef5aa3
+      size_bytes: 523425
+    - path: voices/af_aoede.pt
+      sha256: c03bd1a4c3716c2d8eaa3d50022f62d5c31cfbd6e15933a00b17fefe13841cc4
+      size_bytes: 523425
+    - path: voices/af_bella.pt
+      sha256: 8cb64e02fcc8de0327a8e13817e49c76c945ecf0052ceac97d3081480e8e48d6
+      size_bytes: 523425
+    - path: voices/af_heart.pt
+      sha256: 0ab5709b8ffab19bfd849cd11d98f75b60af7733253ad0d67b12382a102cb4ff
+      size_bytes: 523425
+    - path: voices/af_jessica.pt
+      sha256: cdfdccb8cc975aa34ee6b89642963b0064237675de0e41a30ae64cc958dd4e87
+      size_bytes: 523435
+    - path: voices/af_kore.pt
+      sha256: 8bfbc512321c3db49dff984ac675fa5ac7eaed5a96cc31104d3a9080e179d69d
+      size_bytes: 523420
+    - path: voices/af_nicole.pt
+      sha256: c5561808bcf5250fe8c5f5de32caf2d94f27e57e95befdb098c5c85991d4c5da
+      size_bytes: 523430
+    - path: voices/af_nova.pt
+      sha256: e0233676ddc21908c37a1f102f6b88a59e4e5c1bd764983616eb9eda629dbcd2
+      size_bytes: 523420
+    - path: voices/af_river.pt
+      sha256: e149459bd9c084416b74756b9bd3418256a8b839088abb07d463730c369dab8f
+      size_bytes: 523425
+    - path: voices/af_sarah.pt
+      sha256: 49bd364ea3be9eb3e9685e8f9a15448c4883112a7c0ff7ab139fa4088b08cef9
+      size_bytes: 523425
+    - path: voices/af_sky.pt
+      sha256: c799548aed06e0cb0d655a85a01b48e7f10484d71663f9a3045a5b9362e8512c
+      size_bytes: 523351
+    - path: voices/am_adam.pt
+      sha256: ced7e284aba12472891be1da3ab34db84cc05cc02b5889535796dbf2d8b0cb34
+      size_bytes: 523420
+    - path: voices/am_echo.pt
+      sha256: 8bcfdc852bc985fb45c396c561e571ffb9183930071f962f1b50df5c97b161e8
+      size_bytes: 523420
+    - path: voices/am_eric.pt
+      sha256: ada66f0eefff34ec921b1d7474d7ac8bec00cd863c170f1c534916e9b8212aae
+      size_bytes: 523420
+    - path: voices/am_fenrir.pt
+      sha256: 98e507eca1db08230ae3b6232d59c10aec9630022d19accac4f5d12fcec3c37a
+      size_bytes: 523430
+    - path: voices/am_liam.pt
+      sha256: c82550757ddb31308b97f30040dda8c2d609a9e2de6135848d0a948368138518
+      size_bytes: 523420
+    - path: voices/am_michael.pt
+      sha256: 9a443b79a4b22489a5b0ab7c651a0bcd1a30bef675c28333f06971abbd47bd37
+      size_bytes: 523435
+    - path: voices/am_onyx.pt
+      sha256: e8452be16cd0f6da7b4579eaf7b1e4506e92524882053d86d72b96b9a7fed584
+      size_bytes: 523420
+    - path: voices/am_puck.pt
+      sha256: dd1d8973f4ce4b7d8ae407c77a435f485dabc052081b80ea75c4f30b84f36223
+      size_bytes: 523420
+    - path: voices/am_santa.pt
+      sha256: 7f2f7582fa2b1f160e90aafe6d0b442a685e773608b6667e545d743b073e97a7
+      size_bytes: 523425
+    - path: voices/bf_alice.pt
+      sha256: d292651b6af6c0d81705c2580dcb4463fccc0ff7b8d618a471dbb4e45655b3f3
+      size_bytes: 523425
+    - path: voices/bf_emma.pt
+      sha256: d0a423deabf4a52b4f49318c51742c54e21bb89bbbe9a12141e7758ddb5da701
+      size_bytes: 523420
+    - path: voices/bf_isabella.pt
+      sha256: cdd4c37003805104d1d08fb1e05855c8fb2c68de24ca6e71f264a30aaa59eefd
+      size_bytes: 523440
+    - path: voices/bf_lily.pt
+      sha256: 6e09c2e481e2d53004d7e5ae7d3a325369e130a6f45c35a6002de75084be9285
+      size_bytes: 523420
+    - path: voices/bm_daniel.pt
+      sha256: fc3fce4e9c12ed4dbc8fa9680cfe51ee190a96444ce7c3ad647549a30823fc5d
+      size_bytes: 523430
+    - path: voices/bm_fable.pt
+      sha256: d44935f3135257a9064df99f007fc1342ff1aa767552b4a4fa4c3b2e6e59079c
+      size_bytes: 523425
+    - path: voices/bm_george.pt
+      sha256: f1bc812213dc59774769e5c80004b13eeb79bd78130b11b2d7f934542dab811b
+      size_bytes: 523430
+    - path: voices/bm_lewis.pt
+      sha256: b5204750dcba01029d2ac9cec17aec3b20a6d64073c579d694a23cb40effbd0e
+      size_bytes: 523425
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -322,6 +948,113 @@ artifacts:
     owner: mlboydaisuke
     repo: VoxCPM-0.5B-CoreAI
     url: https://huggingface.co/mlboydaisuke/VoxCPM-0.5B-CoreAI
+    revision: 6bd06e4c064f72aa9a0ddfe3234a7d04e58735d6
+    files:
+    - path: demo.gif
+      sha256: 5c4f6f5e72ac990ea8d2997423cca5c2e990d55a8f2042936996fb8083a9fb95
+      size_bytes: 133712
+    - path: ios/voxcpm_base_int8_decode_cl512.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/original_model_0.mpsgraph
+      sha256: f08051c09d89243a18d27e9efde85ef3e6a7f80a1fd11b929a90fcdbb6829dbb
+      size_bytes: 310525
+    - path: ios/voxcpm_base_int8_decode_cl512.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/resources.bin
+      sha256: 6a63b10fe09b6e6f06412f50859523c545af1ae345f1f343c1d6db3d04025c83
+      size_bytes: 359490360
+    - path: ios/voxcpm_base_int8_decode_cl512.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/specialized_model_1.mpsgraph
+      sha256: 5d34dfcefa1542124424520bd9d2e5b0a1635f37e5a05e599ddbfc515dd1e8d3
+      size_bytes: 446046
+    - path: ios/voxcpm_base_int8_prefill_t32.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/original_model_0.mpsgraph
+      sha256: 005686d59d0451144c8a550968430e293a3282187f87fe98db9ee584b80d497f
+      size_bytes: 318900
+    - path: ios/voxcpm_base_int8_prefill_t32.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/resources.bin
+      sha256: 90e745b0398f6510e18e08ad4440f22ffc5f2c047426f30dde2d58ffa8c00475
+      size_bytes: 359529276
+    - path: ios/voxcpm_base_int8_prefill_t32.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/specialized_model_1.mpsgraph
+      sha256: 30160ecae67728bd707396bd5941724335e07ea5ab57e05d7c9270108d9d29e7
+      size_bytes: 469695
+    - path: ios/voxcpm_feat_decoder_fp16.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/original_model_0.mpsgraph
+      sha256: 837506157fe9fd65497c3fb29b1c1dd1a2bb22eb70d83c591e1044542acb2286
+      size_bytes: 307252
+    - path: ios/voxcpm_feat_decoder_fp16.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/resources.bin
+      sha256: c19a6dd98efd9e80fe4e39afae14c3c52625a9ccfcfa900b5ff7c2cad34b08cb
+      size_bytes: 256975940
+    - path: ios/voxcpm_feat_decoder_fp16.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/specialized_model_1.mpsgraph
+      sha256: ccb06d70ce4d3573dc8e88a493f5ee4a0147e3d610e97d68dbda78ca360658f0
+      size_bytes: 559188
+    - path: ios/voxcpm_feat_encoder_fp16.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/resources.bin
+      sha256: c742bdcc5dbd84229cd935538a5b94fb1a887e61815630b022007b9122ccf148
+      size_bytes: 243556808
+    - path: ios/voxcpm_res_int8_decode_cl512.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/resources.bin
+      sha256: 54696eb358709bff46360365dc9f73cc7dd25289de6f46067e261580ed113b2f
+      size_bytes: 89975260
+    - path: ios/voxcpm_res_int8_decode_cl512.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/specialized_model_1.mpsgraph
+      sha256: e6bca8bd767a13c1eae7745003856585e9a1e719e004030746bf64d4e038a16a
+      size_bytes: 111904
+    - path: ios/voxcpm_res_int8_prefill_t32.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/resources.bin
+      sha256: 6325de71b279aab203162cad81193399c5fd0cc9978d00336adb005f65c260d6
+      size_bytes: 90014176
+    - path: ios/voxcpm_res_int8_prefill_t32.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/specialized_model_1.mpsgraph
+      sha256: d13e7b1fc0b3b1dafe14a62406dd3448c50b8ae9da1247b97c91e6d2c63cbcdb
+      size_bytes: 115985
+    - path: ios/voxcpm_vocoder_fp16_t12.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/resources.bin
+      sha256: a5deb8e3f1e1e947ee2a13d616375b0f07498796be73921c9aac6d44498bd437
+      size_bytes: 107592892
+    - path: macos/voxcpm_base_int8_decode_cl512/voxcpm_base_int8_decode_cl512.aimodel/main.mlirb
+      sha256: d75a12a84e1524756fba77e56ce4de93b6a5acf3319874179d741be79910037c
+      size_bytes: 359788490
+    - path: macos/voxcpm_base_int8_prefill_t32/voxcpm_base_int8_prefill_t32.aimodel/main.mlirb
+      sha256: bfb544bd86f4c17709869641a0df3662517c56d4f0b93720f9fb4692fa7ea65e
+      size_bytes: 359836219
+    - path: macos/voxcpm_feat_decoder_fp16/voxcpm_feat_decoder_fp16.aimodel/main.mlirb
+      sha256: c73854bd6e9ffed240021872dbb41af5b4afa0e4cbe673f9c1d92fe00c250dc7
+      size_bytes: 128936479
+    - path: macos/voxcpm_feat_encoder_fp16/voxcpm_feat_encoder_fp16.aimodel/main.mlirb
+      sha256: 486e2ded1942a948b6078477e8dba6788e6bbaf51ecf8cb068397d12832aaf23
+      size_bytes: 121840790
+    - path: macos/voxcpm_res_int8_decode_cl512/voxcpm_res_int8_decode_cl512.aimodel/main.mlirb
+      sha256: 9181856615cd405716cbe972771878a9213060d6881c107156f69d5f17e462a2
+      size_bytes: 90048268
+    - path: macos/voxcpm_res_int8_prefill_t32/voxcpm_res_int8_prefill_t32.aimodel/main.mlirb
+      sha256: 4931aee8f3847a0d7410593244fed0c7cd76e62a7aafa0d2ecad44d48689879f
+      size_bytes: 90088914
+    - path: macos/voxcpm_vocoder_fp16_t12/voxcpm_vocoder_fp16_t12.aimodel/main.mlirb
+      sha256: d5964862a9d6d0ec2c1390d4f0bd4778eb0670453fc8d8662f0f354b7ffbd069
+      size_bytes: 53885691
+    - path: voxcpm_host_glue/embed_tokens.bin
+      sha256: b4bfbd4ac38c8f85466abece8a5267d183348a44b8109d1cdcc19607580fdd1a
+      size_bytes: 150421504
+    - path: voxcpm_host_glue/fsq_in_b.bin
+      sha256: c31e7d3f1ddbf7cd4f8f240501ac5b77c78c93f0d54ed5b9eb842d050b054d89
+      size_bytes: 1024
+    - path: voxcpm_host_glue/fsq_in_w.bin
+      sha256: a8ee90eee2713d21dd6fc901e7a8ebb86505caca8ecb77b8c7de2685c16cdac6
+      size_bytes: 1048576
+    - path: voxcpm_host_glue/fsq_out_b.bin
+      sha256: 347784ba141b542020a9131dfb61e6698f0765b19f2778ad3e998e295036953f
+      size_bytes: 4096
+    - path: voxcpm_host_glue/fsq_out_w.bin
+      sha256: 707429390574fd4bed2227645c51738441ef7a92e72b231c63bd7dcfb7b047d8
+      size_bytes: 1048576
+    - path: voxcpm_host_glue/lm_to_dit_b.bin
+      sha256: 5d97837d8ffb8744e92f63318081afcf4233fa949ce19c47201dcef6d77935ec
+      size_bytes: 4096
+    - path: voxcpm_host_glue/lm_to_dit_w.bin
+      sha256: 3bb161e11cf6f05defb41188941abb31908826dfb016f2eee4e7f1eac825bb6b
+      size_bytes: 4194304
+    - path: voxcpm_host_glue/res_to_dit_b.bin
+      sha256: 9d8e1f8c9c7b8bfe8f8139c490b3b9cd5cd6a2e59944d4381dbab93b4d53b55b
+      size_bytes: 4096
+    - path: voxcpm_host_glue/res_to_dit_w.bin
+      sha256: 4249e651d9e4c711c321a89a37dfbba81ef3743f26dd39df69b95da7c2d4339c
+      size_bytes: 4194304
+    - path: voxcpm_host_glue/stop_head_w.bin
+      sha256: b89eed4b3affc6939caed6f8486f301406471992d7115426d9a087b387b20b0a
+      size_bytes: 8192
+    - path: voxcpm_host_glue/stop_proj_b.bin
+      sha256: ff7c354e97240b9d9f44f16c444047fa0a5fbbc1f5604087f233762cba813e54
+      size_bytes: 4096
+    - path: voxcpm_host_glue/stop_proj_w.bin
+      sha256: 95de40d75712ca354e786512b88ef51015b748929d6494a8973b70e5f5ee9066
+      size_bytes: 4194304
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -336,6 +1069,14 @@ artifacts:
     owner: mlboydaisuke
     repo: embeddinggemma-300m-CoreAI
     url: https://huggingface.co/mlboydaisuke/embeddinggemma-300m-CoreAI
+    revision: 3ff69a4afd4496510ed235afd3a766ea8af30d7b
+    files:
+    - path: model/embeddinggemma-300m_float32_static.aimodel/main.mlirb
+      sha256: 9af02ca8fc5b1a56bbf1290b6a020327d59976b059cb8cfd6f9cb4e176252e2f
+      size_bytes: 1243973215
+    - path: model/tokenizer/tokenizer.json
+      sha256: bcb89366c4787d27671d021cdc006defcd1cb53b02b04213ae8dd47c009c7f71
+      size_bytes: 33385272
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -350,6 +1091,14 @@ artifacts:
     owner: mlboydaisuke
     repo: Qwen3-Embedding-0.6B-CoreAI
     url: https://huggingface.co/mlboydaisuke/Qwen3-Embedding-0.6B-CoreAI
+    revision: da65f89b633c3761bbfe3ad3e6173c35ff057610
+    files:
+    - path: qwen3-embedding-0.6b_float16_s512_static.aimodel/main.mlirb
+      sha256: 420dd36581e8feb1afed13b8f6212b89d2e06573c2c8933d4d36e8623f89735f
+      size_bytes: 1192497696
+    - path: tokenizer/tokenizer.json
+      sha256: 4b325f4efa94e389220ec20b055177a846870f4614762b59b1d6c7450c2830ec
+      size_bytes: 11423979
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -364,6 +1113,14 @@ artifacts:
     owner: mlboydaisuke
     repo: Qwen3-Reranker-0.6B-CoreAI
     url: https://huggingface.co/mlboydaisuke/Qwen3-Reranker-0.6B-CoreAI
+    revision: 04dcf51bdd425695d1ad5a99b1cc1de76122db08
+    files:
+    - path: qwen3-reranker-0.6b_float16_s512_static.aimodel/main.mlirb
+      sha256: 26c4ef6f91695f161d6589e44da20b8d172a1ceaf2f6a1b34061fdd2e6635958
+      size_bytes: 1192490779
+    - path: tokenizer/tokenizer.json
+      sha256: be75606093db2094d7cd20f3c2f385c212750648bd6ea4fb2bf507a6a4c55506
+      size_bytes: 11422650
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -378,6 +1135,62 @@ artifacts:
     owner: mlboydaisuke
     repo: RF-DETR-CoreAI
     url: https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI
+    revision: 2db240872456748838cdaa1bf3f49f11c3de2e4d
+    files:
+    - path: demo_coco_252219.jpg
+      sha256: 5712cf0fd3e1e46ae9670c3d04a6159c02f833b774a9e31beff6394a1c028dce
+      size_bytes: 122478
+    - path: demo_coco_cats.jpg
+      sha256: 44f0219c22d04b15145544ad463b9e658bf9b5fd37c77d3d305d077efdccf974
+      size_bytes: 139164
+    - path: demo_seg_coco_252219.jpg
+      sha256: 345e0bfb7029ba2aa9a60f216bcd6c0590b7bb9f7737a925462f28c73e152fc8
+      size_bytes: 119223
+    - path: demo_seg_coco_cats.jpg
+      sha256: 0c02a4c63d0380b212630cc211dd9e19595970567c2161cfa14a7fc30975d7c3
+      size_bytes: 125864
+    - path: rfdetr-large_float32.aimodel/main.mlirb
+      sha256: f2513ed3e3fcf3aaee863736268c6ef930bfb5e3ba017a619b98856f67160446
+      size_bytes: 121906905
+    - path: rfdetr-medium_float32.aimodel/main.mlirb
+      sha256: 03f997017b6f575c4ac53264d78bfe168eb078520865441ed5c43da404dfaef2
+      size_bytes: 120911038
+    - path: rfdetr-nano_float32.aimodel/main.mlirb
+      sha256: 5d8747cead2af04f5f9a3353f2a0a3fc0d5830f3979aa12a781c870c287e3e9b
+      size_bytes: 107962969
+    - path: rfdetr-seg-2xlarge_float32.aimodel/main.mlirb
+      sha256: 7870456d91343f8c1316a04d61f2b9dacecc6127f1f2aef41932d69d7bc4547f
+      size_bytes: 140901149
+    - path: rfdetr-seg-large_float32.aimodel/main.mlirb
+      sha256: 4cfc3d04d38c739dc083f6d6641cc7f52f6d1a450c5729742ab82f9bf48eeffd
+      size_bytes: 130856589
+    - path: rfdetr-seg-medium_float32.aimodel/main.mlirb
+      sha256: a2ac79e1d257649e0080423cb1ae980a035057a73b168d741c3095b6dda7c983
+      size_bytes: 130128371
+    - path: rfdetr-seg-nano_float32.aimodel/main.mlirb
+      sha256: 45dc72ea270e1707019a1fa002a9eda278bc63a0b9bb8bb20df254d72521a07e
+      size_bytes: 122759405
+    - path: rfdetr-seg-small_float32.aimodel/main.mlirb
+      sha256: a12e2aa7908994164340b28ba3702866f52d2f0497be49cc2f055671065e0313
+      size_bytes: 123306024
+    - path: rfdetr-seg-xlarge_float32.aimodel/main.mlirb
+      sha256: d2518453b6ce0aa8778883cca2e117dcfa924092d799aa3c021fc8bde8a4b6ee
+      size_bytes: 138729619
+    - path: rfdetr-small_float32.aimodel/main.mlirb
+      sha256: e7d90cfecadd4c1e6216fba23df501703cd7d067d6b20495937ce028509fc1e5
+      size_bytes: 114573344
+    - path: split/rfdetr-medium_backbone.aimodel/main.mlirb
+      sha256: 53c303d1004daedf9b1f901bb3fc2f08aaac6617e6fa6848ceec359674658d91
+      size_bytes: 94282817
+    - path: split/rfdetr-medium_head.aimodel/main.mlirb
+      sha256: 141dc5231b5f1a257bb8bfd7f47a17b909ccac517ee378bf893c8ad52a4a0f60
+      size_bytes: 26631231
+    - path: split/rfdetr-nano_backbone.aimodel/main.mlirb
+      sha256: 653bb2d3645311d554d2ecb4c79cc32134d668982bf8ddb96f5c089aa48b2bbd
+      size_bytes: 93176619
+    - path: split/rfdetr-nano_head.aimodel/main.mlirb
+      sha256: ba3ef1283562ea9b774d11949e52fc65b3001549f66233214a55c5c41f8c0769
+      size_bytes: 14790518
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -392,6 +1205,62 @@ artifacts:
     owner: mlboydaisuke
     repo: RF-DETR-CoreAI
     url: https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI
+    revision: 2db240872456748838cdaa1bf3f49f11c3de2e4d
+    files:
+    - path: demo_coco_252219.jpg
+      sha256: 5712cf0fd3e1e46ae9670c3d04a6159c02f833b774a9e31beff6394a1c028dce
+      size_bytes: 122478
+    - path: demo_coco_cats.jpg
+      sha256: 44f0219c22d04b15145544ad463b9e658bf9b5fd37c77d3d305d077efdccf974
+      size_bytes: 139164
+    - path: demo_seg_coco_252219.jpg
+      sha256: 345e0bfb7029ba2aa9a60f216bcd6c0590b7bb9f7737a925462f28c73e152fc8
+      size_bytes: 119223
+    - path: demo_seg_coco_cats.jpg
+      sha256: 0c02a4c63d0380b212630cc211dd9e19595970567c2161cfa14a7fc30975d7c3
+      size_bytes: 125864
+    - path: rfdetr-large_float32.aimodel/main.mlirb
+      sha256: f2513ed3e3fcf3aaee863736268c6ef930bfb5e3ba017a619b98856f67160446
+      size_bytes: 121906905
+    - path: rfdetr-medium_float32.aimodel/main.mlirb
+      sha256: 03f997017b6f575c4ac53264d78bfe168eb078520865441ed5c43da404dfaef2
+      size_bytes: 120911038
+    - path: rfdetr-nano_float32.aimodel/main.mlirb
+      sha256: 5d8747cead2af04f5f9a3353f2a0a3fc0d5830f3979aa12a781c870c287e3e9b
+      size_bytes: 107962969
+    - path: rfdetr-seg-2xlarge_float32.aimodel/main.mlirb
+      sha256: 7870456d91343f8c1316a04d61f2b9dacecc6127f1f2aef41932d69d7bc4547f
+      size_bytes: 140901149
+    - path: rfdetr-seg-large_float32.aimodel/main.mlirb
+      sha256: 4cfc3d04d38c739dc083f6d6641cc7f52f6d1a450c5729742ab82f9bf48eeffd
+      size_bytes: 130856589
+    - path: rfdetr-seg-medium_float32.aimodel/main.mlirb
+      sha256: a2ac79e1d257649e0080423cb1ae980a035057a73b168d741c3095b6dda7c983
+      size_bytes: 130128371
+    - path: rfdetr-seg-nano_float32.aimodel/main.mlirb
+      sha256: 45dc72ea270e1707019a1fa002a9eda278bc63a0b9bb8bb20df254d72521a07e
+      size_bytes: 122759405
+    - path: rfdetr-seg-small_float32.aimodel/main.mlirb
+      sha256: a12e2aa7908994164340b28ba3702866f52d2f0497be49cc2f055671065e0313
+      size_bytes: 123306024
+    - path: rfdetr-seg-xlarge_float32.aimodel/main.mlirb
+      sha256: d2518453b6ce0aa8778883cca2e117dcfa924092d799aa3c021fc8bde8a4b6ee
+      size_bytes: 138729619
+    - path: rfdetr-small_float32.aimodel/main.mlirb
+      sha256: e7d90cfecadd4c1e6216fba23df501703cd7d067d6b20495937ce028509fc1e5
+      size_bytes: 114573344
+    - path: split/rfdetr-medium_backbone.aimodel/main.mlirb
+      sha256: 53c303d1004daedf9b1f901bb3fc2f08aaac6617e6fa6848ceec359674658d91
+      size_bytes: 94282817
+    - path: split/rfdetr-medium_head.aimodel/main.mlirb
+      sha256: 141dc5231b5f1a257bb8bfd7f47a17b909ccac517ee378bf893c8ad52a4a0f60
+      size_bytes: 26631231
+    - path: split/rfdetr-nano_backbone.aimodel/main.mlirb
+      sha256: 653bb2d3645311d554d2ecb4c79cc32134d668982bf8ddb96f5c089aa48b2bbd
+      size_bytes: 93176619
+    - path: split/rfdetr-nano_head.aimodel/main.mlirb
+      sha256: ba3ef1283562ea9b774d11949e52fc65b3001549f66233214a55c5c41f8c0769
+      size_bytes: 14790518
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -406,6 +1275,62 @@ artifacts:
     owner: mlboydaisuke
     repo: RF-DETR-CoreAI
     url: https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI
+    revision: 2db240872456748838cdaa1bf3f49f11c3de2e4d
+    files:
+    - path: demo_coco_252219.jpg
+      sha256: 5712cf0fd3e1e46ae9670c3d04a6159c02f833b774a9e31beff6394a1c028dce
+      size_bytes: 122478
+    - path: demo_coco_cats.jpg
+      sha256: 44f0219c22d04b15145544ad463b9e658bf9b5fd37c77d3d305d077efdccf974
+      size_bytes: 139164
+    - path: demo_seg_coco_252219.jpg
+      sha256: 345e0bfb7029ba2aa9a60f216bcd6c0590b7bb9f7737a925462f28c73e152fc8
+      size_bytes: 119223
+    - path: demo_seg_coco_cats.jpg
+      sha256: 0c02a4c63d0380b212630cc211dd9e19595970567c2161cfa14a7fc30975d7c3
+      size_bytes: 125864
+    - path: rfdetr-large_float32.aimodel/main.mlirb
+      sha256: f2513ed3e3fcf3aaee863736268c6ef930bfb5e3ba017a619b98856f67160446
+      size_bytes: 121906905
+    - path: rfdetr-medium_float32.aimodel/main.mlirb
+      sha256: 03f997017b6f575c4ac53264d78bfe168eb078520865441ed5c43da404dfaef2
+      size_bytes: 120911038
+    - path: rfdetr-nano_float32.aimodel/main.mlirb
+      sha256: 5d8747cead2af04f5f9a3353f2a0a3fc0d5830f3979aa12a781c870c287e3e9b
+      size_bytes: 107962969
+    - path: rfdetr-seg-2xlarge_float32.aimodel/main.mlirb
+      sha256: 7870456d91343f8c1316a04d61f2b9dacecc6127f1f2aef41932d69d7bc4547f
+      size_bytes: 140901149
+    - path: rfdetr-seg-large_float32.aimodel/main.mlirb
+      sha256: 4cfc3d04d38c739dc083f6d6641cc7f52f6d1a450c5729742ab82f9bf48eeffd
+      size_bytes: 130856589
+    - path: rfdetr-seg-medium_float32.aimodel/main.mlirb
+      sha256: a2ac79e1d257649e0080423cb1ae980a035057a73b168d741c3095b6dda7c983
+      size_bytes: 130128371
+    - path: rfdetr-seg-nano_float32.aimodel/main.mlirb
+      sha256: 45dc72ea270e1707019a1fa002a9eda278bc63a0b9bb8bb20df254d72521a07e
+      size_bytes: 122759405
+    - path: rfdetr-seg-small_float32.aimodel/main.mlirb
+      sha256: a12e2aa7908994164340b28ba3702866f52d2f0497be49cc2f055671065e0313
+      size_bytes: 123306024
+    - path: rfdetr-seg-xlarge_float32.aimodel/main.mlirb
+      sha256: d2518453b6ce0aa8778883cca2e117dcfa924092d799aa3c021fc8bde8a4b6ee
+      size_bytes: 138729619
+    - path: rfdetr-small_float32.aimodel/main.mlirb
+      sha256: e7d90cfecadd4c1e6216fba23df501703cd7d067d6b20495937ce028509fc1e5
+      size_bytes: 114573344
+    - path: split/rfdetr-medium_backbone.aimodel/main.mlirb
+      sha256: 53c303d1004daedf9b1f901bb3fc2f08aaac6617e6fa6848ceec359674658d91
+      size_bytes: 94282817
+    - path: split/rfdetr-medium_head.aimodel/main.mlirb
+      sha256: 141dc5231b5f1a257bb8bfd7f47a17b909ccac517ee378bf893c8ad52a4a0f60
+      size_bytes: 26631231
+    - path: split/rfdetr-nano_backbone.aimodel/main.mlirb
+      sha256: 653bb2d3645311d554d2ecb4c79cc32134d668982bf8ddb96f5c089aa48b2bbd
+      size_bytes: 93176619
+    - path: split/rfdetr-nano_head.aimodel/main.mlirb
+      sha256: ba3ef1283562ea9b774d11949e52fc65b3001549f66233214a55c5c41f8c0769
+      size_bytes: 14790518
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -420,6 +1345,62 @@ artifacts:
     owner: mlboydaisuke
     repo: RF-DETR-CoreAI
     url: https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI
+    revision: 2db240872456748838cdaa1bf3f49f11c3de2e4d
+    files:
+    - path: demo_coco_252219.jpg
+      sha256: 5712cf0fd3e1e46ae9670c3d04a6159c02f833b774a9e31beff6394a1c028dce
+      size_bytes: 122478
+    - path: demo_coco_cats.jpg
+      sha256: 44f0219c22d04b15145544ad463b9e658bf9b5fd37c77d3d305d077efdccf974
+      size_bytes: 139164
+    - path: demo_seg_coco_252219.jpg
+      sha256: 345e0bfb7029ba2aa9a60f216bcd6c0590b7bb9f7737a925462f28c73e152fc8
+      size_bytes: 119223
+    - path: demo_seg_coco_cats.jpg
+      sha256: 0c02a4c63d0380b212630cc211dd9e19595970567c2161cfa14a7fc30975d7c3
+      size_bytes: 125864
+    - path: rfdetr-large_float32.aimodel/main.mlirb
+      sha256: f2513ed3e3fcf3aaee863736268c6ef930bfb5e3ba017a619b98856f67160446
+      size_bytes: 121906905
+    - path: rfdetr-medium_float32.aimodel/main.mlirb
+      sha256: 03f997017b6f575c4ac53264d78bfe168eb078520865441ed5c43da404dfaef2
+      size_bytes: 120911038
+    - path: rfdetr-nano_float32.aimodel/main.mlirb
+      sha256: 5d8747cead2af04f5f9a3353f2a0a3fc0d5830f3979aa12a781c870c287e3e9b
+      size_bytes: 107962969
+    - path: rfdetr-seg-2xlarge_float32.aimodel/main.mlirb
+      sha256: 7870456d91343f8c1316a04d61f2b9dacecc6127f1f2aef41932d69d7bc4547f
+      size_bytes: 140901149
+    - path: rfdetr-seg-large_float32.aimodel/main.mlirb
+      sha256: 4cfc3d04d38c739dc083f6d6641cc7f52f6d1a450c5729742ab82f9bf48eeffd
+      size_bytes: 130856589
+    - path: rfdetr-seg-medium_float32.aimodel/main.mlirb
+      sha256: a2ac79e1d257649e0080423cb1ae980a035057a73b168d741c3095b6dda7c983
+      size_bytes: 130128371
+    - path: rfdetr-seg-nano_float32.aimodel/main.mlirb
+      sha256: 45dc72ea270e1707019a1fa002a9eda278bc63a0b9bb8bb20df254d72521a07e
+      size_bytes: 122759405
+    - path: rfdetr-seg-small_float32.aimodel/main.mlirb
+      sha256: a12e2aa7908994164340b28ba3702866f52d2f0497be49cc2f055671065e0313
+      size_bytes: 123306024
+    - path: rfdetr-seg-xlarge_float32.aimodel/main.mlirb
+      sha256: d2518453b6ce0aa8778883cca2e117dcfa924092d799aa3c021fc8bde8a4b6ee
+      size_bytes: 138729619
+    - path: rfdetr-small_float32.aimodel/main.mlirb
+      sha256: e7d90cfecadd4c1e6216fba23df501703cd7d067d6b20495937ce028509fc1e5
+      size_bytes: 114573344
+    - path: split/rfdetr-medium_backbone.aimodel/main.mlirb
+      sha256: 53c303d1004daedf9b1f901bb3fc2f08aaac6617e6fa6848ceec359674658d91
+      size_bytes: 94282817
+    - path: split/rfdetr-medium_head.aimodel/main.mlirb
+      sha256: 141dc5231b5f1a257bb8bfd7f47a17b909ccac517ee378bf893c8ad52a4a0f60
+      size_bytes: 26631231
+    - path: split/rfdetr-nano_backbone.aimodel/main.mlirb
+      sha256: 653bb2d3645311d554d2ecb4c79cc32134d668982bf8ddb96f5c089aa48b2bbd
+      size_bytes: 93176619
+    - path: split/rfdetr-nano_head.aimodel/main.mlirb
+      sha256: ba3ef1283562ea9b774d11949e52fc65b3001549f66233214a55c5c41f8c0769
+      size_bytes: 14790518
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -434,6 +1415,62 @@ artifacts:
     owner: mlboydaisuke
     repo: RF-DETR-CoreAI
     url: https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI
+    revision: 2db240872456748838cdaa1bf3f49f11c3de2e4d
+    files:
+    - path: demo_coco_252219.jpg
+      sha256: 5712cf0fd3e1e46ae9670c3d04a6159c02f833b774a9e31beff6394a1c028dce
+      size_bytes: 122478
+    - path: demo_coco_cats.jpg
+      sha256: 44f0219c22d04b15145544ad463b9e658bf9b5fd37c77d3d305d077efdccf974
+      size_bytes: 139164
+    - path: demo_seg_coco_252219.jpg
+      sha256: 345e0bfb7029ba2aa9a60f216bcd6c0590b7bb9f7737a925462f28c73e152fc8
+      size_bytes: 119223
+    - path: demo_seg_coco_cats.jpg
+      sha256: 0c02a4c63d0380b212630cc211dd9e19595970567c2161cfa14a7fc30975d7c3
+      size_bytes: 125864
+    - path: rfdetr-large_float32.aimodel/main.mlirb
+      sha256: f2513ed3e3fcf3aaee863736268c6ef930bfb5e3ba017a619b98856f67160446
+      size_bytes: 121906905
+    - path: rfdetr-medium_float32.aimodel/main.mlirb
+      sha256: 03f997017b6f575c4ac53264d78bfe168eb078520865441ed5c43da404dfaef2
+      size_bytes: 120911038
+    - path: rfdetr-nano_float32.aimodel/main.mlirb
+      sha256: 5d8747cead2af04f5f9a3353f2a0a3fc0d5830f3979aa12a781c870c287e3e9b
+      size_bytes: 107962969
+    - path: rfdetr-seg-2xlarge_float32.aimodel/main.mlirb
+      sha256: 7870456d91343f8c1316a04d61f2b9dacecc6127f1f2aef41932d69d7bc4547f
+      size_bytes: 140901149
+    - path: rfdetr-seg-large_float32.aimodel/main.mlirb
+      sha256: 4cfc3d04d38c739dc083f6d6641cc7f52f6d1a450c5729742ab82f9bf48eeffd
+      size_bytes: 130856589
+    - path: rfdetr-seg-medium_float32.aimodel/main.mlirb
+      sha256: a2ac79e1d257649e0080423cb1ae980a035057a73b168d741c3095b6dda7c983
+      size_bytes: 130128371
+    - path: rfdetr-seg-nano_float32.aimodel/main.mlirb
+      sha256: 45dc72ea270e1707019a1fa002a9eda278bc63a0b9bb8bb20df254d72521a07e
+      size_bytes: 122759405
+    - path: rfdetr-seg-small_float32.aimodel/main.mlirb
+      sha256: a12e2aa7908994164340b28ba3702866f52d2f0497be49cc2f055671065e0313
+      size_bytes: 123306024
+    - path: rfdetr-seg-xlarge_float32.aimodel/main.mlirb
+      sha256: d2518453b6ce0aa8778883cca2e117dcfa924092d799aa3c021fc8bde8a4b6ee
+      size_bytes: 138729619
+    - path: rfdetr-small_float32.aimodel/main.mlirb
+      sha256: e7d90cfecadd4c1e6216fba23df501703cd7d067d6b20495937ce028509fc1e5
+      size_bytes: 114573344
+    - path: split/rfdetr-medium_backbone.aimodel/main.mlirb
+      sha256: 53c303d1004daedf9b1f901bb3fc2f08aaac6617e6fa6848ceec359674658d91
+      size_bytes: 94282817
+    - path: split/rfdetr-medium_head.aimodel/main.mlirb
+      sha256: 141dc5231b5f1a257bb8bfd7f47a17b909ccac517ee378bf893c8ad52a4a0f60
+      size_bytes: 26631231
+    - path: split/rfdetr-nano_backbone.aimodel/main.mlirb
+      sha256: 653bb2d3645311d554d2ecb4c79cc32134d668982bf8ddb96f5c089aa48b2bbd
+      size_bytes: 93176619
+    - path: split/rfdetr-nano_head.aimodel/main.mlirb
+      sha256: ba3ef1283562ea9b774d11949e52fc65b3001549f66233214a55c5c41f8c0769
+      size_bytes: 14790518
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -448,6 +1485,62 @@ artifacts:
     owner: mlboydaisuke
     repo: RF-DETR-CoreAI
     url: https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI
+    revision: 2db240872456748838cdaa1bf3f49f11c3de2e4d
+    files:
+    - path: demo_coco_252219.jpg
+      sha256: 5712cf0fd3e1e46ae9670c3d04a6159c02f833b774a9e31beff6394a1c028dce
+      size_bytes: 122478
+    - path: demo_coco_cats.jpg
+      sha256: 44f0219c22d04b15145544ad463b9e658bf9b5fd37c77d3d305d077efdccf974
+      size_bytes: 139164
+    - path: demo_seg_coco_252219.jpg
+      sha256: 345e0bfb7029ba2aa9a60f216bcd6c0590b7bb9f7737a925462f28c73e152fc8
+      size_bytes: 119223
+    - path: demo_seg_coco_cats.jpg
+      sha256: 0c02a4c63d0380b212630cc211dd9e19595970567c2161cfa14a7fc30975d7c3
+      size_bytes: 125864
+    - path: rfdetr-large_float32.aimodel/main.mlirb
+      sha256: f2513ed3e3fcf3aaee863736268c6ef930bfb5e3ba017a619b98856f67160446
+      size_bytes: 121906905
+    - path: rfdetr-medium_float32.aimodel/main.mlirb
+      sha256: 03f997017b6f575c4ac53264d78bfe168eb078520865441ed5c43da404dfaef2
+      size_bytes: 120911038
+    - path: rfdetr-nano_float32.aimodel/main.mlirb
+      sha256: 5d8747cead2af04f5f9a3353f2a0a3fc0d5830f3979aa12a781c870c287e3e9b
+      size_bytes: 107962969
+    - path: rfdetr-seg-2xlarge_float32.aimodel/main.mlirb
+      sha256: 7870456d91343f8c1316a04d61f2b9dacecc6127f1f2aef41932d69d7bc4547f
+      size_bytes: 140901149
+    - path: rfdetr-seg-large_float32.aimodel/main.mlirb
+      sha256: 4cfc3d04d38c739dc083f6d6641cc7f52f6d1a450c5729742ab82f9bf48eeffd
+      size_bytes: 130856589
+    - path: rfdetr-seg-medium_float32.aimodel/main.mlirb
+      sha256: a2ac79e1d257649e0080423cb1ae980a035057a73b168d741c3095b6dda7c983
+      size_bytes: 130128371
+    - path: rfdetr-seg-nano_float32.aimodel/main.mlirb
+      sha256: 45dc72ea270e1707019a1fa002a9eda278bc63a0b9bb8bb20df254d72521a07e
+      size_bytes: 122759405
+    - path: rfdetr-seg-small_float32.aimodel/main.mlirb
+      sha256: a12e2aa7908994164340b28ba3702866f52d2f0497be49cc2f055671065e0313
+      size_bytes: 123306024
+    - path: rfdetr-seg-xlarge_float32.aimodel/main.mlirb
+      sha256: d2518453b6ce0aa8778883cca2e117dcfa924092d799aa3c021fc8bde8a4b6ee
+      size_bytes: 138729619
+    - path: rfdetr-small_float32.aimodel/main.mlirb
+      sha256: e7d90cfecadd4c1e6216fba23df501703cd7d067d6b20495937ce028509fc1e5
+      size_bytes: 114573344
+    - path: split/rfdetr-medium_backbone.aimodel/main.mlirb
+      sha256: 53c303d1004daedf9b1f901bb3fc2f08aaac6617e6fa6848ceec359674658d91
+      size_bytes: 94282817
+    - path: split/rfdetr-medium_head.aimodel/main.mlirb
+      sha256: 141dc5231b5f1a257bb8bfd7f47a17b909ccac517ee378bf893c8ad52a4a0f60
+      size_bytes: 26631231
+    - path: split/rfdetr-nano_backbone.aimodel/main.mlirb
+      sha256: 653bb2d3645311d554d2ecb4c79cc32134d668982bf8ddb96f5c089aa48b2bbd
+      size_bytes: 93176619
+    - path: split/rfdetr-nano_head.aimodel/main.mlirb
+      sha256: ba3ef1283562ea9b774d11949e52fc65b3001549f66233214a55c5c41f8c0769
+      size_bytes: 14790518
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -462,6 +1555,62 @@ artifacts:
     owner: mlboydaisuke
     repo: RF-DETR-CoreAI
     url: https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI
+    revision: 2db240872456748838cdaa1bf3f49f11c3de2e4d
+    files:
+    - path: demo_coco_252219.jpg
+      sha256: 5712cf0fd3e1e46ae9670c3d04a6159c02f833b774a9e31beff6394a1c028dce
+      size_bytes: 122478
+    - path: demo_coco_cats.jpg
+      sha256: 44f0219c22d04b15145544ad463b9e658bf9b5fd37c77d3d305d077efdccf974
+      size_bytes: 139164
+    - path: demo_seg_coco_252219.jpg
+      sha256: 345e0bfb7029ba2aa9a60f216bcd6c0590b7bb9f7737a925462f28c73e152fc8
+      size_bytes: 119223
+    - path: demo_seg_coco_cats.jpg
+      sha256: 0c02a4c63d0380b212630cc211dd9e19595970567c2161cfa14a7fc30975d7c3
+      size_bytes: 125864
+    - path: rfdetr-large_float32.aimodel/main.mlirb
+      sha256: f2513ed3e3fcf3aaee863736268c6ef930bfb5e3ba017a619b98856f67160446
+      size_bytes: 121906905
+    - path: rfdetr-medium_float32.aimodel/main.mlirb
+      sha256: 03f997017b6f575c4ac53264d78bfe168eb078520865441ed5c43da404dfaef2
+      size_bytes: 120911038
+    - path: rfdetr-nano_float32.aimodel/main.mlirb
+      sha256: 5d8747cead2af04f5f9a3353f2a0a3fc0d5830f3979aa12a781c870c287e3e9b
+      size_bytes: 107962969
+    - path: rfdetr-seg-2xlarge_float32.aimodel/main.mlirb
+      sha256: 7870456d91343f8c1316a04d61f2b9dacecc6127f1f2aef41932d69d7bc4547f
+      size_bytes: 140901149
+    - path: rfdetr-seg-large_float32.aimodel/main.mlirb
+      sha256: 4cfc3d04d38c739dc083f6d6641cc7f52f6d1a450c5729742ab82f9bf48eeffd
+      size_bytes: 130856589
+    - path: rfdetr-seg-medium_float32.aimodel/main.mlirb
+      sha256: a2ac79e1d257649e0080423cb1ae980a035057a73b168d741c3095b6dda7c983
+      size_bytes: 130128371
+    - path: rfdetr-seg-nano_float32.aimodel/main.mlirb
+      sha256: 45dc72ea270e1707019a1fa002a9eda278bc63a0b9bb8bb20df254d72521a07e
+      size_bytes: 122759405
+    - path: rfdetr-seg-small_float32.aimodel/main.mlirb
+      sha256: a12e2aa7908994164340b28ba3702866f52d2f0497be49cc2f055671065e0313
+      size_bytes: 123306024
+    - path: rfdetr-seg-xlarge_float32.aimodel/main.mlirb
+      sha256: d2518453b6ce0aa8778883cca2e117dcfa924092d799aa3c021fc8bde8a4b6ee
+      size_bytes: 138729619
+    - path: rfdetr-small_float32.aimodel/main.mlirb
+      sha256: e7d90cfecadd4c1e6216fba23df501703cd7d067d6b20495937ce028509fc1e5
+      size_bytes: 114573344
+    - path: split/rfdetr-medium_backbone.aimodel/main.mlirb
+      sha256: 53c303d1004daedf9b1f901bb3fc2f08aaac6617e6fa6848ceec359674658d91
+      size_bytes: 94282817
+    - path: split/rfdetr-medium_head.aimodel/main.mlirb
+      sha256: 141dc5231b5f1a257bb8bfd7f47a17b909ccac517ee378bf893c8ad52a4a0f60
+      size_bytes: 26631231
+    - path: split/rfdetr-nano_backbone.aimodel/main.mlirb
+      sha256: 653bb2d3645311d554d2ecb4c79cc32134d668982bf8ddb96f5c089aa48b2bbd
+      size_bytes: 93176619
+    - path: split/rfdetr-nano_head.aimodel/main.mlirb
+      sha256: ba3ef1283562ea9b774d11949e52fc65b3001549f66233214a55c5c41f8c0769
+      size_bytes: 14790518
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -476,6 +1625,62 @@ artifacts:
     owner: mlboydaisuke
     repo: RF-DETR-CoreAI
     url: https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI
+    revision: 2db240872456748838cdaa1bf3f49f11c3de2e4d
+    files:
+    - path: demo_coco_252219.jpg
+      sha256: 5712cf0fd3e1e46ae9670c3d04a6159c02f833b774a9e31beff6394a1c028dce
+      size_bytes: 122478
+    - path: demo_coco_cats.jpg
+      sha256: 44f0219c22d04b15145544ad463b9e658bf9b5fd37c77d3d305d077efdccf974
+      size_bytes: 139164
+    - path: demo_seg_coco_252219.jpg
+      sha256: 345e0bfb7029ba2aa9a60f216bcd6c0590b7bb9f7737a925462f28c73e152fc8
+      size_bytes: 119223
+    - path: demo_seg_coco_cats.jpg
+      sha256: 0c02a4c63d0380b212630cc211dd9e19595970567c2161cfa14a7fc30975d7c3
+      size_bytes: 125864
+    - path: rfdetr-large_float32.aimodel/main.mlirb
+      sha256: f2513ed3e3fcf3aaee863736268c6ef930bfb5e3ba017a619b98856f67160446
+      size_bytes: 121906905
+    - path: rfdetr-medium_float32.aimodel/main.mlirb
+      sha256: 03f997017b6f575c4ac53264d78bfe168eb078520865441ed5c43da404dfaef2
+      size_bytes: 120911038
+    - path: rfdetr-nano_float32.aimodel/main.mlirb
+      sha256: 5d8747cead2af04f5f9a3353f2a0a3fc0d5830f3979aa12a781c870c287e3e9b
+      size_bytes: 107962969
+    - path: rfdetr-seg-2xlarge_float32.aimodel/main.mlirb
+      sha256: 7870456d91343f8c1316a04d61f2b9dacecc6127f1f2aef41932d69d7bc4547f
+      size_bytes: 140901149
+    - path: rfdetr-seg-large_float32.aimodel/main.mlirb
+      sha256: 4cfc3d04d38c739dc083f6d6641cc7f52f6d1a450c5729742ab82f9bf48eeffd
+      size_bytes: 130856589
+    - path: rfdetr-seg-medium_float32.aimodel/main.mlirb
+      sha256: a2ac79e1d257649e0080423cb1ae980a035057a73b168d741c3095b6dda7c983
+      size_bytes: 130128371
+    - path: rfdetr-seg-nano_float32.aimodel/main.mlirb
+      sha256: 45dc72ea270e1707019a1fa002a9eda278bc63a0b9bb8bb20df254d72521a07e
+      size_bytes: 122759405
+    - path: rfdetr-seg-small_float32.aimodel/main.mlirb
+      sha256: a12e2aa7908994164340b28ba3702866f52d2f0497be49cc2f055671065e0313
+      size_bytes: 123306024
+    - path: rfdetr-seg-xlarge_float32.aimodel/main.mlirb
+      sha256: d2518453b6ce0aa8778883cca2e117dcfa924092d799aa3c021fc8bde8a4b6ee
+      size_bytes: 138729619
+    - path: rfdetr-small_float32.aimodel/main.mlirb
+      sha256: e7d90cfecadd4c1e6216fba23df501703cd7d067d6b20495937ce028509fc1e5
+      size_bytes: 114573344
+    - path: split/rfdetr-medium_backbone.aimodel/main.mlirb
+      sha256: 53c303d1004daedf9b1f901bb3fc2f08aaac6617e6fa6848ceec359674658d91
+      size_bytes: 94282817
+    - path: split/rfdetr-medium_head.aimodel/main.mlirb
+      sha256: 141dc5231b5f1a257bb8bfd7f47a17b909ccac517ee378bf893c8ad52a4a0f60
+      size_bytes: 26631231
+    - path: split/rfdetr-nano_backbone.aimodel/main.mlirb
+      sha256: 653bb2d3645311d554d2ecb4c79cc32134d668982bf8ddb96f5c089aa48b2bbd
+      size_bytes: 93176619
+    - path: split/rfdetr-nano_head.aimodel/main.mlirb
+      sha256: ba3ef1283562ea9b774d11949e52fc65b3001549f66233214a55c5c41f8c0769
+      size_bytes: 14790518
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -490,6 +1695,62 @@ artifacts:
     owner: mlboydaisuke
     repo: RF-DETR-CoreAI
     url: https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI
+    revision: 2db240872456748838cdaa1bf3f49f11c3de2e4d
+    files:
+    - path: demo_coco_252219.jpg
+      sha256: 5712cf0fd3e1e46ae9670c3d04a6159c02f833b774a9e31beff6394a1c028dce
+      size_bytes: 122478
+    - path: demo_coco_cats.jpg
+      sha256: 44f0219c22d04b15145544ad463b9e658bf9b5fd37c77d3d305d077efdccf974
+      size_bytes: 139164
+    - path: demo_seg_coco_252219.jpg
+      sha256: 345e0bfb7029ba2aa9a60f216bcd6c0590b7bb9f7737a925462f28c73e152fc8
+      size_bytes: 119223
+    - path: demo_seg_coco_cats.jpg
+      sha256: 0c02a4c63d0380b212630cc211dd9e19595970567c2161cfa14a7fc30975d7c3
+      size_bytes: 125864
+    - path: rfdetr-large_float32.aimodel/main.mlirb
+      sha256: f2513ed3e3fcf3aaee863736268c6ef930bfb5e3ba017a619b98856f67160446
+      size_bytes: 121906905
+    - path: rfdetr-medium_float32.aimodel/main.mlirb
+      sha256: 03f997017b6f575c4ac53264d78bfe168eb078520865441ed5c43da404dfaef2
+      size_bytes: 120911038
+    - path: rfdetr-nano_float32.aimodel/main.mlirb
+      sha256: 5d8747cead2af04f5f9a3353f2a0a3fc0d5830f3979aa12a781c870c287e3e9b
+      size_bytes: 107962969
+    - path: rfdetr-seg-2xlarge_float32.aimodel/main.mlirb
+      sha256: 7870456d91343f8c1316a04d61f2b9dacecc6127f1f2aef41932d69d7bc4547f
+      size_bytes: 140901149
+    - path: rfdetr-seg-large_float32.aimodel/main.mlirb
+      sha256: 4cfc3d04d38c739dc083f6d6641cc7f52f6d1a450c5729742ab82f9bf48eeffd
+      size_bytes: 130856589
+    - path: rfdetr-seg-medium_float32.aimodel/main.mlirb
+      sha256: a2ac79e1d257649e0080423cb1ae980a035057a73b168d741c3095b6dda7c983
+      size_bytes: 130128371
+    - path: rfdetr-seg-nano_float32.aimodel/main.mlirb
+      sha256: 45dc72ea270e1707019a1fa002a9eda278bc63a0b9bb8bb20df254d72521a07e
+      size_bytes: 122759405
+    - path: rfdetr-seg-small_float32.aimodel/main.mlirb
+      sha256: a12e2aa7908994164340b28ba3702866f52d2f0497be49cc2f055671065e0313
+      size_bytes: 123306024
+    - path: rfdetr-seg-xlarge_float32.aimodel/main.mlirb
+      sha256: d2518453b6ce0aa8778883cca2e117dcfa924092d799aa3c021fc8bde8a4b6ee
+      size_bytes: 138729619
+    - path: rfdetr-small_float32.aimodel/main.mlirb
+      sha256: e7d90cfecadd4c1e6216fba23df501703cd7d067d6b20495937ce028509fc1e5
+      size_bytes: 114573344
+    - path: split/rfdetr-medium_backbone.aimodel/main.mlirb
+      sha256: 53c303d1004daedf9b1f901bb3fc2f08aaac6617e6fa6848ceec359674658d91
+      size_bytes: 94282817
+    - path: split/rfdetr-medium_head.aimodel/main.mlirb
+      sha256: 141dc5231b5f1a257bb8bfd7f47a17b909ccac517ee378bf893c8ad52a4a0f60
+      size_bytes: 26631231
+    - path: split/rfdetr-nano_backbone.aimodel/main.mlirb
+      sha256: 653bb2d3645311d554d2ecb4c79cc32134d668982bf8ddb96f5c089aa48b2bbd
+      size_bytes: 93176619
+    - path: split/rfdetr-nano_head.aimodel/main.mlirb
+      sha256: ba3ef1283562ea9b774d11949e52fc65b3001549f66233214a55c5c41f8c0769
+      size_bytes: 14790518
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -504,6 +1765,62 @@ artifacts:
     owner: mlboydaisuke
     repo: RF-DETR-CoreAI
     url: https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI
+    revision: 2db240872456748838cdaa1bf3f49f11c3de2e4d
+    files:
+    - path: demo_coco_252219.jpg
+      sha256: 5712cf0fd3e1e46ae9670c3d04a6159c02f833b774a9e31beff6394a1c028dce
+      size_bytes: 122478
+    - path: demo_coco_cats.jpg
+      sha256: 44f0219c22d04b15145544ad463b9e658bf9b5fd37c77d3d305d077efdccf974
+      size_bytes: 139164
+    - path: demo_seg_coco_252219.jpg
+      sha256: 345e0bfb7029ba2aa9a60f216bcd6c0590b7bb9f7737a925462f28c73e152fc8
+      size_bytes: 119223
+    - path: demo_seg_coco_cats.jpg
+      sha256: 0c02a4c63d0380b212630cc211dd9e19595970567c2161cfa14a7fc30975d7c3
+      size_bytes: 125864
+    - path: rfdetr-large_float32.aimodel/main.mlirb
+      sha256: f2513ed3e3fcf3aaee863736268c6ef930bfb5e3ba017a619b98856f67160446
+      size_bytes: 121906905
+    - path: rfdetr-medium_float32.aimodel/main.mlirb
+      sha256: 03f997017b6f575c4ac53264d78bfe168eb078520865441ed5c43da404dfaef2
+      size_bytes: 120911038
+    - path: rfdetr-nano_float32.aimodel/main.mlirb
+      sha256: 5d8747cead2af04f5f9a3353f2a0a3fc0d5830f3979aa12a781c870c287e3e9b
+      size_bytes: 107962969
+    - path: rfdetr-seg-2xlarge_float32.aimodel/main.mlirb
+      sha256: 7870456d91343f8c1316a04d61f2b9dacecc6127f1f2aef41932d69d7bc4547f
+      size_bytes: 140901149
+    - path: rfdetr-seg-large_float32.aimodel/main.mlirb
+      sha256: 4cfc3d04d38c739dc083f6d6641cc7f52f6d1a450c5729742ab82f9bf48eeffd
+      size_bytes: 130856589
+    - path: rfdetr-seg-medium_float32.aimodel/main.mlirb
+      sha256: a2ac79e1d257649e0080423cb1ae980a035057a73b168d741c3095b6dda7c983
+      size_bytes: 130128371
+    - path: rfdetr-seg-nano_float32.aimodel/main.mlirb
+      sha256: 45dc72ea270e1707019a1fa002a9eda278bc63a0b9bb8bb20df254d72521a07e
+      size_bytes: 122759405
+    - path: rfdetr-seg-small_float32.aimodel/main.mlirb
+      sha256: a12e2aa7908994164340b28ba3702866f52d2f0497be49cc2f055671065e0313
+      size_bytes: 123306024
+    - path: rfdetr-seg-xlarge_float32.aimodel/main.mlirb
+      sha256: d2518453b6ce0aa8778883cca2e117dcfa924092d799aa3c021fc8bde8a4b6ee
+      size_bytes: 138729619
+    - path: rfdetr-small_float32.aimodel/main.mlirb
+      sha256: e7d90cfecadd4c1e6216fba23df501703cd7d067d6b20495937ce028509fc1e5
+      size_bytes: 114573344
+    - path: split/rfdetr-medium_backbone.aimodel/main.mlirb
+      sha256: 53c303d1004daedf9b1f901bb3fc2f08aaac6617e6fa6848ceec359674658d91
+      size_bytes: 94282817
+    - path: split/rfdetr-medium_head.aimodel/main.mlirb
+      sha256: 141dc5231b5f1a257bb8bfd7f47a17b909ccac517ee378bf893c8ad52a4a0f60
+      size_bytes: 26631231
+    - path: split/rfdetr-nano_backbone.aimodel/main.mlirb
+      sha256: 653bb2d3645311d554d2ecb4c79cc32134d668982bf8ddb96f5c089aa48b2bbd
+      size_bytes: 93176619
+    - path: split/rfdetr-nano_head.aimodel/main.mlirb
+      sha256: ba3ef1283562ea9b774d11949e52fc65b3001549f66233214a55c5c41f8c0769
+      size_bytes: 14790518
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -518,6 +1835,11 @@ artifacts:
     owner: mlboydaisuke
     repo: AdcSR-CoreAI
     url: https://huggingface.co/mlboydaisuke/AdcSR-CoreAI
+    revision: 44430712e3609590fb0721e6ae7c8b5d0b5aa6b7
+    files:
+    - path: adcsr_x4_float32.aimodel/main.mlirb
+      sha256: 42ccfcce6e8bbc6ec8fb0db81bbfca4e72ed4a28a0507c195ea76d9cf0ef28d0
+      size_bytes: 1824597090
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -532,6 +1854,20 @@ artifacts:
     owner: mlboydaisuke
     repo: Depth-Anything-3-CoreAI
     url: https://huggingface.co/mlboydaisuke/Depth-Anything-3-CoreAI
+    revision: d60a4971a6fd0303ab1430934664cb59e9f92b11
+    files:
+    - path: base/da3-base_float16.aimodel/main.mlirb
+      sha256: ed385ced49b3e2975621b8d54bead7a410d1aa19d818bc4ac150a1c04767f7bb
+      size_bytes: 201980350
+    - path: base/da3-base_float32.aimodel/main.mlirb
+      sha256: 8896cd06d05ae7e12ca85d2d5423d7556ff0f8c15a43c10b07c983751f092e70
+      size_bytes: 401763991
+    - path: small/da3-small_float16.aimodel/main.mlirb
+      sha256: 6049d6818a0a694c6ded26b38849ae3f4e5060ef71171f975bb29cfa3426e307
+      size_bytes: 54518253
+    - path: small/da3-small_float32.aimodel/main.mlirb
+      sha256: 1aaaa46646686447e525b60752628a5bcdb56ecb5dd3575b6ffcb354f3093fab
+      size_bytes: 104852846
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -546,6 +1882,20 @@ artifacts:
     owner: mlboydaisuke
     repo: Depth-Anything-3-CoreAI
     url: https://huggingface.co/mlboydaisuke/Depth-Anything-3-CoreAI
+    revision: d60a4971a6fd0303ab1430934664cb59e9f92b11
+    files:
+    - path: base/da3-base_float16.aimodel/main.mlirb
+      sha256: ed385ced49b3e2975621b8d54bead7a410d1aa19d818bc4ac150a1c04767f7bb
+      size_bytes: 201980350
+    - path: base/da3-base_float32.aimodel/main.mlirb
+      sha256: 8896cd06d05ae7e12ca85d2d5423d7556ff0f8c15a43c10b07c983751f092e70
+      size_bytes: 401763991
+    - path: small/da3-small_float16.aimodel/main.mlirb
+      sha256: 6049d6818a0a694c6ded26b38849ae3f4e5060ef71171f975bb29cfa3426e307
+      size_bytes: 54518253
+    - path: small/da3-small_float32.aimodel/main.mlirb
+      sha256: 1aaaa46646686447e525b60752628a5bcdb56ecb5dd3575b6ffcb354f3093fab
+      size_bytes: 104852846
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -560,6 +1910,14 @@ artifacts:
     owner: mlboydaisuke
     repo: gpt-oss-20b-CoreAI-official
     url: https://huggingface.co/mlboydaisuke/gpt-oss-20b-CoreAI-official
+    revision: 7959a1e59bf516cead9c87315c9c2eaf1e290499
+    files:
+    - path: macos/gpt_oss_20b_dynamic.aimodel/main.mlirb
+      sha256: 63fb96f521f2579efb4d38013037431852bc4f07f471c8b78997ced3d20a230c
+      size_bytes: 13761652705
+    - path: macos/tokenizer/tokenizer.json
+      sha256: 0614fe83cadab421296e664e1f48f4261fa8fef6e03e63bb75c20f38e37d07d3
+      size_bytes: 27868174
   officiality:
     apple_export_recipe: true
     apple_hosted_artifact: false
@@ -574,6 +1932,26 @@ artifacts:
     owner: mlboydaisuke
     repo: qwen3-0.6b-CoreAI-official
     url: https://huggingface.co/mlboydaisuke/qwen3-0.6b-CoreAI-official
+    revision: 01382eba92524926c3f5ba101a6a67d0fa741d40
+    files:
+    - path: ios/qwen3_0_6b_mixed_4bit_8bit_static.aimodel/main.mlirb
+      sha256: 151bbb15ef14b599bc62b7b08c2969e732febe0a2d43886414aa9d5f29213b01
+      size_bytes: 438221416
+    - path: ios/tokenizer/tokenizer.json
+      sha256: aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4
+      size_bytes: 11422654
+    - path: macos-26-export/qwen3_0_6b_dynamic.aimodel/main.mlirb
+      sha256: f7a8357f50292f4425591fb0ed2ef4c89c91b658498d89e7e8b516eca0e89554
+      size_bytes: 342654870
+    - path: macos-26-export/tokenizer/tokenizer.json
+      sha256: aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4
+      size_bytes: 11422654
+    - path: macos/qwen3_0_6b_4bit_dynamic.aimodel/main.mlirb
+      sha256: e05ad9093c651e07e0a9c8589319ec1cc9e865e2b474f52a22b143d9ab6c3147
+      size_bytes: 335826388
+    - path: macos/tokenizer/tokenizer.json
+      sha256: aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4
+      size_bytes: 11422654
   officiality:
     apple_export_recipe: true
     apple_hosted_artifact: false
@@ -588,6 +1966,20 @@ artifacts:
     owner: mlboydaisuke
     repo: qwen3-4b-CoreAI-official
     url: https://huggingface.co/mlboydaisuke/qwen3-4b-CoreAI-official
+    revision: 77402d470fcaa5837924a81cc656ad215ce914ae
+    files:
+    - path: ios/qwen3_4b_mixed_4bit_8bit_static.aimodel/main.mlirb
+      sha256: a1c45800117f2a0a00df5cd4196485a7ea6bc9d894b3d4cac3f3aa032a1c0a89
+      size_bytes: 2482480693
+    - path: ios/tokenizer/tokenizer.json
+      sha256: aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4
+      size_bytes: 11422654
+    - path: macos/qwen3_4b_4bit_dynamic.aimodel/main.mlirb
+      sha256: e9d1e9e49e70e7abe0c9a24062603a827483ed6ffb9ac4f244c553156c8ce5e7
+      size_bytes: 2263659087
+    - path: macos/tokenizer/tokenizer.json
+      sha256: aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4
+      size_bytes: 11422654
   officiality:
     apple_export_recipe: true
     apple_hosted_artifact: false
@@ -602,6 +1994,14 @@ artifacts:
     owner: mlboydaisuke
     repo: qwen3-8b-CoreAI-official
     url: https://huggingface.co/mlboydaisuke/qwen3-8b-CoreAI-official
+    revision: cecbb0a65a317b549416dea5b7e7e7642ce4d5a4
+    files:
+    - path: macos/qwen3_8b_4bit_dynamic.aimodel/main.mlirb
+      sha256: f659250441d88f9eaf6f260b11e2644edac9245b7bea89e30c70dc1960ef953b
+      size_bytes: 4608471104
+    - path: macos/tokenizer/tokenizer.json
+      sha256: aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4
+      size_bytes: 11422654
   officiality:
     apple_export_recipe: true
     apple_hosted_artifact: false
@@ -616,6 +2016,17 @@ artifacts:
     owner: mlboydaisuke
     repo: gemma-3-4b-it-CoreAI-official
     url: https://huggingface.co/mlboydaisuke/gemma-3-4b-it-CoreAI-official
+    revision: 6f796475157fbec76aadb3bc662ad2c3ecca5eda
+    files:
+    - path: macos/gemma_3_4b_it_4bit_dynamic.aimodel/main.mlirb
+      sha256: 68b103aa2994ed50b9bb14f32bd9f746afc7eebae4b65d28c913a72dbd5fce91
+      size_bytes: 2183754832
+    - path: macos/tokenizer/tokenizer.json
+      sha256: 4667f2089529e8e7657cfb6d1c19910ae71ff5f28aa7ab2ff2763330affad795
+      size_bytes: 33384568
+    - path: macos/tokenizer/tokenizer.model
+      sha256: 1299c11d7cf632ef3b4e11937501358ada021bbdf7c47638d13c0ee982f2e79c
+      size_bytes: 4689074
   officiality:
     apple_export_recipe: true
     apple_hosted_artifact: false
@@ -630,6 +2041,17 @@ artifacts:
     owner: mlboydaisuke
     repo: gemma-3-12b-it-CoreAI-official
     url: https://huggingface.co/mlboydaisuke/gemma-3-12b-it-CoreAI-official
+    revision: 8c12bebb3401844c83fd57c9ffdcd5a690dda595
+    files:
+    - path: macos/gemma_3_12b_it_4bit_dynamic.aimodel/main.mlirb
+      sha256: 21f9976e535b53c514801dbaf264cc76d7e3691e53f9199a01171328a48118f0
+      size_bytes: 6620606445
+    - path: macos/tokenizer/tokenizer.json
+      sha256: 4667f2089529e8e7657cfb6d1c19910ae71ff5f28aa7ab2ff2763330affad795
+      size_bytes: 33384568
+    - path: macos/tokenizer/tokenizer.model
+      sha256: 1299c11d7cf632ef3b4e11937501358ada021bbdf7c47638d13c0ee982f2e79c
+      size_bytes: 4689074
   officiality:
     apple_export_recipe: true
     apple_hosted_artifact: false
@@ -644,6 +2066,11 @@ artifacts:
     owner: mlboydaisuke
     repo: mistral-7b-v0.3-CoreAI-official
     url: https://huggingface.co/mlboydaisuke/mistral-7b-v0.3-CoreAI-official
+    revision: 5ffdebc3d03c912a9349587e6cc42b4053fd9189
+    files:
+    - path: macos/mistral_7b_instruct_v0_3_4bit_dynamic.aimodel/main.mlirb
+      sha256: 81c422124f0ccbf7e5e325a846e77656a4efeef0fc70bf0c5e1dfeb48de7581e
+      size_bytes: 4077727655
   officiality:
     apple_export_recipe: true
     apple_hosted_artifact: false
@@ -658,6 +2085,29 @@ artifacts:
     owner: mlboydaisuke
     repo: FLUX.2-klein-4B-CoreAI
     url: https://huggingface.co/mlboydaisuke/FLUX.2-klein-4B-CoreAI
+    revision: 592d3ab3170fb9ca3175ac5e719f32b2bb7abada
+    files:
+    - path: TextEncoder.aimodel/main.mlirb
+      sha256: d497ffe53417ba913c6578fc94fc745df8bc5696f1a955c76db7492586ac537e
+      size_bytes: 1947992148
+    - path: Transformer.aimodel/main.mlirb
+      sha256: f03183d01679b56300a896e3899ef8ac95c84354dfbf1aa86a67d6e4c0b00698
+      size_bytes: 2180379861
+    - path: VAEDecoder.aimodel/main.mlirb
+      sha256: 1507792e3f090fec2eb5f741495d08ca5c4500764e6a0f436eebdf928cc7ddfa
+      size_bytes: 99302874
+    - path: VAEEncoder.aimodel/main.mlirb
+      sha256: 5485b1bbf477fef72d2d0783214e8d636d82474056a047a702320de5cd16cb9e
+      size_bytes: 68902112
+    - path: tokenizer/tokenizer.json
+      sha256: aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4
+      size_bytes: 11422654
+    - path: vae_bn_mean.npy
+      sha256: b2e3b98b3b1483e4573093d41b9e3890627724c7c0bfaa215ba1e2ef151b6d09
+      size_bytes: 640
+    - path: vae_bn_var.npy
+      sha256: 9418da87092c06ffb4f72402e3c3d142b671878f6cea5e8da3c547befbd64861
+      size_bytes: 640
   officiality:
     apple_export_recipe: true
     apple_hosted_artifact: false
@@ -672,6 +2122,11 @@ artifacts:
     owner: mlboydaisuke
     repo: sam3-CoreAI-official
     url: https://huggingface.co/mlboydaisuke/sam3-CoreAI-official
+    revision: aba841753d6ab16043d735fdfed793396e38553f
+    files:
+    - path: sam3_float16.aimodel/main.mlirb
+      sha256: be9484b4c5fa75f9011668c481e27de253e1db55fcde39a1ba0cab8698706620
+      size_bytes: 1663478532
   officiality:
     apple_export_recipe: true
     apple_hosted_artifact: false
@@ -686,6 +2141,29 @@ artifacts:
     owner: mlboydaisuke
     repo: whisper-large-v3-turbo-CoreAI-official
     url: https://huggingface.co/mlboydaisuke/whisper-large-v3-turbo-CoreAI-official
+    revision: dc309164a791e838809e5dc0395844a5df9f440e
+    files:
+    - path: demo.gif
+      sha256: 919f383e638b875ed8c23e83a3be0b5b0dbaa9ceaabe5763a16ec79e20cbbc3d
+      size_bytes: 339501
+    - path: ios/whisper-large-v3-turbo_float16_fixed128.aimodel/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/original_model_0.mpsgraph
+      sha256: 0e78bd469f9115103001c00f8ea2da62682fcbaa723dcc2e8a6be8b132eb5418
+      size_bytes: 178329
+    - path: ios/whisper-large-v3-turbo_float16_fixed128.aimodel/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/resources.bin
+      sha256: 21014d54a23ed5692591fd48f28e348da3e0abbc17db5c51296658bceda7b25a
+      size_bytes: 3228682796
+    - path: ios/whisper-large-v3-turbo_float16_fixed128.aimodel/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/specialized_model_1.mpsgraph
+      sha256: 5280114d9d0da5379ea960d00c5b5098f2ffdb1ff83b845d9bb14f76d96b49c4
+      size_bytes: 378888
+    - path: macos/whisper-large-v3-turbo_float16_fixed128.aimodel/main.mlirb
+      sha256: f5824a2e01906ad72bb3241573e75a41ecbf89c2ebe5fb8b87716752cf144881
+      size_bytes: 1617225017
+    - path: mel_filters_128.npy
+      sha256: 4eb6b0fe7aa985fa2ce80d81260d8b5b30ff908d2808a5d637683228c648db6f
+      size_bytes: 103040
+    - path: whisper-large-v3-turbo_float16_fixed128.aimodel/main.mlirb
+      sha256: f5824a2e01906ad72bb3241573e75a41ecbf89c2ebe5fb8b87716752cf144881
+      size_bytes: 1617225017
   officiality:
     apple_export_recipe: true
     apple_hosted_artifact: false
@@ -700,6 +2178,11 @@ artifacts:
     owner: mlboydaisuke
     repo: MiniCPM5-1B-CoreAI
     url: https://huggingface.co/mlboydaisuke/MiniCPM5-1B-CoreAI
+    revision: 337d59a1a0f61006994906915c759ab03843f77b
+    files:
+    - path: int8/minicpm5_1b_int8.aimodel/main.mlirb
+      sha256: 250aec0974a7e4238a0c1a4200b030962056cc395fb4899cc26d597cda255991
+      size_bytes: 1082186106
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -714,6 +2197,17 @@ artifacts:
     owner: mlboydaisuke
     repo: FastContext-1.0-4B-CoreAI
     url: https://huggingface.co/mlboydaisuke/FastContext-1.0-4B-CoreAI
+    revision: 2c3f0271528bf8046c808730569300051a5d7ddb
+    files:
+    - path: gpu/fastcontext_4b_dynamic.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/original_model_0.mpsgraph
+      sha256: c5431097eeb89a849e66b7328d1fd0fde9401e52bb8398abae8a273428d21f4e
+      size_bytes: 342609
+    - path: gpu/fastcontext_4b_dynamic.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/resources.bin
+      sha256: dac4da9957e4f184a67007e819a1754e52519c7a774545c6dbe10db9f44d2a60
+      size_bytes: 2263273012
+    - path: gpu/tokenizer/tokenizer.json
+      sha256: aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4
+      size_bytes: 11422654
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -728,6 +2222,17 @@ artifacts:
     owner: mlboydaisuke
     repo: BitCPM-8B-CoreAI
     url: https://huggingface.co/mlboydaisuke/BitCPM-8B-CoreAI
+    revision: 173f6fff880332c1834860729f1ff3d83bf01d47
+    files:
+    - path: gpu-pipelined/bitcpm_8b_decode_ternary_s1/bitcpm_8b_decode_ternary_s1.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/original_model_0.mpsgraph
+      sha256: 3f93ca45e196485a412f07f066d7ae1126f51047965f4b1577c0aaa78455191c
+      size_bytes: 381956
+    - path: gpu-pipelined/bitcpm_8b_decode_ternary_s1/bitcpm_8b_decode_ternary_s1.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/resources.bin
+      sha256: 328263ef54b0710c0d762212c4df198ca6f8a92a560def9d48b42c34a6093683
+      size_bytes: 3175754404
+    - path: gpu-pipelined/bitcpm_8b_decode_ternary_s1/tokenizer/tokenizer.model
+      sha256: bb74d51116831c3bf65db812c553f94ab0c88dcf97a5bbb37e3504f6d359c530
+      size_bytes: 1181204
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -742,6 +2247,17 @@ artifacts:
     owner: mlboydaisuke
     repo: Holo2-4B-CoreAI
     url: https://huggingface.co/mlboydaisuke/Holo2-4B-CoreAI
+    revision: 30b8a128791191f89c13d03f9dc7b152db4b6144
+    files:
+    - path: gpu-pipelined/holo2_4b_decode_int8lin_s1/holo2_4b_decode_int8lin_s1.aimodel/main.mlirb
+      sha256: eb59b82f8684e70d4b8dd58e3bb7dd3ae86b81ad23e75353d6fbef59cb473371
+      size_bytes: 4639446445
+    - path: gpu-pipelined/holo2_4b_decode_int8lin_s1/tokenizer/tokenizer.json
+      sha256: aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4
+      size_bytes: 11422654
+    - path: gpu-pipelined/holo2_4b_vision/holo2_4b_vision.aimodel/main.mlirb
+      sha256: c0b85d42fea0fc7d7252683ddea6dbe48e1df1f640b7c2001f88fb045417e151
+      size_bytes: 827946056
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -756,6 +2272,20 @@ artifacts:
     owner: mlboydaisuke
     repo: ColModernVBERT-CoreAI
     url: https://huggingface.co/mlboydaisuke/ColModernVBERT-CoreAI
+    revision: 21759168dd5f2084d6440fbd53d8761231e4d2ea
+    files:
+    - path: doc/colmodernvbert-doc_float16_s89_static.aimodel/main.mlirb
+      sha256: 5a45f482e93fcee4bd3595501d5421f7444976916bb92beea6d033c1ed19774b
+      size_bytes: 426703966
+    - path: fp32/doc/colmodernvbert-doc_float32_s89_static.aimodel/main.mlirb
+      sha256: 7359114cfd76184a835ea911b163adee98485c7ca667bfaa3c120f3b3fbc1e6c
+      size_bytes: 852898790
+    - path: fp32/query/colmodernvbert-query_float32_s32_static.aimodel/main.mlirb
+      sha256: 1156c67a95a0424c25972f143942ba2c309d4ac1be9f1cc4bd6d65e40cdf59c8
+      size_bytes: 624058345
+    - path: query/colmodernvbert-query_float16_s32_static.aimodel/main.mlirb
+      sha256: 490a399f909e6b6306cc5fc8d87ddecf3618c462c226b191a2a1659f74fc6e98
+      size_bytes: 312212955
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -770,6 +2300,17 @@ artifacts:
     owner: mlboydaisuke
     repo: Qwen3-ASR-1.7B-CoreAI
     url: https://huggingface.co/mlboydaisuke/Qwen3-ASR-1.7B-CoreAI
+    revision: 853dab46fbc1af33b9c800738d26d6f35cddf4b7
+    files:
+    - path: gpu-pipelined/qwen3_asr_1.7b_audio_encoder_fp16_k30/qwen3_asr_1.7b_audio_encoder_fp16_k30.aimodel/main.mlirb
+      sha256: 7fe370140bd9b250ac14b50481809a17517d7b589e3c1d8e2f66467a03968e69
+      size_bytes: 635133290
+    - path: gpu-pipelined/qwen3_asr_1.7b_decode_int8hu_n390_s1/qwen3_asr_1.7b_decode_int8hu_n390_s1.aimodel/main.mlirb
+      sha256: eb35500a7caa82aa453a1d442a7d939b4e3a12a2044daf057481793dd97707cc
+      size_bytes: 2450983171
+    - path: gpu-pipelined/qwen3_asr_1.7b_decode_int8hu_n390_s1/tokenizer/tokenizer.json
+      sha256: bd2a97b55c8f7f9c328c73ee9b9178771037e9f566dfca8e238a063d41cbac92
+      size_bytes: 11429377
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -784,6 +2325,23 @@ artifacts:
     owner: mlboydaisuke
     repo: Parakeet-TDT-0.6B-CoreAI
     url: https://huggingface.co/mlboydaisuke/Parakeet-TDT-0.6B-CoreAI
+    revision: 48d9e3187c1bb479fdc52fbe6bb5f979d6a92705
+    files:
+    - path: demo.gif
+      sha256: 699702b8617ba5c60c957ca4e99c652cf867b604617d582d6254d57e1d017a69
+      size_bytes: 157030
+    - path: mel_filters_128x257_f32.bin
+      sha256: bce5ec5f194a5913f6508cee5a85512e7bad2352db8fc28f5c6ff75af8b09137
+      size_bytes: 131584
+    - path: parakeet_encoder_float16_L2885.aimodel/main.mlirb
+      sha256: 509e5129f87b2e8d78cdd0a85158311eb36d45b78b409d60f7fb71ae2e02ef28
+      size_bytes: 1221023465
+    - path: parakeet_joint_float32.aimodel/main.mlirb
+      sha256: a26d337099b65157eb2602258ce79a3ea8b3314be41188eb5f8a4ee03e889afd
+      size_bytes: 21021917
+    - path: parakeet_predict_float32.aimodel/main.mlirb
+      sha256: e80bebf441ad9b650f38c5934d6cda962cf884fa8995550dd384253f1ef4ebcb
+      size_bytes: 48880540
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -798,6 +2356,119 @@ artifacts:
     owner: mlboydaisuke
     repo: VoxCPM2-CoreAI
     url: https://huggingface.co/mlboydaisuke/VoxCPM2-CoreAI
+    revision: 0cbf395f0108f76c7eceb704a63b8c08d555eb61
+    files:
+    - path: ios/voxcpm2_base_int8_decode_cl512.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/original_model_0.mpsgraph
+      sha256: 8b0328022d0770597921cdc4959db60a396798f6f9072b87aa975c4950a4fd72
+      size_bytes: 352178
+    - path: ios/voxcpm2_base_int8_decode_cl512.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/resources.bin
+      sha256: 550455a217f54983747df0b1706afb876c1bd0dfdc0694b53b6ed1d7c5bc043b
+      size_bytes: 1323006512
+    - path: ios/voxcpm2_base_int8_decode_cl512.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/specialized_model_1.mpsgraph
+      sha256: 214c3633228cc74c8cdc4ec9a392fa461c86a1d156f25563a6871d75b915e9c5
+      size_bytes: 509550
+    - path: ios/voxcpm2_base_int8_prefill_t32.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/original_model_0.mpsgraph
+      sha256: f0c17b9ca259b9d8b01df233bab179c794745f7a1bc5a630463c37535babe1d3
+      size_bytes: 361950
+    - path: ios/voxcpm2_base_int8_prefill_t32.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/resources.bin
+      sha256: 0f51bf7c74af28ad41221cd04a3c4f6ee0d9e8487a80c0eec2d42f9ca6dff8b8
+      size_bytes: 1323053620
+    - path: ios/voxcpm2_base_int8_prefill_t32.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/specialized_model_1.mpsgraph
+      sha256: 7eb12099388dda8ff50706b2306d42acc8d8b84569b1d811992c44feb36d4d24
+      size_bytes: 537009
+    - path: ios/voxcpm2_feat_decoder_fp16.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/original_model_0.mpsgraph
+      sha256: 637e2a5134ef05425ec917ed2bdcae1c33897f0f2d95939d3d2288a2151e6cb9
+      size_bytes: 874446
+    - path: ios/voxcpm2_feat_decoder_fp16.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/resources.bin
+      sha256: 31c48d3d754ab44a55c6a271d54241cb3627d0268cac1dad7e2c5cf53c4c5867
+      size_bytes: 848415108
+    - path: ios/voxcpm2_feat_decoder_fp16.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/specialized_model_1.mpsgraph
+      sha256: c8bddd6c5eddd7c171dce915aebb4a6ecb23bef68c239689023e9d7b6bce4f22
+      size_bytes: 1582897
+    - path: ios/voxcpm2_feat_encoder_fp16.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/resources.bin
+      sha256: cbee44c320df0e832dbb18876b10622ba5b7dec6c7ecd1f82b6d2a38df325998
+      size_bytes: 839188752
+    - path: ios/voxcpm2_feat_encoder_fp16.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/specialized_model_1.mpsgraph
+      sha256: fc77548110c5e6cf58f6ead536988a0ef8c76751671512e3342b924561c5b2b2
+      size_bytes: 172557
+    - path: ios/voxcpm2_res_int8_decode_cl512.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/resources.bin
+      sha256: 44f5898712f7cf450d5a4032efe6ad079a6e33eda056fa4ed7961bec58066b31
+      size_bytes: 377932524
+    - path: ios/voxcpm2_res_int8_decode_cl512.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/specialized_model_1.mpsgraph
+      sha256: 517e8494e875da9e96b17bd82ed136ac8b3a625e839d2d9d23c4cf60b3f630b2
+      size_bytes: 109243
+    - path: ios/voxcpm2_res_int8_prefill_t32.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/resources.bin
+      sha256: 6465cb590b2bc65a07dd4b92681ebf5d0c066a623cc3a46bea53fc7199a5bb55
+      size_bytes: 377963244
+    - path: ios/voxcpm2_res_int8_prefill_t32.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/specialized_model_1.mpsgraph
+      sha256: a2a50c088426c9dc3ea67e9a2d36c6acb8861d90b6e93dc572269f636f7403af
+      size_bytes: 112380
+    - path: ios/voxcpm2_vocoder_fp16_t8.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/resources.bin
+      sha256: 65ddaa72e3ce0eae2082758ac0072cdbec561f3cce7024ed113ef1e9449d480f
+      size_bytes: 182885808
+    - path: macos/voxcpm2_base_int8_decode_cl512/voxcpm2_base_int8_decode_cl512.aimodel/main.mlirb
+      sha256: f6d9559540eaa9761e1795267fedd5a31f4f3859b59855c7ff2baef6055cb81c
+      size_bytes: 1323227984
+    - path: macos/voxcpm2_base_int8_prefill_t32/voxcpm2_base_int8_prefill_t32.aimodel/main.mlirb
+      sha256: f3a5d1e38f63bf8eba0fd3eb5599c20a913b50284f5a3cda508cc245eb6d3107
+      size_bytes: 1323285392
+    - path: macos/voxcpm2_feat_decoder_fp16/voxcpm2_feat_decoder_fp16.aimodel/main.mlirb
+      sha256: b78adf2c784e68376e761ae9d737a3629d62005855588824245eff6451a1c923
+      size_bytes: 425409250
+    - path: macos/voxcpm2_feat_encoder_fp16/voxcpm2_feat_encoder_fp16.aimodel/main.mlirb
+      sha256: c8a6c9e62b82332798a1cfa8fc4e88ce6a38d3863ad00a20e43d0f5a1f3c4405
+      size_bytes: 419761374
+    - path: macos/voxcpm2_res_int8_decode_cl512/voxcpm2_res_int8_decode_cl512.aimodel/main.mlirb
+      sha256: 98ecde0ec1f822f70a1c372e92109e87982299567af189a389e5ff8c4f6d0f41
+      size_bytes: 377973258
+    - path: macos/voxcpm2_res_int8_prefill_t32/voxcpm2_res_int8_prefill_t32.aimodel/main.mlirb
+      sha256: 492ccb3f9e102ae6a05dcfaaab1321850fed887118884fcf25595311688b0e29
+      size_bytes: 378006835
+    - path: macos/voxcpm2_vocoder_fp16_t8/voxcpm2_vocoder_fp16_t8.aimodel/main.mlirb
+      sha256: 523afe031a24d7e9a5998805ccc1b40474e2ae7c57cb4e8c1805e017f3b097b3
+      size_bytes: 91578309
+    - path: voxcpm2_host_glue/embed_tokens.bin
+      sha256: e4321641ac7a837ba3be585c73cca686159724577abaa16f16926b636bb4549c
+      size_bytes: 300843008
+    - path: voxcpm2_host_glue/fsq_in_b.bin
+      sha256: 2941a0241a0655b665f8a4e7f9ecf4fef48a42dde4d5faed90b1691df569f33c
+      size_bytes: 2048
+    - path: voxcpm2_host_glue/fsq_in_w.bin
+      sha256: bdca3c2a1bee2b659610156a6d381e0a8366a24a51b6972d1892f69ab7d51a11
+      size_bytes: 4194304
+    - path: voxcpm2_host_glue/fsq_out_b.bin
+      sha256: d9038ceae836cbd4fcd435b47a9d1b21c669852e9ddb15483d9addeeb1c2e1c0
+      size_bytes: 8192
+    - path: voxcpm2_host_glue/fsq_out_w.bin
+      sha256: 01782ab563b11a0a1425aa50ea9bd9abd23a32ffbfd28dac9bd94903e047ac09
+      size_bytes: 4194304
+    - path: voxcpm2_host_glue/fusion_b.bin
+      sha256: 1d5354fbd85eefa5c84b60a507000803e285ff744c9e2c9ee1003426e498c257
+      size_bytes: 8192
+    - path: voxcpm2_host_glue/fusion_w.bin
+      sha256: e692759ba614ad0e21b4193a39388227aca48fbeccd6b7142fd377cbc0923166
+      size_bytes: 33554432
+    - path: voxcpm2_host_glue/lm_to_dit_b.bin
+      sha256: 864a519a0bf4b831534355a0974af37577186a2ed3ec5d1f22bf3c7ccd8af861
+      size_bytes: 4096
+    - path: voxcpm2_host_glue/lm_to_dit_w.bin
+      sha256: 4fe82c220796098cf019b0e13d820032b89a485b010e29e85c1133cacb71d2f3
+      size_bytes: 8388608
+    - path: voxcpm2_host_glue/res_to_dit_b.bin
+      sha256: 97dffc1bc2a020f8dce0cec2ad6c22b70e4edf36f9423402806eb24ff066d67f
+      size_bytes: 4096
+    - path: voxcpm2_host_glue/res_to_dit_w.bin
+      sha256: 47e11d162ffcfeb1bc628e40c257a1661b07979d44f9487ae835b77807a0cdd6
+      size_bytes: 8388608
+    - path: voxcpm2_host_glue/stop_head_w.bin
+      sha256: 2efc98b6d2a488447eb086f105ea7b74db62bb8a5f8a1dba2ac1ad38d5653201
+      size_bytes: 16384
+    - path: voxcpm2_host_glue/stop_proj_b.bin
+      sha256: a175bdc6b145aafeff09276bc82663794388742815f471466894d825293e541d
+      size_bytes: 8192
+    - path: voxcpm2_host_glue/stop_proj_w.bin
+      sha256: e11cd25ddea908c7305fc72bd9ddc380805562d32e0f6953caba55604c94f541
+      size_bytes: 16777216
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -826,6 +2497,26 @@ artifacts:
     owner: mlboydaisuke
     repo: TripoSplat-CoreAI
     url: https://huggingface.co/mlboydaisuke/TripoSplat-CoreAI
+    revision: b22831756b3e883d8ac6a99d420366fcfb8e94ca
+    files:
+    - path: decode_fp32.aimodel/main.mlirb
+      sha256: 43f3e57b5ff3e37fca344e5303d0532a08e8bd65765a3ea77bc8e0d71c261742
+      size_bytes: 949402894
+    - path: dinov3_fp16.aimodel/main.mlirb
+      sha256: 696e58509edca94afe5cb5ac841ae413f0f58b4ae8fe107154a9b73609a751bd
+      size_bytes: 1681455018
+    - path: dit_fp16.aimodel/main.mlirb
+      sha256: fc710bb65e6f1e385e59488e6ea2678bbe67a656f4adf7dddc5c91b647b9e79c
+      size_bytes: 758927980
+    - path: gs_fp16.aimodel/main.mlirb
+      sha256: 26ffaae8b49ca31d2b253e7c9f206ff1a42a778e1c4807ed42b0860fc6cb1a7a
+      size_bytes: 475102303
+    - path: octree_fp32.aimodel/main.mlirb
+      sha256: 657dc29ebbb92476e2d6e6cf344d8aa53bcce291424319c056c0f09161eb15a6
+      size_bytes: 203236017
+    - path: vae_fp16.aimodel/main.mlirb
+      sha256: fc094b24206beb8f36042c54412dd66b68de7928401961a6e8a18916264ee649
+      size_bytes: 68919930
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -840,6 +2531,20 @@ artifacts:
     owner: mlboydaisuke
     repo: LTX-Video-2B-CoreAI
     url: https://huggingface.co/mlboydaisuke/LTX-Video-2B-CoreAI
+    revision: 341f6282b0ba0de8b5e7dd7a2a7b56ac3f3a2792
+    files:
+    - path: dit_fp16.aimodel/main.mlirb
+      sha256: 4ee455c4111fcfbb3befeba2335008bbd12166e6f90bf2ce14833233e16164f3
+      size_bytes: 3847626533
+    - path: sample.mp4
+      sha256: 207aff8b101c30a60f2c09de942f114a36286fa5c93dff2dd6cdabddd8788e67
+      size_bytes: 192665
+    - path: t5_bf16.aimodel/main.mlirb
+      sha256: dd49d4f4419c3fe7b55c9afaca087f391dba8f6bf22f710cf6d79d57c3e5fc16
+      size_bytes: 9524934059
+    - path: vae_fp16.aimodel/main.mlirb
+      sha256: 3cc6e61b69de749ccb905244550f0616c01467a4970aba1f113fc27e25208760
+      size_bytes: 1105832695
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -854,6 +2559,17 @@ artifacts:
     owner: mlboydaisuke
     repo: qwen3-1.7b-CoreAI-official
     url: https://huggingface.co/mlboydaisuke/qwen3-1.7b-CoreAI-official
+    revision: ba6610656169b268b9d8430c347926bebd15914a
+    files:
+    - path: ios-gpu/qwen3_1_7b_dynamic.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/original_model_0.mpsgraph
+      sha256: 2785d70783383e19ea2086e215c60c11048423f50055e3db11cbe3f560174b31
+      size_bytes: 258615
+    - path: ios-gpu/qwen3_1_7b_dynamic.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/resources.bin
+      sha256: d938e06492eb1a9bc242cd0b37e130f505b779bebcb87bc725287ad36f761c08
+      size_bytes: 968161268
+    - path: ios-gpu/tokenizer/tokenizer.json
+      sha256: aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4
+      size_bytes: 11422654
   officiality:
     apple_export_recipe: true
     apple_hosted_artifact: false
@@ -868,6 +2584,11 @@ artifacts:
     owner: mlboydaisuke
     repo: clip-vit-base-patch32-CoreAI-official
     url: https://huggingface.co/mlboydaisuke/clip-vit-base-patch32-CoreAI-official
+    revision: 5ea27812e9dbd85e1a4c2baf0bab3c0ffc8c829d
+    files:
+    - path: model/clip-vit-base-patch32_float16_static.aimodel/main.mlirb
+      sha256: d4094dfea3cfc7582427721e24eac4ac4bcc9619b983fafdad5ff432a0933e68
+      size_bytes: 302771548
   officiality:
     apple_export_recipe: true
     apple_hosted_artifact: false
@@ -882,6 +2603,11 @@ artifacts:
     owner: mlboydaisuke
     repo: LLaDA-8B-dLLM-CoreAI
     url: https://huggingface.co/mlboydaisuke/LLaDA-8B-dLLM-CoreAI
+    revision: 2b7f2d4ab1472bccd75cc1cbd9f3467d5333a52f
+    files:
+    - path: macos/llada8b_int4hu_s256.aimodel/main.mlirb
+      sha256: 1856f831302d324e0b1ead3109f90d8c5ffbb900d63b5bbd4eb5aba870c45c36
+      size_bytes: 5254456821
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -896,6 +2622,44 @@ artifacts:
     owner: mlboydaisuke
     repo: BitVLA-CoreAI
     url: https://huggingface.co/mlboydaisuke/BitVLA-CoreAI
+    revision: 09624c0e73adcbf83da444d5fadc934045014ef5
+    files:
+    - path: aimodel/bitvla_llm_act/bitvla_llm_act.aimodel/main.mlirb
+      sha256: 790a790d3563ca50304a46a1c0998985afcc642ab3f08045ae19f3866d4beb50
+      size_bytes: 526909746
+    - path: aimodel/bitvla_vision/bitvla_vision.aimodel/main.mlirb
+      sha256: 42df14920bfde1d4d6a1bca40e530273cc767b02fcb82e997aa1c1e80337c3e2
+      size_bytes: 813585419
+    - path: h18p/bitvla_device_data/act_embed.f16
+      sha256: 20c0fd44bb985d5a3fcb930b4a1541f253ae22353961a6d87920596866e79748
+      size_bytes: 1310720
+    - path: h18p/bitvla_device_data/e_post_3.f16
+      sha256: 9e070fb8a58b7760a1adea6d218f396ad41bd287e3b31bb8e1d71e72bbcb13cf
+      size_bytes: 102400
+    - path: h18p/bitvla_device_data/e_pre.f16
+      sha256: 1698b05e73745c01625a434dcf5c860475d22c49018b07ce1e20f8144309c09e
+      size_bytes: 179200
+    - path: h18p/bitvla_device_data/sample.png
+      sha256: cf6f3c4befa148732c7453e0de5afab00f682427435fead2d88b07a9615cdac2
+      size_bytes: 694498
+    - path: h18p/bitvla_llm_act/bitvla_llm_act.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/original_model_0.mpsgraph
+      sha256: dbe785007bff24d55c390df1f14f28a10185279e2614781a1d91fc639cb3e514
+      size_bytes: 565697
+    - path: h18p/bitvla_llm_act/bitvla_llm_act.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/resources.bin
+      sha256: c963c2d4c3d4919274acfd2898206b5ddc28aee6230f29a76eabf208b301cd85
+      size_bytes: 527492772
+    - path: h18p/bitvla_llm_act/bitvla_llm_act.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/specialized_model_1.mpsgraph
+      sha256: 709627f91367168436b13d6e40b86ce87cae4d40c388caa8f485e294d733aebb
+      size_bytes: 964963
+    - path: h18p/bitvla_vision/bitvla_vision.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/original_model_0.mpsgraph
+      sha256: d1061e846772638df72932736dc823995bab1beef3f2f20e322c1705c301afec
+      size_bytes: 118311
+    - path: h18p/bitvla_vision/bitvla_vision.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/resources.bin
+      sha256: 5f894f0cafe624dc4a16c9af60f800b19828317589be8f1913b6badc19094e28
+      size_bytes: 1625653524
+    - path: h18p/bitvla_vision/bitvla_vision.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/specialized_model_1.mpsgraph
+      sha256: 5a3d48dcea19c39512b1d6fa1711d955598db540b711c02877522c7aabe70b96
+      size_bytes: 209967
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -910,6 +2674,20 @@ artifacts:
     owner: mlboydaisuke
     repo: Stable-Audio-Open-Small-CoreAI
     url: https://huggingface.co/mlboydaisuke/Stable-Audio-Open-Small-CoreAI
+    revision: ac57a07d0f1b44af0cd57712bf4483750c807b6e
+    files:
+    - path: demo.gif
+      sha256: 639c9c31abf204374bdda00a9e9d91359ea578d7bb74248631a804f087ea6a01
+      size_bytes: 356948
+    - path: macos/sa_cond_fp16b.aimodel/main.mlirb
+      sha256: 43feb5110437c65502f03869d598804c962d99d1bc864d36243284c4040fb0e5
+      size_bytes: 219890015
+    - path: macos/sa_dit_fp16.aimodel/main.mlirb
+      sha256: 89116ed561887f439bc49538c43d25774daa6b26b76d7fe414724ac2ab0d1dda
+      size_bytes: 682114965
+    - path: macos/sa_vae_fp16.aimodel/main.mlirb
+      sha256: 52ce6d578f726099e198a6a135ace9b7f334632228c5bec4f930883e4c45b23e
+      size_bytes: 156237126
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -923,6 +2701,14 @@ artifacts:
     owner: CarstenL
     repo: whisper-large-v3-turbo-coreai
     url: https://huggingface.co/CarstenL/whisper-large-v3-turbo-coreai
+    revision: 116af6d3c71c08fd2fa7ba93c6e96c61cc2e93e5
+    files:
+    - path: whisper-large-v3-turbo-decoder_float16.aimodel/main.mlirb
+      sha256: 943f843a908c2d45c21ff7a5810af42e114129417f84aef760fe7f1f8f7718c6
+      size_bytes: 343444757
+    - path: whisper-large-v3-turbo-encoder_float16.aimodel/main.mlirb
+      sha256: fb158decb12402028a899abb9926e8d5bcae9a05a8aa133d2833af59f08bb728
+      size_bytes: 1274154277
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -937,6 +2723,11 @@ artifacts:
     owner: Intiser
     repo: whisper-tiny-en-coreai
     url: https://huggingface.co/Intiser/whisper-tiny-en-coreai
+    revision: 5aa1cad18df988a534f2621f865fc79f5caca135
+    files:
+    - path: whisper-tiny.en/float16/main.mlirb
+      sha256: dc39c395d1f63a66de408a836da26a8d32604f2a7d7aa0c0e9fb3d686ebf53d9
+      size_bytes: 75604376
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -951,6 +2742,11 @@ artifacts:
     owner: Intiser
     repo: whisper-medium-coreai
     url: https://huggingface.co/Intiser/whisper-medium-coreai
+    revision: 4a873ab181e8043cd9e9f33783d5620ad5b30be6
+    files:
+    - path: whisper-medium/float16/main.mlirb
+      sha256: 046a11ff42defe3425554f5ca103fa749b806bdfa788c55bd0a7080f36dd2009
+      size_bytes: 1528174115
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -964,6 +2760,17 @@ artifacts:
     owner: warshanks
     repo: gemma-4-12B-it-coreai
     url: https://huggingface.co/warshanks/gemma-4-12B-it-coreai
+    revision: 022fa7c2ad75c14bc54c729817770ecb2188a3f9
+    files:
+    - path: gemma_4_12b_it_mm_4bit.aimodel/main.mlirb
+      sha256: 73ff84d7cb0bdf3e7dee62ee610ed97728e99a18d5c119e8f889688347f5683e
+      size_bytes: 6804189677
+    - path: pad_embedding.bin
+      sha256: 93a319cc5300b3ef7ee2590bafbf39089c5302217d9eecb4ded4e5a4f583fc55
+      size_bytes: 7680
+    - path: tokenizer/tokenizer.json
+      sha256: cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f
+      size_bytes: 32169626
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -977,6 +2784,11 @@ artifacts:
     owner: warshanks
     repo: gemma-4-12B-it-assistant-coreai
     url: https://huggingface.co/warshanks/gemma-4-12B-it-assistant-coreai
+    revision: 5c9bb24635d4d44fe60260e680853fb56712cde0
+    files:
+    - path: gemma_4_12b_it_assistant_4bit.aimodel/main.mlirb
+      sha256: 771386a65bbb5414180418420654ba040237e7b18be6861652fc69a523a82b0a
+      size_bytes: 804168631
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -991,6 +2803,47 @@ artifacts:
     owner: gafiatulin
     repo: vibevoice-0.5b-coreai
     url: https://huggingface.co/gafiatulin/vibevoice-0.5b-coreai
+    revision: ab7f5c813d3cb0814a9c209940227d5ef3f60054
+    files:
+    - path: codec/acoustic-decoder-chunk.aimodel/main.mlirb
+      sha256: 24afc23d43f9e61f87aeebb229216015081c05e356ce3d548a7e1d01ee8ccfaf
+      size_bytes: 687520991
+    - path: codec/acoustic-decoder-streaming.aimodel/main.mlirb
+      sha256: 2fd69375c25685380c4f6df63b6301c60bb15385d24e9e00c1dc2429c7235d7f
+      size_bytes: 687521421
+    - path: codec/acoustic-decoder.aimodel/main.mlirb
+      sha256: 2fd69375c25685380c4f6df63b6301c60bb15385d24e9e00c1dc2429c7235d7f
+      size_bytes: 687521421
+    - path: connector/acoustic-connector.aimodel/main.mlirb
+      sha256: 09af4104cf52fadcf16209fb2899038d64dbb2ab2d87d1f830cce6d3f1436109
+      size_bytes: 1730166
+    - path: diffusion/diffusion-head.aimodel/main.mlirb
+      sha256: 6458aecf10ce8ddd95efa33abbd67a293029f3215fa74f2f4bd47eee0511c89c
+      size_bytes: 84208426
+    - path: diffusion/fused-sampler.aimodel/main.mlirb
+      sha256: d91600528e34eb877fd90a62610e12d93dd22caa6cef0284e1329a90b928b574
+      size_bytes: 84349109
+    - path: embed_tokens.f16
+      sha256: 62866b7a89c6297e893a2ab114c54c42d6f7abddb9cfe36dd38fe95696b95d31
+      size_bytes: 272269312
+    - path: lm/base-lm-int4.aimodel/main.mlirb
+      sha256: 825f42c9e5c206377ead61f11218a905faff6294aa3943397c7fcaf7e310ea68
+      size_bytes: 33617048
+    - path: lm/base-lm.aimodel/main.mlirb
+      sha256: dae52583f86ee4566012a1eba58cec9207cc7e2c8da54a0dfce40c35c8ee3488
+      size_bytes: 63435927
+    - path: lm/model-int4.aimodel/main.mlirb
+      sha256: 45ae3a916ff4a587f69370594e1f762931da9dadb613a10b0f1e0c13ccf926e1
+      size_bytes: 168052410
+    - path: lm/model.aimodel/main.mlirb
+      sha256: 9d8a6a541ce72d9fcb08074a5705bf3caf4a3b3befda2445db76ba7e979b19fb
+      size_bytes: 317146793
+    - path: lm/tts-lm-int4.aimodel/main.mlirb
+      sha256: 45ae3a916ff4a587f69370594e1f762931da9dadb613a10b0f1e0c13ccf926e1
+      size_bytes: 168052410
+    - path: lm/tts-lm.aimodel/main.mlirb
+      sha256: 9d8a6a541ce72d9fcb08074a5705bf3caf4a3b3befda2445db76ba7e979b19fb
+      size_bytes: 317146793
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -1005,6 +2858,38 @@ artifacts:
     owner: gafiatulin
     repo: vibevoice-1.5b-coreai
     url: https://huggingface.co/gafiatulin/vibevoice-1.5b-coreai
+    revision: 00a6a827af501adbbe0c52a9487dc5902068f89f
+    files:
+    - path: codec/acoustic-decoder-chunk.aimodel/main.mlirb
+      sha256: 104f44d596ddb62e15b500a4bdd865d8b47b87c0f1432ff7351a46187a3eac9b
+      size_bytes: 687520986
+    - path: codec/acoustic-decoder.aimodel/main.mlirb
+      sha256: 48ab4cd2e11a8d2ea8e2a6d8b80ca7a932e024f3dc037638fc109c324d009ed2
+      size_bytes: 687521396
+    - path: codec/acoustic-encoder.aimodel/main.mlirb
+      sha256: 44d0a90e4eb013d9b79670ef8e0bf84485afcd182f1a17fc6c820d25ec47f561
+      size_bytes: 687506962
+    - path: codec/semantic-encoder.aimodel/main.mlirb
+      sha256: 8b295e3546ad98ef8b72978cec44f4bae378ce3ee02b9266d0cfc82fbd511948
+      size_bytes: 689354747
+    - path: connector/acoustic-connector.aimodel/main.mlirb
+      sha256: 6dca827f0cb12f9412ddbd1f59072d99c15afd6f56984e9171678e7bf8f53599
+      size_bytes: 4928884
+    - path: connector/semantic-connector.aimodel/main.mlirb
+      sha256: d9ab3c612f895d34801a606a47e3d179cacc651e502cbedf7caa7759f439e7d1
+      size_bytes: 5125493
+    - path: diffusion/diffusion-head.aimodel/main.mlirb
+      sha256: 3eaaa4372bb44552b5f25f241e1fd2e599280ed41e03fa46502ab3ce1e130843
+      size_bytes: 246578985
+    - path: diffusion/fused-sampler.aimodel/main.mlirb
+      sha256: 48c529a06394c4663c1da81d3583bb5b3326b496ee47aad0f54e05f332bc5d11
+      size_bytes: 246719670
+    - path: embed_tokens.f16
+      sha256: 82d4d3aca26d22b1028828b6d215539abca24dd6b50f0a382813cd2a91ea4054
+      size_bytes: 466747392
+    - path: lm/lm-embeds.aimodel/main.mlirb
+      sha256: 9e30e4d34921e96ff45ad3b8aec8a98d9edad19cba99cb24c7ca7ddd071bf64c
+      size_bytes: 1640622223
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -1019,6 +2904,41 @@ artifacts:
     owner: gafiatulin
     repo: vibevoice-7b-coreai
     url: https://huggingface.co/gafiatulin/vibevoice-7b-coreai
+    revision: befc4a5aab71c8ff2bdf071c01bbda247fe3095a
+    files:
+    - path: codec/acoustic-decoder-chunk.aimodel/main.mlirb
+      sha256: 104f44d596ddb62e15b500a4bdd865d8b47b87c0f1432ff7351a46187a3eac9b
+      size_bytes: 687520986
+    - path: codec/acoustic-decoder.aimodel/main.mlirb
+      sha256: 48ab4cd2e11a8d2ea8e2a6d8b80ca7a932e024f3dc037638fc109c324d009ed2
+      size_bytes: 687521396
+    - path: codec/acoustic-encoder.aimodel/main.mlirb
+      sha256: 44d0a90e4eb013d9b79670ef8e0bf84485afcd182f1a17fc6c820d25ec47f561
+      size_bytes: 687506962
+    - path: codec/semantic-encoder.aimodel/main.mlirb
+      sha256: 8b295e3546ad98ef8b72978cec44f4bae378ce3ee02b9266d0cfc82fbd511948
+      size_bytes: 689354747
+    - path: connector/acoustic-connector.aimodel/main.mlirb
+      sha256: df37fe3e5a6e5994a6bf307862ff2f96812b3ab652a242794d5bc54f7e922a31
+      size_bytes: 26174835
+    - path: connector/semantic-connector.aimodel/main.mlirb
+      sha256: 6b87b527a6cfcac607b98a458740248504ff58083af8e9b1cbf9c9bcaf64c24e
+      size_bytes: 26633589
+    - path: diffusion/fused-sampler-s10.aimodel/main.mlirb
+      sha256: 2ff852b9965200806f28ae01f3963c82c42b54574d1780015083e75c3b368898
+      size_bytes: 1338827954
+    - path: diffusion/fused-sampler.aimodel/main.mlirb
+      sha256: 265d474cbd7fa193ae8b559c92780dd7aba740e61a7f374487dcb81611d9eeb0
+      size_bytes: 1338797069
+    - path: embed_tokens.f16
+      sha256: 70650f6dd5f47302465868386eec0f7dcadeb1c89abb6fff6923fde10ba36228
+      size_bytes: 1089994752
+    - path: lm/lm-embeds-int4.aimodel/main.mlirb
+      sha256: a59d609a5add9354996eff8419caff6e70e0b098b3ec3cc5bb19a4ec0d90c78d
+      size_bytes: 3977992547
+    - path: lm/lm-embeds.aimodel/main.mlirb
+      sha256: da0a2da2a16ebb932c26045c9e2ade880980e0cb76817824a9f7a475e1f08a93
+      size_bytes: 7513135471
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -1033,6 +2953,29 @@ artifacts:
     owner: gafiatulin
     repo: vibevoice-asr-coreai
     url: https://huggingface.co/gafiatulin/vibevoice-asr-coreai
+    revision: 4910bfe139d14c7eef0543bd027cc8313b76094a
+    files:
+    - path: codec/acoustic-encoder.aimodel/main.mlirb
+      sha256: 1d778524856e2d32c5aa98b8d87ea910149f86ce818c14697244a73767a86a0d
+      size_bytes: 687519062
+    - path: codec/semantic-encoder.aimodel/main.mlirb
+      sha256: 4aef252678b42286769ba2a963d2b4ebad3e51d74b818b40b04bcb733e544c53
+      size_bytes: 689354192
+    - path: connector/acoustic-connector.aimodel/main.mlirb
+      sha256: c4e372207d92b100f0e6ddcb2bfc2026cd5b705a7f3fd812c93865b0384c94b7
+      size_bytes: 26174837
+    - path: connector/semantic-connector.aimodel/main.mlirb
+      sha256: 63b8e01a1e1b5bfa252462f406017e8cf115a9930a6030dc3e30014b9bb61364
+      size_bytes: 26633588
+    - path: embed_tokens.f16
+      sha256: 85ac136073d76f2a9c562cd576ba7f574b2a2e2e29e7c6454f6517545c540825
+      size_bytes: 1089994752
+    - path: lm/lm-embeds-int8.aimodel/main.mlirb
+      sha256: 5b44d836fce307415b48f9a525576fbd3bba15d5b22f936027ebae810aa74ecb
+      size_bytes: 7513135465
+    - path: lm/lm-embeds.aimodel/main.mlirb
+      sha256: 4a88f70062483bd0521d797b9e233734c1ea84be28c6afbd2d5f3147edcf9e29
+      size_bytes: 3977992561
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -1047,6 +2990,110 @@ artifacts:
     owner: mweinbach
     repo: nemotron-3.5-asr-streaming-0.6b-coreai
     url: https://huggingface.co/mweinbach/nemotron-3.5-asr-streaming-0.6b-coreai
+    revision: b32cd103b58907e71bf990fb58529a7e31392cc5
+    files:
+    - path: aot/ios/gpu/nemotron-3.5-asr-streaming-0.6b-float16-320ms.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/original_model_0.mpsgraph
+      sha256: 6b9ccf36a78448526f269d9b46bdc385728bff6c58920a57bca974b7b45e41f3
+      size_bytes: 161111
+    - path: aot/ios/gpu/nemotron-3.5-asr-streaming-0.6b-float16-320ms.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/resources.bin
+      sha256: 01c3f6dd35e451539769f8625339cd589682fbe5c7754938051e4d201dec0861
+      size_bytes: 2566206352
+    - path: aot/ios/gpu/nemotron-3.5-asr-streaming-0.6b-float16-320ms.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/specialized_model_1.mpsgraph
+      sha256: e8f1f756980c5fda6273e5602e8cda466080c3b8027365512d49c07d330d302f
+      size_bytes: 559365
+    - path: aot/macos/gpu/nemotron-3.5-asr-streaming-0.6b-float16-320ms.h15d.aimodelc/main-h15d-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/original_model_0.mpsgraph
+      sha256: 6b9ccf36a78448526f269d9b46bdc385728bff6c58920a57bca974b7b45e41f3
+      size_bytes: 161111
+    - path: aot/macos/gpu/nemotron-3.5-asr-streaming-0.6b-float16-320ms.h15d.aimodelc/main-h15d-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/resources.bin
+      sha256: 7f13711d12d32d553b2f27de2aa53f484380a071069f2a5ae21c09d82f9ca3e2
+      size_bytes: 2566203320
+    - path: aot/macos/gpu/nemotron-3.5-asr-streaming-0.6b-float16-320ms.h15d.aimodelc/main-h15d-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/specialized_model_1.mpsgraph
+      sha256: 97953ea27233aa93f193f4c0629a582be2aa243047c620ff8ced6fe23796d116
+      size_bytes: 564781
+    - path: aot/macos/gpu/nemotron-3.5-asr-streaming-0.6b-float16-320ms.h16g.aimodelc/main-h16g-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/original_model_0.mpsgraph
+      sha256: 6b9ccf36a78448526f269d9b46bdc385728bff6c58920a57bca974b7b45e41f3
+      size_bytes: 161111
+    - path: aot/macos/gpu/nemotron-3.5-asr-streaming-0.6b-float16-320ms.h16g.aimodelc/main-h16g-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/resources.bin
+      sha256: 7f13711d12d32d553b2f27de2aa53f484380a071069f2a5ae21c09d82f9ca3e2
+      size_bytes: 2566203320
+    - path: aot/macos/gpu/nemotron-3.5-asr-streaming-0.6b-float16-320ms.h16g.aimodelc/main-h16g-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/specialized_model_1.mpsgraph
+      sha256: 0af72bcb845f71359b376176a463e496fc2b43569cc195fc58f0434eca6d1b49
+      size_bytes: 564780
+    - path: aot/macos/gpu/nemotron-3.5-asr-streaming-0.6b-float16-320ms.h17c.aimodelc/main-h17c-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/original_model_0.mpsgraph
+      sha256: 6b9ccf36a78448526f269d9b46bdc385728bff6c58920a57bca974b7b45e41f3
+      size_bytes: 161111
+    - path: aot/macos/gpu/nemotron-3.5-asr-streaming-0.6b-float16-320ms.h17c.aimodelc/main-h17c-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/resources.bin
+      sha256: 01c3f6dd35e451539769f8625339cd589682fbe5c7754938051e4d201dec0861
+      size_bytes: 2566206352
+    - path: aot/macos/gpu/nemotron-3.5-asr-streaming-0.6b-float16-320ms.h17c.aimodelc/main-h17c-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/specialized_model_1.mpsgraph
+      sha256: 6bc992b53ab5991efe81d8d69eecf2b83c6a7b9456206febdd1f3503b2193f8f
+      size_bytes: 559365
+    - path: aot/macos/gpu/nemotron-3.5-asr-streaming-0.6b-float16-320ms.h17g.aimodelc/main-h17g-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/original_model_0.mpsgraph
+      sha256: 6b9ccf36a78448526f269d9b46bdc385728bff6c58920a57bca974b7b45e41f3
+      size_bytes: 161111
+    - path: aot/macos/gpu/nemotron-3.5-asr-streaming-0.6b-float16-320ms.h17g.aimodelc/main-h17g-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/resources.bin
+      sha256: 01c3f6dd35e451539769f8625339cd589682fbe5c7754938051e4d201dec0861
+      size_bytes: 2566206352
+    - path: aot/macos/gpu/nemotron-3.5-asr-streaming-0.6b-float16-320ms.h17g.aimodelc/main-h17g-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/specialized_model_1.mpsgraph
+      sha256: 9dcedea98199bd4db92244e74de8f5855385ef050611c7a8ecb29e4b57b39d9c
+      size_bytes: 559365
+    - path: aot/macos/gpu/nemotron-3.5-asr-streaming-0.6b-float16-320ms.h17s.aimodelc/main-h17s-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/original_model_0.mpsgraph
+      sha256: 6b9ccf36a78448526f269d9b46bdc385728bff6c58920a57bca974b7b45e41f3
+      size_bytes: 161111
+    - path: aot/macos/gpu/nemotron-3.5-asr-streaming-0.6b-float16-320ms.h17s.aimodelc/main-h17s-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/resources.bin
+      sha256: 01c3f6dd35e451539769f8625339cd589682fbe5c7754938051e4d201dec0861
+      size_bytes: 2566206352
+    - path: aot/macos/gpu/nemotron-3.5-asr-streaming-0.6b-float16-320ms.h17s.aimodelc/main-h17s-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/specialized_model_1.mpsgraph
+      sha256: 2216f04db5b4717f8fb0cb609bb28696bab9e9e60fcccf7521a36aaae35e48c8
+      size_bytes: 559365
+    - path: deployment-int8/frontend.npz
+      sha256: e0105990502f15959fd3ba53653312411d1b6c3fcf62972cf2440dd0ed8874b4
+      size_bytes: 67110
+    - path: deployment-int8/nemotron-3.5-asr-streaming-0.6b-float16-encoder-int8-channel-symclip-lastfp16.aimodel/main.mlirb
+      sha256: 4788b0819d48e6cdc54c1bbbd912acab28ffa6e30a57c9198500b76ca12d8a17
+      size_bytes: 695797358
+    - path: deployment-int8/tokenizer.model
+      sha256: ce3895e40806f02a26c3a225161b96ef682d6c0054bae32a245dec4258d7d291
+      size_bytes: 406554
+    - path: deployment-lut-compact/frontend.npz
+      sha256: e0105990502f15959fd3ba53653312411d1b6c3fcf62972cf2440dd0ed8874b4
+      size_bytes: 67110
+    - path: deployment-lut-compact/nemotron-3.5-asr-streaming-0.6b-float16-encoder-lut6-group4-pcs1-lastfp16.aimodel/main.mlirb
+      sha256: 38094e316b312cb791f022834776e9e4a9e93838276d94438ef86adbc4383b11
+      size_bytes: 564410701
+    - path: deployment-lut-compact/tokenizer.model
+      sha256: ce3895e40806f02a26c3a225161b96ef682d6c0054bae32a245dec4258d7d291
+      size_bytes: 406554
+    - path: deployment-lut-quality/frontend.npz
+      sha256: e0105990502f15959fd3ba53653312411d1b6c3fcf62972cf2440dd0ed8874b4
+      size_bytes: 67110
+    - path: deployment-lut-quality/nemotron-3.5-asr-streaming-0.6b-float16-encoder-lut8-tensor-pcs0-lastfp16.aimodel/main.mlirb
+      sha256: 67f9eee39694262cb7c922f8bbdf3179f9c1712da169dbe1f877e2077e3221a0
+      size_bytes: 695038231
+    - path: deployment-lut-quality/tokenizer.model
+      sha256: ce3895e40806f02a26c3a225161b96ef682d6c0054bae32a245dec4258d7d291
+      size_bytes: 406554
+    - path: reference-fp16/frontend.npz
+      sha256: e0105990502f15959fd3ba53653312411d1b6c3fcf62972cf2440dd0ed8874b4
+      size_bytes: 67110
+    - path: reference-fp16/nemotron-3.5-asr-streaming-0.6b-float16.aimodel/main.mlirb
+      sha256: cf2b7b149f10f9799ce34bdb624e9faddb953f788e563a3f134942874ffc6c82
+      size_bytes: 1278379406
+    - path: reference-fp16/tokenizer.model
+      sha256: ce3895e40806f02a26c3a225161b96ef682d6c0054bae32a245dec4258d7d291
+      size_bytes: 406554
+    - path: reports/compression/compression_exploration.png
+      sha256: b7fbcfb2df6a226eb834781be600f12dfd4e9f334c0633f771e7e0949db9afef
+      size_bytes: 260374
+    - path: source-fp16-320ms/frontend.npz
+      sha256: e0105990502f15959fd3ba53653312411d1b6c3fcf62972cf2440dd0ed8874b4
+      size_bytes: 67110
+    - path: source-fp16-320ms/nemotron-3.5-asr-streaming-0.6b-float16-320ms.aimodel/main.mlirb
+      sha256: de267c225ba38f1ac45d079911d5f3241136500dbb28ebad217bfe19b7aeae90
+      size_bytes: 1276500937
+    - path: source-fp16-320ms/tokenizer.model
+      sha256: ce3895e40806f02a26c3a225161b96ef682d6c0054bae32a245dec4258d7d291
+      size_bytes: 406554
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -1061,6 +3108,50 @@ artifacts:
     owner: bryanbblewis11
     repo: Z-Image-Turbo-CoreAI
     url: https://huggingface.co/bryanbblewis11/Z-Image-Turbo-CoreAI
+    revision: 6a41220c4f06fe67f4c45269afbf3fdde161ae04
+    files:
+    - path: ane-1024/Modulation.aimodel/main.mlirb
+      sha256: c5906ea4b81ed56354e423bba8cb8db32ff5c2426ee22018251ac023af06acc3
+      size_bytes: 255688319
+    - path: ane-1024/TextEncoder.aimodel/main.mlirb
+      sha256: 38f76b71503ebfae6b16e6426ed5a4d5075ded12ef57777786d1f6e9c62b8806
+      size_bytes: 15687414652
+    - path: ane-1024/Transformer_ANE.aimodel/main.mlirb
+      sha256: f92e7c9367aff3282fcd8bdc6e0aca5dc07639fadb88d84c4a8c503f9d11006f
+      size_bytes: 12054842408
+    - path: ane-1024/VAEDecoder.aimodel/main.mlirb
+      sha256: 9569a7e138a4c639422d24c2e21aab46d5d59d536c2491ce382ff19fb6822c62
+      size_bytes: 198243525
+    - path: ane-1024/VAEEncoder.aimodel/main.mlirb
+      sha256: 5e31f7dc6144555dc04220f2f54b5fd7e8c183c9561b146d48be167c9cd5e4bd
+      size_bytes: 137146390
+    - path: ane-1024/tokenizer/tokenizer.json
+      sha256: aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4
+      size_bytes: 11422654
+    - path: best-768x1344-loraaware/Transformer_LoRA_768x1344.aimodel/main.mlirb
+      sha256: 3c057563e34b2d3d9f32b58dfcd31b36a443f7684db2082f243f2c5feb9c1f5e
+      size_bytes: 3464812038
+    - path: best-768x1344-loraaware/VAEDecoder_768x1344.aimodel/main.mlirb
+      sha256: 664a8488dab55a109840fffc78a410483092fabf67e32012593a2d5ad8e6588d
+      size_bytes: 198243547
+    - path: fast-512-gpu/TAESD_Preview_fp16.aimodel/main.mlirb
+      sha256: 8118556df8a6604a672d6f410159d3697f58470e0c7614de5c924919c826c734
+      size_bytes: 2482384
+    - path: fast-512-gpu/TextEncoder.aimodel/main.mlirb
+      sha256: 51956fa9dfa30bd0d3083680aa6392dcecf3a215a8e86314c72a28f74bce7c0a
+      size_bytes: 2452909185
+    - path: fast-512-gpu/Transformer_512.aimodel/main.mlirb
+      sha256: 0388f7ff1e24fd1ffae54606eab3dada1e85cfccad9a94de20b5bd443e8c5ae7
+      size_bytes: 3464389724
+    - path: fast-512-gpu/VAEDecoder_half.aimodel/main.mlirb
+      sha256: 179d2f012a1fc994d06841576d64edad82185fd44c4dc9d249e2edf040ce4194
+      size_bytes: 198243480
+    - path: fast-512-gpu/VAEEncoder_half.aimodel/main.mlirb
+      sha256: 13f99c2aed5af7f5cde22b077faf84dff97a7d8f24bece561de9f8b626c633da
+      size_bytes: 137146366
+    - path: fast-512-gpu/tokenizer/tokenizer.json
+      sha256: aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4
+      size_bytes: 11422654
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -1075,6 +3166,11 @@ artifacts:
     owner: bryanbblewis11
     repo: RealESRGAN-x4v3-CoreAI
     url: https://huggingface.co/bryanbblewis11/RealESRGAN-x4v3-CoreAI
+    revision: ae80a8b183cf2614a77e531c0c361e3fadb4fc31
+    files:
+    - path: realesr-x4v3_float16_256/realesr-x4v3_float16_256.aimodel/main.mlirb
+      sha256: 2ca0ec125cf7c7ac5f17e70cf96efee33237f86023c4b4371c6d555583e83b94
+      size_bytes: 2459443
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -1089,11 +3185,21 @@ artifacts:
     repo: coreai-artifacts
     path: tree/main/artifacts/efficientsam3-tinyvit/default
     url: https://huggingface.co/lenitas/coreai-artifacts/tree/main/artifacts/efficientsam3-tinyvit/default
+    revision: 251a6e71eb490032a3f2d88cdf8dcd634c5321b2
+    files:
+    - path: artifacts/efficientsam3-tinyvit/default/efficientsam3_tinyvit.aimodel/main.mlirb
+      sha256: 797656ab6ffef75038e381e3a27462a89e687193e9234fb63df44d412da2b16c
+      size_bytes: 388685082
+    - path: artifacts/sam3/float16/sam3_float16.aimodel/main.mlirb
+      sha256: 70896d993cc89760686c76778fc71bc394b87888bfc0e4415efb6f5c7935b2e5
+      size_bytes: 1663478432
+    - path: artifacts/sam3/w6palett-fp16/sam3_w6palett_fp16.aimodel/main.mlirb
+      sha256: e2b6f9e894a3010e30b58beb079f7254ff88cb4a86111dee70e4c7224e8cad2c
+      size_bytes: 701661044
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
     community_packaged: false
-
 - id: rwkv7-goose-1-5b
   group: zoo
   github:
@@ -1104,11 +3210,24 @@ artifacts:
     owner: mlboydaisuke
     repo: RWKV7-Goose-1.5B-CoreAI
     url: https://huggingface.co/mlboydaisuke/RWKV7-Goose-1.5B-CoreAI
+    revision: 76ff74813b7542526fbad083c43a02785274be19
+    files:
+    - path: aimodel/rwkv7_goose_1_5b/rwkv7_goose_1_5b.aimodel/main.mlirb
+      sha256: 0dda67c2eb79764f4b95c59bc4f696a5d96782cee322bbb8073ec4ec3beb8da6
+      size_bytes: 2174903912
+    - path: h18p/rwkv7_goose_1_5b/rwkv7_goose_1_5b.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/original_model_0.mpsgraph
+      sha256: d171b8d88a086ba1d99274dc8439bb4bd2d1b87f7254309ec32b3a46d4f32573
+      size_bytes: 422332
+    - path: h18p/rwkv7_goose_1_5b/rwkv7_goose_1_5b.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/resources.bin
+      sha256: 0bb64cce918da86a34e6259133ffc1d60c0d5079ad76b51d2c70bd776b2b76f2
+      size_bytes: 3079751028
+    - path: h18p/rwkv7_goose_1_5b/rwkv7_goose_1_5b.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/specialized_model_1.mpsgraph
+      sha256: dce3506663a0bc347d12155891e7cef572bf8ce4eec0a28e0dda87247fcc5c90
+      size_bytes: 936879
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
     community_packaged: true
-
 - id: art-vjepa2-vitl-ssv2
   group: zoo
   github:
@@ -1119,6 +3238,20 @@ artifacts:
     owner: mlboydaisuke
     repo: VJEPA2-ViTL-SSv2-CoreAI
     url: https://huggingface.co/mlboydaisuke/VJEPA2-ViTL-SSv2-CoreAI
+    revision: 1354fcc7f1fcfcf13e5eecc01c4830c08b7d927b
+    files:
+    - path: ios/vjepa2_ssv2_fp16.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/original_model_0.mpsgraph
+      sha256: cc7e95905e4f132f60ab2f9c4e54cb96734f387aa921394e9fd8c563213a8869
+      size_bytes: 331983
+    - path: ios/vjepa2_ssv2_fp16.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/resources.bin
+      sha256: a99bbe4754ada7b5609c81bc612ff3b7175f87b84b162868d92fbc3615726544
+      size_bytes: 1413510604
+    - path: ios/vjepa2_ssv2_fp16.h18p.aimodelc/main-h18p-delegates/MPSGraph/mpsExecutable.mpsgraphpackage/specialized_model_1.mpsgraph
+      sha256: 0b4b4192fbd46536a3218ff811de4cde91300a8e5a29f9ab49f0bb5d052d03b8
+      size_bytes: 670098
+    - path: macos/vjepa2_ssv2_fp16.aimodel/main.mlirb
+      sha256: eeb1898b353f0f24b2ecc4ea6c14837ca539049daa3758f787e21b35fff83ae9
+      size_bytes: 707703485
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false

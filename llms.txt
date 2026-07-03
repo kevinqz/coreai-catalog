@@ -71,7 +71,7 @@ Available MCP tools: `search_models`, `get_model`, `compare_models`,
 
 - `catalog.yaml` — model metadata (source of truth)
 - `artifacts.yaml` — converted artifact provenance
-- `benchmarks.yaml` — normalized benchmark measurements
+- `benchmarks.jsonl` — normalized benchmark measurements (append-only JSONL)
 - `terms.yaml` — verified Apple AI terminology
 - `upstreams.yaml` — source taxonomy
 - `AGENTS.md` — instructions for AI agents consuming the catalog

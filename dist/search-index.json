@@ -53,7 +53,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 71.9,
-          "device": null,
+          "device": "A18 Pro",
+          "device_class": "A18 Pro",
           "compute_unit": "GPU",
           "precision": "inferred:int8",
           "environment": {
@@ -63,7 +64,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-25",
           "confidence": "medium",
           "notes": "Decode throughput from upstream README table."
         },
@@ -71,7 +72,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 14.7,
-          "device": null,
+          "device": "A18 Pro",
+          "device_class": "A18 Pro",
           "compute_unit": "ANE",
           "precision": "inferred:int8",
           "environment": {
@@ -81,7 +83,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-25",
           "confidence": "medium",
           "notes": "Decode throughput from upstream README table."
         },
@@ -89,7 +91,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 210,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "inferred:int8",
           "environment": {
@@ -99,7 +102,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-25",
           "confidence": "medium",
           "notes": "Decode throughput from upstream README table."
         }
@@ -157,7 +160,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 29,
-          "device": null,
+          "device": "A18 Pro",
+          "device_class": "A18 Pro",
           "compute_unit": "GPU",
           "precision": "inferred:int8",
           "environment": {
@@ -167,7 +171,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-25",
           "confidence": "medium",
           "notes": "Decode throughput from upstream README table."
         },
@@ -175,7 +179,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 161,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "inferred:int8",
           "environment": {
@@ -185,7 +190,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-25",
           "confidence": "medium",
           "notes": "Decode throughput from upstream README table."
         }
@@ -243,7 +248,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 64.9,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "inferred:int8",
           "environment": {
@@ -253,7 +259,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-25",
           "confidence": "medium",
           "notes": "Decode throughput from upstream README table. MoE; custom gather_qmm Metal kernel per upstream caveat."
         }
@@ -310,7 +316,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 15.9,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "inferred:int8",
           "environment": {
@@ -320,7 +327,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-25",
           "confidence": "medium",
           "notes": "Decode throughput from upstream README table."
         }
@@ -359,11 +366,11 @@
       "patch_required": true,
       "aot_required": false,
       "license": "MIT",
-      "commercial_use": "likely",
+      "commercial_use": "check_license",
       "status": "confirmed",
       "maturity": "experimental",
       "confidence": "medium",
-      "readiness_score": 63,
+      "readiness_score": 53,
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -379,7 +386,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 52.4,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "inferred:int8",
           "environment": {
@@ -389,7 +397,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-25",
           "confidence": "medium",
           "notes": "Decode throughput from upstream README table. MoE + MLA; custom Metal kernel per upstream caveat."
         }
@@ -447,7 +455,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 30.3,
-          "device": null,
+          "device": "A18 Pro",
+          "device_class": "A18 Pro",
           "compute_unit": "GPU",
           "precision": "inferred:int4",
           "environment": {
@@ -457,7 +466,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-25",
           "confidence": "medium",
           "notes": "Decode throughput from upstream README table."
         },
@@ -465,7 +474,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 30.7,
-          "device": null,
+          "device": "A18 Pro",
+          "device_class": "A18 Pro",
           "compute_unit": "GPU",
           "precision": "official-QAT-int4",
           "environment": {
@@ -475,7 +485,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-25",
           "confidence": "medium",
           "notes": "QAT-int4 variant from upstream README."
         },
@@ -483,7 +493,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 6,
-          "device": null,
+          "device": "A18 Pro",
+          "device_class": "A18 Pro",
           "compute_unit": "ANE",
           "precision": "inferred:int4",
           "environment": {
@@ -493,7 +504,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-25",
           "confidence": "medium",
           "notes": "Decode throughput from upstream README table."
         },
@@ -501,7 +512,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 77.0,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "inferred:int4",
           "environment": {
@@ -511,7 +523,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-25",
           "confidence": "medium",
           "notes": "Decode throughput from upstream README table."
         },
@@ -519,7 +531,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 78.9,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "official-QAT-int4",
           "environment": {
@@ -529,7 +542,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-25",
           "confidence": "medium",
           "notes": "QAT-int4 variant from upstream README."
         }
@@ -587,7 +600,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 15.1,
-          "device": null,
+          "device": "A18 Pro",
+          "device_class": "A18 Pro",
           "compute_unit": "GPU",
           "precision": "inferred:int4",
           "environment": {
@@ -597,7 +611,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-25",
           "confidence": "medium",
           "notes": "Decode throughput from upstream README table."
         },
@@ -605,7 +619,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 55.8,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "inferred:int4",
           "environment": {
@@ -615,7 +630,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-25",
           "confidence": "medium",
           "notes": "Decode throughput from upstream README table."
         },
@@ -623,7 +638,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 53.2,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "int4lin-QAT",
           "environment": {
@@ -633,7 +649,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-29",
           "confidence": "medium",
           "notes": "Prefill throughput from upstream card. 3.7 GB bundle."
         }
@@ -690,7 +706,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 23,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "int8",
           "environment": {
@@ -700,7 +717,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-25",
           "confidence": "medium",
           "notes": "Decode throughput from upstream README table. int8; custom flash-decode kernel."
         },
@@ -708,7 +725,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 33,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "int4",
           "environment": {
@@ -718,7 +736,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-25",
           "confidence": "medium",
           "notes": "Decode throughput from upstream README table. int4; custom flash-decode kernel."
         }
@@ -775,7 +793,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 17.2,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "int4",
           "environment": {
@@ -785,7 +804,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-25",
           "confidence": "medium",
           "notes": "Decode throughput from upstream README table. custom flash-decode kernel."
         }
@@ -844,7 +863,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 45.4,
-          "device": null,
+          "device": "A18 Pro",
+          "device_class": "A18 Pro",
           "compute_unit": "GPU",
           "precision": "inferred:int8",
           "environment": {
@@ -854,7 +874,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-25",
           "confidence": "medium",
           "notes": "Decode throughput from upstream README table."
         },
@@ -862,7 +882,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 276.5,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "inferred:int8",
           "environment": {
@@ -872,7 +893,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-25",
           "confidence": "medium",
           "notes": "Decode throughput from upstream README table."
         }
@@ -981,7 +1002,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 36.3,
-          "device": null,
+          "device": "A18 Pro",
+          "device_class": "A18 Pro",
           "compute_unit": "GPU",
           "precision": "inferred:int8",
           "environment": {
@@ -991,7 +1013,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-25",
           "confidence": "medium",
           "notes": "Decode throughput from upstream README table."
         },
@@ -999,7 +1021,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 136.5,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "inferred:int8",
           "environment": {
@@ -1009,7 +1032,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-25",
           "confidence": "medium",
           "notes": "Decode throughput from upstream README table."
         }
@@ -1099,11 +1122,11 @@
       "patch_required": true,
       "aot_required": false,
       "license": "Apache-2.0",
-      "commercial_use": "likely",
+      "commercial_use": "check_license",
       "status": "confirmed",
       "maturity": "experimental",
       "confidence": "medium",
-      "readiness_score": 78,
+      "readiness_score": 68,
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -1119,7 +1142,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 15.9,
-          "device": null,
+          "device": "A18 Pro",
+          "device_class": "A18 Pro",
           "compute_unit": "GPU",
           "precision": "inferred:int8",
           "environment": {
@@ -1129,7 +1153,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-25",
           "confidence": "medium",
           "notes": "Decode throughput from upstream README table."
         },
@@ -1137,7 +1161,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 114.5,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "inferred:int8",
           "environment": {
@@ -1147,7 +1172,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-25",
           "confidence": "medium",
           "notes": "Decode throughput from upstream README table."
         }
@@ -1205,7 +1230,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 33.5,
-          "device": null,
+          "device": "A18 Pro",
+          "device_class": "A18 Pro",
           "compute_unit": "GPU",
           "precision": "int8hu",
           "environment": {
@@ -1215,7 +1241,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-29",
           "confidence": "medium",
           "notes": "Multimodal oracle 24/24 × 8 runs — token-identical to M4 Max. ~92% of naive BW ceiling."
         },
@@ -1223,7 +1249,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 191.0,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "int8hu",
           "environment": {
@@ -1233,7 +1260,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-29",
           "confidence": "medium",
           "notes": "Multimodal sweep 4/4 + decode 16/16 token-exact vs fp32-HF."
         }
@@ -1389,7 +1416,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 53.4,
-          "device": null,
+          "device": "A18 Pro",
+          "device_class": "A18 Pro",
           "compute_unit": "GPU",
           "precision": "inferred:int8",
           "environment": {
@@ -1399,7 +1427,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-25",
           "confidence": "medium",
           "notes": "Decode throughput from upstream README table."
         },
@@ -1407,7 +1435,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 224.3,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "inferred:int8",
           "environment": {
@@ -1417,7 +1446,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-25",
           "confidence": "medium",
           "notes": "Decode throughput from upstream README table."
         }
@@ -1475,7 +1504,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 25.5,
-          "device": null,
+          "device": "A18 Pro",
+          "device_class": "A18 Pro",
           "compute_unit": "GPU",
           "precision": "int4linsym",
           "environment": {
@@ -1485,7 +1515,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-29",
           "confidence": "medium",
           "notes": "Footprint 1.96 GB, headroom 4.5 GB. Vision encode ~100-170ms per image."
         },
@@ -1493,7 +1523,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 82.4,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "inferred:int4",
           "environment": {
@@ -1503,7 +1534,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-25",
           "confidence": "medium",
           "notes": "Decode throughput from upstream README table."
         }
@@ -1543,11 +1574,11 @@
       "patch_required": false,
       "aot_required": false,
       "license": "MIT",
-      "commercial_use": "likely",
+      "commercial_use": "check_license",
       "status": "confirmed",
       "maturity": "experimental",
       "confidence": "medium",
-      "readiness_score": 83,
+      "readiness_score": 73,
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -1707,7 +1738,8 @@
           "metric": "realtime_factor",
           "unit": "realtime_factor",
           "value": 0.9,
-          "device": null,
+          "device": "A18 Pro",
+          "device_class": "A18 Pro",
           "compute_unit": "GPU",
           "precision": "int8",
           "environment": {
@@ -1717,7 +1749,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-29",
           "confidence": "medium",
           "notes": "RTF ~0.9 with int8 backbone + streaming. First-audio 0.43s. 12.5 Hz token rate."
         }
@@ -1822,7 +1854,8 @@
           "metric": "inference_latency",
           "unit": "milliseconds",
           "value": 12.0,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "fp16",
           "environment": {
@@ -1832,7 +1865,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-29",
           "confidence": "medium",
           "notes": "~83 embeddings/s at S=512 grid. Cosine 0.999998 vs torch reference."
         }
@@ -1890,7 +1923,8 @@
           "metric": "inference_latency",
           "unit": "milliseconds",
           "value": 45.7,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "fp16",
           "environment": {
@@ -1900,7 +1934,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-29",
           "confidence": "medium",
           "notes": "~22 pair-scores/s at S=512 grid. P(yes) within |Δ| < 0.0005."
         }
@@ -1959,7 +1993,8 @@
           "metric": "inference_latency",
           "unit": "milliseconds",
           "value": 8.6,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "fp32",
           "environment": {
@@ -1969,7 +2004,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-29",
           "confidence": "medium",
           "notes": "~116 FPS on M4 Max GPU. iPhone 17 Pro ~25ms / 33-39 FPS end-to-end."
         }
@@ -2028,7 +2063,8 @@
           "metric": "inference_latency",
           "unit": "milliseconds",
           "value": 12.0,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "fp32",
           "environment": {
@@ -2038,7 +2074,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-29",
           "confidence": "medium",
           "notes": "~83 FPS on M4 Max GPU."
         }
@@ -2097,7 +2133,8 @@
           "metric": "inference_latency",
           "unit": "milliseconds",
           "value": 14.8,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "fp32",
           "environment": {
@@ -2107,7 +2144,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-29",
           "confidence": "medium",
           "notes": "~68 FPS on M4 Max GPU. iPhone 17 Pro 56-63ms / 15-17 FPS."
         }
@@ -2166,7 +2203,8 @@
           "metric": "inference_latency",
           "unit": "milliseconds",
           "value": 19.1,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "fp32",
           "environment": {
@@ -2176,7 +2214,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-29",
           "confidence": "medium",
           "notes": "~52 FPS on M4 Max GPU."
         }
@@ -2587,7 +2625,8 @@
           "metric": "inference_latency",
           "unit": "milliseconds",
           "value": 15.2,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "fp16",
           "environment": {
@@ -2597,7 +2636,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-29",
           "confidence": "medium",
           "notes": "~65.7 FPS; 54.5 MB. iPhone hero config."
         }
@@ -2654,7 +2693,8 @@
           "metric": "inference_latency",
           "unit": "milliseconds",
           "value": 37.7,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "fp16",
           "environment": {
@@ -2664,7 +2704,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-29",
           "confidence": "medium",
           "notes": "~26.5 FPS; 202 MB."
         }
@@ -2722,7 +2762,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 78.1,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "inferred:MXFP4",
           "environment": {
@@ -2732,7 +2773,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-25",
           "confidence": "medium",
           "notes": "Decode throughput from upstream official/ performance table (512/1024 greedy, 5 trials)."
         }
@@ -2790,7 +2831,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 484,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "inferred:int4",
           "environment": {
@@ -2800,7 +2842,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-25",
           "confidence": "medium",
           "notes": "Decode throughput from upstream official/ performance table (512/1024 greedy, 5 trials)."
         },
@@ -2808,7 +2850,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 1121,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "inferred:int4",
           "environment": {
@@ -2818,7 +2861,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-24",
           "confidence": "needs_review",
           "notes": "Figure recorded at catalog authoring (macOS 26); not reproduced in current upstream, which reports 484 tok/s on M4 Max (macOS 27 beta). Retained for provenance."
         }
@@ -2876,7 +2919,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 145.4,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "inferred:int4",
           "environment": {
@@ -2886,7 +2930,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-25",
           "confidence": "medium",
           "notes": "Decode throughput from upstream official/ performance table (512/1024 greedy, 5 trials)."
         }
@@ -2943,7 +2987,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 94.1,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "inferred:int4",
           "environment": {
@@ -2953,7 +2998,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-25",
           "confidence": "medium",
           "notes": "Decode throughput from upstream official/ performance table (512/1024 greedy, 5 trials)."
         }
@@ -3011,7 +3056,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 141.5,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "inferred:int4",
           "environment": {
@@ -3021,7 +3067,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-25",
           "confidence": "medium",
           "notes": "Decode throughput from upstream official/ performance table (512/1024 greedy, 5 trials)."
         }
@@ -3079,7 +3125,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 55.0,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "inferred:int4",
           "environment": {
@@ -3089,7 +3136,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-25",
           "confidence": "medium",
           "notes": "Decode throughput from upstream official/ performance table (512/1024 greedy, 5 trials)."
         }
@@ -3146,7 +3193,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 101.7,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "inferred:int4",
           "environment": {
@@ -3156,7 +3204,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-25",
           "confidence": "medium",
           "notes": "Decode throughput from upstream official/ performance table (512/1024 greedy, 5 trials)."
         }
@@ -3212,7 +3260,8 @@
           "metric": "image_generation_latency",
           "unit": "seconds",
           "value": 17.4,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "inferred:int4",
           "environment": {
@@ -3222,7 +3271,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-25",
           "confidence": "medium",
           "notes": "From upstream official/ table. 1024px at 4 steps; stock CoreAIDiffusionPipeline."
         }
@@ -3282,7 +3331,8 @@
           "metric": "segmentation_latency",
           "unit": "seconds_per_image",
           "value": 0.55,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "inferred:fp16",
           "environment": {
@@ -3292,7 +3342,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-25",
           "confidence": "medium",
           "notes": "From upstream official/ table. Warm; stock CoreAIImageSegmenter."
         }
@@ -3349,7 +3399,8 @@
           "metric": "transcription_latency",
           "unit": "milliseconds",
           "value": 180,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "inferred:fp16",
           "environment": {
@@ -3359,7 +3410,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-25",
           "confidence": "medium",
           "notes": "From upstream official/ table. Warm; stock CoreAITranscribe."
         }
@@ -3418,7 +3469,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 66.8,
-          "device": null,
+          "device": "A18 Pro",
+          "device_class": "A18 Pro",
           "compute_unit": "GPU",
           "precision": "int8",
           "environment": {
@@ -3428,7 +3480,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-29",
           "confidence": "medium",
           "notes": "Decode throughput from upstream README table. int8 lossless (24/24 exact vs HF)."
         },
@@ -3436,7 +3488,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 59.4,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "int8",
           "environment": {
@@ -3446,7 +3499,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-29",
           "confidence": "medium",
           "notes": "Decode throughput from upstream README table."
         }
@@ -3505,7 +3558,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 20.4,
-          "device": null,
+          "device": "A18 Pro",
+          "device_class": "A18 Pro",
           "compute_unit": "GPU",
           "precision": "int4",
           "environment": {
@@ -3515,7 +3569,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-29",
           "confidence": "medium",
           "notes": "Decode throughput from upstream README table. ANE inference unsupported."
         }
@@ -3573,7 +3627,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 17,
-          "device": null,
+          "device": "A18 Pro",
+          "device_class": "A18 Pro",
           "compute_unit": "GPU",
           "precision": "1.58-bit ternary",
           "environment": {
@@ -3583,7 +3638,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-29",
           "confidence": "medium",
           "notes": "Decode throughput from upstream README table. Custom 2-bit packed-GEMM kernel; ~2.1 GB resident."
         },
@@ -3591,7 +3646,8 @@
           "metric": "decode_throughput",
           "unit": "tokens_per_second",
           "value": 62.7,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "1.58-bit ternary",
           "environment": {
@@ -3601,7 +3657,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-29",
           "confidence": "medium",
           "notes": "Decode throughput from upstream README table. Engine token-identical to torch ternary reference."
         }
@@ -3805,7 +3861,8 @@
           "metric": "realtime_factor",
           "unit": "realtime_factor",
           "value": 47.9,
-          "device": null,
+          "device": "A18 Pro",
+          "device_class": "A18 Pro",
           "compute_unit": "GPU",
           "precision": "fp16",
           "environment": {
@@ -3815,7 +3872,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-29",
           "confidence": "medium",
           "notes": "14.84s clip transcribes in 0.31s warm (47.9× real-time). AOT-compiled encoder bundle."
         },
@@ -3823,7 +3880,8 @@
           "metric": "transcription_latency",
           "unit": "milliseconds",
           "value": 310,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "fp16",
           "environment": {
@@ -3833,7 +3891,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-29",
           "confidence": "medium",
           "notes": "0.31s for a 14.84s clip warm; AOT-compiled encoder bundle loads in 3.9s."
         }
@@ -3940,7 +3998,8 @@
           "metric": "inference_latency",
           "unit": "milliseconds",
           "value": 4.8,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "fp32",
           "environment": {
@@ -3950,7 +4009,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-29",
           "confidence": "medium",
           "notes": "Median inference latency; 208 FPS on M4 Max GPU."
         },
@@ -3958,7 +4017,8 @@
           "metric": "inference_latency",
           "unit": "milliseconds",
           "value": 22,
-          "device": null,
+          "device": "A18 Pro",
+          "device_class": "A18 Pro",
           "compute_unit": "GPU",
           "precision": "fp32",
           "environment": {
@@ -3968,7 +4028,7 @@
             "battery_state": "unknown",
             "low_power_mode": true
           },
-          "observed": null,
+          "observed": "2026-06-29",
           "confidence": "medium",
           "notes": "~45 model FPS on-device; first load specializes in ~2.6s."
         }
@@ -4004,11 +4064,11 @@
       "patch_required": false,
       "aot_required": false,
       "license": "MIT",
-      "commercial_use": "likely",
+      "commercial_use": "check_license",
       "status": "confirmed",
       "maturity": "experimental",
       "confidence": "medium",
-      "readiness_score": 63,
+      "readiness_score": 53,
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -4555,7 +4615,8 @@
           "metric": "inference_latency",
           "unit": "milliseconds",
           "value": 3,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "int4",
           "environment": {
@@ -4565,7 +4626,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-30",
           "confidence": "medium",
           "notes": "~3ms per draft step vs ~21ms for the 12B main model."
         }
@@ -4621,7 +4682,8 @@
           "metric": "realtime_factor",
           "unit": "realtime_factor",
           "value": 10.2,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "fp16",
           "environment": {
@@ -4631,7 +4693,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-30",
           "confidence": "medium",
           "notes": "10.2x faster than real-time streaming TTS."
         }
@@ -4687,7 +4749,8 @@
           "metric": "realtime_factor",
           "unit": "realtime_factor",
           "value": 4.99,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "int8",
           "environment": {
@@ -4697,7 +4760,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-30",
           "confidence": "medium",
           "notes": "4.99x RTF multi-speaker TTS with INT8 LM."
         }
@@ -4753,7 +4816,8 @@
           "metric": "realtime_factor",
           "unit": "realtime_factor",
           "value": 2.37,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "int8",
           "environment": {
@@ -4763,7 +4827,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-30",
           "confidence": "medium",
           "notes": "2.37x RTF high-quality multi-speaker TTS with INT8/4 LM."
         }
@@ -4819,7 +4883,8 @@
           "metric": "realtime_factor",
           "unit": "realtime_factor",
           "value": 11.1,
-          "device": null,
+          "device": "M4 Max",
+          "device_class": "M4 Max",
           "compute_unit": "GPU",
           "precision": "int8",
           "environment": {
@@ -4829,7 +4894,7 @@
             "battery_state": "unknown",
             "low_power_mode": false
           },
-          "observed": null,
+          "observed": "2026-06-30",
           "confidence": "medium",
           "notes": "11.1x RTF on-device transcription."
         }

@@ -135,4 +135,5 @@ Base URL: `https://raw.githubusercontent.com/kevinqz/coreai-catalog/main/dist/`
 - [Philosophy](../PROJECT_PHILOSOPHY.md) — why this project exists
 - [Concepts](./concepts/) — understand model vs artifact vs upstream
 - [Task pages](./tasks/) — browse by use case
-- [Contributing](../CONTRIBUTING.md) — add a model or artifact
+- [Contributing](../CONTRIBUTING.md) — add a model or artifact (model PRs and benchmark PRs are separate lanes)
+- [coreai-fabric](https://github.com/kevinqz/coreai-fabric) — convert a new model yourself (recipe → convert → verify → publish to your own HF repo → register here via PR)

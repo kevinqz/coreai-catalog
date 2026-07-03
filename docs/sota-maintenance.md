@@ -9,7 +9,7 @@ catalog.yaml      = model facts
 artifacts.yaml    = converted artifact provenance and download references
 sources.yaml      = compact source registry
 upstreams.yaml    = framework, original-model, benchmark, sample and license source taxonomy
-benchmarks.yaml   = normalized benchmark records
+benchmarks.jsonl  = normalized benchmark records (append-only JSONL)
 terms.yaml        = verified Apple AI terminology reference layer
 schema/           = validation contracts
 | `scripts/validate.py` | Schema validation + cross-reference checks. |
@@ -27,7 +27,7 @@ YAML files are the source of truth. Markdown and JSON are derived views unless e
 
 Measurements stay trustworthy as upstream changes by following three rules:
 
-1. Single source of truth. Measurement values live only in `benchmarks.yaml`. Model
+1. Single source of truth. Measurement values live only in `benchmarks.jsonl`. Model
    records in `catalog.yaml` carry no inline benchmark numbers, so the two cannot drift;
    consumers join on `model_id`.
 2. Environment-scoped provenance. Every record carries `device`, `compute_unit`,
@@ -67,7 +67,7 @@ These files are curated manually until generators are expanded:
 5. Keep model facts in `catalog.yaml`.
 6. Keep converted artifact provenance in `artifacts.yaml`.
 7. Keep original-model/framework/license/benchmark source taxonomy in `upstreams.yaml`.
-8. Keep measurement rows in `benchmarks.yaml`.
+8. Keep measurement rows in `benchmarks.jsonl`.
 9. Credit original model creator, conversion source and artifact host separately.
 10. Regenerate derived files after editing YAML sources.
 

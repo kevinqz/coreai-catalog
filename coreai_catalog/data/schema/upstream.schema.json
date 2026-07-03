@@ -53,6 +53,11 @@
       "type": "array",
       "items": { "type": "string", "minLength": 1 }
     },
+    "license_terms": {
+      "type": "string",
+      "description": "License family of the upstream's own terms, grounded in verified license strings. Used by audit.py to block permissive-over-restrictive license claims. Conservative default when unsure: review_required.",
+      "enum": ["permissive", "weak_copyleft", "restricted", "review_required"]
+    },
     "review_required": { "type": ["boolean", "null"] },
     "notes": { "type": ["string", "null"] }
   }

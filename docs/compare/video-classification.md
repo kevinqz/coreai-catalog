@@ -6,5 +6,5 @@ Side-by-side comparison of all 1 model(s) with the `video-classification` capabi
 |---|---|---|---|---|---|---|---|---|
 | V-JEPA 2 ViT-L (SSv2) | V-JEPA | 300M | fp16 | Mac | MIT | CoreAIKit-GraphModel | — | 🐼 Zoo |
 
-> Generated automatically by `scripts/generate.py` from `catalog.yaml` + `benchmarks.yaml`.
+> Generated automatically by `scripts/generate.py` from `catalog.yaml` + `benchmarks.jsonl`.
 

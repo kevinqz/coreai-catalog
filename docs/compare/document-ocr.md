@@ -6,5 +6,5 @@ Side-by-side comparison of all 1 model(s) with the `document-ocr` capability.
 |---|---|---|---|---|---|---|---|---|
 | Unlimited-OCR | Unlimited-OCR | not_published | fp32 | iPhone/Mac | MIT | stock-runner | — | 🐼 Zoo |
 
-> Generated automatically by `scripts/generate.py` from `catalog.yaml` + `benchmarks.yaml`.
+> Generated automatically by `scripts/generate.py` from `catalog.yaml` + `benchmarks.jsonl`.
 

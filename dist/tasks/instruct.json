@@ -119,20 +119,6 @@
       "has_benchmark": true
     },
     {
-      "id": "nanbeige4-1-3b",
-      "name": "Nanbeige4.1-3B",
-      "score": 78,
-      "parameters": "3.93B",
-      "devices": {
-        "iphone": true,
-        "ipad": false,
-        "mac": true
-      },
-      "license": "Apache-2.0",
-      "commercial_use": "likely",
-      "has_benchmark": true
-    },
-    {
       "id": "official-qwen3-1-7b",
       "name": "Qwen3 1.7B",
       "score": 78,
@@ -245,6 +231,20 @@
       "has_benchmark": true
     },
     {
+      "id": "nanbeige4-1-3b",
+      "name": "Nanbeige4.1-3B",
+      "score": 68,
+      "parameters": "3.93B",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "check_license",
+      "has_benchmark": true
+    },
+    {
       "id": "gemma-4-e2b",
       "name": "Gemma 4 E2B",
       "score": 63,
@@ -270,20 +270,6 @@
       },
       "license": "Gemma Terms",
       "commercial_use": "check_license",
-      "has_benchmark": true
-    },
-    {
-      "id": "glm-4-7-flash",
-      "name": "GLM-4.7-Flash",
-      "score": 63,
-      "parameters": "30B / ~3B active",
-      "devices": {
-        "iphone": false,
-        "ipad": false,
-        "mac": true
-      },
-      "license": "MIT",
-      "commercial_use": "likely",
       "has_benchmark": true
     },
     {
@@ -381,6 +367,20 @@
         "mac": true
       },
       "license": "Gemma Terms",
+      "commercial_use": "check_license",
+      "has_benchmark": true
+    },
+    {
+      "id": "glm-4-7-flash",
+      "name": "GLM-4.7-Flash",
+      "score": 53,
+      "parameters": "30B / ~3B active",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "MIT",
       "commercial_use": "check_license",
       "has_benchmark": true
     },

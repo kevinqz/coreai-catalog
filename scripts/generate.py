@@ -32,6 +32,12 @@ def read_yaml(path: Path) -> dict:
     return yaml.safe_load(path.read_text()) or {}
 
 
+def read_benchmarks() -> dict:
+    """Read benchmarks.jsonl (single source of truth) as {"benchmarks": [...]}."""
+    from coreai_catalog.exports import read_benchmarks_jsonl
+    return read_benchmarks_jsonl(ROOT)
+
+
 # ── Markdown doc generators ──
 
 
@@ -175,7 +181,7 @@ def gen_index(catalog: dict, artifacts: dict, benchmarks: dict, terms_data: dict
         "- `../artifacts.yaml`",
         "- `../sources.yaml`",
         "- `../upstreams.yaml`",
-        "- `../benchmarks.yaml`",
+        "- `../benchmarks.jsonl`",
         "- `../terms.yaml`",
         "- `../CREDITS.md`",
         "",
@@ -231,8 +237,9 @@ def gen_compare(catalog: dict, benchmarks: dict, artifacts: dict) -> None:
                             best = b
                 if best.get("value"):
                     bench_text = f"{best['value']} {best['unit']}"
-                    if best.get("device"):
-                        bench_text += f" ({best['device']})"
+                    device = best.get("device_class") or best.get("device")
+                    if device:
+                        bench_text += f" ({device})"
 
             art = next((a for a in artifacts.get("artifacts", []) if a["id"] == m.get("artifact_ref")), {})
             off = art.get("officiality", {}) if art else {}
@@ -260,7 +267,7 @@ def gen_compare(catalog: dict, benchmarks: dict, artifacts: dict) -> None:
                 f"{bench_text} | {source} |"
             )
         lines.append("")
-        lines.append("> Generated automatically by `scripts/generate.py` from `catalog.yaml` + `benchmarks.yaml`.")
+        lines.append("> Generated automatically by `scripts/generate.py` from `catalog.yaml` + `benchmarks.jsonl`.")
         lines.append("")
         filename = cap.replace(" ", "-") + ".md"
         (compare_dir / filename).write_text("\n".join(lines) + "\n")
@@ -282,7 +289,7 @@ def main() -> int:
 
     catalog = read_yaml(ROOT / "catalog.yaml")
     artifacts = read_yaml(ROOT / "artifacts.yaml")
-    benchmarks = read_yaml(ROOT / "benchmarks.yaml")
+    benchmarks = read_benchmarks()
     terms_data = read_yaml(ROOT / "terms.yaml")
     sources = read_yaml(ROOT / "sources.yaml")
     upstreams = read_yaml(ROOT / "upstreams.yaml")

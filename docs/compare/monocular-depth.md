@@ -7,5 +7,5 @@ Side-by-side comparison of all 2 model(s) with the `monocular-depth` capability.
 | Depth Anything 3 Base | Depth Anything | base | fp16 | iPhone/Mac | Apache-2.0 | CoreAIRunner | 37.7 milliseconds (M4 Max) | 🐼 Zoo |
 | Depth Anything 3 Small | Depth Anything | small | fp16 | iPhone/Mac | Apache-2.0 | CoreAIRunner | 15.2 milliseconds (M4 Max) | 🐼 Zoo |
 
-> Generated automatically by `scripts/generate.py` from `catalog.yaml` + `benchmarks.yaml`.
+> Generated automatically by `scripts/generate.py` from `catalog.yaml` + `benchmarks.jsonl`.
 

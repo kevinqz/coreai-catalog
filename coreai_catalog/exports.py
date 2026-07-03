@@ -27,6 +27,30 @@ def read_yaml(path: Path) -> dict[str, Any]:
     return yaml.safe_load(path.read_text()) or {}
 
 
+def read_benchmarks_jsonl(catalog_root: Path) -> dict[str, Any]:
+    """Read benchmarks.jsonl into the legacy top-level export shape.
+
+    benchmarks.jsonl is the single benchmark source of truth (the YAML
+    store is retired). Returns ``{"metadata": {...}, "benchmarks": [...]}``
+    so dist/benchmarks.json keeps its historical top-level keys.
+    """
+    path = Path(catalog_root) / "benchmarks.jsonl"
+    benchmarks: list[dict] = []
+    if path.exists():
+        for line in path.read_text().splitlines():
+            line = line.strip()
+            if not line or line.startswith("#"):
+                continue
+            benchmarks.append(json.loads(line))
+    return {
+        "metadata": {
+            "source": "benchmarks.jsonl",
+            "count": len(benchmarks),
+        },
+        "benchmarks": benchmarks,
+    }
+
+
 def _get_catalog_version(catalog_root: Path) -> str:
     """Extract the catalog version from catalog.yaml metadata."""
     return get_catalog_version(catalog_root)
@@ -42,7 +66,6 @@ def export_json(catalog_root: Path, dist: Path | None = None) -> None:
         "artifacts": catalog_root / "artifacts.yaml",
         "sources": catalog_root / "sources.yaml",
         "upstreams": catalog_root / "upstreams.yaml",
-        "benchmarks": catalog_root / "benchmarks.yaml",
         "terms": catalog_root / "terms.yaml",
     }
 
@@ -57,8 +80,18 @@ def export_json(catalog_root: Path, dist: Path | None = None) -> None:
                 json.dumps(data, indent=2, ensure_ascii=False, sort_keys=True) + "\n"
             )
 
+    # Benchmarks come from benchmarks.jsonl (single source of truth)
+    bench_data = read_benchmarks_jsonl(catalog_root)
+    bench_export = dict(bench_data)
+    bench_export["export_schema_version"] = EXPORT_SCHEMA_VERSION
+    bench_export["export_catalog_version"] = catalog_version
+    (dist / "benchmarks.json").write_text(
+        json.dumps(bench_export, indent=2, ensure_ascii=False, sort_keys=True) + "\n"
+    )
+
     # Bundle
     bundle = {name: read_yaml(path) for name, path in inputs.items() if path.exists()}
+    bundle["benchmarks"] = bench_data
     bundle["export_schema_version"] = EXPORT_SCHEMA_VERSION
     bundle["export_catalog_version"] = catalog_version
     (dist / "coreai-catalog.json").write_text(

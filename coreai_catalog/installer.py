@@ -1,6 +1,16 @@
 """
-Core AI Catalog installer — resolves, downloads, verifies, and registers
-model artifacts from Hugging Face without redistributing them.
+Core AI Catalog installer — resolves, downloads, and registers model
+artifacts from Hugging Face without redistributing them.
+
+Verification is content-addressed and honest:
+  - When the catalog records a pinned ``huggingface.revision``, the download
+    is pinned to that commit (``hf download --revision``).
+  - When the catalog records per-file ``huggingface.files`` sha256 digests,
+    each file is hashed (streamed) and compared; any mismatch fails the
+    install hard.
+  - When no digests are recorded, NO hash check is possible and the manifest
+    records ``verification: unavailable`` — it never claims bytes were
+    verified when they were not.
 """
 from __future__ import annotations
 
@@ -59,12 +69,76 @@ def _get_free_disk_gb(path: Path) -> float | None:
         return None
 
 
+def _sha256_file(path: Path, chunk_size: int = 1024 * 1024) -> str:
+    """Compute the sha256 hex digest of *path* with streamed (chunked) reads."""
+    digest = hashlib.sha256()
+    with path.open("rb") as f:
+        for chunk in iter(lambda: f.read(chunk_size), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def verify_file_digests(
+    artifact_dir: Path,
+    files: list[dict],
+    verbose: bool = True,
+) -> dict:
+    """Verify catalog-recorded sha256 digests against downloaded files.
+
+    *files* is the ``huggingface.files`` list from ``artifacts.yaml``:
+    ``[{path, sha256, size_bytes}]``. Every listed file must exist locally
+    and hash to the recorded digest; anything else is a hard failure.
+
+    Returns a result dict::
+
+        {
+          "status": "verified" | "failed",
+          "files_total": int,
+          "files_verified": int,
+          "mismatched": [str, ...],   # paths whose sha256 differed
+          "missing": [str, ...],      # paths absent from the download
+        }
+    """
+    result = {
+        "status": "verified",
+        "files_total": len(files),
+        "files_verified": 0,
+        "mismatched": [],
+        "missing": [],
+    }
+    for entry in files:
+        rel_path = entry.get("path", "")
+        expected = str(entry.get("sha256", "")).lower()
+        local = artifact_dir / rel_path
+        if not local.is_file():
+            result["missing"].append(rel_path)
+            continue
+        try:
+            actual = _sha256_file(local)
+        except OSError:
+            result["missing"].append(rel_path)
+            continue
+        if actual != expected:
+            result["mismatched"].append(rel_path)
+            if verbose:
+                print(f"  ❌ sha256 mismatch: {rel_path}")
+                print(f"     expected {expected}")
+                print(f"     actual   {actual}")
+        else:
+            result["files_verified"] += 1
+
+    if result["mismatched"] or result["missing"]:
+        result["status"] = "failed"
+    return result
+
+
 def install_model(
     model: dict,
     artifact: dict,
     benchmarks: list[dict],
     dry_run: bool = False,
     verbose: bool = True,
+    no_verify: bool = False,
 ) -> dict:
     """
     Install a model artifact from Hugging Face.
@@ -72,9 +146,15 @@ def install_model(
     Steps:
       1. Resolve HF repo URL from artifact record
       2. Pre-check disk space against artifact size
-      3. Download files to cache (uses ``hf`` CLI, not deprecated ``huggingface-cli``)
-      4. Verify file hashes if available
-      5. Write manifest.json
+      3. Download files to cache (uses ``hf`` CLI, not deprecated
+         ``huggingface-cli``), pinned to ``huggingface.revision`` when the
+         catalog records one
+      4. Verify per-file sha256 digests when the catalog records them
+         (streamed hashing); any mismatch or missing file FAILS the install.
+         When no digests exist, the manifest records
+         ``verification.status: unavailable`` — no hash check is claimed.
+         ``no_verify=True`` skips the check (recorded as ``skipped``).
+      5. Write manifest.json (verification state recorded truthfully)
       6. Generate Swift integration snippet
 
     Returns the manifest dict.
@@ -84,6 +164,8 @@ def install_model(
     owner = hf.get("owner", "")
     repo = hf.get("repo", "")
     url = hf.get("url", f"https://huggingface.co/{owner}/{repo}")
+    revision = hf.get("revision")
+    digest_files = hf.get("files") or []
 
     install_dir = get_model_dir(model_id)
     artifact_dir = install_dir / "artifacts"
@@ -97,6 +179,7 @@ def install_model(
         "source": {
             "huggingface": f"{owner}/{repo}",
             "url": url,
+            "revision": revision,
         },
         "artifact": {
             "format": model.get("artifact", {}).get("format", "aimodel"),
@@ -105,8 +188,14 @@ def install_model(
         "runtime": model.get("runtime", {}),
         "verified": {
             "catalog_schema": True,
-            "source_available": True,
+            "source_available": "not_checked",
             "file_layout": "not_checked",
+        },
+        "verification": {
+            "status": "not_checked",
+            "revision_pinned": bool(revision),
+            "files_total": len(digest_files),
+            "files_verified": 0,
         },
     }
 
@@ -141,29 +230,63 @@ def install_model(
 
     if hfcli:
         if verbose:
-            print(f"  Downloading from Hugging Face: {owner}/{repo}")
-        cmd = [
-            hfcli, "download",
-            f"{owner}/{repo}",
-            "--local-dir", str(artifact_dir),
-            "--quiet",
-        ]
+            pin = f" @ {revision[:12]}" if revision else " (unpinned — no revision in catalog)"
+            print(f"  Downloading from Hugging Face: {owner}/{repo}{pin}")
+        cmd = [hfcli, "download", f"{owner}/{repo}"]
+        if revision:
+            cmd += ["--revision", revision]
+        cmd += ["--local-dir", str(artifact_dir), "--quiet"]
         try:
             result = subprocess.run(cmd, capture_output=True, text=True, timeout=600)
         except (subprocess.TimeoutExpired, OSError) as e:
             if verbose:
                 print(f"  ❌ Download error: {e}")
             manifest["verified"]["file_layout"] = "download_failed"
+            manifest["verified"]["source_available"] = False
         else:
             if result.returncode != 0:
                 if verbose:
                     print(f"  ❌ Download failed: {result.stderr[:200]}")
                 manifest["verified"]["file_layout"] = "download_failed"
+                manifest["verified"]["source_available"] = False
             else:
                 manifest["verified"]["file_layout"] = "downloaded"
+                manifest["verified"]["source_available"] = True
                 # Check for .aimodel directories
                 aimodels = list(artifact_dir.rglob("*.aimodel"))
                 manifest["artifact"]["aimodel_count"] = len(aimodels)
+
+                # ── Content verification (per-file sha256, streamed) ──
+                if no_verify:
+                    manifest["verification"]["status"] = "skipped"
+                    if verbose:
+                        print("  ⚠️  ⚠️  --no-verify: sha256 verification SKIPPED.")
+                        print("        The downloaded bytes were NOT checked against")
+                        print("        the catalog digests. Do not trust this artifact")
+                        print("        for anything security-sensitive.")
+                elif digest_files:
+                    if verbose:
+                        print(f"  Verifying {len(digest_files)} file digest(s)...")
+                    check = verify_file_digests(artifact_dir, digest_files, verbose=verbose)
+                    manifest["verification"]["status"] = check["status"]
+                    manifest["verification"]["files_verified"] = check["files_verified"]
+                    if check["status"] == "failed":
+                        manifest["verification"]["mismatched"] = check["mismatched"]
+                        manifest["verification"]["missing"] = check["missing"]
+                        manifest["verified"]["file_layout"] = "verification_failed"
+                        if verbose:
+                            print("  ❌ VERIFICATION FAILED — downloaded bytes do not")
+                            print("     match the catalog's recorded sha256 digests.")
+                            print("     The artifact may have been swapped upstream.")
+                            print("     Refusing to register this install as usable.")
+                    elif verbose:
+                        print(f"  ✅ Verified {check['files_verified']}/{check['files_total']} file digest(s).")
+                else:
+                    # Catalog has no digests for this artifact — say so honestly.
+                    manifest["verification"]["status"] = "unavailable"
+                    if verbose:
+                        print("  ⚠️  No sha256 digests recorded in the catalog for this")
+                        print("      artifact — content verification is unavailable.")
     else:
         if verbose:
             print(f"  ⚠️  hf CLI not found. Manual download required:")
@@ -180,13 +303,14 @@ def install_model(
             print(f"  ❌ Failed to write manifest {manifest_path}: {e}")
         return manifest
 
-    # ── Generate Swift snippet ──
-    snippet = _generate_swift_snippet(model, artifact)
-    try:
-        snippet_path.write_text(snippet)
-    except OSError as e:
-        if verbose:
-            print(f"  ⚠️  Failed to write Swift snippet {snippet_path}: {e}")
+    # ── Generate Swift snippet (not for failed-verification installs) ──
+    if manifest["verification"]["status"] != "failed":
+        snippet = _generate_swift_snippet(model, artifact)
+        try:
+            snippet_path.write_text(snippet)
+        except OSError as e:
+            if verbose:
+                print(f"  ⚠️  Failed to write Swift snippet {snippet_path}: {e}")
 
     if verbose:
         file_layout = manifest["verified"]["file_layout"]

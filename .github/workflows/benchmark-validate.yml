@@ -29,6 +29,19 @@ jobs:
         run: |
           pip install jsonschema pyyaml cryptography
 
+      # Enforce the lane rule CONTRIBUTING.md documents: a benchmark PR
+      # touches benchmarks.jsonl and NOTHING else. Without this check a
+      # mixed model+benchmark PR would pass both workflows (the curator
+      # lane no longer hard-fails unsigned entries).
+      - name: Check PR touches only benchmarks.jsonl
+        run: |
+          git diff --name-only origin/${{ github.base_ref }}...HEAD > /tmp/changed_files.txt
+          OTHER=$(grep -v '^benchmarks\.jsonl$' /tmp/changed_files.txt || true)
+          if [ -n "$OTHER" ]; then
+            echo "::error::Benchmark PRs are a dedicated lane: exactly one added line in benchmarks.jsonl and no other file changes. This PR also changes: $(echo "$OTHER" | tr '\n' ' '). Split the non-benchmark changes into a separate model-lane PR."
+            exit 1
+          fi
+
       - name: Check PR adds exactly 1 line to benchmarks.jsonl
         id: linecheck
         run: |
@@ -36,17 +49,55 @@ jobs:
           LINE_COUNT=$(wc -l < /tmp/new_lines.txt)
           echo "line_count=$LINE_COUNT" >> $GITHUB_OUTPUT
           if [ "$LINE_COUNT" -ne 1 ]; then
-            echo "::error::PR must add exactly 1 line to benchmarks.jsonl, found $LINE_COUNT"
+            echo "::error::PR must add exactly 1 line to benchmarks.jsonl, found $LINE_COUNT. Benchmark PRs are a dedicated lane: one added line, no other changes. Model PRs must never touch benchmarks.jsonl."
             exit 1
           fi
 
+      # Route the submission: unsigned entries whose extraction_method is
+      # upstream_readme_manual / upstream_readme_scripted go to the CURATOR
+      # lane (label + comment + human review, CI passes). Everything else is
+      # the RELAY lane, which keeps the strict signature + auto-merge gates.
+      - name: Determine submission lane
+        id: lane
+        run: |
+          python3 - <<'PYEOF'
+          import json
+          import os
+
+          with open('/tmp/new_lines.txt') as f:
+              line = f.read().strip().lstrip('+')
+
+          lane = 'relay'
+          reason = 'signed relay submission path (strict gates)'
+          try:
+              entry = json.loads(line)
+              unsigned = '_signature' not in entry
+              method = str(entry.get('extraction_method', ''))
+              if unsigned and method.startswith('upstream_readme_'):
+                  lane = 'curator'
+                  reason = (
+                      f"unsigned '{method}' entry — routed to the "
+                      "curator review lane (no signature required)"
+                  )
+          except json.JSONDecodeError:
+              reason = 'unparseable JSON — strict relay lane will report the error'
+
+          print(f'Lane: {lane} ({reason})')
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as out:
+              out.write(f'lane={lane}\n')
+          PYEOF
+
       - name: Verify Ed25519 signature
         id: sigcheck
+        if: steps.lane.outputs.lane != 'curator'
         run: |
           python3 scripts/verify_benchmark_signature.py /tmp/new_lines.txt
 
       - name: Validate schema + model_id cross-reference
         id: schemacheck
+        # Curator-lane entries never hard-fail this workflow; schema problems
+        # are surfaced in the PR comment (and still gate merge via validate.yml).
+        continue-on-error: ${{ steps.lane.outputs.lane == 'curator' }}
         run: |
           python3 scripts/validate_benchmark_entry.py /tmp/new_lines.txt
 
@@ -58,6 +109,7 @@ jobs:
 
       - name: Evaluate all 8 auto-merge gates
         id: gates
+        if: steps.lane.outputs.lane == 'relay'
         run: |
           python3 - <<'PYEOF'
           import json, sys
@@ -141,14 +193,27 @@ jobs:
         with:
           script: |
             const fs = require('fs');
+            const lane = '${{ steps.lane.outputs.lane }}';
             let body = '## Benchmark Validation Results\n\n';
-            body += '| Check | Result |\n|---|---|\n';
-            body += `| Line count | ${{ steps.linecheck.outputs.line_count }} |\n`;
-            body += `| Ed25519 signature | ${{ steps.sigcheck.outcome == 'success' && '✅ Verified' || '❌ Failed' }} |\n`;
-            body += `| Schema + model_id | ${{ steps.schemacheck.outcome == 'success' && '✅ Valid' || '❌ Invalid' }} |\n`;
-            body += `| Outlier check | ${{ steps.outliercheck.outcome == 'success' && '✅ Pass' || '⚠️ Outlier or insufficient data' }} |\n\n`;
 
-            try { body += fs.readFileSync('/tmp/gates-comment.md', 'utf-8'); } catch {}
+            if (lane === 'curator') {
+              body += '**Lane: curator review** — unsigned `upstream_readme_*` submission.\n\n';
+              body += 'This entry does not need a relay signature. It will not auto-merge: ';
+              body += 'a curator will review the provenance and merge manually ';
+              body += '(label: `benchmark-curator-review`).\n\n';
+              body += '| Check | Result |\n|---|---|\n';
+              body += `| Line count | ${{ steps.linecheck.outputs.line_count }} |\n`;
+              body += `| Schema + model_id | ${{ steps.schemacheck.outcome == 'success' && '✅ Valid' || '⚠️ Invalid — please fix before curator review' }} |\n`;
+              body += `| Outlier check | ${{ steps.outliercheck.outcome == 'success' && '✅ Pass' || '⚠️ Outlier or insufficient data' }} |\n`;
+            } else {
+              body += '| Check | Result |\n|---|---|\n';
+              body += `| Line count | ${{ steps.linecheck.outputs.line_count }} |\n`;
+              body += `| Ed25519 signature | ${{ steps.sigcheck.outcome == 'success' && '✅ Verified' || '❌ Failed' }} |\n`;
+              body += `| Schema + model_id | ${{ steps.schemacheck.outcome == 'success' && '✅ Valid' || '❌ Invalid' }} |\n`;
+              body += `| Outlier check | ${{ steps.outliercheck.outcome == 'success' && '✅ Pass' || '⚠️ Outlier or insufficient data' }} |\n\n`;
+
+              try { body += fs.readFileSync('/tmp/gates-comment.md', 'utf-8'); } catch {}
+            }
 
             const { data: comments } = await github.rest.issues.listComments({
               ...context.repo,
@@ -169,8 +234,20 @@ jobs:
               });
             }
 
+      - name: Curator lane — label for review and pass
+        if: steps.lane.outputs.lane == 'curator'
+        run: |
+          gh label create "benchmark-curator-review" \
+            --description "Unsigned upstream_readme benchmark awaiting curator review" \
+            --color FBCA04 2>/dev/null || true
+          gh pr edit ${{ github.event.pull_request.number }} --add-label "benchmark-curator-review"
+          echo "::notice::Curator review lane — unsigned upstream_readme_* benchmark accepted for human review. No signature is required for this lane; a curator will verify the upstream provenance and merge manually."
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Auto-merge if all gates pass
         if: >
+          steps.lane.outputs.lane == 'relay' &&
           steps.sigcheck.outcome == 'success' &&
           steps.schemacheck.outcome == 'success'
         run: |
@@ -187,8 +264,9 @@ jobs:
 
       - name: Label for review if gates fail
         if: >
-          steps.sigcheck.outcome != 'success' ||
-          steps.schemacheck.outcome != 'success'
+          steps.lane.outputs.lane == 'relay' &&
+          (steps.sigcheck.outcome != 'success' ||
+          steps.schemacheck.outcome != 'success')
         run: |
           gh pr edit ${{ github.event.pull_request.number }} --add-label "benchmark-needs-fixes"
         env:

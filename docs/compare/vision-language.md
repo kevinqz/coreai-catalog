@@ -12,5 +12,5 @@ Side-by-side comparison of all 7 model(s) with the `vision-language` capability.
 | Qwen3-VL 4B | Qwen | 4B | int8 | iPhone/Mac | Apache-2.0 | CoreAIRunner | — | 🐼 Zoo |
 | Qwen3-VL 8B | Qwen | 8B | int8 | iPhone/Mac | Apache-2.0 | CoreAIRunner | — | 🐼 Zoo |
 
-> Generated automatically by `scripts/generate.py` from `catalog.yaml` + `benchmarks.yaml`.
+> Generated automatically by `scripts/generate.py` from `catalog.yaml` + `benchmarks.jsonl`.
 

@@ -8,5 +8,5 @@ Side-by-side comparison of all 3 model(s) with the `instruction-following` capab
 | Gemma 3 4B IT | Gemma | 4B | int4 | Mac | Gemma Terms | stock-runner | 141.5 tokens_per_second (M4 Max) | 🍎 Apple recipe |
 | LFM2.5-1.2B-Instruct | LFM | 1.2B | int8 | iPhone/Mac | LFM Open License v1.0 | CoreAIRunner | 276.5 tokens_per_second (M4 Max) | 🐼 Zoo |
 
-> Generated automatically by `scripts/generate.py` from `catalog.yaml` + `benchmarks.yaml`.
+> Generated automatically by `scripts/generate.py` from `catalog.yaml` + `benchmarks.jsonl`.
 

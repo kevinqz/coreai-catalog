@@ -39,7 +39,7 @@
     },
     "source_group": {
       "type": "string",
-      "enum": ["zoo", "official", "external", "unknown"]
+      "enum": ["zoo", "official", "external", "fabric", "unknown"]
     },
     "source_path": {
       "type": "string",

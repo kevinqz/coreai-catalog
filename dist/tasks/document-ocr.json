@@ -8,7 +8,7 @@
     {
       "id": "unlimited-ocr",
       "name": "Unlimited-OCR",
-      "score": 83,
+      "score": 73,
       "parameters": "not_published",
       "devices": {
         "iphone": true,
@@ -16,7 +16,7 @@
         "mac": true
       },
       "license": "MIT",
-      "commercial_use": "likely",
+      "commercial_use": "check_license",
       "has_benchmark": false
     }
   ],
@@ -24,5 +24,5 @@
   "export_catalog_version": "2.1.0",
   "best_overall": "unlimited-ocr",
   "best_iphone": "unlimited-ocr",
-  "best_commercial": "unlimited-ocr"
+  "best_commercial": null
 }

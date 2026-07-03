@@ -1,12 +1,13 @@
 # Benchmark Map
 
-`benchmarks.yaml` is the normalized benchmark registry for Core AI Catalog.
+`benchmarks.jsonl` is the normalized benchmark registry for Core AI Catalog
+(append-only JSONL, one JSON object per line).
 
 ## Purpose
 
 Benchmarks are intentionally separate from `catalog.yaml` so model facts do not become overloaded with measurement-specific rows.
 
-`benchmarks.yaml` answers:
+`benchmarks.jsonl` answers:
 
 - which model was measured?
 - what metric was measured?
@@ -18,7 +19,7 @@ Benchmarks are intentionally separate from `catalog.yaml` so model facts do not 
 
 ## Single source of truth
 
-`benchmarks.yaml` is the only place measurement values live. `catalog.yaml` model
+`benchmarks.jsonl` is the only place measurement values live. `catalog.yaml` model
 records carry no inline benchmark numbers, so the two cannot drift. Any consumer that
 needs a measurement joins on `model_id`.
 
@@ -39,26 +40,13 @@ The registry holds normalized decode-throughput records (iPhone 17 Pro GPU/ANE a
 
 ## Record shape
 
-```yaml
-- id: qwen3-5-0-8b-iphone17pro-gpu-toks
-  model_id: qwen3-5-0-8b
-  metric: decode_throughput
-  unit: tokens_per_second
-  value: 71.9
-  device: iPhone 17 Pro
-  compute_unit: GPU
-  precision: unknown
-  environment: iOS 27 beta, coreai-pipelined engine
-  observed: '2026-06-25'
-  source: john-rocky-coreai-model-zoo
-  confidence: medium
-  superseded_by: null
-  notes: Decode throughput from upstream README table.
+```json
+{"id": "qwen3-5-0-8b-iphone17pro-gpu-toks", "model_id": "qwen3-5-0-8b", "metric": "decode_throughput", "value": 71.9, "unit": "tokens_per_second", "device_class": "A18 Pro", "os_major": "27", "compute_unit": "GPU", "precision": "inferred:int8", "extraction_method": "upstream_readme_manual", "device_verified": false, "confidence": "medium", "observed_date": "2026-06-25", "source": "john-rocky-coreai-model-zoo", "notes": "Decode throughput from upstream README table."}
 ```
 
 ## Rules
 
-1. Benchmarks live only in `benchmarks.yaml`; never store measurement values inline in `catalog.yaml`.
+1. Benchmarks live only in `benchmarks.jsonl`; never store measurement values inline in `catalog.yaml`.
 2. Add records only when the value is traceable to a source.
 3. Keep measurements separate by device, compute unit, precision and environment.
 4. Record `environment` and `observed` for every measurement.

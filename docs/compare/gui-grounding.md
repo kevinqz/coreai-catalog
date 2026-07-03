@@ -6,5 +6,5 @@ Side-by-side comparison of all 1 model(s) with the `gui-grounding` capability.
 |---|---|---|---|---|---|---|---|---|
 | Holo2-4B | Holo | 4B | int8 | iPhone/Mac | Apache-2.0 | CoreAIRunner | — | 🐼 Zoo |
 
-> Generated automatically by `scripts/generate.py` from `catalog.yaml` + `benchmarks.yaml`.
+> Generated automatically by `scripts/generate.py` from `catalog.yaml` + `benchmarks.jsonl`.
 

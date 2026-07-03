@@ -1,0 +1,26 @@
+# GENERATED from schema/benchmark.schema.json by scripts/generate_templates.py.
+# Do not edit by hand — edit the schema and re-run the generator.
+# Append ONE line like the last line of this file to benchmarks.jsonl (dedicated PR — one added line, no other changes).
+# Fields marked "optional" may be omitted entirely; never invent values
+# for fields you cannot source (leave optional fields absent instead).
+# Field reference (see the schema for authoritative definitions):
+#   id
+#   model_id
+#   metric: decode_throughput | prompt_processing_throughput | time_to_first_token | peak_memory | image_generation_latency | transcription_realtime_factor | realtime_factor | transcription_latency | inference_fps | inference_latency | segmentation_latency
+#   value
+#   unit: tokens_per_second | milliseconds | seconds | megabytes | frames_per_second | seconds_per_image | realtime_factor
+#   device_class: Coarsened hardware class (e.g. 'A18 Pro', 'M4 Max'). Never raw device model.
+#   os_major: Major OS version only (e.g. '27', '26').
+#   compute_unit: GPU | ANE | CPU | mixed | unknown
+#   precision: optional
+#   extraction_method: app_benchmark_protocol | upstream_readme_manual | upstream_readme_scripted | hf_metadata_api | community_submission | derived_calculated | apple_documentation
+#   confidence: high | medium | low | needs_review
+#   observed_date: Date only (YYYY-MM-DD). Never includes time.
+#   source
+#   device_verified: DeviceCheck JWT verified by relay. False for historical/CLI data. — optional
+#   model_verified: SHA256 of model matches catalog registry. Verified by relay. — optional
+#   higher_is_better: optional
+#   submission_channel: App identifier (e.g. 'ditto-ios-0.1.0'). — optional
+#   environment: optional
+#   notes: optional
+{"id": "model-id-here", "model_id": "model-id-here", "metric": "decode_throughput", "value": 52.3, "unit": "tokens_per_second", "device_class": "A18 Pro", "os_major": "27", "compute_unit": "GPU", "precision": "int8", "extraction_method": "app_benchmark_protocol", "confidence": "high", "observed_date": "2026-01-01", "source": "coreai-model-zoo-readme", "device_verified": false, "model_verified": false, "higher_is_better": false, "submission_channel": "replace-me", "environment": {"protocol_version": "replace-me", "engine": "replace-me", "warmup_runs": 1, "measured_runs": 1, "statistic": "replace-me", "stddev": 1.0, "thermal_state": "replace-me", "battery_state": "replace-me", "low_power_mode": false}, "notes": "One-line description or caveats."}
