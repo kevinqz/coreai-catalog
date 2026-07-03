@@ -73,7 +73,7 @@ jobs:
           from mcp_server.server import mcp
           tools = mcp._tool_manager._tools
           agent_json = json.load(open('agent.json'))
-          expected = agent_json.get("mcp_server", {}).get("tools", len(tools))
+          expected = agent_json.get('mcp_server', {}).get('tools', len(tools))
           print(f'MCP tools: {len(tools)}')
           assert len(tools) == expected, f'Expected {expected} tools, got {len(tools)}'
           print('MCP server OK')

@@ -113,7 +113,7 @@
   "mcp_server": {
     "transport": "stdio",
     "command": "coreai-catalog-mcp",
-    "tools": 12,
+    "tools": 13,
     "read_only": true
   },
   "data_quality": {
