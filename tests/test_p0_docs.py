@@ -129,6 +129,43 @@ class TestTemplates(unittest.TestCase):
                 )
 
 
+class TestFmtScalarColonSpace(unittest.TestCase):
+    """fmt_scalar must quote (not crash on) values containing ': ' — e.g. a
+    Swift example like CoreAILanguageModel(resourcesAt: url). The bare probe
+    `yaml.safe_load('v: <text>')` raises a ScannerError on such values; a parse
+    failure must be treated as needs_quote, not propagated."""
+
+    def test_fmt_scalar_quotes_colon_space(self):
+        from scripts.generate_templates import fmt_scalar
+        self.assertEqual(fmt_scalar('a: b'), "'a: b'")
+        swift = 'CoreAILanguageModel(resourcesAt: url)'
+        self.assertEqual(fmt_scalar(swift), f"'{swift}'")
+        # A plain value must still render bare (no over-quoting).
+        self.assertEqual(fmt_scalar('plainvalue'), 'plainvalue')
+
+    def test_render_survives_example_with_colon_space(self):
+        """An example value containing ': ' flows through placeholder ->
+        fmt_scalar during rendering and must not crash; the emitted line must
+        round-trip as valid YAML with the value intact."""
+        from scripts.generate_templates import render_yaml_object
+        spec = {
+            'type': 'object',
+            'properties': {
+                'init_pattern': {
+                    'type': 'string',
+                    'examples': ['CoreAILanguageModel(resourcesAt: url)'],
+                },
+            },
+        }
+        lines: list[str] = []
+        render_yaml_object(spec, key_col=0, lines=lines)  # must not raise
+        rendered = '\n'.join(lines)
+        parsed = yaml.safe_load(rendered)
+        self.assertEqual(
+            parsed['init_pattern'], 'CoreAILanguageModel(resourcesAt: url)'
+        )
+
+
 class TestContributingContract(unittest.TestCase):
     """CONTRIBUTING matches the enforced contract (findings A1, A4, A7, A10)."""
 

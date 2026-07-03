@@ -155,6 +155,21 @@ def string_for_pattern(pattern: str) -> str | None:
     return None
 
 
+def _bare_reinterprets_as_non_string(text: str) -> bool:
+    """True if YAML would reparse a bare ``text`` as a non-string, or if the
+    bare form does not parse at all as a plain scalar.
+
+    A value containing ``: `` (e.g. a Swift call ``CoreAILanguageModel(
+    resourcesAt: url)``) makes ``v: <text>`` ambiguous YAML and raises a
+    scanner error — which means it must be quoted, not that generation should
+    crash.
+    """
+    try:
+        return not isinstance(yaml.safe_load(f'v: {text}')['v'], str)
+    except yaml.YAMLError:
+        return True
+
+
 def fmt_scalar(value: object) -> str:
     """Render a scalar for YAML output, quoting where load-bearing."""
     if value is True:
@@ -170,7 +185,7 @@ def fmt_scalar(value: object) -> str:
     needs_quote = (
         text == ''
         or text != yaml.safe_load(yaml.safe_dump(text)).__str__()
-        or not isinstance(yaml.safe_load(f'v: {text}')['v'], str)
+        or _bare_reinterprets_as_non_string(text)
         or ':' in text
         or text.startswith(('#', '-', '*', '&', '!', '[', '{', '>', '|', '@'))
     )
