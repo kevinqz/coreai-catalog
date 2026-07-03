@@ -5,7 +5,7 @@
     "reranking",
     "chat"
   ],
-  "model_count": 31,
+  "model_count": 32,
   "models": [
     {
       "id": "qwen3-embedding-0-6b",
@@ -382,6 +382,20 @@
         "mac": true
       },
       "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "ornith-1-0-9b",
+      "name": "Ornith 1.0 9B",
+      "score": 55,
+      "parameters": "9B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "MIT",
       "commercial_use": "likely",
       "has_benchmark": false
     },

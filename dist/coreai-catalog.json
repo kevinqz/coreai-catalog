@@ -5061,11 +5061,41 @@
             "url": null
           }
         }
+      },
+      {
+        "bundle_kind": "language",
+        "conversion_script": null,
+        "github": {
+          "owner": "john-rocky",
+          "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/ornith-1.0-9b.md",
+          "repo": "coreai-model-zoo"
+        },
+        "group": "zoo",
+        "huggingface": {
+          "owner": "mlboydaisuke",
+          "repo": "Ornith-1.0-9B-CoreAI",
+          "url": "https://huggingface.co/mlboydaisuke/Ornith-1.0-9B-CoreAI"
+        },
+        "id": "ornith-1-0-9b",
+        "officiality": {
+          "apple_export_recipe": false,
+          "apple_hosted_artifact": false,
+          "community_packaged": true
+        },
+        "precision": "int8",
+        "verification": {
+          "last_verified": "2026-07-03",
+          "zoo_smoke": {
+            "sha": null,
+            "status": "passed",
+            "url": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/ornith-1.0-9b.md"
+          }
+        }
       }
     ],
     "metadata": {
-      "count": 80,
-      "last_verified": "2026-07-01",
+      "count": 81,
+      "last_verified": "2026-07-03",
       "name": "Core AI Catalog artifact provenance"
     }
   },
@@ -6770,7 +6800,7 @@
   "catalog": {
     "metadata": {
       "description": "Compact, source-grounded catalog of Apple Core AI models, artifacts, capabilities, modalities, runtime metadata, device support and sources.",
-      "last_verified": "2026-07-01",
+      "last_verified": "2026-07-03",
       "name": "Core AI Catalog",
       "repo": "coreai-catalog",
       "upstream": [
@@ -11658,6 +11688,68 @@
         ],
         "status": "unknown",
         "streaming": false
+      },
+      {
+        "architecture": "transformer",
+        "artifact": {
+          "availability": "available",
+          "format": "aimodel"
+        },
+        "artifact_ref": "ornith-1-0-9b",
+        "capabilities": [
+          "chat",
+          "text-generation",
+          "code-generation"
+        ],
+        "confidence": "high",
+        "device_support": {
+          "ipad": "unknown",
+          "iphone": false,
+          "mac": true,
+          "mac_only": true
+        },
+        "family": "Qwen",
+        "id": "ornith-1-0-9b",
+        "last_verified": "2026-07-03",
+        "license": {
+          "commercial_use": "likely",
+          "name": "MIT"
+        },
+        "maturity": "experimental",
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "name": "Ornith 1.0 9B",
+        "notes": "First agentic-coding model in the ecosystem. Qwen3.5 hybrid decoder (32 layers, 3:1 GatedDeltaNet/attention interleave) trained by DeepReinforce to jointly solve coding tasks and construct orchestration scaffolds. int8hu ship recipe delivers 48.3 tok/s decode on M4 Max. int4lin variant reaches 58.9 tok/s (+22%), 7.5 GB. 24/24 exact match vs fp32 oracle on both quantizations. Dense MLP(12288), hidden 4096, untied 248320-vocab lm_head. Max context 8192.",
+        "runtime": {
+          "aot_required": false,
+          "custom_kernel": true,
+          "patch_required": true,
+          "processor_required": false,
+          "runner": "CoreAIRunner",
+          "runtime_name": "apple-core-ai",
+          "stock_runtime": false,
+          "tokenizer_required": true
+        },
+        "size": {
+          "artifact_size": "9.8GB",
+          "parameters": "9B",
+          "precision": "int8",
+          "quantization": "int8hu"
+        },
+        "source_group": "zoo",
+        "source_path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/ornith-1.0-9b.md",
+        "sources": [
+          "coreai-model-zoo-readme",
+          "ornith-upstream"
+        ],
+        "status": "confirmed",
+        "streaming": false
       }
     ]
   },
@@ -12754,6 +12846,18 @@
         "title": "Stability Community License",
         "trust": "license_needs_model_specific_review",
         "url": "https://stability.ai/license"
+      },
+      {
+        "applies_to": [
+          "ornith-1-0-9b"
+        ],
+        "category": "original_model",
+        "id": "ornith-upstream",
+        "owner": "deepreinforce-ai",
+        "platform": "huggingface",
+        "title": "DeepReinforce Ornith 1.0 original model",
+        "trust": "original_model_primary",
+        "url": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-9B"
       }
     ],
     "metadata": {

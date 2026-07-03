@@ -355,6 +355,18 @@
       "title": "Stability Community License",
       "trust": "license_needs_model_specific_review",
       "url": "https://stability.ai/license"
+    },
+    {
+      "applies_to": [
+        "ornith-1-0-9b"
+      ],
+      "category": "original_model",
+      "id": "ornith-upstream",
+      "owner": "deepreinforce-ai",
+      "platform": "huggingface",
+      "title": "DeepReinforce Ornith 1.0 original model",
+      "trust": "original_model_primary",
+      "url": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-9B"
     }
   ],
   "metadata": {

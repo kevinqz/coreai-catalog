@@ -349,6 +349,7 @@
         "official-qwen3-1-7b",
         "official-qwen3-4b",
         "official-qwen3-8b",
+        "ornith-1-0-9b",
         "qwen3-5-0-8b",
         "qwen3-5-2b",
         "qwen3-6-27b",
@@ -358,7 +359,7 @@
         "qwen3-vl-8b",
         "rwkv7-goose-1-5b"
       ],
-      "model_count": 34
+      "model_count": 35
     },
     {
       "input": "text",

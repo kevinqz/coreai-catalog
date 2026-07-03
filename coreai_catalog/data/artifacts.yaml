@@ -1,7 +1,7 @@
 metadata:
   name: Core AI Catalog artifact provenance
-  last_verified: '2026-07-01'
-  count: 80
+  last_verified: '2026-07-03'
+  count: 81
 artifacts:
 - id: qwen3-5-0-8b
   group: zoo
@@ -3265,3 +3265,26 @@ artifacts:
     last_verified: null
   bundle_kind: video
   precision: fp16
+- id: ornith-1-0-9b
+  group: zoo
+  github:
+    owner: john-rocky
+    repo: coreai-model-zoo
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/ornith-1.0-9b.md
+  huggingface:
+    owner: mlboydaisuke
+    repo: Ornith-1.0-9B-CoreAI
+    url: https://huggingface.co/mlboydaisuke/Ornith-1.0-9B-CoreAI
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+  conversion_script: null
+  verification:
+    zoo_smoke:
+      status: passed
+      sha: null
+      url: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/ornith-1.0-9b.md
+    last_verified: '2026-07-03'
+  bundle_kind: language
+  precision: int8

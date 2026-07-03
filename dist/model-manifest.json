@@ -1,7 +1,7 @@
 {
   "export_schema_version": "1.0",
   "export_catalog_version": "2.1.0",
-  "model_count": 80,
+  "model_count": 81,
   "models": [
     {
       "id": "qwen3-5-0-8b",
@@ -1773,6 +1773,29 @@
       "precision": "fp16",
       "artifact_size": "700MB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/VJEPA2-ViTL-SSv2-CoreAI",
+      "license": "MIT",
+      "commercial_use": "likely"
+    },
+    {
+      "id": "ornith-1-0-9b",
+      "name": "Ornith 1.0 9B",
+      "bundle_kind": "llm",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "chat",
+        "text-generation",
+        "code-generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "parameters": "9B",
+      "precision": "int8",
+      "artifact_size": "9.8GB",
+      "huggingface_url": "https://huggingface.co/mlboydaisuke/Ornith-1.0-9B-CoreAI",
       "license": "MIT",
       "commercial_use": "likely"
     }

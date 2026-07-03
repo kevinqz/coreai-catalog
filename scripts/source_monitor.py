@@ -86,15 +86,24 @@ def fetch_json(url: str, timeout: int = 15) -> list | dict | None:
         return None
 
 
-def check_hf_account(account: str, known_repos: set[str], since: str | None = None) -> list[dict]:
+def _normalize(name: str) -> str:
+    """Normalize a model/repo name for fuzzy comparison."""
+    return name.lower().replace("-", "").replace("_", "").replace(".", "")
+
+
+def check_hf_account(account: str, known_repos: set[str], known_ids: set[str] | None = None, since: str | None = None) -> list[dict]:
     """Check a HuggingFace account for new models.
 
     Returns list of {repo, name, lastModified, is_new} dicts.
+    Skips LiteRT repos (catalog scope is .aimodel only).
     """
     url = f"https://huggingface.co/api/models?author={account}&sort=lastModified&direction=-1&limit=50"
     data = fetch_json(url)
     if not data or not isinstance(data, list):
         return []
+
+    # Pre-normalize known_ids for fuzzy matching
+    known_ids_norm = {_normalize(kid) for kid in (known_ids or set())}
 
     results = []
     for m in data:
@@ -106,7 +115,21 @@ def check_hf_account(account: str, known_repos: set[str], since: str | None = No
         if since and last_mod < since:
             continue
 
+        # Skip LiteRT artifacts — catalog scope is .aimodel only
+        if "litert" in repo_short.lower():
+            continue
+
         is_new = repo_short.lower() not in known_repos and repo_full.lower() not in known_repos
+
+        # Fuzzy match against catalog model IDs (catches YOLOX-CoreAI vs yolox-s, etc.)
+        if is_new and known_ids_norm:
+            # Strip common suffixes before normalizing
+            stripped = re.sub(r'(?i)-?coreai(-official)?$', '', repo_short)
+            stripped_norm = _normalize(stripped)
+            for kid_norm in known_ids_norm:
+                if stripped_norm in kid_norm or kid_norm in stripped_norm:
+                    is_new = False
+                    break
 
         results.append({
             "account": account,
@@ -246,7 +269,7 @@ def run_monitor(since_hours: int = 72) -> dict:
     # Check HF accounts
     all_hf_models: list[dict] = []
     for account in HF_ACCOUNTS:
-        models = check_hf_account(account, known_repos, since_date)
+        models = check_hf_account(account, known_repos, known_ids, since_date)
         all_hf_models.extend(models)
 
     # Classify new models

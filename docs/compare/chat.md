@@ -1,6 +1,6 @@
 # Comparison: chat
 
-Side-by-side comparison of all 28 model(s) with the `chat` capability.
+Side-by-side comparison of all 29 model(s) with the `chat` capability.
 
 | Model | Family | Parameters | Precision | Devices | License | Runtime | Benchmark | Source |
 |---|---|---|---|---|---|---|---|---|
@@ -22,6 +22,7 @@ Side-by-side comparison of all 28 model(s) with the `chat` capability.
 | MiniCPM5-1B | MiniCPM | 1.08B | int8 | iPhone/Mac | Apache-2.0 | CoreAIRunner | 66.8 tokens_per_second (A18 Pro) | 🐼 Zoo |
 | Mistral 7B v0.3 | Mistral | 7B | int4 | Mac | Apache-2.0 | stock-runner | 101.7 tokens_per_second (M4 Max) | 🍎 Apple recipe |
 | Nanbeige4.1-3B | Nanbeige | 3.93B | int8 | iPhone/Mac | Apache-2.0 | CoreAIRunner | 114.5 tokens_per_second (M4 Max) | 🐼 Zoo |
+| Ornith 1.0 9B | Qwen | 9B | int8 | Mac | MIT | CoreAIRunner | — | 🐼 Zoo |
 | Qwen3 0.6B | Qwen | 0.6B | int4 | iPhone/Mac | Apache-2.0 | stock-runner | 1121 tokens_per_second (M4 Max) | 🍎 Apple recipe |
 | Qwen3 1.7B | Qwen | 1.7B | int4 | iPhone/Mac | Apache-2.0 | stock-runner | — | 🍎 Apple recipe |
 | Qwen3 4B | Qwen | 4B | int4 | iPhone/Mac | Apache-2.0 | stock-runner | 145.4 tokens_per_second (M4 Max) | 🍎 Apple recipe |

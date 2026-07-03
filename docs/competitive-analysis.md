@@ -51,7 +51,7 @@ But the project **under-communicates its unique value** and **lacks several feat
 
 ### Verdict
 
-**The catalog's unique features are real and valuable, but the marketing doesn't lead with them.** The homepage says "80 Core AI models with provenance, licenses, benchmarks, and readiness scores" — which sounds like a list. It should say something closer to:
+**The catalog's unique features are real and valuable, but the marketing doesn't lead with them.** The homepage says "81 Core AI models with provenance, licenses, benchmarks, and readiness scores" — which sounds like a list. It should say something closer to:
 
 > *"Hugging Face tells you what models exist. Core AI Catalog tells you which one to ship."*
 
@@ -155,7 +155,7 @@ This is accurate but abstract. A developer reads this and thinks "okay, but I ca
 
 This is good but doesn't differentiate. Proposed alternatives:
 
-> *"Hugging Face has 1M models and no opinion. Core AI Catalog has 80 models and tells you which one to ship."*
+> *"Hugging Face has 1M models and no opinion. Core AI Catalog has 81 models and tells you which one to ship."*
 
 > *"The only place that tells you: which Core AI model runs on your iPhone, what license risk it carries, and how fast it actually is — with proof."*
 
@@ -169,7 +169,7 @@ This is good but doesn't differentiate. Proposed alternatives:
 | **"Agent-ready" isn't explained** | 🔴 High | Most developers don't know what MCP is. Show a concrete example: "Ask Claude: 'find me a vision model for iPhone' → it queries this catalog → returns ranked results" |
 | **"Source-grounded" is jargon** | 🟡 Medium | Translate to user benefit: "Every claim links to a real source. No hallucinated metadata." |
 | **No success story / use case** | 🟡 Medium | "A developer needed OCR on iPhone. In 30 seconds, the catalog recommended Unlimited-OCR, verified the MIT license, and gave them a Swift snippet." |
-| **"80 models" sounds small** | 🟡 Medium | Reframe: "Every known Core AI model" not "80 models." The number should signal completeness, not limitation. |
+| **"81 models" sounds small** | 🟡 Medium | Reframe: "Every known Core AI model" not "81 models." The number should signal completeness, not limitation. |
 
 ---
 
@@ -214,7 +214,7 @@ The web UI (`site/index.html` + `app.js`) is a **clean, fast, single-page explor
 
 ### Leaderboard concept
 
-**There is no leaderboard on the site.** This is the single biggest UX gap. The data exists (66 benchmark records, readiness scores for 80 models) — it's just not presented as a ranked comparison.
+**There is no leaderboard on the site.** This is the single biggest UX gap. The data exists (66 benchmark records, readiness scores for 81 models) — it's just not presented as a ranked comparison.
 
 Recommended leaderboard views:
 1. **Readiness leaderboard**: All models ranked by readiness score (exists in CLI, not web)
@@ -303,7 +303,7 @@ The catalog's **actual** unique value, distilled:
 > 4. **How fast it actually runs** (environment-scoped benchmarks with anti-gaming)
 > 5. **And lets your AI agent do all of this autonomously** (MCP server with 12 tools)
 
-**None of these five points are clearly stated on the homepage.** The homepage leads with "80 models" (a number) instead of "the only platform that..." (a position).
+**None of these five points are clearly stated on the homepage.** The homepage leads with "81 models" (a number) instead of "the only platform that..." (a position).
 
 ### Recommended hero copy
 
