@@ -79,8 +79,11 @@ jobs:
 
       - name: Capability tables in sync with catalog.yaml
         run: |
-          python3 -m pip install --quiet pyyaml
-          python3 scripts/generate_example_tables.py --check
+          set -euo pipefail
+          # macOS runners ship a PEP 668 externally-managed python — use a venv.
+          python3 -m venv /tmp/tables-venv
+          /tmp/tables-venv/bin/pip install --quiet pyyaml
+          /tmp/tables-venv/bin/python scripts/generate_example_tables.py --check
 
       - name: Build examples (requires macOS 27 SDK)
         if: steps.sdk.outputs.macos27 == 'true'
