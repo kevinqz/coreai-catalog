@@ -15,7 +15,7 @@ Model metadata: what it is, what it does, how it runs, and whether it can be tru
 | `id` | string | Unique identifier (kebab-case) |
 | `name` | string | Human-readable model name |
 | `family` | string | Model family (e.g., Qwen, Gemma, LFM) |
-| `source_group` | enum | `zoo` \| `official` \| `external` \| `unknown` |
+| `source_group` | enum | `fabric` \| `zoo` \| `official` \| `external` \| `unknown` (`fabric` = converted via [coreai-fabric](https://github.com/kevinqz/coreai-fabric); `zoo` = indexed reference upstream) |
 | `source_path` | URL | Link to the source model card or README |
 | `artifact_ref` | string | Foreign key → `artifacts.yaml` id |
 | `capabilities` | string[] | What the model can do (e.g., `chat`, `vision-language`, `object-detection`) |

@@ -195,6 +195,37 @@ class TestContributingContract(unittest.TestCase):
                 f'{name} must describe the zoo as an indexed reference upstream',
             )
 
+    def test_fabric_surfaced_across_awareness_surfaces(self):
+        """Boundary redteam: fabric was absent from every agent-bootstrap and
+        moment-of-need surface. Guard the full set so it can't silently regress
+        back to the pre-fabric story (only 2 surfaces were guarded before)."""
+        surfaces = [
+            'README.md',
+            'llms.txt',
+            'GOVERNANCE.md',
+            'agent.json',
+            'docs/data-model.md',
+            'site/index.html',
+            'mcp_server/server.py',
+            'coreai_catalog/discover.py',
+        ]
+        for rel in surfaces:
+            text = (ROOT / rel).read_text()
+            self.assertIn(
+                'coreai-fabric', text,
+                f'{rel} must mention coreai-fabric (agent/human awareness surface)',
+            )
+
+    def test_site_no_longer_routes_conversion_to_zoo(self):
+        """The site Contribute aside must route conversion to fabric, not to
+        coremltools + the zoo (the pre-fabric misroute)."""
+        site = (ROOT / 'site' / 'index.html').read_text()
+        idx = site.find('contribute-aside')
+        self.assertNotEqual(idx, -1, 'site must have the contribute-aside')
+        aside = site[idx:idx + 700]
+        self.assertIn('coreai-fabric', aside,
+                      'the conversion aside must route to coreai-fabric')
+
 
 class TestWorkflows(unittest.TestCase):
     """CI workflows stay valid YAML and carry the new lanes/steps."""

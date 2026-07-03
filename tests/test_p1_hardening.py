@@ -377,7 +377,9 @@ class TestInjectionLint(unittest.TestCase):
     def test_wired_into_validate_workflow(self):
         workflow = (_ROOT / ".github" / "workflows" / "validate.yml").read_text()
         self.assertIn("scripts/injection_lint.py", workflow)
-        self.assertIn("tests.test_p1_hardening", workflow)
+        # Hardening tests now run as part of the full `pytest tests/` step
+        # (the dedicated unittest step was folded into the full-suite run).
+        self.assertIn("pytest tests/", workflow)
 
 
 if __name__ == "__main__":

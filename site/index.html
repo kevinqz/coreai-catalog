@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Core AI Catalog — Apple On-Device AI Model Registry</title>
-  <meta name="description" content="The agent-ready registry for Apple on-device AI. 80 Core AI models with provenance, licenses, benchmarks, and readiness scores.">
+  <meta name="description" content="The agent-ready registry for Apple on-device AI. 81 Core AI models with provenance, licenses, benchmarks, and readiness scores.">
   <meta property="og:title" content="Core AI Catalog — Apple On-Device AI Model Registry">
   <meta property="og:description" content="Find, compare, and verify Apple Core AI models by capability, device support, license risk, and benchmark evidence.">
   <meta property="og:type" content="website">
@@ -128,7 +128,7 @@
 
     <section id="grid-area">
       <h2 class="hero-headline">Find the right on-device model in seconds</h2>
-      <p class="hero-sub">80 Apple Core AI models — filter by what you have and what you need, verify license and provenance before you ship.</p>
+      <p class="hero-sub">81 Apple Core AI models — filter by what you have and what you need, verify license and provenance before you ship.</p>
       <div id="grid-header">
         <span id="result-count" class="result-count" aria-live="polite">Loading…</span>
         <span id="active-filters" class="active-filters"></span>
@@ -143,7 +143,7 @@
         <span id="freshness-badge" class="freshness-badge"></span>
       </div>
       <noscript>
-        <p>Core AI Catalog is a registry of 80 Apple Core AI models.</p>
+        <p>Core AI Catalog is a registry of 81 Apple Core AI models.</p>
         <p><code>pip install coreai-catalog</code></p>
       </noscript>
       <div id="model-grid">
@@ -478,9 +478,9 @@
       <p class="lede">A source-grounded registry of Apple Core AI models — provenance, licenses, benchmarks, and recommendations.</p>
 
       <div class="stat-row">
-        <div class="stat"><span class="stat-num" id="stat-models">80</span><span class="stat-label">Models</span></div>
+        <div class="stat"><span class="stat-num" id="stat-models">81</span><span class="stat-label">Models</span></div>
         <div class="stat"><span class="stat-num" id="stat-benchmarks">65</span><span class="stat-label">Benchmarks</span></div>
-        <div class="stat"><span class="stat-num" id="stat-mcp">12</span><span class="stat-label">MCP Tools</span></div>
+        <div class="stat"><span class="stat-num" id="stat-mcp">16</span><span class="stat-label">MCP Tools</span></div>
         <div class="stat"><span class="stat-num" id="stat-tasks">89</span><span class="stat-label">Task Keywords</span></div>
       </div>
 
@@ -630,7 +630,7 @@ python scripts/audit.py
 
       </div>
 
-      <p class="contribute-aside">Converting a model to Core AI <code>.aimodel</code> format from elsewhere first? That's a separate step handled by <a href="https://github.com/apple/coremltools" target="_blank" rel="noopener">apple/coremltools</a> and the <a href="https://github.com/john-rocky/coreai-model-zoo" target="_blank" rel="noopener">community zoo</a> — once you have the artifact, "Add a Model" above is how it gets into this catalog.</p>
+      <p class="contribute-aside">Need to convert a model to Core AI <code>.aimodel</code> format first? That's the job of <a href="https://github.com/kevinqz/coreai-fabric" target="_blank" rel="noopener">coreai-fabric</a> — the first-party, agent-first conversion pipeline: write a recipe, convert, verify parity, publish the artifact to <em>your own</em> Hugging Face namespace, and it opens the catalog PR for you (<code>recipe → convert → verify → publish → register</code>). The <a href="https://github.com/john-rocky/coreai-model-zoo" target="_blank" rel="noopener">community zoo</a> remains an indexed reference upstream. Once an artifact exists, "Add a Model" above is the manual path into this catalog.</p>
 
       <h3>Credits &amp; Community</h3>
       <p>This catalog is built on public upstream sources. Full attribution in <a href="https://github.com/kevinqz/coreai-catalog/blob/main/CREDITS.md" target="_blank" rel="noopener">CREDITS.md</a>.</p>

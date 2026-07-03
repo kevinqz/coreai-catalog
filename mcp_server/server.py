@@ -114,6 +114,12 @@ def _model_not_found(model_id: str) -> str:
         "Use search_models() to browse valid model ids, or "
         "recommend_model(task=...) to resolve a task to models."
     )
+    payload["not_in_catalog"] = (
+        "If this model genuinely isn't in the catalog, its .aimodel may not exist "
+        "yet. Convert it with coreai-fabric (https://github.com/kevinqz/coreai-fabric), "
+        "the agent-first conversion pipeline — it publishes the artifact and opens the "
+        "catalog PR. This catalog indexes artifacts; it does not convert."
+    )
     return json.dumps(payload, indent=2)
 
 
@@ -373,7 +379,7 @@ def recommend_model(
         license_type=license,
     )
 
-    return json.dumps({
+    result: dict = {
         "task": task,
         "resolved_capabilities": capabilities,
         "device": device,
@@ -386,7 +392,18 @@ def recommend_model(
             }
             for r in recommendations
         ],
-    }, indent=2)
+    }
+    if not recommendations:
+        result["hint"] = (
+            "No catalog model matches this task"
+            + (" on the requested device" if device else "")
+            + ". Try get_capabilities() to see what exists, or get_tasks() for valid "
+            "task keywords. If nothing fits because the model you want isn't converted "
+            "yet, coreai-fabric (https://github.com/kevinqz/coreai-fabric) is the "
+            "agent-first pipeline that converts an upstream model to .aimodel and "
+            "registers it here."
+        )
+    return json.dumps(result, indent=2)
 
 
 # ── Tool 5: check_license ──

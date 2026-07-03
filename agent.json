@@ -1,7 +1,7 @@
 {
   "name": "Core AI Catalog",
   "url": "https://github.com/kevinqz/coreai-catalog",
-  "description": "A source-grounded catalog of 80 Apple Core AI models with artifact provenance, benchmarks, verified terminology, readiness scores, typed integration metadata (io_contract, bundle_kind, min_os — all current models require macOS/iOS 27), and an MCP server for agent-native model discovery, comparison, recommendation, and contribution (draft/submit write path).",
+  "description": "A source-grounded catalog of 81 Apple Core AI models with artifact provenance, benchmarks, verified terminology, readiness scores, typed integration metadata (io_contract, bundle_kind, min_os — all current models require macOS/iOS 27), and an MCP server for agent-native model discovery, comparison, recommendation, and contribution (draft/submit write path).",
   "primary_language": "en",
   "entity_type": "open_source_database",
   "version": "2.1.0",
@@ -151,6 +151,18 @@
     "model_manifest": "https://raw.githubusercontent.com/kevinqz/coreai-catalog/main/dist/model-manifest.json",
     "benchmarks_aggregate": "https://raw.githubusercontent.com/kevinqz/coreai-catalog/main/dist/benchmarks-aggregate.json",
     "agents_instructions": "https://raw.githubusercontent.com/kevinqz/coreai-catalog/main/AGENTS.md"
+  },
+  "ecosystem": {
+    "conversion_pipeline": {
+      "name": "coreai-fabric",
+      "url": "https://github.com/kevinqz/coreai-fabric",
+      "role": "Agent-first conversion pipeline: turns an upstream model into a provenance-verified .aimodel and registers it here via PR (source_group: fabric). Use it when a model has no artifact yet — this catalog indexes, it does not convert. Independent repo (no runtime dependency); a cross-contract CI job proves fabric's register output stays valid against this catalog's live schemas."
+    },
+    "reference_upstream": {
+      "name": "john-rocky/coreai-model-zoo",
+      "url": "https://github.com/john-rocky/coreai-model-zoo",
+      "role": "Indexed reference upstream (community model zoo). Not the required contribution path."
+    }
   },
   "mcp_server": {
     "transport": "stdio",

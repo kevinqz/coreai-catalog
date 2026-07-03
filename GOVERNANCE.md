@@ -46,11 +46,18 @@ the maintainer's countersign.
 
 | Lane | Entry point | Automation |
 |---|---|---|
-| Model (repo clone) | `coreai-catalog contribute model` | draft → validate → PR via `gh` |
+| **Conversion** (no artifact yet) | [`coreai-fabric`](https://github.com/kevinqz/coreai-fabric) `register` | recipe → convert → verify → publish to own HF → opens a fabric-lane PR to this catalog; a cross-contract CI job proves the entries stay catalog-valid |
+| Model (repo clone) | `coreai-catalog contribute model` | draft → validate → PR via `gh` (for an artifact that already exists) |
 | Model (no clone) | [model-request issue form](./.github/ISSUE_TEMPLATE/model-request.yml) | `model-request-to-pr.yml` validates, comments, opens a **draft PR** when clean |
 | Benchmark | one added line in `benchmarks.jsonl`, nothing else | `benchmark-validate.yml` — **auto-merges** signed, identity-bound, physics-clean submissions (see the exception above); curator lane for unsigned `upstream_readme_*` entries |
 | Discovery | weekly `discover.yml` | upserts the single pinned **Porting candidates** issue |
 | Source monitor | 3-hourly `source-monitor.yml` | upserts the single pinned **Source Monitor** issue + machine-readable candidate stubs |
+
+The **conversion lane is the upstream half of the model lanes**: use it when the
+`.aimodel` artifact does not exist yet (fabric produces it, hosted on the
+contributor's own Hugging Face). The model lanes assume an artifact already exists.
+`source_group: fabric` marks entries that came through it. The zoo is an indexed
+reference upstream, not a required path.
 
 Lane rule: **model PRs never touch `benchmarks.jsonl`; benchmark PRs touch
 nothing else.** Mixed PRs fail CI by design.

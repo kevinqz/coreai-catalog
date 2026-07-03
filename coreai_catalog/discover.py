@@ -601,6 +601,14 @@ def render_markdown(
         "",
         "Dedup layers: authored `upstream_repo` field → HF `base_model` "
         "metadata → normalized-name fuzzy fallback.",
+        "",
+        "### How to port a candidate",
+        "",
+        "These are models that could be converted, not yet how. Convert one with "
+        "**[coreai-fabric](https://github.com/kevinqz/coreai-fabric)** — the agent-first "
+        "conversion pipeline: `coreai-fabric new <hf_repo>` scaffolds a recipe, then "
+        "`convert → verify → publish → register` opens the catalog PR. The artifact "
+        "lands in your own Hugging Face namespace; this catalog only indexes it.",
     ]
     return "\n".join(lines)
 
@@ -778,7 +786,11 @@ def issue_form_to_fields(parsed: dict[str, str]) -> tuple[dict, list[str]]:
         if not (fields.get("github_owner") and fields.get("github_repo")):
             problems.append(
                 "artifact host missing: provide 'Hugging Face owner' + "
-                "'Hugging Face repo' (or 'GitHub owner' + 'GitHub repo')"
+                "'Hugging Face repo' (or 'GitHub owner' + 'GitHub repo'). "
+                "If no .aimodel artifact exists yet, the catalog can't index it — "
+                "convert it first with coreai-fabric "
+                "(https://github.com/kevinqz/coreai-fabric): it publishes the "
+                "artifact to your own Hugging Face and opens the catalog PR for you."
             )
 
     fields.setdefault("artifact_ref", fields.get("id"))

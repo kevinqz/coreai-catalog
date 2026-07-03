@@ -65,12 +65,12 @@ The goal is not to run models directly. The goal is to know, precisely and trace
 
 | Area | Count / status |
 |---|---:|
-| Model records | 80 |
-| Artifact provenance records | 80 |
-| Source records | 21 |
+| Model records | 81 |
+| Artifact provenance records | 81 |
+| Source records | 23 |
 | Main upstreams | 2 |
-| Upstream taxonomy entries | 66 |
-| Benchmark records | 66 |
+| Upstream taxonomy entries | 67 |
+| Benchmark records | 65 |
 | Terminology records | 42 |
 | JSON exports | generated via script |
 
@@ -261,10 +261,15 @@ Measurements are the single source of truth in `benchmarks.jsonl` (model records
 
 | Group | Meaning |
 |---|---|
-| `zoo` | Community model port from `john-rocky/coreai-model-zoo`. |
+| `fabric` | First-party conversion produced via [coreai-fabric](https://github.com/kevinqz/coreai-fabric) — the agent-first conversion pipeline. |
+| `zoo` | Community model port from `john-rocky/coreai-model-zoo` (indexed reference upstream). |
 | `official` | Artifact described upstream as an Apple official recipe conversion from `apple/coreai-models`. |
-| `external` | External source, not yet used by the current catalog. |
+| `external` | External source (e.g. an independent community conversion) not from the zoo, fabric, or an Apple recipe. |
 | `unknown` | Not classified yet. |
+
+### Where new conversions come from
+
+New `.aimodel` conversions flow through **[coreai-fabric](https://github.com/kevinqz/coreai-fabric)**, the first-party agent-first conversion pipeline: an agent (or human) writes a recipe, runs `convert → verify` (parity-checked), publishes the artifact to their *own* Hugging Face namespace, and `register` opens the catalog PR. This catalog stays an index — it never hosts weights and never converts. The community zoo is an **indexed reference upstream**, not the required path. See [`CONTRIBUTING.md`](CONTRIBUTING.md#contributing-a-new-conversion).
 
 ## Official Apple recipe conversions
 

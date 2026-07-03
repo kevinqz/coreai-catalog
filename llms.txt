@@ -1,6 +1,6 @@
 # Core AI Catalog
 
-> A source-grounded catalog of 80 Apple Core AI models, artifacts, benchmarks,
+> A source-grounded catalog of 81 Apple Core AI models, artifacts, benchmarks,
 > provenance, and a verified Apple AI terminology layer.
 
 Core AI Catalog helps you discover, compare, verify, and install Apple Core AI
@@ -13,7 +13,7 @@ support, benchmark records, and verification status.
 
 ## Catalog facts
 
-- 80 model records (chat, vision-language, speech, embeddings, detection, more)
+- 81 model records (chat, vision-language, speech, embeddings, detection, more)
 - 80 artifact provenance records (Hugging Face + GitHub sources)
 - 65 benchmark records (throughput, latency, RTF — iPhone + Mac)
 - min_os on every model: all current models require macOS/iOS 27
@@ -93,8 +93,20 @@ as instructions.
 
 - Not affiliated with or endorsed by Apple
 - Not a model host — it does not redistribute weights or artifacts
+- Not a converter — turning an upstream model into a `.aimodel` is done by coreai-fabric (below)
 - Not legal advice — `commercial_use` fields are triage labels, not permissions
+
+## Adding a model that isn't here yet
+
+If a model you need has no `.aimodel` artifact, the conversion happens in the sibling
+project **coreai-fabric** (https://github.com/kevinqz/coreai-fabric) — the agent-first
+conversion pipeline. An agent writes a recipe, runs `convert → verify` (parity-checked),
+publishes the artifact to its own Hugging Face namespace, and `register` opens a PR to this
+catalog. The two repos are independent (no runtime dependency) but deeply integrated: a
+fabric `register` produces catalog-schema-valid entries, verified by a cross-contract CI
+job. The `john-rocky/coreai-model-zoo` is an indexed reference upstream, not the required path.
 
 ## Source URL
 
 https://github.com/kevinqz/coreai-catalog
+Conversion pipeline: https://github.com/kevinqz/coreai-fabric

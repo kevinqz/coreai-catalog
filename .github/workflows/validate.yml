@@ -39,6 +39,11 @@ jobs:
           python scripts/doc_test.py
           python scripts/generate_templates.py --check
 
+      # ── Count-sync: every public surface agrees with the data (README, site,
+      #    llms.txt, agent.json, openapi) — the 79-vs-80-vs-81 drift guard. ──
+      - name: Count-sync guard
+        run: python scripts/check_counts.py
+
       # ── Generate docs + JSON + scores (single unified generator) ──
       - name: Generate all derived views
         run: |
@@ -79,9 +84,13 @@ jobs:
           print('MCP server OK')
           "
 
-      # ── Error resilience test suite ──
-      - name: Error resilience tests
-        run: python -m unittest tests.test_error_resilience -v
+      # ── Full test suite ──
+      # Runs EVERY test module (not just error_resilience) so the P1 invariants —
+      # bundle_kind/min_os required on every model, the fabric-lane contract test,
+      # io_contract, hardening — are actually enforced in CI. pytest picks up
+      # unittest-style tests too; keep the pip install pytest in requirements.
+      - name: Full test suite
+        run: python -m pytest tests/ -q
 
       # ── Sync gates ──
       - name: Ensure generated docs are in sync with YAML source
@@ -123,10 +132,6 @@ jobs:
       # ── Prompt-injection lint on catalog free-text fields (finding D6) ──
       - name: Injection lint (free-text fields)
         run: python scripts/injection_lint.py
-
-      # ── P1 hardening tests: typosquat audit, sanitizer, injection lint ──
-      - name: P1 hardening tests
-        run: python -m unittest tests.test_p1_hardening -v
 
   # Weekly scheduled job: upstream sync report as a GitHub issue
   sync-report:
