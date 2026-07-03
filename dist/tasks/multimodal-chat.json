@@ -413,20 +413,6 @@
       "has_benchmark": false
     },
     {
-      "id": "gemma-4-12b-mm-warshanks",
-      "name": "Gemma 4 12B IT Multimodal (warshanks)",
-      "score": 58,
-      "parameters": "12B",
-      "devices": {
-        "iphone": false,
-        "ipad": false,
-        "mac": true
-      },
-      "license": "Apache-2.0",
-      "commercial_use": "likely",
-      "has_benchmark": false
-    },
-    {
       "id": "ornith-1-0-9b",
       "name": "Ornith 1.0 9B",
       "score": 55,
@@ -495,10 +481,24 @@
       "license": "LFM Open License v1.0",
       "commercial_use": "check_license",
       "has_benchmark": false
+    },
+    {
+      "id": "gemma-4-12b-mm-warshanks",
+      "name": "Gemma 4 12B IT Multimodal (warshanks)",
+      "score": 48,
+      "parameters": "12B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "check_license",
+      "has_benchmark": false
     }
   ],
   "export_schema_version": "1.0",
-  "export_catalog_version": "2.1.0",
+  "export_catalog_version": "2.2.0",
   "best_overall": "official-qwen3-0-6b",
   "best_iphone": "official-qwen3-0-6b",
   "best_commercial": "official-qwen3-0-6b"

@@ -1,6 +1,6 @@
 {
   "export_schema_version": "1.0",
-  "export_catalog_version": "2.1.0",
+  "export_catalog_version": "2.2.0",
   "description": "Ranked model leaderboard by readiness score. Each entry includes best-known benchmarks per metric.",
   "total_models": 81,
   "leaderboard": [
@@ -834,23 +834,6 @@
       }
     },
     {
-      "id": "gemma-4-12b-assistant-warshanks",
-      "name": "Gemma 4 12B IT Assistant (MTP draft)",
-      "capabilities": [
-        "speculative-decoding"
-      ],
-      "parameters": "12B",
-      "readiness_score": 68,
-      "benchmark_count": 1,
-      "best_metrics": {
-        "inference_latency": {
-          "value": 3,
-          "device": "M4 Max",
-          "unit": "milliseconds"
-        }
-      }
-    },
-    {
       "id": "granite-4-0-h-350m",
       "name": "Granite 4.0-H 350M",
       "capabilities": [
@@ -1097,17 +1080,21 @@
       "best_metrics": {}
     },
     {
-      "id": "gemma-4-12b-mm-warshanks",
-      "name": "Gemma 4 12B IT Multimodal (warshanks)",
+      "id": "gemma-4-12b-assistant-warshanks",
+      "name": "Gemma 4 12B IT Assistant (MTP draft)",
       "capabilities": [
-        "chat",
-        "vision-language",
-        "text-generation"
+        "speculative-decoding"
       ],
       "parameters": "12B",
       "readiness_score": 58,
-      "benchmark_count": 0,
-      "best_metrics": {}
+      "benchmark_count": 1,
+      "best_metrics": {
+        "inference_latency": {
+          "value": 3,
+          "device": "M4 Max",
+          "unit": "milliseconds"
+        }
+      }
     },
     {
       "id": "ornith-1-0-9b",
@@ -1199,6 +1186,19 @@
       ],
       "parameters": "not_published",
       "readiness_score": 53,
+      "benchmark_count": 0,
+      "best_metrics": {}
+    },
+    {
+      "id": "gemma-4-12b-mm-warshanks",
+      "name": "Gemma 4 12B IT Multimodal (warshanks)",
+      "capabilities": [
+        "chat",
+        "vision-language",
+        "text-generation"
+      ],
+      "parameters": "12B",
+      "readiness_score": 48,
       "benchmark_count": 0,
       "best_metrics": {}
     },

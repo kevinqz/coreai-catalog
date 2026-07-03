@@ -221,7 +221,7 @@
     {
       "id": "gemma-4-12b-mm-warshanks",
       "name": "Gemma 4 12B IT Multimodal (warshanks)",
-      "score": 58,
+      "score": 48,
       "parameters": "12B",
       "devices": {
         "iphone": false,
@@ -229,12 +229,12 @@
         "mac": true
       },
       "license": "Apache-2.0",
-      "commercial_use": "likely",
+      "commercial_use": "check_license",
       "has_benchmark": false
     }
   ],
   "export_schema_version": "1.0",
-  "export_catalog_version": "2.1.0",
+  "export_catalog_version": "2.2.0",
   "best_overall": "depth-anything-3-base",
   "best_iphone": "depth-anything-3-base",
   "best_commercial": "depth-anything-3-base"

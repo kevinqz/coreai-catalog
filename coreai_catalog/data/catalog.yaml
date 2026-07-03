@@ -1,12 +1,13 @@
 metadata:
   name: Core AI Catalog
   repo: coreai-catalog
-  version: 2.1.0
+  version: 2.2.0
   last_verified: '2026-07-03'
   upstream:
   - coreai-model-zoo
   - apple/coreai-models
-  description: Compact, source-grounded catalog of Apple Core AI models, artifacts, capabilities, modalities, runtime metadata, device support and sources.
+  description: Compact, source-grounded catalog of Apple Core AI models, artifacts,
+    capabilities, modalities, runtime metadata, device support and sources.
 models:
 - id: qwen3-5-0-8b
   name: Qwen3.5-0.8B
@@ -58,7 +59,7 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: Qwen/Qwen3.5-0.8B  # bundle metadata.json source.hf_model_id @ 34ed8b08
+  upstream_repo: Qwen/Qwen3.5-0.8B
   notes: Top-1 exact vs Hugging Face reference according to upstream.
   architecture: transformer
   streaming: true
@@ -112,7 +113,7 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: Qwen/Qwen3.5-2B  # bundle metadata.json source.hf_model_id @ b5caa285
+  upstream_repo: Qwen/Qwen3.5-2B
   notes: Top-1 exact vs Hugging Face reference according to upstream.
   architecture: transformer
   streaming: true
@@ -167,7 +168,7 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: Qwen/Qwen3.6-35B-A3B  # bundle metadata.json source.hf_model_id @ 445f9634
+  upstream_repo: Qwen/Qwen3.6-35B-A3B
   notes: Mac-only MoE; custom gather_qmm Metal kernel.
   architecture: transformer
   streaming: true
@@ -221,7 +222,7 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: Qwen/Qwen3.6-27B  # bundle metadata.json source.hf_model_id @ fc04c3c8
+  upstream_repo: Qwen/Qwen3.6-27B
   notes: Dense Mac-only LLM.
   architecture: transformer
   streaming: true
@@ -277,7 +278,7 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: zai-org/GLM-4.7-Flash  # bundle metadata.json source.hf_model_id @ 4b2475b0
+  upstream_repo: zai-org/GLM-4.7-Flash
   notes: MoE + MLA; custom gather_qmm Metal kernel.
   architecture: transformer
   streaming: true
@@ -384,7 +385,7 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: google/gemma-4-E4B-it-qat-q4_0-unquantized  # bundle metadata.json source.hf_model_id @ 8da58f38
+  upstream_repo: google/gemma-4-E4B-it-qat-q4_0-unquantized
   notes: Official-QAT int4.
   architecture: transformer
   streaming: true
@@ -439,7 +440,7 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: google/gemma-4-12B-it-qat-q4_0-unquantized  # bundle metadata.json source.hf_model_id @ feff92c5
+  upstream_repo: google/gemma-4-12B-it-qat-q4_0-unquantized
   notes: Custom flash-decode kernel.
   architecture: transformer
   streaming: true
@@ -494,7 +495,7 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: google/gemma-4-31B-it-qat-q4_0-unquantized  # bundle metadata.json source.hf_model_id @ c80f188d
+  upstream_repo: google/gemma-4-31B-it-qat-q4_0-unquantized
   notes: Custom flash-decode kernel.
   architecture: transformer
   streaming: true
@@ -549,7 +550,7 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: LiquidAI/LFM2.5-1.2B-Instruct  # bundle metadata.json source.hf_model_id @ c8505137
+  upstream_repo: LiquidAI/LFM2.5-1.2B-Instruct
   notes: Hybrid architecture.
   architecture: transformer
   streaming: true
@@ -604,7 +605,7 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: LiquidAI/LFM2.5-8B-A1B  # bundle metadata.json source.hf_model_id @ dae5add3
+  upstream_repo: LiquidAI/LFM2.5-8B-A1B
   notes: MoE path with gather_qmm.
   architecture: transformer
   streaming: true
@@ -659,7 +660,7 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: ibm-granite/granite-4.0-h-1b  # bundle metadata.json source.hf_model_id (shared repo; matched by name)
+  upstream_repo: ibm-granite/granite-4.0-h-1b
   notes: Mamba2 + attention hybrid.
   architecture: transformer
   streaming: true
@@ -714,7 +715,7 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: ibm-granite/granite-4.0-h-350m  # bundle metadata.json source.hf_model_id (shared repo; matched by name)
+  upstream_repo: ibm-granite/granite-4.0-h-350m
   notes: Same upstream card as Granite 4.0-H 1B.
   architecture: transformer
   streaming: true
@@ -770,7 +771,7 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: Nanbeige/Nanbeige4.1-3B  # bundle metadata.json source.hf_model_id @ 4a6f7c8a
+  upstream_repo: Nanbeige/Nanbeige4.1-3B
   notes: Dense reasoning/agentic.
   architecture: transformer
   streaming: true
@@ -824,7 +825,7 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: Qwen/Qwen3-VL-2B-Instruct  # bundle metadata.json source.hf_model_id @ 6c4f7940
+  upstream_repo: Qwen/Qwen3-VL-2B-Instruct
   notes: Vision-language model.
   architecture: transformer
   streaming: true
@@ -878,7 +879,7 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: Qwen/Qwen3-VL-4B-Instruct  # bundle metadata.json source.hf_model_id @ 1a34e094
+  upstream_repo: Qwen/Qwen3-VL-4B-Instruct
   notes: Vision-language model.
   architecture: transformer
   streaming: true
@@ -932,7 +933,7 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: Qwen/Qwen3-VL-8B-Instruct  # bundle metadata.json source.hf_model_id @ 60724b3d
+  upstream_repo: Qwen/Qwen3-VL-8B-Instruct
   notes: Vision-language model.
   architecture: transformer
   streaming: true
@@ -986,13 +987,7 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: openbmb/MiniCPM-V-4.6  # bundle metadata.json source.hf_model_id @ 43cdcf11
-  # io_contract grounded in bundle metadata.json @ 43cdcf11: vision-encoder
-  # bundle (vision.input pixel_values[1,3,448,448] fp16 -> image_features
-  # [64,1024], grid 32) + llm bundle (vocab_size 248094, max_context_length
-  # 4096, vlm.image_embeds "[64,1024] static buffer"). VLM engine API per
-  # apple/coreai-models InferenceEngine.swift:296-304
-  # (encodeImage(at:) -> EmbeddedInput) and CoreAIRunner.swift:30-40.
+  upstream_repo: openbmb/MiniCPM-V-4.6
   io_contract:
     entrypoint:
       framework: CoreAILanguageModels
@@ -1003,7 +998,11 @@ models:
       modality: image
       swift_type: URL
       tensor:
-        shape: [1, 3, 448, 448]
+        shape:
+        - 1
+        - 3
+        - 448
+        - 448
         dtype: fp16
         layout: NCHW
     - name: prompt
@@ -1015,7 +1014,7 @@ models:
     - name: response
       swift_type: String
       decoding:
-        detokenization: 'embedded tokenizer (openbmb/MiniCPM-V-4.6, vocab 248094)'
+        detokenization: embedded tokenizer (openbmb/MiniCPM-V-4.6, vocab 248094)
     session:
       stateful: true
       streaming: true
@@ -1129,18 +1128,12 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  # io_contract grounded in the pinned artifact's own metadata
-  # (mlboydaisuke/Unlimited-OCR-CoreAI @ cf02fad2): assets/recipe.json
-  # ("ImageOps.pad to 640x640 (pad color = mean*255), normalize mean=std=0.5";
-  # fixed prompt_input_ids.i32 [115]; 111 visual tokens scattered at
-  # image_token_id 128815; bos 0 / eos 1) + tokenizer/tokenizer_config.json
-  # (LlamaTokenizerFast). No bundle-level metadata.json: two raw .aimodel
-  # components (vision + decoder) driven via the CoreAI AIModel graph API.
   io_contract:
     entrypoint:
       framework: CoreAI
       type: AIModel
-      init_pattern: 'let vision = try await AIModel(contentsOf: visionURL); let decoder = try await AIModel(contentsOf: decoderURL)'
+      init_pattern: 'let vision = try await AIModel(contentsOf: visionURL); let decoder
+        = try await AIModel(contentsOf: decoderURL)'
     inputs:
     - name: document_image
       modality: image
@@ -1155,14 +1148,16 @@ models:
       modality: text
       swift_type: '[Int32]'
       tensor:
-        shape: [115]
+        shape:
+        - 115
         dtype: int32
     outputs:
     - name: text
       swift_type: String
       decoding:
-        format_selector: 'fixed prompt prefix (assets/prompt_input_ids.i32) — output interleaves markdown, HTML tables and LaTeX formulas; not prompt-selectable'
-        detokenization: 'greedy decode to eos id 1; detokenize with tokenizer/ (LlamaTokenizerFast)'
+        format_selector: fixed prompt prefix (assets/prompt_input_ids.i32) — output
+          interleaves markdown, HTML tables and LaTeX formulas; not prompt-selectable
+        detokenization: greedy decode to eos id 1; detokenize with tokenizer/ (LlamaTokenizerFast)
     files:
       tokenizer_ref: tokenizer
       processor_ref: assets/recipe.json
@@ -1218,7 +1213,7 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: Qwen/Qwen2.5-Omni-3B  # bundle metadata.json source.hf_model_id @ 0f0fdc89
+  upstream_repo: Qwen/Qwen2.5-Omni-3B
   notes: Audio understanding; describes sounds, not literal transcript.
   architecture: transformer
   streaming: true
@@ -1272,7 +1267,7 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: hexgrad/Kokoro-82M  # .aimodel metadata.json description URL @ 4a732c9b
+  upstream_repo: hexgrad/Kokoro-82M
   notes: StyleTTS2 + iSTFTNet; 28 English voices.
   architecture: transformer
   streaming: true
@@ -1376,7 +1371,7 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: google/embeddinggemma-300m  # .aimodel metadata.json description Source URL @ 3ff69a4a
+  upstream_repo: google/embeddinggemma-300m
   notes: Text embeddings for on-device RAG / semantic search.
   architecture: transformer
   streaming: false
@@ -1429,13 +1424,7 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: Qwen/Qwen3-Embedding-0.6B  # .aimodel metadata.json description URL @ da65f89b
-  # io_contract grounded in
-  # qwen3-embedding-0.6b_float16_s512_static.aimodel/metadata.json @ da65f89b
-  # ("last-token pooling, L2-normalized 1024-d, MRL-truncatable 32-1024");
-  # 512-token static sequence per the bundle's own name (_s512_static);
-  # tokenizer/ (Qwen2Tokenizer). No bundle-level metadata.json: raw .aimodel
-  # via the CoreAI AIModel graph API.
+  upstream_repo: Qwen/Qwen3-Embedding-0.6B
   io_contract:
     entrypoint:
       framework: CoreAI
@@ -1451,7 +1440,8 @@ models:
       swift_type: '[Float]'
       decoding:
         embedding_dim: 1024
-        format_selector: last-token pooling, L2-normalized; MRL-truncatable to 32..1024 dims
+        format_selector: last-token pooling, L2-normalized; MRL-truncatable to 32..1024
+          dims
     files:
       tokenizer_ref: tokenizer
   notes: Multilingual embeddings; last-token pooling + MRL.
@@ -1507,13 +1497,7 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: Qwen/Qwen3-Reranker-0.6B  # .aimodel metadata.json description URL @ 04dcf51b
-  # io_contract grounded in
-  # qwen3-reranker-0.6b_float16_s512_static.aimodel/metadata.json
-  # ("cross-encoder reranker ...; yes/no logit score. Output probs[1] =
-  # P(yes) = relevance"); 512-token static sequence per the bundle's own
-  # name (_s512_static) — the packed (query, document) pair shares that
-  # window; tokenizer/. Raw .aimodel via the CoreAI AIModel graph API.
+  upstream_repo: Qwen/Qwen3-Reranker-0.6B
   io_contract:
     entrypoint:
       framework: CoreAI
@@ -1587,11 +1571,6 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  # io_contract grounded in the artifact's .aimodel metadata.json @ 2db24087
-  # ("Input: RGB [0,1]; outputs: 300 cxcywh boxes + 91 COCO-id logit
-  # columns") and apple/coreai-models ObjectDetector.swift:23,110 +
-  # DetectionPostprocessor.swift:15-19 (normalized cxcywh -> pixel CGRect,
-  # top-left origin; no NMS).
   io_contract:
     entrypoint:
       framework: CoreAIObjectDetector
@@ -1608,8 +1587,10 @@ models:
     - name: detections
       swift_type: '[DetectedObject]'
       decoding:
-        coordinate_convention: 'boundingBox: pixel CGRect, top-left origin (decoded from 300 normalized cxcywh queries; no NMS)'
-        label_vocab_ref: COCO 91-id logit columns; ObjectDetectionLabels.coco default mapping
+        coordinate_convention: 'boundingBox: pixel CGRect, top-left origin (decoded
+          from 300 normalized cxcywh queries; no NMS)'
+        label_vocab_ref: COCO 91-id logit columns; ObjectDetectionLabels.coco default
+          mapping
   notes: Object detection; no NMS.
   architecture: transformer
   streaming: false
@@ -1664,11 +1645,6 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  # io_contract grounded in the artifact's .aimodel metadata.json @ 2db24087
-  # ("Input: RGB [0,1]; outputs: 300 cxcywh boxes + 91 COCO-id logit
-  # columns") and apple/coreai-models ObjectDetector.swift:23,110 +
-  # DetectionPostprocessor.swift:15-19 (normalized cxcywh -> pixel CGRect,
-  # top-left origin; no NMS).
   io_contract:
     entrypoint:
       framework: CoreAIObjectDetector
@@ -1685,8 +1661,10 @@ models:
     - name: detections
       swift_type: '[DetectedObject]'
       decoding:
-        coordinate_convention: 'boundingBox: pixel CGRect, top-left origin (decoded from 300 normalized cxcywh queries; no NMS)'
-        label_vocab_ref: COCO 91-id logit columns; ObjectDetectionLabels.coco default mapping
+        coordinate_convention: 'boundingBox: pixel CGRect, top-left origin (decoded
+          from 300 normalized cxcywh queries; no NMS)'
+        label_vocab_ref: COCO 91-id logit columns; ObjectDetectionLabels.coco default
+          mapping
   notes: Object detection; no NMS.
   architecture: transformer
   streaming: false
@@ -1741,11 +1719,6 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  # io_contract grounded in the artifact's .aimodel metadata.json @ 2db24087
-  # ("Input: RGB [0,1]; outputs: 300 cxcywh boxes + 91 COCO-id logit
-  # columns") and apple/coreai-models ObjectDetector.swift:23,110 +
-  # DetectionPostprocessor.swift:15-19 (normalized cxcywh -> pixel CGRect,
-  # top-left origin; no NMS).
   io_contract:
     entrypoint:
       framework: CoreAIObjectDetector
@@ -1762,8 +1735,10 @@ models:
     - name: detections
       swift_type: '[DetectedObject]'
       decoding:
-        coordinate_convention: 'boundingBox: pixel CGRect, top-left origin (decoded from 300 normalized cxcywh queries; no NMS)'
-        label_vocab_ref: COCO 91-id logit columns; ObjectDetectionLabels.coco default mapping
+        coordinate_convention: 'boundingBox: pixel CGRect, top-left origin (decoded
+          from 300 normalized cxcywh queries; no NMS)'
+        label_vocab_ref: COCO 91-id logit columns; ObjectDetectionLabels.coco default
+          mapping
   notes: Object detection; no NMS.
   architecture: transformer
   streaming: false
@@ -1818,11 +1793,6 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  # io_contract grounded in the artifact's .aimodel metadata.json @ 2db24087
-  # ("Input: RGB [0,1]; outputs: 300 cxcywh boxes + 91 COCO-id logit
-  # columns") and apple/coreai-models ObjectDetector.swift:23,110 +
-  # DetectionPostprocessor.swift:15-19 (normalized cxcywh -> pixel CGRect,
-  # top-left origin; no NMS).
   io_contract:
     entrypoint:
       framework: CoreAIObjectDetector
@@ -1839,8 +1809,10 @@ models:
     - name: detections
       swift_type: '[DetectedObject]'
       decoding:
-        coordinate_convention: 'boundingBox: pixel CGRect, top-left origin (decoded from 300 normalized cxcywh queries; no NMS)'
-        label_vocab_ref: COCO 91-id logit columns; ObjectDetectionLabels.coco default mapping
+        coordinate_convention: 'boundingBox: pixel CGRect, top-left origin (decoded
+          from 300 normalized cxcywh queries; no NMS)'
+        label_vocab_ref: COCO 91-id logit columns; ObjectDetectionLabels.coco default
+          mapping
   notes: Object detection; no NMS.
   architecture: transformer
   streaming: false
@@ -2275,10 +2247,6 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  # io_contract grounded in small/da3-small_*.aimodel/metadata.json
-  # @ d60a4971 ("Input: RGB [0,1]; outputs: relative depth + confidence
-  # map"). No bundle-level metadata.json: raw .aimodel via the CoreAI
-  # AIModel graph API.
   io_contract:
     entrypoint:
       framework: CoreAI
@@ -2349,10 +2317,6 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  # io_contract grounded in base/da3-base_*.aimodel/metadata.json
-  # @ d60a4971 ("Input: RGB [0,1]; outputs: relative depth + confidence
-  # map"). No bundle-level metadata.json: raw .aimodel via the CoreAI
-  # AIModel graph API.
   io_contract:
     entrypoint:
       framework: CoreAI
@@ -2425,7 +2389,7 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: openai/gpt-oss-20b  # .aimodel metadata.json description Source URL @ 7959a1e5
+  upstream_repo: openai/gpt-oss-20b
   notes: Official-recipe conversion; stock runtime.
   architecture: transformer
   streaming: true
@@ -2479,12 +2443,7 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: Qwen/Qwen3-0.6B  # bundle metadata.json source.hf_model_id @ 01382eba
-  # io_contract grounded in bundle metadata.json (ios/, macos/,
-  # macos-26-export/ @ 01382eba): kind llm, tokenizer Qwen/Qwen3-0.6B,
-  # vocab_size 151936, max_context_length 4096 (ios static) / 8192 (macos
-  # dynamic), embedded_tokenizer true. Entrypoint per apple/coreai-models
-  # CoreAILanguageModel.swift:73-77 (+ LanguageModelSession, FoundationModels).
+  upstream_repo: Qwen/Qwen3-0.6B
   io_contract:
     entrypoint:
       framework: CoreAILanguageModels
@@ -2500,7 +2459,8 @@ models:
     - name: response
       swift_type: String
       decoding:
-        detokenization: 'embedded tokenizer (Qwen/Qwen3-0.6B, vocab 151936); LanguageModelSession.respond(to:) returns detokenized text'
+        detokenization: embedded tokenizer (Qwen/Qwen3-0.6B, vocab 151936); LanguageModelSession.respond(to:)
+          returns detokenized text
     session:
       stateful: true
       streaming: true
@@ -2559,7 +2519,7 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: Qwen/Qwen3-4B  # bundle metadata.json source.hf_model_id @ 77402d47
+  upstream_repo: Qwen/Qwen3-4B
   notes: Official-recipe conversion; stock runtime.
   architecture: transformer
   streaming: true
@@ -2613,7 +2573,7 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: Qwen/Qwen3-8B  # bundle metadata.json source.hf_model_id @ cecbb0a6
+  upstream_repo: Qwen/Qwen3-8B
   notes: Official-recipe conversion; stock runtime.
   architecture: transformer
   streaming: true
@@ -2668,7 +2628,7 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: google/gemma-3-4b-it  # .aimodel metadata.json description Source URL @ 6f796475
+  upstream_repo: google/gemma-3-4b-it
   notes: Official-recipe conversion; stock runtime.
   architecture: transformer
   streaming: true
@@ -2723,7 +2683,7 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: google/gemma-3-12b-it  # .aimodel metadata.json description Source URL @ 8c12bebb
+  upstream_repo: google/gemma-3-12b-it
   notes: Official-recipe conversion; stock runtime.
   architecture: transformer
   streaming: true
@@ -2777,7 +2737,7 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: mistralai/Mistral-7B-Instruct-v0.3  # bundle metadata.json source.hf_model_id @ 5ffdebc3
+  upstream_repo: mistralai/Mistral-7B-Instruct-v0.3
   notes: Official-recipe conversion; stock runtime.
   architecture: transformer
   streaming: true
@@ -2830,18 +2790,13 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: black-forest-labs/FLUX.2-klein-4B  # .aimodel metadata.json description URL @ 592d3ab3
-  # io_contract grounded in bundle metadata.json + pipeline.json @ 592d3ab3
-  # (kind diffusion, type flux2, image_size 1024, default_steps 4,
-  # default_guidance_scale 1.0, assets TextEncoder/Transformer/VAEDecoder/
-  # VAEEncoder) and apple/coreai-models Flux2Pipeline
-  # (DiffusionRunnerMain.swift:134; Pipeline.swift:10-16
-  # GenerationResult.images: [CGImage]).
+  upstream_repo: black-forest-labs/FLUX.2-klein-4B
   io_contract:
     entrypoint:
       framework: CoreAIDiffusionPipeline
       type: Flux2Pipeline
-      init_pattern: 'let pipeline = try await Flux2Pipeline(from: bundleURL, config: configSource, mode: decodeResolution)'
+      init_pattern: 'let pipeline = try await Flux2Pipeline(from: bundleURL, config:
+        configSource, mode: decodeResolution)'
     inputs:
     - name: prompt
       modality: text
@@ -2850,7 +2805,8 @@ models:
     - name: images
       swift_type: '[CGImage]'
       decoding:
-        format_selector: 1024x1024 default (pipeline.json image_size); default_steps 4, guidance 1.0
+        format_selector: 1024x1024 default (pipeline.json image_size); default_steps
+          4, guidance 1.0
     files:
       tokenizer_ref: tokenizer
       processor_ref: pipeline.json
@@ -2909,12 +2865,6 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  # io_contract grounded in bundle metadata.json @ aba84175 (kind segmenter,
-  # assets.main sam3_float16.aimodel; tokenizer/tokenizer_config.json:
-  # CLIPTokenizer, max_length 32) and apple/coreai-models
-  # ImageSegmenter.swift:92-137,163 (text-query segmentation; point queries
-  # unsupported for SAM3; engine resizes internally;
-  # SegmentationPostprocessor decodes to input-image pixel space).
   io_contract:
     entrypoint:
       framework: CoreAIImageSegmenter
@@ -2991,15 +2941,7 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: openai/whisper-large-v3-turbo  # .aimodel metadata.json description Source URL @ dc309164
-  # io_contract grounded in the artifact's preprocessor_config.json
-  # (sampling_rate 16000, feature_size 128 mel bins, n_fft 400, hop_length
-  # 160, chunk_length 30 s) and .aimodel metadata.json @ dc309164 ("FIXED
-  # 128-token decoder window ... driven autoregressively on the stock
-  # runtime"). NOTE: single encoder-decoder .aimodel per platform dir — NOT
-  # the CoreAISpeech SpeechBundle layout (SpeechBundle.swift:29-35 expects
-  # encoder.aimodel + decoder.aimodel), so the entrypoint is the stock
-  # AIModel graph API.
+  upstream_repo: openai/whisper-large-v3-turbo
   io_contract:
     entrypoint:
       framework: CoreAI
@@ -3010,14 +2952,16 @@ models:
       modality: audio
       preprocessing:
         sample_rate: 16000
-        normalization: 'WhisperFeatureExtractor log-mel: 128 mel bins, n_fft 400, hop_length 160'
+        normalization: 'WhisperFeatureExtractor log-mel: 128 mel bins, n_fft 400,
+          hop_length 160'
       constraints:
         max_audio_s: 30
     outputs:
     - name: transcript
       swift_type: String
       decoding:
-        detokenization: WhisperTokenizer (tokenizer/); autoregressive decode in a fixed 128-token window
+        detokenization: WhisperTokenizer (tokenizer/); autoregressive decode in a
+          fixed 128-token window
     files:
       tokenizer_ref: tokenizer
       processor_ref: preprocessor_config.json
@@ -3075,8 +3019,9 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: openbmb/MiniCPM5-1B  # bundle metadata.json source.hf_model_id @ 337d59a1
-  notes: Hybrid Think/No-Think reasoning; 128K context; int8 lossless (24/24 exact vs HF).
+  upstream_repo: openbmb/MiniCPM5-1B
+  notes: Hybrid Think/No-Think reasoning; 128K context; int8 lossless (24/24 exact
+    vs HF).
   architecture: transformer
   context_window: 128K
   streaming: true
@@ -3131,7 +3076,7 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: microsoft/FastContext-1.0-4B-SFT  # .aimodel metadata.json description URL @ 2c3f0271
+  upstream_repo: microsoft/FastContext-1.0-4B-SFT
   notes: Repository-exploration agent (Microsoft); Qwen3-4B arch; AOT h18p; ANE unsupported.
   architecture: transformer
   streaming: true
@@ -3185,8 +3130,9 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: openbmb/BitCPM-CANN-8B  # bundle metadata.json source.hf_model_id @ 173f6fff
-  notes: First 1.58-bit ternary LLM; custom 2-bit packed-GEMM Metal kernel; ~2.1 GB resident on iPhone.
+  upstream_repo: openbmb/BitCPM-CANN-8B
+  notes: First 1.58-bit ternary LLM; custom 2-bit packed-GEMM Metal kernel; ~2.1 GB
+    resident on iPhone.
   architecture: transformer
   streaming: true
 - id: holo2-4b
@@ -3240,8 +3186,9 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: Hcompany/Holo2-4B  # bundle metadata.json source.hf_model_id @ 30b8a128
-  notes: GUI-grounding / computer-use VLM (H Company); Qwen3-VL-4B backbone; screenshot → click coordinates.
+  upstream_repo: Hcompany/Holo2-4B
+  notes: GUI-grounding / computer-use VLM (H Company); Qwen3-VL-4B backbone; screenshot
+    → click coordinates.
   architecture: transformer
   streaming: true
 - id: colmodernvbert
@@ -3294,8 +3241,9 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: ModernVBERT/colmodernvbert  # .aimodel metadata.json description Source URL @ 21759168
-  notes: Visual document retriever; ColBERT/MaxSim late-interaction; ModernBERT + SigLIP2.
+  upstream_repo: ModernVBERT/colmodernvbert
+  notes: Visual document retriever; ColBERT/MaxSim late-interaction; ModernBERT +
+    SigLIP2.
   architecture: encoder
   streaming: false
 - id: qwen3-asr-1-7b
@@ -3346,7 +3294,7 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: Qwen/Qwen3-ASR-1.7B  # bundle metadata.json source.hf_model_id @ 853dab46
+  upstream_repo: Qwen/Qwen3-ASR-1.7B
   notes: Zoo's first ASR; AuT encoder + Qwen3 decoder; 52 languages.
   architecture: transformer
   streaming: true
@@ -3399,7 +3347,8 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  notes: First transducer/TDT (RNN-T); NVIDIA FastConformer + LSTM predictor; 25 EU languages; iPhone 47.9× realtime.
+  notes: First transducer/TDT (RNN-T); NVIDIA FastConformer + LSTM predictor; 25 EU
+    languages; iPhone 47.9× realtime.
   architecture: encoder
   streaming: false
 - id: voxcpm2-2b
@@ -3450,7 +3399,8 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  notes: 2B successor at 48 kHz; MiniCPM4 28L LM + LocDiT-12L flow-matching + 48 kHz AudioVAE.
+  notes: 2B successor at 48 kHz; MiniCPM4 28L LM + LocDiT-12L flow-matching + 48 kHz
+    AudioVAE.
   architecture: transformer
   streaming: true
 - id: yolox-s
@@ -3504,7 +3454,8 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  notes: First single-stage anchor-free detector (YOLO family); CSPDarknet + PAFPN; per-class NMS; 208 FPS on M4 Max GPU.
+  notes: First single-stage anchor-free detector (YOLO family); CSPDarknet + PAFPN;
+    per-class NMS; 208 FPS on M4 Max GPU.
   architecture: encoder
   streaming: false
 - id: tripo-splat
@@ -3555,7 +3506,8 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  notes: Single image → 3D Gaussian splats; DINOv3 ViT-H + 20-step flow-matching DiT; .ply/.splat → RealityKit / MetalSplatter; VAST; Mac-only.
+  notes: Single image → 3D Gaussian splats; DINOv3 ViT-H + 20-step flow-matching DiT;
+    .ply/.splat → RealityKit / MetalSplatter; VAST; Mac-only.
   architecture: transformer
   streaming: false
 - id: ltx-video-2b
@@ -3607,7 +3559,8 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  notes: First video model; T5-XXL + 8-step flow-matching DiT + causal video VAE; 512×768×49f ~14s Mac GPU; Lightricks; Mac-only.
+  notes: First video model; T5-XXL + 8-step flow-matching DiT + causal video VAE;
+    512×768×49f ~14s Mac GPU; Lightricks; Mac-only.
   architecture: diffusion
   streaming: false
 - id: official-qwen3-1-7b
@@ -3660,8 +3613,9 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: Qwen/Qwen3-1.7B  # bundle metadata.json source.hf_model_id @ ba661065
-  notes: Fills the missing 1.7B rung in the dense Qwen3 Core AI line. GPU-only — ANE export omitted (loads but fails on iOS 27).
+  upstream_repo: Qwen/Qwen3-1.7B
+  notes: Fills the missing 1.7B rung in the dense Qwen3 Core AI line. GPU-only — ANE
+    export omitted (loads but fails on iOS 27).
   architecture: transformer
   streaming: true
 - id: official-clip-vit-base-patch32
@@ -3714,8 +3668,9 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: openai/clip-vit-base-patch32  # .aimodel metadata.json description Source URL @ 5ea27812
-  notes: Official recipe CLIP export (models/clip/export.py); fp16 static; text padded to 77 tokens for free-text queries. Image+text → cosine similarity.
+  upstream_repo: openai/clip-vit-base-patch32
+  notes: Official recipe CLIP export (models/clip/export.py); fp16 static; text padded
+    to 77 tokens for free-text queries. Image+text → cosine similarity.
   architecture: encoder
   streaming: false
 - id: llada-8b-dllm
@@ -3769,8 +3724,9 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: d3LLM/d3LLM_LLaDA  # bundle metadata.json source.hf_model_id @ 2b7f2d4a
-  notes: First diffusion LM (dLLM) on Core AI. Masked bidirectional text generation, no KV cache. int4 viable (not a cliff). ~38 tok/s at threshold 1.0.
+  upstream_repo: d3LLM/d3LLM_LLaDA
+  notes: First diffusion LM (dLLM) on Core AI. Masked bidirectional text generation,
+    no KV cache. int4 viable (not a cliff). ~38 tok/s at threshold 1.0.
   architecture: transformer
   streaming: true
 - id: bitvla
@@ -3824,7 +3780,9 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  notes: 'First VLA / robotics model on Core AI. 1.58-bit ternary VLA: BitNet LLM + BitSigLIP vision → 7-DoF robot action. Generalized ternary kernel (arbitrary K/N).'
+  notes: 'First VLA / robotics model on Core AI. 1.58-bit ternary VLA: BitNet LLM
+    + BitSigLIP vision → 7-DoF robot action. Generalized ternary kernel (arbitrary
+    K/N).'
   architecture: transformer
   streaming: false
 - id: stable-audio-open-small
@@ -3876,7 +3834,8 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  notes: 'First generative audio model. Latent diffusion: T5 encoder + DiT (8-step rectified-flow) + Oobleck VAE. ~11s 44.1 kHz stereo in ~0.4s on M4 Max (≈30× real-time).'
+  notes: 'First generative audio model. Latent diffusion: T5 encoder + DiT (8-step
+    rectified-flow) + Oobleck VAE. ~11s 44.1 kHz stereo in ~0.4s on M4 Max (≈30× real-time).'
   architecture: diffusion
   streaming: false
 - id: whisper-large-v3-turbo-carstenl
@@ -4073,7 +4032,7 @@ models:
     mac_only: true
   license:
     name: Apache-2.0
-    commercial_use: likely
+    commercial_use: check_license
   status: confirmed
   maturity: experimental
   confidence: medium
@@ -4084,8 +4043,11 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: google/gemma-4-12B-it  # bundle metadata.json source.hf_model_id @ 022fa7c2
-  notes: 'First multimodal Gemma 4 conversion: text+image+audio input via encoder-free architecture. Custom conversion recipe extending coreai-models. INT4 block-32 weight-only decoder. Multi-function bundle (main, prefill_multimodal, embed_vision, embed_audio).'
+  upstream_repo: google/gemma-4-12B-it
+  notes: 'First multimodal Gemma 4 conversion: text+image+audio input via encoder-free
+    architecture. Custom conversion recipe extending coreai-models. INT4 block-32
+    weight-only decoder. Multi-function bundle (main, prefill_multimodal, embed_vision,
+    embed_audio).'
   architecture: transformer
   streaming: true
 - id: gemma-4-12b-assistant-warshanks
@@ -4125,7 +4087,7 @@ models:
     mac_only: true
   license:
     name: Apache-2.0
-    commercial_use: likely
+    commercial_use: check_license
   status: confirmed
   maturity: experimental
   confidence: medium
@@ -4136,8 +4098,10 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: google/gemma-4-12B-it-assistant  # bundle metadata.json source.hf_model_id @ 5c9bb246
-  notes: 'Multi-token-prediction draft model for speculative decoding with Gemma 4 12B. Cross-attends main model KV cache (layers 46/47) zero-copy. ~3ms/step on M4 Max vs ~21ms for the 12B. Companion to warshanks/gemma-4-12B-it-coreai.'
+  upstream_repo: google/gemma-4-12B-it-assistant
+  notes: Multi-token-prediction draft model for speculative decoding with Gemma 4
+    12B. Cross-attends main model KV cache (layers 46/47) zero-copy. ~3ms/step on
+    M4 Max vs ~21ms for the 12B. Companion to warshanks/gemma-4-12B-it-coreai.
   architecture: transformer
   streaming: false
 - id: vibevoice-0-5b
@@ -4188,7 +4152,9 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  notes: 'Streaming TTS with 0.5B Qwen2 backbone. 10.2x RTF on M4 Max. Multi-bundle pipeline: LM + diffusion sampler + acoustic decoder/connector. Microsoft VibeVoice original weights.'
+  notes: 'Streaming TTS with 0.5B Qwen2 backbone. 10.2x RTF on M4 Max. Multi-bundle
+    pipeline: LM + diffusion sampler + acoustic decoder/connector. Microsoft VibeVoice
+    original weights.'
   architecture: transformer
   streaming: true
 - id: vibevoice-1-5b
@@ -4239,7 +4205,7 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  notes: 'Multi-speaker TTS with 1.5B Qwen2 backbone. INT8 LM. 4.99x RTF on M4 Max.'
+  notes: Multi-speaker TTS with 1.5B Qwen2 backbone. INT8 LM. 4.99x RTF on M4 Max.
   architecture: transformer
   streaming: true
 - id: vibevoice-7b
@@ -4290,7 +4256,8 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  notes: 'High-quality multi-speaker TTS with 7B Qwen2 backbone. INT8/4 LM. 2.37x RTF on M4 Max.'
+  notes: High-quality multi-speaker TTS with 7B Qwen2 backbone. INT8/4 LM. 2.37x RTF
+    on M4 Max.
   architecture: transformer
   streaming: true
 - id: vibevoice-asr
@@ -4341,7 +4308,8 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  notes: 'On-device transcription, Qwen2-7B. INT8/4 LM. 11.1x RTF on M4 Max. Microsoft VibeVoice ASR original weights.'
+  notes: On-device transcription, Qwen2-7B. INT8/4 LM. 11.1x RTF on M4 Max. Microsoft
+    VibeVoice ASR original weights.
   architecture: transformer
   streaming: true
 - id: nemotron-3-5-asr-streaming
@@ -4392,7 +4360,9 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  notes: 'NVIDIA FastConformer + RNN-T streaming ASR. Cache-aware 320ms encoder mode. AOT artifacts for iOS (A19 h18p) + macOS (M3-M5). Companion Swift package mweinbach/NemotronCoreAI. Multiple quantization variants (int8, lut6, lut8). 174 files.'
+  notes: NVIDIA FastConformer + RNN-T streaming ASR. Cache-aware 320ms encoder mode.
+    AOT artifacts for iOS (A19 h18p) + macOS (M3-M5). Companion Swift package mweinbach/NemotronCoreAI.
+    Multiple quantization variants (int8, lut6, lut8). 174 files.
   architecture: transformer
   streaming: false
 - id: z-image-turbo
@@ -4443,8 +4413,9 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: Tongyi-MAI/Z-Image-Turbo  # .aimodel metadata.json description Source URL @ 6a41220c
-  notes: 'Tongyi-MAI Z-Image Turbo text-to-image. GPU (fast-512) and ANE (ane-1024, hoisted-adaLN) bundles at 512 and 1024 resolution. For CoreAIStudio on macOS/iOS/iPadOS/visionOS.'
+  upstream_repo: Tongyi-MAI/Z-Image-Turbo
+  notes: Tongyi-MAI Z-Image Turbo text-to-image. GPU (fast-512) and ANE (ane-1024,
+    hoisted-adaLN) bundles at 512 and 1024 resolution. For CoreAIStudio on macOS/iOS/iPadOS/visionOS.
   architecture: diffusion
   streaming: false
 - id: real-esrgan-x4v3
@@ -4546,10 +4517,10 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  notes: Lightweight promptable segmentation. Hosted by Lenitas app distribution. 392MB total with tokenizer. SHA-256 verified.
+  notes: Lightweight promptable segmentation. Hosted by Lenitas app distribution.
+    392MB total with tokenizer. SHA-256 verified.
   architecture: cnn/transformer
   streaming: false
-
 - id: rwkv7-goose-1-5b
   name: RWKV-7 Goose 1.5B
   family: RWKV
@@ -4601,12 +4572,11 @@ models:
     macos: '27.0'
     ios: '27.0'
   notes: First pure-recurrent / linear-attention LLM on Core AI. No attention, no
-    KV cache — O(1) per-token decode with constant memory and unbounded context.
-    WKV7 delta-rule matrix-state time-mix + sqrelu channel-mix. int8 weight-only
-    quant (FFN only; recurrence projections kept fp16).
+    KV cache — O(1) per-token decode with constant memory and unbounded context. WKV7
+    delta-rule matrix-state time-mix + sqrelu channel-mix. int8 weight-only quant
+    (FFN only; recurrence projections kept fp16).
   architecture: recurrent
   streaming: true
-
 - id: vjepa2-vitl-ssv2
   name: V-JEPA 2 ViT-L (SSv2)
   family: V-JEPA
@@ -4656,12 +4626,7 @@ models:
   min_os:
     macos: '27.0'
     ios: '27.0'
-  upstream_repo: facebook/vjepa2-vitl-fpc16-256-ssv2  # bundle metadata.json base_model @ 1354fcc7
-  # io_contract grounded in macos/metadata.json @ 1354fcc7: input
-  # pixel_values_videos [1,16,3,256,256] float16 ("frames RGB 0..1 ->
-  # (x - mean)/std, mean=[0.485,0.456,0.406], std=[0.229,0.224,0.225],
-  # 16 frames uniformly sampled, 256x256 center crop"); output logits
-  # [1,174] with labels.json (Something-Something v2).
+  upstream_repo: facebook/vjepa2-vitl-fpc16-256-ssv2
   io_contract:
     entrypoint:
       framework: CoreAI
@@ -4671,7 +4636,12 @@ models:
     - name: pixel_values_videos
       modality: video
       tensor:
-        shape: [1, 16, 3, 256, 256]
+        shape:
+        - 1
+        - 16
+        - 3
+        - 256
+        - 256
         dtype: float16
         layout: B,F,C,H,W
       preprocessing:
@@ -4682,10 +4652,10 @@ models:
     - name: logits
       decoding:
         label_vocab_ref: labels.json (Something-Something v2, 174 classes)
-  notes: First video world-model on Core AI. JEPA architecture (joint-embedding
-    predictive) from Meta — learns video representations by predicting masked
-    spatiotemporal patches. fp16, AOT h18p specialized. Trained on Something-Something
-    v2 (action recognition). ViT-L backbone.
+  notes: First video world-model on Core AI. JEPA architecture (joint-embedding predictive)
+    from Meta — learns video representations by predicting masked spatiotemporal patches.
+    fp16, AOT h18p specialized. Trained on Something-Something v2 (action recognition).
+    ViT-L backbone.
   architecture: encoder
   streaming: false
 - id: ornith-1-0-9b

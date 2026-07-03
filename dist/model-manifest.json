@@ -1,6 +1,6 @@
 {
   "export_schema_version": "1.0",
-  "export_catalog_version": "2.1.0",
+  "export_catalog_version": "2.2.0",
   "model_count": 81,
   "models": [
     {
@@ -2397,7 +2397,7 @@
       "artifact_size": "6.4GB",
       "huggingface_url": "https://huggingface.co/warshanks/gemma-4-12B-it-coreai",
       "license": "Apache-2.0",
-      "commercial_use": "likely",
+      "commercial_use": "check_license",
       "min_os": {
         "macos": "27.0",
         "ios": "27.0"
@@ -2424,7 +2424,7 @@
       "artifact_size": "not_published",
       "huggingface_url": "https://huggingface.co/warshanks/gemma-4-12B-it-assistant-coreai",
       "license": "Apache-2.0",
-      "commercial_use": "likely",
+      "commercial_use": "check_license",
       "min_os": {
         "macos": "27.0",
         "ios": "27.0"

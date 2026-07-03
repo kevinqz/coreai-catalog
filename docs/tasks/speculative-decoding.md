@@ -6,7 +6,7 @@
 
 | Model | Score | Parameters | Devices | License | Commercial | Benchmark | Source |
 |---|---|---|---|---|---|---|---|
-| [Gemma 4 12B IT Assistant (MTP draft)](../../catalog.yaml#L1) | 68 | 12B | 💻 | Apache-2.0 | ✅ likely | 📊 | 🔗 |
+| [Gemma 4 12B IT Assistant (MTP draft)](../../catalog.yaml#L1) | 58 | 12B | 💻 | Apache-2.0 | ⚠️ check_license | 📊 | 🔗 |
 
 ## Install
 

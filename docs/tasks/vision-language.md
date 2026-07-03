@@ -16,7 +16,7 @@
 | [Qwen3-VL 4B](../../catalog.yaml#L1) | 68 | 4B | 📱💻 | Apache-2.0 | ✅ likely | — | 🐼 |
 | [Qwen3-VL 8B](../../catalog.yaml#L1) | 68 | 8B | 📱💻 | Apache-2.0 | ✅ likely | — | 🐼 |
 | [Gemma 4 E2B Vision](../../catalog.yaml#L1) | 63 | E2B | 📱💻 | Gemma Terms | ⚠️ check_license | 📊 | 🐼 |
-| [Gemma 4 12B IT Multimodal (warshanks)](../../catalog.yaml#L1) | 58 | 12B | 💻 | Apache-2.0 | ✅ likely | — | 🔗 |
+| [Gemma 4 12B IT Multimodal (warshanks)](../../catalog.yaml#L1) | 48 | 12B | 💻 | Apache-2.0 | ⚠️ check_license | — | 🔗 |
 
 ## Install
 

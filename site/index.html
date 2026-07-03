@@ -568,34 +568,64 @@ catalog.recommend(task="ocr", device="iphone")</code></pre>
   <main id="contribute" class="tab-content">
     <div class="about-content">
       <h2>Contribute</h2>
-      <p class="lede">Core AI Catalog is community-driven. Here's how to add models, submit benchmarks, and report issues.</p>
+      <p class="lede">Core AI Catalog is community-driven. Adding a model has two lanes — which one you use depends on a single question.</p>
+
+      <div class="contribute-decision">
+        <div class="contribute-decision-q">Getting a model into the catalog? First: does its <code>.aimodel</code> artifact already exist on Hugging Face?</div>
+        <div class="contribute-paths">
+          <div class="contribute-path contribute-path-yes">
+            <div class="contribute-path-label">Yes — it exists</div>
+            <p>You only need to <strong>index</strong> it. Use <strong>Add a Model</strong> below (CLI, issue form, or fork). The catalog never converts and never hosts weights.</p>
+          </div>
+          <div class="contribute-path contribute-path-no">
+            <div class="contribute-path-label">No — convert it first</div>
+            <p>Convert it with <a href="https://github.com/kevinqz/coreai-fabric" target="_blank" rel="noopener">coreai-fabric</a> (see the first card) — it produces the artifact and opens the catalog PR for you.</p>
+          </div>
+        </div>
+      </div>
 
       <div class="contribute-grid">
+        <div class="contribute-card" id="contribute-convert">
+          <div class="contribute-card-head">
+            <span class="contribute-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 8-8 8 8 0 0 1 6 2.7L20 8M20 4v4h-4M20 12a8 8 0 0 1-8 8 8 8 0 0 1-6-2.7L4 16M4 20v-4h4"/></svg></span>
+            <h3>Convert a New Model</h3>
+          </div>
+          <p>The model has no <code>.aimodel</code> artifact yet? <a href="https://github.com/kevinqz/coreai-fabric" target="_blank" rel="noopener">coreai-fabric</a> is the first-party, agent-first conversion pipeline. It converts, verifies parity, publishes to <em>your own</em> Hugging Face, and opens the catalog PR — all from the CLI (needs macOS + the Apple toolchain).</p>
+          <a class="contribute-cta" href="https://github.com/kevinqz/coreai-fabric" target="_blank" rel="noopener">Open coreai-fabric<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <ul class="resource-list">
+            <li><a href="https://github.com/kevinqz/coreai-fabric/blob/main/AGENTS.md" target="_blank" rel="noopener">Fabric operating manual (AGENTS.md)</a></li>
+            <li><a href="https://github.com/kevinqz/coreai-fabric/tree/main/recipes" target="_blank" rel="noopener">Example recipes</a></li>
+          </ul>
+          <div class="code-block">
+            <div class="code-header"><span>bash</span><button class="btn-copy" data-copy-target="convert-code">Copy</button></div>
+            <pre><code id="convert-code">coreai-fabric new Qwen/Qwen3-0.6B   # scaffold a recipe
+coreai-fabric convert qwen3-0.6b     # produce the .aimodel
+coreai-fabric verify  qwen3-0.6b     # parity gates
+coreai-fabric publish qwen3-0.6b     # to your own HF
+coreai-fabric register qwen3-0.6b --catalog-path ../coreai-catalog   # opens the catalog PR</code></pre>
+          </div>
+        </div>
+
         <div class="contribute-card" id="contribute-add-model">
           <div class="contribute-card-head">
             <span class="contribute-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
             <h3>Add a Model</h3>
           </div>
-          <p>Found a Core AI <code>.aimodel</code> artifact that's missing from the catalog? Use the YAML templates to add it:</p>
-          <a class="contribute-cta" href="https://github.com/kevinqz/coreai-catalog/fork" target="_blank" rel="noopener">Fork the repo on GitHub<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <p>The <code>.aimodel</code> artifact already exists on Hugging Face? Index it — three ways, from most to least automated:</p>
+          <a class="contribute-cta" href="https://github.com/kevinqz/coreai-catalog/issues/new?labels=model-request&amp;template=model-request.yml" target="_blank" rel="noopener">Fill the model-request form<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <ul class="resource-list">
-            <li><a href="https://github.com/kevinqz/coreai-catalog/blob/main/templates/model-entry.yaml" target="_blank" rel="noopener">Model entry template</a></li>
-            <li><a href="https://github.com/kevinqz/coreai-catalog/blob/main/templates/artifact-entry.yaml" target="_blank" rel="noopener">Artifact entry template</a></li>
-            <li><a href="https://github.com/kevinqz/coreai-catalog/blob/main/AGENTS.md" target="_blank" rel="noopener">Contribution guide (AGENTS.md)</a></li>
+            <li><a href="https://github.com/kevinqz/coreai-catalog/blob/main/CONTRIBUTING.md#add-a-model" target="_blank" rel="noopener">Contribution guide (CONTRIBUTING.md)</a></li>
+            <li><a href="https://github.com/kevinqz/coreai-catalog/blob/main/templates/model-entry.yaml" target="_blank" rel="noopener">Model + artifact entry templates</a></li>
             <li><a href="https://github.com/kevinqz/coreai-catalog/blob/main/docs/data-model.md" target="_blank" rel="noopener">Data model &amp; provenance docs</a></li>
-            <li><a href="https://github.com/kevinqz/coreai-catalog/blob/main/PROJECT_PHILOSOPHY.md" target="_blank" rel="noopener">Project philosophy</a></li>
           </ul>
           <div class="code-block">
             <div class="code-header"><span>bash</span><button class="btn-copy" data-copy-target="add-model-code">Copy</button></div>
-            <pre><code id="add-model-code"># 1. Fork the repo, then on a new branch:
-git clone https://github.com/&lt;you&gt;/coreai-catalog && cd coreai-catalog
+            <pre><code id="add-model-code"># CLI: drafts entries, validates, opens the PR
+pip install coreai-catalog
+coreai-catalog contribute model --pr
 
-# 2. Add your entry to catalog.yaml + artifacts.yaml, then:
-python scripts/validate.py
-python scripts/generate.py
-python scripts/audit.py
-
-# 3. Commit and open a pull request against main</code></pre>
+# or by hand: fork, edit catalog.yaml + artifacts.yaml, then
+python scripts/validate.py && python scripts/audit.py</code></pre>
           </div>
         </div>
 
@@ -604,13 +634,13 @@ python scripts/audit.py
             <span class="contribute-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M12 20V4M20 20v-7"/></svg></span>
             <h3>Submit Benchmarks</h3>
           </div>
-          <p>Ran a benchmark on your Apple Silicon device? Append your measurement to <code>benchmarks.yaml</code>:</p>
-          <a class="contribute-cta" href="https://github.com/kevinqz/coreai-catalog/edit/main/benchmarks.yaml" target="_blank" rel="noopener">Edit benchmarks.yaml on GitHub<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <p>Ran a measurement on your Apple Silicon device? Benchmarks are one signed line in <code>benchmarks.jsonl</code> — a dedicated lane, never mixed with model PRs.</p>
+          <a class="contribute-cta" href="https://github.com/kevinqz/coreai-catalog/blob/main/docs/benchmark-protocol.md" target="_blank" rel="noopener">Read the benchmark protocol<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <ul class="resource-list">
-            <li><a href="https://github.com/kevinqz/coreai-catalog/blob/main/benchmarks.yaml" target="_blank" rel="noopener">benchmarks.yaml</a></li>
+            <li><a href="https://github.com/kevinqz/coreai-catalog/blob/main/benchmarks.jsonl" target="_blank" rel="noopener">benchmarks.jsonl (single source of truth)</a></li>
             <li><a href="https://github.com/kevinqz/coreai-catalog/blob/main/schema/benchmark.schema.json" target="_blank" rel="noopener">Benchmark JSON Schema</a></li>
           </ul>
-          <p>Include metric, value, unit, device, compute unit (GPU/ANE/CPU), and environment. Superseded values are retained with <code>confidence: needs_review</code> — never overwritten.</p>
+          <p>Signed submissions (Sigstore or the relay) are gated on physics-plausibility and identity, then auto-merge by verification tier; unsigned entries route to curator review. Superseded values are retained, never overwritten.</p>
         </div>
 
         <div class="contribute-card">
@@ -623,14 +653,13 @@ python scripts/audit.py
           <ul class="resource-list">
             <li><a href="https://github.com/kevinqz/coreai-catalog/issues/new?labels=bug" target="_blank" rel="noopener">Report a bug</a></li>
             <li><a href="https://github.com/kevinqz/coreai-catalog/issues/new?labels=model-request" target="_blank" rel="noopener">Request a model</a></li>
-            <li><a href="https://github.com/kevinqz/coreai-catalog/issues/new?labels=benchmark" target="_blank" rel="noopener">Submit benchmark data</a></li>
             <li><a href="https://github.com/kevinqz/coreai-catalog/issues" target="_blank" rel="noopener">All open issues</a></li>
           </ul>
         </div>
 
       </div>
 
-      <p class="contribute-aside">Need to convert a model to Core AI <code>.aimodel</code> format first? That's the job of <a href="https://github.com/kevinqz/coreai-fabric" target="_blank" rel="noopener">coreai-fabric</a> — the first-party, agent-first conversion pipeline: write a recipe, convert, verify parity, publish the artifact to <em>your own</em> Hugging Face namespace, and it opens the catalog PR for you (<code>recipe → convert → verify → publish → register</code>). The <a href="https://github.com/john-rocky/coreai-model-zoo" target="_blank" rel="noopener">community zoo</a> remains an indexed reference upstream. Once an artifact exists, "Add a Model" above is the manual path into this catalog.</p>
+      <p class="contribute-aside">The community zoo (<a href="https://github.com/john-rocky/coreai-model-zoo" target="_blank" rel="noopener">john-rocky/coreai-model-zoo</a>) remains an indexed reference upstream — the catalog tracks its conversions, but new first-party conversions flow through coreai-fabric.</p>
 
       <h3>Credits &amp; Community</h3>
       <p>This catalog is built on public upstream sources. Full attribution in <a href="https://github.com/kevinqz/coreai-catalog/blob/main/CREDITS.md" target="_blank" rel="noopener">CREDITS.md</a>.</p>

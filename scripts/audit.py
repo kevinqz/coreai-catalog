@@ -422,9 +422,12 @@ def main() -> int:
     # commercial use while its upstream license family is restricted or
     # review_required (license laundering guard).
     model_to_upstreams: dict[str, list[dict]] = {}
+    owner_to_upstreams: dict[str, list[dict]] = {}
     for u in upstreams_data.get("original_model_sources", []) or []:
         for t in u.get("applies_to", []) or []:
             model_to_upstreams.setdefault(t, []).append(u)
+        if u.get("owner"):
+            owner_to_upstreams.setdefault(u["owner"].lower(), []).append(u)
         # An upstream whose identity is itself unverified cannot ground a
         # 'permissive' license claim (schema rule: license_terms must be
         # grounded in verified license strings; conservative default is
@@ -439,6 +442,27 @@ def main() -> int:
                 "unverified upstreams must stay review_required until the "
                 "upstream identity and license are verified"
             )
+
+    # Fabric-registered models (and any model carrying upstream_repo) are not
+    # listed in an upstream's applies_to at register time, so they would bypass
+    # the laundering guard. Join them to the matching upstream by owner
+    # (upstream_repo 'google/gemma-4-12B' -> owner 'google'), but ONLY when a
+    # distinguishing family token from the upstream id also appears in the repo
+    # — one owner can ship models under different licenses (facebook owns both
+    # SAM=review_required and V-JEPA2=MIT), so owner alone would false-match.
+    for m in models:
+        repo = m.get("upstream_repo")
+        if not (repo and "/" in repo) or model_to_upstreams.get(m["id"]):
+            continue
+        owner, _, name = repo.partition("/")
+        repo_l = repo.lower()
+        for u in owner_to_upstreams.get(owner.lower(), []):
+            # Family tokens = the upstream id's segments minus the owner prefix
+            # (e.g. 'google-gemma' -> 'gemma'; 'meta-sam' -> 'sam').
+            tokens = [seg for seg in u["id"].lower().split("-")
+                      if seg and seg != owner.lower() and len(seg) >= 3]
+            if any(tok in repo_l for tok in tokens):
+                model_to_upstreams.setdefault(m["id"], []).append(u)
 
     for m in models:
         commercial_use = m.get("license", {}).get("commercial_use")

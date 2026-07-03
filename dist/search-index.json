@@ -1,7 +1,7 @@
 {
   "count": 81,
   "export_schema_version": "1.0",
-  "export_catalog_version": "2.1.0",
+  "export_catalog_version": "2.2.0",
   "models": [
     {
       "id": "qwen3-5-0-8b",
@@ -5478,11 +5478,11 @@
       "patch_required": true,
       "aot_required": false,
       "license": "Apache-2.0",
-      "commercial_use": "likely",
+      "commercial_use": "check_license",
       "status": "confirmed",
       "maturity": "experimental",
       "confidence": "medium",
-      "readiness_score": 58,
+      "readiness_score": 48,
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -5532,11 +5532,11 @@
       "patch_required": true,
       "aot_required": false,
       "license": "Apache-2.0",
-      "commercial_use": "likely",
+      "commercial_use": "check_license",
       "status": "confirmed",
       "maturity": "experimental",
       "confidence": "medium",
-      "readiness_score": 68,
+      "readiness_score": 58,
       "artifact": {
         "format": "aimodel",
         "availability": "available",

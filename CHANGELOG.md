@@ -4,6 +4,49 @@ All notable changes to Core AI Catalog are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/), and this
 project adheres to [Semantic Versioning](https://semver.org/).
 
+## [2.2.0] — 2026-07-03
+
+Agent Experience (AX) release: everything a human can do, an agent can now do
+end to end — discover, contribute, convert, benchmark — with the sibling
+[coreai-fabric](https://github.com/kevinqz/coreai-fabric) conversion pipeline
+as a first-party, non-dependent upstream. Grounded in a multi-persona AX
+redteam and a catalog↔fabric boundary redteam (see `docs/superpowers/specs/`).
+
+### Added — agent-writable contribution
+
+- `coreai-catalog contribute model|benchmark` (draft → validate → local gate → PR)
+  and the MCP write tools `draft_model`, `submit_model`, `validate_entry`,
+  `get_integration_snippet` (16 MCP tools total). GitHub model-request issue
+  form → draft-PR workflow. `GOVERNANCE.md` with checkable merge rules; CODEOWNERS.
+- `coreai-catalog discover` — three-layer porting-candidate dedup, weekly pinned issue.
+
+### Added — trust & typed integration
+
+- Content-addressing: per-artifact pinned Hugging Face `revision` + per-file
+  `sha256` (79/80 backfilled from the HF API); a verifying installer that fails
+  hard on digest mismatch.
+- Typed `io_contract`, authored `bundle_kind` + `min_os` on every model
+  (grounded in real `.aimodel` bundle metadata + `apple/coreai-models` sources);
+  four compile-checked SwiftPM examples.
+- Sigstore keyless benchmark lane with physics-plausibility gates, `chips.yaml`,
+  and tier-aware auto-merge; a SwiftPM protocol runner. Single benchmark store
+  (`benchmarks.jsonl`); a license↔upstream laundering guard that now also covers
+  fabric models via `upstream_repo`.
+
+### Added — coreai-fabric ecosystem
+
+- New `source_group: fabric` for first-party conversions; the catalog surfaces
+  fabric at every contribution/moment-of-need point; the zoo is repositioned as
+  an indexed reference upstream. A cross-contract CI job proves fabric's
+  `register` output stays valid against the catalog's live schemas.
+
+### Fixed
+
+- Count-sync across all public surfaces (README, site, `llms.txt`, `agent.json`,
+  `openapi.yaml`) with a `scripts/check_counts.py` CI guard — ends the
+  79-vs-80-vs-81 / 12-vs-16 drift. Two Gemma-derivative entries corrected from
+  `commercial_use: likely` to `check_license`. CI now runs the full test suite.
+
 ## [2.1.0] — 2026-07-02
 
 ### Added — Transform Graph Engine

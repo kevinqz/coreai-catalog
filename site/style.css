@@ -672,8 +672,25 @@ select {
 }
 .jump-highlight { animation: jumpHighlight 1.6s ease; }
 .contribute-grid {
-  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-4); margin: var(--sp-3) 0 var(--sp-5);
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-4); margin: var(--sp-3) 0 var(--sp-5);
 }
+/* A/B decision banner: does the .aimodel artifact already exist? */
+.contribute-decision {
+  border: 1px solid var(--border); border-radius: var(--r-lg); padding: var(--sp-4);
+  background: var(--bg-card); box-shadow: var(--shadow); margin: var(--sp-4) 0 var(--sp-3);
+}
+.contribute-decision-q { font-size: .92rem; font-weight: 650; margin-bottom: var(--sp-3); }
+.contribute-decision-q code { font-family: var(--mono); background: var(--bg-input); padding: .05rem .3rem; border-radius: 4px; }
+.contribute-paths { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-3); }
+.contribute-path { border-radius: var(--r); padding: var(--sp-3) var(--sp-4); background: var(--bg-input); border: 1px solid var(--border); }
+.contribute-path-yes { border-color: color-mix(in srgb, var(--green) 40%, var(--border)); }
+.contribute-path-no { border-color: color-mix(in srgb, var(--accent) 40%, var(--border)); }
+.contribute-path-label { font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; margin-bottom: var(--sp-1); }
+.contribute-path-yes .contribute-path-label { color: var(--green); }
+.contribute-path-no .contribute-path-label { color: var(--accent); }
+.contribute-path p { font-size: .82rem; color: var(--text-2); margin: 0; }
+.contribute-path a { color: var(--accent); text-decoration: none; font-weight: 600; }
+.contribute-path a:hover { text-decoration: underline; }
 .contribute-aside {
   font-size: .78rem; color: var(--text-3); line-height: 1.6;
   margin: 0 0 var(--sp-6); padding-top: var(--sp-3); border-top: 1px solid var(--border);

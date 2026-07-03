@@ -1,5 +1,5 @@
 {
-  "export_catalog_version": "2.1.0",
+  "export_catalog_version": "2.2.0",
   "export_schema_version": "1.0",
   "metadata": {
     "description": "Compact, source-grounded catalog of Apple Core AI models, artifacts, capabilities, modalities, runtime metadata, device support and sources.",
@@ -10,7 +10,7 @@
       "coreai-model-zoo",
       "apple/coreai-models"
     ],
-    "version": "2.1.0"
+    "version": "2.2.0"
   },
   "models": [
     {
@@ -5042,7 +5042,7 @@
       "id": "gemma-4-12b-mm-warshanks",
       "last_verified": "2026-06-30",
       "license": {
-        "commercial_use": "likely",
+        "commercial_use": "check_license",
         "name": "Apache-2.0"
       },
       "maturity": "experimental",
@@ -5109,7 +5109,7 @@
       "id": "gemma-4-12b-assistant-warshanks",
       "last_verified": "2026-06-30",
       "license": {
-        "commercial_use": "likely",
+        "commercial_use": "check_license",
         "name": "Apache-2.0"
       },
       "maturity": "experimental",

@@ -22,7 +22,24 @@ source files, never edit generated files directly.**
 > per line). The legacy YAML benchmark store is retired — never add benchmark
 > data anywhere else.
 
-## Two contribution lanes — never mix them
+## Adding a model: which lane?
+
+The lane you use depends on one question: **does the model's `.aimodel`
+artifact already exist on Hugging Face?**
+
+- **Yes, it exists** → you only need to *index* it. Use the [Add a model](#add-a-model)
+  lane below (`coreai-catalog contribute model`, the model-request issue form,
+  or a manual fork + YAML). The catalog never converts and never hosts weights.
+- **No, it must be converted first** → use
+  [coreai-fabric](https://github.com/kevinqz/coreai-fabric), the first-party
+  conversion pipeline. It produces the artifact (on *your own* HF) and its
+  `register` step opens the model-lane PR here for you. See
+  [Contributing a new conversion](#contributing-a-new-conversion).
+
+Both end in the same model-lane PR — fabric is just the upstream half that
+produces the artifact first.
+
+## Two PR lanes — never mix them
 
 | Lane | Files touched | Review path |
 |---|---|---|
@@ -36,9 +53,12 @@ benchmark row makes the PR unmergeable. Split it into two PRs.
 
 ## Add a model
 
-Start from the generated templates in `templates/` (`model-entry.yaml`,
-`artifact-entry.yaml`). They are rendered directly from the JSON Schemas, so
-the field comments and enum lists are always exact.
+Use this lane when the `.aimodel` artifact **already exists** (if it doesn't,
+convert it via [coreai-fabric](#contributing-a-new-conversion) first). Start
+from the generated templates in `templates/` (`model-entry.yaml`,
+`artifact-entry.yaml`) — or let `coreai-catalog contribute model` assemble and
+validate them for you. They are rendered directly from the JSON Schemas, so the
+field comments and enum lists are always exact.
 
 ### 1. Add model metadata to `catalog.yaml`
 

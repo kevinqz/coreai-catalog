@@ -319,6 +319,56 @@ class TestLicenseUpstreamJoin(unittest.TestCase):
             self.assertIn(u.get("license_terms"), valid,
                           f"upstream {u['id']} missing/invalid license_terms")
 
+    # ── Boundary redteam: fabric models carry upstream_repo but no applies_to,
+    #    so the guard must join them via upstream_repo (owner + family token). ──
+    ACME_UPSTREAMS = {
+        "original_model_sources": [
+            {"id": "acme-gemmish", "title": "Gemmish", "category": "original_model",
+             "owner": "acme", "trust": "original_model_primary",
+             "license_terms": "review_required", "applies_to": []},
+            {"id": "acme-freely", "title": "Freely", "category": "original_model",
+             "owner": "acme", "trust": "original_model_primary",
+             "license_terms": "permissive", "applies_to": []},
+        ],
+    }
+
+    def test_fabric_model_laundering_caught_via_upstream_repo(self):
+        # No applies_to entry (as after a real register); upstream_repo names the
+        # review_required family, and the model claims likely -> must fail.
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _write_minimal_repo(
+                root,
+                models=[_minimal_model(
+                    source_group="fabric",
+                    upstream_repo="acme/gemmish-4-12b",
+                    license={"name": "Apache-2.0", "commercial_use": "likely"})],
+                artifacts=[_minimal_artifact(group="external")],
+                upstreams=self.ACME_UPSTREAMS,
+            )
+            self.assertEqual(_run_audit_in(root), 1,
+                             "fabric model laundering a review_required upstream "
+                             "must be caught via upstream_repo")
+
+    def test_upstream_repo_join_does_not_false_match_across_owner_licenses(self):
+        # Same owner 'acme' has a permissive family too; a model from the
+        # permissive family (repo token 'freely') must NOT be flagged by the
+        # review_required 'gemmish' record just because the owner matches.
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _write_minimal_repo(
+                root,
+                models=[_minimal_model(
+                    source_group="fabric",
+                    upstream_repo="acme/freely-7b",
+                    license={"name": "MIT", "commercial_use": "likely"})],
+                artifacts=[_minimal_artifact(group="external")],
+                upstreams=self.ACME_UPSTREAMS,
+            )
+            self.assertEqual(_run_audit_in(root), 0,
+                             "owner match alone must not flag a model whose "
+                             "upstream family is permissive")
+
 
 class TestVersionSurfaces(unittest.TestCase):
     """F9 (partial) — publish bumps every version surface."""

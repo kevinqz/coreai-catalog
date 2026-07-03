@@ -276,11 +276,6 @@
       "score": 68
     },
     {
-      "id": "gemma-4-12b-assistant-warshanks",
-      "name": "Gemma 4 12B IT Assistant (MTP draft)",
-      "score": 68
-    },
-    {
       "id": "granite-4-0-h-350m",
       "name": "Granite 4.0-H 350M",
       "score": 68
@@ -366,8 +361,8 @@
       "score": 63
     },
     {
-      "id": "gemma-4-12b-mm-warshanks",
-      "name": "Gemma 4 12B IT Multimodal (warshanks)",
+      "id": "gemma-4-12b-assistant-warshanks",
+      "name": "Gemma 4 12B IT Assistant (MTP draft)",
       "score": 58
     },
     {
@@ -401,11 +396,16 @@
       "score": 53
     },
     {
+      "id": "gemma-4-12b-mm-warshanks",
+      "name": "Gemma 4 12B IT Multimodal (warshanks)",
+      "score": 48
+    },
+    {
       "id": "vjepa2-vitl-ssv2",
       "name": "V-JEPA 2 ViT-L (SSv2)",
       "score": 45
     }
   ],
   "export_schema_version": "1.0",
-  "export_catalog_version": "2.1.0"
+  "export_catalog_version": "2.2.0"
 }
