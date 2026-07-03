@@ -10,7 +10,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kevinqz.github.io/coreai-catalog/">
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%235b7ffb'/><text x='16' y='22' font-size='17' font-family='system-ui' font-weight='700' fill='white' text-anchor='middle'>C</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%2308080a'/><circle cx='16' cy='16' r='13' fill='none' stroke='%235b7ffb' stroke-width='1.8' opacity='.4'/><circle cx='16' cy='16' r='8.5' fill='none' stroke='%235b7ffb' stroke-width='1.8' opacity='.75'/><circle cx='16' cy='16' r='3.5' fill='%235b7ffb'/></svg>">
   <script>
     (function() {
       var t = localStorage.getItem('coreai-theme');
@@ -25,7 +25,13 @@
   <header>
     <div class="header-inner">
       <div class="header-brand">
-        <div class="header-logo">C</div>
+        <div class="header-logo" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6">
+            <circle cx="16" cy="16" r="13.5" opacity=".35"/>
+            <circle cx="16" cy="16" r="9" opacity=".65"/>
+            <circle cx="16" cy="16" r="4" fill="currentColor" stroke="none"/>
+          </svg>
+        </div>
         <div class="header-text">
           <h1>Core AI Catalog</h1>
           <span class="header-tagline">The agent-ready registry for Apple on-device AI</span>
@@ -49,6 +55,7 @@
     <button class="tab active" data-tab="explore">Explore</button>
     <button class="tab" data-tab="scores">Scores</button>
     <button class="tab" data-tab="tasks">Tasks</button>
+    <button class="tab" data-tab="skills">Skills</button>
     <button class="tab" data-tab="about">About</button>
     <button class="tab" data-tab="contribute">Contribute</button>
   </nav>
@@ -56,61 +63,84 @@
   <!-- ── EXPLORE ── -->
   <main id="explore" class="tab-content active">
     <aside id="filters">
-      <div class="filter-group">
-        <label>Search</label>
-        <input type="text" id="search-box" placeholder="Search models…" autocomplete="off" spellcheck="false">
-      </div>
-      <div class="filter-group">
-        <label>Capability</label>
-        <select id="filter-capability"><option value="">All</option></select>
-      </div>
-      <div class="filter-group">
-        <label>Input</label>
-        <select id="filter-input"><option value="">Any</option></select>
-      </div>
-      <div class="filter-group">
-        <label>Output</label>
-        <select id="filter-output"><option value="">Any</option></select>
-      </div>
-      <div class="filter-group">
-        <label>Device</label>
-        <div class="seg-group">
-          <button class="seg active" data-filter="iphone">iPhone</button>
-          <button class="seg active" data-filter="ipad">iPad</button>
-          <button class="seg active" data-filter="mac">Mac</button>
+      <div class="io-bar">
+        <div class="io-field" data-io-role="input">
+          <label class="io-label" for="filter-input">I have</label>
+          <div class="io-row">
+            <select id="filter-input" class="io-select-native"><option value="">Any input</option></select>
+            <button type="button" class="io-x" aria-label="Clear input filter" data-io-clear="filter-input">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="io-arrow-wrap" aria-hidden="true"><div class="io-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
+        <div class="io-field" data-io-role="output">
+          <label class="io-label" for="filter-output">I want</label>
+          <div class="io-row">
+            <select id="filter-output" class="io-select-native"><option value="">Any output</option></select>
+            <button type="button" class="io-x" aria-label="Clear output filter" data-io-clear="filter-output">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </button>
+          </div>
         </div>
       </div>
       <div class="filter-group">
-        <label>License</label>
-        <select id="filter-license">
-          <option value="">All</option>
-          <option value="likely">Commercial: likely</option>
-          <option value="check_license">Check license</option>
-        </select>
+        <label for="search-box">Search</label>
+        <input type="text" id="search-box" placeholder="Search models…" autocomplete="off" spellcheck="false">
       </div>
       <div class="filter-group">
-        <label>Source</label>
-        <select id="filter-source">
-          <option value="">All</option>
-          <option value="official">Apple recipe</option>
-          <option value="zoo">Community</option>
-        </select>
+        <label for="filter-capability">Capability</label>
+        <select id="filter-capability"><option value="">All</option></select>
       </div>
-      <div class="filter-group">
-        <label>Sort</label>
-        <select id="sort-by">
-          <option value="score">Readiness score</option>
-          <option value="name">Name</option>
-          <option value="params">Smallest first</option>
-        </select>
+      <div class="filter-group filter-group-device">
+        <label id="device-filter-label">Device</label>
+        <div class="seg-group" role="group" aria-labelledby="device-filter-label">
+          <button class="seg active" data-filter="iphone" aria-pressed="true">iPhone</button>
+          <button class="seg active" data-filter="ipad" aria-pressed="true">iPad</button>
+          <button class="seg active" data-filter="mac" aria-pressed="true">Mac</button>
+        </div>
       </div>
-      <button id="reset-filters" class="btn-link">Reset all</button>
+      <div class="filters-more-row">
+        <details class="filter-more">
+          <summary>More filters<svg class="filter-more-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="filter-more-body">
+            <div class="filter-group">
+              <label for="filter-license">License</label>
+              <select id="filter-license">
+                <option value="">All</option>
+                <option value="likely">Commercial: likely</option>
+                <option value="check_license">Check license</option>
+              </select>
+            </div>
+            <div class="filter-group">
+              <label for="filter-source">Source</label>
+              <select id="filter-source">
+                <option value="">All</option>
+                <option value="official">Apple recipe</option>
+                <option value="zoo">Community</option>
+              </select>
+            </div>
+          </div>
+        </details>
+        <button id="reset-filters" class="btn-link">Reset</button>
+      </div>
     </aside>
 
     <section id="grid-area">
+      <h2 class="hero-headline">Find the right on-device model in seconds</h2>
+      <p class="hero-sub">80 Apple Core AI models — filter by what you have and what you need, verify license and provenance before you ship.</p>
       <div id="grid-header">
-        <span id="result-count" class="result-count">Loading…</span>
+        <span id="result-count" class="result-count" aria-live="polite">Loading…</span>
         <span id="active-filters" class="active-filters"></span>
+        <div class="sort-control">
+          <label for="sort-by">Sort</label>
+          <select id="sort-by">
+            <option value="score">Readiness score</option>
+            <option value="name">Name</option>
+            <option value="params">Smallest first</option>
+          </select>
+        </div>
+        <span id="freshness-badge" class="freshness-badge"></span>
       </div>
       <noscript>
         <p>Core AI Catalog is a registry of 80 Apple Core AI models.</p>
@@ -129,35 +159,246 @@
     <div id="task-list"></div>
   </main>
 
+  <!-- ── SKILLS ── -->
+  <main id="skills" class="tab-content">
+    <div class="about-content">
+      <h2>Skills</h2>
+      <p class="lede">Core AI Catalog is agent-first: every skill below is the same command whether a human types it or an AI agent calls it. No separate API to learn — the CLI and the MCP tools read the same data.</p>
+
+      <div class="skills-entry">
+        <div class="skills-entry-card">
+          <h4>MCP</h4>
+          <p>For Claude, Cursor, and any MCP-speaking client.</p>
+          <div class="code-block">
+            <div class="code-header"><span>bash</span><button class="btn-copy" data-copy-target="skills-mcp-install">Copy</button></div>
+            <pre><code id="skills-mcp-install">pip install "coreai-catalog[mcp]"</code></pre>
+          </div>
+        </div>
+        <div class="skills-entry-card">
+          <h4>CLI</h4>
+          <p>For terminals and coding agents that shell out.</p>
+          <div class="code-block">
+            <div class="code-header"><span>bash</span><button class="btn-copy" data-copy-target="skills-cli-install">Copy</button></div>
+            <pre><code id="skills-cli-install">pip install coreai-catalog</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="skills-list">
+        <div class="skill-card">
+          <div class="skill-card-head">
+            <span class="skill-num">1</span>
+            <span class="skill-head-rule"></span>
+          </div>
+          <div class="skill-body">
+            <h3>Find a model for a task</h3>
+            <p>Describe what you're building in plain language — get ranked, license-checked recommendations back.</p>
+          </div>
+          <div class="skill-columns">
+            <div class="skill-col">
+              <div class="code-block">
+                <div class="code-header"><span>mcp</span><button class="btn-copy" data-copy-target="skill-1-mcp">Copy</button></div>
+                <pre><code id="skill-1-mcp">recommend_model(
+  task="private OCR on iPhone",
+  license="likely"
+)</code></pre>
+              </div>
+            </div>
+            <div class="skill-col">
+              <div class="code-block">
+                <div class="code-header"><span>cli</span><button class="btn-copy" data-copy-target="skill-1-cli">Copy</button></div>
+                <pre><code id="skill-1-cli">coreai-catalog recommend \
+  --task "private OCR on iPhone" \
+  --license likely</code></pre>
+              </div>
+            </div>
+          </div>
+          <p class="skill-link"><a href="https://github.com/kevinqz/coreai-catalog/blob/main/skills/coreai-model-selection/SKILL.md" target="_blank" rel="noopener">Full agent skill: coreai-model-selection →</a></p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-card-head">
+            <span class="skill-num">2</span>
+            <span class="skill-head-rule"></span>
+          </div>
+          <div class="skill-body">
+            <h3>Search &amp; filter</h3>
+            <p>Narrow by capability, device, license, family, or modality — combine as many as you need.</p>
+          </div>
+          <div class="skill-columns">
+            <div class="skill-col">
+              <div class="code-block">
+                <div class="code-header"><span>mcp</span><button class="btn-copy" data-copy-target="skill-2-mcp">Copy</button></div>
+                <pre><code id="skill-2-mcp">search_models(
+  capability="chat",
+  device="iphone"
+)</code></pre>
+              </div>
+            </div>
+            <div class="skill-col">
+              <div class="code-block">
+                <div class="code-header"><span>cli</span><button class="btn-copy" data-copy-target="skill-2-cli">Copy</button></div>
+                <pre><code id="skill-2-cli">coreai-catalog search \
+  --capability chat \
+  --device iphone --license likely</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-card-head">
+            <span class="skill-num">3</span>
+            <span class="skill-head-rule"></span>
+          </div>
+          <div class="skill-body">
+            <h3>Check license risk</h3>
+            <p>Before you ship, confirm commercial use is actually clear — not just assumed.</p>
+          </div>
+          <div class="skill-columns">
+            <div class="skill-col">
+              <div class="code-block">
+                <div class="code-header"><span>mcp</span><button class="btn-copy" data-copy-target="skill-3-mcp">Copy</button></div>
+                <pre><code id="skill-3-mcp">check_license(
+  model_id="qwen3-0-6b"
+)</code></pre>
+              </div>
+            </div>
+            <div class="skill-col">
+              <div class="code-block">
+                <div class="code-header"><span>cli</span><button class="btn-copy" data-copy-target="skill-3-cli">Copy</button></div>
+                <pre><code id="skill-3-cli">coreai-catalog show qwen3-0-6b</code></pre>
+              </div>
+            </div>
+          </div>
+          <p class="skill-link"><a href="https://github.com/kevinqz/coreai-catalog/blob/main/skills/coreai-license-triage/SKILL.md" target="_blank" rel="noopener">Full agent skill: coreai-license-triage →</a></p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-card-head">
+            <span class="skill-num">4</span>
+            <span class="skill-head-rule"></span>
+          </div>
+          <div class="skill-body">
+            <h3>Compare models side-by-side</h3>
+            <p>Same fields, same table, two or more models — for when "which one" is the actual question.</p>
+          </div>
+          <div class="skill-columns">
+            <div class="skill-col">
+              <div class="code-block">
+                <div class="code-header"><span>mcp</span><button class="btn-copy" data-copy-target="skill-4-mcp">Copy</button></div>
+                <pre><code id="skill-4-mcp">compare_models(
+  model_ids=["qwen3-0-6b", "gemma-4-12b"]
+)</code></pre>
+              </div>
+            </div>
+            <div class="skill-col">
+              <div class="code-block">
+                <div class="code-header"><span>cli</span><button class="btn-copy" data-copy-target="skill-4-cli">Copy</button></div>
+                <pre><code id="skill-4-cli">coreai-catalog compare \
+  qwen3-0-6b gemma-4-12b</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-card-head">
+            <span class="skill-num">5</span>
+            <span class="skill-head-rule"></span>
+          </div>
+          <div class="skill-body">
+            <h3>Add a model to the catalog</h3>
+            <p>Found an <code>.aimodel</code> artifact that's missing? This is the exact fork → edit → PR sequence, step by step.</p>
+          </div>
+          <button type="button" class="skill-jump" data-jump-tab="contribute" data-jump-target="contribute-add-model">Open the Add a Model guide →</button>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-card-head">
+            <span class="skill-num">6</span>
+            <span class="skill-head-rule"></span>
+          </div>
+          <div class="skill-body">
+            <h3>Submit a benchmark</h3>
+            <p>Ran a real measurement on real hardware? That's exactly the kind of evidence this catalog is built to hold onto.</p>
+          </div>
+          <button type="button" class="skill-jump" data-jump-tab="contribute" data-jump-target="contribute-submit-benchmarks">Open the Submit Benchmarks guide →</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
   <!-- ── SCORES ── -->
   <main id="scores" class="tab-content">
     <div class="about-content">
       <h2>Readiness Leaderboard</h2>
       <p class="lede">All models ranked by deployment readiness score. Filter by what you have and what you need.</p>
 
+      <div class="io-bar">
+        <div class="io-field" data-io-role="input">
+          <label class="io-label" for="lb-filter-input">I have</label>
+          <div class="io-row">
+            <select id="lb-filter-input" class="io-select-native"><option value="">Any input</option></select>
+            <button type="button" class="io-x" aria-label="Clear input filter" data-io-clear="lb-filter-input">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="io-arrow-wrap" aria-hidden="true"><div class="io-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
+        <div class="io-field" data-io-role="output">
+          <label class="io-label" for="lb-filter-output">I want</label>
+          <div class="io-row">
+            <select id="lb-filter-output" class="io-select-native"><option value="">Any output</option></select>
+            <button type="button" class="io-x" aria-label="Clear output filter" data-io-clear="lb-filter-output">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
       <div class="lb-filter-bar">
-        <div class="lb-filter-group">
-          <label>Input</label>
-          <select id="lb-filter-input"><option value="">Any</option></select>
-        </div>
-        <div class="lb-filter-group">
-          <label>Output</label>
-          <select id="lb-filter-output"><option value="">Any</option></select>
-        </div>
-        <div class="lb-filter-group">
-          <label>Device</label>
-          <select id="lb-filter-device">
-            <option value="">Any</option>
-            <option value="iphone">iPhone</option>
-            <option value="ipad">iPad</option>
-            <option value="mac">Mac</option>
-          </select>
-        </div>
         <div class="lb-filter-group lb-search-wrap">
-          <label>Search</label>
+          <label for="lb-search">Search</label>
           <input type="text" id="lb-search" placeholder="Model name…" autocomplete="off" spellcheck="false" class="lb-search">
         </div>
-        <span id="lb-count" class="result-count">Loading…</span>
+        <div class="lb-filter-group lb-capability-wrap">
+          <label for="lb-filter-capability">Capability</label>
+          <select id="lb-filter-capability"><option value="">All</option></select>
+        </div>
+        <div class="lb-filter-group lb-device-wrap">
+          <label id="lb-device-filter-label">Device</label>
+          <div class="seg-group" role="group" aria-labelledby="lb-device-filter-label">
+            <button class="seg active" data-filter="iphone" aria-pressed="true">iPhone</button>
+            <button class="seg active" data-filter="ipad" aria-pressed="true">iPad</button>
+            <button class="seg active" data-filter="mac" aria-pressed="true">Mac</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="lb-filter-meta">
+        <details class="filter-more">
+          <summary>More filters<svg class="filter-more-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="filter-more-body lb-filter-more-body">
+            <div class="lb-filter-group">
+              <label for="lb-filter-license">License</label>
+              <select id="lb-filter-license">
+                <option value="">All</option>
+                <option value="likely">Commercial: likely</option>
+                <option value="check_license">Check license</option>
+              </select>
+            </div>
+            <div class="lb-filter-group">
+              <label for="lb-filter-source">Source</label>
+              <select id="lb-filter-source">
+                <option value="">All</option>
+                <option value="official">Apple recipe</option>
+                <option value="zoo">Community</option>
+              </select>
+            </div>
+          </div>
+        </details>
+        <span id="lb-count" class="result-count" aria-live="polite">Loading…</span>
         <button id="lb-reset" class="btn-link">Reset</button>
       </div>
 
@@ -166,40 +407,67 @@
           <thead>
             <tr>
               <th class="lb-rank">#</th>
-              <th class="lb-model sortable" data-sort="name">Model <span class="sort-arrow"></span></th>
-              <th class="lb-io">In&nbsp;→ Out</th>
-              <th class="lb-params sortable" data-sort="params">Params <span class="sort-arrow"></span></th>
-              <th class="lb-score sortable" data-sort="score">Score <span class="sort-arrow"></span></th>
-              <th class="lb-bench">Bench</th>
+              <th class="lb-model sortable" data-sort="name" tabindex="0">Model <span class="sort-arrow"></span></th>
+              <th class="lb-cap">Capability</th>
+              <th class="lb-score sortable" data-sort="score" tabindex="0">Score <span class="sort-arrow"></span></th>
             </tr>
           </thead>
           <tbody id="lb-body"></tbody>
         </table>
       </div>
 
-      <details class="score-details" style="margin-top:1.5rem">
-        <summary>How readiness scores are calculated</summary>
-        <p style="margin-top:.5rem;font-size:.85rem;color:var(--text-2)">Each model gets a <strong>readiness score</strong> (0–100) based on 13 deployment factors:</p>
-        <div class="scoring-table" style="margin-top:.5rem">
+      <section class="score-explainer">
+        <h3>How readiness scores are calculated</h3>
+        <p class="score-explainer-lede">The <strong>readiness score</strong> (0–100) answers one question: <em>can I actually ship this model?</em> It's not a quality or accuracy metric — it's a deployment-logistics score built from 13 source-grounded factors across four categories. Every point is earned from a field already in the catalog's data, never estimated.</p>
+
+        <div class="scoring-table">
           <div class="score-grade-row"><span class="card-score score-a">85–100 A</span> Production-ready</div>
           <div class="score-grade-row"><span class="card-score score-b">70–84 B</span> Good, minor gaps</div>
           <div class="score-grade-row"><span class="card-score score-c">55–69 C</span> Usable, verify caveats</div>
           <div class="score-grade-row"><span class="card-score score-d">40–54 D</span> Experimental</div>
           <div class="score-grade-row"><span class="card-score score-f">0–39 F</span> Early / unverified</div>
         </div>
-        <table class="modal-table" style="font-size:.82rem;margin-top:.75rem">
-          <tr><td>Artifact available</td><td>+15</td></tr>
-          <tr><td>License: commercial likely</td><td>+10</td></tr>
-          <tr><td>iPhone supported</td><td>+10</td></tr>
-          <tr><td>Mac supported</td><td>+10</td></tr>
-          <tr><td>Has benchmark</td><td>+10</td></tr>
-          <tr><td>Stock runtime (no custom)</td><td>+10</td></tr>
-          <tr><td>No custom kernel / patch / AOT</td><td>+5 each</td></tr>
-          <tr><td>Status: confirmed</td><td>+10</td></tr>
-          <tr><td>Confidence: high +5 / medium +3 / low −10</td><td>variable</td></tr>
-          <tr><td>Maturity: stable or active</td><td>+5</td></tr>
-        </table>
-      </details>
+
+        <div class="score-factor-groups">
+          <div class="score-factor-group">
+            <h4>Availability &amp; licensing <span class="score-factor-group-max">up to 25</span></h4>
+            <p>Can you legally get and use the artifact right now?</p>
+            <table class="modal-table">
+              <tr><td>Artifact available for download</td><td>+15</td></tr>
+              <tr><td>Commercial use: likely</td><td>+10</td></tr>
+            </table>
+          </div>
+          <div class="score-factor-group">
+            <h4>Device reach <span class="score-factor-group-max">up to 20</span></h4>
+            <p>Where can it actually run on-device?</p>
+            <table class="modal-table">
+              <tr><td>iPhone supported</td><td>+10</td></tr>
+              <tr><td>Mac supported</td><td>+10</td></tr>
+            </table>
+          </div>
+          <div class="score-factor-group">
+            <h4>Runtime quality <span class="score-factor-group-max">up to 25</span></h4>
+            <p>How much extra engineering does it take to run?</p>
+            <table class="modal-table">
+              <tr><td>Stock runtime (no custom build)</td><td>+10</td></tr>
+              <tr><td>No custom kernel required</td><td>+5</td></tr>
+              <tr><td>No patch required</td><td>+5</td></tr>
+              <tr><td>No ahead-of-time compile required</td><td>+5</td></tr>
+            </table>
+          </div>
+          <div class="score-factor-group">
+            <h4>Evidence &amp; confidence <span class="score-factor-group-max">up to 30</span></h4>
+            <p>How much do we actually know about how it performs?</p>
+            <table class="modal-table">
+              <tr><td>Has at least one benchmark</td><td>+10</td></tr>
+              <tr><td>Status: confirmed (vs. reported)</td><td>+10</td></tr>
+              <tr><td>Confidence: high / medium / low</td><td>+5 / +3 / −10</td></tr>
+              <tr><td>Maturity: stable or active</td><td>+5</td></tr>
+            </table>
+          </div>
+        </div>
+        <p class="score-explainer-footnote">Full computation: <code>coreai_catalog/catalog.py</code> · <code>readiness_score()</code>. Same formula runs client-side here for every card and leaderboard row.</p>
+      </section>
     </div>
   </main>
 
@@ -248,8 +516,8 @@ catalog.recommend(task="ocr", device="iphone")</code></pre>
       <p class="mcp-intro">Install, then add to your AI client. 12 tools for model discovery, comparison, recommendation, and multi-modal transform pipelines.</p>
 
       <div class="code-block code-install">
-        <div class="code-header"><span>install</span></div>
-        <pre><code>pip install "coreai-catalog[mcp]"</code></pre>
+        <div class="code-header"><span>install</span><button class="btn-copy" data-copy-target="mcp-install-code">Copy</button></div>
+        <pre><code id="mcp-install-code">pip install "coreai-catalog[mcp]"</code></pre>
       </div>
 
       <div class="mcp-clients">
@@ -292,16 +560,6 @@ catalog.recommend(task="ocr", device="iphone")</code></pre>
         </div>
       </div>
 
-      <h3>Scoring</h3>
-      <p>Each model gets a <strong>readiness score</strong> (0–100). See the <strong>Scores</strong> tab for the full breakdown and leaderboard.</p>
-      <div class="scoring-table">
-        <div class="score-grade-row"><span class="card-score score-a">85–100 A</span> Production-ready</div>
-        <div class="score-grade-row"><span class="card-score score-b">70–84 B</span> Good, minor gaps</div>
-        <div class="score-grade-row"><span class="card-score score-c">55–69 C</span> Usable, verify caveats</div>
-        <div class="score-grade-row"><span class="card-score score-d">40–54 D</span> Experimental</div>
-        <div class="score-grade-row"><span class="card-score score-f">0–39 F</span> Early / unverified</div>
-      </div>
-
       <p class="legal">MIT License. Not affiliated with or endorsed by Apple. <code>commercial_use</code> fields are triage labels, not legal advice.</p>
     </div>
   </main>
@@ -310,35 +568,44 @@ catalog.recommend(task="ocr", device="iphone")</code></pre>
   <main id="contribute" class="tab-content">
     <div class="about-content">
       <h2>Contribute</h2>
-      <p class="lede">Core AI Catalog is community-driven. Here's how to add models, submit benchmarks, report issues, and convert artifacts.</p>
+      <p class="lede">Core AI Catalog is community-driven. Here's how to add models, submit benchmarks, and report issues.</p>
 
       <div class="contribute-grid">
-        <div class="contribute-card">
+        <div class="contribute-card" id="contribute-add-model">
           <div class="contribute-card-head">
-            <span class="contribute-icon" aria-hidden="true">➕</span>
+            <span class="contribute-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
             <h3>Add a Model</h3>
           </div>
           <p>Found a Core AI <code>.aimodel</code> artifact that's missing from the catalog? Use the YAML templates to add it:</p>
+          <a class="contribute-cta" href="https://github.com/kevinqz/coreai-catalog/fork" target="_blank" rel="noopener">Fork the repo on GitHub<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <ul class="resource-list">
             <li><a href="https://github.com/kevinqz/coreai-catalog/blob/main/templates/model-entry.yaml" target="_blank" rel="noopener">Model entry template</a></li>
             <li><a href="https://github.com/kevinqz/coreai-catalog/blob/main/templates/artifact-entry.yaml" target="_blank" rel="noopener">Artifact entry template</a></li>
             <li><a href="https://github.com/kevinqz/coreai-catalog/blob/main/AGENTS.md" target="_blank" rel="noopener">Contribution guide (AGENTS.md)</a></li>
+            <li><a href="https://github.com/kevinqz/coreai-catalog/blob/main/docs/data-model.md" target="_blank" rel="noopener">Data model &amp; provenance docs</a></li>
+            <li><a href="https://github.com/kevinqz/coreai-catalog/blob/main/PROJECT_PHILOSOPHY.md" target="_blank" rel="noopener">Project philosophy</a></li>
           </ul>
           <div class="code-block">
-            <div class="code-header"><span>bash</span></div>
-            <pre><code># Clone, add your entry to catalog.yaml + artifacts.yaml, then:
+            <div class="code-header"><span>bash</span><button class="btn-copy" data-copy-target="add-model-code">Copy</button></div>
+            <pre><code id="add-model-code"># 1. Fork the repo, then on a new branch:
+git clone https://github.com/&lt;you&gt;/coreai-catalog && cd coreai-catalog
+
+# 2. Add your entry to catalog.yaml + artifacts.yaml, then:
 python scripts/validate.py
 python scripts/generate.py
-python scripts/audit.py</code></pre>
+python scripts/audit.py
+
+# 3. Commit and open a pull request against main</code></pre>
           </div>
         </div>
 
-        <div class="contribute-card">
+        <div class="contribute-card" id="contribute-submit-benchmarks">
           <div class="contribute-card-head">
-            <span class="contribute-icon" aria-hidden="true">📊</span>
+            <span class="contribute-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M12 20V4M20 20v-7"/></svg></span>
             <h3>Submit Benchmarks</h3>
           </div>
           <p>Ran a benchmark on your Apple Silicon device? Append your measurement to <code>benchmarks.yaml</code>:</p>
+          <a class="contribute-cta" href="https://github.com/kevinqz/coreai-catalog/edit/main/benchmarks.yaml" target="_blank" rel="noopener">Edit benchmarks.yaml on GitHub<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <ul class="resource-list">
             <li><a href="https://github.com/kevinqz/coreai-catalog/blob/main/benchmarks.yaml" target="_blank" rel="noopener">benchmarks.yaml</a></li>
             <li><a href="https://github.com/kevinqz/coreai-catalog/blob/main/schema/benchmark.schema.json" target="_blank" rel="noopener">Benchmark JSON Schema</a></li>
@@ -348,10 +615,11 @@ python scripts/audit.py</code></pre>
 
         <div class="contribute-card">
           <div class="contribute-card-head">
-            <span class="contribute-icon" aria-hidden="true">🐞</span>
+            <span class="contribute-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="7"/><path d="M12 9v4l2.5 2.5M9 4l1.5 1.5M15 4l-1.5 1.5"/></svg></span>
             <h3>Report Issues</h3>
           </div>
           <p>Spotted a data error, missing license, or broken provenance link? Open an issue:</p>
+          <a class="contribute-cta" href="https://github.com/kevinqz/coreai-catalog/issues/new?labels=bug" target="_blank" rel="noopener">Open a new issue<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <ul class="resource-list">
             <li><a href="https://github.com/kevinqz/coreai-catalog/issues/new?labels=bug" target="_blank" rel="noopener">Report a bug</a></li>
             <li><a href="https://github.com/kevinqz/coreai-catalog/issues/new?labels=model-request" target="_blank" rel="noopener">Request a model</a></li>
@@ -360,21 +628,9 @@ python scripts/audit.py</code></pre>
           </ul>
         </div>
 
-        <div class="contribute-card">
-          <div class="contribute-card-head">
-            <span class="contribute-icon" aria-hidden="true">🔧</span>
-            <h3>Zoo Conversion Guide</h3>
-          </div>
-          <p>Want to convert a model to Core AI <code>.aimodel</code> format and publish it to the zoo?</p>
-          <ul class="resource-list">
-            <li><a href="https://github.com/apple/coremltools" target="_blank" rel="noopener">apple/coremltools (Core ML Tools)</a></li>
-            <li><a href="https://github.com/john-rocky/coreai-model-zoo" target="_blank" rel="noopener">john-rocky/coreai-model-zoo</a></li>
-            <li><a href="https://github.com/kevinqz/coreai-catalog/blob/main/docs/data-model.md" target="_blank" rel="noopener">Data model &amp; provenance docs</a></li>
-            <li><a href="https://github.com/kevinqz/coreai-catalog/blob/main/PROJECT_PHILOSOPHY.md" target="_blank" rel="noopener">Project philosophy</a></li>
-          </ul>
-          <p>Community-packaged artifacts use <code>source_group: zoo</code>. Apple official recipes use <code>source_group: official</code>.</p>
-        </div>
       </div>
+
+      <p class="contribute-aside">Converting a model to Core AI <code>.aimodel</code> format from elsewhere first? That's a separate step handled by <a href="https://github.com/apple/coremltools" target="_blank" rel="noopener">apple/coremltools</a> and the <a href="https://github.com/john-rocky/coreai-model-zoo" target="_blank" rel="noopener">community zoo</a> — once you have the artifact, "Add a Model" above is how it gets into this catalog.</p>
 
       <h3>Credits &amp; Community</h3>
       <p>This catalog is built on public upstream sources. Full attribution in <a href="https://github.com/kevinqz/coreai-catalog/blob/main/CREDITS.md" target="_blank" rel="noopener">CREDITS.md</a>.</p>
@@ -404,7 +660,7 @@ python scripts/audit.py</code></pre>
 
   <!-- ── MODAL ── -->
   <div id="modal-overlay" class="modal-overlay" style="display:none;">
-    <div id="modal-content" class="modal-content" role="dialog" aria-modal="true"></div>
+    <div id="modal-content" class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1"></div>
   </div>
 
   <footer>

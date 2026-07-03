@@ -22,3 +22,4 @@ dist/coreai_catalog-*
 
 # Internal (design docs, relay reference code, private keys)
 .internal/
+.superpowers/

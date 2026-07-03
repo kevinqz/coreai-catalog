@@ -8,19 +8,52 @@
   var DATA_URL = 'https://raw.githubusercontent.com/kevinqz/coreai-catalog/main/dist/search-index.json';
   var TASKS_URL = 'https://raw.githubusercontent.com/kevinqz/coreai-catalog/main/dist/tasks/index.json';
   var LEADERBOARD_URL = 'https://raw.githubusercontent.com/kevinqz/coreai-catalog/main/dist/leaderboard.json';
+  var FETCH_TIMEOUT_MS = 8000;
 
   var MODELS = [];
   var FILTERED = [];
   var CAPABILITIES = {};
+  var INPUT_MODALITIES = [];
+  var OUTPUT_MODALITIES = [];
+  var CAPABILITY_OPTIONS = [];
+  var INPUT_OPTIONS = [];
+  var OUTPUT_OPTIONS = [];
+  var LICENSE_OPTIONS = [
+    { value: 'likely', label: 'Commercial: likely' },
+    { value: 'check_license', label: 'Check license' }
+  ];
+  var SOURCE_OPTIONS = [
+    { value: 'official', label: 'Apple recipe' },
+    { value: 'zoo', label: 'Community' }
+  ];
   var searchTimer = null;
   var deviceFilters = { iphone: true, ipad: true, mac: true };
+  var lastFocusedEl = null;
 
   // Leaderboard state
   var LB_DATA = [];
   var LB_SORT = { col: 'score', dir: 'desc' };
-  var lbSearchTimer = null;
 
   function $(id) { return document.getElementById(id); }
+
+  // ── Resilient fetch: timeout + 1 retry ──
+  async function fetchJSON(url) {
+    var lastErr;
+    for (var attempt = 0; attempt < 2; attempt++) {
+      var controller = new AbortController();
+      var timer = setTimeout(function () { controller.abort(); }, FETCH_TIMEOUT_MS);
+      try {
+        var resp = await fetch(url, { signal: controller.signal });
+        clearTimeout(timer);
+        if (!resp.ok) throw new Error('HTTP ' + resp.status);
+        return await resp.json();
+      } catch (err) {
+        clearTimeout(timer);
+        lastErr = err;
+      }
+    }
+    throw lastErr;
+  }
 
   function scoreClass(s) {
     if (s >= 85) return 'score-a';
@@ -49,6 +82,20 @@
     return d.innerHTML;
   }
   function capChip(c) { return 'chip chip-cap-' + (c || '').replace(/_/g, '-'); }
+
+  var CARD_IO_ARROW_SVG = '<span class="card-io-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>';
+
+  // Card In → Out formatter — a divided IN | OUT rectangle, every modality spelled out, nothing abbreviated.
+  function cardIoHTML(inputArr, outputArr) {
+    inputArr = inputArr || []; outputArr = outputArr || [];
+    var inp = inputArr.length ? inputArr.map(function (v) { return v.replace(/-/g, ' '); }).join(', ') : '—';
+    var out = outputArr.length ? outputArr.map(function (v) { return v.replace(/-/g, ' '); }).join(', ') : '—';
+    return '<span class="card-io-label">In</span> <span class="card-io-value">' + escapeHtml(inp) + '</span>' +
+      CARD_IO_ARROW_SVG +
+      '<span class="card-io-label">Out</span> <span class="card-io-value">' + escapeHtml(out) + '</span>';
+  }
+  var DEVICE_LABELS = { iphone: 'iPhone', ipad: 'iPad', mac: 'Mac' };
+  function deviceLabel(d) { return DEVICE_LABELS[d] || d; }
   function devLabel(devs) {
     var parts = [];
     if (devs.indexOf('iphone') >= 0) parts.push('iPhone');
@@ -60,7 +107,6 @@
     return { official: 'Apple', zoo: 'Community', external: 'External' }[sg] || '';
   }
   function licClass(cu) { return cu === 'likely' ? 'lic-ok' : 'lic-warn'; }
-  function licIcon(cu) { return cu === 'likely' ? '' : ''; }
 
   // ── Score factor computation (matches catalog.py readiness_score) ──
   function gradeDescription(s) {
@@ -101,9 +147,7 @@
   // ── Data ──
   async function loadData() {
     try {
-      var resp = await fetch(DATA_URL);
-      if (!resp.ok) throw new Error('HTTP ' + resp.status);
-      var data = await resp.json();
+      var data = await fetchJSON(DATA_URL);
       MODELS = data.models || [];
 
       CAPABILITIES = {};
@@ -113,25 +157,20 @@
         (m.input_modalities || []).forEach(function (i) { inputSet[i] = true; });
         (m.output_modalities || []).forEach(function (o) { outputSet[o] = true; });
       });
-
-      // Populate capability filter
-      var sel = $('filter-capability');
-      Object.keys(CAPABILITIES).sort().forEach(function (cap) {
-        var opt = document.createElement('option');
-        opt.value = cap;
-        opt.textContent = cap.replace(/-/g, ' ');
-        sel.appendChild(opt);
-      });
-
-      // Populate input/output filters (Explore sidebar)
-      populateModalitySelect('filter-input', Object.keys(inputSet).sort());
-      populateModalitySelect('filter-output', Object.keys(outputSet).sort());
-
-      // Populate leaderboard filters
-      populateModalitySelect('lb-filter-input', Object.keys(inputSet).sort());
-      populateModalitySelect('lb-filter-output', Object.keys(outputSet).sort());
+      INPUT_MODALITIES = Object.keys(inputSet).sort();
+      OUTPUT_MODALITIES = Object.keys(outputSet).sort();
+      CAPABILITY_OPTIONS = Object.keys(CAPABILITIES).sort().map(function (c) { return { value: c, label: c.replace(/-/g, ' ') }; });
+      INPUT_OPTIONS = INPUT_MODALITIES.map(function (v) { return { value: v, label: v.replace(/-/g, ' ') }; });
+      OUTPUT_OPTIONS = OUTPUT_MODALITIES.map(function (v) { return { value: v, label: v.replace(/-/g, ' ') }; });
 
       $('search-box').placeholder = 'Search ' + MODELS.length + ' models\u2026';
+
+      // Data freshness (most recent last_verified across models)
+      var freshest = MODELS.reduce(function (max, m) {
+        return (m.last_verified && m.last_verified > max) ? m.last_verified : max;
+      }, '');
+      var freshBadge = $('freshness-badge');
+      if (freshBadge && freshest) freshBadge.textContent = 'Data verified ' + freshest;
 
       // Populate dynamic About stats
       var statModels = $('stat-models');
@@ -140,91 +179,235 @@
       var statBench = $('stat-benchmarks');
       if (statBench) statBench.textContent = totalBench;
 
-      applyFilters();
+      refreshAll();
     } catch (err) {
-      $('model-grid').innerHTML = '<div class="empty-state"><p>Failed to load data.</p></div>';
+      $('model-grid').innerHTML = '<div class="empty-state"><p>Failed to load data.</p><button type="button" class="btn-retry" id="retry-load-data">Try again</button></div>';
       $('result-count').textContent = 'Error';
+      var retryBtn = $('retry-load-data');
+      if (retryBtn) retryBtn.addEventListener('click', loadData);
     }
   }
 
-  function populateModalitySelect(id, items) {
-    var sel = $(id);
+  // Rebuild any facet <select>'s options with counts relative to ALL the
+  // OTHER currently active filters (not just its IO sibling) — always listing
+  // every known value (never hiding one) and disabling only the ones with
+  // zero matches. Native <select> disabled options are skipped by keyboard
+  // nav and screen readers for free.
+  function rebuildFacetSelect(selId, options, matchTest, passesOtherFilters, anyLabel) {
+    var sel = $(selId);
     if (!sel) return;
-    items.forEach(function (m) {
+    var counts = {};
+    MODELS.forEach(function (m) {
+      if (!passesOtherFilters(m)) return;
+      matchTest(m).forEach(function (v) { if (v) counts[v] = (counts[v] || 0) + 1; });
+    });
+    var current = sel.value;
+    sel.innerHTML = '';
+    var optAny = document.createElement('option');
+    optAny.value = '';
+    optAny.textContent = anyLabel;
+    sel.appendChild(optAny);
+    var currentStillValid = false;
+    options.forEach(function (o) {
+      var n = counts[o.value] || 0;
       var opt = document.createElement('option');
-      opt.value = m;
-      opt.textContent = m.replace(/-/g, ' ');
+      opt.value = o.value;
+      opt.textContent = o.label + ' · ' + n;
+      if (!n && o.value !== current) opt.disabled = true;
+      if (o.value === current) currentStillValid = true;
       sel.appendChild(opt);
+    });
+    sel.value = currentStillValid ? current : '';
+    updateIoRowState(selId);
+  }
+
+  function updateIoRowState(selId) {
+    var sel = $(selId);
+    if (!sel) return;
+    var row = sel.closest('.io-row');
+    var has = !!sel.value;
+    if (row) row.classList.toggle('has-value', has);
+    sel.classList.toggle('has-value', has);
+  }
+
+  // ── One filter state shared by Explore and Scores — switching tabs never loses your filters ──
+  var FILTER_STATE = { search: '', cap: '', inp: '', out: '', lic: '', src: '' };
+  var MIRROR_FIELDS = {
+    search: ['search-box', 'lb-search'],
+    cap: ['filter-capability', 'lb-filter-capability'],
+    inp: ['filter-input', 'lb-filter-input'],
+    out: ['filter-output', 'lb-filter-output'],
+    lic: ['filter-license', 'lb-filter-license'],
+    src: ['filter-source', 'lb-filter-source']
+  };
+
+  function matchesFilters(m, exclude) {
+    var f = FILTER_STATE;
+    if (exclude !== 'search' && f.search) {
+      var hay = (m.name + ' ' + m.id + ' ' + (m.capabilities || []).join(' ') + ' ' + (m.family || '')).toLowerCase();
+      if (hay.indexOf(f.search) < 0) return false;
+    }
+    if (exclude !== 'cap' && f.cap && (m.capabilities || []).indexOf(f.cap) < 0) return false;
+    if (exclude !== 'inp' && f.inp && (m.input_modalities || []).indexOf(f.inp) < 0) return false;
+    if (exclude !== 'out' && f.out && (m.output_modalities || []).indexOf(f.out) < 0) return false;
+    if (exclude !== 'device') {
+      var devs = m.devices || [];
+      var anyDevice = deviceFilters.iphone || deviceFilters.ipad || deviceFilters.mac;
+      if (anyDevice) {
+        var ok = (deviceFilters.iphone && devs.indexOf('iphone') >= 0) ||
+          (deviceFilters.ipad && devs.indexOf('ipad') >= 0) ||
+          (deviceFilters.mac && devs.indexOf('mac') >= 0);
+        if (!ok) return false;
+      }
+    }
+    if (exclude !== 'lic' && f.lic && m.commercial_use !== f.lic) return false;
+    if (exclude !== 'src' && f.src && m.source_group !== f.src) return false;
+    return true;
+  }
+
+  // Rebuilds the same facet in every tab that shows it (e.g. filter-capability AND lb-filter-capability).
+  function rebuildMirroredFacet(ids, options, matchTest, exclude, anyLabel) {
+    ids.forEach(function (id) {
+      rebuildFacetSelect(id, options, matchTest, function (m) { return matchesFilters(m, exclude); }, anyLabel);
+    });
+  }
+
+  function refreshAllFacets() {
+    rebuildMirroredFacet(MIRROR_FIELDS.cap, CAPABILITY_OPTIONS, function (m) { return m.capabilities || []; }, 'cap', 'All');
+    rebuildMirroredFacet(MIRROR_FIELDS.inp, INPUT_OPTIONS, function (m) { return m.input_modalities || []; }, 'inp', 'Any input');
+    rebuildMirroredFacet(MIRROR_FIELDS.out, OUTPUT_OPTIONS, function (m) { return m.output_modalities || []; }, 'out', 'Any output');
+    rebuildMirroredFacet(MIRROR_FIELDS.lic, LICENSE_OPTIONS, function (m) { return [m.commercial_use]; }, 'lic', 'All');
+    rebuildMirroredFacet(MIRROR_FIELDS.src, SOURCE_OPTIONS, function (m) { return [m.source_group]; }, 'src', 'All');
+    updateDeviceCounts();
+  }
+
+  function updateDeviceCounts() {
+    ['iphone', 'ipad', 'mac'].forEach(function (d) {
+      var n = MODELS.filter(function (m) {
+        if (!matchesFilters(m, 'device')) return false;
+        return (m.devices || []).indexOf(d) >= 0;
+      }).length;
+      document.querySelectorAll('.seg[data-filter="' + d + '"]').forEach(function (btn) {
+        var countEl = btn.querySelector('.seg-count');
+        if (!countEl) {
+          countEl = document.createElement('span');
+          countEl.className = 'seg-count';
+          btn.appendChild(countEl);
+        }
+        countEl.textContent = n;
+        btn.classList.toggle('seg-empty', n === 0);
+      });
+    });
+  }
+
+  // Every control that changes a shared filter: update state, mirror the twin control in the other tab, re-render everything.
+  function syncAllControls() {
+    Object.keys(MIRROR_FIELDS).forEach(function (key) {
+      MIRROR_FIELDS[key].forEach(function (id) {
+        var el = $(id);
+        if (el && el.value !== FILTER_STATE[key]) el.value = FILTER_STATE[key];
+      });
+    });
+  }
+
+  function bindMirroredControl(key, debounce) {
+    MIRROR_FIELDS[key].forEach(function (id) {
+      var el = $(id);
+      if (!el) return;
+      el.addEventListener(debounce ? 'input' : 'change', function () {
+        var raw = el.value;
+        FILTER_STATE[key] = debounce ? raw.toLowerCase().trim() : raw;
+        MIRROR_FIELDS[key].forEach(function (otherId) {
+          if (otherId === id) return;
+          var other = $(otherId);
+          if (other && other.value !== raw) other.value = raw;
+        });
+        if (debounce) {
+          clearTimeout(searchTimer);
+          searchTimer = setTimeout(refreshAll, 150);
+        } else {
+          refreshAll();
+        }
+      });
+    });
+  }
+
+  function clearField(key) {
+    FILTER_STATE[key] = '';
+  }
+
+  function resetAllFilters() {
+    Object.keys(FILTER_STATE).forEach(function (key) { FILTER_STATE[key] = ''; });
+    ['iphone', 'ipad', 'mac'].forEach(function (d) { toggleDevice(d, true); });
+    var sortBy = $('sort-by');
+    if (sortBy) sortBy.value = 'score';
+    syncAllControls();
+    refreshAll();
+  }
+
+  function refreshAll() {
+    applyFilters();
+    renderLeaderboard();
+    refreshAllFacets();
+  }
+
+  function initIoClearButtons() {
+    document.querySelectorAll('.io-x').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var sel = $(btn.dataset.ioClear);
+        if (!sel) return;
+        sel.value = '';
+        sel.dispatchEvent(new Event('change'));
+        sel.focus();
+      });
     });
   }
 
   // ── Filter ──
   function applyFilters() {
-    var search = $('search-box').value.toLowerCase().trim();
-    var cap = $('filter-capability').value;
-    var inpFilter = $('filter-input').value;
-    var outFilter = $('filter-output').value;
-    var lic = $('filter-license').value;
-    var src = $('filter-source').value;
     var sort = $('sort-by').value;
 
-    FILTERED = MODELS.filter(function (m) {
-      if (search) {
-        var hay = (m.name + ' ' + m.id + ' ' + (m.capabilities || []).join(' ') + ' ' + (m.family || '')).toLowerCase();
-        if (hay.indexOf(search) < 0) return false;
-      }
-      if (cap && (m.capabilities || []).indexOf(cap) < 0) return false;
-      if (inpFilter && (m.input_modalities || []).indexOf(inpFilter) < 0) return false;
-      if (outFilter && (m.output_modalities || []).indexOf(outFilter) < 0) return false;
-      var devs = m.devices || [];
-      var anyDevice = deviceFilters.iphone || deviceFilters.ipad || deviceFilters.mac;
-      if (anyDevice) {
-        var ok = false;
-        if (deviceFilters.iphone && devs.indexOf('iphone') >= 0) ok = true;
-        if (deviceFilters.ipad && devs.indexOf('ipad') >= 0) ok = true;
-        if (deviceFilters.mac && devs.indexOf('mac') >= 0) ok = true;
-        if (!ok) return false;
-      }
-      if (lic && m.commercial_use !== lic) return false;
-      if (src && m.source_group !== src) return false;
-      return true;
-    });
+    FILTERED = MODELS.filter(function (m) { return matchesFilters(m, null); });
 
     if (sort === 'name') FILTERED.sort(function (a, b) { return a.name.localeCompare(b.name); });
     else if (sort === 'params') FILTERED.sort(function (a, b) { return paramSortValue(a.parameters) - paramSortValue(b.parameters); });
     else FILTERED.sort(function (a, b) { return b.readiness_score - a.readiness_score; });
 
-    renderPills(search, cap, inpFilter, outFilter, lic, src);
+    renderPills();
     renderGrid();
   }
 
   // ── Filter pills ──
-  function renderPills(search, cap, inpFilter, outFilter, lic, src) {
+  function renderPills() {
+    var search = FILTER_STATE.search, cap = FILTER_STATE.cap, inpFilter = FILTER_STATE.inp,
+      outFilter = FILTER_STATE.out, lic = FILTER_STATE.lic, src = FILTER_STATE.src;
     var pills = [];
-    if (search) pills.push({ label: '"' + search + '"', clear: function () { $('search-box').value = ''; } });
-    if (cap) pills.push({ label: cap.replace(/-/g, ' '), clear: function () { $('filter-capability').value = ''; } });
-    if (inpFilter) pills.push({ label: 'in: ' + inpFilter.replace(/-/g, ' '), clear: function () { $('filter-input').value = ''; } });
-    if (outFilter) pills.push({ label: 'out: ' + outFilter.replace(/-/g, ' '), clear: function () { $('filter-output').value = ''; } });
+    if (search) pills.push({ label: '"' + search + '"', clear: function () { clearField('search'); } });
+    if (cap) pills.push({ label: cap.replace(/-/g, ' '), chipClass: 'chip-cap-' + cap.replace(/_/g, '-'), clear: function () { clearField('cap'); } });
+    if (inpFilter) pills.push({ label: 'in: ' + inpFilter.replace(/-/g, ' '), clear: function () { clearField('inp'); } });
+    if (outFilter) pills.push({ label: 'out: ' + outFilter.replace(/-/g, ' '), clear: function () { clearField('out'); } });
     if (!deviceFilters.iphone) pills.push({ label: 'no iPhone', clear: function () { toggleDevice('iphone', true); } });
     if (!deviceFilters.ipad) pills.push({ label: 'no iPad', clear: function () { toggleDevice('ipad', true); } });
     if (!deviceFilters.mac) pills.push({ label: 'no Mac', clear: function () { toggleDevice('mac', true); } });
-    if (lic) pills.push({ label: lic === 'likely' ? 'Commercial: likely' : 'Check license', clear: function () { $('filter-license').value = ''; } });
-    if (src) pills.push({ label: sourceLabel(src), clear: function () { $('filter-source').value = ''; } });
+    if (lic) pills.push({ label: lic === 'likely' ? 'Commercial: likely' : 'Check license', clear: function () { clearField('lic'); } });
+    if (src) pills.push({ label: sourceLabel(src), clear: function () { clearField('src'); } });
 
     var c = $('active-filters');
     if (!pills.length) { c.innerHTML = ''; return; }
     c.innerHTML = pills.map(function (p, i) {
-      return '<span class="filter-pill" data-idx="' + i + '">' + escapeHtml(p.label) + '</span>';
+      return '<button type="button" class="filter-pill' + (p.chipClass ? ' ' + p.chipClass : '') + '" data-idx="' + i + '" aria-label="Remove filter: ' + escapeHtml(p.label) + '">' + escapeHtml(p.label) + '</button>';
     }).join('');
     c.querySelectorAll('.filter-pill').forEach(function (el, i) {
-      el.addEventListener('click', function () { pills[i].clear(); applyFilters(); });
+      el.addEventListener('click', function () { pills[i].clear(); syncAllControls(); refreshAll(); });
     });
   }
 
   function toggleDevice(d, val) {
     deviceFilters[d] = val;
-    var btn = document.querySelector('.seg[data-filter="' + d + '"]');
-    if (btn) { val ? btn.classList.add('active') : btn.classList.remove('active'); }
+    document.querySelectorAll('.seg[data-filter="' + d + '"]').forEach(function (btn) {
+      val ? btn.classList.add('active') : btn.classList.remove('active');
+      btn.setAttribute('aria-pressed', val ? 'true' : 'false');
+    });
   }
 
   // ── Render ──
@@ -245,12 +428,13 @@
       var bench = m.benchmarks && m.benchmarks.length ? '<span class="card-bench">' + m.benchmarks.length + ' bench</span>' : '';
       var delay = Math.min(i * 10, 120);
 
-      return '<div class="model-card" data-id="' + m.id + '" style="animation-delay:' + delay + 'ms">' +
+      return '<div class="model-card" data-id="' + m.id + '" tabindex="0" role="button" aria-label="View details for ' + escapeHtml(m.name) + '" style="animation-delay:' + delay + 'ms">' +
         '<div class="card-top">' +
           '<span class="card-name">' + escapeHtml(m.name) + '</span>' +
-          '<span class="card-score ' + scoreClass(s) + '" title="Click to see score breakdown">' + s + ' ' + gradeLetter(s) + '</span>' +
+          '<button type="button" class="card-score ' + scoreClass(s) + '" title="Click to see score breakdown" aria-label="Score ' + s + ', ' + gradeLetter(s) + '. Click to see breakdown.">' + s + ' ' + gradeLetter(s) + '</button>' +
         '</div>' +
         '<div class="card-caps">' + caps + '</div>' +
+        '<div class="card-io">' + cardIoHTML(m.input_modalities, m.output_modalities) + '</div>' +
         '<div class="card-bottom">' +
           '<span class="card-meta">' +
             '<span>' + devLabel(m.devices || []) + '</span>' +
@@ -265,7 +449,11 @@
     }).join('');
 
     grid.querySelectorAll('.model-card').forEach(function (card) {
-      card.addEventListener('click', function () { showDetail(card.dataset.id); });
+      card.addEventListener('click', function () { showDetail(card.dataset.id, card); });
+      card.addEventListener('keydown', function (e) {
+        if (e.target !== card) return; // let the score button handle its own keys
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); showDetail(card.dataset.id, card); }
+      });
     });
 
     // Score badge click → toggle inline breakdown (not card click)
@@ -317,17 +505,33 @@
   }
 
   // ── Modal ──
-  function closeModal() { $('modal-overlay').style.display = 'none'; }
+  function closeModal() {
+    $('modal-overlay').style.display = 'none';
+    document.removeEventListener('keydown', trapModalFocus, true);
+    if (lastFocusedEl && lastFocusedEl.focus) lastFocusedEl.focus();
+    lastFocusedEl = null;
+  }
 
-  function showDetail(id) {
+  function trapModalFocus(e) {
+    if (e.key !== 'Tab') return;
+    var content = $('modal-content');
+    var focusable = content.querySelectorAll('button, [href], input, select, [tabindex]:not([tabindex="-1"])');
+    if (!focusable.length) return;
+    var first = focusable[0], last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  }
+
+  function showDetail(id, triggerEl) {
     var m = MODELS.find(function (x) { return x.id === id; });
     if (!m) return;
+    lastFocusedEl = triggerEl || document.activeElement;
     var s = m.readiness_score;
     var art = m.artifact || {};
     var hfUrl = art.huggingface_url || '';
     var hfRepo = art.huggingface_repo || '';
     var devList = (m.devices || []).map(function (d) {
-      return '<span class="chip">' + (d.charAt(0).toUpperCase() + d.slice(1)) + '</span>';
+      return '<span class="chip">' + deviceLabel(d) + '</span>';
     }).join('');
     var capsList = (m.capabilities || []).map(function (c) {
       return '<span class="' + capChip(c) + '">' + c + '</span>';
@@ -338,16 +542,17 @@
 
     $('modal-content').innerHTML =
       '<button class="modal-close" id="modal-close-btn" aria-label="Close">&times;</button>' +
-      '<h2>' + escapeHtml(m.name) + '</h2>' +
+      '<h2 id="modal-title">' + escapeHtml(m.name) + '</h2>' +
       '<p class="modal-id">' + m.id + ' &middot; ' + escapeHtml(sourceLabel(m.source_group)) + '</p>' +
       '<div class="modal-score-row">' +
-        '<span class="card-score ' + scoreClass(s) + '" id="modal-score-btn" title="Click to see score breakdown">' + s + ' ' + gradeLetter(s) + '</span>' +
+        '<button type="button" class="card-score ' + scoreClass(s) + '" id="modal-score-btn" title="Click to see score breakdown">' + s + ' ' + gradeLetter(s) + '</button>' +
         '<span class="modal-score-desc">' + escapeHtml(gradeDescription(s)) + ' &middot; click to expand</span>' +
       '</div>' +
       '<div class="score-breakdown modal-score-details" style="display:none;">' +
         scoreBreakdownHTML(m) +
       '</div>' +
       (capsList ? '<div class="modal-section"><h4>Capabilities</h4><div class="card-caps">' + capsList + '</div></div>' : '') +
+      '<div class="modal-section"><h4>Input &rarr; Output</h4><div class="card-io">' + cardIoHTML(m.input_modalities, m.output_modalities) + '</div></div>' +
       (devList ? '<div class="modal-section"><h4>Devices</h4><div class="card-caps">' + devList + '</div></div>' : '') +
       '<table class="modal-table">' +
         '<tr><td>Parameters</td><td>' + (m.parameters || 'not published') + '</td></tr>' +
@@ -376,9 +581,14 @@
         '</div>' +
       '</div>' +
 
-      '<div class="modal-section"><h4>Install</h4><div class="code-inline"><pre><code>coreai-catalog install ' + m.id + '</code></pre></div></div>';
+      '<div class="modal-section"><h4>Install</h4><div class="code-block">' +
+        '<div class="code-header"><span>bash</span><button class="btn-copy" data-copy-target="modal-install-code">Copy</button></div>' +
+        '<pre><code id="modal-install-code">coreai-catalog install ' + m.id + '</code></pre>' +
+      '</div></div>';
 
     $('modal-overlay').style.display = 'flex';
+    document.addEventListener('keydown', trapModalFocus, true);
+    $('modal-close-btn').focus();
     $('modal-close-btn').addEventListener('click', closeModal);
     $('modal-score-btn').addEventListener('click', function () {
       var details = document.querySelector('.modal-score-details');
@@ -390,89 +600,64 @@
   // ── Tasks ──
   async function loadTasks() {
     try {
-      var resp = await fetch(TASKS_URL);
-      if (!resp.ok) throw new Error('HTTP ' + resp.status);
-      var data = await resp.json();
+      var data = await fetchJSON(TASKS_URL);
       var byCap = {};
       data.tasks.forEach(function (t) { t.capabilities.forEach(function (c) { (byCap[c] = byCap[c] || []).push(t); }); });
       $('task-list').innerHTML = Object.keys(byCap).sort().map(function (cap) {
         var syns = byCap[cap].map(function (t) { return t.task; }).sort();
-        return '<div class="task-section">' +
-          '<h3>' + cap.replace(/-/g, ' ') + ' <span class="task-count">' + syns.length + '</span></h3>' +
+        var modelCount = MODELS.filter(function (m) { return (m.capabilities || []).indexOf(cap) >= 0; }).length;
+        return '<button type="button" class="task-section" data-cap="' + escapeHtml(cap) + '" aria-label="Show ' + modelCount + ' models with ' + escapeHtml(cap.replace(/-/g, ' ')) + ' in Explore">' +
+          '<div class="task-section-head">' +
+            '<span class="' + capChip(cap) + ' task-cap-chip">' + cap.replace(/-/g, ' ') + '</span>' +
+            '<span class="task-count">' + modelCount + ' model' + (modelCount === 1 ? '' : 's') + '</span>' +
+          '</div>' +
           '<div class="task-synonyms">' + syns.map(function (s) { return '<span class="chip">' + escapeHtml(s) + '</span>'; }).join('') + '</div>' +
-        '</div>';
+        '</button>';
       }).join('');
+      $('task-list').querySelectorAll('.task-section').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          FILTER_STATE.cap = btn.dataset.cap;
+          syncAllControls();
+          refreshAll();
+          document.querySelector('[data-tab="explore"]').click();
+        });
+      });
     } catch (err) {
-      $('task-list').innerHTML = '<div class="empty-state">Failed to load.</div>';
+      $('task-list').innerHTML = '<div class="empty-state">Failed to load.<br><button type="button" class="btn-retry" id="retry-load-tasks">Try again</button></div>';
+      var retryBtn = $('retry-load-tasks');
+      if (retryBtn) retryBtn.addEventListener('click', loadTasks);
     }
   }
 
   // ── Leaderboard ──
   async function loadLeaderboard() {
     try {
-      var resp = await fetch(LEADERBOARD_URL);
-      if (!resp.ok) throw new Error('HTTP ' + resp.status);
-      var data = await resp.json();
+      var data = await fetchJSON(LEADERBOARD_URL);
       LB_DATA = data.leaderboard || [];
       // Also load search-index for modality data (leaderboard doesn't have it)
       if (!MODELS.length) {
         try {
-          var resp2 = await fetch(DATA_URL);
-          var data2 = await resp2.json();
+          var data2 = await fetchJSON(DATA_URL);
           MODELS = data2.models || [];
         } catch (e) {}
       }
       renderLeaderboard();
     } catch (err) {
-      $('lb-body').innerHTML = '<tr><td colspan="6" class="lb-empty">Failed to load leaderboard.</td></tr>';
+      $('lb-body').innerHTML = '<tr><td colspan="4" class="lb-empty">Failed to load leaderboard.<br><button type="button" class="btn-retry" id="retry-load-lb">Try again</button></td></tr>';
       $('lb-count').textContent = 'Error';
+      var retryBtn = $('retry-load-lb');
+      if (retryBtn) retryBtn.addEventListener('click', loadLeaderboard);
     }
   }
 
-  function getModelModalities(id) {
-    var m = MODELS.find(function (x) { return x.id === id; });
-    return m ? { input: m.input_modalities || [], output: m.output_modalities || [], devices: m.devices || [] } : { input: [], output: [], devices: [] };
-  }
-
-  function lbParamSortValue(p) {
-    if (!p) return 9999;
-    var s = String(p);
-    if (s === 'unknown' || s === 'not_published') return 9999;
-    var tierMap = { tiny: 0.2, small: 0.5, base: 1, medium: 2, large: 7, xl: 30 };
-    var tier = tierMap[s.toLowerCase()];
-    if (tier !== undefined) return tier;
-    var m = s.toUpperCase().match(/([\d.]+)\s*(B|M|K)?/);
-    if (!m) return 9999;
-    return parseFloat(m[1]) * ({ B: 1000, M: 1, K: 0.001 }[m[2]] || 1000);
-  }
-
   function renderLeaderboard() {
-    var search = ($('lb-search').value || '').toLowerCase().trim();
-    var inpF = $('lb-filter-input').value;
-    var outF = $('lb-filter-output').value;
-    var devF = $('lb-filter-device').value;
-
     var rows = LB_DATA.filter(function (m) {
-      if (search) {
-        var hay = (m.name + ' ' + m.id + ' ' + (m.capabilities || []).join(' ')).toLowerCase();
-        if (hay.indexOf(search) < 0) return false;
-      }
-      if (inpF || outF || devF) {
-        var mods = getModelModalities(m.id);
-        if (inpF && mods.input.indexOf(inpF) < 0) return false;
-        if (outF && mods.output.indexOf(outF) < 0) return false;
-        if (devF && mods.devices.indexOf(devF) < 0) return false;
-      }
-      return true;
+      var full = MODELS.find(function (x) { return x.id === m.id; }) || m;
+      return matchesFilters(full, null);
     });
 
     // Sort
-    if (LB_SORT.col === 'params') {
-      rows.sort(function (a, b) {
-        var cmp = lbParamSortValue(a.parameters) - lbParamSortValue(b.parameters);
-        return LB_SORT.dir === 'asc' ? cmp : -cmp;
-      });
-    } else if (LB_SORT.col === 'name') {
+    if (LB_SORT.col === 'name') {
       rows.sort(function (a, b) {
         var cmp = a.name.localeCompare(b.name);
         return LB_SORT.dir === 'asc' ? cmp : -cmp;
@@ -492,49 +677,44 @@
       th.classList.remove('sort-asc', 'sort-desc');
       if (th.dataset.sort === LB_SORT.col) {
         th.classList.add(LB_SORT.dir === 'asc' ? 'sort-asc' : 'sort-desc');
+        th.setAttribute('aria-sort', LB_SORT.dir === 'asc' ? 'ascending' : 'descending');
+      } else {
+        th.removeAttribute('aria-sort');
       }
     });
 
     if (!rows.length) {
-      $('lb-body').innerHTML = '<tr><td colspan="6" class="lb-empty">No models match your filters.</td></tr>';
+      $('lb-body').innerHTML = '<tr><td colspan="4" class="lb-empty">No models match your filters.</td></tr>';
       return;
     }
 
     $('lb-body').innerHTML = rows.map(function (m, i) {
       var s = m.readiness_score;
-      var mods = getModelModalities(m.id);
-      var inp = (mods.input[0] || '—').replace(/-/g, ' ');
-      var out = (mods.output[0] || '—').replace(/-/g, ' ');
-      if (mods.input.length > 1) inp += '+' + (mods.input.length - 1);
-      if (mods.output.length > 1) out += '+' + (mods.output.length - 1);
-      var ioCell = '<span>' + escapeHtml(inp) + '</span>' +
-        '<span class="lb-io-arrow">\u2192</span>' +
-        '<span>' + escapeHtml(out) + '</span>';
-      var params = m.parameters === 'unknown' ? '—' : escapeHtml(m.parameters);
-      var bench = m.benchmark_count > 0
-        ? '<span class="card-bench">' + m.benchmark_count + '</span>'
-        : '<span class="card-bench">0</span>';
+      var caps = (m.capabilities || []).map(function (c) {
+        return '<span class="' + capChip(c) + '">' + c.replace(/-/g, ' ') + '</span>';
+      }).join('');
 
-      return '<tr data-id="' + m.id + '">' +
+      return '<tr data-id="' + m.id + '" tabindex="0" role="button" aria-label="View details for ' + escapeHtml(m.name) + '">' +
         '<td class="lb-rank">' + (i + 1) + '</td>' +
         '<td class="lb-model">' + escapeHtml(m.name) + '</td>' +
-        '<td class="lb-io">' + ioCell + '</td>' +
-        '<td class="lb-params">' + params + '</td>' +
+        '<td class="lb-cap">' + caps + '</td>' +
         '<td class="lb-score"><span class="card-score ' + scoreClass(s) + '">' + s + ' ' + gradeLetter(s) + '</span></td>' +
-        '<td class="lb-bench">' + bench + '</td>' +
       '</tr>';
     }).join('');
 
-    // Row click -> open detail modal
+    // Row click / keyboard -> open detail modal
     $('lb-body').querySelectorAll('tr[data-id]').forEach(function (tr) {
-      tr.addEventListener('click', function () { showDetail(tr.dataset.id); });
+      tr.addEventListener('click', function () { showDetail(tr.dataset.id, tr); });
+      tr.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); showDetail(tr.dataset.id, tr); }
+      });
     });
   }
 
   function initLeaderboard() {
-    // Sort header clicks
+    // Sort header clicks (+ keyboard, since <th> isn't natively operable)
     document.querySelectorAll('.lb-table th.sortable').forEach(function (th) {
-      th.addEventListener('click', function () {
+      function doSort() {
         var col = th.dataset.sort;
         if (LB_SORT.col === col) {
           LB_SORT.dir = LB_SORT.dir === 'asc' ? 'desc' : 'asc';
@@ -543,28 +723,18 @@
           LB_SORT.dir = col === 'params' ? 'asc' : 'desc';
         }
         renderLeaderboard();
+      }
+      th.addEventListener('click', doSort);
+      th.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); doSort(); }
       });
     });
 
-    // Search input
-    $('lb-search').addEventListener('input', function () {
-      clearTimeout(lbSearchTimer);
-      lbSearchTimer = setTimeout(renderLeaderboard, 150);
-    });
-
-    // Filter dropdowns
-    ['lb-filter-input', 'lb-filter-output', 'lb-filter-device'].forEach(function (id) {
-      $(id).addEventListener('change', renderLeaderboard);
-    });
+    // Search/Capability/Input/Output/License/Source/Device are shared with Explore —
+    // bound once for both tabs via bindMirroredControl() and toggleDevice(), see init below.
 
     // Reset button
-    $('lb-reset').addEventListener('click', function () {
-      $('lb-search').value = '';
-      $('lb-filter-input').value = '';
-      $('lb-filter-output').value = '';
-      $('lb-filter-device').value = '';
-      renderLeaderboard();
-    });
+    $('lb-reset').addEventListener('click', resetAllFilters);
   }
 
   // ── Tabs ──
@@ -597,45 +767,73 @@
       btn.addEventListener('click', function () {
         var f = btn.dataset.filter;
         toggleDevice(f, !deviceFilters[f]);
-        applyFilters();
+        refreshAll();
+      });
+    });
+  }
+
+  // ── Skill → tab jump links (Skills tab → specific Contribute card) ──
+  function initSkillJumps() {
+    document.querySelectorAll('.skill-jump').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var tabBtn = document.querySelector('.tab[data-tab="' + btn.dataset.jumpTab + '"]');
+        if (tabBtn) tabBtn.click();
+        var target = $(btn.dataset.jumpTarget);
+        if (!target) return;
+        requestAnimationFrame(function () {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          target.classList.add('jump-highlight');
+          setTimeout(function () { target.classList.remove('jump-highlight'); }, 1600);
+        });
       });
     });
   }
 
   // ── Copy buttons (generic) ──
+  // Delegated on document (not per-element) so buttons rendered later —
+  // e.g. the model modal's Install card — work without a re-init call.
   function initCopyButtons() {
-    document.querySelectorAll('.btn-copy').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var targetId = btn.dataset.copyTarget;
-        var text = '';
-        if (targetId) {
-          var el = $(targetId);
-          text = el ? (el.querySelector('code') ? el.querySelector('code').textContent : el.textContent) : '';
-        } else {
-          var parent = btn.closest('.mcp-client');
-          if (parent) {
-            var code = parent.querySelector('code');
-            text = code ? code.textContent : '';
-          }
+    document.addEventListener('click', function (e) {
+      var btn = e.target.closest('.btn-copy');
+      if (!btn) return;
+      var targetId = btn.dataset.copyTarget;
+      var text = '';
+      if (targetId) {
+        var el = $(targetId);
+        text = el ? (el.querySelector('code') ? el.querySelector('code').textContent : el.textContent) : '';
+      } else {
+        var parent = btn.closest('.mcp-client');
+        if (parent) {
+          var code = parent.querySelector('code');
+          text = code ? code.textContent : '';
         }
-        text = text.trim();
+      }
+      text = text.trim();
 
-        function flash() {
-          var orig = btn.textContent;
-          btn.textContent = 'Copied';
-          btn.classList.add('copied');
-          setTimeout(function () { btn.textContent = orig; btn.classList.remove('copied'); }, 1500);
-        }
+      var orig = btn.textContent;
+      function flash() {
+        btn.textContent = 'Copied';
+        btn.classList.remove('failed');
+        btn.classList.add('copied');
+        setTimeout(function () { btn.textContent = orig; btn.classList.remove('copied'); }, 1500);
+      }
+      function flashFail() {
+        btn.textContent = 'Copy failed — select manually';
+        btn.classList.remove('copied');
+        btn.classList.add('failed');
+        setTimeout(function () { btn.textContent = orig; btn.classList.remove('failed'); }, 2200);
+      }
 
-        if (navigator.clipboard) {
-          navigator.clipboard.writeText(text).then(flash, flash);
-        } else {
-          var ta = document.createElement('textarea');
-          ta.value = text; document.body.appendChild(ta); ta.select();
-          try { document.execCommand('copy'); } catch (e) {}
-          document.body.removeChild(ta); flash();
-        }
-      });
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(flash, flashFail);
+      } else {
+        var ta = document.createElement('textarea');
+        ta.value = text; document.body.appendChild(ta); ta.select();
+        var ok = false;
+        try { ok = document.execCommand('copy'); } catch (err) { ok = false; }
+        document.body.removeChild(ta);
+        ok ? flash() : flashFail();
+      }
     });
   }
 
@@ -645,27 +843,20 @@
     initTabs();
     initDeviceSegs();
     initLeaderboard();
+    initIoClearButtons();
     loadData();
 
-    $('search-box').addEventListener('input', function () {
-      clearTimeout(searchTimer);
-      searchTimer = setTimeout(applyFilters, 150);
-    });
-    ['filter-capability', 'filter-input', 'filter-output', 'filter-license', 'filter-source', 'sort-by'].forEach(function (id) {
-      $(id).addEventListener('change', applyFilters);
-    });
+    // Search/Capability/Input/Output/License/Source are shared between Explore and
+    // Scores — one control changing updates the other tab's twin and both renders.
+    bindMirroredControl('search', true);
+    bindMirroredControl('cap', false);
+    bindMirroredControl('inp', false);
+    bindMirroredControl('out', false);
+    bindMirroredControl('lic', false);
+    bindMirroredControl('src', false);
 
-    $('reset-filters').addEventListener('click', function () {
-      $('search-box').value = '';
-      $('filter-capability').value = '';
-      $('filter-input').value = '';
-      $('filter-output').value = '';
-      $('filter-license').value = '';
-      $('filter-source').value = '';
-      $('sort-by').value = 'score';
-      ['iphone', 'ipad', 'mac'].forEach(function (d) { toggleDevice(d, true); });
-      applyFilters();
-    });
+    $('sort-by').addEventListener('change', applyFilters);
+    $('reset-filters').addEventListener('click', resetAllFilters);
 
     $('modal-overlay').addEventListener('click', function (e) {
       if (e.target === e.currentTarget) closeModal();
@@ -675,5 +866,6 @@
     });
 
     initCopyButtons();
+    initSkillJumps();
   });
 })();
