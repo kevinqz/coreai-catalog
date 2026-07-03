@@ -1,0 +1,18 @@
+# Merge authority for the catalog's data files (see GOVERNANCE.md).
+# Agents draft and validate; the code owner countersigns and merges.
+
+# Catalog data (YAML source of truth + append-only benchmark store)
+/catalog.yaml       @kevinqz
+/artifacts.yaml     @kevinqz
+/sources.yaml       @kevinqz
+/upstreams.yaml     @kevinqz
+/benchmarks.jsonl   @kevinqz
+/benchmarks.yaml    @kevinqz
+/terms.yaml         @kevinqz
+
+# Validation contracts the data files are checked against
+/schema/            @kevinqz
+
+# Governance and automation that writes to issues/PRs
+/GOVERNANCE.md      @kevinqz
+/.github/           @kevinqz

@@ -1,0 +1,159 @@
+name: Model Request to Draft PR
+
+# Turns a model-request ISSUE FORM into a validated draft PR (redteam
+# finding F6: there was no path from "issue filed" to "draft PR").
+#
+# Pipeline: parse the form body (coreai_catalog/discover.py FORM_FIELDS)
+# → run the same validation core as `coreai-catalog contribute model
+# --dry-run` (schemas + cross-references + duplicate ids, aggregated)
+# → ALWAYS comment the validation verdict on the issue
+# → when clean: append the generated entries, run the local gate +
+#   generate.py, push a branch, open a DRAFT PR.
+#
+# Safe-outputs philosophy (gh-aw): the job's only write outputs are the
+# issue comment and the draft branch/PR — it never merges, never edits
+# other issues, never touches anything outside the generated entries.
+
+on:
+  issues:
+    types: [opened, edited, labeled]
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+concurrency:
+  group: model-request-${{ github.event.issue.number }}
+  cancel-in-progress: true
+
+jobs:
+  process:
+    if: contains(github.event.issue.labels.*.name, 'model-request')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install pyyaml jsonschema
+
+      - name: Parse + validate the form (contribute --dry-run semantics)
+        id: validate
+        env:
+          # Body passed via env (never shell-interpolated) — form values are
+          # untrusted free text.
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: |
+          python3 - <<'PYEOF'
+          import json, os, sys
+          from pathlib import Path
+
+          sys.path.insert(0, ".")
+          from coreai_catalog import contribute, discover
+
+          body = os.environ.get("ISSUE_BODY", "")
+          result = discover.process_model_request(body, root=Path("."))
+
+          lines = ["## Model request validation", ""]
+          out = {"ok": "false", "model_id": ""}
+          if result["problems"]:
+              lines.append("**Missing form fields (all reported at once):**")
+              lines += [f"- {p}" for p in result["problems"]]
+          elif result["errors"]:
+              lines.append("**Validation errors (schema + cross-references, "
+                           "all reported at once):**")
+              lines += [f"- `{contribute.format_error(e)}`"
+                        for e in result["errors"]]
+          else:
+              model = result["model_entry"]
+              artifact = result["artifact_entry"]
+              out = {"ok": "true", "model_id": model["id"]}
+              lines.append("All checks passed — generated entries below. "
+                           "A draft PR is being opened for maintainer review.")
+              lines.append("")
+              lines.append("```yaml")
+              lines.append("# catalog.yaml — models:")
+              lines.append(contribute.dump_entry_yaml(model).rstrip())
+              lines.append("# artifacts.yaml — artifacts: (+ metadata.count bump)")
+              lines.append(contribute.dump_entry_yaml(artifact).rstrip())
+              lines.append("```")
+              # Stage the entries for the draft-PR steps.
+              root = Path(".")
+              contribute.append_yaml_entry(root / "catalog.yaml", model)
+              contribute.append_yaml_entry(root / "artifacts.yaml", artifact)
+              contribute.bump_artifact_count(root)
+          if result["problems"] or result["errors"]:
+              lines.append("")
+              lines.append("Fix the fields above by **editing the issue "
+                           "form** — validation reruns automatically.")
+
+          Path("/tmp/comment.md").write_text("\n".join(lines) + "\n")
+          with open(os.environ["GITHUB_OUTPUT"], "a") as fh:
+              for key, value in out.items():
+                  fh.write(f"{key}={value}\n")
+          PYEOF
+
+      - name: Run the local gate (validate + audit + generate)
+        id: gate
+        if: steps.validate.outputs.ok == 'true'
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          python3 scripts/validate.py 2>&1 | tee /tmp/gate.log
+          python3 scripts/audit.py 2>&1 | tee -a /tmp/gate.log
+          python3 scripts/generate.py 2>&1 | tail -5 | tee -a /tmp/gate.log
+
+      - name: Append gate failure to comment
+        if: steps.validate.outputs.ok == 'true' && steps.gate.outcome == 'failure'
+        run: |
+          {
+            echo ""
+            echo "**Local gate failed — no PR opened:**"
+            echo '```'
+            tail -40 /tmp/gate.log
+            echo '```'
+          } >> /tmp/comment.md
+
+      - name: Push draft PR branch
+        id: pr
+        if: steps.validate.outputs.ok == 'true' && steps.gate.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          MODEL_ID: ${{ steps.validate.outputs.model_id }}
+        run: |
+          BRANCH="model-request/issue-${ISSUE_NUMBER}-${MODEL_ID}"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git add catalog.yaml artifacts.yaml docs dist coreai_catalog/data
+          git commit -m "feat: add model ${MODEL_ID} (from model-request #${ISSUE_NUMBER})"
+          git push -u origin "$BRANCH" --force-with-lease
+          PR_URL=$(gh pr create --draft \
+            --title "feat: add model ${MODEL_ID} (model-request #${ISSUE_NUMBER})" \
+            --body "Generated from model-request issue #${ISSUE_NUMBER} by \`model-request-to-pr.yml\`.
+
+          Entries were validated against the JSON Schemas + cross-reference rules and the local gate (validate/audit/generate) passed in CI before this PR was opened.
+
+          Model lane only — this PR does not touch \`benchmarks.jsonl\`.
+
+          Closes #${ISSUE_NUMBER}" \
+            2>/dev/null || gh pr view "$BRANCH" --json url --jq .url)
+          echo "" >> /tmp/comment.md
+          echo "**Draft PR:** ${PR_URL}" >> /tmp/comment.md
+
+      - name: Comment the validation result on the issue
+        if: always() && steps.validate.outcome != 'skipped'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: |
+          gh issue comment "$ISSUE_NUMBER" --body-file /tmp/comment.md

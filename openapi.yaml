@@ -3,9 +3,20 @@ info:
   title: Core AI Catalog API
   version: 2.1.0
   description: |
-    Source-grounded catalog of 80 Apple Core AI models. All endpoints are
-    read-only. This OpenAPI spec mirrors the MCP server's 12 tools as REST
-    endpoints for agents and automation that don't use MCP.
+    Source-grounded catalog of 80 Apple Core AI models. All endpoints here
+    are read-only: this OpenAPI spec mirrors 12 of the MCP server's 16
+    tools as REST endpoints for agents and automation that don't use MCP.
+    The remaining 4 tools are MCP/CLI-only because static raw-GitHub
+    hosting cannot execute them: `validate_entry` (aggregated candidate
+    validation), `get_integration_snippet` (install-free Swift snippet),
+    and the write path `draft_model` / `submit_model` (validated diff →
+    confirm-gated PR; humans merge). CLI-only lanes: `coreai-catalog
+    bench run|draft` (protocol benchmark runner, macOS 27+) and
+    `coreai-catalog discover` (porting candidates).
+
+    Model records carry typed integration metadata: `min_os` (all current
+    models require macOS/iOS 27), `bundle_kind`, and — for priority
+    models — a typed `io_contract`.
 
     JSON exports are committed to `dist/` and available via raw GitHub:
     - `dist/catalog.json` — all models

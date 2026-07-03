@@ -4,12 +4,18 @@
 Reads a submitted JSONL line and compares the value against the existing cohort
 in benchmarks.jsonl. Exits non-zero on outliers to prevent auto-merge.
 
+Small cohorts (N<5) and degenerate cohorts (MAD==0) used to auto-pass —
+which was every current cohort (redteam finding B9/D3). They now fall
+back to the physics plausibility gate (scripts/physics_check.py):
+bandwidth ceiling + tokens/elapsed consistency, curator-tier thermal.
+
 Usage:
     python scripts/outlier_check.py --input <file_with_jsonl_line> [--catalog benchmarks.jsonl]
 
 Exit codes:
-    0 — pass (value is within expected range, or insufficient data)
-    1 — outlier (value is >3.5 modified-z from median)
+    0 — pass (statistically consistent with cohort, or physics-plausible
+        when the cohort is too small for statistics)
+    1 — outlier (>3.5 modified-z from median) or physics-implausible
 """
 from __future__ import annotations
 
@@ -52,7 +58,10 @@ def load_cohort(
 def compute_mad_zscore(value: float, cohort: list[float]) -> tuple[float, str]:
     """Compute modified z-score using MAD.
 
-    Returns (z_score, status) where status is 'pass', 'outlier', or 'insufficient-data'.
+    Returns (z_score, status) where status is 'pass', 'outlier', or
+    'insufficient-data'. Cohorts with N<5 or MAD==0 carry no statistical
+    signal — callers must fall back to the physics gate, never auto-pass
+    (redteam finding B9).
     """
     if len(cohort) < 5:
         return 0.0, "insufficient-data"
@@ -62,12 +71,32 @@ def compute_mad_zscore(value: float, cohort: list[float]) -> tuple[float, str]:
     mad = statistics.median(deviations)
 
     if mad == 0:
-        return 0.0, "pass"  # All identical values
+        # All identical values: zero spread means the z-score is
+        # undefined, not that any new value is fine.
+        return 0.0, "insufficient-data"
 
     modified_z = 0.6745 * (value - median) / mad
     if abs(modified_z) >= 3.5:
         return modified_z, "outlier"
     return modified_z, "pass"
+
+
+def physics_fallback(entry: dict) -> tuple[bool, str]:
+    """Physics gate for entries whose cohort is too small for statistics.
+
+    Runs the curator-tier physics checks (bandwidth ceiling +
+    tokens/elapsed consistency; thermal fails only on throttling) so a
+    fabricated value can no longer ride in on an empty cohort.
+    """
+    import physics_check
+
+    chips = physics_check.load_chip_bandwidth()
+    models = physics_check.load_model_index()
+    passed, checks = physics_check.check_entry(entry, chips, models, tier="curator")
+    summary = "; ".join(
+        f"{c['check']}={c['status']}" for c in checks
+    )
+    return passed, summary
 
 
 def main() -> int:
@@ -116,9 +145,20 @@ def main() -> int:
                 f"median={statistics.median(cohort):.1f}, value={value})"
             )
         elif status == "insufficient-data":
-            results.append(
-                f"Line {i+1}: INSUFFICIENT DATA (cohort N={len(cohort)}, need >=5)"
-            )
+            # B9 fix: no statistical signal — fall back to the physics
+            # gate instead of auto-passing.
+            phys_ok, phys_summary = physics_fallback(entry)
+            if phys_ok:
+                results.append(
+                    f"Line {i+1}: PHYSICS-FALLBACK PASS (cohort N={len(cohort)} "
+                    f"too small for statistics; {phys_summary})"
+                )
+            else:
+                all_pass = False
+                results.append(
+                    f"Line {i+1}: PHYSICS-FALLBACK FAIL (cohort N={len(cohort)} "
+                    f"too small for statistics; {phys_summary})"
+                )
         else:
             results.append(
                 f"Line {i+1}: PASS (z={z:.2f}, cohort N={len(cohort)}, "
@@ -140,7 +180,7 @@ def main() -> int:
         print(r)
 
     if not all_pass:
-        print("\n::error::Outlier detected — prevents auto-merge", file=sys.stderr)
+        print("\n::error::Outlier or physics-implausible value detected — prevents auto-merge", file=sys.stderr)
         return 1
 
     print("\nAll checks passed")

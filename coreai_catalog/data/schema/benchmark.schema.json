@@ -101,6 +101,42 @@
       "type": "string",
       "minLength": 1
     },
+    "verification_tier": {
+      "type": "string",
+      "enum": [
+        "unverified",
+        "community_verified",
+        "hardware_attested",
+        "maintainer_verified",
+        "disputed"
+      ],
+      "description": "Quorum-style trust ladder (spec §3.2): unverified (n=1) → community_verified (independent reproduction within tolerance) → hardware_attested (App Attest companion) / maintainer_verified; disputed during a flag/challenge window. Absent on legacy rows = unverified."
+    },
+    "artifact_revision": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$",
+      "description": "Hugging Face commit hash the measured artifact was downloaded at (from artifacts.yaml huggingface.revision via the installer manifest). Names exactly which bytes were measured."
+    },
+    "artifact_sha256_root": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$",
+      "description": "Digest root of the measured artifact: sha256 over the newline-joined, path-sorted '<sha256>  <path>' lines of artifacts.yaml huggingface.files. See docs/benchmark-protocol.md 'Artifact digest root'."
+    },
+    "runner_version": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Version of the coreai-bench-runner binary that produced this row (bench/CoreAIBenchRunner). Only set for extraction_method app_benchmark_protocol."
+    },
+    "raw_trials_url": {
+      "type": "string",
+      "minLength": 1,
+      "description": "URL of the raw per-trial JSONL backing this summary row (e.g. a gist or release asset), so medians can be recomputed."
+    },
+    "superseded_by": {
+      "type": "string",
+      "minLength": 1,
+      "description": "id of the newer benchmark entry that replaces this one. Append-only store: superseded rows are retained and marked, never overwritten (restores the field dropped by the YAML→JSONL migration)."
+    },
     "device_verified": {
       "type": "boolean",
       "description": "DeviceCheck JWT verified by relay. False for historical/CLI data."

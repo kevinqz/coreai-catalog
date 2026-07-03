@@ -1,0 +1,436 @@
+# Model request — GitHub issue FORM (replaces the old free-form
+# model-request.md, redteam finding F6). Fields map 1:1 to the required
+# fields of schema/model.schema.json (+ the artifact host block of
+# schema/artifact.schema.json), so a submission carries everything the
+# catalog entry needs — no out-of-band follow-up questions.
+#
+# IMPORTANT — dropdown options below are GENERATED FROM THE SCHEMA ENUMS
+# (schema/model.schema.json, 2026-07-03). When a schema enum changes, the
+# options here MUST be regenerated to match; tests/test_p1_discovery.py
+# asserts every dropdown equals its schema enum, so drift fails CI.
+#
+# Field labels are the parse contract: .github/workflows/model-request-to-pr.yml
+# parses the rendered body by "### <label>" headings via
+# coreai_catalog/discover.py FORM_FIELDS — keep labels in sync there too.
+name: Model request
+description: Request adding a new Core AI model to the catalog (auto-validated, turned into a draft PR when clean)
+title: "[Model] Add <model name>"
+labels: ["model-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Fill every required field — the automation validates your answers against
+        the catalog schemas and comments the result here. When validation is clean,
+        a draft PR with the generated `catalog.yaml` + `artifacts.yaml` entries is
+        opened automatically for maintainer review.
+
+        Use `unknown` for free-text facts you cannot verify — never guess.
+
+  - type: input
+    id: model_id
+    attributes:
+      label: Model ID
+      description: "Catalog id: lowercase, hyphen-separated (e.g. qwen3-vl-2b)"
+      placeholder: qwen3-vl-2b
+    validations:
+      required: true
+
+  - type: input
+    id: name
+    attributes:
+      label: Display name
+      placeholder: Qwen3-VL 2B
+    validations:
+      required: true
+
+  - type: input
+    id: family
+    attributes:
+      label: Family
+      description: Model family (e.g. Qwen, Gemma, Whisper)
+      placeholder: Qwen
+    validations:
+      required: true
+
+  - type: dropdown
+    id: source_group
+    attributes:
+      label: Source group
+      description: Where the conversion comes from (schema enum)
+      options:
+        - zoo
+        - official
+        - external
+        - fabric
+        - unknown
+    validations:
+      required: true
+
+  - type: input
+    id: source_path
+    attributes:
+      label: Source path (URL)
+      description: https:// URL documenting the conversion (zoo page, HF repo, ...)
+      placeholder: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/qwen3-vl.md
+    validations:
+      required: true
+
+  - type: input
+    id: artifact_ref
+    attributes:
+      label: Artifact ref
+      description: artifacts.yaml id for the artifact entry (defaults to the Model ID)
+      placeholder: qwen3-vl-2b
+    validations:
+      required: false
+
+  - type: input
+    id: capabilities
+    attributes:
+      label: Capabilities
+      description: Comma-separated (e.g. chat, text-generation, vision-language)
+      placeholder: vision-language, chat
+    validations:
+      required: true
+
+  - type: input
+    id: input_modalities
+    attributes:
+      label: Input modalities
+      description: Comma-separated (e.g. text, image)
+      placeholder: text, image
+    validations:
+      required: true
+
+  - type: input
+    id: output_modalities
+    attributes:
+      label: Output modalities
+      description: Comma-separated (e.g. text)
+      placeholder: text
+    validations:
+      required: true
+
+  - type: dropdown
+    id: artifact_format
+    attributes:
+      label: Artifact format
+      options:
+        - aimodel
+        - mlpackage
+        - unknown
+    validations:
+      required: true
+
+  - type: dropdown
+    id: availability
+    attributes:
+      label: Artifact availability
+      options:
+        - available
+        - unavailable
+        - unknown
+    validations:
+      required: true
+
+  - type: input
+    id: parameters
+    attributes:
+      label: Parameters
+      description: Parameter count (e.g. 2B, 350M) or 'unknown'
+      placeholder: 2B
+    validations:
+      required: true
+
+  - type: input
+    id: precision
+    attributes:
+      label: Precision
+      description: e.g. int4, int8, fp16 — or 'unknown'
+      placeholder: int4
+    validations:
+      required: true
+
+  - type: input
+    id: quantization
+    attributes:
+      label: Quantization
+      description: e.g. int4lin, int8lin — or 'unknown'
+      placeholder: int4lin
+    validations:
+      required: true
+
+  - type: input
+    id: artifact_size
+    attributes:
+      label: Artifact size
+      description: Download size (e.g. 1.2GB) or 'unknown'
+      placeholder: 1.2GB
+    validations:
+      required: true
+
+  - type: dropdown
+    id: runtime_name
+    attributes:
+      label: Runtime name
+      options:
+        - apple-core-ai
+        - coreml
+        - unknown
+    validations:
+      required: true
+
+  - type: dropdown
+    id: runner
+    attributes:
+      label: Runner
+      options:
+        - CoreAIRunner
+        - stock-runner
+        - CoreAIDiffusionPipeline
+        - CoreAIImageSegmenter
+        - CoreAITranscribe
+        - CoreAIVideoPipeline
+        - CoreAIKit-GraphModel
+        - unknown
+    validations:
+      required: true
+
+  - type: dropdown
+    id: stock_runtime
+    attributes:
+      label: Stock runtime
+      options:
+        - "true"
+        - "false"
+        - unknown
+    validations:
+      required: true
+
+  - type: dropdown
+    id: custom_kernel
+    attributes:
+      label: Custom kernel required
+      options:
+        - "true"
+        - "false"
+        - unknown
+    validations:
+      required: true
+
+  - type: dropdown
+    id: patch_required
+    attributes:
+      label: Patch required
+      options:
+        - "true"
+        - "false"
+        - unknown
+    validations:
+      required: true
+
+  - type: dropdown
+    id: tokenizer_required
+    attributes:
+      label: Tokenizer required
+      options:
+        - "true"
+        - "false"
+        - unknown
+    validations:
+      required: true
+
+  - type: dropdown
+    id: processor_required
+    attributes:
+      label: Processor required
+      options:
+        - "true"
+        - "false"
+        - unknown
+    validations:
+      required: true
+
+  - type: dropdown
+    id: aot_required
+    attributes:
+      label: AOT required
+      options:
+        - "true"
+        - "false"
+        - unknown
+    validations:
+      required: true
+
+  - type: dropdown
+    id: iphone
+    attributes:
+      label: iPhone support
+      options:
+        - "true"
+        - "false"
+        - unknown
+    validations:
+      required: true
+
+  - type: dropdown
+    id: ipad
+    attributes:
+      label: iPad support
+      options:
+        - "true"
+        - "false"
+        - unknown
+    validations:
+      required: true
+
+  - type: dropdown
+    id: mac
+    attributes:
+      label: Mac support
+      options:
+        - "true"
+        - "false"
+        - unknown
+    validations:
+      required: true
+
+  - type: dropdown
+    id: mac_only
+    attributes:
+      label: Mac only
+      options:
+        - "true"
+        - "false"
+        - unknown
+    validations:
+      required: true
+
+  - type: input
+    id: license_name
+    attributes:
+      label: License name
+      description: Upstream model license (e.g. Apache-2.0, MIT, Gemma Terms)
+      placeholder: Apache-2.0
+    validations:
+      required: true
+
+  - type: dropdown
+    id: commercial_use
+    attributes:
+      label: Commercial use
+      description: Triage label, not legal advice — pick check_license when unsure
+      options:
+        - likely
+        - check_license
+    validations:
+      required: true
+
+  - type: dropdown
+    id: status
+    attributes:
+      label: Status
+      options:
+        - confirmed
+        - needs_review
+        - deprecated
+        - unknown
+    validations:
+      required: true
+
+  - type: dropdown
+    id: maturity
+    attributes:
+      label: Maturity
+      options:
+        - stable
+        - active
+        - experimental
+        - research
+        - unknown
+    validations:
+      required: true
+
+  - type: dropdown
+    id: confidence
+    attributes:
+      label: Confidence
+      options:
+        - high
+        - medium
+        - low
+        - needs_review
+    validations:
+      required: true
+
+  - type: input
+    id: sources
+    attributes:
+      label: Sources
+      description: Comma-separated existing sources.yaml / upstreams.yaml record ids (e.g. coreai-model-zoo)
+      placeholder: coreai-model-zoo
+    validations:
+      required: true
+
+  - type: input
+    id: upstream_repo
+    attributes:
+      label: Upstream repo
+      description: "ORIGINAL upstream Hugging Face repo as org/name (e.g. Qwen/Qwen3-VL-2B-Instruct) — powers discovery dedup"
+      placeholder: Qwen/Qwen3-VL-2B-Instruct
+    validations:
+      required: false
+
+  - type: input
+    id: hf_owner
+    attributes:
+      label: Hugging Face owner
+      description: Owner of the CONVERTED .aimodel artifact repo (required unless a GitHub host is given)
+      placeholder: mlboydaisuke
+    validations:
+      required: false
+
+  - type: input
+    id: hf_repo
+    attributes:
+      label: Hugging Face repo
+      description: Repo name of the converted artifact (required unless a GitHub host is given)
+      placeholder: Qwen3-VL-2B-CoreAI
+    validations:
+      required: false
+
+  - type: input
+    id: github_owner
+    attributes:
+      label: GitHub owner
+      description: Conversion-source GitHub owner (optional for HF-only conversions)
+      placeholder: john-rocky
+    validations:
+      required: false
+
+  - type: input
+    id: github_repo
+    attributes:
+      label: GitHub repo
+      description: Conversion-source GitHub repo (optional for HF-only conversions)
+      placeholder: coreai-model-zoo
+    validations:
+      required: false
+
+  - type: input
+    id: github_path
+    attributes:
+      label: GitHub path
+      description: Conversion doc URL inside the GitHub repo (optional)
+      placeholder: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/qwen3-vl.md
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Caveats, benchmarks pointers, anything a reviewer should know (optional)
+    validations:
+      required: false

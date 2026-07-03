@@ -6082,6 +6082,7 @@
         "os_major": "26",
         "precision": "inferred:int4",
         "source": "john-rocky-coreai-model-zoo",
+        "superseded_by": "official-qwen3-0-6b-m4max-gpu-toks",
         "unit": "tokens_per_second",
         "value": 1121
       },
@@ -6787,6 +6788,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "qwen3-5-0-8b",
+        "bundle_kind": "llm",
         "capabilities": [
           "chat",
           "text-generation"
@@ -6806,6 +6808,10 @@
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "text"
@@ -6839,7 +6845,8 @@
           "coreai-model-zoo-zoo"
         ],
         "status": "confirmed",
-        "streaming": true
+        "streaming": true,
+        "upstream_repo": "Qwen/Qwen3.5-0.8B"
       },
       {
         "architecture": "transformer",
@@ -6848,6 +6855,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "qwen3-5-2b",
+        "bundle_kind": "llm",
         "capabilities": [
           "chat",
           "text-generation"
@@ -6867,6 +6875,10 @@
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "text"
@@ -6900,7 +6912,8 @@
           "coreai-model-zoo-zoo"
         ],
         "status": "confirmed",
-        "streaming": true
+        "streaming": true,
+        "upstream_repo": "Qwen/Qwen3.5-2B"
       },
       {
         "architecture": "transformer",
@@ -6909,6 +6922,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "qwen3-6-35b-a3b",
+        "bundle_kind": "llm",
         "capabilities": [
           "chat",
           "text-generation",
@@ -6929,6 +6943,10 @@
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "text"
@@ -6962,7 +6980,8 @@
           "coreai-model-zoo-zoo"
         ],
         "status": "confirmed",
-        "streaming": true
+        "streaming": true,
+        "upstream_repo": "Qwen/Qwen3.6-35B-A3B"
       },
       {
         "architecture": "transformer",
@@ -6971,6 +6990,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "qwen3-6-27b",
+        "bundle_kind": "llm",
         "capabilities": [
           "chat",
           "text-generation"
@@ -6990,6 +7010,10 @@
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "text"
@@ -7023,7 +7047,8 @@
           "coreai-model-zoo-zoo"
         ],
         "status": "confirmed",
-        "streaming": true
+        "streaming": true,
+        "upstream_repo": "Qwen/Qwen3.6-27B"
       },
       {
         "architecture": "transformer",
@@ -7032,6 +7057,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "glm-4-7-flash",
+        "bundle_kind": "llm",
         "capabilities": [
           "chat",
           "text-generation",
@@ -7053,6 +7079,10 @@
           "name": "MIT"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "text"
@@ -7086,7 +7116,8 @@
           "coreai-model-zoo-zoo"
         ],
         "status": "confirmed",
-        "streaming": true
+        "streaming": true,
+        "upstream_repo": "zai-org/GLM-4.7-Flash"
       },
       {
         "architecture": "transformer",
@@ -7095,6 +7126,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "gemma-4-e2b",
+        "bundle_kind": "llm",
         "capabilities": [
           "chat",
           "text-generation"
@@ -7114,6 +7146,10 @@
           "name": "Gemma Terms"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "text"
@@ -7156,6 +7192,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "gemma-4-e4b",
+        "bundle_kind": "llm",
         "capabilities": [
           "chat",
           "text-generation"
@@ -7175,6 +7212,10 @@
           "name": "Gemma Terms"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "text"
@@ -7208,7 +7249,8 @@
           "coreai-model-zoo-zoo"
         ],
         "status": "confirmed",
-        "streaming": true
+        "streaming": true,
+        "upstream_repo": "google/gemma-4-E4B-it-qat-q4_0-unquantized"
       },
       {
         "architecture": "transformer",
@@ -7217,6 +7259,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "gemma-4-12b",
+        "bundle_kind": "llm",
         "capabilities": [
           "chat",
           "text-generation"
@@ -7236,6 +7279,10 @@
           "name": "Gemma Terms"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "text"
@@ -7270,7 +7317,8 @@
           "apple-coreai-models"
         ],
         "status": "confirmed",
-        "streaming": true
+        "streaming": true,
+        "upstream_repo": "google/gemma-4-12B-it-qat-q4_0-unquantized"
       },
       {
         "architecture": "transformer",
@@ -7279,6 +7327,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "gemma-4-31b",
+        "bundle_kind": "llm",
         "capabilities": [
           "chat",
           "text-generation"
@@ -7298,6 +7347,10 @@
           "name": "Gemma Terms"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "text"
@@ -7332,7 +7385,8 @@
           "apple-coreai-models"
         ],
         "status": "confirmed",
-        "streaming": true
+        "streaming": true,
+        "upstream_repo": "google/gemma-4-31B-it-qat-q4_0-unquantized"
       },
       {
         "architecture": "transformer",
@@ -7341,6 +7395,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "lfm2-5-1-2b-instruct",
+        "bundle_kind": "llm",
         "capabilities": [
           "chat",
           "text-generation",
@@ -7361,6 +7416,10 @@
           "name": "LFM Open License v1.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "text"
@@ -7394,7 +7453,8 @@
           "coreai-model-zoo-zoo"
         ],
         "status": "confirmed",
-        "streaming": true
+        "streaming": true,
+        "upstream_repo": "LiquidAI/LFM2.5-1.2B-Instruct"
       },
       {
         "architecture": "transformer",
@@ -7403,6 +7463,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "lfm2-5-8b-a1b",
+        "bundle_kind": "llm",
         "capabilities": [
           "chat",
           "text-generation",
@@ -7423,6 +7484,10 @@
           "name": "LFM Open License v1.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "text"
@@ -7456,7 +7521,8 @@
           "coreai-model-zoo-zoo"
         ],
         "status": "confirmed",
-        "streaming": true
+        "streaming": true,
+        "upstream_repo": "LiquidAI/LFM2.5-8B-A1B"
       },
       {
         "architecture": "transformer",
@@ -7465,6 +7531,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "granite-4-0-h-1b",
+        "bundle_kind": "llm",
         "capabilities": [
           "chat",
           "text-generation",
@@ -7485,6 +7552,10 @@
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "text"
@@ -7518,7 +7589,8 @@
           "coreai-model-zoo-zoo"
         ],
         "status": "confirmed",
-        "streaming": true
+        "streaming": true,
+        "upstream_repo": "ibm-granite/granite-4.0-h-1b"
       },
       {
         "architecture": "transformer",
@@ -7527,6 +7599,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "granite-4-0-h-350m",
+        "bundle_kind": "llm",
         "capabilities": [
           "chat",
           "text-generation",
@@ -7547,6 +7620,10 @@
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "text"
@@ -7580,7 +7657,8 @@
           "coreai-model-zoo-zoo"
         ],
         "status": "confirmed",
-        "streaming": true
+        "streaming": true,
+        "upstream_repo": "ibm-granite/granite-4.0-h-350m"
       },
       {
         "architecture": "transformer",
@@ -7589,6 +7667,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "nanbeige4-1-3b",
+        "bundle_kind": "llm",
         "capabilities": [
           "chat",
           "reasoning",
@@ -7610,6 +7689,10 @@
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "text"
@@ -7643,7 +7726,8 @@
           "coreai-model-zoo-zoo"
         ],
         "status": "confirmed",
-        "streaming": true
+        "streaming": true,
+        "upstream_repo": "Nanbeige/Nanbeige4.1-3B"
       },
       {
         "architecture": "transformer",
@@ -7652,6 +7736,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "qwen3-vl-2b",
+        "bundle_kind": "vlm",
         "capabilities": [
           "vision-language"
         ],
@@ -7670,6 +7755,10 @@
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "image",
@@ -7704,7 +7793,8 @@
           "coreai-model-zoo-zoo"
         ],
         "status": "confirmed",
-        "streaming": true
+        "streaming": true,
+        "upstream_repo": "Qwen/Qwen3-VL-2B-Instruct"
       },
       {
         "architecture": "transformer",
@@ -7713,6 +7803,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "qwen3-vl-4b",
+        "bundle_kind": "vlm",
         "capabilities": [
           "vision-language"
         ],
@@ -7731,6 +7822,10 @@
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "image",
@@ -7765,7 +7860,8 @@
           "coreai-model-zoo-zoo"
         ],
         "status": "confirmed",
-        "streaming": true
+        "streaming": true,
+        "upstream_repo": "Qwen/Qwen3-VL-4B-Instruct"
       },
       {
         "architecture": "transformer",
@@ -7774,6 +7870,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "qwen3-vl-8b",
+        "bundle_kind": "vlm",
         "capabilities": [
           "vision-language"
         ],
@@ -7792,6 +7889,10 @@
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "image",
@@ -7826,7 +7927,8 @@
           "coreai-model-zoo-zoo"
         ],
         "status": "confirmed",
-        "streaming": true
+        "streaming": true,
+        "upstream_repo": "Qwen/Qwen3-VL-8B-Instruct"
       },
       {
         "architecture": "transformer",
@@ -7835,6 +7937,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "minicpm-v-4-6",
+        "bundle_kind": "vlm",
         "capabilities": [
           "vision-language"
         ],
@@ -7847,12 +7950,64 @@
         },
         "family": "MiniCPM",
         "id": "minicpm-v-4-6",
+        "io_contract": {
+          "entrypoint": {
+            "framework": "CoreAILanguageModels",
+            "init_pattern": "let engine = try await CoreAIRunner(contentsOf: bundleURL).makeInferenceEngine()",
+            "type": "CoreAIRunner"
+          },
+          "files": {
+            "tokenizer_ref": "gpu-pipelined/minicpmv46_vlm_decode_int8hu/tokenizer"
+          },
+          "inputs": [
+            {
+              "modality": "image",
+              "name": "image",
+              "swift_type": "URL",
+              "tensor": {
+                "dtype": "fp16",
+                "layout": "NCHW",
+                "shape": [
+                  1,
+                  3,
+                  448,
+                  448
+                ]
+              }
+            },
+            {
+              "constraints": {
+                "max_context": 4096
+              },
+              "modality": "text",
+              "name": "prompt",
+              "swift_type": "String"
+            }
+          ],
+          "outputs": [
+            {
+              "decoding": {
+                "detokenization": "embedded tokenizer (openbmb/MiniCPM-V-4.6, vocab 248094)"
+              },
+              "name": "response",
+              "swift_type": "String"
+            }
+          ],
+          "session": {
+            "stateful": true,
+            "streaming": true
+          }
+        },
         "last_verified": "2026-06-24",
         "license": {
           "commercial_use": "likely",
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "image",
@@ -7887,7 +8042,8 @@
           "coreai-model-zoo-zoo"
         ],
         "status": "confirmed",
-        "streaming": true
+        "streaming": true,
+        "upstream_repo": "openbmb/MiniCPM-V-4.6"
       },
       {
         "architecture": "transformer",
@@ -7896,6 +8052,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "gemma-4-e2b-vision",
+        "bundle_kind": "vlm",
         "capabilities": [
           "vision-language"
         ],
@@ -7914,6 +8071,10 @@
           "name": "Gemma Terms"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "image",
@@ -7957,6 +8118,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "unlimited-ocr",
+        "bundle_kind": "ocr",
         "capabilities": [
           "document-ocr"
         ],
@@ -7969,12 +8131,63 @@
         },
         "family": "Unlimited-OCR",
         "id": "unlimited-ocr",
+        "io_contract": {
+          "entrypoint": {
+            "framework": "CoreAI",
+            "init_pattern": "let vision = try await AIModel(contentsOf: visionURL); let decoder = try await AIModel(contentsOf: decoderURL)",
+            "type": "AIModel"
+          },
+          "files": {
+            "processor_ref": "assets/recipe.json",
+            "tokenizer_ref": "tokenizer"
+          },
+          "inputs": [
+            {
+              "constraints": {
+                "max_image_px": 640
+              },
+              "modality": "image",
+              "name": "document_image",
+              "preprocessing": {
+                "color_format": "RGB",
+                "normalization": "mean=0.5 std=0.5 (all channels)",
+                "resize": "pad to 640x640 (ImageOps.pad; pad color = mean*255)"
+              },
+              "swift_type": "CGImage"
+            },
+            {
+              "modality": "text",
+              "name": "prompt_input_ids",
+              "swift_type": "[Int32]",
+              "tensor": {
+                "dtype": "int32",
+                "shape": [
+                  115
+                ]
+              }
+            }
+          ],
+          "outputs": [
+            {
+              "decoding": {
+                "detokenization": "greedy decode to eos id 1; detokenize with tokenizer/ (LlamaTokenizerFast)",
+                "format_selector": "fixed prompt prefix (assets/prompt_input_ids.i32) — output interleaves markdown, HTML tables and LaTeX formulas; not prompt-selectable"
+              },
+              "name": "text",
+              "swift_type": "String"
+            }
+          ]
+        },
         "last_verified": "2026-06-24",
         "license": {
           "commercial_use": "check_license",
           "name": "MIT"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "document_image",
@@ -8020,6 +8233,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "qwen2-5-omni-3b-audio",
+        "bundle_kind": "audio-lm",
         "capabilities": [
           "audio-understanding"
         ],
@@ -8038,6 +8252,10 @@
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "audio"
@@ -8071,7 +8289,8 @@
           "coreai-model-zoo-knowledge"
         ],
         "status": "confirmed",
-        "streaming": true
+        "streaming": true,
+        "upstream_repo": "Qwen/Qwen2.5-Omni-3B"
       },
       {
         "architecture": "transformer",
@@ -8080,6 +8299,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "kokoro-82m",
+        "bundle_kind": "tts",
         "capabilities": [
           "text-to-speech"
         ],
@@ -8098,6 +8318,10 @@
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "text"
@@ -8132,7 +8356,8 @@
           "coreai-model-zoo-knowledge"
         ],
         "status": "confirmed",
-        "streaming": true
+        "streaming": true,
+        "upstream_repo": "hexgrad/Kokoro-82M"
       },
       {
         "architecture": "transformer",
@@ -8141,6 +8366,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "voxcpm-0-5b",
+        "bundle_kind": "tts",
         "capabilities": [
           "text-to-speech"
         ],
@@ -8159,6 +8385,10 @@
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "text"
@@ -8201,6 +8431,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "embeddinggemma-300m",
+        "bundle_kind": "embedding",
         "capabilities": [
           "embedding"
         ],
@@ -8219,6 +8450,10 @@
           "name": "Gemma Terms"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "text"
@@ -8251,7 +8486,8 @@
           "coreai-model-zoo-readme"
         ],
         "status": "confirmed",
-        "streaming": false
+        "streaming": false,
+        "upstream_repo": "google/embeddinggemma-300m"
       },
       {
         "architecture": "transformer",
@@ -8260,6 +8496,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "qwen3-embedding-0-6b",
+        "bundle_kind": "embedding",
         "capabilities": [
           "embedding"
         ],
@@ -8272,12 +8509,45 @@
         },
         "family": "Qwen",
         "id": "qwen3-embedding-0-6b",
+        "io_contract": {
+          "entrypoint": {
+            "framework": "CoreAI",
+            "init_pattern": "let model = try await AIModel(contentsOf: aimodelURL)",
+            "type": "AIModel"
+          },
+          "files": {
+            "tokenizer_ref": "tokenizer"
+          },
+          "inputs": [
+            {
+              "constraints": {
+                "max_context": 512
+              },
+              "modality": "text",
+              "name": "text"
+            }
+          ],
+          "outputs": [
+            {
+              "decoding": {
+                "embedding_dim": 1024,
+                "format_selector": "last-token pooling, L2-normalized; MRL-truncatable to 32..1024 dims"
+              },
+              "name": "embedding",
+              "swift_type": "[Float]"
+            }
+          ]
+        },
         "last_verified": "2026-06-24",
         "license": {
           "commercial_use": "likely",
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "text"
@@ -8311,7 +8581,8 @@
           "coreai-model-zoo-zoo"
         ],
         "status": "confirmed",
-        "streaming": false
+        "streaming": false,
+        "upstream_repo": "Qwen/Qwen3-Embedding-0.6B"
       },
       {
         "architecture": "transformer",
@@ -8320,6 +8591,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "qwen3-reranker-0-6b",
+        "bundle_kind": "reranker",
         "capabilities": [
           "reranking"
         ],
@@ -8332,12 +8604,48 @@
         },
         "family": "Qwen",
         "id": "qwen3-reranker-0-6b",
+        "io_contract": {
+          "entrypoint": {
+            "framework": "CoreAI",
+            "init_pattern": "let model = try await AIModel(contentsOf: aimodelURL)",
+            "type": "AIModel"
+          },
+          "files": {
+            "tokenizer_ref": "tokenizer"
+          },
+          "inputs": [
+            {
+              "constraints": {
+                "max_context": 512
+              },
+              "modality": "text",
+              "name": "query"
+            },
+            {
+              "modality": "text",
+              "name": "documents"
+            }
+          ],
+          "outputs": [
+            {
+              "decoding": {
+                "score_range": "0..1 — probs[1] = P(yes) = relevance"
+              },
+              "name": "score",
+              "swift_type": "Float"
+            }
+          ]
+        },
         "last_verified": "2026-06-24",
         "license": {
           "commercial_use": "likely",
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "query",
@@ -8372,7 +8680,8 @@
           "coreai-model-zoo-zoo"
         ],
         "status": "confirmed",
-        "streaming": false
+        "streaming": false,
+        "upstream_repo": "Qwen/Qwen3-Reranker-0.6B"
       },
       {
         "architecture": "transformer",
@@ -8381,6 +8690,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "rf-detr-nano",
+        "bundle_kind": "object-detection",
         "capabilities": [
           "object-detection"
         ],
@@ -8393,12 +8703,44 @@
         },
         "family": "RF-DETR",
         "id": "rf-detr-nano",
+        "io_contract": {
+          "entrypoint": {
+            "framework": "CoreAIObjectDetector",
+            "init_pattern": "let detector = try await ObjectDetector(resourcesAt: \"<install-dir>/rfdetr-nano_float32.aimodel\")",
+            "type": "ObjectDetector"
+          },
+          "inputs": [
+            {
+              "modality": "image",
+              "name": "image",
+              "preprocessing": {
+                "color_format": "RGB",
+                "normalization": "RGB scaled to [0,1] (DetectionParameters normalizationMeans/Stds)"
+              },
+              "swift_type": "CGImage"
+            }
+          ],
+          "outputs": [
+            {
+              "decoding": {
+                "coordinate_convention": "boundingBox: pixel CGRect, top-left origin (decoded from 300 normalized cxcywh queries; no NMS)",
+                "label_vocab_ref": "COCO 91-id logit columns; ObjectDetectionLabels.coco default mapping"
+              },
+              "name": "detections",
+              "swift_type": "[DetectedObject]"
+            }
+          ]
+        },
         "last_verified": "2026-06-24",
         "license": {
           "commercial_use": "likely",
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "image"
@@ -8443,6 +8785,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "rf-detr-small",
+        "bundle_kind": "object-detection",
         "capabilities": [
           "object-detection"
         ],
@@ -8455,12 +8798,44 @@
         },
         "family": "RF-DETR",
         "id": "rf-detr-small",
+        "io_contract": {
+          "entrypoint": {
+            "framework": "CoreAIObjectDetector",
+            "init_pattern": "let detector = try await ObjectDetector(resourcesAt: \"<install-dir>/rfdetr-small_float32.aimodel\")",
+            "type": "ObjectDetector"
+          },
+          "inputs": [
+            {
+              "modality": "image",
+              "name": "image",
+              "preprocessing": {
+                "color_format": "RGB",
+                "normalization": "RGB scaled to [0,1] (DetectionParameters normalizationMeans/Stds)"
+              },
+              "swift_type": "CGImage"
+            }
+          ],
+          "outputs": [
+            {
+              "decoding": {
+                "coordinate_convention": "boundingBox: pixel CGRect, top-left origin (decoded from 300 normalized cxcywh queries; no NMS)",
+                "label_vocab_ref": "COCO 91-id logit columns; ObjectDetectionLabels.coco default mapping"
+              },
+              "name": "detections",
+              "swift_type": "[DetectedObject]"
+            }
+          ]
+        },
         "last_verified": "2026-06-24",
         "license": {
           "commercial_use": "likely",
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "image"
@@ -8505,6 +8880,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "rf-detr-medium",
+        "bundle_kind": "object-detection",
         "capabilities": [
           "object-detection"
         ],
@@ -8517,12 +8893,44 @@
         },
         "family": "RF-DETR",
         "id": "rf-detr-medium",
+        "io_contract": {
+          "entrypoint": {
+            "framework": "CoreAIObjectDetector",
+            "init_pattern": "let detector = try await ObjectDetector(resourcesAt: \"<install-dir>/rfdetr-medium_float32.aimodel\")",
+            "type": "ObjectDetector"
+          },
+          "inputs": [
+            {
+              "modality": "image",
+              "name": "image",
+              "preprocessing": {
+                "color_format": "RGB",
+                "normalization": "RGB scaled to [0,1] (DetectionParameters normalizationMeans/Stds)"
+              },
+              "swift_type": "CGImage"
+            }
+          ],
+          "outputs": [
+            {
+              "decoding": {
+                "coordinate_convention": "boundingBox: pixel CGRect, top-left origin (decoded from 300 normalized cxcywh queries; no NMS)",
+                "label_vocab_ref": "COCO 91-id logit columns; ObjectDetectionLabels.coco default mapping"
+              },
+              "name": "detections",
+              "swift_type": "[DetectedObject]"
+            }
+          ]
+        },
         "last_verified": "2026-06-24",
         "license": {
           "commercial_use": "likely",
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "image"
@@ -8567,6 +8975,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "rf-detr-large",
+        "bundle_kind": "object-detection",
         "capabilities": [
           "object-detection"
         ],
@@ -8579,12 +8988,44 @@
         },
         "family": "RF-DETR",
         "id": "rf-detr-large",
+        "io_contract": {
+          "entrypoint": {
+            "framework": "CoreAIObjectDetector",
+            "init_pattern": "let detector = try await ObjectDetector(resourcesAt: \"<install-dir>/rfdetr-large_float32.aimodel\")",
+            "type": "ObjectDetector"
+          },
+          "inputs": [
+            {
+              "modality": "image",
+              "name": "image",
+              "preprocessing": {
+                "color_format": "RGB",
+                "normalization": "RGB scaled to [0,1] (DetectionParameters normalizationMeans/Stds)"
+              },
+              "swift_type": "CGImage"
+            }
+          ],
+          "outputs": [
+            {
+              "decoding": {
+                "coordinate_convention": "boundingBox: pixel CGRect, top-left origin (decoded from 300 normalized cxcywh queries; no NMS)",
+                "label_vocab_ref": "COCO 91-id logit columns; ObjectDetectionLabels.coco default mapping"
+              },
+              "name": "detections",
+              "swift_type": "[DetectedObject]"
+            }
+          ]
+        },
         "last_verified": "2026-06-24",
         "license": {
           "commercial_use": "likely",
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "image"
@@ -8629,6 +9070,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "rf-detr-seg-nano",
+        "bundle_kind": "segmentation",
         "capabilities": [
           "instance-segmentation"
         ],
@@ -8647,6 +9089,10 @@
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "image"
@@ -8692,6 +9138,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "rf-detr-seg-small",
+        "bundle_kind": "segmentation",
         "capabilities": [
           "instance-segmentation"
         ],
@@ -8710,6 +9157,10 @@
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "image"
@@ -8755,6 +9206,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "rf-detr-seg-medium",
+        "bundle_kind": "segmentation",
         "capabilities": [
           "instance-segmentation"
         ],
@@ -8773,6 +9225,10 @@
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "image"
@@ -8818,6 +9274,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "rf-detr-seg-large",
+        "bundle_kind": "segmentation",
         "capabilities": [
           "instance-segmentation"
         ],
@@ -8836,6 +9293,10 @@
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "image"
@@ -8881,6 +9342,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "rf-detr-seg-xlarge",
+        "bundle_kind": "segmentation",
         "capabilities": [
           "instance-segmentation"
         ],
@@ -8899,6 +9361,10 @@
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "image"
@@ -8944,6 +9410,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "rf-detr-seg-2xlarge",
+        "bundle_kind": "segmentation",
         "capabilities": [
           "instance-segmentation"
         ],
@@ -8962,6 +9429,10 @@
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "image"
@@ -9007,6 +9478,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "adcsr-x4",
+        "bundle_kind": "super-resolution",
         "capabilities": [
           "super-resolution"
         ],
@@ -9025,6 +9497,10 @@
           "name": "Apache-2.0 + OpenRAIL++"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "image"
@@ -9067,6 +9543,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "depth-anything-3-small",
+        "bundle_kind": "depth",
         "capabilities": [
           "monocular-depth"
         ],
@@ -9079,12 +9556,47 @@
         },
         "family": "Depth Anything",
         "id": "depth-anything-3-small",
+        "io_contract": {
+          "entrypoint": {
+            "framework": "CoreAI",
+            "init_pattern": "let model = try await AIModel(contentsOf: aimodelURL)",
+            "type": "AIModel"
+          },
+          "inputs": [
+            {
+              "modality": "image",
+              "name": "image",
+              "preprocessing": {
+                "color_format": "RGB",
+                "normalization": "RGB scaled to [0,1]"
+              }
+            }
+          ],
+          "outputs": [
+            {
+              "decoding": {
+                "format_selector": "relative depth map"
+              },
+              "name": "depth"
+            },
+            {
+              "decoding": {
+                "format_selector": "confidence map"
+              },
+              "name": "confidence"
+            }
+          ]
+        },
         "last_verified": "2026-06-24",
         "license": {
           "commercial_use": "likely",
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "image"
@@ -9127,6 +9639,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "depth-anything-3-base",
+        "bundle_kind": "depth",
         "capabilities": [
           "monocular-depth"
         ],
@@ -9139,12 +9652,47 @@
         },
         "family": "Depth Anything",
         "id": "depth-anything-3-base",
+        "io_contract": {
+          "entrypoint": {
+            "framework": "CoreAI",
+            "init_pattern": "let model = try await AIModel(contentsOf: aimodelURL)",
+            "type": "AIModel"
+          },
+          "inputs": [
+            {
+              "modality": "image",
+              "name": "image",
+              "preprocessing": {
+                "color_format": "RGB",
+                "normalization": "RGB scaled to [0,1]"
+              }
+            }
+          ],
+          "outputs": [
+            {
+              "decoding": {
+                "format_selector": "relative depth map"
+              },
+              "name": "depth"
+            },
+            {
+              "decoding": {
+                "format_selector": "confidence map"
+              },
+              "name": "confidence"
+            }
+          ]
+        },
         "last_verified": "2026-06-24",
         "license": {
           "commercial_use": "likely",
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "image"
@@ -9187,6 +9735,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "official-gpt-oss-20b",
+        "bundle_kind": "llm",
         "capabilities": [
           "chat",
           "text-generation",
@@ -9207,6 +9756,10 @@
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "text"
@@ -9240,7 +9793,8 @@
           "coreai-model-zoo-official-readme"
         ],
         "status": "confirmed",
-        "streaming": true
+        "streaming": true,
+        "upstream_repo": "openai/gpt-oss-20b"
       },
       {
         "architecture": "transformer",
@@ -9249,6 +9803,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "official-qwen3-0-6b",
+        "bundle_kind": "llm",
         "capabilities": [
           "chat",
           "text-generation"
@@ -9262,12 +9817,49 @@
         },
         "family": "Qwen",
         "id": "official-qwen3-0-6b",
+        "io_contract": {
+          "entrypoint": {
+            "framework": "CoreAILanguageModels",
+            "init_pattern": "let model = try await CoreAILanguageModel(resourcesAt: bundleURL)",
+            "type": "CoreAILanguageModel"
+          },
+          "files": {
+            "tokenizer_ref": "macos/tokenizer"
+          },
+          "inputs": [
+            {
+              "constraints": {
+                "max_context": 4096
+              },
+              "modality": "text",
+              "name": "prompt",
+              "swift_type": "String"
+            }
+          ],
+          "outputs": [
+            {
+              "decoding": {
+                "detokenization": "embedded tokenizer (Qwen/Qwen3-0.6B, vocab 151936); LanguageModelSession.respond(to:) returns detokenized text"
+              },
+              "name": "response",
+              "swift_type": "String"
+            }
+          ],
+          "session": {
+            "stateful": true,
+            "streaming": true
+          }
+        },
         "last_verified": "2026-06-24",
         "license": {
           "commercial_use": "likely",
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "text"
@@ -9301,7 +9893,8 @@
           "coreai-model-zoo-official-readme"
         ],
         "status": "confirmed",
-        "streaming": true
+        "streaming": true,
+        "upstream_repo": "Qwen/Qwen3-0.6B"
       },
       {
         "architecture": "transformer",
@@ -9310,6 +9903,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "official-qwen3-4b",
+        "bundle_kind": "llm",
         "capabilities": [
           "chat",
           "text-generation"
@@ -9329,6 +9923,10 @@
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "text"
@@ -9362,7 +9960,8 @@
           "coreai-model-zoo-official-readme"
         ],
         "status": "confirmed",
-        "streaming": true
+        "streaming": true,
+        "upstream_repo": "Qwen/Qwen3-4B"
       },
       {
         "architecture": "transformer",
@@ -9371,6 +9970,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "official-qwen3-8b",
+        "bundle_kind": "llm",
         "capabilities": [
           "chat",
           "text-generation"
@@ -9390,6 +9990,10 @@
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "text"
@@ -9423,7 +10027,8 @@
           "coreai-model-zoo-official-readme"
         ],
         "status": "confirmed",
-        "streaming": true
+        "streaming": true,
+        "upstream_repo": "Qwen/Qwen3-8B"
       },
       {
         "architecture": "transformer",
@@ -9432,6 +10037,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "official-gemma-3-4b-it",
+        "bundle_kind": "llm",
         "capabilities": [
           "chat",
           "instruction-following",
@@ -9452,6 +10058,10 @@
           "name": "Gemma Terms"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "text"
@@ -9485,7 +10095,8 @@
           "coreai-model-zoo-official-readme"
         ],
         "status": "confirmed",
-        "streaming": true
+        "streaming": true,
+        "upstream_repo": "google/gemma-3-4b-it"
       },
       {
         "architecture": "transformer",
@@ -9494,6 +10105,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "official-gemma-3-12b-it",
+        "bundle_kind": "llm",
         "capabilities": [
           "chat",
           "instruction-following",
@@ -9514,6 +10126,10 @@
           "name": "Gemma Terms"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "text"
@@ -9547,7 +10163,8 @@
           "coreai-model-zoo-official-readme"
         ],
         "status": "confirmed",
-        "streaming": true
+        "streaming": true,
+        "upstream_repo": "google/gemma-3-12b-it"
       },
       {
         "architecture": "transformer",
@@ -9556,6 +10173,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "official-mistral-7b-v0-3",
+        "bundle_kind": "llm",
         "capabilities": [
           "chat",
           "text-generation"
@@ -9575,6 +10193,10 @@
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "text"
@@ -9608,7 +10230,8 @@
           "coreai-model-zoo-official-readme"
         ],
         "status": "confirmed",
-        "streaming": true
+        "streaming": true,
+        "upstream_repo": "mistralai/Mistral-7B-Instruct-v0.3"
       },
       {
         "architecture": "diffusion",
@@ -9617,6 +10240,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "official-flux-2-klein-4b",
+        "bundle_kind": "image-generation",
         "capabilities": [
           "image-generation"
         ],
@@ -9629,12 +10253,43 @@
         },
         "family": "FLUX",
         "id": "official-flux-2-klein-4b",
+        "io_contract": {
+          "entrypoint": {
+            "framework": "CoreAIDiffusionPipeline",
+            "init_pattern": "let pipeline = try await Flux2Pipeline(from: bundleURL, config: configSource, mode: decodeResolution)",
+            "type": "Flux2Pipeline"
+          },
+          "files": {
+            "processor_ref": "pipeline.json",
+            "tokenizer_ref": "tokenizer"
+          },
+          "inputs": [
+            {
+              "modality": "text",
+              "name": "prompt",
+              "swift_type": "String"
+            }
+          ],
+          "outputs": [
+            {
+              "decoding": {
+                "format_selector": "1024x1024 default (pipeline.json image_size); default_steps 4, guidance 1.0"
+              },
+              "name": "images",
+              "swift_type": "[CGImage]"
+            }
+          ]
+        },
         "last_verified": "2026-06-24",
         "license": {
           "commercial_use": "likely",
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "text"
@@ -9668,7 +10323,8 @@
           "coreai-model-zoo-official-readme"
         ],
         "status": "confirmed",
-        "streaming": false
+        "streaming": false,
+        "upstream_repo": "black-forest-labs/FLUX.2-klein-4B"
       },
       {
         "architecture": "cnn/transformer",
@@ -9677,6 +10333,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "official-sam-3",
+        "bundle_kind": "segmentation",
         "capabilities": [
           "promptable-segmentation"
         ],
@@ -9689,12 +10346,54 @@
         },
         "family": "SAM",
         "id": "official-sam-3",
+        "io_contract": {
+          "entrypoint": {
+            "framework": "CoreAIImageSegmenter",
+            "init_pattern": "let segmenter = try await ImageSegmenter(resourcesAt: bundleDir)",
+            "type": "ImageSegmenter"
+          },
+          "files": {
+            "tokenizer_ref": "tokenizer"
+          },
+          "inputs": [
+            {
+              "modality": "image",
+              "name": "image",
+              "preprocessing": {
+                "resize": "any size; the engine resizes internally"
+              },
+              "swift_type": "CGImage"
+            },
+            {
+              "constraints": {
+                "max_context": 32
+              },
+              "modality": "text",
+              "name": "prompt",
+              "swift_type": "String"
+            }
+          ],
+          "outputs": [
+            {
+              "decoding": {
+                "coordinate_convention": "masks decoded to input-image pixel space (SegmentationPostprocessor.decode)",
+                "score_range": "segments sorted by score descending"
+              },
+              "name": "segments",
+              "swift_type": "SegmentationResponse"
+            }
+          ]
+        },
         "last_verified": "2026-06-24",
         "license": {
           "commercial_use": "check_license",
           "name": "Meta SAM License"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "image",
@@ -9740,6 +10439,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "official-whisper-large-v3-turbo",
+        "bundle_kind": "asr",
         "capabilities": [
           "speech-to-text"
         ],
@@ -9752,12 +10452,49 @@
         },
         "family": "Whisper",
         "id": "official-whisper-large-v3-turbo",
+        "io_contract": {
+          "entrypoint": {
+            "framework": "CoreAI",
+            "init_pattern": "let model = try await AIModel(contentsOf: aimodelURL)",
+            "type": "AIModel"
+          },
+          "files": {
+            "processor_ref": "preprocessor_config.json",
+            "tokenizer_ref": "tokenizer"
+          },
+          "inputs": [
+            {
+              "constraints": {
+                "max_audio_s": 30
+              },
+              "modality": "audio",
+              "name": "audio",
+              "preprocessing": {
+                "normalization": "WhisperFeatureExtractor log-mel: 128 mel bins, n_fft 400, hop_length 160",
+                "sample_rate": 16000
+              }
+            }
+          ],
+          "outputs": [
+            {
+              "decoding": {
+                "detokenization": "WhisperTokenizer (tokenizer/); autoregressive decode in a fixed 128-token window"
+              },
+              "name": "transcript",
+              "swift_type": "String"
+            }
+          ]
+        },
         "last_verified": "2026-06-24",
         "license": {
           "commercial_use": "likely",
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "audio"
@@ -9791,7 +10528,8 @@
           "coreai-model-zoo-official-readme"
         ],
         "status": "confirmed",
-        "streaming": false
+        "streaming": false,
+        "upstream_repo": "openai/whisper-large-v3-turbo"
       },
       {
         "architecture": "transformer",
@@ -9800,6 +10538,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "minicpm5-1b",
+        "bundle_kind": "llm",
         "capabilities": [
           "chat",
           "text-generation",
@@ -9821,6 +10560,10 @@
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "text"
@@ -9854,7 +10597,8 @@
           "coreai-model-zoo-zoo"
         ],
         "status": "confirmed",
-        "streaming": true
+        "streaming": true,
+        "upstream_repo": "openbmb/MiniCPM5-1B"
       },
       {
         "architecture": "transformer",
@@ -9863,6 +10607,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "fastcontext-1-0-4b",
+        "bundle_kind": "llm",
         "capabilities": [
           "chat",
           "text-generation",
@@ -9883,6 +10628,10 @@
           "name": "MIT"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "text"
@@ -9916,7 +10665,8 @@
           "coreai-model-zoo-zoo"
         ],
         "status": "confirmed",
-        "streaming": true
+        "streaming": true,
+        "upstream_repo": "microsoft/FastContext-1.0-4B-SFT"
       },
       {
         "architecture": "transformer",
@@ -9925,6 +10675,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "bitcpm-8b",
+        "bundle_kind": "llm",
         "capabilities": [
           "chat",
           "text-generation"
@@ -9944,6 +10695,10 @@
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "text"
@@ -9977,7 +10732,8 @@
           "coreai-model-zoo-zoo"
         ],
         "status": "confirmed",
-        "streaming": true
+        "streaming": true,
+        "upstream_repo": "openbmb/BitCPM-CANN-8B"
       },
       {
         "architecture": "transformer",
@@ -9986,6 +10742,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "holo2-4b",
+        "bundle_kind": "vlm",
         "capabilities": [
           "vision-language",
           "gui-grounding"
@@ -10005,6 +10762,10 @@
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "image",
@@ -10039,7 +10800,8 @@
           "coreai-model-zoo-zoo"
         ],
         "status": "confirmed",
-        "streaming": true
+        "streaming": true,
+        "upstream_repo": "Hcompany/Holo2-4B"
       },
       {
         "architecture": "encoder",
@@ -10048,6 +10810,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "colmodernvbert",
+        "bundle_kind": "embedding",
         "capabilities": [
           "visual-document-retrieval"
         ],
@@ -10066,6 +10829,10 @@
           "name": "MIT"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "image",
@@ -10100,7 +10867,8 @@
           "coreai-model-zoo-zoo"
         ],
         "status": "confirmed",
-        "streaming": false
+        "streaming": false,
+        "upstream_repo": "ModernVBERT/colmodernvbert"
       },
       {
         "architecture": "transformer",
@@ -10109,6 +10877,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "qwen3-asr-1-7b",
+        "bundle_kind": "asr",
         "capabilities": [
           "speech-to-text"
         ],
@@ -10127,6 +10896,10 @@
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "audio"
@@ -10159,7 +10932,8 @@
           "coreai-model-zoo-readme"
         ],
         "status": "confirmed",
-        "streaming": true
+        "streaming": true,
+        "upstream_repo": "Qwen/Qwen3-ASR-1.7B"
       },
       {
         "architecture": "encoder",
@@ -10168,6 +10942,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "parakeet-tdt-0-6b",
+        "bundle_kind": "asr",
         "capabilities": [
           "speech-to-text"
         ],
@@ -10186,6 +10961,10 @@
           "name": "CC-BY-4.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "audio"
@@ -10228,6 +11007,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "voxcpm2-2b",
+        "bundle_kind": "tts",
         "capabilities": [
           "text-to-speech"
         ],
@@ -10246,6 +11026,10 @@
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "text"
@@ -10287,6 +11071,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "yolox-s",
+        "bundle_kind": "object-detection",
         "capabilities": [
           "object-detection"
         ],
@@ -10305,6 +11090,10 @@
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "image"
@@ -10349,6 +11138,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "tripo-splat",
+        "bundle_kind": "3d",
         "capabilities": [
           "image-to-3d"
         ],
@@ -10367,6 +11157,10 @@
           "name": "MIT"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "image"
@@ -10408,6 +11202,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "ltx-video-2b",
+        "bundle_kind": "video",
         "capabilities": [
           "text-to-video"
         ],
@@ -10426,6 +11221,10 @@
           "name": "OpenRAIL-M"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "text"
@@ -10468,6 +11267,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "official-qwen3-1-7b",
+        "bundle_kind": "llm",
         "capabilities": [
           "chat",
           "text-generation"
@@ -10487,6 +11287,10 @@
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "text"
@@ -10520,7 +11324,8 @@
           "huggingface-mlboydaisuke"
         ],
         "status": "confirmed",
-        "streaming": true
+        "streaming": true,
+        "upstream_repo": "Qwen/Qwen3-1.7B"
       },
       {
         "architecture": "encoder",
@@ -10529,6 +11334,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "official-clip-vit-base-patch32",
+        "bundle_kind": "embedding",
         "capabilities": [
           "image-text-similarity"
         ],
@@ -10547,6 +11353,10 @@
           "name": "MIT"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "image",
@@ -10581,7 +11391,8 @@
           "huggingface-mlboydaisuke"
         ],
         "status": "confirmed",
-        "streaming": false
+        "streaming": false,
+        "upstream_repo": "openai/clip-vit-base-patch32"
       },
       {
         "architecture": "transformer",
@@ -10590,6 +11401,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "llada-8b-dllm",
+        "bundle_kind": "llm",
         "capabilities": [
           "chat",
           "text-generation",
@@ -10610,6 +11422,10 @@
           "name": "MIT"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "text"
@@ -10643,7 +11459,8 @@
           "coreai-model-zoo-knowledge"
         ],
         "status": "confirmed",
-        "streaming": true
+        "streaming": true,
+        "upstream_repo": "d3LLM/d3LLM_LLaDA"
       },
       {
         "architecture": "transformer",
@@ -10652,6 +11469,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "bitvla",
+        "bundle_kind": "action",
         "capabilities": [
           "vision-language-action",
           "robotics"
@@ -10671,6 +11489,10 @@
           "name": "MIT"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "image",
@@ -10714,6 +11536,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "stable-audio-open-small",
+        "bundle_kind": "audio-generation",
         "capabilities": [
           "text-to-audio",
           "music-generation"
@@ -10733,6 +11556,10 @@
           "name": "Stability Community"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "text"
@@ -10774,6 +11601,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "whisper-large-v3-turbo-carstenl",
+        "bundle_kind": "asr",
         "capabilities": [
           "speech-to-text"
         ],
@@ -10792,6 +11620,10 @@
           "name": "Apache-2.0"
         },
         "maturity": "active",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "audio"
@@ -10833,6 +11665,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "whisper-tiny-en-intiser",
+        "bundle_kind": "asr",
         "capabilities": [
           "speech-to-text"
         ],
@@ -10851,6 +11684,10 @@
           "name": "MIT"
         },
         "maturity": "active",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "audio"
@@ -10892,6 +11729,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "whisper-medium-intiser",
+        "bundle_kind": "asr",
         "capabilities": [
           "speech-to-text"
         ],
@@ -10910,6 +11748,10 @@
           "name": "MIT"
         },
         "maturity": "active",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "audio"
@@ -10951,6 +11793,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "gemma-4-12b-mm-warshanks",
+        "bundle_kind": "vlm",
         "capabilities": [
           "chat",
           "vision-language",
@@ -10971,6 +11814,10 @@
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "text",
@@ -11005,7 +11852,8 @@
           "warshanks-gemma-4-12b-coreai"
         ],
         "status": "confirmed",
-        "streaming": true
+        "streaming": true,
+        "upstream_repo": "google/gemma-4-12B-it"
       },
       {
         "architecture": "transformer",
@@ -11014,6 +11862,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "gemma-4-12b-assistant-warshanks",
+        "bundle_kind": "llm",
         "capabilities": [
           "speculative-decoding"
         ],
@@ -11032,6 +11881,10 @@
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "text"
@@ -11064,7 +11917,8 @@
           "warshanks-gemma-4-12b-coreai"
         ],
         "status": "confirmed",
-        "streaming": false
+        "streaming": false,
+        "upstream_repo": "google/gemma-4-12B-it-assistant"
       },
       {
         "architecture": "transformer",
@@ -11073,6 +11927,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "vibevoice-0-5b",
+        "bundle_kind": "tts",
         "capabilities": [
           "text-to-speech"
         ],
@@ -11091,6 +11946,10 @@
           "name": "MIT"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "text"
@@ -11132,6 +11991,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "vibevoice-1-5b",
+        "bundle_kind": "tts",
         "capabilities": [
           "text-to-speech"
         ],
@@ -11150,6 +12010,10 @@
           "name": "MIT"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "text"
@@ -11191,6 +12055,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "vibevoice-7b",
+        "bundle_kind": "tts",
         "capabilities": [
           "text-to-speech"
         ],
@@ -11209,6 +12074,10 @@
           "name": "MIT"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "text"
@@ -11250,6 +12119,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "vibevoice-asr",
+        "bundle_kind": "asr",
         "capabilities": [
           "speech-to-text"
         ],
@@ -11268,6 +12138,10 @@
           "name": "MIT"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "audio"
@@ -11309,6 +12183,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "nemotron-3-5-asr-streaming",
+        "bundle_kind": "asr",
         "capabilities": [
           "speech-to-text"
         ],
@@ -11327,6 +12202,10 @@
           "name": "OpenMDW-1.1"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "audio"
@@ -11368,6 +12247,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "z-image-turbo",
+        "bundle_kind": "image-generation",
         "capabilities": [
           "image-generation"
         ],
@@ -11386,6 +12266,10 @@
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "text"
@@ -11418,7 +12302,8 @@
           "bryanbblewis11-coreai"
         ],
         "status": "confirmed",
-        "streaming": false
+        "streaming": false,
+        "upstream_repo": "Tongyi-MAI/Z-Image-Turbo"
       },
       {
         "architecture": "cnn/transformer",
@@ -11427,6 +12312,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "real-esrgan-x4v3",
+        "bundle_kind": "super-resolution",
         "capabilities": [
           "super-resolution"
         ],
@@ -11445,6 +12331,10 @@
           "name": "BSD-3-Clause"
         },
         "maturity": "active",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "image"
@@ -11486,6 +12376,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "efficientsam3-tinyvit",
+        "bundle_kind": "segmentation",
         "capabilities": [
           "promptable-segmentation"
         ],
@@ -11504,6 +12395,10 @@
           "name": "Apache-2.0"
         },
         "maturity": "active",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "image"
@@ -11545,6 +12440,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "rwkv7-goose-1-5b",
+        "bundle_kind": "llm",
         "capabilities": [
           "chat",
           "text-generation"
@@ -11564,6 +12460,10 @@
           "name": "Apache-2.0"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "text"
@@ -11606,6 +12506,7 @@
           "format": "aimodel"
         },
         "artifact_ref": "art-vjepa2-vitl-ssv2",
+        "bundle_kind": "video",
         "capabilities": [
           "video-classification"
         ],
@@ -11618,12 +12519,53 @@
         },
         "family": "V-JEPA",
         "id": "vjepa2-vitl-ssv2",
+        "io_contract": {
+          "entrypoint": {
+            "framework": "CoreAI",
+            "init_pattern": "let model = try await AIModel(contentsOf: aimodelURL)",
+            "type": "AIModel"
+          },
+          "inputs": [
+            {
+              "modality": "video",
+              "name": "pixel_values_videos",
+              "preprocessing": {
+                "color_format": "RGB",
+                "normalization": "RGB 0..1 -> (x - mean)/std, mean=[0.485,0.456,0.406], std=[0.229,0.224,0.225]",
+                "resize": "16 frames uniformly sampled, 256x256 center crop"
+              },
+              "tensor": {
+                "dtype": "float16",
+                "layout": "B,F,C,H,W",
+                "shape": [
+                  1,
+                  16,
+                  3,
+                  256,
+                  256
+                ]
+              }
+            }
+          ],
+          "outputs": [
+            {
+              "decoding": {
+                "label_vocab_ref": "labels.json (Something-Something v2, 174 classes)"
+              },
+              "name": "logits"
+            }
+          ]
+        },
         "last_verified": "2026-07-02",
         "license": {
           "commercial_use": "likely",
           "name": "MIT"
         },
         "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
         "modalities": {
           "input": [
             "video"
@@ -11657,7 +12599,8 @@
           "vjepa2-upstream"
         ],
         "status": "unknown",
-        "streaming": false
+        "streaming": false,
+        "upstream_repo": "facebook/vjepa2-vitl-fpc16-256-ssv2"
       }
     ]
   },

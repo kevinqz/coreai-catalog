@@ -1,0 +1,113 @@
+# chips.yaml — Apple Silicon peak memory-bandwidth ceilings.
+#
+# Consumed by scripts/physics_check.py to reject physically implausible
+# decode-throughput benchmark submissions: a memory-bandwidth-bound LLM
+# decode step cannot exceed  bandwidth / bytes_per_token  tokens/second.
+#
+# RULES FOR THIS FILE
+# - Every number MUST come from a public Apple newsroom or Apple/public
+#   spec page. Each entry carries its source URL and a verbatim quote.
+# - If Apple has never published an absolute figure for a chip, the chip
+#   is OMITTED (physics_check skips the ceiling gate for unknown chips
+#   rather than inventing a number).
+# - "peak" means the highest configuration Apple sells for that chip name
+#   (e.g. M3 Max is 300 GB/s in the 14-core CPU bin, 400 GB/s in the
+#   16-core bin — we record 400 so the ceiling is never unfairly low).
+#
+# KNOWN OMISSIONS (verified 2026-07-03: no absolute public Apple figure)
+# - M1 (base): Apple only stated M1 Max is "nearly 6x that of M1".
+# - A16 / A17 Pro / A18 / A18 Pro / A19 / A19 Pro: iPhone/iPad A-series
+#   announcements give only relative claims ("17 percent more memory
+#   bandwidth"). Benchmarks on these chips get consistency + thermal
+#   gates but no bandwidth ceiling.
+
+metadata:
+  version: "1.0.0"
+  last_verified: "2026-07-03"
+  unit: "GB/s (decimal gigabytes per second, as published by Apple)"
+
+chips:
+  - chip: "M1 Pro"
+    peak_memory_bandwidth_gbps: 200
+    source: "https://www.apple.com/newsroom/2021/10/introducing-m1-pro-and-m1-max-the-most-powerful-chips-apple-has-ever-built/"
+    quote: "M1 Pro offers up to 200GB/s of memory bandwidth"
+
+  - chip: "M1 Max"
+    peak_memory_bandwidth_gbps: 400
+    source: "https://www.apple.com/newsroom/2021/10/introducing-m1-pro-and-m1-max-the-most-powerful-chips-apple-has-ever-built/"
+    quote: "M1 Max delivers up to 400GB/s of memory bandwidth"
+
+  - chip: "M1 Ultra"
+    peak_memory_bandwidth_gbps: 800
+    source: "https://www.apple.com/newsroom/2022/03/apple-unveils-m1-ultra-the-worlds-most-powerful-chip-for-a-personal-computer/"
+    quote: "Memory bandwidth is increased to 800GB/s"
+
+  - chip: "M2"
+    peak_memory_bandwidth_gbps: 100
+    source: "https://www.apple.com/newsroom/2022/06/apple-unveils-m2-with-breakthrough-performance-and-capabilities/"
+    quote: "the memory controller that delivers 100GB/s of unified memory bandwidth"
+
+  - chip: "M2 Pro"
+    peak_memory_bandwidth_gbps: 200
+    source: "https://www.apple.com/newsroom/2023/01/apple-unveils-m2-pro-and-m2-max-next-generation-chips-for-next-level-workflows/"
+    quote: "It features 200GB/s of unified memory bandwidth — twice that of M2"
+
+  - chip: "M2 Max"
+    peak_memory_bandwidth_gbps: 400
+    source: "https://www.apple.com/newsroom/2023/01/apple-unveils-m2-pro-and-m2-max-next-generation-chips-for-next-level-workflows/"
+    quote: "Its 400GB/s of unified memory bandwidth is twice that of M2 Pro"
+
+  - chip: "M2 Ultra"
+    peak_memory_bandwidth_gbps: 800
+    source: "https://www.apple.com/newsroom/2023/06/apple-introduces-m2-ultra/"
+    quote: "M2 Ultra features 800GB/s of system memory bandwidth"
+
+  - chip: "M3"
+    peak_memory_bandwidth_gbps: 100
+    source: "https://support.apple.com/en-us/117735"
+    quote: "100GB/s memory bandwidth (MacBook Pro 14-inch, Nov 2023 tech specs)"
+
+  - chip: "M3 Pro"
+    peak_memory_bandwidth_gbps: 150
+    source: "https://support.apple.com/en-us/117736"
+    quote: "150GB/s memory bandwidth (MacBook Pro 14-inch, Nov 2023, M3 Pro tech specs)"
+
+  - chip: "M3 Max"
+    peak_memory_bandwidth_gbps: 400
+    source: "https://support.apple.com/en-us/117736"
+    quote: "M3 Max with 16-core CPU and 40-core GPU (400GB/s memory bandwidth); 14-core bin is 300GB/s"
+
+  - chip: "M3 Ultra"
+    peak_memory_bandwidth_gbps: 819
+    source: "https://www.apple.com/mac-studio/specs/"
+    quote: "819GB/s memory bandwidth (Mac Studio 2025 tech specs; newsroom 2025/03 says 'over 800GB/s')"
+
+  - chip: "M4"
+    peak_memory_bandwidth_gbps: 120
+    source: "https://www.apple.com/newsroom/2024/10/apple-introduces-m4-pro-and-m4-max/"
+    quote: "M4 supports up to 32GB of unified memory and has higher memory bandwidth of 120GB/s"
+
+  - chip: "M4 Pro"
+    peak_memory_bandwidth_gbps: 273
+    source: "https://www.apple.com/newsroom/2024/10/apple-introduces-m4-pro-and-m4-max/"
+    quote: "M4 Pro supports up to 64GB of fast unified memory and 273GB/s of memory bandwidth"
+
+  - chip: "M4 Max"
+    peak_memory_bandwidth_gbps: 546
+    source: "https://www.apple.com/newsroom/2024/10/apple-introduces-m4-pro-and-m4-max/"
+    quote: "M4 Max supports up to 128GB of fast unified memory and up to 546GB/s of memory bandwidth (32-core bin is 410GB/s per apple.com/mac-studio/specs)"
+
+  - chip: "M5"
+    peak_memory_bandwidth_gbps: 153
+    source: "https://www.apple.com/newsroom/2025/10/apple-unleashes-m5-the-next-big-leap-in-ai-performance-for-apple-silicon/"
+    quote: "M5 offers unified memory bandwidth of 153GB/s"
+
+  - chip: "M5 Pro"
+    peak_memory_bandwidth_gbps: 307
+    source: "https://www.apple.com/newsroom/2026/03/apple-debuts-m5-pro-and-m5-max-to-supercharge-the-most-demanding-pro-workflows/"
+    quote: "M5 Pro supports up to 64GB of unified memory with higher unified memory bandwidth up to 307GB/s"
+
+  - chip: "M5 Max"
+    peak_memory_bandwidth_gbps: 614
+    source: "https://www.apple.com/newsroom/2026/03/apple-debuts-m5-pro-and-m5-max-to-supercharge-the-most-demanding-pro-workflows/"
+    quote: "M5 Max supports up to 128GB of unified memory with higher unified memory bandwidth up to 614GB/s"

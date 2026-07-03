@@ -1,0 +1,67 @@
+name: Discover Porting Candidates
+
+# Weekly upstream scan that UPSERTS one pinned "Porting candidates" issue.
+# Anti-pattern guard (redteam finding F5): never create a new issue when an
+# open one with the porting-candidates label exists — edit its body instead.
+
+on:
+  schedule:
+    # Weekly, Monday 06:00 UTC
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: discover
+  cancel-in-progress: false
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install pyyaml jsonschema
+
+      - name: Run discovery scan
+        run: |
+          python3 scripts/discover.py --format markdown --limit 20 > /tmp/porting-candidates.md
+          cat /tmp/porting-candidates.md
+
+      - name: Upsert the single pinned issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          gh label create "porting-candidates" \
+            --color "0e8a16" \
+            --description "Ranked upstream models worth porting (single pinned issue)" \
+            2>/dev/null || true
+
+          # Find the ONE managed issue by label. If it exists, edit the body
+          # in place; only create (and pin) when none is open.
+          EXISTING=$(gh issue list --label "porting-candidates" --state open \
+            --json number --jq '.[0].number // empty')
+
+          if [ -n "$EXISTING" ]; then
+            echo "Updating pinned issue #$EXISTING"
+            gh issue edit "$EXISTING" \
+              --title "Porting candidates" \
+              --body-file /tmp/porting-candidates.md
+          else
+            echo "No open porting-candidates issue — creating and pinning"
+            URL=$(gh issue create \
+              --title "Porting candidates" \
+              --label "porting-candidates" \
+              --body-file /tmp/porting-candidates.md)
+            gh issue pin "$URL" || true
+          fi

@@ -76,15 +76,37 @@
     "plugged_in": true
   },
   "device_coarsening": {
+    "match": "exact",
+    "_comment": "Exact-identifier matching (B5 fix). The old raw_prefix rows binned whole hardware generations onto one chip — e.g. prefix 'Mac16' mapped the base-M4 MacBook Pro 14-inch (Mac16,1, 120 GB/s) into mac-m4-max (546 GB/s), a ~4.5x bandwidth gap that corrupted cohort medians and any physics gate. Identifiers verified 2026-07-03 against Apple's identify-your-Mac pages (support.apple.com/en-us/108052 MacBook Pro, 102869 MacBook Air, 102852 Mac mini, 108054 iMac, 102231 Mac Studio) and AppleDB (api.appledb.dev/device/main.json) for the chip-bin splits and iPhone/iPad rows; per-row 'source' cites the primary reference. Unknown identifiers coarsen to 'unknown' — never guess.",
     "mapping": [
-      { "raw_prefix": "iPhone17", "device_class": "iphone-a18-pro", "chip_family": "A18 Pro" },
-      { "raw_prefix": "iPhone16", "device_class": "iphone-a17-pro", "chip_family": "A17 Pro" },
-      { "raw_prefix": "iPhone15", "device_class": "iphone-a16", "chip_family": "A16" },
-      { "raw_prefix": "iPad16", "device_class": "ipad-m4", "chip_family": "M4" },
-      { "raw_prefix": "iPad14", "device_class": "ipad-m2", "chip_family": "M2" },
-      { "raw_prefix": "Mac16", "device_class": "mac-m4-max", "chip_family": "M4 Max" },
-      { "raw_prefix": "Mac15", "device_class": "mac-m3-max", "chip_family": "M3 Max" },
-      { "raw_prefix": "Mac14", "device_class": "mac-m2", "chip_family": "M2" }
+      { "raw_models": ["iPhone18,1", "iPhone18,2", "iPhone18,4"], "device_class": "iphone-a19-pro", "chip_family": "A19 Pro", "source": "appledb: iPhone 17 Pro / Pro Max / iPhone Air" },
+      { "raw_models": ["iPhone18,3"], "device_class": "iphone-a19", "chip_family": "A19", "source": "appledb: iPhone 17" },
+      { "raw_models": ["iPhone17,1", "iPhone17,2"], "device_class": "iphone-a18-pro", "chip_family": "A18 Pro", "source": "appledb: iPhone 16 Pro / Pro Max" },
+      { "raw_models": ["iPhone17,3", "iPhone17,4", "iPhone17,5"], "device_class": "iphone-a18", "chip_family": "A18", "source": "appledb: iPhone 16 / 16 Plus / 16e" },
+      { "raw_models": ["iPhone16,1", "iPhone16,2"], "device_class": "iphone-a17-pro", "chip_family": "A17 Pro", "source": "appledb: iPhone 15 Pro / Pro Max" },
+      { "raw_models": ["iPhone15,2", "iPhone15,3", "iPhone15,4", "iPhone15,5"], "device_class": "iphone-a16", "chip_family": "A16", "source": "appledb: iPhone 14 Pro / Pro Max, iPhone 15 / 15 Plus" },
+      { "raw_models": ["iPad16,3", "iPad16,4", "iPad16,5", "iPad16,6"], "device_class": "ipad-m4", "chip_family": "M4", "source": "appledb: iPad Pro 11-inch / 13-inch (M4)" },
+      { "raw_models": ["iPad16,1", "iPad16,2"], "device_class": "ipad-a17-pro", "chip_family": "A17 Pro", "source": "appledb: iPad mini (A17 Pro) — NOT M4" },
+      { "raw_models": ["iPad14,3", "iPad14,4", "iPad14,5", "iPad14,6", "iPad14,8", "iPad14,9", "iPad14,10", "iPad14,11"], "device_class": "ipad-m2", "chip_family": "M2", "source": "appledb: iPad Pro 11/12.9 (M2), iPad Air 11/13 (M2)" },
+      { "raw_models": ["iPad14,1", "iPad14,2"], "device_class": "ipad-a15", "chip_family": "A15", "source": "appledb: iPad mini (6th gen) — NOT M2" },
+      { "raw_models": ["Mac17,2", "Mac17,3", "Mac17,4"], "device_class": "mac-m5", "chip_family": "M5", "source": "support.apple.com/en-us/108052 + 102869: MacBook Pro 14-inch (M5), MacBook Air 13/15-inch (M5)" },
+      { "raw_models": ["Mac17,8", "Mac17,9"], "device_class": "mac-m5-pro", "chip_family": "M5 Pro", "source": "appledb split of Apple's 'M5 Pro or M5 Max' MacBook Pro identifiers (support.apple.com/en-us/108052)" },
+      { "raw_models": ["Mac17,6", "Mac17,7"], "device_class": "mac-m5-max", "chip_family": "M5 Max", "source": "appledb split of Apple's 'M5 Pro or M5 Max' MacBook Pro identifiers (support.apple.com/en-us/108052)" },
+      { "raw_models": ["Mac16,1", "Mac16,2", "Mac16,3", "Mac16,10", "Mac16,12", "Mac16,13"], "device_class": "mac-m4", "chip_family": "M4", "source": "support.apple.com/en-us/108052 (Mac16,1 = MacBook Pro 14-inch 2024, M4 — the B5 fix), 108054 (iMac 2024), 102852 + everymac.com (Mac mini 2024 M4 = Mac16,10), 102869 (MacBook Air M4 2025)" },
+      { "raw_models": ["Mac16,7", "Mac16,8", "Mac16,11"], "device_class": "mac-m4-pro", "chip_family": "M4 Pro", "source": "appledb/everymac split of Apple's 'M4 Pro or M4 Max' MacBook Pro identifiers (support.apple.com/en-us/108052); Mac mini M4 Pro = Mac16,11 (everymac)" },
+      { "raw_models": ["Mac16,5", "Mac16,6", "Mac16,9"], "device_class": "mac-m4-max", "chip_family": "M4 Max", "source": "appledb/everymac split of Apple's 'M4 Pro or M4 Max' MacBook Pro identifiers; Mac Studio 2025 M4 Max = Mac16,9 (support.apple.com/en-us/102231)" },
+      { "raw_models": ["Mac15,3", "Mac15,4", "Mac15,5", "Mac15,12", "Mac15,13"], "device_class": "mac-m3", "chip_family": "M3", "source": "support.apple.com/en-us/108052 (MacBook Pro 14-inch Nov 2023, M3), 108054 (iMac 2023), 102869 (MacBook Air M3 2024)" },
+      { "raw_models": ["Mac15,6", "Mac15,7"], "device_class": "mac-m3-pro", "chip_family": "M3 Pro", "source": "appledb split of Apple's 'M3 Pro or M3 Max' MacBook Pro identifiers (support.apple.com/en-us/108052)" },
+      { "raw_models": ["Mac15,8", "Mac15,9", "Mac15,10", "Mac15,11"], "device_class": "mac-m3-max", "chip_family": "M3 Max", "source": "appledb split of Apple's 'M3 Pro or M3 Max' MacBook Pro identifiers (support.apple.com/en-us/108052)" },
+      { "raw_models": ["Mac15,14"], "device_class": "mac-m3-ultra", "chip_family": "M3 Ultra", "source": "support.apple.com/en-us/102231: Mac Studio 2025, M3 Ultra" },
+      { "raw_models": ["Mac14,2", "Mac14,3", "Mac14,7", "Mac14,15"], "device_class": "mac-m2", "chip_family": "M2", "source": "support.apple.com/en-us/102869 (MacBook Air M2), 102852 (Mac mini 2023 M2), 108052 (MacBook Pro 13-inch M2)" },
+      { "raw_models": ["Mac14,9", "Mac14,10", "Mac14,12"], "device_class": "mac-m2-pro", "chip_family": "M2 Pro", "source": "appledb split of Apple's 'M2 Pro or M2 Max' MacBook Pro 2023 identifiers (support.apple.com/en-us/108052); Mac mini 2023 M2 Pro (102852)" },
+      { "raw_models": ["Mac14,5", "Mac14,6", "Mac14,13"], "device_class": "mac-m2-max", "chip_family": "M2 Max", "source": "appledb split of Apple's 'M2 Pro or M2 Max' MacBook Pro 2023 identifiers; Mac Studio 2023 M2 Max (support.apple.com/en-us/102231)" },
+      { "raw_models": ["Mac14,8", "Mac14,14"], "device_class": "mac-m2-ultra", "chip_family": "M2 Ultra", "source": "support.apple.com/en-us/102231 (Mac Studio 2023 M2 Ultra); appledb (Mac Pro 2023)" },
+      { "raw_models": ["MacBookAir10,1", "MacBookPro17,1", "Macmini9,1", "iMac21,1", "iMac21,2"], "device_class": "mac-m1", "chip_family": "M1", "source": "appledb: M1 MacBook Air/Pro 13, Mac mini 2020, iMac 2021" },
+      { "raw_models": ["MacBookPro18,1", "MacBookPro18,3"], "device_class": "mac-m1-pro", "chip_family": "M1 Pro", "source": "appledb: MacBook Pro 16/14-inch (M1 Pro, 2021)" },
+      { "raw_models": ["MacBookPro18,2", "MacBookPro18,4", "Mac13,1"], "device_class": "mac-m1-max", "chip_family": "M1 Max", "source": "appledb: MacBook Pro 16/14-inch (M1 Max, 2021); Mac Studio 2022 M1 Max (support.apple.com/en-us/102231)" },
+      { "raw_models": ["Mac13,2"], "device_class": "mac-m1-ultra", "chip_family": "M1 Ultra", "source": "support.apple.com/en-us/102231: Mac Studio 2022, M1 Ultra" }
     ]
   }
 }

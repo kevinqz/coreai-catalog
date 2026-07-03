@@ -197,6 +197,10 @@ def install_model(
             "files_total": len(digest_files),
             "files_verified": 0,
         },
+        # Which generator the snippet.swift comes from: "io_contract"
+        # (typed contract in catalog.yaml) or "runner_bucket" (legacy
+        # conceptual template).
+        "snippet_source": snippet_source(model),
     }
 
     if dry_run:
@@ -367,10 +371,218 @@ def list_installed() -> list[dict]:
     return results
 
 
+def snippet_source(model: dict) -> str:
+    """Which generator a model's snippet comes from (recorded in the manifest).
+
+    ``io_contract`` — typed contract authored in catalog.yaml (redteam C1/C2);
+    ``runner_bucket`` — legacy conceptual template keyed on the runner field.
+    """
+    return "io_contract" if model.get("io_contract") else "runner_bucket"
+
+
 def _generate_swift_snippet(model: dict, artifact: dict) -> str:
     """Generate a Swift integration snippet for the model.
 
-    Selects the correct Apple/Core AI API pattern based on the runner type:
+    When the catalog entry carries an authored ``io_contract`` (typed IO
+    contract, redteam C1/C2/C6), the snippet is rendered FROM the contract:
+    real entrypoint init pattern, every declared input with its
+    preprocessing/constraints, real output decoding notes, and the resolved
+    local artifact path interpolated. Image-input models get an image code
+    path instead of a text-only chat template.
+
+    Otherwise falls back to the legacy runner-bucket template (labeled as
+    such in the emitted snippet).
+    """
+    if model.get("io_contract"):
+        return _generate_contract_snippet(model, artifact)
+    return _generate_bucket_snippet(model, artifact)
+
+
+def _contract_io_comments(ioc: dict) -> str:
+    """Render the contract's inputs/outputs as typed comment lines."""
+    lines: list[str] = ["// Typed IO contract (authored in catalog.yaml):"]
+    lines.append("//   inputs:")
+    for inp in ioc.get("inputs", []):
+        head = f"//   - {inp.get('name', '?')} ({inp.get('modality', '?')})"
+        if inp.get("swift_type"):
+            head += f": {inp['swift_type']}"
+        tensor = inp.get("tensor") or {}
+        if tensor:
+            bits = []
+            if tensor.get("shape") is not None:
+                bits.append(f"shape {tensor['shape']}")
+            if tensor.get("dtype"):
+                bits.append(str(tensor["dtype"]))
+            if tensor.get("layout"):
+                bits.append(str(tensor["layout"]))
+            head += " — tensor " + ", ".join(bits)
+        lines.append(head)
+        for section in ("preprocessing", "constraints"):
+            for key, val in (inp.get(section) or {}).items():
+                lines.append(f"//       {key}: {val}")
+    lines.append("//   outputs:")
+    for out in ioc.get("outputs", []):
+        head = f"//   - {out.get('name', '?')}"
+        if out.get("swift_type"):
+            head += f": {out['swift_type']}"
+        lines.append(head)
+        for key, val in (out.get("decoding") or {}).items():
+            lines.append(f"//       {key}: {val}")
+    files = ioc.get("files") or {}
+    if files:
+        lines.append("//   files (paths in the pinned HF revision / installed artifact):")
+        for key, val in files.items():
+            lines.append(f"//       {key}: {val}")
+    return "\n".join(lines)
+
+
+def _contract_usage_block(model: dict, ioc: dict, artifact_dir: Path) -> str:
+    """Entrypoint-specific usage code rendered from the contract."""
+    entry = ioc.get("entrypoint") or {}
+    etype = entry.get("type", "")
+    init_pattern = entry.get("init_pattern", "")
+    # Interpolate the resolved local artifact path into the init pattern.
+    init_pattern = init_pattern.replace("<install-dir>", str(artifact_dir))
+    inputs = ioc.get("inputs", [])
+    outputs = ioc.get("outputs", [])
+    image_inputs = [i for i in inputs if i.get("modality") == "image"]
+    text_inputs = [i for i in inputs if i.get("modality") == "text"]
+
+    lines: list[str] = []
+    lines.append("// Installed artifact root (resolved by `coreai-catalog install`)")
+    lines.append(f'let modelDir = URL(fileURLWithPath: "{artifact_dir}", isDirectory: true)')
+
+    # Emit `let` bindings for URL identifiers the init pattern references.
+    ident_hints = {
+        "bundleURL": "// bundle dir containing metadata.json (pick your platform's subdir if the repo ships several)\nlet bundleURL = modelDir",
+        "bundleDir": "let bundleDir = modelDir.path",
+        "aimodelURL": '// point at the .aimodel directory inside the installed artifact\nlet aimodelURL = modelDir.appending(path: "<name>.aimodel")',
+        "visionURL": '// vision encoder .aimodel inside the installed artifact\nlet visionURL = modelDir.appending(path: "<vision>.aimodel")',
+        "decoderURL": '// decoder .aimodel inside the installed artifact\nlet decoderURL = modelDir.appending(path: "<decoder>.aimodel")',
+    }
+    for ident, binding in ident_hints.items():
+        if ident in init_pattern:
+            lines.append(binding)
+    lines.append("")
+    lines.append("// Entrypoint (from io_contract)")
+    lines.append(init_pattern)
+    lines.append("")
+
+    if image_inputs:
+        name = image_inputs[0].get("name", "image")
+        swift_type = image_inputs[0].get("swift_type", "")
+        lines.append(f"// Image input '{name}' — this model consumes an image, not just text.")
+        if swift_type == "URL" or etype == "CoreAIRunner":
+            lines.append('let imageURL = URL(fileURLWithPath: "/path/to/input.png")')
+        else:
+            lines.append('// Load a CGImage (ImageIO):')
+            lines.append('let imageURL = URL(fileURLWithPath: "/path/to/input.png")')
+            lines.append("guard let src = CGImageSourceCreateWithURL(imageURL as CFURL, nil),")
+            lines.append("      let image = CGImageSourceCreateImageAtIndex(src, 0, nil) else {")
+            lines.append('    fatalError("cannot load image")')
+            lines.append("}")
+        lines.append("")
+
+    if etype == "CoreAILanguageModel":
+        lines.append("let session = LanguageModelSession(model: model)")
+        lines.append('let response = try await session.respond(to: "Summarize this file in one sentence.")')
+        lines.append("print(response.content)")
+    elif etype == "CoreAIRunner" and image_inputs:
+        lines.append("// Vision path (MultimodalInferenceEngine): encode the image, then")
+        lines.append("// assemble the prompt with image placeholder tokens and generate —")
+        lines.append("// see apple/coreai-models swift/Sources/Tools/llm-runner (VLM path).")
+        lines.append("let embedded = try await engine.encodeImage(at: imageURL)")
+    elif etype == "ObjectDetector":
+        lines.append("let detections = try await detector.detect(image: image)")
+        lines.append("for d in detections {")
+        lines.append("    print(d.label, d.confidence, d.boundingBox)  // pixel CGRect, top-left origin")
+        lines.append("}")
+    elif etype == "ImageSegmenter":
+        prompt_ok = bool(text_inputs)
+        if prompt_ok:
+            lines.append('let result = try await segmenter.segment(image: image, prompt: "a cat")')
+        else:
+            lines.append("let result = try await segmenter.segment(image: image)")
+        lines.append("// result: SegmentationResponse — segments sorted by score descending")
+    elif etype == "Flux2Pipeline":
+        lines.append("// Generate: pipeline.generateImages(configuration:progressHandler:)")
+        lines.append("// returns GenerationResult with .images: [CGImage] — see")
+        lines.append("// apple/coreai-models swift/Sources/Tools/diffusion-runner.")
+    elif etype == "AIModel":
+        input_keys = ", ".join(
+            f'"{i.get("name", "input")}": /* {i.get("modality", "?")} input */'
+            for i in inputs
+        )
+        out_keys = ", ".join(f'"{o.get("name", "output")}"' for o in outputs)
+        lines.append("// Run the graph — input keys below come from the typed contract,")
+        lines.append("// not guessed:")
+        if "let model" in init_pattern:
+            lines.append(f"let request = try model.makeRequest(inputs: [{input_keys}])")
+            lines.append("let result = try await model.run(request)")
+        else:
+            lines.append("// Multi-stage pipeline: drive each stage with")
+            lines.append("// makeRequest(inputs:)/run(_:). Typed input keys:")
+            lines.append(f"//   [{input_keys}]")
+        lines.append(f"// outputs: {out_keys}")
+    return "\n".join(lines)
+
+
+def _generate_contract_snippet(model: dict, artifact: dict) -> str:
+    """Render the Swift snippet from the authored io_contract."""
+    name = model.get("name", model["id"])
+    ioc = model["io_contract"]
+    entry = ioc.get("entrypoint") or {}
+    runtime = model.get("runtime", {})
+    hf = artifact.get("huggingface", {}) or {}
+    repo = f"{hf.get('owner', '')}/{hf.get('repo', '')}"
+    artifact_dir = get_model_dir(model["id"]) / "artifacts"
+
+    framework = entry.get("framework", "CoreAI")
+    imports = ["import CoreAI"]
+    if framework and framework != "CoreAI":
+        imports.append(f"import {framework}")
+    if entry.get("type") == "CoreAILanguageModel":
+        imports.append("import FoundationModels  // LanguageModelSession")
+    if any(
+        i.get("modality") == "image" and i.get("swift_type") == "CGImage"
+        for i in ioc.get("inputs", [])
+    ):
+        imports.append("import ImageIO")
+
+    session = ioc.get("session") or {}
+    session_note = ""
+    if session:
+        session_note = (
+            f"// Session: stateful={str(session.get('stateful', 'unknown')).lower()}, "
+            f"streaming={str(session.get('streaming', 'unknown')).lower()}\n"
+        )
+
+    runtime_notes = f"""// Runtime notes:
+//   - Runner: {runtime.get('runner', 'unknown')}
+//   - Stock runtime: {runtime.get('stock_runtime', 'unknown')}
+//   - Custom kernel: {runtime.get('custom_kernel', 'unknown')}
+//   - Patch required: {runtime.get('patch_required', 'unknown')}
+//   - AOT required: {runtime.get('aot_required', 'unknown')}
+"""
+
+    return f"""// {name} — Core AI integration snippet
+// Generated by coreai-catalog
+// Snippet source: io_contract (typed IO contract authored in catalog.yaml)
+// Source: https://huggingface.co/{repo}
+
+{chr(10).join(imports)}
+
+{_contract_io_comments(ioc)}
+
+{_contract_usage_block(model, ioc, artifact_dir)}
+
+{session_note}{runtime_notes}"""
+
+
+def _generate_bucket_snippet(model: dict, artifact: dict) -> str:
+    """Legacy runner-bucket snippet (used only when no io_contract exists).
+
+    Selects the Apple/Core AI API pattern based on the runner type:
       - CoreAIRunner (LLMs)        → CoreAI LanguageModelSession + CoreAILanguageModel API
       - stock-runner / other       → CoreAI AIModel GraphModel API
       - speech models              → CoreAI SpeechModel API
@@ -398,6 +610,7 @@ def _generate_swift_snippet(model: dict, artifact: dict) -> str:
     if any(c in capabilities for c in ("speech-to-text", "transcription")):
         return f"""// {name} — Core AI integration snippet
 // Generated by coreai-catalog
+// Snippet source: runner-bucket template (no io_contract in catalog.yaml — conceptual)
 // Source: https://huggingface.co/{repo}
 //
 // ⚠️  Conceptual — see https://github.com/apple/coreai-models for complete
@@ -418,6 +631,7 @@ print(result.text)
     if runner == "CoreAIDiffusionPipeline" or "image-generation" in capabilities:
         return f"""// {name} — Core AI integration snippet
 // Generated by coreai-catalog
+// Snippet source: runner-bucket template (no io_contract in catalog.yaml — conceptual)
 // Source: https://huggingface.co/{repo}
 //
 // ⚠️  Conceptual — see https://github.com/apple/coreai-models for complete
@@ -439,6 +653,7 @@ let image = try await pipeline.generateImage(from: "a serene mountain landscape 
     ):
         return f"""// {name} — Core AI integration snippet
 // Generated by coreai-catalog
+// Snippet source: runner-bucket template (no io_contract in catalog.yaml — conceptual)
 // Source: https://huggingface.co/{repo}
 //
 // ⚠️  Conceptual — see https://github.com/apple/coreai-models for complete
@@ -458,6 +673,7 @@ let mask = try await segmenter.segment(image: inputImage)
     if "object-detection" in capabilities:
         return f"""// {name} — Core AI integration snippet
 // Generated by coreai-catalog
+// Snippet source: runner-bucket template (no io_contract in catalog.yaml — conceptual)
 // Source: https://huggingface.co/{repo}
 //
 // ⚠️  Conceptual — see https://github.com/apple/coreai-models for complete
@@ -477,6 +693,7 @@ let detections = try await detector.detect(in: inputImage)
     if runner in ("CoreAIRunner", "stock-runner"):
         return f"""// {name} — Core AI integration snippet
 // Generated by coreai-catalog
+// Snippet source: runner-bucket template (no io_contract in catalog.yaml — conceptual)
 // Source: https://huggingface.co/{repo}
 //
 // ⚠️  Conceptual — see https://github.com/apple/coreai-models for complete
@@ -500,6 +717,7 @@ print(followUp.content)
     # Non-LLM models (GraphModel, etc.) → CoreAI AIModel API
     return f"""// {name} — Core AI integration snippet
 // Generated by coreai-catalog
+// Snippet source: runner-bucket template (no io_contract in catalog.yaml — conceptual)
 // Source: https://huggingface.co/{repo}
 //
 // ⚠️  Conceptual — see https://github.com/apple/coreai-models for complete

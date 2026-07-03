@@ -197,7 +197,8 @@ Required fields (see `schema/benchmark.schema.json` for enums): `id`,
 **1. Signed relay path (not yet public).** Device-run measurements are meant
 to flow through a privacy relay that coarsens device identifiers and adds an
 Ed25519 `_signature` field to the JSONL line. CI verifies that signature and,
-if all eight auto-merge gates pass, merges automatically. **The relay is not
+if every tier gate passes (gate outcome `signed_plausible` — the exact list
+is in GOVERNANCE.md), merges automatically. **The relay is not
 yet publicly deployed** — you cannot produce a valid `_signature` yourself, and
 hand-crafted signatures are rejected. Do not attempt this path today.
 

@@ -23,6 +23,85 @@ from .formatters import (
 EXPORT_SCHEMA_VERSION = "1.0"
 
 
+def derive_bundle_kind(model: dict[str, Any]) -> str:
+    """Derive the task-level bundle kind from a model's capabilities.
+
+    This is the single derivation rule shared by the catalog authoring and
+    the export-time validator (redteam C5: the old runner-based heuristic
+    mis-bucketed the image-input OCR model as ``llm``). First matching rule
+    wins. The vocabulary is the authored ``bundle_kind`` enum in
+    schema/model.schema.json — a catalog task taxonomy, distinct from the
+    runtime's 4-value BundleKind enum (apple/coreai-models
+    swift/Sources/CoreAIShared/Bundle/BundleKind.swift:12-17).
+
+    Raises ValueError when no rule matches, so a new capability cannot
+    silently fall into a wrong bucket — extend the mapping instead.
+    """
+    caps = set(model.get("capabilities", []))
+    inputs = set(model.get("modalities", {}).get("input", []))
+
+    rules: list[tuple[set[str], str]] = [
+        ({"document-ocr"}, "ocr"),
+        ({"vision-language-action", "robotics"}, "action"),
+        ({"vision-language", "gui-grounding"}, "vlm"),
+        ({"audio-understanding"}, "audio-lm"),
+        ({"embedding", "image-text-similarity", "visual-document-retrieval"},
+         "embedding"),
+        ({"reranking"}, "reranker"),
+        ({"object-detection"}, "object-detection"),
+        ({"instance-segmentation", "promptable-segmentation"}, "segmentation"),
+        ({"monocular-depth"}, "depth"),
+        ({"image-generation"}, "image-generation"),
+        ({"super-resolution"}, "super-resolution"),
+        ({"text-to-speech"}, "tts"),
+        ({"speech-to-text", "transcription"}, "asr"),
+        ({"text-to-audio", "music-generation"}, "audio-generation"),
+        ({"text-to-video", "video-classification"}, "video"),
+        ({"image-to-3d"}, "3d"),
+    ]
+    for capset, kind in rules:
+        if caps & capset:
+            return kind
+
+    text_caps = {
+        "chat", "text-generation", "instruction-following", "reasoning",
+        "agentic", "speculative-decoding", "diffusion-lm", "hybrid-llm",
+        "moe", "mla",
+    }
+    if caps & text_caps:
+        # A language model with image input is a VLM, never a bare llm (C5).
+        return "vlm" if "image" in inputs else "llm"
+
+    raise ValueError(
+        f"derive_bundle_kind: no rule matches capabilities {sorted(caps)} "
+        f"for model '{model.get('id', '<unknown>')}'. Extend the mapping in "
+        "coreai_catalog/exports.py before assigning a bundle_kind."
+    )
+
+
+def validate_bundle_kind(model: dict[str, Any]) -> str:
+    """Return the model's effective bundle kind, failing on disagreement.
+
+    The authored ``bundle_kind`` (catalog.yaml) is the contract; the
+    capability derivation is demoted to a validator (redteam C5). A model
+    with an authored kind that disagrees with its capabilities fails the
+    export — and with it ``scripts/generate.py`` — instead of silently
+    publishing a wrong integration hint.
+    """
+    derived = derive_bundle_kind(model)
+    authored = model.get("bundle_kind")
+    if authored is None:
+        return derived
+    if authored != derived:
+        raise ValueError(
+            f"bundle_kind disagreement for model '{model.get('id', '<unknown>')}': "
+            f"authored '{authored}' but capabilities {sorted(model.get('capabilities', []))} "
+            f"derive '{derived}'. Fix bundle_kind in catalog.yaml or extend "
+            "derive_bundle_kind in coreai_catalog/exports.py."
+        )
+    return authored
+
+
 def read_yaml(path: Path) -> dict[str, Any]:
     return yaml.safe_load(path.read_text()) or {}
 
@@ -141,6 +220,10 @@ def export_search_index(catalog_root: Path, dist: Path | None = None) -> int:
             "name": m["name"],
             "family": m["family"],
             "source_group": m.get("source_group"),
+            "bundle_kind": validate_bundle_kind(m),
+            "min_os": m.get("min_os"),
+            "upstream_repo": m.get("upstream_repo"),
+            "io_contract": m.get("io_contract"),
             "capabilities": m.get("capabilities", []),
             "input_modalities": m.get("modalities", {}).get("input", []),
             "output_modalities": m.get("modalities", {}).get("output", []),
@@ -286,10 +369,17 @@ def export_model_manifest(catalog_root: Path, dist: Path | None = None) -> dict:
     """Export a model download manifest for on-demand fetching.
 
     Each entry has: id, name, runner, huggingface_url, artifact_size,
-    parameters, precision, bundle_kind (inferred from runner/capabilities).
+    parameters, precision, bundle_kind (authored in catalog.yaml and
+    validated against the capability derivation — see
+    ``validate_bundle_kind``), min_os, upstream_repo and io_contract
+    (when authored).
 
     Writes:
       dist/model-manifest.json
+
+    Raises ValueError when an authored bundle_kind disagrees with the
+    capability derivation (redteam C5) — generate.py fails instead of
+    exporting a wrong integration hint.
     """
     dist = dist or catalog_root / "dist"
     cat = Catalog(catalog_root)
@@ -303,24 +393,9 @@ def export_model_manifest(catalog_root: Path, dist: Path | None = None) -> dict:
 
         runner = m.get("runtime", {}).get("runner", "")
         caps = m.get("capabilities", [])
+        bundle_kind = validate_bundle_kind(m)
 
-        # Infer bundle kind from runner/capabilities
-        if runner in ("CoreAIRunner", "stock-runner"):
-            bundle_kind = "vlm" if "vision-language" in caps else "llm"
-        elif runner == "CoreAIDiffusionPipeline":
-            bundle_kind = "diffusion"
-        elif runner == "CoreAIImageSegmenter":
-            bundle_kind = "segmenter"
-        elif runner == "CoreAITranscribe":
-            bundle_kind = "speech"
-        elif runner == "CoreAIVideoPipeline":
-            bundle_kind = "video"
-        elif runner == "CoreAIKit-GraphModel":
-            bundle_kind = "detector" if "object-detection" in caps or "instance-segmentation" in caps else "graph"
-        else:
-            bundle_kind = "unknown"
-
-        entries.append({
+        entry = {
             "id": m["id"],
             "name": m.get("name", m["id"]),
             "bundle_kind": bundle_kind,
@@ -334,7 +409,11 @@ def export_model_manifest(catalog_root: Path, dist: Path | None = None) -> dict:
             "huggingface_url": hf_url,
             "license": m.get("license", {}).get("name", ""),
             "commercial_use": m.get("license", {}).get("commercial_use", ""),
-        })
+            "min_os": m.get("min_os"),
+            "upstream_repo": m.get("upstream_repo"),
+            "io_contract": m.get("io_contract"),
+        }
+        entries.append(entry)
 
     catalog_version = _get_catalog_version(catalog_root)
     output = {

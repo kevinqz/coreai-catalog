@@ -434,8 +434,9 @@ coreai-catalog uninstall qwen3-vl-2b
 # Check your environment
 coreai-catalog doctor                        # checks Python, Xcode, coreai-torch, coreai-opt, HF CLI, disk
 
-# Discover models worth porting to Core AI
+# Discover models worth porting to Core AI (module: coreai_catalog/discover.py)
 python scripts/discover.py                     # scan Hugging Face for models with Core AI potential
+python scripts/discover.py --format markdown   # pinned-issue body (what discover.yml publishes weekly)
 
 # Release a new version (pre-flight checks → version bump → tag → build → PyPI)
 coreai-catalog publish --version 2.2.0       # full release
@@ -586,6 +587,40 @@ Important rule:
 > The repository license, upstream code license, model license and artifact-hosting license may differ.
 
 For sensitive licenses such as Gemma Terms, Meta SAM License, LFM Open License or OpenRAIL-style licenses, treat `commercial_use: check_license` as requiring manual review before use.
+
+## Governance
+
+Merge rules live in [`GOVERNANCE.md`](./GOVERNANCE.md) as **checkable rules**
+an agent can evaluate and a human countersigns: a PR is mergeable when CI is
+green, every added source URL resolves HTTP 200, officiality is consistent,
+the license claim is compatible with the upstream's terms, and provenance is
+linked. Merge authority for all catalog data files is assigned via
+[`.github/CODEOWNERS`](./.github/CODEOWNERS).
+
+**Requesting a model without cloning the repo:** file the
+[model-request issue form](./.github/ISSUE_TEMPLATE/model-request.yml) — its
+fields map 1:1 to `schema/model.schema.json` (dropdowns for every enum).
+`model-request-to-pr.yml` validates the submission with the same aggregated
+validation core as `coreai-catalog contribute model --dry-run`, comments the
+verdict on the issue, and opens a **draft PR** with the generated entries
+when everything is clean.
+
+## Discovery automation
+
+Two scheduled workflows keep the porting backlog visible without issue spam
+(each **upserts a single pinned issue** — never duplicates):
+
+- **`discover.yml`** (weekly): scans upstream Hugging Face orgs with
+  `coreai_catalog/discover.py`, dedups against the catalog via the authored
+  `upstream_repo` field, HF `base_model` lineage metadata, and a
+  normalized-name fuzzy fallback, then upserts the pinned
+  **Porting candidates** issue (label `porting-candidates`) with ranked,
+  scored candidates.
+- **`source-monitor.yml`** (every 3 hours): watches known converter HF
+  accounts and upstream repos for new Core AI artifacts, and upserts the
+  pinned **Source Monitor** issue (label `source-monitor`) including
+  machine-readable candidate stubs — partial `catalog.yaml`/`artifacts.yaml`
+  entries a future agent job can turn into draft PRs.
 
 ## Maintenance rules
 

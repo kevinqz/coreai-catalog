@@ -120,6 +120,14 @@ jobs:
           path: dist/
           retention-days: 30
 
+      # ── Prompt-injection lint on catalog free-text fields (finding D6) ──
+      - name: Injection lint (free-text fields)
+        run: python scripts/injection_lint.py
+
+      # ── P1 hardening tests: typosquat audit, sanitizer, injection lint ──
+      - name: P1 hardening tests
+        run: python -m unittest tests.test_p1_hardening -v
+
   # Weekly scheduled job: upstream sync report as a GitHub issue
   sync-report:
     if: github.event_name == 'schedule'

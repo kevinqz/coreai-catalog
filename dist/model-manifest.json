@@ -23,7 +23,13 @@
       "artifact_size": "969MB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/qwen3.5-0.8B-CoreAI",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen3.5-0.8B",
+      "io_contract": null
     },
     {
       "id": "qwen3-5-2b",
@@ -45,7 +51,13 @@
       "artifact_size": "not_published",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/qwen3.5-2B-CoreAI",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen3.5-2B",
+      "io_contract": null
     },
     {
       "id": "qwen3-6-35b-a3b",
@@ -68,7 +80,13 @@
       "artifact_size": "35GB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen3.6-35B-A3B-CoreAI",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen3.6-35B-A3B",
+      "io_contract": null
     },
     {
       "id": "qwen3-6-27b",
@@ -90,7 +108,13 @@
       "artifact_size": "28GB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen3.6-27B-CoreAI",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen3.6-27B",
+      "io_contract": null
     },
     {
       "id": "glm-4-7-flash",
@@ -114,7 +138,13 @@
       "artifact_size": "30GB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/GLM-4.7-Flash-CoreAI",
       "license": "MIT",
-      "commercial_use": "check_license"
+      "commercial_use": "check_license",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "zai-org/GLM-4.7-Flash",
+      "io_contract": null
     },
     {
       "id": "gemma-4-e2b",
@@ -136,7 +166,13 @@
       "artifact_size": "1.3GB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/gemma-4-E2B-CoreAI",
       "license": "Gemma Terms",
-      "commercial_use": "check_license"
+      "commercial_use": "check_license",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null
     },
     {
       "id": "gemma-4-e4b",
@@ -158,7 +194,13 @@
       "artifact_size": "3.7GB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/gemma-4-E4B-CoreAI",
       "license": "Gemma Terms",
-      "commercial_use": "check_license"
+      "commercial_use": "check_license",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "google/gemma-4-E4B-it-qat-q4_0-unquantized",
+      "io_contract": null
     },
     {
       "id": "gemma-4-12b",
@@ -180,7 +222,13 @@
       "artifact_size": "8.2GB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/Gemma-4-12B-CoreAI",
       "license": "Gemma Terms",
-      "commercial_use": "check_license"
+      "commercial_use": "check_license",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "google/gemma-4-12B-it-qat-q4_0-unquantized",
+      "io_contract": null
     },
     {
       "id": "gemma-4-31b",
@@ -202,7 +250,13 @@
       "artifact_size": "19GB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/Gemma-4-31B-CoreAI",
       "license": "Gemma Terms",
-      "commercial_use": "check_license"
+      "commercial_use": "check_license",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "google/gemma-4-31B-it-qat-q4_0-unquantized",
+      "io_contract": null
     },
     {
       "id": "lfm2-5-1-2b-instruct",
@@ -225,7 +279,13 @@
       "artifact_size": "1.6GB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/LFM2.5-1.2B-CoreAI",
       "license": "LFM Open License v1.0",
-      "commercial_use": "check_license"
+      "commercial_use": "check_license",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "LiquidAI/LFM2.5-1.2B-Instruct",
+      "io_contract": null
     },
     {
       "id": "lfm2-5-8b-a1b",
@@ -248,7 +308,13 @@
       "artifact_size": "8.8GB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/LFM2.5-8B-A1B-CoreAI",
       "license": "LFM Open License v1.0",
-      "commercial_use": "check_license"
+      "commercial_use": "check_license",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "LiquidAI/LFM2.5-8B-A1B",
+      "io_contract": null
     },
     {
       "id": "granite-4-0-h-1b",
@@ -271,7 +337,13 @@
       "artifact_size": "1.8GB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/granite-4.0-h-CoreAI",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "ibm-granite/granite-4.0-h-1b",
+      "io_contract": null
     },
     {
       "id": "granite-4-0-h-350m",
@@ -294,7 +366,13 @@
       "artifact_size": "not_published",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/granite-4.0-h-CoreAI",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "ibm-granite/granite-4.0-h-350m",
+      "io_contract": null
     },
     {
       "id": "nanbeige4-1-3b",
@@ -318,7 +396,13 @@
       "artifact_size": "4.3GB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/Nanbeige4.1-3B-CoreAI",
       "license": "Apache-2.0",
-      "commercial_use": "check_license"
+      "commercial_use": "check_license",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Nanbeige/Nanbeige4.1-3B",
+      "io_contract": null
     },
     {
       "id": "qwen3-vl-2b",
@@ -340,7 +424,13 @@
       "artifact_size": "2.3GB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen3-VL-2B-CoreAI",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen3-VL-2B-Instruct",
+      "io_contract": null
     },
     {
       "id": "qwen3-vl-4b",
@@ -362,7 +452,13 @@
       "artifact_size": "not_published",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen3-VL-4B-CoreAI",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen3-VL-4B-Instruct",
+      "io_contract": null
     },
     {
       "id": "qwen3-vl-8b",
@@ -384,7 +480,13 @@
       "artifact_size": "not_published",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen3-VL-8B-CoreAI",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen3-VL-8B-Instruct",
+      "io_contract": null
     },
     {
       "id": "minicpm-v-4-6",
@@ -406,7 +508,60 @@
       "artifact_size": "not_published",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/MiniCPM-V-4.6-CoreAI",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "openbmb/MiniCPM-V-4.6",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAILanguageModels",
+          "type": "CoreAIRunner",
+          "init_pattern": "let engine = try await CoreAIRunner(contentsOf: bundleURL).makeInferenceEngine()"
+        },
+        "inputs": [
+          {
+            "name": "image",
+            "modality": "image",
+            "swift_type": "URL",
+            "tensor": {
+              "shape": [
+                1,
+                3,
+                448,
+                448
+              ],
+              "dtype": "fp16",
+              "layout": "NCHW"
+            }
+          },
+          {
+            "name": "prompt",
+            "modality": "text",
+            "swift_type": "String",
+            "constraints": {
+              "max_context": 4096
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "name": "response",
+            "swift_type": "String",
+            "decoding": {
+              "detokenization": "embedded tokenizer (openbmb/MiniCPM-V-4.6, vocab 248094)"
+            }
+          }
+        ],
+        "session": {
+          "stateful": true,
+          "streaming": true
+        },
+        "files": {
+          "tokenizer_ref": "gpu-pipelined/minicpmv46_vlm_decode_int8hu/tokenizer"
+        }
+      }
     },
     {
       "id": "gemma-4-e2b-vision",
@@ -428,12 +583,18 @@
       "artifact_size": "not_published",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/gemma-4-E2B-CoreAI/tree/main/vl",
       "license": "Gemma Terms",
-      "commercial_use": "check_license"
+      "commercial_use": "check_license",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null
     },
     {
       "id": "unlimited-ocr",
       "name": "Unlimited-OCR",
-      "bundle_kind": "llm",
+      "bundle_kind": "ocr",
       "runner": "stock-runner",
       "capabilities": [
         "document-ocr"
@@ -452,12 +613,64 @@
       "artifact_size": "not_published",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/Unlimited-OCR-CoreAI",
       "license": "MIT",
-      "commercial_use": "check_license"
+      "commercial_use": "check_license",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAI",
+          "type": "AIModel",
+          "init_pattern": "let vision = try await AIModel(contentsOf: visionURL); let decoder = try await AIModel(contentsOf: decoderURL)"
+        },
+        "inputs": [
+          {
+            "name": "document_image",
+            "modality": "image",
+            "swift_type": "CGImage",
+            "preprocessing": {
+              "resize": "pad to 640x640 (ImageOps.pad; pad color = mean*255)",
+              "normalization": "mean=0.5 std=0.5 (all channels)",
+              "color_format": "RGB"
+            },
+            "constraints": {
+              "max_image_px": 640
+            }
+          },
+          {
+            "name": "prompt_input_ids",
+            "modality": "text",
+            "swift_type": "[Int32]",
+            "tensor": {
+              "shape": [
+                115
+              ],
+              "dtype": "int32"
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "name": "text",
+            "swift_type": "String",
+            "decoding": {
+              "format_selector": "fixed prompt prefix (assets/prompt_input_ids.i32) — output interleaves markdown, HTML tables and LaTeX formulas; not prompt-selectable",
+              "detokenization": "greedy decode to eos id 1; detokenize with tokenizer/ (LlamaTokenizerFast)"
+            }
+          }
+        ],
+        "files": {
+          "tokenizer_ref": "tokenizer",
+          "processor_ref": "assets/recipe.json"
+        }
+      }
     },
     {
       "id": "qwen2-5-omni-3b-audio",
       "name": "Qwen2.5-Omni-3B Audio",
-      "bundle_kind": "llm",
+      "bundle_kind": "audio-lm",
       "runner": "CoreAIRunner",
       "capabilities": [
         "audio-understanding"
@@ -473,12 +686,18 @@
       "artifact_size": "5.1GB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen2.5-Omni-3B-Audio-CoreAI",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen2.5-Omni-3B",
+      "io_contract": null
     },
     {
       "id": "kokoro-82m",
       "name": "Kokoro-82M",
-      "bundle_kind": "llm",
+      "bundle_kind": "tts",
       "runner": "CoreAIRunner",
       "capabilities": [
         "text-to-speech"
@@ -494,12 +713,18 @@
       "artifact_size": "335MB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/Kokoro-82M-CoreAI",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "hexgrad/Kokoro-82M",
+      "io_contract": null
     },
     {
       "id": "voxcpm-0-5b",
       "name": "VoxCPM-0.5B",
-      "bundle_kind": "llm",
+      "bundle_kind": "tts",
       "runner": "CoreAIRunner",
       "capabilities": [
         "text-to-speech"
@@ -515,12 +740,18 @@
       "artifact_size": "1.0GB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/VoxCPM-0.5B-CoreAI",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null
     },
     {
       "id": "embeddinggemma-300m",
       "name": "EmbeddingGemma 300M",
-      "bundle_kind": "llm",
+      "bundle_kind": "embedding",
       "runner": "CoreAIRunner",
       "capabilities": [
         "embedding"
@@ -536,12 +767,18 @@
       "artifact_size": "not_published",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/embeddinggemma-300m-CoreAI",
       "license": "Gemma Terms",
-      "commercial_use": "check_license"
+      "commercial_use": "check_license",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "google/embeddinggemma-300m",
+      "io_contract": null
     },
     {
       "id": "qwen3-embedding-0-6b",
       "name": "Qwen3-Embedding 0.6B",
-      "bundle_kind": "llm",
+      "bundle_kind": "embedding",
       "runner": "CoreAIRunner",
       "capabilities": [
         "embedding"
@@ -557,12 +794,46 @@
       "artifact_size": "1.1GB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen3-Embedding-0.6B-CoreAI",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen3-Embedding-0.6B",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAI",
+          "type": "AIModel",
+          "init_pattern": "let model = try await AIModel(contentsOf: aimodelURL)"
+        },
+        "inputs": [
+          {
+            "name": "text",
+            "modality": "text",
+            "constraints": {
+              "max_context": 512
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "name": "embedding",
+            "swift_type": "[Float]",
+            "decoding": {
+              "embedding_dim": 1024,
+              "format_selector": "last-token pooling, L2-normalized; MRL-truncatable to 32..1024 dims"
+            }
+          }
+        ],
+        "files": {
+          "tokenizer_ref": "tokenizer"
+        }
+      }
     },
     {
       "id": "qwen3-reranker-0-6b",
       "name": "Qwen3-Reranker 0.6B",
-      "bundle_kind": "llm",
+      "bundle_kind": "reranker",
       "runner": "CoreAIRunner",
       "capabilities": [
         "reranking"
@@ -579,12 +850,49 @@
       "artifact_size": "1.1GB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen3-Reranker-0.6B-CoreAI",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen3-Reranker-0.6B",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAI",
+          "type": "AIModel",
+          "init_pattern": "let model = try await AIModel(contentsOf: aimodelURL)"
+        },
+        "inputs": [
+          {
+            "name": "query",
+            "modality": "text",
+            "constraints": {
+              "max_context": 512
+            }
+          },
+          {
+            "name": "documents",
+            "modality": "text"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "score",
+            "swift_type": "Float",
+            "decoding": {
+              "score_range": "0..1 — probs[1] = P(yes) = relevance"
+            }
+          }
+        ],
+        "files": {
+          "tokenizer_ref": "tokenizer"
+        }
+      }
     },
     {
       "id": "rf-detr-nano",
       "name": "RF-DETR Nano",
-      "bundle_kind": "llm",
+      "bundle_kind": "object-detection",
       "runner": "CoreAIRunner",
       "capabilities": [
         "object-detection"
@@ -602,12 +910,45 @@
       "artifact_size": "108MB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAIObjectDetector",
+          "type": "ObjectDetector",
+          "init_pattern": "let detector = try await ObjectDetector(resourcesAt: \"<install-dir>/rfdetr-nano_float32.aimodel\")"
+        },
+        "inputs": [
+          {
+            "name": "image",
+            "modality": "image",
+            "swift_type": "CGImage",
+            "preprocessing": {
+              "normalization": "RGB scaled to [0,1] (DetectionParameters normalizationMeans/Stds)",
+              "color_format": "RGB"
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "name": "detections",
+            "swift_type": "[DetectedObject]",
+            "decoding": {
+              "coordinate_convention": "boundingBox: pixel CGRect, top-left origin (decoded from 300 normalized cxcywh queries; no NMS)",
+              "label_vocab_ref": "COCO 91-id logit columns; ObjectDetectionLabels.coco default mapping"
+            }
+          }
+        ]
+      }
     },
     {
       "id": "rf-detr-small",
       "name": "RF-DETR Small",
-      "bundle_kind": "llm",
+      "bundle_kind": "object-detection",
       "runner": "CoreAIRunner",
       "capabilities": [
         "object-detection"
@@ -625,12 +966,45 @@
       "artifact_size": "115MB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAIObjectDetector",
+          "type": "ObjectDetector",
+          "init_pattern": "let detector = try await ObjectDetector(resourcesAt: \"<install-dir>/rfdetr-small_float32.aimodel\")"
+        },
+        "inputs": [
+          {
+            "name": "image",
+            "modality": "image",
+            "swift_type": "CGImage",
+            "preprocessing": {
+              "normalization": "RGB scaled to [0,1] (DetectionParameters normalizationMeans/Stds)",
+              "color_format": "RGB"
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "name": "detections",
+            "swift_type": "[DetectedObject]",
+            "decoding": {
+              "coordinate_convention": "boundingBox: pixel CGRect, top-left origin (decoded from 300 normalized cxcywh queries; no NMS)",
+              "label_vocab_ref": "COCO 91-id logit columns; ObjectDetectionLabels.coco default mapping"
+            }
+          }
+        ]
+      }
     },
     {
       "id": "rf-detr-medium",
       "name": "RF-DETR Medium",
-      "bundle_kind": "llm",
+      "bundle_kind": "object-detection",
       "runner": "CoreAIRunner",
       "capabilities": [
         "object-detection"
@@ -648,12 +1022,45 @@
       "artifact_size": "121MB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAIObjectDetector",
+          "type": "ObjectDetector",
+          "init_pattern": "let detector = try await ObjectDetector(resourcesAt: \"<install-dir>/rfdetr-medium_float32.aimodel\")"
+        },
+        "inputs": [
+          {
+            "name": "image",
+            "modality": "image",
+            "swift_type": "CGImage",
+            "preprocessing": {
+              "normalization": "RGB scaled to [0,1] (DetectionParameters normalizationMeans/Stds)",
+              "color_format": "RGB"
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "name": "detections",
+            "swift_type": "[DetectedObject]",
+            "decoding": {
+              "coordinate_convention": "boundingBox: pixel CGRect, top-left origin (decoded from 300 normalized cxcywh queries; no NMS)",
+              "label_vocab_ref": "COCO 91-id logit columns; ObjectDetectionLabels.coco default mapping"
+            }
+          }
+        ]
+      }
     },
     {
       "id": "rf-detr-large",
       "name": "RF-DETR Large",
-      "bundle_kind": "llm",
+      "bundle_kind": "object-detection",
       "runner": "CoreAIRunner",
       "capabilities": [
         "object-detection"
@@ -671,12 +1078,45 @@
       "artifact_size": "122MB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAIObjectDetector",
+          "type": "ObjectDetector",
+          "init_pattern": "let detector = try await ObjectDetector(resourcesAt: \"<install-dir>/rfdetr-large_float32.aimodel\")"
+        },
+        "inputs": [
+          {
+            "name": "image",
+            "modality": "image",
+            "swift_type": "CGImage",
+            "preprocessing": {
+              "normalization": "RGB scaled to [0,1] (DetectionParameters normalizationMeans/Stds)",
+              "color_format": "RGB"
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "name": "detections",
+            "swift_type": "[DetectedObject]",
+            "decoding": {
+              "coordinate_convention": "boundingBox: pixel CGRect, top-left origin (decoded from 300 normalized cxcywh queries; no NMS)",
+              "label_vocab_ref": "COCO 91-id logit columns; ObjectDetectionLabels.coco default mapping"
+            }
+          }
+        ]
+      }
     },
     {
       "id": "rf-detr-seg-nano",
       "name": "RF-DETR-Seg Nano",
-      "bundle_kind": "llm",
+      "bundle_kind": "segmentation",
       "runner": "CoreAIRunner",
       "capabilities": [
         "instance-segmentation"
@@ -695,12 +1135,18 @@
       "artifact_size": "108MB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null
     },
     {
       "id": "rf-detr-seg-small",
       "name": "RF-DETR-Seg Small",
-      "bundle_kind": "llm",
+      "bundle_kind": "segmentation",
       "runner": "CoreAIRunner",
       "capabilities": [
         "instance-segmentation"
@@ -719,12 +1165,18 @@
       "artifact_size": "115MB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null
     },
     {
       "id": "rf-detr-seg-medium",
       "name": "RF-DETR-Seg Medium",
-      "bundle_kind": "llm",
+      "bundle_kind": "segmentation",
       "runner": "CoreAIRunner",
       "capabilities": [
         "instance-segmentation"
@@ -743,12 +1195,18 @@
       "artifact_size": "121MB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null
     },
     {
       "id": "rf-detr-seg-large",
       "name": "RF-DETR-Seg Large",
-      "bundle_kind": "llm",
+      "bundle_kind": "segmentation",
       "runner": "CoreAIRunner",
       "capabilities": [
         "instance-segmentation"
@@ -767,12 +1225,18 @@
       "artifact_size": "122MB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null
     },
     {
       "id": "rf-detr-seg-xlarge",
       "name": "RF-DETR-Seg Xlarge",
-      "bundle_kind": "llm",
+      "bundle_kind": "segmentation",
       "runner": "CoreAIRunner",
       "capabilities": [
         "instance-segmentation"
@@ -791,12 +1255,18 @@
       "artifact_size": "not_published",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null
     },
     {
       "id": "rf-detr-seg-2xlarge",
       "name": "RF-DETR-Seg 2Xlarge",
-      "bundle_kind": "llm",
+      "bundle_kind": "segmentation",
       "runner": "CoreAIRunner",
       "capabilities": [
         "instance-segmentation"
@@ -815,12 +1285,18 @@
       "artifact_size": "not_published",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/RF-DETR-CoreAI",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null
     },
     {
       "id": "adcsr-x4",
       "name": "AdcSR ×4",
-      "bundle_kind": "llm",
+      "bundle_kind": "super-resolution",
       "runner": "CoreAIRunner",
       "capabilities": [
         "super-resolution"
@@ -836,12 +1312,18 @@
       "artifact_size": "1.7GB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/AdcSR-CoreAI",
       "license": "Apache-2.0 + OpenRAIL++",
-      "commercial_use": "check_license"
+      "commercial_use": "check_license",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null
     },
     {
       "id": "depth-anything-3-small",
       "name": "Depth Anything 3 Small",
-      "bundle_kind": "llm",
+      "bundle_kind": "depth",
       "runner": "CoreAIRunner",
       "capabilities": [
         "monocular-depth"
@@ -857,12 +1339,48 @@
       "artifact_size": "54.5MB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/Depth-Anything-3-CoreAI",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAI",
+          "type": "AIModel",
+          "init_pattern": "let model = try await AIModel(contentsOf: aimodelURL)"
+        },
+        "inputs": [
+          {
+            "name": "image",
+            "modality": "image",
+            "preprocessing": {
+              "normalization": "RGB scaled to [0,1]",
+              "color_format": "RGB"
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "name": "depth",
+            "decoding": {
+              "format_selector": "relative depth map"
+            }
+          },
+          {
+            "name": "confidence",
+            "decoding": {
+              "format_selector": "confidence map"
+            }
+          }
+        ]
+      }
     },
     {
       "id": "depth-anything-3-base",
       "name": "Depth Anything 3 Base",
-      "bundle_kind": "llm",
+      "bundle_kind": "depth",
       "runner": "CoreAIRunner",
       "capabilities": [
         "monocular-depth"
@@ -878,7 +1396,43 @@
       "artifact_size": "202MB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/Depth-Anything-3-CoreAI",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAI",
+          "type": "AIModel",
+          "init_pattern": "let model = try await AIModel(contentsOf: aimodelURL)"
+        },
+        "inputs": [
+          {
+            "name": "image",
+            "modality": "image",
+            "preprocessing": {
+              "normalization": "RGB scaled to [0,1]",
+              "color_format": "RGB"
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "name": "depth",
+            "decoding": {
+              "format_selector": "relative depth map"
+            }
+          },
+          {
+            "name": "confidence",
+            "decoding": {
+              "format_selector": "confidence map"
+            }
+          }
+        ]
+      }
     },
     {
       "id": "official-gpt-oss-20b",
@@ -901,7 +1455,13 @@
       "artifact_size": "13GB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/gpt-oss-20b-CoreAI-official",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "openai/gpt-oss-20b",
+      "io_contract": null
     },
     {
       "id": "official-qwen3-0-6b",
@@ -923,7 +1483,45 @@
       "artifact_size": "not_published",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/qwen3-0.6b-CoreAI-official",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen3-0.6B",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAILanguageModels",
+          "type": "CoreAILanguageModel",
+          "init_pattern": "let model = try await CoreAILanguageModel(resourcesAt: bundleURL)"
+        },
+        "inputs": [
+          {
+            "name": "prompt",
+            "modality": "text",
+            "swift_type": "String",
+            "constraints": {
+              "max_context": 4096
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "name": "response",
+            "swift_type": "String",
+            "decoding": {
+              "detokenization": "embedded tokenizer (Qwen/Qwen3-0.6B, vocab 151936); LanguageModelSession.respond(to:) returns detokenized text"
+            }
+          }
+        ],
+        "session": {
+          "stateful": true,
+          "streaming": true
+        },
+        "files": {
+          "tokenizer_ref": "macos/tokenizer"
+        }
+      }
     },
     {
       "id": "official-qwen3-4b",
@@ -945,7 +1543,13 @@
       "artifact_size": "not_published",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/qwen3-4b-CoreAI-official",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen3-4B",
+      "io_contract": null
     },
     {
       "id": "official-qwen3-8b",
@@ -967,7 +1571,13 @@
       "artifact_size": "not_published",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/qwen3-8b-CoreAI-official",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen3-8B",
+      "io_contract": null
     },
     {
       "id": "official-gemma-3-4b-it",
@@ -990,7 +1600,13 @@
       "artifact_size": "not_published",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/gemma-3-4b-it-CoreAI-official",
       "license": "Gemma Terms",
-      "commercial_use": "check_license"
+      "commercial_use": "check_license",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "google/gemma-3-4b-it",
+      "io_contract": null
     },
     {
       "id": "official-gemma-3-12b-it",
@@ -1013,7 +1629,13 @@
       "artifact_size": "not_published",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/gemma-3-12b-it-CoreAI-official",
       "license": "Gemma Terms",
-      "commercial_use": "check_license"
+      "commercial_use": "check_license",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "google/gemma-3-12b-it",
+      "io_contract": null
     },
     {
       "id": "official-mistral-7b-v0-3",
@@ -1035,12 +1657,18 @@
       "artifact_size": "not_published",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/mistral-7b-v0.3-CoreAI-official",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "mistralai/Mistral-7B-Instruct-v0.3",
+      "io_contract": null
     },
     {
       "id": "official-flux-2-klein-4b",
       "name": "FLUX.2 klein 4B",
-      "bundle_kind": "diffusion",
+      "bundle_kind": "image-generation",
       "runner": "CoreAIDiffusionPipeline",
       "capabilities": [
         "image-generation"
@@ -1056,12 +1684,44 @@
       "artifact_size": "4GB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/FLUX.2-klein-4B-CoreAI",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "black-forest-labs/FLUX.2-klein-4B",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAIDiffusionPipeline",
+          "type": "Flux2Pipeline",
+          "init_pattern": "let pipeline = try await Flux2Pipeline(from: bundleURL, config: configSource, mode: decodeResolution)"
+        },
+        "inputs": [
+          {
+            "name": "prompt",
+            "modality": "text",
+            "swift_type": "String"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "images",
+            "swift_type": "[CGImage]",
+            "decoding": {
+              "format_selector": "1024x1024 default (pipeline.json image_size); default_steps 4, guidance 1.0"
+            }
+          }
+        ],
+        "files": {
+          "tokenizer_ref": "tokenizer",
+          "processor_ref": "pipeline.json"
+        }
+      }
     },
     {
       "id": "official-sam-3",
       "name": "SAM 3",
-      "bundle_kind": "segmenter",
+      "bundle_kind": "segmentation",
       "runner": "CoreAIImageSegmenter",
       "capabilities": [
         "promptable-segmentation"
@@ -1080,12 +1740,55 @@
       "artifact_size": "1.7GB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/sam3-CoreAI-official",
       "license": "Meta SAM License",
-      "commercial_use": "check_license"
+      "commercial_use": "check_license",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAIImageSegmenter",
+          "type": "ImageSegmenter",
+          "init_pattern": "let segmenter = try await ImageSegmenter(resourcesAt: bundleDir)"
+        },
+        "inputs": [
+          {
+            "name": "image",
+            "modality": "image",
+            "swift_type": "CGImage",
+            "preprocessing": {
+              "resize": "any size; the engine resizes internally"
+            }
+          },
+          {
+            "name": "prompt",
+            "modality": "text",
+            "swift_type": "String",
+            "constraints": {
+              "max_context": 32
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "name": "segments",
+            "swift_type": "SegmentationResponse",
+            "decoding": {
+              "coordinate_convention": "masks decoded to input-image pixel space (SegmentationPostprocessor.decode)",
+              "score_range": "segments sorted by score descending"
+            }
+          }
+        ],
+        "files": {
+          "tokenizer_ref": "tokenizer"
+        }
+      }
     },
     {
       "id": "official-whisper-large-v3-turbo",
       "name": "Whisper large-v3-turbo",
-      "bundle_kind": "speech",
+      "bundle_kind": "asr",
       "runner": "CoreAITranscribe",
       "capabilities": [
         "speech-to-text"
@@ -1101,7 +1804,45 @@
       "artifact_size": "1.5GB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/whisper-large-v3-turbo-CoreAI-official",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "openai/whisper-large-v3-turbo",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAI",
+          "type": "AIModel",
+          "init_pattern": "let model = try await AIModel(contentsOf: aimodelURL)"
+        },
+        "inputs": [
+          {
+            "name": "audio",
+            "modality": "audio",
+            "preprocessing": {
+              "sample_rate": 16000,
+              "normalization": "WhisperFeatureExtractor log-mel: 128 mel bins, n_fft 400, hop_length 160"
+            },
+            "constraints": {
+              "max_audio_s": 30
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "name": "transcript",
+            "swift_type": "String",
+            "decoding": {
+              "detokenization": "WhisperTokenizer (tokenizer/); autoregressive decode in a fixed 128-token window"
+            }
+          }
+        ],
+        "files": {
+          "tokenizer_ref": "tokenizer",
+          "processor_ref": "preprocessor_config.json"
+        }
+      }
     },
     {
       "id": "minicpm5-1b",
@@ -1124,7 +1865,13 @@
       "artifact_size": "1.0GB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/MiniCPM5-1B-CoreAI",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "openbmb/MiniCPM5-1B",
+      "io_contract": null
     },
     {
       "id": "fastcontext-1-0-4b",
@@ -1147,7 +1894,13 @@
       "artifact_size": "2.1GB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/FastContext-1.0-4B-CoreAI",
       "license": "MIT",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "microsoft/FastContext-1.0-4B-SFT",
+      "io_contract": null
     },
     {
       "id": "bitcpm-8b",
@@ -1169,7 +1922,13 @@
       "artifact_size": "2.1GB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/BitCPM-8B-CoreAI",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "openbmb/BitCPM-CANN-8B",
+      "io_contract": null
     },
     {
       "id": "holo2-4b",
@@ -1192,12 +1951,18 @@
       "artifact_size": "not_published",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/Holo2-4B-CoreAI",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Hcompany/Holo2-4B",
+      "io_contract": null
     },
     {
       "id": "colmodernvbert",
       "name": "ColModernVBERT",
-      "bundle_kind": "graph",
+      "bundle_kind": "embedding",
       "runner": "CoreAIKit-GraphModel",
       "capabilities": [
         "visual-document-retrieval"
@@ -1214,12 +1979,18 @@
       "artifact_size": "705MB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/ColModernVBERT-CoreAI",
       "license": "MIT",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "ModernVBERT/colmodernvbert",
+      "io_contract": null
     },
     {
       "id": "qwen3-asr-1-7b",
       "name": "Qwen3-ASR-1.7B",
-      "bundle_kind": "llm",
+      "bundle_kind": "asr",
       "runner": "CoreAIRunner",
       "capabilities": [
         "speech-to-text"
@@ -1235,12 +2006,18 @@
       "artifact_size": "not_published",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen3-ASR-1.7B-CoreAI",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen3-ASR-1.7B",
+      "io_contract": null
     },
     {
       "id": "parakeet-tdt-0-6b",
       "name": "Parakeet-TDT-0.6B",
-      "bundle_kind": "graph",
+      "bundle_kind": "asr",
       "runner": "CoreAIKit-GraphModel",
       "capabilities": [
         "speech-to-text"
@@ -1256,12 +2033,18 @@
       "artifact_size": "1.2GB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/Parakeet-TDT-0.6B-CoreAI",
       "license": "CC-BY-4.0",
-      "commercial_use": "check_license"
+      "commercial_use": "check_license",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null
     },
     {
       "id": "voxcpm2-2b",
       "name": "VoxCPM2 2B",
-      "bundle_kind": "llm",
+      "bundle_kind": "tts",
       "runner": "CoreAIRunner",
       "capabilities": [
         "text-to-speech"
@@ -1277,12 +2060,18 @@
       "artifact_size": "4.9GB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/VoxCPM2-CoreAI",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null
     },
     {
       "id": "yolox-s",
       "name": "YOLOX-S",
-      "bundle_kind": "detector",
+      "bundle_kind": "object-detection",
       "runner": "CoreAIKit-GraphModel",
       "capabilities": [
         "object-detection"
@@ -1300,12 +2089,18 @@
       "artifact_size": "36.2MB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/YOLOX-S-CoreAI",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null
     },
     {
       "id": "tripo-splat",
       "name": "TripoSplat",
-      "bundle_kind": "llm",
+      "bundle_kind": "3d",
       "runner": "CoreAIRunner",
       "capabilities": [
         "image-to-3d"
@@ -1321,7 +2116,13 @@
       "artifact_size": "not_published",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/TripoSplat-CoreAI",
       "license": "MIT",
-      "commercial_use": "check_license"
+      "commercial_use": "check_license",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null
     },
     {
       "id": "ltx-video-2b",
@@ -1342,7 +2143,13 @@
       "artifact_size": "13.5GB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/LTX-Video-2B-CoreAI",
       "license": "OpenRAIL-M",
-      "commercial_use": "check_license"
+      "commercial_use": "check_license",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null
     },
     {
       "id": "official-qwen3-1-7b",
@@ -1364,12 +2171,18 @@
       "artifact_size": "not_published",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/qwen3-1.7b-CoreAI-official",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen3-1.7B",
+      "io_contract": null
     },
     {
       "id": "official-clip-vit-base-patch32",
       "name": "CLIP ViT-B/32",
-      "bundle_kind": "graph",
+      "bundle_kind": "embedding",
       "runner": "CoreAIKit-GraphModel",
       "capabilities": [
         "image-text-similarity"
@@ -1386,7 +2199,13 @@
       "artifact_size": "not_published",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/clip-vit-base-patch32-CoreAI-official",
       "license": "MIT",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "openai/clip-vit-base-patch32",
+      "io_contract": null
     },
     {
       "id": "llada-8b-dllm",
@@ -1409,12 +2228,18 @@
       "artifact_size": "4.9GB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/LLaDA-8B-dLLM-CoreAI",
       "license": "MIT",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "d3LLM/d3LLM_LLaDA",
+      "io_contract": null
     },
     {
       "id": "bitvla",
       "name": "BitVLA",
-      "bundle_kind": "llm",
+      "bundle_kind": "action",
       "runner": "CoreAIRunner",
       "capabilities": [
         "vision-language-action",
@@ -1432,12 +2257,18 @@
       "artifact_size": "not_published",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/BitVLA-CoreAI",
       "license": "MIT",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null
     },
     {
       "id": "stable-audio-open-small",
       "name": "Stable Audio Open Small",
-      "bundle_kind": "diffusion",
+      "bundle_kind": "audio-generation",
       "runner": "CoreAIDiffusionPipeline",
       "capabilities": [
         "text-to-audio",
@@ -1454,12 +2285,18 @@
       "artifact_size": "1GB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/Stable-Audio-Open-Small-CoreAI",
       "license": "Stability Community",
-      "commercial_use": "check_license"
+      "commercial_use": "check_license",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null
     },
     {
       "id": "whisper-large-v3-turbo-carstenl",
       "name": "Whisper large-v3-turbo (CarstenL)",
-      "bundle_kind": "speech",
+      "bundle_kind": "asr",
       "runner": "CoreAITranscribe",
       "capabilities": [
         "speech-to-text"
@@ -1475,12 +2312,18 @@
       "artifact_size": "3.1GB",
       "huggingface_url": "https://huggingface.co/CarstenL/whisper-large-v3-turbo-coreai",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null
     },
     {
       "id": "whisper-tiny-en-intiser",
       "name": "Whisper tiny.en (Intiser)",
-      "bundle_kind": "speech",
+      "bundle_kind": "asr",
       "runner": "CoreAITranscribe",
       "capabilities": [
         "speech-to-text"
@@ -1496,12 +2339,18 @@
       "artifact_size": "not_published",
       "huggingface_url": "https://huggingface.co/Intiser/whisper-tiny-en-coreai",
       "license": "MIT",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null
     },
     {
       "id": "whisper-medium-intiser",
       "name": "Whisper medium (Intiser)",
-      "bundle_kind": "speech",
+      "bundle_kind": "asr",
       "runner": "CoreAITranscribe",
       "capabilities": [
         "speech-to-text"
@@ -1517,7 +2366,13 @@
       "artifact_size": "not_published",
       "huggingface_url": "https://huggingface.co/Intiser/whisper-medium-coreai",
       "license": "MIT",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null
     },
     {
       "id": "gemma-4-12b-mm-warshanks",
@@ -1542,7 +2397,13 @@
       "artifact_size": "6.4GB",
       "huggingface_url": "https://huggingface.co/warshanks/gemma-4-12B-it-coreai",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "google/gemma-4-12B-it",
+      "io_contract": null
     },
     {
       "id": "gemma-4-12b-assistant-warshanks",
@@ -1563,12 +2424,18 @@
       "artifact_size": "not_published",
       "huggingface_url": "https://huggingface.co/warshanks/gemma-4-12B-it-assistant-coreai",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "google/gemma-4-12B-it-assistant",
+      "io_contract": null
     },
     {
       "id": "vibevoice-0-5b",
       "name": "VibeVoice 0.5B",
-      "bundle_kind": "llm",
+      "bundle_kind": "tts",
       "runner": "CoreAIRunner",
       "capabilities": [
         "text-to-speech"
@@ -1584,12 +2451,18 @@
       "artifact_size": "not_published",
       "huggingface_url": "https://huggingface.co/gafiatulin/vibevoice-0.5b-coreai",
       "license": "MIT",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null
     },
     {
       "id": "vibevoice-1-5b",
       "name": "VibeVoice 1.5B",
-      "bundle_kind": "llm",
+      "bundle_kind": "tts",
       "runner": "CoreAIRunner",
       "capabilities": [
         "text-to-speech"
@@ -1605,12 +2478,18 @@
       "artifact_size": "not_published",
       "huggingface_url": "https://huggingface.co/gafiatulin/vibevoice-1.5b-coreai",
       "license": "MIT",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null
     },
     {
       "id": "vibevoice-7b",
       "name": "VibeVoice 7B",
-      "bundle_kind": "llm",
+      "bundle_kind": "tts",
       "runner": "CoreAIRunner",
       "capabilities": [
         "text-to-speech"
@@ -1626,12 +2505,18 @@
       "artifact_size": "not_published",
       "huggingface_url": "https://huggingface.co/gafiatulin/vibevoice-7b-coreai",
       "license": "MIT",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null
     },
     {
       "id": "vibevoice-asr",
       "name": "VibeVoice ASR",
-      "bundle_kind": "llm",
+      "bundle_kind": "asr",
       "runner": "CoreAIRunner",
       "capabilities": [
         "speech-to-text"
@@ -1647,12 +2532,18 @@
       "artifact_size": "not_published",
       "huggingface_url": "https://huggingface.co/gafiatulin/vibevoice-asr-coreai",
       "license": "MIT",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null
     },
     {
       "id": "nemotron-3-5-asr-streaming",
       "name": "Nemotron 3.5 ASR Streaming 0.6B",
-      "bundle_kind": "speech",
+      "bundle_kind": "asr",
       "runner": "CoreAITranscribe",
       "capabilities": [
         "speech-to-text"
@@ -1668,12 +2559,18 @@
       "artifact_size": "not_published",
       "huggingface_url": "https://huggingface.co/mweinbach/nemotron-3.5-asr-streaming-0.6b-coreai",
       "license": "OpenMDW-1.1",
-      "commercial_use": "check_license"
+      "commercial_use": "check_license",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null
     },
     {
       "id": "z-image-turbo",
       "name": "Z-Image Turbo",
-      "bundle_kind": "diffusion",
+      "bundle_kind": "image-generation",
       "runner": "CoreAIDiffusionPipeline",
       "capabilities": [
         "image-generation"
@@ -1689,12 +2586,18 @@
       "artifact_size": "not_published",
       "huggingface_url": "https://huggingface.co/bryanbblewis11/Z-Image-Turbo-CoreAI",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Tongyi-MAI/Z-Image-Turbo",
+      "io_contract": null
     },
     {
       "id": "real-esrgan-x4v3",
       "name": "Real-ESRGAN x4v3",
-      "bundle_kind": "segmenter",
+      "bundle_kind": "super-resolution",
       "runner": "CoreAIImageSegmenter",
       "capabilities": [
         "super-resolution"
@@ -1710,12 +2613,18 @@
       "artifact_size": "not_published",
       "huggingface_url": "https://huggingface.co/bryanbblewis11/RealESRGAN-x4v3-CoreAI",
       "license": "BSD-3-Clause",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null
     },
     {
       "id": "efficientsam3-tinyvit",
       "name": "EfficientSAM3-TinyViT",
-      "bundle_kind": "segmenter",
+      "bundle_kind": "segmentation",
       "runner": "CoreAIImageSegmenter",
       "capabilities": [
         "promptable-segmentation"
@@ -1731,7 +2640,13 @@
       "artifact_size": "374MB",
       "huggingface_url": "https://huggingface.co/lenitas/coreai-artifacts/tree/main/artifacts/efficientsam3-tinyvit/default",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null
     },
     {
       "id": "rwkv7-goose-1-5b",
@@ -1753,12 +2668,18 @@
       "artifact_size": "not_published",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/RWKV7-Goose-1.5B-CoreAI",
       "license": "Apache-2.0",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null
     },
     {
       "id": "vjepa2-vitl-ssv2",
       "name": "V-JEPA 2 ViT-L (SSv2)",
-      "bundle_kind": "graph",
+      "bundle_kind": "video",
       "runner": "CoreAIKit-GraphModel",
       "capabilities": [
         "video-classification"
@@ -1774,7 +2695,49 @@
       "artifact_size": "700MB",
       "huggingface_url": "https://huggingface.co/mlboydaisuke/VJEPA2-ViTL-SSv2-CoreAI",
       "license": "MIT",
-      "commercial_use": "likely"
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "facebook/vjepa2-vitl-fpc16-256-ssv2",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAI",
+          "type": "AIModel",
+          "init_pattern": "let model = try await AIModel(contentsOf: aimodelURL)"
+        },
+        "inputs": [
+          {
+            "name": "pixel_values_videos",
+            "modality": "video",
+            "tensor": {
+              "shape": [
+                1,
+                16,
+                3,
+                256,
+                256
+              ],
+              "dtype": "float16",
+              "layout": "B,F,C,H,W"
+            },
+            "preprocessing": {
+              "resize": "16 frames uniformly sampled, 256x256 center crop",
+              "normalization": "RGB 0..1 -> (x - mean)/std, mean=[0.485,0.456,0.406], std=[0.229,0.224,0.225]",
+              "color_format": "RGB"
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "name": "logits",
+            "decoding": {
+              "label_vocab_ref": "labels.json (Something-Something v2, 174 classes)"
+            }
+          }
+        ]
+      }
     }
   ]
 }

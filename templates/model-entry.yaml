@@ -53,3 +53,51 @@
   context_window: replace-me   # optional
   streaming: false   # optional
   notes: One-line description or caveats.
+  bundle_kind: llm   # llm | vlm | ocr | audio-lm | embedding | reranker | object-detection | segmentation | depth | image-generation | super-resolution | tts | asr | audio-generation | video | 3d | action — Authored task-level bundle kind (redteam C5). Derived from the catalog's capability vocabulary — NOT the runtime's 4-value BundleKind enum (apple/coreai-models swift/Sources/CoreAIShared/Bundle/BundleKind.swift:12-17: llm/vlm/diffusion/segmenter). exports.py re-derives this from capabilities and fails the export on disagreement. — optional
+  min_os:   # Minimum OS version required by the model's runtime (redteam E5 / min_os data gap). For runtime_name apple-core-ai this is grounded in apple/coreai-models Package.swift: platforms: [.macOS("27.0"), .iOS("27.0")]. — optional
+    macos: '27.0'   # optional
+    ios: '27.0'   # optional
+  superseded_by: newer-model-id   # Model id of the catalog entry that supersedes this one (lifecycle, redteam E4). — optional
+  deprecation:   # Deprecation record — set together with status: deprecated (lifecycle, redteam E4). — optional
+    date: '2026-01-01'
+    reason: replace-me
+  upstream_repo: Qwen/Qwen3-0.6B   # Upstream source model repo as org/name (e.g. Qwen/Qwen3-0.6B) — the dedup key for discovery tooling (redteam F4). Real .aimodel bundles record this as metadata.json source.hf_model_id. — optional
+  io_contract:   # Machine-readable typed Swift-IO contract (redteam C1/C2/C6/C7, spec §3.3). Authored from the .aimodel bundle's real metadata (metadata.json / recipe.json in the pinned HF revision) plus the apple/coreai-models Swift API. Absent when the contract could not be verified — never guessed. — optional
+    entrypoint:   # optional
+      framework: CoreAILanguageModels   # optional
+      type: CoreAILanguageModel   # optional
+      init_pattern: 'try await CoreAILanguageModel(resourcesAt:)'   # optional
+    inputs:   # optional
+    - name: prompt
+      modality: text
+      swift_type: String   # optional
+      tensor:   # optional
+        shape:   # optional
+        - 1
+        dtype: replace-me   # optional
+        layout: replace-me   # optional
+      preprocessing:   # optional
+        resize: replace-me   # optional
+        normalization: replace-me   # optional
+        color_format: replace-me   # optional
+        sample_rate: 1   # optional
+      constraints:   # optional
+        max_context: 1   # optional
+        max_image_px: 1   # optional
+        max_audio_s: 1.0   # optional
+    outputs:   # optional
+    - name: response
+      swift_type: String   # optional
+      decoding:   # optional
+        format_selector: replace-me   # optional
+        coordinate_convention: replace-me   # optional
+        label_vocab_ref: replace-me   # optional
+        embedding_dim: 1   # optional
+        score_range: replace-me   # optional
+        detokenization: replace-me   # optional
+    session:   # optional
+      stateful: false   # optional
+      streaming: false   # optional
+    files:   # Paths inside the pinned HF revision of the artifact repo. — optional
+      tokenizer_ref: tokenizer   # optional
+      processor_ref: preprocessor_config.json   # optional

@@ -1,0 +1,117 @@
+# Compile-check the SwiftPM example packages (redteam findings C3/C4/C8/C10).
+#
+# Minimum bar on EVERY runner (works on any SDK):
+#   * `swift package dump-package` for each example package
+#   * `xcrun swiftc -parse` for each example source file
+#   * capability tables in examples/*/README.md are in sync with catalog.yaml
+#
+# Full `swift build` needs the macOS 27 SDK (apple/coreai-models declares
+# platforms macOS 27 / iOS 27). The job selects the NEWEST Xcode available
+# on the runner and, if the macOS SDK is still older than 27, SKIPS the
+# build with an explicit notice in the step summary — a visible skip, not a
+# silent green and not a suppressed failure.
+
+name: Swift examples
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'examples/**'
+      - 'catalog.yaml'
+      - 'artifacts.yaml'
+      - 'scripts/generate_example_tables.py'
+      - '.github/workflows/swift-examples.yml'
+  pull_request:
+    paths:
+      - 'examples/**'
+      - 'catalog.yaml'
+      - 'artifacts.yaml'
+      - 'scripts/generate_example_tables.py'
+      - '.github/workflows/swift-examples.yml'
+
+jobs:
+  examples:
+    runs-on: macos-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Select newest available Xcode
+        run: |
+          set -euo pipefail
+          NEWEST=$(ls -d /Applications/Xcode*.app | sort -V | tail -1)
+          echo "Selecting: $NEWEST"
+          sudo xcode-select -s "$NEWEST/Contents/Developer"
+          xcodebuild -version
+          swift --version
+
+      - name: Detect macOS 27 SDK
+        id: sdk
+        run: |
+          set -euo pipefail
+          SDK_VERSION=$(xcrun --sdk macosx --show-sdk-version)
+          SDK_MAJOR=${SDK_VERSION%%.*}
+          echo "macOS SDK version: $SDK_VERSION"
+          echo "version=$SDK_VERSION" >> "$GITHUB_OUTPUT"
+          if [ "$SDK_MAJOR" -ge 27 ]; then
+            echo "macos27=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "macos27=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Manifest check — swift package dump-package (all examples)
+        run: |
+          set -euo pipefail
+          for dir in examples/*/; do
+            [ -f "$dir/Package.swift" ] || continue
+            echo "── dump-package: $dir"
+            (cd "$dir" && swift package dump-package > /dev/null)
+          done
+
+      - name: Syntax check — swiftc -parse (all example sources)
+        run: |
+          set -euo pipefail
+          find examples -name '*.swift' -not -name 'Package.swift' | while read -r file; do
+            echo "── parse: $file"
+            xcrun swiftc -parse "$file"
+          done
+
+      - name: Capability tables in sync with catalog.yaml
+        run: |
+          python3 -m pip install --quiet pyyaml
+          python3 scripts/generate_example_tables.py --check
+
+      - name: Build examples (requires macOS 27 SDK)
+        if: steps.sdk.outputs.macos27 == 'true'
+        run: |
+          set -euo pipefail
+          {
+            echo "## Swift examples build"
+            echo ""
+            echo "macOS SDK ${{ steps.sdk.outputs.version }} — full \`swift build\` ran:"
+            echo ""
+          } >> "$GITHUB_STEP_SUMMARY"
+          for dir in examples/*/; do
+            [ -f "$dir/Package.swift" ] || continue
+            echo "── swift build: $dir"
+            (cd "$dir" && swift build)
+            echo "- ✅ \`$dir\` built" >> "$GITHUB_STEP_SUMMARY"
+          done
+
+      - name: Build skipped — macOS 27 SDK not available on this runner
+        if: steps.sdk.outputs.macos27 != 'true'
+        run: |
+          {
+            echo "## Swift examples build: SKIPPED"
+            echo ""
+            echo "> ⚠️ The newest Xcode on this runner ships the macOS"
+            echo "> **${{ steps.sdk.outputs.version }}** SDK, but the example"
+            echo "> packages depend on apple/coreai-models, which requires"
+            echo "> **macOS 27.0+**. \`swift build\` was skipped."
+            echo ">"
+            echo "> What DID run and pass: \`swift package dump-package\`,"
+            echo "> \`swiftc -parse\` for every source, and the"
+            echo "> catalog.yaml capability-table sync check."
+          } >> "$GITHUB_STEP_SUMMARY"
+          echo "::notice title=Swift build skipped::macOS 27 SDK unavailable (runner has ${{ steps.sdk.outputs.version }}); dump-package + parse + table checks still ran."

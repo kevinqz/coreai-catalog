@@ -2,15 +2,28 @@
 """Source Monitor: detect new Core AI models from upstream sources.
 
 Checks Hugging Face accounts and GitHub repos for new Core AI artifacts
-not yet in the catalog. Outputs a structured report for human review.
+not yet in the catalog. Outputs a structured report for human review AND
+machine-readable candidate stubs (partial catalog.yaml/artifacts.yaml
+entries) that a future agent job can turn into draft PRs — see the
+"Followup" note at the bottom of this docstring.
 
 Usage:
     python scripts/source_monitor.py                    # full scan
     python scripts/source_monitor.py --json             # JSON output
-    python scripts/source_monitor.py --since 24h        # lookback period
+    python scripts/source_monitor.py --since 24        # lookback hours
+    python scripts/source_monitor.py --stubs-out /tmp/stubs.json
 
-This script is designed to run via GitHub Actions (source-monitor.yml)
-every 3 hours. It creates a GitHub Issue when new models are detected.
+This script runs via GitHub Actions (source-monitor.yml) every 3 hours.
+The workflow UPSERTS a single pinned issue (label ``source-monitor``) —
+it never files duplicates (redteam finding F5: the old workflow created
+a new issue on every run, up to 8/day per backlog item).
+
+Followup (documented, not yet implemented): an agent job with gh-aw
+"safe outputs" should consume the candidate stubs embedded in the pinned
+issue (or --stubs-out), fetch the remaining HF/zoo metadata, fill the
+unknowns, run the local gate (scripts/validate.py + scripts/audit.py),
+and open a DRAFT PR as its only write output — so the maintainer reviews
+a validated diff instead of a link list.
 """
 from __future__ import annotations
 
@@ -231,6 +244,81 @@ def classify_model(repo_short: str) -> dict:
     }
 
 
+#: Model-schema required fields a stub can never infer from a repo name.
+#: Kept explicit so the stub consumer (future draft-PR agent job) knows
+#: exactly what it still has to source before the entry can validate.
+STUB_UNRESOLVED_FIELDS = [
+    "family",
+    "size.parameters",
+    "size.precision",
+    "size.quantization",
+    "size.artifact_size",
+    "license.name",
+    "license.commercial_use",
+    "sources",
+]
+
+
+def build_candidate_stub(m: dict) -> dict:
+    """Machine-readable draft entries for a newly detected artifact.
+
+    Only fields inferable from the repo name/classification are filled
+    (never fabricate — unknown stays 'unknown' where the schema allows it,
+    otherwise the field is listed in missing_required). The stub is the
+    input contract for the future agent job that turns detections into
+    draft PRs.
+    """
+    hf_owner, _, hf_repo = m["repo"].partition("/")
+    model_stub = {
+        "id": m["suggested_id"],
+        "name": m["repo_short"],
+        "source_group": m["source_group"],
+        "source_path": m["url"],
+        "artifact_ref": m["suggested_id"],
+        "capabilities": m["capabilities"],
+        "runtime": {
+            "runtime_name": "apple-core-ai",
+            "runner": m["runner"],
+            "stock_runtime": True if m["runner"] == "stock-runner" else "unknown",
+            "custom_kernel": "unknown",
+            "patch_required": "unknown",
+            "tokenizer_required": "unknown",
+            "processor_required": "unknown",
+            "aot_required": "unknown",
+        },
+        "artifact": {"format": "aimodel", "availability": "available"},
+        "device_support": {
+            "iphone": "unknown", "ipad": "unknown",
+            "mac": "unknown", "mac_only": "unknown",
+        },
+        "status": "needs_review",
+        "maturity": "unknown",
+        "confidence": "needs_review",
+    }
+    artifact_stub = {
+        "id": m["suggested_id"],
+        "group": m["source_group"] if m["source_group"] != "fabric" else "external",
+        "huggingface": {
+            "owner": hf_owner,
+            "repo": hf_repo,
+            "url": m["url"],
+        },
+        "officiality": {
+            "apple_export_recipe": m["source_group"] == "official",
+            "apple_hosted_artifact": False,
+            "community_packaged": True,
+        },
+    }
+    return {
+        "kind": "model-candidate",
+        "detected": m["last_modified"],
+        "hf_repo": m["repo"],
+        "model": model_stub,
+        "artifact": artifact_stub,
+        "missing_required": list(STUB_UNRESOLVED_FIELDS),
+    }
+
+
 def run_monitor(since_hours: int = 72) -> dict:
     """Run the full source monitor scan.
 
@@ -249,11 +337,12 @@ def run_monitor(since_hours: int = 72) -> dict:
         models = check_hf_account(account, known_repos, since_date)
         all_hf_models.extend(models)
 
-    # Classify new models
+    # Classify new models + build machine-readable candidate stubs
     new_models = [m for m in all_hf_models if m["is_new"]]
     for m in new_models:
         classification = classify_model(m["repo_short"])
         m.update(classification)
+    candidate_stubs = [build_candidate_stub(m) for m in new_models]
 
     # Check zoo tree
     zoo_status = check_zoo_tree(known_ids)
@@ -265,13 +354,20 @@ def run_monitor(since_hours: int = 72) -> dict:
         "hf_total_checked": len(all_hf_models),
         "hf_new_count": len(new_models),
         "new_models": new_models,
+        "candidate_stubs": candidate_stubs,
         "zoo_status": zoo_status,
     }
 
 
+#: Stable marker so the workflow (and humans) can find the ONE managed
+#: issue this report is upserted into. Never file duplicates.
+PINNED_ISSUE_MARKER = "<!-- coreai-catalog:source-monitor -->"
+
+
 def format_report(report: dict) -> str:
-    """Format the report as Markdown for GitHub Issue."""
+    """Format the report as Markdown for the single pinned GitHub Issue."""
     lines = [
+        PINNED_ISSUE_MARKER,
         f"## Source Monitor Report",
         f"",
         f"**Scan time:** {report['scan_time']}",
@@ -308,7 +404,25 @@ def format_report(report: dict) -> str:
             lines.append(f"- ... and {len(zoo['new']) - 10} more")
         lines.append("")
 
+    if report.get("candidate_stubs"):
+        lines.append("### Machine-readable candidate stubs")
+        lines.append("")
+        lines.append("Partial `catalog.yaml`/`artifacts.yaml` entries for a future")
+        lines.append("draft-PR agent job (fields it must still resolve are listed in")
+        lines.append("`missing_required` — nothing here is fabricated).")
+        lines.append("")
+        lines.append("<details><summary>candidate_stubs.json</summary>")
+        lines.append("")
+        lines.append("```json")
+        lines.append(json.dumps(report["candidate_stubs"], indent=2, ensure_ascii=False))
+        lines.append("```")
+        lines.append("")
+        lines.append("</details>")
+        lines.append("")
+
     lines.append("---")
+    lines.append("This issue is **upserted in place** by `source-monitor.yml` — "
+                 "do not open duplicates; the next scan overwrites this body.")
     lines.append("Review findings and update `catalog.yaml` if new models are confirmed.")
     return "\n".join(lines)
 
@@ -318,9 +432,16 @@ def main() -> int:
     parser.add_argument("--since", type=int, default=72, help="Lookback hours (default: 72)")
     parser.add_argument("--json", action="store_true", help="Output as JSON")
     parser.add_argument("--format", choices=["markdown", "json"], default="markdown")
+    parser.add_argument("--stubs-out", type=str, default=None,
+                        help="Write machine-readable candidate stubs to this JSON file")
     args = parser.parse_args()
 
     report = run_monitor(since_hours=args.since)
+
+    if args.stubs_out:
+        Path(args.stubs_out).write_text(
+            json.dumps(report["candidate_stubs"], indent=2, ensure_ascii=False) + "\n"
+        )
 
     if args.json or args.format == "json":
         print(json.dumps(report, indent=2, ensure_ascii=False))

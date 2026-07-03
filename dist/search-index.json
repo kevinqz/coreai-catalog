@@ -8,6 +8,13 @@
       "name": "Qwen3.5-0.8B",
       "family": "Qwen",
       "source_group": "zoo",
+      "bundle_kind": "llm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen3.5-0.8B",
+      "io_contract": null,
       "capabilities": [
         "chat",
         "text-generation"
@@ -115,6 +122,13 @@
       "name": "Qwen3.5-2B",
       "family": "Qwen",
       "source_group": "zoo",
+      "bundle_kind": "llm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen3.5-2B",
+      "io_contract": null,
       "capabilities": [
         "chat",
         "text-generation"
@@ -203,6 +217,13 @@
       "name": "Qwen3.6-35B-A3B",
       "family": "Qwen",
       "source_group": "zoo",
+      "bundle_kind": "llm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen3.6-35B-A3B",
+      "io_contract": null,
       "capabilities": [
         "chat",
         "text-generation",
@@ -272,6 +293,13 @@
       "name": "Qwen3.6-27B",
       "family": "Qwen",
       "source_group": "zoo",
+      "bundle_kind": "llm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen3.6-27B",
+      "io_contract": null,
       "capabilities": [
         "chat",
         "text-generation"
@@ -340,6 +368,13 @@
       "name": "GLM-4.7-Flash",
       "family": "GLM",
       "source_group": "zoo",
+      "bundle_kind": "llm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "zai-org/GLM-4.7-Flash",
+      "io_contract": null,
       "capabilities": [
         "chat",
         "text-generation",
@@ -410,6 +445,13 @@
       "name": "Gemma 4 E2B",
       "family": "Gemma",
       "source_group": "zoo",
+      "bundle_kind": "llm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null,
       "capabilities": [
         "chat",
         "text-generation"
@@ -555,6 +597,13 @@
       "name": "Gemma 4 E4B",
       "family": "Gemma",
       "source_group": "zoo",
+      "bundle_kind": "llm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "google/gemma-4-E4B-it-qat-q4_0-unquantized",
+      "io_contract": null,
       "capabilities": [
         "chat",
         "text-generation"
@@ -662,6 +711,13 @@
       "name": "Gemma 4 12B",
       "family": "Gemma",
       "source_group": "zoo",
+      "bundle_kind": "llm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "google/gemma-4-12B-it-qat-q4_0-unquantized",
+      "io_contract": null,
       "capabilities": [
         "chat",
         "text-generation"
@@ -749,6 +805,13 @@
       "name": "Gemma 4 31B",
       "family": "Gemma",
       "source_group": "zoo",
+      "bundle_kind": "llm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "google/gemma-4-31B-it-qat-q4_0-unquantized",
+      "io_contract": null,
       "capabilities": [
         "chat",
         "text-generation"
@@ -817,6 +880,13 @@
       "name": "LFM2.5-1.2B-Instruct",
       "family": "LFM",
       "source_group": "zoo",
+      "bundle_kind": "llm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "LiquidAI/LFM2.5-1.2B-Instruct",
+      "io_contract": null,
       "capabilities": [
         "chat",
         "text-generation",
@@ -906,6 +976,13 @@
       "name": "LFM2.5-8B-A1B",
       "family": "LFM",
       "source_group": "zoo",
+      "bundle_kind": "llm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "LiquidAI/LFM2.5-8B-A1B",
+      "io_contract": null,
       "capabilities": [
         "chat",
         "text-generation",
@@ -956,6 +1033,13 @@
       "name": "Granite 4.0-H 1B",
       "family": "Granite",
       "source_group": "zoo",
+      "bundle_kind": "llm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "ibm-granite/granite-4.0-h-1b",
+      "io_contract": null,
       "capabilities": [
         "chat",
         "text-generation",
@@ -1045,6 +1129,13 @@
       "name": "Granite 4.0-H 350M",
       "family": "Granite",
       "source_group": "zoo",
+      "bundle_kind": "llm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "ibm-granite/granite-4.0-h-350m",
+      "io_contract": null,
       "capabilities": [
         "chat",
         "text-generation",
@@ -1095,6 +1186,13 @@
       "name": "Nanbeige4.1-3B",
       "family": "Nanbeige",
       "source_group": "zoo",
+      "bundle_kind": "llm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Nanbeige/Nanbeige4.1-3B",
+      "io_contract": null,
       "capabilities": [
         "chat",
         "reasoning",
@@ -1185,6 +1283,13 @@
       "name": "Qwen3-VL 2B",
       "family": "Qwen",
       "source_group": "zoo",
+      "bundle_kind": "vlm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen3-VL-2B-Instruct",
+      "io_contract": null,
       "capabilities": [
         "vision-language"
       ],
@@ -1273,6 +1378,13 @@
       "name": "Qwen3-VL 4B",
       "family": "Qwen",
       "source_group": "zoo",
+      "bundle_kind": "vlm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen3-VL-4B-Instruct",
+      "io_contract": null,
       "capabilities": [
         "vision-language"
       ],
@@ -1322,6 +1434,13 @@
       "name": "Qwen3-VL 8B",
       "family": "Qwen",
       "source_group": "zoo",
+      "bundle_kind": "vlm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen3-VL-8B-Instruct",
+      "io_contract": null,
       "capabilities": [
         "vision-language"
       ],
@@ -1371,6 +1490,60 @@
       "name": "MiniCPM-V 4.6",
       "family": "MiniCPM",
       "source_group": "zoo",
+      "bundle_kind": "vlm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "openbmb/MiniCPM-V-4.6",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAILanguageModels",
+          "type": "CoreAIRunner",
+          "init_pattern": "let engine = try await CoreAIRunner(contentsOf: bundleURL).makeInferenceEngine()"
+        },
+        "inputs": [
+          {
+            "name": "image",
+            "modality": "image",
+            "swift_type": "URL",
+            "tensor": {
+              "shape": [
+                1,
+                3,
+                448,
+                448
+              ],
+              "dtype": "fp16",
+              "layout": "NCHW"
+            }
+          },
+          {
+            "name": "prompt",
+            "modality": "text",
+            "swift_type": "String",
+            "constraints": {
+              "max_context": 4096
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "name": "response",
+            "swift_type": "String",
+            "decoding": {
+              "detokenization": "embedded tokenizer (openbmb/MiniCPM-V-4.6, vocab 248094)"
+            }
+          }
+        ],
+        "session": {
+          "stateful": true,
+          "streaming": true
+        },
+        "files": {
+          "tokenizer_ref": "gpu-pipelined/minicpmv46_vlm_decode_int8hu/tokenizer"
+        }
+      },
       "capabilities": [
         "vision-language"
       ],
@@ -1459,6 +1632,13 @@
       "name": "Gemma 4 E2B Vision",
       "family": "Gemma",
       "source_group": "zoo",
+      "bundle_kind": "vlm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null,
       "capabilities": [
         "vision-language"
       ],
@@ -1547,6 +1727,59 @@
       "name": "Unlimited-OCR",
       "family": "Unlimited-OCR",
       "source_group": "zoo",
+      "bundle_kind": "ocr",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAI",
+          "type": "AIModel",
+          "init_pattern": "let vision = try await AIModel(contentsOf: visionURL); let decoder = try await AIModel(contentsOf: decoderURL)"
+        },
+        "inputs": [
+          {
+            "name": "document_image",
+            "modality": "image",
+            "swift_type": "CGImage",
+            "preprocessing": {
+              "resize": "pad to 640x640 (ImageOps.pad; pad color = mean*255)",
+              "normalization": "mean=0.5 std=0.5 (all channels)",
+              "color_format": "RGB"
+            },
+            "constraints": {
+              "max_image_px": 640
+            }
+          },
+          {
+            "name": "prompt_input_ids",
+            "modality": "text",
+            "swift_type": "[Int32]",
+            "tensor": {
+              "shape": [
+                115
+              ],
+              "dtype": "int32"
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "name": "text",
+            "swift_type": "String",
+            "decoding": {
+              "format_selector": "fixed prompt prefix (assets/prompt_input_ids.i32) — output interleaves markdown, HTML tables and LaTeX formulas; not prompt-selectable",
+              "detokenization": "greedy decode to eos id 1; detokenize with tokenizer/ (LlamaTokenizerFast)"
+            }
+          }
+        ],
+        "files": {
+          "tokenizer_ref": "tokenizer",
+          "processor_ref": "assets/recipe.json"
+        }
+      },
       "capabilities": [
         "document-ocr"
       ],
@@ -1598,6 +1831,13 @@
       "name": "Qwen2.5-Omni-3B Audio",
       "family": "Qwen",
       "source_group": "zoo",
+      "bundle_kind": "audio-lm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen2.5-Omni-3B",
+      "io_contract": null,
       "capabilities": [
         "audio-understanding"
       ],
@@ -1646,6 +1886,13 @@
       "name": "Kokoro-82M",
       "family": "Kokoro",
       "source_group": "zoo",
+      "bundle_kind": "tts",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "hexgrad/Kokoro-82M",
+      "io_contract": null,
       "capabilities": [
         "text-to-speech"
       ],
@@ -1694,6 +1941,13 @@
       "name": "VoxCPM-0.5B",
       "family": "VoxCPM",
       "source_group": "zoo",
+      "bundle_kind": "tts",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null,
       "capabilities": [
         "text-to-speech"
       ],
@@ -1762,6 +2016,13 @@
       "name": "EmbeddingGemma 300M",
       "family": "Gemma",
       "source_group": "zoo",
+      "bundle_kind": "embedding",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "google/embeddinggemma-300m",
+      "io_contract": null,
       "capabilities": [
         "embedding"
       ],
@@ -1810,6 +2071,41 @@
       "name": "Qwen3-Embedding 0.6B",
       "family": "Qwen",
       "source_group": "zoo",
+      "bundle_kind": "embedding",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen3-Embedding-0.6B",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAI",
+          "type": "AIModel",
+          "init_pattern": "let model = try await AIModel(contentsOf: aimodelURL)"
+        },
+        "inputs": [
+          {
+            "name": "text",
+            "modality": "text",
+            "constraints": {
+              "max_context": 512
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "name": "embedding",
+            "swift_type": "[Float]",
+            "decoding": {
+              "embedding_dim": 1024,
+              "format_selector": "last-token pooling, L2-normalized; MRL-truncatable to 32..1024 dims"
+            }
+          }
+        ],
+        "files": {
+          "tokenizer_ref": "tokenizer"
+        }
+      },
       "capabilities": [
         "embedding"
       ],
@@ -1878,6 +2174,44 @@
       "name": "Qwen3-Reranker 0.6B",
       "family": "Qwen",
       "source_group": "zoo",
+      "bundle_kind": "reranker",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen3-Reranker-0.6B",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAI",
+          "type": "AIModel",
+          "init_pattern": "let model = try await AIModel(contentsOf: aimodelURL)"
+        },
+        "inputs": [
+          {
+            "name": "query",
+            "modality": "text",
+            "constraints": {
+              "max_context": 512
+            }
+          },
+          {
+            "name": "documents",
+            "modality": "text"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "score",
+            "swift_type": "Float",
+            "decoding": {
+              "score_range": "0..1 — probs[1] = P(yes) = relevance"
+            }
+          }
+        ],
+        "files": {
+          "tokenizer_ref": "tokenizer"
+        }
+      },
       "capabilities": [
         "reranking"
       ],
@@ -1947,6 +2281,40 @@
       "name": "RF-DETR Nano",
       "family": "RF-DETR",
       "source_group": "zoo",
+      "bundle_kind": "object-detection",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAIObjectDetector",
+          "type": "ObjectDetector",
+          "init_pattern": "let detector = try await ObjectDetector(resourcesAt: \"<install-dir>/rfdetr-nano_float32.aimodel\")"
+        },
+        "inputs": [
+          {
+            "name": "image",
+            "modality": "image",
+            "swift_type": "CGImage",
+            "preprocessing": {
+              "normalization": "RGB scaled to [0,1] (DetectionParameters normalizationMeans/Stds)",
+              "color_format": "RGB"
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "name": "detections",
+            "swift_type": "[DetectedObject]",
+            "decoding": {
+              "coordinate_convention": "boundingBox: pixel CGRect, top-left origin (decoded from 300 normalized cxcywh queries; no NMS)",
+              "label_vocab_ref": "COCO 91-id logit columns; ObjectDetectionLabels.coco default mapping"
+            }
+          }
+        ]
+      },
       "capabilities": [
         "object-detection"
       ],
@@ -2017,6 +2385,40 @@
       "name": "RF-DETR Small",
       "family": "RF-DETR",
       "source_group": "zoo",
+      "bundle_kind": "object-detection",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAIObjectDetector",
+          "type": "ObjectDetector",
+          "init_pattern": "let detector = try await ObjectDetector(resourcesAt: \"<install-dir>/rfdetr-small_float32.aimodel\")"
+        },
+        "inputs": [
+          {
+            "name": "image",
+            "modality": "image",
+            "swift_type": "CGImage",
+            "preprocessing": {
+              "normalization": "RGB scaled to [0,1] (DetectionParameters normalizationMeans/Stds)",
+              "color_format": "RGB"
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "name": "detections",
+            "swift_type": "[DetectedObject]",
+            "decoding": {
+              "coordinate_convention": "boundingBox: pixel CGRect, top-left origin (decoded from 300 normalized cxcywh queries; no NMS)",
+              "label_vocab_ref": "COCO 91-id logit columns; ObjectDetectionLabels.coco default mapping"
+            }
+          }
+        ]
+      },
       "capabilities": [
         "object-detection"
       ],
@@ -2087,6 +2489,40 @@
       "name": "RF-DETR Medium",
       "family": "RF-DETR",
       "source_group": "zoo",
+      "bundle_kind": "object-detection",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAIObjectDetector",
+          "type": "ObjectDetector",
+          "init_pattern": "let detector = try await ObjectDetector(resourcesAt: \"<install-dir>/rfdetr-medium_float32.aimodel\")"
+        },
+        "inputs": [
+          {
+            "name": "image",
+            "modality": "image",
+            "swift_type": "CGImage",
+            "preprocessing": {
+              "normalization": "RGB scaled to [0,1] (DetectionParameters normalizationMeans/Stds)",
+              "color_format": "RGB"
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "name": "detections",
+            "swift_type": "[DetectedObject]",
+            "decoding": {
+              "coordinate_convention": "boundingBox: pixel CGRect, top-left origin (decoded from 300 normalized cxcywh queries; no NMS)",
+              "label_vocab_ref": "COCO 91-id logit columns; ObjectDetectionLabels.coco default mapping"
+            }
+          }
+        ]
+      },
       "capabilities": [
         "object-detection"
       ],
@@ -2157,6 +2593,40 @@
       "name": "RF-DETR Large",
       "family": "RF-DETR",
       "source_group": "zoo",
+      "bundle_kind": "object-detection",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAIObjectDetector",
+          "type": "ObjectDetector",
+          "init_pattern": "let detector = try await ObjectDetector(resourcesAt: \"<install-dir>/rfdetr-large_float32.aimodel\")"
+        },
+        "inputs": [
+          {
+            "name": "image",
+            "modality": "image",
+            "swift_type": "CGImage",
+            "preprocessing": {
+              "normalization": "RGB scaled to [0,1] (DetectionParameters normalizationMeans/Stds)",
+              "color_format": "RGB"
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "name": "detections",
+            "swift_type": "[DetectedObject]",
+            "decoding": {
+              "coordinate_convention": "boundingBox: pixel CGRect, top-left origin (decoded from 300 normalized cxcywh queries; no NMS)",
+              "label_vocab_ref": "COCO 91-id logit columns; ObjectDetectionLabels.coco default mapping"
+            }
+          }
+        ]
+      },
       "capabilities": [
         "object-detection"
       ],
@@ -2227,6 +2697,13 @@
       "name": "RF-DETR-Seg Nano",
       "family": "RF-DETR-Seg",
       "source_group": "zoo",
+      "bundle_kind": "segmentation",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null,
       "capabilities": [
         "instance-segmentation"
       ],
@@ -2278,6 +2755,13 @@
       "name": "RF-DETR-Seg Small",
       "family": "RF-DETR-Seg",
       "source_group": "zoo",
+      "bundle_kind": "segmentation",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null,
       "capabilities": [
         "instance-segmentation"
       ],
@@ -2329,6 +2813,13 @@
       "name": "RF-DETR-Seg Medium",
       "family": "RF-DETR-Seg",
       "source_group": "zoo",
+      "bundle_kind": "segmentation",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null,
       "capabilities": [
         "instance-segmentation"
       ],
@@ -2380,6 +2871,13 @@
       "name": "RF-DETR-Seg Large",
       "family": "RF-DETR-Seg",
       "source_group": "zoo",
+      "bundle_kind": "segmentation",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null,
       "capabilities": [
         "instance-segmentation"
       ],
@@ -2431,6 +2929,13 @@
       "name": "RF-DETR-Seg Xlarge",
       "family": "RF-DETR-Seg",
       "source_group": "zoo",
+      "bundle_kind": "segmentation",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null,
       "capabilities": [
         "instance-segmentation"
       ],
@@ -2482,6 +2987,13 @@
       "name": "RF-DETR-Seg 2Xlarge",
       "family": "RF-DETR-Seg",
       "source_group": "zoo",
+      "bundle_kind": "segmentation",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null,
       "capabilities": [
         "instance-segmentation"
       ],
@@ -2533,6 +3045,13 @@
       "name": "AdcSR ×4",
       "family": "AdcSR",
       "source_group": "zoo",
+      "bundle_kind": "super-resolution",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null,
       "capabilities": [
         "super-resolution"
       ],
@@ -2581,6 +3100,43 @@
       "name": "Depth Anything 3 Small",
       "family": "Depth Anything",
       "source_group": "zoo",
+      "bundle_kind": "depth",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAI",
+          "type": "AIModel",
+          "init_pattern": "let model = try await AIModel(contentsOf: aimodelURL)"
+        },
+        "inputs": [
+          {
+            "name": "image",
+            "modality": "image",
+            "preprocessing": {
+              "normalization": "RGB scaled to [0,1]",
+              "color_format": "RGB"
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "name": "depth",
+            "decoding": {
+              "format_selector": "relative depth map"
+            }
+          },
+          {
+            "name": "confidence",
+            "decoding": {
+              "format_selector": "confidence map"
+            }
+          }
+        ]
+      },
       "capabilities": [
         "monocular-depth"
       ],
@@ -2649,6 +3205,43 @@
       "name": "Depth Anything 3 Base",
       "family": "Depth Anything",
       "source_group": "zoo",
+      "bundle_kind": "depth",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAI",
+          "type": "AIModel",
+          "init_pattern": "let model = try await AIModel(contentsOf: aimodelURL)"
+        },
+        "inputs": [
+          {
+            "name": "image",
+            "modality": "image",
+            "preprocessing": {
+              "normalization": "RGB scaled to [0,1]",
+              "color_format": "RGB"
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "name": "depth",
+            "decoding": {
+              "format_selector": "relative depth map"
+            }
+          },
+          {
+            "name": "confidence",
+            "decoding": {
+              "format_selector": "confidence map"
+            }
+          }
+        ]
+      },
       "capabilities": [
         "monocular-depth"
       ],
@@ -2717,6 +3310,13 @@
       "name": "gpt-oss-20B",
       "family": "gpt-oss",
       "source_group": "official",
+      "bundle_kind": "llm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "openai/gpt-oss-20b",
+      "io_contract": null,
       "capabilities": [
         "chat",
         "text-generation",
@@ -2786,6 +3386,45 @@
       "name": "Qwen3 0.6B",
       "family": "Qwen",
       "source_group": "official",
+      "bundle_kind": "llm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen3-0.6B",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAILanguageModels",
+          "type": "CoreAILanguageModel",
+          "init_pattern": "let model = try await CoreAILanguageModel(resourcesAt: bundleURL)"
+        },
+        "inputs": [
+          {
+            "name": "prompt",
+            "modality": "text",
+            "swift_type": "String",
+            "constraints": {
+              "max_context": 4096
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "name": "response",
+            "swift_type": "String",
+            "decoding": {
+              "detokenization": "embedded tokenizer (Qwen/Qwen3-0.6B, vocab 151936); LanguageModelSession.respond(to:) returns detokenized text"
+            }
+          }
+        ],
+        "session": {
+          "stateful": true,
+          "streaming": true
+        },
+        "files": {
+          "tokenizer_ref": "macos/tokenizer"
+        }
+      },
       "capabilities": [
         "chat",
         "text-generation"
@@ -2874,6 +3513,13 @@
       "name": "Qwen3 4B",
       "family": "Qwen",
       "source_group": "official",
+      "bundle_kind": "llm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen3-4B",
+      "io_contract": null,
       "capabilities": [
         "chat",
         "text-generation"
@@ -2943,6 +3589,13 @@
       "name": "Qwen3 8B",
       "family": "Qwen",
       "source_group": "official",
+      "bundle_kind": "llm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen3-8B",
+      "io_contract": null,
       "capabilities": [
         "chat",
         "text-generation"
@@ -3011,6 +3664,13 @@
       "name": "Gemma 3 4B IT",
       "family": "Gemma",
       "source_group": "official",
+      "bundle_kind": "llm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "google/gemma-3-4b-it",
+      "io_contract": null,
       "capabilities": [
         "chat",
         "instruction-following",
@@ -3080,6 +3740,13 @@
       "name": "Gemma 3 12B IT",
       "family": "Gemma",
       "source_group": "official",
+      "bundle_kind": "llm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "google/gemma-3-12b-it",
+      "io_contract": null,
       "capabilities": [
         "chat",
         "instruction-following",
@@ -3149,6 +3816,13 @@
       "name": "Mistral 7B v0.3",
       "family": "Mistral",
       "source_group": "official",
+      "bundle_kind": "llm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "mistralai/Mistral-7B-Instruct-v0.3",
+      "io_contract": null,
       "capabilities": [
         "chat",
         "text-generation"
@@ -3217,6 +3891,39 @@
       "name": "FLUX.2 klein 4B",
       "family": "FLUX",
       "source_group": "official",
+      "bundle_kind": "image-generation",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "black-forest-labs/FLUX.2-klein-4B",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAIDiffusionPipeline",
+          "type": "Flux2Pipeline",
+          "init_pattern": "let pipeline = try await Flux2Pipeline(from: bundleURL, config: configSource, mode: decodeResolution)"
+        },
+        "inputs": [
+          {
+            "name": "prompt",
+            "modality": "text",
+            "swift_type": "String"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "images",
+            "swift_type": "[CGImage]",
+            "decoding": {
+              "format_selector": "1024x1024 default (pipeline.json image_size); default_steps 4, guidance 1.0"
+            }
+          }
+        ],
+        "files": {
+          "tokenizer_ref": "tokenizer",
+          "processor_ref": "pipeline.json"
+        }
+      },
       "capabilities": [
         "image-generation"
       ],
@@ -3284,6 +3991,50 @@
       "name": "SAM 3",
       "family": "SAM",
       "source_group": "official",
+      "bundle_kind": "segmentation",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAIImageSegmenter",
+          "type": "ImageSegmenter",
+          "init_pattern": "let segmenter = try await ImageSegmenter(resourcesAt: bundleDir)"
+        },
+        "inputs": [
+          {
+            "name": "image",
+            "modality": "image",
+            "swift_type": "CGImage",
+            "preprocessing": {
+              "resize": "any size; the engine resizes internally"
+            }
+          },
+          {
+            "name": "prompt",
+            "modality": "text",
+            "swift_type": "String",
+            "constraints": {
+              "max_context": 32
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "name": "segments",
+            "swift_type": "SegmentationResponse",
+            "decoding": {
+              "coordinate_convention": "masks decoded to input-image pixel space (SegmentationPostprocessor.decode)",
+              "score_range": "segments sorted by score descending"
+            }
+          }
+        ],
+        "files": {
+          "tokenizer_ref": "tokenizer"
+        }
+      },
       "capabilities": [
         "promptable-segmentation"
       ],
@@ -3355,6 +4106,45 @@
       "name": "Whisper large-v3-turbo",
       "family": "Whisper",
       "source_group": "official",
+      "bundle_kind": "asr",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "openai/whisper-large-v3-turbo",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAI",
+          "type": "AIModel",
+          "init_pattern": "let model = try await AIModel(contentsOf: aimodelURL)"
+        },
+        "inputs": [
+          {
+            "name": "audio",
+            "modality": "audio",
+            "preprocessing": {
+              "sample_rate": 16000,
+              "normalization": "WhisperFeatureExtractor log-mel: 128 mel bins, n_fft 400, hop_length 160"
+            },
+            "constraints": {
+              "max_audio_s": 30
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "name": "transcript",
+            "swift_type": "String",
+            "decoding": {
+              "detokenization": "WhisperTokenizer (tokenizer/); autoregressive decode in a fixed 128-token window"
+            }
+          }
+        ],
+        "files": {
+          "tokenizer_ref": "tokenizer",
+          "processor_ref": "preprocessor_config.json"
+        }
+      },
       "capabilities": [
         "speech-to-text"
       ],
@@ -3423,6 +4213,13 @@
       "name": "MiniCPM5-1B",
       "family": "MiniCPM",
       "source_group": "zoo",
+      "bundle_kind": "llm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "openbmb/MiniCPM5-1B",
+      "io_contract": null,
       "capabilities": [
         "chat",
         "text-generation",
@@ -3512,6 +4309,13 @@
       "name": "FastContext-1.0-4B",
       "family": "FastContext",
       "source_group": "zoo",
+      "bundle_kind": "llm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "microsoft/FastContext-1.0-4B-SFT",
+      "io_contract": null,
       "capabilities": [
         "chat",
         "text-generation",
@@ -3582,6 +4386,13 @@
       "name": "BitCPM-8B",
       "family": "BitCPM",
       "source_group": "zoo",
+      "bundle_kind": "llm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "openbmb/BitCPM-CANN-8B",
+      "io_contract": null,
       "capabilities": [
         "chat",
         "text-generation"
@@ -3670,6 +4481,13 @@
       "name": "Holo2-4B",
       "family": "Holo",
       "source_group": "zoo",
+      "bundle_kind": "vlm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Hcompany/Holo2-4B",
+      "io_contract": null,
       "capabilities": [
         "vision-language",
         "gui-grounding"
@@ -3720,6 +4538,13 @@
       "name": "ColModernVBERT",
       "family": "ModernVBERT",
       "source_group": "zoo",
+      "bundle_kind": "embedding",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "ModernVBERT/colmodernvbert",
+      "io_contract": null,
       "capabilities": [
         "visual-document-retrieval"
       ],
@@ -3769,6 +4594,13 @@
       "name": "Qwen3-ASR-1.7B",
       "family": "Qwen",
       "source_group": "zoo",
+      "bundle_kind": "asr",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen3-ASR-1.7B",
+      "io_contract": null,
       "capabilities": [
         "speech-to-text"
       ],
@@ -3817,6 +4649,13 @@
       "name": "Parakeet-TDT-0.6B",
       "family": "Parakeet",
       "source_group": "zoo",
+      "bundle_kind": "asr",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null,
       "capabilities": [
         "speech-to-text"
       ],
@@ -3904,6 +4743,13 @@
       "name": "VoxCPM2 2B",
       "family": "VoxCPM",
       "source_group": "zoo",
+      "bundle_kind": "tts",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null,
       "capabilities": [
         "text-to-speech"
       ],
@@ -3952,6 +4798,13 @@
       "name": "YOLOX-S",
       "family": "YOLOX",
       "source_group": "zoo",
+      "bundle_kind": "object-detection",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null,
       "capabilities": [
         "object-detection"
       ],
@@ -4041,6 +4894,13 @@
       "name": "TripoSplat",
       "family": "TripoSplat",
       "source_group": "zoo",
+      "bundle_kind": "3d",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null,
       "capabilities": [
         "image-to-3d"
       ],
@@ -4088,6 +4948,13 @@
       "name": "LTX-Video 2B distilled",
       "family": "LTX-Video",
       "source_group": "zoo",
+      "bundle_kind": "video",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null,
       "capabilities": [
         "text-to-video"
       ],
@@ -4135,6 +5002,13 @@
       "name": "Qwen3 1.7B",
       "family": "Qwen",
       "source_group": "official",
+      "bundle_kind": "llm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen3-1.7B",
+      "io_contract": null,
       "capabilities": [
         "chat",
         "text-generation"
@@ -4184,6 +5058,13 @@
       "name": "CLIP ViT-B/32",
       "family": "CLIP",
       "source_group": "official",
+      "bundle_kind": "embedding",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "openai/clip-vit-base-patch32",
+      "io_contract": null,
       "capabilities": [
         "image-text-similarity"
       ],
@@ -4233,6 +5114,13 @@
       "name": "LLaDA-8B dLLM",
       "family": "LLaDA",
       "source_group": "zoo",
+      "bundle_kind": "llm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "d3LLM/d3LLM_LLaDA",
+      "io_contract": null,
       "capabilities": [
         "chat",
         "text-generation",
@@ -4282,6 +5170,13 @@
       "name": "BitVLA",
       "family": "BitVLA",
       "source_group": "zoo",
+      "bundle_kind": "action",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null,
       "capabilities": [
         "vision-language-action",
         "robotics"
@@ -4332,6 +5227,13 @@
       "name": "Stable Audio Open Small",
       "family": "Stable Audio",
       "source_group": "zoo",
+      "bundle_kind": "audio-generation",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null,
       "capabilities": [
         "text-to-audio",
         "music-generation"
@@ -4380,6 +5282,13 @@
       "name": "Whisper large-v3-turbo (CarstenL)",
       "family": "Whisper",
       "source_group": "external",
+      "bundle_kind": "asr",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null,
       "capabilities": [
         "speech-to-text"
       ],
@@ -4427,6 +5336,13 @@
       "name": "Whisper tiny.en (Intiser)",
       "family": "Whisper",
       "source_group": "external",
+      "bundle_kind": "asr",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null,
       "capabilities": [
         "speech-to-text"
       ],
@@ -4474,6 +5390,13 @@
       "name": "Whisper medium (Intiser)",
       "family": "Whisper",
       "source_group": "external",
+      "bundle_kind": "asr",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null,
       "capabilities": [
         "speech-to-text"
       ],
@@ -4521,6 +5444,13 @@
       "name": "Gemma 4 12B IT Multimodal (warshanks)",
       "family": "Gemma",
       "source_group": "external",
+      "bundle_kind": "vlm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "google/gemma-4-12B-it",
+      "io_contract": null,
       "capabilities": [
         "chat",
         "vision-language",
@@ -4572,6 +5502,13 @@
       "name": "Gemma 4 12B IT Assistant (MTP draft)",
       "family": "Gemma",
       "source_group": "external",
+      "bundle_kind": "llm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "google/gemma-4-12B-it-assistant",
+      "io_contract": null,
       "capabilities": [
         "speculative-decoding"
       ],
@@ -4639,6 +5576,13 @@
       "name": "VibeVoice 0.5B",
       "family": "VibeVoice",
       "source_group": "external",
+      "bundle_kind": "tts",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null,
       "capabilities": [
         "text-to-speech"
       ],
@@ -4706,6 +5650,13 @@
       "name": "VibeVoice 1.5B",
       "family": "VibeVoice",
       "source_group": "external",
+      "bundle_kind": "tts",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null,
       "capabilities": [
         "text-to-speech"
       ],
@@ -4773,6 +5724,13 @@
       "name": "VibeVoice 7B",
       "family": "VibeVoice",
       "source_group": "external",
+      "bundle_kind": "tts",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null,
       "capabilities": [
         "text-to-speech"
       ],
@@ -4840,6 +5798,13 @@
       "name": "VibeVoice ASR",
       "family": "VibeVoice",
       "source_group": "external",
+      "bundle_kind": "asr",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null,
       "capabilities": [
         "speech-to-text"
       ],
@@ -4907,6 +5872,13 @@
       "name": "Nemotron 3.5 ASR Streaming 0.6B",
       "family": "Nemotron",
       "source_group": "external",
+      "bundle_kind": "asr",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null,
       "capabilities": [
         "speech-to-text"
       ],
@@ -4955,6 +5927,13 @@
       "name": "Z-Image Turbo",
       "family": "Z-Image",
       "source_group": "external",
+      "bundle_kind": "image-generation",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Tongyi-MAI/Z-Image-Turbo",
+      "io_contract": null,
       "capabilities": [
         "image-generation"
       ],
@@ -5004,6 +5983,13 @@
       "name": "Real-ESRGAN x4v3",
       "family": "Real-ESRGAN",
       "source_group": "external",
+      "bundle_kind": "super-resolution",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null,
       "capabilities": [
         "super-resolution"
       ],
@@ -5051,6 +6037,13 @@
       "name": "EfficientSAM3-TinyViT",
       "family": "SAM",
       "source_group": "external",
+      "bundle_kind": "segmentation",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null,
       "capabilities": [
         "promptable-segmentation"
       ],
@@ -5099,6 +6092,13 @@
       "name": "RWKV-7 Goose 1.5B",
       "family": "RWKV",
       "source_group": "zoo",
+      "bundle_kind": "llm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": null,
+      "io_contract": null,
       "capabilities": [
         "chat",
         "text-generation"
@@ -5147,6 +6147,49 @@
       "name": "V-JEPA 2 ViT-L (SSv2)",
       "family": "V-JEPA",
       "source_group": "zoo",
+      "bundle_kind": "video",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "facebook/vjepa2-vitl-fpc16-256-ssv2",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAI",
+          "type": "AIModel",
+          "init_pattern": "let model = try await AIModel(contentsOf: aimodelURL)"
+        },
+        "inputs": [
+          {
+            "name": "pixel_values_videos",
+            "modality": "video",
+            "tensor": {
+              "shape": [
+                1,
+                16,
+                3,
+                256,
+                256
+              ],
+              "dtype": "float16",
+              "layout": "B,F,C,H,W"
+            },
+            "preprocessing": {
+              "resize": "16 frames uniformly sampled, 256x256 center crop",
+              "normalization": "RGB 0..1 -> (x - mean)/std, mean=[0.485,0.456,0.406], std=[0.229,0.224,0.225]",
+              "color_format": "RGB"
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "name": "logits",
+            "decoding": {
+              "label_vocab_ref": "labels.json (Something-Something v2, 174 classes)"
+            }
+          }
+        ]
+      },
       "capabilities": [
         "video-classification"
       ],

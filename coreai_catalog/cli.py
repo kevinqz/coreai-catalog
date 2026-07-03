@@ -257,6 +257,11 @@ def cmd_show(args: argparse.Namespace) -> int:
             "confidence": model.get("confidence"),
             "readiness_score": score,
             "artifact": model.get("artifact", {}),
+            # Typed integration metadata (authored, schema-constrained):
+            # mirrors MCP get_model.
+            "min_os": model.get("min_os"),
+            "bundle_kind": model.get("bundle_kind"),
+            "upstream_repo": model.get("upstream_repo"),
             "provenance": {},
             "benchmarks": [],
             "notes": model.get("notes"),
@@ -706,6 +711,7 @@ def cmd_install(args: argparse.Namespace) -> int:
         benchmarks=cat.get_benchmarks(model["id"]),
         dry_run=args.dry_run,
         verbose=not args.json,
+        no_verify=getattr(args, "no_verify", False),
     )
 
     # Report honestly based on the installation outcome
@@ -741,6 +747,31 @@ def cmd_install(args: argparse.Namespace) -> int:
     if args.dry_run:
         print(f"\n  {DIM}(dry run complete){RESET}\n")
         return 0
+
+    # Surface the manifest's content-verification state honestly (E1/B7):
+    # an agent (or human) must be able to see whether the downloaded bytes
+    # were actually checked against the catalog's sha256 digests.
+    verification = manifest.get("verification") or {}
+    v_status = verification.get("status", "not_checked")
+    pinned = "pinned" if verification.get("revision_pinned") else "unpinned"
+    if v_status == "verified":
+        print(f"\n  {BOLD}Verification:{RESET} {GREEN}✅ sha256 verified "
+              f"({verification.get('files_verified', 0)}/"
+              f"{verification.get('files_total', 0)} files, "
+              f"revision {pinned}){RESET}")
+    elif v_status == "skipped":
+        print(f"\n  {BOLD}Verification:{RESET} {YELLOW}⚠️  SKIPPED "
+              f"(--no-verify) — downloaded bytes were NOT checked against "
+              f"the catalog digests{RESET}")
+    elif v_status == "unavailable":
+        print(f"\n  {BOLD}Verification:{RESET} {YELLOW}⚠️  unavailable — "
+              f"the catalog records no sha256 digests for this artifact "
+              f"(revision {pinned}){RESET}")
+    elif v_status == "failed":
+        print(f"\n  {BOLD}Verification:{RESET} {RED}❌ FAILED — bytes do "
+              f"not match the catalog's recorded sha256 digests "
+              f"(mismatched: {len(verification.get('mismatched', []))}, "
+              f"missing: {len(verification.get('missing', []))}){RESET}")
 
     if file_layout == "downloaded":
         print(f"\n  {GREEN}✅ Done.{RESET}")
@@ -1069,6 +1100,160 @@ def cmd_installed(args: argparse.Namespace) -> int:
         if src.get("huggingface"):
             print(f"  {'':40s}  {DIM}from {src['huggingface']}{RESET}")
     print()
+    return 0
+
+
+# ── Bench (protocol benchmark lane — redteam B1/B8) ──
+
+
+def cmd_bench(args: argparse.Namespace) -> int:
+    """Dispatch for `coreai-catalog bench <action>`."""
+    print(f"\n  {RED}Specify a bench action: run | draft{RESET}")
+    print(f"  {DIM}run:   execute the protocol runner against an installed "
+          f"model (macOS 27+){RESET}")
+    print(f"  {DIM}draft: validate an existing runner output dir and emit the "
+          f"candidate line{RESET}")
+    print(f"  {DIM}Try: coreai-catalog bench run --help{RESET}\n")
+    return 1
+
+
+def _print_bench_error(exc: Exception, as_json: bool) -> None:
+    if as_json:
+        print(json.dumps({"error": str(exc)}, indent=2))
+        return
+    print(f"\n  {RED}bench failed:{RESET}")
+    for line in str(exc).splitlines():
+        print(f"  {line}")
+    print()
+
+
+def cmd_bench_run(args: argparse.Namespace) -> int:
+    """Run the pinned benchmark protocol against an installed model.
+
+    Thin wrapper over coreai_catalog.bench.bench_run. On macOS < 27 (this
+    includes every current non-beta Mac) the runner cannot build or run —
+    the error explains exactly why (apple/coreai-models declares
+    platforms: [.macOS("27.0")]) and what to do on a macOS 27 machine.
+    """
+    from . import bench
+
+    try:
+        result = bench.bench_run(
+            args.model_id,
+            out_dir=args.out_dir,
+            seed=args.seed,
+            source=args.source,
+            runner_path=args.runner,
+            verbose=not args.json,
+        )
+    except bench.BenchError as exc:
+        _print_bench_error(exc, args.json)
+        return 1
+
+    if args.json:
+        print(json.dumps({
+            "model_id": args.model_id,
+            "candidate_path": result["candidate_path"],
+            "manifest_path": result["manifest_path"],
+            "trials_path": result["trials_path"],
+            "line": result["line"],
+        }, indent=2))
+        return 0
+
+    print(f"\n  {GREEN}✅ Benchmark run complete.{RESET}")
+    print(f"  {BOLD}Candidate line:{RESET} {result['candidate_path']}")
+    print(f"  {DIM}Nothing was appended to benchmarks.jsonl — submission "
+          f"stays a reviewed step.{RESET}")
+    print(f"  {DIM}Next: sign {result['manifest_path']} "
+          f"(scripts/sign_benchmark.py) and open a dedicated single-line "
+          f"PR, or route unsigned via the curator lane.{RESET}\n")
+    return 0
+
+
+def cmd_bench_draft(args: argparse.Namespace) -> int:
+    """Assemble + validate a candidate line from an EXISTING runner output.
+
+    Lets a macOS 27 machine produce trials.jsonl + run-manifest.json with
+    `bench run`, and any machine (including this one) re-validate the raw
+    trials and draft the schema-valid benchmarks.jsonl candidate line.
+    No freshness-nonce check is possible here (the producing checkout's
+    HEAD is unknown) — the signed run manifest still carries it.
+    """
+    from . import bench
+
+    out_dir = Path(args.out_dir)
+    try:
+        manifest, trials = bench.validate_runner_output(out_dir)
+        installer_manifest = None
+        try:
+            installer_manifest = bench.resolve_installed(manifest["model_id"])
+        except bench.BenchError:
+            pass  # not installed here → model_verified stays False (honest)
+        line = bench.assemble_benchmark_line(
+            manifest,
+            source=args.source,
+            installer_manifest=installer_manifest,
+            raw_trials_url=args.raw_trials_url,
+        )
+        errors = bench.schema_validate_line(line)
+        if errors:
+            raise bench.BenchError(
+                "Candidate line failed schema validation:\n  "
+                + "\n  ".join(errors)
+            )
+    except bench.BenchError as exc:
+        _print_bench_error(exc, args.json)
+        return 1
+
+    candidate_path = out_dir / "benchmark-candidate.jsonl"
+    candidate_path.write_text(json.dumps(line, ensure_ascii=False) + "\n")
+
+    if args.json:
+        print(json.dumps({
+            "candidate_path": str(candidate_path),
+            "trials": len(trials),
+            "line": line,
+        }, indent=2))
+        return 0
+
+    from .contribute import CURATOR_LANE_EXPLANATION
+
+    print(f"\n  {GREEN}✅ Schema-valid benchmark candidate "
+          f"({len(trials)} raw trials cross-checked):{RESET}\n")
+    print(json.dumps(line, ensure_ascii=False))
+    print(f"\n  {DIM}Written to: {candidate_path}{RESET}\n")
+    for text_line in CURATOR_LANE_EXPLANATION.splitlines():
+        print(f"  {DIM}{text_line}{RESET}")
+    print()
+    return 0
+
+
+# ── Discover (porting candidates — redteam F4) ──
+
+
+def cmd_discover(args: argparse.Namespace) -> int:
+    """Scan upstream HF orgs and rank deduped porting candidates.
+
+    Thin wrapper over coreai_catalog.discover.run_discovery (three-layer
+    dedup: authored upstream_repo → HF base_model lineage → fuzzy name).
+    """
+    from . import discover
+
+    candidates = discover.run_discovery(
+        device_filter=args.device,
+        limit=args.limit,
+        resolve_base_models=not args.no_base_models,
+    )
+
+    if args.json or args.format == "json":
+        print(discover.render_json(candidates))
+    elif args.format == "markdown":
+        index = discover.build_catalog_index()
+        print(discover.render_markdown(
+            candidates, catalog_count=index.model_count,
+        ))
+    else:
+        print(discover.format_report(candidates))
     return 0
 
 
@@ -1712,6 +1897,10 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("model_id", help="Model ID to install")
     p.add_argument("--dry-run", action="store_true", help="Show what would happen without downloading")
     p.add_argument("--force", action="store_true", help="Reinstall if already installed")
+    p.add_argument("--no-verify", action="store_true",
+                   help="Skip sha256 digest verification of the downloaded "
+                        "bytes (recorded as verification.status: skipped — "
+                        "do NOT trust the artifact for anything sensitive)")
     p.add_argument("--json", action="store_true", help="Output as JSON")
     p.set_defaults(func=cmd_install)
 
@@ -1811,6 +2000,81 @@ def build_parser() -> argparse.ArgumentParser:
     pb.add_argument("--non-interactive", action="store_true",
                     help="Never prompt; fail with the aggregated missing list")
     pb.set_defaults(func=cmd_contribute_benchmark)
+
+    # bench (protocol benchmark lane)
+    p = sub.add_parser(
+        "bench",
+        help="Benchmark lane: run the pinned protocol runner / draft a "
+             "candidate line (macOS 27+ to run)",
+        description=(
+            "Protocol benchmark lane. `bench run` drives the pinned Swift "
+            "runner (bench/CoreAIBenchRunner) against an installed model "
+            "and assembles a schema-valid benchmarks.jsonl candidate line; "
+            "`bench draft` re-validates an existing runner output dir. "
+            "The runner needs macOS 27+ (apple/coreai-models declares "
+            'platforms: [.macOS("27.0")]). Nothing is ever auto-appended '
+            "to benchmarks.jsonl."
+        ),
+    )
+    p.set_defaults(func=cmd_bench)
+    bench_sub = p.add_subparsers(dest="action", help="Bench action")
+
+    pr_ = bench_sub.add_parser(
+        "run",
+        help="Run the protocol runner against an installed model (macOS 27+)",
+    )
+    pr_.add_argument("model_id", help="Catalog model id (must be installed)")
+    pr_.add_argument("--out-dir", type=Path, default=None,
+                     help="Output dir (default ./bench-out/<model-id>)")
+    pr_.add_argument("--seed", type=int, default=0,
+                     help="Recorded seed (greedy decoding is the "
+                          "deterministic path; see docs/benchmark-protocol.md)")
+    pr_.add_argument("--source", default="self-reported",
+                     help="sources.yaml id to attribute the measurement to")
+    pr_.add_argument("--runner", type=Path, default=None,
+                     help="Path to a coreai-bench-runner binary "
+                          "(else auto-located under bench/CoreAIBenchRunner/.build)")
+    pr_.add_argument("--json", action="store_true", help="Output as JSON")
+    pr_.set_defaults(func=cmd_bench_run)
+
+    pd_ = bench_sub.add_parser(
+        "draft",
+        help="Validate an existing runner output dir and draft the "
+             "candidate benchmarks.jsonl line",
+    )
+    pd_.add_argument("out_dir",
+                     help="Runner output dir containing run-manifest.json "
+                          "+ trials.jsonl (from `bench run`)")
+    pd_.add_argument("--source", default="self-reported",
+                     help="sources.yaml id to attribute the measurement to")
+    pd_.add_argument("--raw-trials-url", default=None,
+                     help="Public URL where the raw trials.jsonl is published")
+    pd_.add_argument("--json", action="store_true", help="Output as JSON")
+    pd_.set_defaults(func=cmd_bench_draft)
+
+    # discover (porting candidates)
+    p = sub.add_parser(
+        "discover",
+        help="Scan upstream Hugging Face orgs for deduped porting candidates",
+        description=(
+            "Rank upstream models worth porting to Core AI. Dedup layers: "
+            "authored upstream_repo → HF base_model lineage → fuzzy name "
+            "(coreai_catalog/discover.py). Network access required unless "
+            "--no-base-models narrows it to the org listings."
+        ),
+    )
+    p.add_argument("-d", "--device", choices=["iphone", "mac"],
+                   help="Filter candidates by target device")
+    p.add_argument("-n", "--limit", type=int, default=20,
+                   help="Max candidates (default 20)")
+    p.add_argument("--format", choices=["report", "json", "markdown"],
+                   default="report",
+                   help="Output format (markdown = pinned-issue body)")
+    p.add_argument("--no-base-models", action="store_true",
+                   help="Skip HF base_model lineage fetches (faster; dedup "
+                        "falls back to upstream_repo + fuzzy name layers)")
+    p.add_argument("--json", action="store_true", help="Output as JSON")
+    p.set_defaults(func=cmd_discover)
 
     # publish
     p = sub.add_parser("publish",

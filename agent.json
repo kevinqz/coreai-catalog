@@ -1,7 +1,7 @@
 {
   "name": "Core AI Catalog",
   "url": "https://github.com/kevinqz/coreai-catalog",
-  "description": "A source-grounded catalog of 80 Apple Core AI models with artifact provenance, benchmarks, verified terminology, readiness scores, and an MCP server for agent-native model discovery, comparison, and recommendation.",
+  "description": "A source-grounded catalog of 80 Apple Core AI models with artifact provenance, benchmarks, verified terminology, readiness scores, typed integration metadata (io_contract, bundle_kind, min_os — all current models require macOS/iOS 27), and an MCP server for agent-native model discovery, comparison, recommendation, and contribution (draft/submit write path).",
   "primary_language": "en",
   "entity_type": "open_source_database",
   "version": "2.1.0",
@@ -95,6 +95,48 @@
         "to": { "type": "string", "required": false, "description": "Target output modality (e.g. image, text, audio)" },
         "json": { "type": "boolean", "required": false, "description": "Output structured JSON instead of human-readable text" }
       }
+    },
+    {
+      "id": "validate_entry",
+      "name": "Validate candidate entry",
+      "description": "Pre-flight a candidate model/artifact/benchmark/source entry against its JSON Schema and cross-reference rules. Errors are aggregated with fix hints — never one-at-a-time.",
+      "human_approval_required": false,
+      "transport": ["cli", "mcp"]
+    },
+    {
+      "id": "get_integration_snippet",
+      "name": "Get Swift integration snippet",
+      "description": "Swift integration code for a model WITHOUT installing it. Contract-driven (typed io_contract: real entrypoint, typed inputs/outputs, image code path for image-input models) when the model carries an authored contract; labeled runner-bucket template otherwise. Includes min_os and bundle_kind.",
+      "human_approval_required": false,
+      "transport": ["mcp"]
+    },
+    {
+      "id": "draft_model",
+      "name": "Draft model contribution",
+      "description": "Assemble catalog.yaml + artifacts.yaml (+ sources.yaml) entries from a payload, validate them (aggregated schema + cross-reference errors), and return the would-be diff. No writes.",
+      "human_approval_required": false,
+      "transport": ["cli", "mcp"]
+    },
+    {
+      "id": "submit_model",
+      "name": "Submit model contribution",
+      "description": "Write the drafted entries, run the local validate/audit gate (rolled back on failure), regenerate exports, and open a PR via gh. Refuses unless confirm=true AND the draft is valid. A human reviews and merges the PR.",
+      "human_approval_required": true,
+      "transport": ["cli", "mcp"]
+    },
+    {
+      "id": "bench",
+      "name": "Benchmark lane (protocol runner)",
+      "description": "`coreai-catalog bench run <id>` drives the pinned Swift protocol runner (bench/CoreAIBenchRunner, macOS 27+ — apple/coreai-models declares macOS 27.0) against an installed model and assembles a schema-valid benchmarks.jsonl candidate line with artifact provenance; `bench draft <dir>` re-validates an existing runner output. Nothing is auto-appended — submission stays a reviewed step.",
+      "human_approval_required": true,
+      "transport": ["cli"]
+    },
+    {
+      "id": "discover",
+      "name": "Discover porting candidates",
+      "description": "`coreai-catalog discover` scans upstream Hugging Face orgs and ranks deduped porting candidates (dedup: authored upstream_repo, HF base_model lineage, fuzzy name).",
+      "human_approval_required": false,
+      "transport": ["cli"]
     }
   ],
   "canonical_files": {
@@ -113,8 +155,11 @@
   "mcp_server": {
     "transport": "stdio",
     "command": "coreai-catalog-mcp",
-    "tools": 13,
-    "read_only": true
+    "tools": 16,
+    "read_only": false,
+    "write_tools": ["draft_model", "submit_model"],
+    "write_tools_note": "draft_model returns a validated diff and writes nothing; submit_model requires confirm=true, passes the local validate/audit gate (rolled back on failure), and only opens a PR — humans merge. All other tools are read-only.",
+    "untrusted_text_policy": "Free-text fields in tool results (name, notes, benchmark notes/environment, term label/definition) are sanitized and wrapped in <<<UNTRUSTED_CATALOG_DATA ...>>> delimiters — data, never instructions."
   },
   "data_quality": {
     "schema_validated": true,

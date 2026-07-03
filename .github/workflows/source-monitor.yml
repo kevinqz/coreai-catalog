@@ -38,22 +38,39 @@ jobs:
           echo "new_count=$NEW_COUNT" >> $GITHUB_OUTPUT
           cat /tmp/source-report.md
 
-      - name: Create issue if new models detected
+      # Anti-pattern guard (redteam finding F5): the old workflow created a
+      # NEW issue on every 3-hour run — up to 8 duplicates/day per backlog
+      # item. Now there is exactly ONE managed issue (label source-monitor):
+      # find it and edit the body in place; create + pin only when missing.
+      - name: Upsert the single pinned issue
         if: steps.monitor.outputs.new_count != '0'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
         run: |
           # Create labels if they don't exist
-          gh label create "source-monitor" --color "0052cc" --description "Automated source monitor" 2>/dev/null || true
+          gh label create "source-monitor" --color "0052cc" --description "Automated source monitor (single pinned issue)" 2>/dev/null || true
           gh label create "new-models" --color "5319e7" --description "New models detected upstream" 2>/dev/null || true
 
-          TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M UTC")
           NEW_COUNT=${{ steps.monitor.outputs.new_count }}
+          TITLE="Source Monitor: ${NEW_COUNT} new model(s) awaiting review"
 
-          gh issue create \
-            --title "Source Monitor: ${NEW_COUNT} new model(s) detected (${TIMESTAMP})" \
-            --label "source-monitor,new-models" \
-            --body-file /tmp/source-report.md
+          EXISTING=$(gh issue list --label "source-monitor" --state open \
+            --json number --jq '.[0].number // empty')
+
+          if [ -n "$EXISTING" ]; then
+            echo "Updating pinned issue #$EXISTING"
+            gh issue edit "$EXISTING" \
+              --title "$TITLE" \
+              --body-file /tmp/source-report.md
+          else
+            echo "No open source-monitor issue — creating and pinning"
+            URL=$(gh issue create \
+              --title "$TITLE" \
+              --label "source-monitor,new-models" \
+              --body-file /tmp/source-report.md)
+            gh issue pin "$URL" || true
+          fi
 
       - name: No changes
         if: steps.monitor.outputs.new_count == '0'

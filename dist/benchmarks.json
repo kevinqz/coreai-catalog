@@ -1011,6 +1011,7 @@
       "os_major": "26",
       "precision": "inferred:int4",
       "source": "john-rocky-coreai-model-zoo",
+      "superseded_by": "official-qwen3-0-6b-m4max-gpu-toks",
       "unit": "tokens_per_second",
       "value": 1121
     },

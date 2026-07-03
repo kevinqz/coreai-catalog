@@ -1,5 +1,35 @@
 name: Benchmark Validation
 
+# Tier-aware benchmark gate (redteam findings F1/B3/B9/D3/D4).
+#
+# Three submission lanes:
+#   sigstore — `_signature` is a sigstore bundle (scripts/sign_benchmark.py,
+#              keyless, bound to the submitter's GitHub OIDC identity).
+#              Auto-merges with gate outcome `signed_plausible` when
+#              signer identity == PR author AND physics-clean AND
+#              schema-valid AND not a duplicate.
+#
+#              `signed_plausible` is a CI gate outcome, NOT a value of the
+#              stored verification_tier field. The merged row keeps
+#              verification_tier=unverified — accurate for an n=1 run; the
+#              community_verified rung of the trust ladder requires
+#              independent reproduction by a SECOND identity and is granted
+#              by curators, never by this workflow. CI also cannot stamp a
+#              tier into the row: every field except _signature is covered
+#              by the submitter's signature (canonical_payload), so any
+#              rewrite would invalidate it. A reproduction of a recent
+#              result trips the not_duplicate gate on purpose and routes to
+#              curator review, where it can earn the cohort a
+#              community_verified promotion.
+#   relay    — legacy Ed25519 hex signature from the trusted relay. Kept
+#              working; same physics/schema gates, auto-merges on success.
+#              (The old device_verified==true + app_benchmark_protocol
+#              gates were unreachable by construction — the worker
+#              hardcodes device_verified:false — and are REPLACED by the
+#              tier logic here.)
+#   curator  — unsigned `upstream_readme_*` entries: labeled and
+#              commented for human review, never auto-merged, CI passes.
+
 on:
   pull_request:
     paths:
@@ -27,7 +57,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install jsonschema pyyaml cryptography
+          pip install jsonschema pyyaml cryptography sigstore
 
       # Enforce the lane rule CONTRIBUTING.md documents: a benchmark PR
       # touches benchmarks.jsonl and NOTHING else. Without this check a
@@ -53,10 +83,12 @@ jobs:
             exit 1
           fi
 
-      # Route the submission: unsigned entries whose extraction_method is
-      # upstream_readme_manual / upstream_readme_scripted go to the CURATOR
-      # lane (label + comment + human review, CI passes). Everything else is
-      # the RELAY lane, which keeps the strict signature + auto-merge gates.
+      # Route the submission:
+      #   _signature object            -> sigstore lane (keyless identity)
+      #   _signature hex string        -> relay lane (legacy Ed25519)
+      #   unsigned upstream_readme_*   -> curator lane (human review)
+      #   anything else                -> relay lane (will fail signature
+      #                                   verification with a clear hint)
       - name: Determine submission lane
         id: lane
         run: |
@@ -71,9 +103,12 @@ jobs:
           reason = 'signed relay submission path (strict gates)'
           try:
               entry = json.loads(line)
-              unsigned = '_signature' not in entry
+              sig = entry.get('_signature')
               method = str(entry.get('extraction_method', ''))
-              if unsigned and method.startswith('upstream_readme_'):
+              if isinstance(sig, dict):
+                  lane = 'sigstore'
+                  reason = 'sigstore bundle — keyless identity-bound submission'
+              elif sig is None and method.startswith('upstream_readme_'):
                   lane = 'curator'
                   reason = (
                       f"unsigned '{method}' entry — routed to the "
@@ -87,106 +122,157 @@ jobs:
               out.write(f'lane={lane}\n')
           PYEOF
 
-      - name: Verify Ed25519 signature
+      # Relay lane: legacy Ed25519 signature against the committed pubkey.
+      # continue-on-error so the PR still gets its comment + label; the
+      # final "Enforce required checks" step turns the job red.
+      - name: Verify Ed25519 relay signature
         id: sigcheck
-        if: steps.lane.outputs.lane != 'curator'
+        if: steps.lane.outputs.lane == 'relay'
+        continue-on-error: true
         run: |
-          python3 scripts/verify_benchmark_signature.py /tmp/new_lines.txt
+          python3 scripts/verify_benchmark_signature.py /tmp/new_lines.txt --require-scheme ed25519
+
+      # Sigstore lane: verify the bundle (Fulcio chain + Rekor inclusion)
+      # AND require the certificate's GitHub login to equal the PR author.
+      # Identity binding is what replaces the single-relay-key trust model.
+      - name: Verify sigstore bundle + identity == PR author
+        id: sigstorecheck
+        if: steps.lane.outputs.lane == 'sigstore'
+        continue-on-error: true
+        run: |
+          python3 scripts/verify_benchmark_signature.py /tmp/new_lines.txt \
+            --require-scheme sigstore \
+            --expect-identity "${{ github.event.pull_request.user.login }}"
 
       - name: Validate schema + model_id cross-reference
         id: schemacheck
-        # Curator-lane entries never hard-fail this workflow; schema problems
-        # are surfaced in the PR comment (and still gate merge via validate.yml).
-        continue-on-error: ${{ steps.lane.outputs.lane == 'curator' }}
+        # Soft-fail here so the comment/labels always post; non-curator
+        # lanes are turned red by "Enforce required checks" below.
+        continue-on-error: true
         run: |
           python3 scripts/validate_benchmark_entry.py /tmp/new_lines.txt
 
+      # Physics plausibility (scripts/physics_check.py): bandwidth ceiling
+      # from chips.yaml, tokens/elapsed consistency, thermal telemetry.
+      # Signed lanes run the TRUSTED tier — missing thermal telemetry now
+      # FAILS (B9 inversion). The curator lane tolerates absence.
+      - name: Physics check
+        id: physicscheck
+        continue-on-error: true
+        run: |
+          if [ "${{ steps.lane.outputs.lane }}" = "curator" ]; then
+            TIER=curator
+          else
+            TIER=trusted
+          fi
+          python3 scripts/physics_check.py --input /tmp/new_lines.txt --tier "$TIER"
+
+      # Outlier check. Cohorts too small for statistics fall back to the
+      # physics gate instead of auto-passing (B9 fix).
       - name: Outlier check
         id: outliercheck
         continue-on-error: true
         run: |
           python3 scripts/outlier_check.py --input /tmp/new_lines.txt --catalog benchmarks.jsonl
 
-      - name: Evaluate all 8 auto-merge gates
+      # Tier evaluation (replaces the old 8-gate table whose
+      # device_verified==true gate was impossible to satisfy).
+      - name: Evaluate verification tier
         id: gates
-        if: steps.lane.outputs.lane == 'relay'
+        if: steps.lane.outputs.lane != 'curator'
+        env:
+          LANE: ${{ steps.lane.outputs.lane }}
+          SIG_OUTCOME: ${{ steps.lane.outputs.lane == 'sigstore' && steps.sigstorecheck.outcome || steps.sigcheck.outcome }}
+          SCHEMA_OUTCOME: ${{ steps.schemacheck.outcome }}
+          PHYSICS_OUTCOME: ${{ steps.physicscheck.outcome }}
+          OUTLIER_OUTCOME: ${{ steps.outliercheck.outcome }}
+          SIGNER_LOGIN: ${{ steps.sigstorecheck.outputs.github_login }}
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
         run: |
           python3 - <<'PYEOF'
-          import json, sys
+          import json
+          import os
+          import sys
 
-          # Read the submitted entry
+          sys.path.insert(0, 'scripts')
+          from physics_check import evaluate_tier, find_recent_duplicate
+
           with open('/tmp/new_lines.txt') as f:
               line = f.read().strip().lstrip('+')
           entry = json.loads(line)
           entry.pop('_signature', None)
 
-          # Load catalog model IDs
           import yaml
           with open('catalog.yaml') as f:
               cat = yaml.safe_load(f)
           valid_ids = {m['id'] for m in cat.get('models', []) if 'id' in m}
 
-          # Evaluate gates
+          lane = os.environ['LANE']
+          sig_ok = os.environ['SIG_OUTCOME'] == 'success'
+          if lane == 'sigstore':
+              # verify script already enforced identity == PR author;
+              # record the comparison explicitly for the gate table.
+              signer = (os.environ.get('SIGNER_LOGIN') or '').lower()
+              author = (os.environ.get('PR_AUTHOR') or '').lower()
+              identity_ok = sig_ok and bool(signer) and signer == author
+          else:
+              # Relay lane: the relay key is the (single) trusted identity.
+              identity_ok = sig_ok
+
           gates = {
-              'schema_valid': True,  # If we got here, schema passed
+              'schema_valid': os.environ['SCHEMA_OUTCOME'] == 'success',
               'model_id_exists': entry.get('model_id', '') in valid_ids,
-              'signature_valid': True,  # If we got here, sig passed
-              'device_verified': entry.get('device_verified', False),
-              'extraction_method': entry.get('extraction_method') == 'app_benchmark_protocol',
-              'outlier_pass': '${{ steps.outliercheck.outcome }}' == 'success',
-              'thermal_ok': entry.get('environment', {}).get('thermal_state', 'unknown') in ('nominal', 'fair', 'unknown'),
-              'not_duplicate': True,  # Checked below
+              'signature_valid': sig_ok,
+              'identity_matches_author': identity_ok,
+              'physics_pass': os.environ['PHYSICS_OUTCOME'] == 'success',
+              'outlier_pass': os.environ['OUTLIER_OUTCOME'] == 'success',
           }
 
-          # Duplicate check: same model_id + device_class + metric in last 7 days
-          import datetime
-          from collections import defaultdict
-          cutoff = (datetime.date.today() - datetime.timedelta(days=7)).isoformat()
+          # Duplicate check: same model_id + device_class + metric in the
+          # last 7 days. The merge checkout's benchmarks.jsonl already
+          # contains the submitted line, so find_recent_duplicate excludes
+          # it exactly once (by raw-line identity, `_signature` included) —
+          # otherwise every fresh submission would match itself and only
+          # stale >7-day results could ever auto-merge (F1/B3 regression).
+          # Logic lives in scripts/physics_check.py so it is unit-testable
+          # (tests/test_p1_gates.py::TestDuplicateGate).
           with open('benchmarks.jsonl') as f:
-              for existing_line in f:
-                  existing_line = existing_line.strip()
-                  if not existing_line or existing_line.startswith('#'):
-                      continue
-                  try:
-                      existing = json.loads(existing_line)
-                  except json.JSONDecodeError:
-                      continue
-                  if (existing.get('model_id') == entry.get('model_id') and
-                      existing.get('device_class') == entry.get('device_class') and
-                      existing.get('metric') == entry.get('metric') and
-                      existing.get('observed_date', '') >= cutoff):
-                      gates['not_duplicate'] = False
-                      break
+              dup = find_recent_duplicate(entry, f, submitted_raw=line)
+          gates['not_duplicate'] = dup is None
+          if dup is not None:
+              print(f"duplicate of stored id={dup.get('id')!r} "
+                    f"(observed {dup.get('observed_date')}) — a reproduction "
+                    f"of a recent result routes to curator review, where it "
+                    f"can promote the cohort to community_verified")
 
-          # Output results
-          all_pass = all(gates.values())
+          tier = evaluate_tier(gates)
           failed = [k for k, v in gates.items() if not v]
-
           print(f'GATES_JSON={json.dumps(gates)}')
-          print(f'ALL_PASS={all_pass}')
+          print(f'TIER={tier}')
           print(f'FAILED_GATES={json.dumps(failed)}')
 
-          # Write to GITHUB_OUTPUT
           with open('/tmp/gates.json', 'w') as f:
               json.dump(gates, f, indent=2)
 
-          # Write comment section
           with open('/tmp/gates-comment.md', 'w') as f:
-              f.write('### Auto-merge Gates\n\n')
+              f.write('### Verification Tier Gates\n\n')
               f.write('| Gate | Status |\n|---|---|\n')
               for gate, passed in gates.items():
                   icon = '✅' if passed else '❌'
                   f.write(f'| {gate} | {icon} |\n')
-              f.write(f'\n**All gates pass:** {"✅ Yes — auto-merge eligible" if all_pass else "❌ No — needs curator review"}\n')
+              f.write(f'\n**Gate outcome:** `{tier}`')
+              if tier == 'signed_plausible':
+                  f.write(' — ✅ auto-merge eligible (stored row stays '
+                          '`verification_tier: unverified` until a second '
+                          'identity reproduces it)\n')
+              else:
+                  f.write(' — ❌ needs curator review\n')
 
-          print(f'ALL_GATES_PASS={str(all_pass).lower()}')
-          with open('/tmp/all_gates.txt', 'w') as f:
-              f.write(str(all_pass).lower())
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as out:
+              out.write(f'tier={tier}\n')
+          with open('/tmp/tier.txt', 'w') as f:
+              f.write(tier)
           PYEOF
-
-      - name: Build validation comment
-        run: |
-          cat /tmp/gates-comment.md >> /tmp/final-comment.md 2>/dev/null || true
 
       - name: Comment on PR
         uses: actions/github-script@v7
@@ -198,19 +284,27 @@ jobs:
 
             if (lane === 'curator') {
               body += '**Lane: curator review** — unsigned `upstream_readme_*` submission.\n\n';
-              body += 'This entry does not need a relay signature. It will not auto-merge: ';
+              body += 'This entry does not need a signature. It will not auto-merge: ';
               body += 'a curator will review the provenance and merge manually ';
               body += '(label: `benchmark-curator-review`).\n\n';
               body += '| Check | Result |\n|---|---|\n';
               body += `| Line count | ${{ steps.linecheck.outputs.line_count }} |\n`;
               body += `| Schema + model_id | ${{ steps.schemacheck.outcome == 'success' && '✅ Valid' || '⚠️ Invalid — please fix before curator review' }} |\n`;
-              body += `| Outlier check | ${{ steps.outliercheck.outcome == 'success' && '✅ Pass' || '⚠️ Outlier or insufficient data' }} |\n`;
+              body += `| Physics check (curator tier) | ${{ steps.physicscheck.outcome == 'success' && '✅ Plausible' || '⚠️ Implausible — see logs' }} |\n`;
+              body += `| Outlier check | ${{ steps.outliercheck.outcome == 'success' && '✅ Pass' || '⚠️ Outlier or physics-implausible' }} |\n`;
             } else {
+              body += `**Lane: ${lane}** — signed submission targeting the trusted tier.\n\n`;
               body += '| Check | Result |\n|---|---|\n';
               body += `| Line count | ${{ steps.linecheck.outputs.line_count }} |\n`;
-              body += `| Ed25519 signature | ${{ steps.sigcheck.outcome == 'success' && '✅ Verified' || '❌ Failed' }} |\n`;
+              if (lane === 'sigstore') {
+                body += `| Sigstore bundle + identity | ${{ steps.sigstorecheck.outcome == 'success' && '✅ Verified' || '❌ Failed' }} |\n`;
+                body += `| Signer github_login | \`${{ steps.sigstorecheck.outputs.github_login || 'n/a' }}\` (PR author: \`${{ github.event.pull_request.user.login }}\`) |\n`;
+              } else {
+                body += `| Ed25519 relay signature | ${{ steps.sigcheck.outcome == 'success' && '✅ Verified' || '❌ Failed' }} |\n`;
+              }
               body += `| Schema + model_id | ${{ steps.schemacheck.outcome == 'success' && '✅ Valid' || '❌ Invalid' }} |\n`;
-              body += `| Outlier check | ${{ steps.outliercheck.outcome == 'success' && '✅ Pass' || '⚠️ Outlier or insufficient data' }} |\n\n`;
+              body += `| Physics check (trusted tier) | ${{ steps.physicscheck.outcome == 'success' && '✅ Plausible' || '❌ Failed — implausible value or missing telemetry' }} |\n`;
+              body += `| Outlier check | ${{ steps.outliercheck.outcome == 'success' && '✅ Pass' || '⚠️ Outlier or physics-implausible' }} |\n\n`;
 
               try { body += fs.readFileSync('/tmp/gates-comment.md', 'utf-8'); } catch {}
             }
@@ -245,29 +339,53 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Auto-merge if all gates pass
+      # GOVERNANCE.md exception: this is the ONE lane where an agent merges
+      # without a maintainer countersign — a signed, identity-bound,
+      # schema-valid, physics-clean, non-duplicate single-line benchmark.
+      # The merge subject names the gate outcome (signed_plausible); the
+      # merged row's verification_tier stays 'unverified' (n=1 — see the
+      # header comment).
+      - name: Auto-merge if gate outcome is signed_plausible
         if: >
-          steps.lane.outputs.lane == 'relay' &&
-          steps.sigcheck.outcome == 'success' &&
+          steps.lane.outputs.lane != 'curator' &&
           steps.schemacheck.outcome == 'success'
         run: |
-          ALL_PASS=$(cat /tmp/all_gates.txt 2>/dev/null || echo "false")
-          if [ "$ALL_PASS" = "true" ]; then
-            echo "All 8 gates passed — auto-merging"
-            gh pr merge ${{ github.event.pull_request.number }} --squash --delete-branch --subject "benchmark: auto-merged (all gates passed)"
+          TIER=$(cat /tmp/tier.txt 2>/dev/null || echo "unverified")
+          if [ "$TIER" = "signed_plausible" ]; then
+            echo "All tier gates passed — auto-merging as signed_plausible"
+            gh pr merge ${{ github.event.pull_request.number }} --squash --delete-branch --subject "benchmark: auto-merged (signed_plausible, stored tier: unverified)"
           else
-            echo "Not all gates passed — needs curator review"
+            echo "Tier is $TIER — needs curator review"
             gh pr edit ${{ github.event.pull_request.number }} --add-label "benchmark-needs-review"
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Label for review if gates fail
+      - name: Label for review if signature or schema fails
         if: >
-          steps.lane.outputs.lane == 'relay' &&
-          (steps.sigcheck.outcome != 'success' ||
+          steps.lane.outputs.lane != 'curator' &&
+          ((steps.lane.outputs.lane == 'relay' && steps.sigcheck.outcome != 'success') ||
+          (steps.lane.outputs.lane == 'sigstore' && steps.sigstorecheck.outcome != 'success') ||
           steps.schemacheck.outcome != 'success')
         run: |
           gh pr edit ${{ github.event.pull_request.number }} --add-label "benchmark-needs-fixes"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Signature and schema are hard requirements outside the curator
+      # lane; physics/outlier only decide the tier (auto-merge vs review).
+      - name: Enforce required checks
+        if: steps.lane.outputs.lane != 'curator'
+        run: |
+          LANE="${{ steps.lane.outputs.lane }}"
+          SIG_OUTCOME="${{ steps.lane.outputs.lane == 'sigstore' && steps.sigstorecheck.outcome || steps.sigcheck.outcome }}"
+          FAIL=0
+          if [ "$SIG_OUTCOME" != "success" ]; then
+            echo "::error::Signature verification failed for the $LANE lane. Sign with scripts/sign_benchmark.py (sigstore keyless — the identity must be YOUR GitHub account, matching the PR author) or submit unsigned upstream_readme_* entries to the curator lane."
+            FAIL=1
+          fi
+          if [ "${{ steps.schemacheck.outcome }}" != "success" ]; then
+            echo "::error::Schema validation failed — see the PR comment for field-level errors."
+            FAIL=1
+          fi
+          exit $FAIL
