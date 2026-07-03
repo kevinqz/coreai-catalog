@@ -2,7 +2,7 @@
   "export_schema_version": "1.0",
   "export_catalog_version": "2.1.0",
   "description": "Alias mappings resolving catalog IDs to Zoo card names, CoreAIKit strings, and HF repo names.",
-  "total_models": 80,
+  "total_models": 81,
   "aliases": {
     "qwen3-5-0-8b": [
       "qwen3-5-0-8b-coreai",
@@ -461,6 +461,12 @@
       "VJEPA2-ViTL-SSv2-CoreAI",
       "vjepa2-vitl-ssv2-coreai",
       "vjepa2.vitl.ssv2"
+    ],
+    "ornith-1-0-9b": [
+      "Ornith-1.0-9B-CoreAI",
+      "ornith-1-0-9b-coreai",
+      "ornith-1.0-9b.md",
+      "ornith.1.0-9b"
     ]
   }
 }

@@ -1,6 +1,6 @@
 # Chat
 
-**28 models** in the catalog with this capability.
+**29 models** in the catalog with this capability.
 
 ## Task synonyms
 
@@ -34,6 +34,7 @@
 | [Qwen3.6-35B-A3B](../../catalog.yaml#L1) | 63 | 35B / ~3B active | 💻 | Apache-2.0 | ✅ likely | 📊 | 🐼 |
 | [RWKV-7 Goose 1.5B](../../catalog.yaml#L1) | 63 | 1.5B | 💻 | Apache-2.0 | ✅ likely | — | 🐼 |
 | [Gemma 4 12B IT Multimodal (warshanks)](../../catalog.yaml#L1) | 58 | 12B | 💻 | Apache-2.0 | ✅ likely | — | 🔗 |
+| [Ornith 1.0 9B](../../catalog.yaml#L1) | 55 | 9B | 💻 | MIT | ✅ likely | — | 🐼 |
 | [GLM-4.7-Flash](../../catalog.yaml#L1) | 53 | 30B / ~3B active | 💻 | MIT | ⚠️ check_license | 📊 | 🐼 |
 | [Gemma 4 12B](../../catalog.yaml#L1) | 53 | 12B | 💻 | Gemma Terms | ⚠️ check_license | 📊 | 🐼 |
 | [Gemma 4 31B](../../catalog.yaml#L1) | 53 | 31B | 💻 | Gemma Terms | ⚠️ check_license | 📊 | 🐼 |

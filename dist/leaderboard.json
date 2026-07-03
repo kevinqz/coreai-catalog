@@ -2,7 +2,7 @@
   "export_schema_version": "1.0",
   "export_catalog_version": "2.1.0",
   "description": "Ranked model leaderboard by readiness score. Each entry includes best-known benchmarks per metric.",
-  "total_models": 80,
+  "total_models": 81,
   "leaderboard": [
     {
       "id": "depth-anything-3-base",
@@ -1106,6 +1106,19 @@
       ],
       "parameters": "12B",
       "readiness_score": 58,
+      "benchmark_count": 0,
+      "best_metrics": {}
+    },
+    {
+      "id": "ornith-1-0-9b",
+      "name": "Ornith 1.0 9B",
+      "capabilities": [
+        "chat",
+        "text-generation",
+        "code-generation"
+      ],
+      "parameters": "9B",
+      "readiness_score": 55,
       "benchmark_count": 0,
       "best_metrics": {}
     },

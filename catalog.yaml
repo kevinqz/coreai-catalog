@@ -2,7 +2,7 @@ metadata:
   name: Core AI Catalog
   repo: coreai-catalog
   version: 2.1.0
-  last_verified: '2026-07-01'
+  last_verified: '2026-07-03'
   upstream:
   - coreai-model-zoo
   - apple/coreai-models
@@ -4687,4 +4687,63 @@ models:
     spatiotemporal patches. fp16, AOT h18p specialized. Trained on Something-Something
     v2 (action recognition). ViT-L backbone.
   architecture: encoder
+  streaming: false
+- id: ornith-1-0-9b
+  name: Ornith 1.0 9B
+  family: Qwen
+  source_group: zoo
+  artifact_ref: ornith-1-0-9b
+  source_path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/ornith-1.0-9b.md
+  capabilities:
+  - chat
+  - text-generation
+  - code-generation
+  modalities:
+    input:
+    - text
+    output:
+    - text
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 9B
+    precision: int8
+    quantization: int8hu
+    artifact_size: 9.8GB
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: false
+    custom_kernel: true
+    patch_required: true
+    tokenizer_required: true
+    processor_required: false
+    aot_required: false
+  device_support:
+    iphone: false
+    ipad: unknown
+    mac: true
+    mac_only: true
+  license:
+    name: MIT
+    commercial_use: likely
+  status: confirmed
+  maturity: experimental
+  confidence: high
+  sources:
+  - coreai-model-zoo-readme
+  - ornith-upstream
+  last_verified: '2026-07-03'
+  bundle_kind: llm
+  min_os:
+    macos: '27.0'
+    ios: '27.0'
+  notes: First agentic-coding model in the ecosystem. Qwen3.5 hybrid decoder (32 layers,
+    3:1 GatedDeltaNet/attention interleave) trained by DeepReinforce to jointly solve
+    coding tasks and construct orchestration scaffolds. int8hu ship recipe delivers
+    48.3 tok/s decode on M4 Max. int4lin variant reaches 58.9 tok/s (+22%), 7.5 GB.
+    24/24 exact match vs fp32 oracle on both quantizations. Dense MLP(12288), hidden
+    4096, untied 248320-vocab lm_head. Max context 8192.
+  architecture: transformer
   streaming: false

@@ -84,3 +84,4 @@ Generated from `artifacts.yaml`.
 | efficientsam3-tinyvit | external | lenitas/coreai-artifacts | lenitas/coreai-artifacts | False | False |
 | rwkv7-goose-1-5b | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/RWKV7-Goose-1.5B-CoreAI | False | False |
 | art-vjepa2-vitl-ssv2 | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/VJEPA2-ViTL-SSv2-CoreAI | False | False |
+| ornith-1-0-9b | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/Ornith-1.0-9B-CoreAI | False | False |

@@ -5060,13 +5060,66 @@
           "url": null
         }
       }
+    },
+    {
+      "bundle_kind": "language",
+      "conversion_script": null,
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/ornith-1.0-9b.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "files": [
+          {
+            "path": "gpu-pipelined/ornith_1_0_9b_decode_int4lin/ornith_1_0_9b_decode_int4lin.aimodel/main.mlirb",
+            "sha256": "6f18cad38e4199529fe307d041dcfc7565685bf5bce94c6beeed9dbdb743f405",
+            "size_bytes": 7963434741
+          },
+          {
+            "path": "gpu-pipelined/ornith_1_0_9b_decode_int4lin/tokenizer/tokenizer.json",
+            "sha256": "06b9509352d2af50381ab2247e083b80d32d5c0aba91c272ca9ff729b6a0e523",
+            "size_bytes": 19989325
+          },
+          {
+            "path": "gpu-pipelined/ornith_1_0_9b_decode_int8hu_block32_sym/ornith_1_0_9b_decode_int8hu_block32_sym.aimodel/main.mlirb",
+            "sha256": "229f0aaf82e27f9127fc12b04aec31707d7473f5a1d871ee5749064fe93cacc7",
+            "size_bytes": 10469138590
+          },
+          {
+            "path": "gpu-pipelined/ornith_1_0_9b_decode_int8hu_block32_sym/tokenizer/tokenizer.json",
+            "sha256": "06b9509352d2af50381ab2247e083b80d32d5c0aba91c272ca9ff729b6a0e523",
+            "size_bytes": 19989325
+          }
+        ],
+        "owner": "mlboydaisuke",
+        "repo": "Ornith-1.0-9B-CoreAI",
+        "revision": "01e4f494ff1d5c64544cc814dfcaccd3a36ccb68",
+        "url": "https://huggingface.co/mlboydaisuke/Ornith-1.0-9B-CoreAI"
+      },
+      "id": "ornith-1-0-9b",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "precision": "int8",
+      "verification": {
+        "last_verified": "2026-07-03",
+        "zoo_smoke": {
+          "sha": null,
+          "status": "passed",
+          "url": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/ornith-1.0-9b.md"
+        }
+      }
     }
   ],
   "export_catalog_version": "2.1.0",
   "export_schema_version": "1.0",
   "metadata": {
-    "count": 80,
-    "last_verified": "2026-07-01",
+    "count": 81,
+    "last_verified": "2026-07-03",
     "name": "Core AI Catalog artifact provenance"
   }
 }

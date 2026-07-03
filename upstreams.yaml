@@ -712,3 +712,12 @@ license_sources:
   url: https://stability.ai/license
   trust: license_needs_model_specific_review
   review_required: true
+- id: ornith-upstream
+  title: DeepReinforce Ornith 1.0 original model
+  category: original_model
+  platform: huggingface
+  owner: deepreinforce-ai
+  url: https://huggingface.co/deepreinforce-ai/Ornith-1.0-9B
+  trust: original_model_primary
+  applies_to:
+  - ornith-1-0-9b

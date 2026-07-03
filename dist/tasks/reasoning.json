@@ -4,7 +4,7 @@
     "reasoning",
     "chat"
   ],
-  "model_count": 28,
+  "model_count": 29,
   "models": [
     {
       "id": "official-qwen3-0-6b",
@@ -339,6 +339,20 @@
         "mac": true
       },
       "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "ornith-1-0-9b",
+      "name": "Ornith 1.0 9B",
+      "score": 55,
+      "parameters": "9B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "MIT",
       "commercial_use": "likely",
       "has_benchmark": false
     },
