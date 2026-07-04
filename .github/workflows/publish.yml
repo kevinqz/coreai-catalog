@@ -23,7 +23,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install build twine
+          pip install build
           pip install -r requirements.txt
 
       - name: Sync package data
@@ -33,6 +33,7 @@ jobs:
         run: |
           python scripts/validate.py
           python scripts/audit.py
+          python scripts/check_counts.py
 
       - name: Build package
         run: |
@@ -41,7 +42,6 @@ jobs:
           cp dist/coreai_catalog-* dist_pkg/
 
       - name: Publish to PyPI
-        env:
-          TWINE_USERNAME: __token__
-          TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
-        run: twine upload dist_pkg/*
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: dist_pkg/

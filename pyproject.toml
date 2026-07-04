@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "coreai-catalog"
-version = "2.2.1"
+version = "2.2.2"
 description = "Discover, compare, and install Core AI models for Apple Silicon."
 readme = "README.md"
 license = {text = "MIT"}

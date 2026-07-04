@@ -6856,7 +6856,7 @@
         "coreai-model-zoo",
         "apple/coreai-models"
       ],
-      "version": "2.2.1"
+      "version": "2.2.2"
     },
     "models": [
       {
@@ -12815,7 +12815,7 @@
       }
     ]
   },
-  "export_catalog_version": "2.2.1",
+  "export_catalog_version": "2.2.2",
   "export_schema_version": "1.0",
   "sources": {
     "sources": [

@@ -471,7 +471,7 @@
     }
   ],
   "export_schema_version": "1.0",
-  "export_catalog_version": "2.2.1",
+  "export_catalog_version": "2.2.2",
   "best_overall": "qwen3-embedding-0-6b",
   "best_iphone": "qwen3-embedding-0-6b",
   "best_commercial": "qwen3-embedding-0-6b"

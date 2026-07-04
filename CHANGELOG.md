@@ -4,6 +4,41 @@ All notable changes to Core AI Catalog are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/), and this
 project adheres to [Semantic Versioning](https://semver.org/).
 
+## [2.2.2] — 2026-07-04
+
+LLM-context sync + packaging polish. Closes agent-facing surface drift flagged
+in red-team review.
+
+### Fixed
+
+- `llms.txt` was stale: version `2.1.0` (now `2.2.2`), artifact count `80` (now
+  `82`), `bundle_kind on all 80` (now `82`), last_verified `2026-07-01` (now
+  `2026-07-04`).
+- `llms-full.txt` was stale: version `2.1.0`, model count `80`, artifact count
+  `80`, `bundle_kind on all 80` — all corrected to `82` / `2.2.2`.
+- `site/index.html` MCP section said `12 tools` — corrected to `16`.
+- `scripts/check_counts.py` now validates `llms.txt` artifact count, version,
+  and `bundle_kind` count (previously only checked model + benchmark counts).
+  The script also validates `llms-full.txt` model/artifact/benchmark counts and
+  version for the first time. Both files are now under the version contract.
+- `scripts/check_counts.py` version contract extended: `llms.txt` and
+  `llms-full.txt` version fields are now checked against `pyproject.toml`.
+
+### Changed
+
+- PyPI publish workflow migrated from `twine` + `PYPI_API_TOKEN` secret to
+  `pypa/gh-action-pypi-publish` (Trusted Publishing via OIDC). The workflow
+  already had `permissions: id-token: write` — only the upload step changed.
+- `publish.yml` now runs `check_counts.py` in the pre-publish validation gate,
+  so a count-drift cannot ship to PyPI.
+
+### Added
+
+- `qwen3-enhancer` (Huihui Qwen3-4B Abliterated v2, 4-bit dynamic, Apache-2.0)
+  from `bryanbblewis11/Qwen3-Enhancer-CoreAI` — first `source_group: external`
+  model (outside the Zoo ecosystem).
+- `ornith-1-0-9b` P1 schema fields (`bundle_kind`, `min_os`, `upstream_repo`).
+
 ## [2.2.1] — 2026-07-03
 
 Version-contract + docs sync patch (no new features). Closes public-surface

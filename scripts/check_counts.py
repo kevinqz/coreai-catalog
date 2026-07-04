@@ -64,6 +64,7 @@ def check() -> list[str]:
             errors.append(f"{rel}: STALE — {why} (found {needle!r})")
 
     m = c["models"]
+    pyproject_version = _read_versions()["pyproject.toml"]
     # README scope table + status line.
     must_contain("README.md", f"{m} Apple Core AI models", "status line model count")
     must_contain("README.md", f"| Model records | {m} |", "scope-table model count")
@@ -75,7 +76,16 @@ def check() -> list[str]:
     # Agent + API surfaces.
     must_contain("llms.txt", f"catalog of {m} Apple Core AI models", "llms model count")
     must_contain("llms.txt", f"- {m} model records", "llms model-records count")
+    must_contain("llms.txt", f"- {c['artifacts']} artifact provenance records", "llms artifact count")
     must_contain("llms.txt", f"- {c['benchmarks']} benchmark records", "llms benchmark count")
+    must_contain("llms.txt", f"**Version:** {pyproject_version}", "llms version")
+    must_contain("llms.txt", f"bundle_kind on all {m}", "llms bundle_kind count")
+    # llms-full.txt — full LLM context file (same drift class)
+    must_contain("llms-full.txt", f"- {m} model records", "llms-full model-records count")
+    must_contain("llms-full.txt", f"- {c['artifacts']} artifact provenance records", "llms-full artifact count")
+    must_contain("llms-full.txt", f"- {c['benchmarks']} benchmark records", "llms-full benchmark count")
+    must_contain("llms-full.txt", f"**Version:** {pyproject_version}", "llms-full version")
+    must_contain("llms-full.txt", f"bundle_kind` on all {m}", "llms-full bundle_kind count")
     must_contain("agent.json", f"catalog of {m} Apple Core AI models", "agent.json model count")
     must_contain("openapi.yaml", f"catalog of {m} Apple Core AI models", "openapi model count")
     # Site: hero, About prose, meta description, and the stat fallbacks.
@@ -110,6 +120,8 @@ def _read_versions() -> dict[str, str | None]:
         "agent.json": json.loads((ROOT / "agent.json").read_text()).get("version"),
         "openapi.yaml": rx("openapi.yaml", r"(?m)^\s+version:\s*['\"]?([0-9][^'\"\n]+)"),
         "README.md": rx("README.md", r"\*\*Version:\*\*\s*v([0-9][0-9.]+)"),
+        "llms.txt": rx("llms.txt", r"\*\*Version:\*\*\s*([0-9][0-9.]+)"),
+        "llms-full.txt": rx("llms-full.txt", r"\*\*Version:\*\*\s*([0-9][0-9.]+)"),
     }
 
 

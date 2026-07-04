@@ -21,7 +21,7 @@ Not affiliated with or endorsed by Apple. `commercial_use` fields are triage lab
 
 ## Status
 
-**Version:** v2.2.1 — [PyPI](https://pypi.org/project/coreai-catalog/) · [Live site](https://kevinqz.github.io/coreai-catalog/) · [CI](https://github.com/kevinqz/coreai-catalog/actions/workflows/validate.yml)
+**Version:** v2.2.2 — [PyPI](https://pypi.org/project/coreai-catalog/) · [Live site](https://kevinqz.github.io/coreai-catalog/) · [CI](https://github.com/kevinqz/coreai-catalog/actions/workflows/validate.yml)
 
 82 Apple Core AI models with artifact provenance, benchmarks, verified terminology, readiness scores, and an MCP server for agent-native model discovery, comparison, and recommendation.
 

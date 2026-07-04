@@ -8,17 +8,17 @@ models. It maps Core AI-compatible model artifacts with granular metadata,
 source links, Hugging Face artifact references, runtime requirements, device
 support, benchmark records, and verification status.
 
-- **Version:** 2.1.0
-- **Last verified:** 2026-07-01
+- **Version:** 2.2.2
+- **Last verified:** 2026-07-04
 
 ## Catalog facts
 
 - 82 model records (chat, vision-language, speech, embeddings, detection, more)
-- 80 artifact provenance records (Hugging Face + GitHub sources)
+- 82 artifact provenance records (Hugging Face + GitHub sources)
 - 65 benchmark records (throughput, latency, RTF — iPhone + Mac)
 - min_os on every model: all current models require macOS/iOS 27
   (the apple/coreai-models runtime declares macOS 27.0); typed io_contract
-  blocks on priority models, authored bundle_kind on all 80
+  blocks on priority models, authored bundle_kind on all 82
 - 42 verified Apple AI terminology entries (each citing an official source)
 - 8 independent Hugging Face converters indexed (multi-upstream)
 - Readiness scores (0-100) for deployment decision-making
