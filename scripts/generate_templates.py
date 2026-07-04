@@ -217,8 +217,13 @@ def render_yaml_object(
         type_list = types if isinstance(types, list) else [types]
 
         if 'object' in type_list and 'enum' not in sub:
-            lines.append(f'{lead}{name}:{suffix}')
-            render_yaml_object(sub, key_col + 2, lines, parent=name)
+            if sub.get('properties'):
+                lines.append(f'{lead}{name}:{suffix}')
+                render_yaml_object(sub, key_col + 2, lines, parent=name)
+            else:
+                # Object with no fixed properties (e.g. an additionalProperties
+                # map). Emit an inline empty object so it parses as {} not None.
+                lines.append(f'{lead}{name}: {{}}{suffix}')
         elif 'array' in type_list:
             items = sub.get('items') or {'type': 'string'}
             item_types = items.get('type', 'string')

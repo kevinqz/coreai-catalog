@@ -99,6 +99,115 @@ SCORING_WEIGHTS: dict[str, int] = {
 }
 
 
+# ---------------------------------------------------------------------------
+# Decomposed suitability facets (SotA readiness reshape).
+#
+# readiness_score() is a single curation/deployability composite that is BLIND
+# to model quality (it counts only benchmark PRESENCE, not values) and is
+# therefore deprecated as a headline signal. The functions below split it into
+# the three orthogonal axes SotA registries actually surface, and are emitted
+# per-entry in dist/search-index.json:
+#   - deployability_facets(): can I obtain/run/license it? (per-axis, no score)
+#   - lifecycle_of():         how mature is the ENTRY? (ordinal stage)
+#   - entry_completeness():   how complete is the ENTRY? (coverage, not quality)
+# Model QUALITY stays where it belongs: benchmark VALUES, per <task,metric>.
+# ---------------------------------------------------------------------------
+
+def deployability_facets(model: dict, has_bench: bool = False) -> dict[str, Any]:
+    """Decomposed deployment facets for filtering/badges — NOT a quality score.
+
+    Derived from the entry's device_support/runtime/license/artifact fields.
+    Collapses the four collinear runtime flags (stock_runtime, custom_kernel,
+    patch_required, aot_required) into one ``runtime`` axis.
+    """
+    if not isinstance(model, dict):
+        return {}
+    ds = model.get("device_support") or {}
+    rt = model.get("runtime") or {}
+    lic = model.get("license") or {}
+    stock = rt.get("stock_runtime")
+    runtime = "stock" if stock is True else "patched" if stock is False else "unknown"
+    return {
+        "obtainable": (model.get("artifact") or {}).get("availability", "unknown"),
+        "runtime": runtime,
+        "device_fit": {
+            "mac": ds.get("mac", "unknown"),
+            "iphone": ds.get("iphone", "unknown"),
+            "ipad": ds.get("ipad", "unknown"),
+        },
+        "license": {
+            "name": lic.get("name"),
+            "commercial_use": lic.get("commercial_use"),
+        },
+        "measured": bool(has_bench),
+    }
+
+
+def lifecycle_of(model: dict) -> dict[str, Any]:
+    """Ordinal maturity stage of the catalog ENTRY (MLTRL / MLflow-tags style).
+
+    Derived from source_group/status/maturity. An explicit ``lifecycle`` block
+    on the entry (e.g. authored by coreai-fabric) takes precedence. Separate
+    from model quality.
+    """
+    if not isinstance(model, dict):
+        return {}
+    explicit = model.get("lifecycle")
+    if isinstance(explicit, dict) and explicit.get("stage"):
+        return explicit
+    status = model.get("status")
+    maturity = model.get("maturity")
+    group = model.get("source_group")
+    if status == "deprecated":
+        stage = "deprecated"
+    elif group == "official" and status == "confirmed":
+        stage = "official"
+    elif group == "fabric" or status == "needs_review":
+        # community = community-converted or not-yet-verified provenance
+        stage = "community"
+    elif status == "confirmed" and maturity in ("stable", "active"):
+        stage = "verified"
+    else:
+        # confirmed but experimental/research maturity
+        stage = "experimental"
+    return {
+        "stage": stage,
+        "verification": status or "unknown",
+        "curator_confidence": model.get("confidence"),
+        "last_verified": model.get("last_verified"),
+    }
+
+
+def entry_completeness(model: dict, has_bench: bool = False) -> dict[str, Any]:
+    """Coverage of key metadata for this catalog ENTRY (Kaggle-Usability style).
+
+    NOT model quality/accuracy: an 'unknown' or absent facet lowers coverage,
+    never a hidden quality score.
+    """
+    if not isinstance(model, dict):
+        return {"pct": 0.0, "present": 0, "of": 0, "fields": {}}
+    ds = model.get("device_support") or {}
+    rt = model.get("runtime") or {}
+    lic = model.get("license") or {}
+    art = model.get("artifact") or {}
+    fields = {
+        "artifact_availability_known": art.get("availability") not in (None, "unknown"),
+        "device_support_known": ds.get("mac") not in (None, "unknown"),
+        "runtime_profile_known": rt.get("stock_runtime") is not None,
+        "license_triaged": bool(lic.get("commercial_use")),
+        "benchmarked": bool(has_bench),
+        "io_contract_present": bool(model.get("io_contract")),
+    }
+    present = sum(1 for v in fields.values() if v)
+    of = len(fields)
+    return {
+        "pct": round(present / of, 3) if of else 0.0,
+        "present": present,
+        "of": of,
+        "fields": fields,
+    }
+
+
 #: Common abbreviations and aliases → canonical capability names.
 CAPABILITY_ALIASES: dict[str, str] = {
     "vlm": "vision-language",

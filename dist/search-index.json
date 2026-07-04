@@ -45,6 +45,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 78,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -159,6 +192,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 78,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -254,6 +320,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 63,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": false,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -329,6 +428,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 63,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": false,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -406,6 +538,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 53,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": false,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "MIT",
+          "commercial_use": "check_license"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -482,6 +647,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 63,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Gemma Terms",
+          "commercial_use": "check_license"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -634,6 +832,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 63,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Gemma Terms",
+          "commercial_use": "check_license"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -747,6 +978,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 53,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": false,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Gemma Terms",
+          "commercial_use": "check_license"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -841,6 +1105,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 53,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": false,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Gemma Terms",
+          "commercial_use": "check_license"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -918,6 +1215,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 68,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "LFM Open License v1.0",
+          "commercial_use": "check_license"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -1014,6 +1344,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 53,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "LFM Open License v1.0",
+          "commercial_use": "check_license"
+        },
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -1071,6 +1434,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 78,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -1167,6 +1563,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 68,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -1225,6 +1654,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 68,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "check_license"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -1320,6 +1782,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 78,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -1415,6 +1910,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 68,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -1471,6 +1999,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 68,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -1574,6 +2135,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 78,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 1.0,
+        "present": 6,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": true
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -1669,6 +2263,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 63,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Gemma Terms",
+          "commercial_use": "check_license"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -1812,6 +2439,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 73,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "MIT",
+          "commercial_use": "check_license"
+        },
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": true
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -1867,6 +2527,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 63,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -1922,6 +2615,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 73,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -1977,6 +2703,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 78,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -2052,6 +2811,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 73,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Gemma Terms",
+          "commercial_use": "check_license"
+        },
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -2135,6 +2927,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 93,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 1.0,
+        "present": 6,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": true
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -2242,6 +3067,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 93,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 1.0,
+        "present": 6,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": true
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -2346,6 +3204,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 93,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 1.0,
+        "present": 6,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": true
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -2450,6 +3341,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 93,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 1.0,
+        "present": 6,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": true
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -2554,6 +3478,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 93,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 1.0,
+        "present": 6,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": true
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -2658,6 +3615,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 93,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 1.0,
+        "present": 6,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": true
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -2736,6 +3726,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 83,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -2794,6 +3817,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 83,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -2852,6 +3908,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 83,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -2910,6 +3999,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 83,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -2968,6 +4090,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 83,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -3026,6 +4181,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 83,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -3081,6 +4269,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 73,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0 + OpenRAIL++",
+          "commercial_use": "check_license"
+        },
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -3166,6 +4387,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 93,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 1.0,
+        "present": 6,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": true
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -3271,6 +4525,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 93,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 1.0,
+        "present": 6,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": true
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -3347,6 +4634,39 @@
       "maturity": "experimental",
       "confidence": "high",
       "readiness_score": 85,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": false,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "official",
+        "verification": "confirmed",
+        "curator_confidence": "high",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -3455,6 +4775,39 @@
       "maturity": "experimental",
       "confidence": "high",
       "readiness_score": 90,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "official",
+        "verification": "confirmed",
+        "curator_confidence": "high",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 1.0,
+        "present": 6,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": true
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -3550,6 +4903,39 @@
       "maturity": "experimental",
       "confidence": "high",
       "readiness_score": 90,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "official",
+        "verification": "confirmed",
+        "curator_confidence": "high",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -3625,6 +5011,39 @@
       "maturity": "experimental",
       "confidence": "high",
       "readiness_score": 80,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": false,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "official",
+        "verification": "confirmed",
+        "curator_confidence": "high",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -3701,6 +5120,39 @@
       "maturity": "experimental",
       "confidence": "high",
       "readiness_score": 70,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": false,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Gemma Terms",
+          "commercial_use": "check_license"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "official",
+        "verification": "confirmed",
+        "curator_confidence": "high",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -3777,6 +5229,39 @@
       "maturity": "experimental",
       "confidence": "high",
       "readiness_score": 70,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": false,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Gemma Terms",
+          "commercial_use": "check_license"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "official",
+        "verification": "confirmed",
+        "curator_confidence": "high",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -3852,6 +5337,39 @@
       "maturity": "experimental",
       "confidence": "high",
       "readiness_score": 80,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": false,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "official",
+        "verification": "confirmed",
+        "curator_confidence": "high",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -3952,6 +5470,39 @@
       "maturity": "experimental",
       "confidence": "high",
       "readiness_score": 85,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": false,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "official",
+        "verification": "confirmed",
+        "curator_confidence": "high",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 1.0,
+        "present": 6,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": true
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -4067,6 +5618,39 @@
       "maturity": "experimental",
       "confidence": "high",
       "readiness_score": 80,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Meta SAM License",
+          "commercial_use": "check_license"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "official",
+        "verification": "confirmed",
+        "curator_confidence": "high",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 1.0,
+        "present": 6,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": true
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -4174,6 +5758,39 @@
       "maturity": "experimental",
       "confidence": "high",
       "readiness_score": 90,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "official",
+        "verification": "confirmed",
+        "curator_confidence": "high",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 1.0,
+        "present": 6,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": true
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -4251,6 +5868,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 83,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-29"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -4347,6 +5997,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 78,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "MIT",
+          "commercial_use": "likely"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-29"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -4423,6 +6106,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 68,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-29"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -4519,6 +6235,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 73,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-29"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -4575,6 +6324,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 83,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "MIT",
+          "commercial_use": "likely"
+        },
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-29"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -4630,6 +6412,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 73,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-29"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -4685,6 +6500,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 78,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "CC-BY-4.0",
+          "commercial_use": "check_license"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-29"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -4779,6 +6627,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 68,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-29"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -4836,6 +6717,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 93,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-29"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -4929,6 +6843,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 53,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": false,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "MIT",
+          "commercial_use": "check_license"
+        },
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-29"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -4983,6 +6930,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 63,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": false,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "OpenRAIL-M",
+          "commercial_use": "check_license"
+        },
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-29"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -5039,6 +7019,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 78,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "official",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-29"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -5095,6 +7108,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 83,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "MIT",
+          "commercial_use": "likely"
+        },
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "official",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-29"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -5151,6 +7197,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 63,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": false,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "MIT",
+          "commercial_use": "likely"
+        },
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-29"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -5208,6 +7287,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 63,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "MIT",
+          "commercial_use": "likely"
+        },
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-29"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -5263,6 +7375,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 63,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": false,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Stability Community",
+          "commercial_use": "check_license"
+        },
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-29"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -5317,6 +7462,39 @@
       "maturity": "active",
       "confidence": "medium",
       "readiness_score": 78,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": "unknown",
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "verified",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-30"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -5371,6 +7549,39 @@
       "maturity": "active",
       "confidence": "medium",
       "readiness_score": 78,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": "unknown",
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "MIT",
+          "commercial_use": "likely"
+        },
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "verified",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-30"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -5425,6 +7636,39 @@
       "maturity": "active",
       "confidence": "medium",
       "readiness_score": 78,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": "unknown",
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "MIT",
+          "commercial_use": "likely"
+        },
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "verified",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-30"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -5483,6 +7727,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 48,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": false,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "check_license"
+        },
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-30"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -5537,6 +7814,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 58,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": false,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "check_license"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-30"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -5611,6 +7921,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 73,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": false,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "MIT",
+          "commercial_use": "likely"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-30"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -5685,6 +8028,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 73,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": false,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "MIT",
+          "commercial_use": "likely"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-30"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -5759,6 +8135,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 73,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": false,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "MIT",
+          "commercial_use": "likely"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-30"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -5833,6 +8242,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 73,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": false,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "MIT",
+          "commercial_use": "likely"
+        },
+        "measured": true
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-30"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -5908,6 +8350,39 @@
       "maturity": "experimental",
       "confidence": "high",
       "readiness_score": 70,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "OpenMDW-1.1",
+          "commercial_use": "check_license"
+        },
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "high",
+        "last_verified": "2026-06-30"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -5964,6 +8439,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 73,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": true
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-30"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -6018,6 +8526,39 @@
       "maturity": "active",
       "confidence": "medium",
       "readiness_score": 78,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": "unknown",
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "BSD-3-Clause",
+          "commercial_use": "likely"
+        },
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "verified",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-30"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -6073,6 +8614,39 @@
       "maturity": "active",
       "confidence": "medium",
       "readiness_score": 88,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "verified",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-30"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -6128,6 +8702,39 @@
       "maturity": "experimental",
       "confidence": "medium",
       "readiness_score": 63,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": false,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-01"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -6218,6 +8825,39 @@
       "maturity": "experimental",
       "confidence": "low",
       "readiness_score": 45,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": false,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "MIT",
+          "commercial_use": "likely"
+        },
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "unknown",
+        "curator_confidence": "low",
+        "last_verified": "2026-07-02"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": true
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -6274,6 +8914,39 @@
       "maturity": "experimental",
       "confidence": "high",
       "readiness_score": 55,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": false,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "MIT",
+          "commercial_use": "likely"
+        },
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "high",
+        "last_verified": "2026-07-03"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",
@@ -6330,6 +9003,39 @@
       "maturity": "experimental",
       "confidence": "high",
       "readiness_score": 85,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "high",
+        "last_verified": "2026-07-04"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "artifact": {
         "format": "aimodel",
         "availability": "available",

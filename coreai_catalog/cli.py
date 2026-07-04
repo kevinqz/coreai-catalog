@@ -441,7 +441,13 @@ def cmd_scores(args: argparse.Namespace) -> int:
         print(json.dumps({"scores": results}, indent=2))
         return 0
 
-    print(f"\n  {BOLD}Core AI Readiness Scores{RESET}\n")
+    print(f"\n  {BOLD}Core AI — Deployability / Curation Readiness{RESET}")
+    print(
+        f"  {DIM}Composite of availability/license/device/runtime/curation — "
+        f"NOT model quality (capability is not measured).\n"
+        f"  Deprecated headline: prefer the decomposed deployability / lifecycle /\n"
+        f"  entry_completeness facets in dist/search-index.json.{RESET}\n"
+    )
     print(f"  {'Score':>20s}  {'ID':40s}  Name")
     print(f"  {'─' * 20}  {'─' * 40}  {'─' * 30}")
     for m, s in scored:

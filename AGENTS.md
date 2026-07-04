@@ -160,6 +160,16 @@ contributions through it.
 
 ## Scoring algorithm
 
+> **Deprecated as a headline signal (SotA readiness reshape).** `readiness_score`
+> is a curation/deployability composite that is **blind to model quality** (it
+> counts only benchmark *presence*, not values) and inversely tracks capability.
+> Prefer the decomposed facets now emitted per-entry in `dist/search-index.json`:
+> **`deployability`** (obtainable / runtime / device_fit / license / measured),
+> **`lifecycle`** (ordinal stage: official/verified/community/experimental/deprecated),
+> and **`entry_completeness`** (metadata coverage — *not* quality). Model quality
+> lives in **benchmark VALUES**, per `<task, metric>`. The composite below is kept
+> for internal ranking + back-compat only.
+
 The readiness score (0-100) rewards deployment confidence:
 
 | Factor | Points |
