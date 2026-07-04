@@ -367,6 +367,18 @@
       "title": "DeepReinforce Ornith 1.0 original model",
       "trust": "original_model_primary",
       "url": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-9B"
+    },
+    {
+      "applies_to": [
+        "qwen3-enhancer"
+      ],
+      "category": "original_model",
+      "id": "qwen3-enhancer-upstream",
+      "owner": "huihui-ai",
+      "platform": "huggingface",
+      "title": "Huihui Qwen3-4B Abliterated v2",
+      "trust": "original_model_primary",
+      "url": "https://huggingface.co/huihui-ai/Huihui-Qwen3-4B-abliterated-v2"
     }
   ],
   "metadata": {

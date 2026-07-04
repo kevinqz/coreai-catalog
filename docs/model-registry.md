@@ -83,3 +83,4 @@
 | rwkv7-goose-1-5b | RWKV-7 Goose 1.5B | zoo | RWKV | chat, text-generation | text | text | 1.5B | Mac | Apache-2.0 | confirmed |
 | vjepa2-vitl-ssv2 | V-JEPA 2 ViT-L (SSv2) | zoo | V-JEPA | video-classification | video | action-tokens | 300M | Mac | MIT | unknown |
 | ornith-1-0-9b | Ornith 1.0 9B | zoo | Qwen | chat, text-generation, code-generation | text | text | 9B | Mac | MIT | confirmed |
+| qwen3-enhancer | Qwen3 Enhancer (Huihui Qwen3-4B Abliterated v2) | external | Qwen | chat, text-generation | text | text | 4B | iPhone/Mac | Apache-2.0 | confirmed |

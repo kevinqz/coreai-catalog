@@ -721,3 +721,12 @@ license_sources:
   trust: original_model_primary
   applies_to:
   - ornith-1-0-9b
+- id: qwen3-enhancer-upstream
+  title: Huihui Qwen3-4B Abliterated v2
+  category: original_model
+  platform: huggingface
+  owner: huihui-ai
+  url: https://huggingface.co/huihui-ai/Huihui-Qwen3-4B-abliterated-v2
+  trust: original_model_primary
+  applies_to:
+  - qwen3-enhancer

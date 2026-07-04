@@ -2,7 +2,7 @@
   "export_schema_version": "1.0",
   "export_catalog_version": "2.2.1",
   "description": "Ranked model leaderboard by readiness score. Each entry includes best-known benchmarks per metric.",
-  "total_models": 81,
+  "total_models": 82,
   "leaderboard": [
     {
       "id": "depth-anything-3-base",
@@ -256,6 +256,18 @@
           "unit": "tokens_per_second"
         }
       }
+    },
+    {
+      "id": "qwen3-enhancer",
+      "name": "Qwen3 Enhancer (Huihui Qwen3-4B Abliterated v2)",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "parameters": "4B",
+      "readiness_score": 85,
+      "benchmark_count": 0,
+      "best_metrics": {}
     },
     {
       "id": "colmodernvbert",

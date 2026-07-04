@@ -1,6 +1,6 @@
 # Chat
 
-**29 models** in the catalog with this capability.
+**30 models** in the catalog with this capability.
 
 ## Task synonyms
 
@@ -12,6 +12,7 @@
 |---|---|---|---|---|---|---|---|
 | [Qwen3 0.6B](../../catalog.yaml#L1) | 90 | 0.6B | 📱💻 | Apache-2.0 | ✅ likely | 📊 | 🍎 |
 | [Qwen3 4B](../../catalog.yaml#L1) | 90 | 4B | 📱💻 | Apache-2.0 | ✅ likely | 📊 | 🍎 |
+| [Qwen3 Enhancer (Huihui Qwen3-4B Abliterated v2)](../../catalog.yaml#L1) | 85 | 4B | 📱💻 | Apache-2.0 | ✅ likely | — | 🔗 |
 | [gpt-oss-20B](../../catalog.yaml#L1) | 85 | 20B / ~13GB | 💻 | Apache-2.0 | ✅ likely | 📊 | 🍎 |
 | [MiniCPM5-1B](../../catalog.yaml#L1) | 83 | 1.08B | 📱💻 | Apache-2.0 | ✅ likely | 📊 | 🐼 |
 | [Mistral 7B v0.3](../../catalog.yaml#L1) | 80 | 7B | 💻 | Apache-2.0 | ✅ likely | 📊 | 🍎 |

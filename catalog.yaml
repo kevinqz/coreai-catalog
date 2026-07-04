@@ -2,7 +2,7 @@ metadata:
   name: Core AI Catalog
   repo: coreai-catalog
   version: 2.2.1
-  last_verified: '2026-07-03'
+  last_verified: '2026-07-04'
   upstream:
   - coreai-model-zoo
   - apple/coreai-models
@@ -4715,5 +4715,61 @@ models:
     48.3 tok/s decode on M4 Max. int4lin variant reaches 58.9 tok/s (+22%), 7.5 GB.
     24/24 exact match vs fp32 oracle on both quantizations. Dense MLP(12288), hidden
     4096, untied 248320-vocab lm_head. Max context 8192.
+  architecture: transformer
+  streaming: false
+- id: qwen3-enhancer
+  name: Qwen3 Enhancer (Huihui Qwen3-4B Abliterated v2)
+  family: Qwen
+  source_group: external
+  artifact_ref: qwen3-enhancer
+  source_path: https://huggingface.co/bryanbblewis11/Qwen3-Enhancer-CoreAI
+  capabilities:
+  - chat
+  - text-generation
+  modalities:
+    input:
+    - text
+    output:
+    - text
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 4B
+    precision: int4
+    quantization: 4bit-dynamic
+    artifact_size: not_published
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: true
+    custom_kernel: false
+    patch_required: false
+    tokenizer_required: true
+    processor_required: false
+    aot_required: false
+  device_support:
+    iphone: true
+    ipad: unknown
+    mac: true
+    mac_only: false
+  license:
+    name: Apache-2.0
+    commercial_use: likely
+  status: confirmed
+  maturity: experimental
+  confidence: high
+  sources:
+  - qwen3-enhancer-upstream
+  last_verified: '2026-07-04'
+  bundle_kind: llm
+  min_os:
+    macos: '27.0'
+    ios: '27.0'
+  upstream_repo: huihui-ai/Huihui-Qwen3-4B-abliterated-v2
+  notes: Abliterated (uncensored) Qwen3-4B by huihui-ai. 4-bit dynamic quantization,
+    36 layers, hidden 2560, vocab 151936, max context 8192. Embedded tokenizer with
+    chat template. Compiled 2026-06-20. Published by bryanbblewis11 outside the Zoo
+    ecosystem.
   architecture: transformer
   streaming: false

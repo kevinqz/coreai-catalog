@@ -1,7 +1,7 @@
 metadata:
   name: Core AI Catalog artifact provenance
-  last_verified: '2026-07-03'
-  count: 81
+  last_verified: '2026-07-04'
+  count: 82
 artifacts:
 - id: qwen3-5-0-8b
   group: zoo
@@ -3302,3 +3302,22 @@ artifacts:
     last_verified: '2026-07-03'
   bundle_kind: language
   precision: int8
+- id: qwen3-enhancer
+  group: external
+  huggingface:
+    owner: bryanbblewis11
+    repo: Qwen3-Enhancer-CoreAI
+    url: https://huggingface.co/bryanbblewis11/Qwen3-Enhancer-CoreAI
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+  conversion_script: null
+  verification:
+    zoo_smoke:
+      status: unverified
+      sha: null
+      url: null
+    last_verified: '2026-07-04'
+  bundle_kind: language
+  precision: int4

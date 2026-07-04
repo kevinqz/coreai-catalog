@@ -174,6 +174,6 @@ them.
 | Maximum OS compatibility (pre-iOS 27) | **Core ML** |
 | Research prototyping with PyTorch ergonomics | **MLX** |
 
-The catalog's 81 models are all `.aimodel` (Core AI) artifacts today, but the framework
+The catalog's 82 models are all `.aimodel` (Core AI) artifacts today, but the framework
 and conversion taxonomy in `upstreams.yaml` ensures the catalog can grow to cover
 cross-format workflows as the ecosystem evolves.

@@ -5,7 +5,7 @@
     "reranking",
     "chat"
   ],
-  "model_count": 32,
+  "model_count": 33,
   "models": [
     {
       "id": "qwen3-embedding-0-6b",
@@ -76,6 +76,20 @@
       "license": "Apache-2.0",
       "commercial_use": "likely",
       "has_benchmark": true
+    },
+    {
+      "id": "qwen3-enhancer",
+      "name": "Qwen3 Enhancer (Huihui Qwen3-4B Abliterated v2)",
+      "score": 85,
+      "parameters": "4B",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
     },
     {
       "id": "minicpm5-1b",

@@ -1,7 +1,7 @@
 {
   "export_schema_version": "1.0",
   "export_catalog_version": "2.2.1",
-  "model_count": 81,
+  "model_count": 82,
   "models": [
     {
       "id": "qwen3-5-0-8b",
@@ -2766,6 +2766,34 @@
         "ios": "27.0"
       },
       "upstream_repo": null,
+      "io_contract": null
+    },
+    {
+      "id": "qwen3-enhancer",
+      "name": "Qwen3 Enhancer (Huihui Qwen3-4B Abliterated v2)",
+      "bundle_kind": "llm",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "parameters": "4B",
+      "precision": "int4",
+      "artifact_size": "not_published",
+      "huggingface_url": "https://huggingface.co/bryanbblewis11/Qwen3-Enhancer-CoreAI",
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "huihui-ai/Huihui-Qwen3-4B-abliterated-v2",
       "io_contract": null
     }
   ]

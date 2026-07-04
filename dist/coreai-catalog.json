@@ -5114,11 +5114,36 @@
             "url": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/ornith-1.0-9b.md"
           }
         }
+      },
+      {
+        "bundle_kind": "language",
+        "conversion_script": null,
+        "group": "external",
+        "huggingface": {
+          "owner": "bryanbblewis11",
+          "repo": "Qwen3-Enhancer-CoreAI",
+          "url": "https://huggingface.co/bryanbblewis11/Qwen3-Enhancer-CoreAI"
+        },
+        "id": "qwen3-enhancer",
+        "officiality": {
+          "apple_export_recipe": false,
+          "apple_hosted_artifact": false,
+          "community_packaged": true
+        },
+        "precision": "int4",
+        "verification": {
+          "last_verified": "2026-07-04",
+          "zoo_smoke": {
+            "sha": null,
+            "status": "unverified",
+            "url": null
+          }
+        }
       }
     ],
     "metadata": {
-      "count": 81,
-      "last_verified": "2026-07-03",
+      "count": 82,
+      "last_verified": "2026-07-04",
       "name": "Core AI Catalog artifact provenance"
     }
   },
@@ -6824,7 +6849,7 @@
   "catalog": {
     "metadata": {
       "description": "Compact, source-grounded catalog of Apple Core AI models, artifacts, capabilities, modalities, runtime metadata, device support and sources.",
-      "last_verified": "2026-07-03",
+      "last_verified": "2026-07-04",
       "name": "Core AI Catalog",
       "repo": "coreai-catalog",
       "upstream": [
@@ -12721,6 +12746,72 @@
         ],
         "status": "confirmed",
         "streaming": false
+      },
+      {
+        "architecture": "transformer",
+        "artifact": {
+          "availability": "available",
+          "format": "aimodel"
+        },
+        "artifact_ref": "qwen3-enhancer",
+        "bundle_kind": "llm",
+        "capabilities": [
+          "chat",
+          "text-generation"
+        ],
+        "confidence": "high",
+        "device_support": {
+          "ipad": "unknown",
+          "iphone": true,
+          "mac": true,
+          "mac_only": false
+        },
+        "family": "Qwen",
+        "id": "qwen3-enhancer",
+        "last_verified": "2026-07-04",
+        "license": {
+          "commercial_use": "likely",
+          "name": "Apache-2.0"
+        },
+        "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "name": "Qwen3 Enhancer (Huihui Qwen3-4B Abliterated v2)",
+        "notes": "Abliterated (uncensored) Qwen3-4B by huihui-ai. 4-bit dynamic quantization, 36 layers, hidden 2560, vocab 151936, max context 8192. Embedded tokenizer with chat template. Compiled 2026-06-20. Published by bryanbblewis11 outside the Zoo ecosystem.",
+        "runtime": {
+          "aot_required": false,
+          "custom_kernel": false,
+          "patch_required": false,
+          "processor_required": false,
+          "runner": "CoreAIRunner",
+          "runtime_name": "apple-core-ai",
+          "stock_runtime": true,
+          "tokenizer_required": true
+        },
+        "size": {
+          "artifact_size": "not_published",
+          "parameters": "4B",
+          "precision": "int4",
+          "quantization": "4bit-dynamic"
+        },
+        "source_group": "external",
+        "source_path": "https://huggingface.co/bryanbblewis11/Qwen3-Enhancer-CoreAI",
+        "sources": [
+          "qwen3-enhancer-upstream"
+        ],
+        "status": "confirmed",
+        "streaming": false,
+        "upstream_repo": "huihui-ai/Huihui-Qwen3-4B-abliterated-v2"
       }
     ]
   },
@@ -13829,6 +13920,18 @@
         "title": "DeepReinforce Ornith 1.0 original model",
         "trust": "original_model_primary",
         "url": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-9B"
+      },
+      {
+        "applies_to": [
+          "qwen3-enhancer"
+        ],
+        "category": "original_model",
+        "id": "qwen3-enhancer-upstream",
+        "owner": "huihui-ai",
+        "platform": "huggingface",
+        "title": "Huihui Qwen3-4B Abliterated v2",
+        "trust": "original_model_primary",
+        "url": "https://huggingface.co/huihui-ai/Huihui-Qwen3-4B-abliterated-v2"
       }
     ],
     "metadata": {

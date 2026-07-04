@@ -76,6 +76,11 @@
       "score": 85
     },
     {
+      "id": "qwen3-enhancer",
+      "name": "Qwen3 Enhancer (Huihui Qwen3-4B Abliterated v2)",
+      "score": 85
+    },
+    {
       "id": "colmodernvbert",
       "name": "ColModernVBERT",
       "score": 83

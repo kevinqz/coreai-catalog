@@ -354,12 +354,13 @@
         "qwen3-5-2b",
         "qwen3-6-27b",
         "qwen3-6-35b-a3b",
+        "qwen3-enhancer",
         "qwen3-vl-2b",
         "qwen3-vl-4b",
         "qwen3-vl-8b",
         "rwkv7-goose-1-5b"
       ],
-      "model_count": 35
+      "model_count": 36
     },
     {
       "input": "text",

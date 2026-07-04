@@ -5113,13 +5113,38 @@
           "url": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/ornith-1.0-9b.md"
         }
       }
+    },
+    {
+      "bundle_kind": "language",
+      "conversion_script": null,
+      "group": "external",
+      "huggingface": {
+        "owner": "bryanbblewis11",
+        "repo": "Qwen3-Enhancer-CoreAI",
+        "url": "https://huggingface.co/bryanbblewis11/Qwen3-Enhancer-CoreAI"
+      },
+      "id": "qwen3-enhancer",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "precision": "int4",
+      "verification": {
+        "last_verified": "2026-07-04",
+        "zoo_smoke": {
+          "sha": null,
+          "status": "unverified",
+          "url": null
+        }
+      }
     }
   ],
   "export_catalog_version": "2.2.1",
   "export_schema_version": "1.0",
   "metadata": {
-    "count": 81,
-    "last_verified": "2026-07-03",
+    "count": 82,
+    "last_verified": "2026-07-04",
     "name": "Core AI Catalog artifact provenance"
   }
 }
