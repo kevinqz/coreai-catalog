@@ -107,7 +107,9 @@ class TestBenchmarkPipeline(unittest.TestCase):
                 env={**os.environ, "PYTHONPATH": str(ROOT)},
             )
             self.assertEqual(result.returncode, 0, f"Verification failed: {result.stderr}")
-            self.assertIn("Signature verified", result.stdout)
+            # P1 refactor changed wording from "Signature verified" to
+            # "Ed25519 relay signature verified"
+            self.assertIn("signature verified", result.stdout.lower())
         finally:
             os.unlink(temp_path)
 
@@ -194,7 +196,9 @@ class TestBenchmarkPipeline(unittest.TestCase):
             )
             # insufficient-data is exit 0 (doesn't block)
             self.assertEqual(result.returncode, 0)
-            self.assertIn("INSUFFICIENT DATA", result.stdout)
+            # After the P1 physics-check refactor, N=0 cohorts return a
+            # PHYSICS-FALLBACK PASS instead of INSUFFICIENT DATA.
+            self.assertIn("PHYSICS-FALLBACK PASS", result.stdout)
         finally:
             os.unlink(temp_path)
 

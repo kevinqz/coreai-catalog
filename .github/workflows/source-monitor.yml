@@ -31,9 +31,10 @@ jobs:
       - name: Run source monitor
         id: monitor
         run: |
-          python3 scripts/source_monitor.py --format markdown > /tmp/source-report.md
-          # Check if new models were found (exit code 1 = new models)
-          python3 scripts/source_monitor.py --json > /tmp/source-report.json
+          # source_monitor.py exits 1 when new models are found (signal, not error)
+          # — suppress the non-zero exit so bash -e doesn't abort the step
+          python3 scripts/source_monitor.py --format markdown > /tmp/source-report.md || true
+          python3 scripts/source_monitor.py --json > /tmp/source-report.json || true
           NEW_COUNT=$(python3 -c "import json; d=json.load(open('/tmp/source-report.json')); print(d['hf_new_count'])")
           echo "new_count=$NEW_COUNT" >> $GITHUB_OUTPUT
           cat /tmp/source-report.md
