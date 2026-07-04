@@ -4,6 +4,23 @@ All notable changes to Core AI Catalog are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/), and this
 project adheres to [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Added
+
+- **Suitability facets** — decomposed `deployability` / `lifecycle` /
+  `entry_completeness` per entry (`dist/search-index.json`, `dist/leaderboard.json`),
+  with `schema/model.schema.json` definitions and a full reference at
+  `docs/concepts/suitability-facets.md`. Model quality now lives in benchmark values.
+
+### Deprecated
+
+- **`readiness_score`** as a headline / quality signal — a curation/deployability
+  composite that is blind to model quality and inversely tracks capability (SotA
+  red-team). Retained for internal ranking + back-compat; CLI `scores` relabelled;
+  agent-facing surfaces (AGENTS.md, llms.txt, llms-full.txt, copilot-instructions,
+  skills, agent.json, openapi.yaml) now point to the facets.
+
 ## [2.2.3] — 2026-07-04
 
 Trusted Publishing migration.

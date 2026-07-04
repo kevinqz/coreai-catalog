@@ -21,7 +21,9 @@ support, benchmark records, and verification status.
   blocks on priority models, authored bundle_kind on all 82
 - 42 verified Apple AI terminology entries (each citing an official source)
 - 8 independent Hugging Face converters indexed (multi-upstream)
-- Readiness scores (0-100) for deployment decision-making
+- Suitability facets per entry: **deployability** (obtainable/runtime/device/license),
+  **lifecycle** stage, **entry_completeness** — plus benchmark values for quality.
+  (`readiness_score` is deprecated as a headline; see `docs/concepts/suitability-facets.md`.)
 
 ## How to use this data
 
@@ -49,6 +51,7 @@ Machine-readable JSON exports (available via raw GitHub, no clone needed):
 - `dist/artifacts.json` — all artifact provenance records
 - `dist/benchmarks.json` — all benchmark measurements
 - `dist/search-index.json` — flattened, denormalized model entries with joined data
+  (incl. `deployability`/`lifecycle`/`entry_completeness` facets per entry)
 - `dist/models.jsonl` — one model per line (streaming-friendly)
 - `dist/readiness-scores.json` — 0-100 deployment readiness scores
 - `dist/coreai-catalog.json` — everything bundled

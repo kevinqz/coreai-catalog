@@ -47,6 +47,12 @@ When responding to Issues or PRs, follow these rules:
 
 ## Scoring algorithm (for reference)
 
+> **Deprecated as a headline signal.** `readiness_score` is blind to model quality and
+> inversely tracks capability. Rank/gate on the decomposed `deployability` / `lifecycle` /
+> `entry_completeness` facets (in `dist/search-index.json`) and judge quality from
+> benchmark VALUES. See `docs/concepts/suitability-facets.md`. The table below is kept
+> for the internal-ranking use only.
+
 The readiness score (0-100) is calculated in `coreai_catalog/catalog.py`:
 
 | Factor | Points |

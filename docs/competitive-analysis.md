@@ -2,6 +2,12 @@
 
 > Red-team assessment of positioning gaps, competitor strengths, and what's needed to become the definitive destination for Apple on-device AI model discovery.
 
+> **Update (suitability reshape):** references below to "readiness scoring" as a
+> headline differentiator predate the SotA reshape. `readiness_score` is now
+> deprecated as a headline (blind to model quality); positioning should lead with
+> the decomposed **suitability facets** and **benchmark values**. See
+> [`concepts/suitability-facets.md`](concepts/suitability-facets.md).
+
 ---
 
 ## Executive Summary

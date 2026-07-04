@@ -168,7 +168,8 @@ contributions through it.
 > **`lifecycle`** (ordinal stage: official/verified/community/experimental/deprecated),
 > and **`entry_completeness`** (metadata coverage — *not* quality). Model quality
 > lives in **benchmark VALUES**, per `<task, metric>`. The composite below is kept
-> for internal ranking + back-compat only.
+> for internal ranking + back-compat only. Full reference:
+> [`docs/concepts/suitability-facets.md`](docs/concepts/suitability-facets.md).
 
 The readiness score (0-100) rewards deployment confidence:
 
