@@ -625,7 +625,7 @@
     }
   ],
   "export_schema_version": "1.0",
-  "export_catalog_version": "2.2.2",
+  "export_catalog_version": "2.2.3",
   "best_overall": "official-qwen3-0-6b",
   "best_iphone": "official-qwen3-0-6b",
   "best_commercial": "official-qwen3-0-6b"

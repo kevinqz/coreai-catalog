@@ -4,6 +4,17 @@ All notable changes to Core AI Catalog are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/), and this
 project adheres to [Semantic Versioning](https://semver.org/).
 
+## [2.2.3] — 2026-07-04
+
+Trusted Publishing migration.
+
+### Changed
+
+- PyPI publish workflow migrated from `twine` + `PYPI_API_TOKEN` secret to
+  `pypa/gh-action-pypi-publish@release/v1` (Trusted Publishing via OIDC).
+  No more long-lived API tokens — releases are authenticated by the
+  GitHub-PyPI OIDC trust chain.
+
 ## [2.2.2] — 2026-07-04
 
 LLM-context sync + packaging polish. Closes agent-facing surface drift flagged

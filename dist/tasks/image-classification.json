@@ -120,7 +120,7 @@
     }
   ],
   "export_schema_version": "1.0",
-  "export_catalog_version": "2.2.2",
+  "export_catalog_version": "2.2.3",
   "best_overall": "official-clip-vit-base-patch32",
   "best_iphone": "official-clip-vit-base-patch32",
   "best_commercial": "official-clip-vit-base-patch32"

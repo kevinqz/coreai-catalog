@@ -234,7 +234,7 @@
     }
   ],
   "export_schema_version": "1.0",
-  "export_catalog_version": "2.2.2",
+  "export_catalog_version": "2.2.3",
   "best_overall": "depth-anything-3-base",
   "best_iphone": "depth-anything-3-base",
   "best_commercial": "depth-anything-3-base"
