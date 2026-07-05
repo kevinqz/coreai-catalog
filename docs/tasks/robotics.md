@@ -1,6 +1,6 @@
 # Robotics
 
-**14 models** in the catalog with this capability.
+**15 models** in the catalog with this capability.
 
 ## Task synonyms
 
@@ -19,6 +19,7 @@
 | [Pi0 SO-ARM101 (fabric)](../../catalog.yaml#L1) | 38 | 3.3B |  | apache-2.0 | ✅ likely | — | fabric |
 | [Pi0.5 Folding (fabric)](../../catalog.yaml#L1) | 38 | 3.3B |  | apache-2.0 | ✅ likely | — | fabric |
 | [Pi0.5 SO-ARM100/101 (fabric)](../../catalog.yaml#L1) | 38 | 3.3B |  | apache-2.0 | ✅ likely | — | fabric |
+| [SmolVLA SO-ARM101 (fabric)](../../catalog.yaml#L1) | 38 | 500M |  | apache-2.0 | ✅ likely | — | fabric |
 | [VQ-BeT PushT greedy (fabric)](../../catalog.yaml#L1) | 38 | 26.0M |  | apache-2.0 | ✅ likely | — | fabric |
 | [Pi0 LIBERO base (fabric)](../../catalog.yaml#L1) | 28 | 3.3B |  | gemma | ⚠️ check_license | — | fabric |
 | [Pi0 LIBERO fine-tuned (fabric)](../../catalog.yaml#L1) | 28 | 3.3B |  | gemma | ⚠️ check_license | — | fabric |

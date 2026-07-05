@@ -5969,3 +5969,83 @@ models:
       streaming: true
     files:
       tokenizer_ref: macos/tokenizer
+- id: smolvla-so101
+  name: SmolVLA SO-ARM101 (fabric)
+  family: LeRobot
+  source_group: fabric
+  source_path: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/smolvla-so101.yaml
+  artifact_ref: smolvla-so101
+  capabilities:
+  - vision-language-action
+  - robotics
+  bundle_kind: action
+  min_os:
+    macos: '27.0'
+    ios: '27.0'
+  upstream_repo: edge-inference/smolvla-so101-pick-orange
+  modalities:
+    input:
+    - image
+    - text
+    - state
+    output:
+    - action
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 500M
+    precision: float32
+    quantization: none
+    artifact_size: 944.8MB
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: false
+    custom_kernel: false
+    patch_required: true
+    tokenizer_required: true
+    processor_required: true
+    aot_required: false
+  device_support:
+    iphone: unknown
+    ipad: unknown
+    mac: unknown
+    mac_only: unknown
+  license:
+    name: apache-2.0
+    commercial_use: likely
+  status: needs_review
+  maturity: experimental
+  confidence: medium
+  sources:
+  - coreai-fabric
+  last_verified: '2026-07-05'
+  notes: 'Converted via coreai-fabric recipe smolvla-so101 (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/smolvla-so101.yaml).
+    Parity: gate A passed, gate B passed.'
+  architecture: transformer
+  io_contract:
+    entrypoint:
+      framework: CoreAIRunner
+      type: CoreAIRunner
+      init_pattern: load the encode + denoise_step graphs; host drives the N-step sampler
+        + un-normalization
+    inputs:
+    - name: image
+      modality: image
+    - name: text
+      modality: text
+    - name: state
+      modality: state
+    outputs:
+    - name: action_chunk
+      swift_type: '[[Float]]'
+      decoding:
+        detokenization: host-driven flow-matching sampler (N steps); un-normalize the action
+          chunk with norm_stats.json
+    session:
+      stateful: false
+      streaming: false
+    files:
+      tokenizer_ref: tokenizer
+      processor_ref: norm_stats.json

@@ -4,7 +4,7 @@
     "vision-language-action",
     "robotics"
   ],
-  "model_count": 14,
+  "model_count": 15,
   "models": [
     {
       "id": "bitvla",
@@ -123,6 +123,20 @@
       "name": "Pi0.5 SO-ARM100/101 (fabric)",
       "score": 38,
       "parameters": "3.3B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": false
+      },
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "smolvla-so101",
+      "name": "SmolVLA SO-ARM101 (fabric)",
+      "score": 38,
+      "parameters": "500M",
       "devices": {
         "iphone": false,
         "ipad": false,

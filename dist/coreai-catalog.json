@@ -6111,10 +6111,70 @@
           "format_version": "2.0",
           "recipe_source": "fabric"
         }
+      },
+      {
+        "group": "external",
+        "huggingface": {
+          "files": [
+            {
+              "path": ".gitattributes",
+              "sha256": "dd974f75e0fc0b5f5a7544049a897dd88066abeb8e5949bbe59c01ba658df2e7",
+              "size_bytes": 1588
+            },
+            {
+              "path": "LICENSE",
+              "sha256": "02d1c9800a056b0d1415d93d25f3f2c26becd1904d8f8cc7ce30ee6f1c969338",
+              "size_bytes": 12001
+            },
+            {
+              "path": "README.md",
+              "sha256": "a7d7783d471d5238be8c72008a48d7c107fd49bd06963aa6bf4ea144b847351a",
+              "size_bytes": 5615
+            },
+            {
+              "path": "parity-report.json",
+              "sha256": "eb1d8e1bcc3f2cf5e046091139df9c970068c98ba76d9165633f4c8a5812f768",
+              "size_bytes": 3907
+            },
+            {
+              "path": "smolvla-so101.aimodel/main.hash",
+              "sha256": "62e259009d3cbd084c41a19f834ec96e58d82a6055357f552b82683e84fde436",
+              "size_bytes": 32
+            },
+            {
+              "path": "smolvla-so101.aimodel/main.mlirb",
+              "sha256": "0986478231c3de4ed00c78cdcdb2b1226a3a0b615160995eda7abbef9d314b88",
+              "size_bytes": 990655389
+            },
+            {
+              "path": "smolvla-so101.aimodel/metadata.json",
+              "sha256": "9df7bfae28a61e65c0571f869198438f5b69c1e5dc79166c575184590906e7a7",
+              "size_bytes": 105
+            }
+          ],
+          "owner": "kevinqz",
+          "repo": "SmolVLA-SO101-CoreAI",
+          "revision": "bbfc01828c8cbc5a0b4a9a0c5f6809cca7d61ccf",
+          "url": "https://huggingface.co/kevinqz/SmolVLA-SO101-CoreAI"
+        },
+        "id": "smolvla-so101",
+        "officiality": {
+          "apple_export_recipe": false,
+          "apple_hosted_artifact": false,
+          "community_packaged": true
+        },
+        "provenance": {
+          "converted_by": {
+            "recipe_url": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/smolvla-so101.yaml",
+            "tool": "models/smolvla/export.py",
+            "version": "unknown"
+          },
+          "recipe_source": "fabric"
+        }
       }
     ],
     "metadata": {
-      "count": 99,
+      "count": 100,
       "last_verified": "2026-07-04",
       "name": "Core AI Catalog artifact provenance"
     }
@@ -15348,6 +15408,111 @@
         ],
         "status": "needs_review",
         "upstream_repo": "WeiboAI/VibeThinker-3B"
+      },
+      {
+        "architecture": "transformer",
+        "artifact": {
+          "availability": "available",
+          "format": "aimodel"
+        },
+        "artifact_ref": "smolvla-so101",
+        "bundle_kind": "action",
+        "capabilities": [
+          "vision-language-action",
+          "robotics"
+        ],
+        "confidence": "medium",
+        "device_support": {
+          "ipad": "unknown",
+          "iphone": "unknown",
+          "mac": "unknown",
+          "mac_only": "unknown"
+        },
+        "family": "LeRobot",
+        "id": "smolvla-so101",
+        "io_contract": {
+          "entrypoint": {
+            "framework": "CoreAIRunner",
+            "init_pattern": "load the encode + denoise_step graphs; host drives the N-step sampler + un-normalization",
+            "type": "CoreAIRunner"
+          },
+          "files": {
+            "processor_ref": "norm_stats.json",
+            "tokenizer_ref": "tokenizer"
+          },
+          "inputs": [
+            {
+              "modality": "image",
+              "name": "image"
+            },
+            {
+              "modality": "text",
+              "name": "text"
+            },
+            {
+              "modality": "state",
+              "name": "state"
+            }
+          ],
+          "outputs": [
+            {
+              "decoding": {
+                "detokenization": "host-driven flow-matching sampler (N steps); un-normalize the action chunk with norm_stats.json"
+              },
+              "name": "action_chunk",
+              "swift_type": "[[Float]]"
+            }
+          ],
+          "session": {
+            "stateful": false,
+            "streaming": false
+          }
+        },
+        "last_verified": "2026-07-05",
+        "license": {
+          "commercial_use": "likely",
+          "name": "apache-2.0"
+        },
+        "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
+        "modalities": {
+          "input": [
+            "image",
+            "text",
+            "state"
+          ],
+          "output": [
+            "action"
+          ]
+        },
+        "name": "SmolVLA SO-ARM101 (fabric)",
+        "notes": "Converted via coreai-fabric recipe smolvla-so101 (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/smolvla-so101.yaml). Parity: gate A passed, gate B passed.",
+        "runtime": {
+          "aot_required": false,
+          "custom_kernel": false,
+          "patch_required": true,
+          "processor_required": true,
+          "runner": "CoreAIRunner",
+          "runtime_name": "apple-core-ai",
+          "stock_runtime": false,
+          "tokenizer_required": true
+        },
+        "size": {
+          "artifact_size": "944.8MB",
+          "parameters": "500M",
+          "precision": "float32",
+          "quantization": "none"
+        },
+        "source_group": "fabric",
+        "source_path": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/smolvla-so101.yaml",
+        "sources": [
+          "coreai-fabric"
+        ],
+        "status": "needs_review",
+        "upstream_repo": "edge-inference/smolvla-so101-pick-orange"
       }
     ]
   },
