@@ -111,10 +111,14 @@
         "act-aloha-cube",
         "act-aloha-insertion",
         "diffusion-pusht",
+        "folding-latest",
         "pi0-base",
+        "pi0-base-gemma",
+        "pi0-libero-base",
+        "pi0-libero-finetuned",
         "vqbet-pusht"
       ],
-      "model_count": 5
+      "model_count": 9
     },
     {
       "input": "image",
@@ -297,17 +301,24 @@
         "act-aloha-insertion",
         "diffusion-pusht",
         "pi0-base",
+        "pi0-base-gemma",
+        "pi0-libero-base",
+        "pi0-libero-finetuned",
         "vqbet-pusht"
       ],
-      "model_count": 5
+      "model_count": 8
     },
     {
       "input": "text",
       "output": "action",
       "model_ids": [
-        "pi0-base"
+        "folding-latest",
+        "pi0-base",
+        "pi0-base-gemma",
+        "pi0-libero-base",
+        "pi0-libero-finetuned"
       ],
-      "model_count": 1
+      "model_count": 5
     },
     {
       "input": "text",
@@ -575,9 +586,9 @@
       ],
       "model_ids": [
         "qwen2-5-omni-3b-audio",
-        "pi0-base"
+        "folding-latest"
       ],
-      "total_artifact_size": "5.1GB + 5.8GB",
+      "total_artifact_size": "5.1GB + 6.0GB",
       "stages": [
         {
           "model_id": "qwen2-5-omni-3b-audio",
@@ -591,15 +602,15 @@
           "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen2.5-Omni-3B-Audio-CoreAI"
         },
         {
-          "model_id": "pi0-base",
-          "model_name": "Pi0 (fabric)",
+          "model_id": "folding-latest",
+          "model_name": "Pi0.5 Folding (fabric)",
           "input_modality": "text",
           "output_modality": "action",
           "estimated_tokens_per_sec": 0.0,
           "parameters": "3.3B",
           "runner": "CoreAIRunner",
-          "artifact_size": "5.8GB",
-          "huggingface_url": "https://huggingface.co/kevinqz/Pi0-CoreAI"
+          "artifact_size": "6.0GB",
+          "huggingface_url": "https://huggingface.co/kevinqz/Pi05-Folding-CoreAI"
         }
       ]
     },
@@ -1251,9 +1262,9 @@
       ],
       "model_ids": [
         "glm-ocr",
-        "pi0-base"
+        "folding-latest"
       ],
-      "total_artifact_size": "1.6GB + 5.8GB",
+      "total_artifact_size": "1.6GB + 6.0GB",
       "stages": [
         {
           "model_id": "glm-ocr",
@@ -1267,15 +1278,15 @@
           "huggingface_url": "https://huggingface.co/mlboydaisuke/GLM-OCR-CoreAI"
         },
         {
-          "model_id": "pi0-base",
-          "model_name": "Pi0 (fabric)",
+          "model_id": "folding-latest",
+          "model_name": "Pi0.5 Folding (fabric)",
           "input_modality": "text",
           "output_modality": "action",
           "estimated_tokens_per_sec": 0.0,
           "parameters": "3.3B",
           "runner": "CoreAIRunner",
-          "artifact_size": "5.8GB",
-          "huggingface_url": "https://huggingface.co/kevinqz/Pi0-CoreAI"
+          "artifact_size": "6.0GB",
+          "huggingface_url": "https://huggingface.co/kevinqz/Pi05-Folding-CoreAI"
         }
       ]
     },
@@ -2549,20 +2560,20 @@
         "action"
       ],
       "model_ids": [
-        "pi0-base"
+        "folding-latest"
       ],
-      "total_artifact_size": "5.8GB",
+      "total_artifact_size": "6.0GB",
       "stages": [
         {
-          "model_id": "pi0-base",
-          "model_name": "Pi0 (fabric)",
+          "model_id": "folding-latest",
+          "model_name": "Pi0.5 Folding (fabric)",
           "input_modality": "text",
           "output_modality": "action",
           "estimated_tokens_per_sec": 0.0,
           "parameters": "3.3B",
           "runner": "CoreAIRunner",
-          "artifact_size": "5.8GB",
-          "huggingface_url": "https://huggingface.co/kevinqz/Pi0-CoreAI"
+          "artifact_size": "6.0GB",
+          "huggingface_url": "https://huggingface.co/kevinqz/Pi05-Folding-CoreAI"
         }
       ]
     },

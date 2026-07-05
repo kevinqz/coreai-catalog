@@ -1,6 +1,6 @@
 # Robotics
 
-**6 models** in the catalog with this capability.
+**10 models** in the catalog with this capability.
 
 ## Task synonyms
 
@@ -15,7 +15,11 @@
 | [ACT ALOHA Transfer-Cube (fabric)](../../catalog.yaml#L1) | 38 | 51.6M |  | apache-2.0 | ✅ likely | — | fabric |
 | [Diffusion Policy PushT (fabric)](../../catalog.yaml#L1) | 38 | 262.9M |  | apache-2.0 | ✅ likely | — | fabric |
 | [Pi0 (fabric)](../../catalog.yaml#L1) | 38 | 3.3B |  | apache-2.0 | ✅ likely | — | fabric |
+| [Pi0.5 Folding (fabric)](../../catalog.yaml#L1) | 38 | 3.3B |  | apache-2.0 | ✅ likely | — | fabric |
 | [VQ-BeT PushT greedy (fabric)](../../catalog.yaml#L1) | 38 | 26.0M |  | apache-2.0 | ✅ likely | — | fabric |
+| [Pi0 LIBERO base (fabric)](../../catalog.yaml#L1) | 28 | 3.3B |  | gemma | ⚠️ check_license | — | fabric |
+| [Pi0 LIBERO fine-tuned (fabric)](../../catalog.yaml#L1) | 28 | 3.3B |  | gemma | ⚠️ check_license | — | fabric |
+| [Pi0 base Gemma (fabric)](../../catalog.yaml#L1) | 28 | 3.3B |  | gemma | ⚠️ check_license | — | fabric |
 
 ## Install
 

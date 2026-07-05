@@ -2,7 +2,7 @@
   "export_schema_version": "1.0",
   "export_catalog_version": "2.2.3",
   "description": "Alias mappings resolving catalog IDs to Zoo card names, CoreAIKit strings, and HF repo names.",
-  "total_models": 89,
+  "total_models": 93,
   "aliases": {
     "qwen3-5-0-8b": [
       "qwen3-5-0-8b-coreai",
@@ -512,6 +512,30 @@
       "MinerU2.5-Pro-CoreAI",
       "mineru.2.5-pro",
       "mineru2-5-pro-coreai"
+    ],
+    "folding-latest": [
+      "Pi05-Folding-CoreAI",
+      "folding-latest.yaml",
+      "folding.latest",
+      "pi05-folding-coreai"
+    ],
+    "pi0-libero-base": [
+      "Pi0-Libero-CoreAI",
+      "pi0-libero-base.yaml",
+      "pi0-libero-coreai",
+      "pi0.libero.base"
+    ],
+    "pi0-libero-finetuned": [
+      "Pi0-Libero-Finetuned-CoreAI",
+      "pi0-libero-finetuned-coreai",
+      "pi0-libero-finetuned.yaml",
+      "pi0.libero.finetuned"
+    ],
+    "pi0-base-gemma": [
+      "Pi0-Base-CoreAI",
+      "pi0-base-coreai",
+      "pi0-base-gemma.yaml",
+      "pi0.base.gemma"
     ]
   }
 }

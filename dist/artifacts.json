@@ -5544,12 +5544,267 @@
         "apple_hosted_artifact": false,
         "community_packaged": true
       }
+    },
+    {
+      "group": "external",
+      "huggingface": {
+        "files": [
+          {
+            "path": ".gitattributes",
+            "sha256": "5f29ad6e48886b8cfe57b1a386d08706aab21406bb6039b1e4558b4ad66de357",
+            "size_bytes": 1589
+          },
+          {
+            "path": "LICENSE",
+            "sha256": "b17c32e94f3acda63ac22b02908599219e1582142c5ccd9d3f62235efce3e63b",
+            "size_bytes": 11965
+          },
+          {
+            "path": "README.md",
+            "sha256": "1d0db175432615521435c104572b702b42db6c768f27d32ad936f268d7007dbb",
+            "size_bytes": 5466
+          },
+          {
+            "path": "folding-latest.aimodel/main.hash",
+            "sha256": "caff1d6d9c3f9346e347ffc21e6bd757093f9a67a555712d17722c1fbf85c599",
+            "size_bytes": 32
+          },
+          {
+            "path": "folding-latest.aimodel/main.mlirb",
+            "sha256": "791ed23875a68fa60eeb8941f055b275d19b4c61ae9c6ed09ae4147f1fb7c669",
+            "size_bytes": 6489645674
+          },
+          {
+            "path": "folding-latest.aimodel/metadata.json",
+            "sha256": "2ce95bdc7a15cf664b094afeba8d25bd06483588a3cc64ddf18c1e7a07061a95",
+            "size_bytes": 105
+          },
+          {
+            "path": "parity-report.json",
+            "sha256": "e23b7dd4a6b16a85df6db880e6e6f213b283bef7502b779427e64e1596974ff9",
+            "size_bytes": 2881
+          }
+        ],
+        "owner": "kevinqz",
+        "repo": "Pi05-Folding-CoreAI",
+        "revision": "21d9745020fdd1d31bb0b82e932436ed26d5c38e",
+        "url": "https://huggingface.co/kevinqz/Pi05-Folding-CoreAI"
+      },
+      "id": "folding-latest",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "provenance": {
+        "converted_by": {
+          "recipe_url": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/folding-latest.yaml",
+          "tool": "models/pi05/export.py",
+          "version": "unknown"
+        },
+        "recipe_source": "fabric"
+      }
+    },
+    {
+      "group": "external",
+      "huggingface": {
+        "files": [
+          {
+            "path": ".gitattributes",
+            "sha256": "c9636e0a980394aedca6abd93a3780aacc98d6619583ceb397a83ad79eca3fc4",
+            "size_bytes": 1590
+          },
+          {
+            "path": "LICENSE",
+            "sha256": "60bdc6c9c3a4c1cf53563efe2194e7d281bc80bf7e3768abf74fe8161eb1d562",
+            "size_bytes": 9925
+          },
+          {
+            "path": "NOTICE",
+            "sha256": "a78606a89b6c9630053003b6235bccea767719e0cac9d64d6a6c671fd4c5e81c",
+            "size_bytes": 1273
+          },
+          {
+            "path": "README.md",
+            "sha256": "06bba263f17dced6e77a96fcd597029f08c207e5f80fd5637ef13272aa4451cc",
+            "size_bytes": 6894
+          },
+          {
+            "path": "parity-report.json",
+            "sha256": "068320c302e80dafa1df5d7f1b82da53095e732057c4a59662f756cb8fa90264",
+            "size_bytes": 3016
+          },
+          {
+            "path": "pi0-libero-base.aimodel/main.hash",
+            "sha256": "e99f2f696da52a344f727266f33321089b8b3ce4b8952557589ff2bffe669a49",
+            "size_bytes": 32
+          },
+          {
+            "path": "pi0-libero-base.aimodel/main.mlirb",
+            "sha256": "38fd79ddd4a0bd43e92cfc3d9a8f4eef9b65b673858fac4a9e724949f2748dc4",
+            "size_bytes": 6258742527
+          },
+          {
+            "path": "pi0-libero-base.aimodel/metadata.json",
+            "sha256": "c51d86a092db2f928b3d819cbbd325e518a928aeb686ca4ee4bf6f834bf53a1b",
+            "size_bytes": 105
+          }
+        ],
+        "owner": "kevinqz",
+        "repo": "Pi0-Libero-CoreAI",
+        "revision": "a6bb3fb10597e14e77b34595af74e3808dd2bd23",
+        "url": "https://huggingface.co/kevinqz/Pi0-Libero-CoreAI"
+      },
+      "id": "pi0-libero-base",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "provenance": {
+        "converted_by": {
+          "recipe_url": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/pi0-libero-base.yaml",
+          "tool": "models/pi0/export.py",
+          "version": "unknown"
+        },
+        "recipe_source": "fabric"
+      }
+    },
+    {
+      "group": "external",
+      "huggingface": {
+        "files": [
+          {
+            "path": ".gitattributes",
+            "sha256": "e268a509ba9952d8e64ddfa4a7d79162b49d940e9125543ee9a89cbf9a786ed5",
+            "size_bytes": 1595
+          },
+          {
+            "path": "LICENSE",
+            "sha256": "1b16b62e3dc039802f8c5f1fe018503026663c16d71c8363ccfe3b82098cbdfc",
+            "size_bytes": 9945
+          },
+          {
+            "path": "NOTICE",
+            "sha256": "f583402789b0c673f96911c44ec680b89036015beca7ce1f181b795659328767",
+            "size_bytes": 1283
+          },
+          {
+            "path": "README.md",
+            "sha256": "255f6b2f4431093a2009fe44db87100402b94c344e0cd924a0aea455546d937d",
+            "size_bytes": 7040
+          },
+          {
+            "path": "parity-report.json",
+            "sha256": "5e363f32bbb8b3b8fe8e6d9cab4af5aea3a34dbae52344575b02a0481569f98c",
+            "size_bytes": 3052
+          },
+          {
+            "path": "pi0-libero-finetuned.aimodel/main.hash",
+            "sha256": "23fb40ff7b446db439c07a9a3e358e99711aeda79235bcdb34f305a9b569771a",
+            "size_bytes": 32
+          },
+          {
+            "path": "pi0-libero-finetuned.aimodel/main.mlirb",
+            "sha256": "bfed716fb531b57c284fd3d6cbb71958f1b70bfc1635ce8362e0cef1b3361880",
+            "size_bytes": 6258742526
+          },
+          {
+            "path": "pi0-libero-finetuned.aimodel/metadata.json",
+            "sha256": "2ae5c050b4479a85a7d581dde449565cd3dbcc912c1bd1e9c9406e6e102649f3",
+            "size_bytes": 105
+          }
+        ],
+        "owner": "kevinqz",
+        "repo": "Pi0-Libero-Finetuned-CoreAI",
+        "revision": "ab1a7b33e9d8d0bf5610e2a42807ad4d87c135a3",
+        "url": "https://huggingface.co/kevinqz/Pi0-Libero-Finetuned-CoreAI"
+      },
+      "id": "pi0-libero-finetuned",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "provenance": {
+        "converted_by": {
+          "recipe_url": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/pi0-libero-finetuned.yaml",
+          "tool": "models/pi0/export.py",
+          "version": "unknown"
+        },
+        "recipe_source": "fabric"
+      }
+    },
+    {
+      "group": "external",
+      "huggingface": {
+        "files": [
+          {
+            "path": ".gitattributes",
+            "sha256": "4f3fcc7233c23d04e1604084234ab35e9d58af00d53b2ea5882181f225167cc3",
+            "size_bytes": 1589
+          },
+          {
+            "path": "LICENSE",
+            "sha256": "c19ebc42d42e7de65fe540a6c0b533f0dc8f793c43d07c20a4b3c19a2edf93f9",
+            "size_bytes": 9911
+          },
+          {
+            "path": "NOTICE",
+            "sha256": "75364b5a4387709b9191ac2b79730f1ec3982488e7120212b5631be0756c08e5",
+            "size_bytes": 1266
+          },
+          {
+            "path": "README.md",
+            "sha256": "cf15894a6bc976f1056fb44730ad33adb35eae6c683c9323e9ded69467e73a0a",
+            "size_bytes": 6851
+          },
+          {
+            "path": "parity-report.json",
+            "sha256": "2580b363f633e82ae1b719bc20f1d3527dd4abf70176a10f8a4fb2d459876791",
+            "size_bytes": 2985
+          },
+          {
+            "path": "pi0-base-gemma.aimodel/main.hash",
+            "sha256": "a1ea5ca485392a65dc9daa2a8ffcbdf97b22e1a754601b32a64c4c5a8780fe00",
+            "size_bytes": 32
+          },
+          {
+            "path": "pi0-base-gemma.aimodel/main.mlirb",
+            "sha256": "c77d06612101fae628a339fa9eaa7fa1be52a0e1c114e431445c6669c5e4625d",
+            "size_bytes": 6258875237
+          },
+          {
+            "path": "pi0-base-gemma.aimodel/metadata.json",
+            "sha256": "ecef4a73747fbe481d279f4b2834f00d149a9ee150ee7d49d3d634beb5292a76",
+            "size_bytes": 105
+          }
+        ],
+        "owner": "kevinqz",
+        "repo": "Pi0-Base-CoreAI",
+        "revision": "7abe77104de6633bdfeafe479a2f7b32c50d0cad",
+        "url": "https://huggingface.co/kevinqz/Pi0-Base-CoreAI"
+      },
+      "id": "pi0-base-gemma",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "provenance": {
+        "converted_by": {
+          "recipe_url": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/pi0-base-gemma.yaml",
+          "tool": "models/pi0/export.py",
+          "version": "unknown"
+        },
+        "recipe_source": "fabric"
+      }
     }
   ],
   "export_catalog_version": "2.2.3",
   "export_schema_version": "1.0",
   "metadata": {
-    "count": 90,
+    "count": 94,
     "last_verified": "2026-07-04",
     "name": "Core AI Catalog artifact provenance"
   }

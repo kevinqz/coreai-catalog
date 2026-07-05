@@ -431,6 +431,11 @@
       "score": 38
     },
     {
+      "id": "folding-latest",
+      "name": "Pi0.5 Folding (fabric)",
+      "score": 38
+    },
+    {
       "id": "mineru-2-5-pro",
       "name": "MinerU2.5-Pro",
       "score": 38
@@ -444,6 +449,21 @@
       "id": "vqbet-pusht",
       "name": "VQ-BeT PushT greedy (fabric)",
       "score": 38
+    },
+    {
+      "id": "pi0-base-gemma",
+      "name": "Pi0 base Gemma (fabric)",
+      "score": 28
+    },
+    {
+      "id": "pi0-libero-base",
+      "name": "Pi0 LIBERO base (fabric)",
+      "score": 28
+    },
+    {
+      "id": "pi0-libero-finetuned",
+      "name": "Pi0 LIBERO fine-tuned (fabric)",
+      "score": 28
     }
   ],
   "export_schema_version": "1.0",

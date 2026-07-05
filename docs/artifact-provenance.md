@@ -94,3 +94,7 @@ Generated from `artifacts.yaml`.
 | pi0-base | external | / | kevinqz/Pi0-CoreAI | False | False |
 | mineru-2-5-pro | external | / | mlboydaisuke/MinerU2.5-Pro-CoreAI | False | False |
 | vibevoice-1-5b-fp16 | external | / | bryanbblewis11/VibeVoice-1.5B-CoreAI | False | False |
+| folding-latest | external | / | kevinqz/Pi05-Folding-CoreAI | False | False |
+| pi0-libero-base | external | / | kevinqz/Pi0-Libero-CoreAI | False | False |
+| pi0-libero-finetuned | external | / | kevinqz/Pi0-Libero-Finetuned-CoreAI | False | False |
+| pi0-base-gemma | external | / | kevinqz/Pi0-Base-CoreAI | False | False |

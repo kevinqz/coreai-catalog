@@ -3,7 +3,7 @@
   "capabilities": [
     "vision-language-action"
   ],
-  "model_count": 2,
+  "model_count": 6,
   "models": [
     {
       "id": "bitvla",
@@ -20,6 +20,20 @@
       "has_benchmark": false
     },
     {
+      "id": "folding-latest",
+      "name": "Pi0.5 Folding (fabric)",
+      "score": 38,
+      "parameters": "3.3B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": false
+      },
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
       "id": "pi0-base",
       "name": "Pi0 (fabric)",
       "score": 38,
@@ -31,6 +45,48 @@
       },
       "license": "apache-2.0",
       "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "pi0-base-gemma",
+      "name": "Pi0 base Gemma (fabric)",
+      "score": 28,
+      "parameters": "3.3B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": false
+      },
+      "license": "gemma",
+      "commercial_use": "check_license",
+      "has_benchmark": false
+    },
+    {
+      "id": "pi0-libero-base",
+      "name": "Pi0 LIBERO base (fabric)",
+      "score": 28,
+      "parameters": "3.3B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": false
+      },
+      "license": "gemma",
+      "commercial_use": "check_license",
+      "has_benchmark": false
+    },
+    {
+      "id": "pi0-libero-finetuned",
+      "name": "Pi0 LIBERO fine-tuned (fabric)",
+      "score": 28,
+      "parameters": "3.3B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": false
+      },
+      "license": "gemma",
+      "commercial_use": "check_license",
       "has_benchmark": false
     }
   ],
