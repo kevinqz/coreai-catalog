@@ -3,7 +3,7 @@
   "capabilities": [
     "vision-language-action"
   ],
-  "model_count": 1,
+  "model_count": 2,
   "models": [
     {
       "id": "bitvla",
@@ -16,6 +16,20 @@
         "mac": true
       },
       "license": "MIT",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "pi0-base",
+      "name": "Pi0 (fabric)",
+      "score": 38,
+      "parameters": "3.3B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": false
+      },
+      "license": "apache-2.0",
       "commercial_use": "likely",
       "has_benchmark": false
     }

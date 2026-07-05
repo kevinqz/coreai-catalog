@@ -414,6 +414,31 @@
       "id": "vjepa2-vitl-ssv2",
       "name": "V-JEPA 2 ViT-L (SSv2)",
       "score": 45
+    },
+    {
+      "id": "act-aloha-cube",
+      "name": "ACT ALOHA Transfer-Cube (fabric)",
+      "score": 38
+    },
+    {
+      "id": "act-aloha-insertion",
+      "name": "ACT ALOHA Insertion (fabric)",
+      "score": 38
+    },
+    {
+      "id": "diffusion-pusht",
+      "name": "Diffusion Policy PushT (fabric)",
+      "score": 38
+    },
+    {
+      "id": "pi0-base",
+      "name": "Pi0 (fabric)",
+      "score": 38
+    },
+    {
+      "id": "vqbet-pusht",
+      "name": "VQ-BeT PushT greedy (fabric)",
+      "score": 38
     }
   ],
   "export_schema_version": "1.0",

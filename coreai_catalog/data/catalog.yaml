@@ -4829,3 +4829,379 @@ models:
   architecture: transformer
   streaming: false
   notes: On-device document OCR (text, HTML tables, LaTeX formulas). Port of zai-org/GLM-OCR (0.9B, GLM-4.V CogViT vision + 16-layer GLM decoder, M-RoPE). Verified end-to-end on M4 Max GPU (Core AI pipelined engine). Community-converted by mlboydaisuke.
+- id: act-aloha-cube
+  name: ACT ALOHA Transfer-Cube (fabric)
+  family: LeRobot
+  source_group: fabric
+  source_path: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/act-aloha-cube.yaml
+  artifact_ref: act-aloha-cube
+  capabilities:
+  - robotics
+  bundle_kind: action
+  min_os:
+    macos: '27.0'
+    ios: '27.0'
+  upstream_repo: lerobot/act_aloha_sim_transfer_cube_human
+  modalities:
+    input:
+    - image
+    - state
+    output:
+    - action
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 51.6M
+    precision: float16
+    quantization: none
+    artifact_size: 130.9MB
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: false
+    custom_kernel: false
+    patch_required: true
+    tokenizer_required: false
+    processor_required: true
+    aot_required: false
+  device_support:
+    iphone: unknown
+    ipad: unknown
+    mac: unknown
+    mac_only: unknown
+  license:
+    name: apache-2.0
+    commercial_use: likely
+  status: needs_review
+  maturity: experimental
+  confidence: medium
+  sources:
+  - coreai-fabric
+  last_verified: '2026-07-05'
+  notes: Converted via coreai-fabric recipe act-aloha-cube (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/act-aloha-cube.yaml).
+  architecture: transformer
+  io_contract:
+    entrypoint:
+      framework: CoreAIRunner
+      type: CoreAIRunner
+      init_pattern: load the encode + denoise_step graphs; host drives the N-step sampler
+        + un-normalization
+    inputs:
+    - name: image
+      modality: image
+    - name: state
+      modality: state
+    outputs:
+    - name: action_chunk
+      swift_type: '[[Float]]'
+      decoding:
+        detokenization: host-driven flow-matching sampler (N steps); un-normalize the action
+          chunk with norm_stats.json
+    session:
+      stateful: false
+      streaming: false
+    files:
+      processor_ref: norm_stats.json
+- id: act-aloha-insertion
+  name: ACT ALOHA Insertion (fabric)
+  family: LeRobot
+  source_group: fabric
+  source_path: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/act-aloha-insertion.yaml
+  artifact_ref: act-aloha-insertion
+  capabilities:
+  - robotics
+  bundle_kind: action
+  min_os:
+    macos: '27.0'
+    ios: '27.0'
+  upstream_repo: lerobot/act_aloha_sim_insertion_human
+  modalities:
+    input:
+    - image
+    - state
+    output:
+    - action
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 51.6M
+    precision: float16
+    quantization: none
+    artifact_size: 131.0MB
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: false
+    custom_kernel: false
+    patch_required: true
+    tokenizer_required: false
+    processor_required: true
+    aot_required: false
+  device_support:
+    iphone: unknown
+    ipad: unknown
+    mac: unknown
+    mac_only: unknown
+  license:
+    name: apache-2.0
+    commercial_use: likely
+  status: needs_review
+  maturity: experimental
+  confidence: medium
+  sources:
+  - coreai-fabric
+  last_verified: '2026-07-05'
+  notes: Converted via coreai-fabric recipe act-aloha-insertion (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/act-aloha-insertion.yaml).
+  architecture: transformer
+  io_contract:
+    entrypoint:
+      framework: CoreAIRunner
+      type: CoreAIRunner
+      init_pattern: load the encode + denoise_step graphs; host drives the N-step sampler
+        + un-normalization
+    inputs:
+    - name: image
+      modality: image
+    - name: state
+      modality: state
+    outputs:
+    - name: action_chunk
+      swift_type: '[[Float]]'
+      decoding:
+        detokenization: host-driven flow-matching sampler (N steps); un-normalize the action
+          chunk with norm_stats.json
+    session:
+      stateful: false
+      streaming: false
+    files:
+      processor_ref: norm_stats.json
+- id: diffusion-pusht
+  name: Diffusion Policy PushT (fabric)
+  family: LeRobot
+  source_group: fabric
+  source_path: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/diffusion-pusht.yaml
+  artifact_ref: diffusion-pusht
+  capabilities:
+  - robotics
+  bundle_kind: action
+  min_os:
+    macos: '27.0'
+    ios: '27.0'
+  upstream_repo: lerobot/diffusion_pusht
+  modalities:
+    input:
+    - image
+    - state
+    output:
+    - action
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 262.9M
+    precision: float16
+    quantization: none
+    artifact_size: 1002.3MB
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: false
+    custom_kernel: false
+    patch_required: true
+    tokenizer_required: false
+    processor_required: true
+    aot_required: false
+  device_support:
+    iphone: unknown
+    ipad: unknown
+    mac: unknown
+    mac_only: unknown
+  license:
+    name: apache-2.0
+    commercial_use: likely
+  status: needs_review
+  maturity: experimental
+  confidence: medium
+  sources:
+  - coreai-fabric
+  last_verified: '2026-07-05'
+  notes: Converted via coreai-fabric recipe diffusion-pusht (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/diffusion-pusht.yaml).
+  architecture: diffusion
+  io_contract:
+    entrypoint:
+      framework: CoreAIRunner
+      type: CoreAIRunner
+      init_pattern: load the encode + denoise_step graphs; host drives the N-step sampler
+        + un-normalization
+    inputs:
+    - name: image
+      modality: image
+    - name: state
+      modality: state
+    outputs:
+    - name: action_chunk
+      swift_type: '[[Float]]'
+      decoding:
+        detokenization: host-driven flow-matching sampler (N steps); un-normalize the action
+          chunk with norm_stats.json
+    session:
+      stateful: false
+      streaming: false
+    files:
+      processor_ref: norm_stats.json
+- id: vqbet-pusht
+  name: VQ-BeT PushT greedy (fabric)
+  family: LeRobot
+  source_group: fabric
+  source_path: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/vqbet-pusht.yaml
+  artifact_ref: vqbet-pusht
+  capabilities:
+  - robotics
+  bundle_kind: action
+  min_os:
+    macos: '27.0'
+    ios: '27.0'
+  upstream_repo: lerobot/vqbet_pusht
+  modalities:
+    input:
+    - image
+    - state
+    output:
+    - action
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 26.0M
+    precision: float16
+    quantization: none
+    artifact_size: 142.3MB
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: false
+    custom_kernel: false
+    patch_required: true
+    tokenizer_required: false
+    processor_required: true
+    aot_required: false
+  device_support:
+    iphone: unknown
+    ipad: unknown
+    mac: unknown
+    mac_only: unknown
+  license:
+    name: apache-2.0
+    commercial_use: likely
+  status: needs_review
+  maturity: experimental
+  confidence: medium
+  sources:
+  - coreai-fabric
+  last_verified: '2026-07-05'
+  notes: Converted via coreai-fabric recipe vqbet-pusht (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/vqbet-pusht.yaml).
+  architecture: transformer
+  io_contract:
+    entrypoint:
+      framework: CoreAIRunner
+      type: CoreAIRunner
+      init_pattern: load the encode + denoise_step graphs; host drives the N-step sampler
+        + un-normalization
+    inputs:
+    - name: image
+      modality: image
+    - name: state
+      modality: state
+    outputs:
+    - name: action_chunk
+      swift_type: '[[Float]]'
+      decoding:
+        detokenization: host-driven flow-matching sampler (N steps); un-normalize the action
+          chunk with norm_stats.json
+    session:
+      stateful: false
+      streaming: false
+    files:
+      processor_ref: norm_stats.json
+- id: pi0-base
+  name: Pi0 (fabric)
+  family: LeRobot
+  source_group: fabric
+  source_path: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/pi0-base.yaml
+  artifact_ref: pi0-base
+  capabilities:
+  - vision-language-action
+  - robotics
+  bundle_kind: action
+  min_os:
+    macos: '27.0'
+    ios: '27.0'
+  upstream_repo: lerobot/pi0
+  modalities:
+    input:
+    - image
+    - text
+    - state
+    output:
+    - action
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 3.3B
+    precision: float16
+    quantization: none
+    artifact_size: 5.8GB
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: false
+    custom_kernel: false
+    patch_required: true
+    tokenizer_required: true
+    processor_required: true
+    aot_required: false
+  device_support:
+    iphone: unknown
+    ipad: unknown
+    mac: unknown
+    mac_only: unknown
+  license:
+    name: apache-2.0
+    commercial_use: likely
+  status: needs_review
+  maturity: experimental
+  confidence: medium
+  sources:
+  - coreai-fabric
+  last_verified: '2026-07-05'
+  notes: 'Converted via coreai-fabric recipe pi0-base (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/pi0-base.yaml).
+    Parity: gate A passed, gate B passed.'
+  architecture: transformer
+  io_contract:
+    entrypoint:
+      framework: CoreAIRunner
+      type: CoreAIRunner
+      init_pattern: load the encode + denoise_step graphs; host drives the N-step sampler
+        + un-normalization
+    inputs:
+    - name: image
+      modality: image
+    - name: text
+      modality: text
+    - name: state
+      modality: state
+    outputs:
+    - name: action_chunk
+      swift_type: '[[Float]]'
+      decoding:
+        detokenization: host-driven flow-matching sampler (N steps); un-normalize the action
+          chunk with norm_stats.json
+    session:
+      stateful: false
+      streaming: false
+    files:
+      tokenizer_ref: tokenizer
+      processor_ref: norm_stats.json

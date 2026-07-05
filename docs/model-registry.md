@@ -85,3 +85,8 @@
 | ornith-1-0-9b | Ornith 1.0 9B | zoo | Qwen | chat, text-generation, code-generation | text | text | 9B | Mac | MIT | confirmed |
 | qwen3-enhancer | Qwen3 Enhancer (Huihui Qwen3-4B Abliterated v2) | external | Qwen | chat, text-generation | text | text | 4B | iPhone/Mac | Apache-2.0 | confirmed |
 | glm-ocr | GLM-OCR | external | GLM-OCR | document-ocr | document_image, image, text | text, html, latex | 0.9B | Mac | MIT | needs_review |
+| act-aloha-cube | ACT ALOHA Transfer-Cube (fabric) | fabric | LeRobot | robotics | image, state | action | 51.6M | unknown | apache-2.0 | needs_review |
+| act-aloha-insertion | ACT ALOHA Insertion (fabric) | fabric | LeRobot | robotics | image, state | action | 51.6M | unknown | apache-2.0 | needs_review |
+| diffusion-pusht | Diffusion Policy PushT (fabric) | fabric | LeRobot | robotics | image, state | action | 262.9M | unknown | apache-2.0 | needs_review |
+| vqbet-pusht | VQ-BeT PushT greedy (fabric) | fabric | LeRobot | robotics | image, state | action | 26.0M | unknown | apache-2.0 | needs_review |
+| pi0-base | Pi0 (fabric) | fabric | LeRobot | vision-language-action, robotics | image, text, state | action | 3.3B | unknown | apache-2.0 | needs_review |

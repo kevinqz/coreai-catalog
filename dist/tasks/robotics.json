@@ -4,7 +4,7 @@
     "vision-language-action",
     "robotics"
   ],
-  "model_count": 1,
+  "model_count": 6,
   "models": [
     {
       "id": "bitvla",
@@ -17,6 +17,76 @@
         "mac": true
       },
       "license": "MIT",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "act-aloha-cube",
+      "name": "ACT ALOHA Transfer-Cube (fabric)",
+      "score": 38,
+      "parameters": "51.6M",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": false
+      },
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "act-aloha-insertion",
+      "name": "ACT ALOHA Insertion (fabric)",
+      "score": 38,
+      "parameters": "51.6M",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": false
+      },
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "diffusion-pusht",
+      "name": "Diffusion Policy PushT (fabric)",
+      "score": 38,
+      "parameters": "262.9M",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": false
+      },
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "pi0-base",
+      "name": "Pi0 (fabric)",
+      "score": 38,
+      "parameters": "3.3B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": false
+      },
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "vqbet-pusht",
+      "name": "VQ-BeT PushT greedy (fabric)",
+      "score": 38,
+      "parameters": "26.0M",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": false
+      },
+      "license": "apache-2.0",
       "commercial_use": "likely",
       "has_benchmark": false
     }

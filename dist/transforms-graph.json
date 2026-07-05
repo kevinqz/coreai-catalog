@@ -7,10 +7,12 @@
     "documents",
     "image",
     "query",
+    "state",
     "text",
     "video"
   ],
   "output_modalities": [
+    "action",
     "action-tokens",
     "audio",
     "boxes",
@@ -30,8 +32,8 @@
     "vector",
     "video"
   ],
-  "direct_edge_count": 35,
-  "total_reachable_pairs": 70,
+  "direct_edge_count": 38,
+  "total_reachable_pairs": 75,
   "direct_edges": [
     {
       "input": "audio",
@@ -98,6 +100,18 @@
         "qwen3-reranker-0-6b"
       ],
       "model_count": 1
+    },
+    {
+      "input": "image",
+      "output": "action",
+      "model_ids": [
+        "act-aloha-cube",
+        "act-aloha-insertion",
+        "diffusion-pusht",
+        "pi0-base",
+        "vqbet-pusht"
+      ],
+      "model_count": 5
     },
     {
       "input": "image",
@@ -270,6 +284,26 @@
       "model_count": 1
     },
     {
+      "input": "state",
+      "output": "action",
+      "model_ids": [
+        "act-aloha-cube",
+        "act-aloha-insertion",
+        "diffusion-pusht",
+        "pi0-base",
+        "vqbet-pusht"
+      ],
+      "model_count": 5
+    },
+    {
+      "input": "text",
+      "output": "action",
+      "model_ids": [
+        "pi0-base"
+      ],
+      "model_count": 1
+    },
+    {
       "input": "text",
       "output": "action-tokens",
       "model_ids": [
@@ -422,6 +456,7 @@
   ],
   "reachability_matrix": {
     "audio": [
+      "action",
       "action-tokens",
       "boxes",
       "classes",
@@ -440,6 +475,7 @@
       "video"
     ],
     "document_image": [
+      "action",
       "action-tokens",
       "audio",
       "boxes",
@@ -462,6 +498,7 @@
       "score"
     ],
     "image": [
+      "action",
       "action-tokens",
       "audio",
       "boxes",
@@ -483,7 +520,11 @@
     "query": [
       "score"
     ],
+    "state": [
+      "action"
+    ],
     "text": [
+      "action",
       "action-tokens",
       "audio",
       "boxes",
@@ -507,6 +548,45 @@
     ]
   },
   "pipelines": {
+    "audio→action": {
+      "input_modality": "audio",
+      "output_modality": "action",
+      "hop_count": 2,
+      "modality_chain": [
+        "audio",
+        "text",
+        "action"
+      ],
+      "model_ids": [
+        "qwen2-5-omni-3b-audio",
+        "pi0-base"
+      ],
+      "total_artifact_size": "5.1GB + 5.8GB",
+      "stages": [
+        {
+          "model_id": "qwen2-5-omni-3b-audio",
+          "model_name": "Qwen2.5-Omni-3B Audio",
+          "input_modality": "audio",
+          "output_modality": "text",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "3B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "5.1GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen2.5-Omni-3B-Audio-CoreAI"
+        },
+        {
+          "model_id": "pi0-base",
+          "model_name": "Pi0 (fabric)",
+          "input_modality": "text",
+          "output_modality": "action",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "3.3B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "5.8GB",
+          "huggingface_url": "https://huggingface.co/kevinqz/Pi0-CoreAI"
+        }
+      ]
+    },
     "audio→action-tokens": {
       "input_modality": "audio",
       "output_modality": "action-tokens",
@@ -1154,6 +1234,45 @@
           "runner": "CoreAIVideoPipeline",
           "artifact_size": "13.5GB",
           "huggingface_url": "https://huggingface.co/mlboydaisuke/LTX-Video-2B-CoreAI"
+        }
+      ]
+    },
+    "document_image→action": {
+      "input_modality": "document_image",
+      "output_modality": "action",
+      "hop_count": 2,
+      "modality_chain": [
+        "document_image",
+        "text",
+        "action"
+      ],
+      "model_ids": [
+        "glm-ocr",
+        "pi0-base"
+      ],
+      "total_artifact_size": "1.6GB + 5.8GB",
+      "stages": [
+        {
+          "model_id": "glm-ocr",
+          "model_name": "GLM-OCR",
+          "input_modality": "document_image",
+          "output_modality": "text",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "0.9B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "1.6GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/GLM-OCR-CoreAI"
+        },
+        {
+          "model_id": "pi0-base",
+          "model_name": "Pi0 (fabric)",
+          "input_modality": "text",
+          "output_modality": "action",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "3.3B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "5.8GB",
+          "huggingface_url": "https://huggingface.co/kevinqz/Pi0-CoreAI"
         }
       ]
     },
@@ -1846,6 +1965,32 @@
         }
       ]
     },
+    "image→action": {
+      "input_modality": "image",
+      "output_modality": "action",
+      "hop_count": 1,
+      "modality_chain": [
+        "image",
+        "action"
+      ],
+      "model_ids": [
+        "act-aloha-cube"
+      ],
+      "total_artifact_size": "130.9MB",
+      "stages": [
+        {
+          "model_id": "act-aloha-cube",
+          "model_name": "ACT ALOHA Transfer-Cube (fabric)",
+          "input_modality": "image",
+          "output_modality": "action",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "51.6M",
+          "runner": "CoreAIRunner",
+          "artifact_size": "130.9MB",
+          "huggingface_url": "https://huggingface.co/kevinqz/ACT-Aloha-TransferCube-CoreAI"
+        }
+      ]
+    },
     "image→action-tokens": {
       "input_modality": "image",
       "output_modality": "action-tokens",
@@ -2363,6 +2508,58 @@
           "runner": "CoreAIRunner",
           "artifact_size": "1.1GB",
           "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen3-Reranker-0.6B-CoreAI"
+        }
+      ]
+    },
+    "state→action": {
+      "input_modality": "state",
+      "output_modality": "action",
+      "hop_count": 1,
+      "modality_chain": [
+        "state",
+        "action"
+      ],
+      "model_ids": [
+        "act-aloha-cube"
+      ],
+      "total_artifact_size": "130.9MB",
+      "stages": [
+        {
+          "model_id": "act-aloha-cube",
+          "model_name": "ACT ALOHA Transfer-Cube (fabric)",
+          "input_modality": "state",
+          "output_modality": "action",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "51.6M",
+          "runner": "CoreAIRunner",
+          "artifact_size": "130.9MB",
+          "huggingface_url": "https://huggingface.co/kevinqz/ACT-Aloha-TransferCube-CoreAI"
+        }
+      ]
+    },
+    "text→action": {
+      "input_modality": "text",
+      "output_modality": "action",
+      "hop_count": 1,
+      "modality_chain": [
+        "text",
+        "action"
+      ],
+      "model_ids": [
+        "pi0-base"
+      ],
+      "total_artifact_size": "5.8GB",
+      "stages": [
+        {
+          "model_id": "pi0-base",
+          "model_name": "Pi0 (fabric)",
+          "input_modality": "text",
+          "output_modality": "action",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "3.3B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "5.8GB",
+          "huggingface_url": "https://huggingface.co/kevinqz/Pi0-CoreAI"
         }
       ]
     },
