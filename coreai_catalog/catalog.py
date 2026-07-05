@@ -208,6 +208,60 @@ def entry_completeness(model: dict, has_bench: bool = False) -> dict[str, Any]:
     }
 
 
+# ---------------------------------------------------------------------------
+# Multi-host provenance: choosing among independent conversions of one model.
+#
+# One upstream model can have several INDEPENDENT Core AI conversions (different
+# bytes / quantization, own sha256) — distinct from artifact.mirrors (byte-
+# identical failover hosts). The model lists them as artifact_ref (primary) +
+# alternate_artifacts[]. The policy below picks the default deterministically:
+# stable/verifiable criteria first (integrity → verification → officiality →
+# on-device fit), and VOLATILE popularity (downloads, from dist/signals.json)
+# only as a final tiebreaker. See docs/concepts/multi-host-provenance.md.
+# ---------------------------------------------------------------------------
+
+def _artifact_total_bytes(artifact: dict) -> float:
+    hf = artifact.get("huggingface") or {}
+    total = sum(f.get("size_bytes", 0) for f in (hf.get("files") or []))
+    return total or float("inf")
+
+
+def artifact_host_key(artifact: dict, signals: dict | None = None) -> tuple:
+    """Deterministic ranking key for a host (lower is better). Popularity is a
+    tiebreaker only — never the primary criterion."""
+    if not isinstance(artifact, dict):
+        return (1, 1, 1, float("inf"), 0, "")
+    hf = artifact.get("huggingface") or {}
+    off = artifact.get("officiality") or {}
+    ver = artifact.get("verification") or {}
+    files = hf.get("files") or []
+    has_integrity = bool(hf.get("revision")) and bool(files) and all(f.get("sha256") for f in files)
+    verified = ver.get("status") == "verified"
+    apple_hosted = bool(off.get("apple_hosted_artifact"))
+    downloads = ((signals or {}).get(artifact.get("id"), {}) or {}).get("downloads", 0) or 0
+    return (
+        0 if has_integrity else 1,   # 1. verifiable download (revision + sha256)
+        0 if verified else 1,        # 2. parity-verified against upstream
+        0 if apple_hosted else 1,    # 3. Apple-hosted > community
+        _artifact_total_bytes(artifact),  # 4. on-device fit: smaller wins
+        -downloads,                  # 5. popularity (volatile tiebreaker)
+        artifact.get("id", ""),      # 6. stable final tiebreak
+    )
+
+
+def select_primary_artifact(
+    model: dict, artifacts_by_id: dict, signals: dict | None = None
+) -> dict | None:
+    """Pick the best host among a model's artifact_ref + alternate_artifacts."""
+    if not isinstance(model, dict):
+        return None
+    ids = [model.get("artifact_ref")] + list(model.get("alternate_artifacts") or [])
+    arts = [artifacts_by_id[i] for i in ids if i and i in artifacts_by_id]
+    if not arts:
+        return None
+    return min(arts, key=lambda a: artifact_host_key(a, signals))
+
+
 #: Common abbreviations and aliases → canonical capability names.
 CAPABILITY_ALIASES: dict[str, str] = {
     "vlm": "vision-language",
