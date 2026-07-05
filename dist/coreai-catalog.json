@@ -13233,7 +13233,7 @@
         "capabilities": [
           "document-ocr"
         ],
-        "confidence": "medium",
+        "confidence": "high",
         "device_support": {
           "ipad": "unknown",
           "iphone": "unknown",
@@ -13287,7 +13287,7 @@
         "sources": [
           "mlboydaisuke-glm-ocr-coreai"
         ],
-        "status": "needs_review",
+        "status": "confirmed",
         "streaming": false,
         "upstream_repo": "zai-org/GLM-OCR"
       },

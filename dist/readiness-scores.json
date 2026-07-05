@@ -366,6 +366,11 @@
       "score": 63
     },
     {
+      "id": "glm-ocr",
+      "name": "GLM-OCR",
+      "score": 60
+    },
+    {
       "id": "gemma-4-12b-assistant-warshanks",
       "name": "Gemma 4 12B IT Assistant (MTP draft)",
       "score": 58
@@ -403,11 +408,6 @@
     {
       "id": "gemma-4-12b-mm-warshanks",
       "name": "Gemma 4 12B IT Multimodal (warshanks)",
-      "score": 48
-    },
-    {
-      "id": "glm-ocr",
-      "name": "GLM-OCR",
       "score": 48
     },
     {

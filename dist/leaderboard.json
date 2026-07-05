@@ -2479,6 +2479,36 @@
       "best_metrics": {}
     },
     {
+      "id": "glm-ocr",
+      "name": "GLM-OCR",
+      "capabilities": [
+        "document-ocr"
+      ],
+      "parameters": "0.9B",
+      "readiness_score": 60,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "high",
+        "last_verified": "2026-07-04"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
+      "benchmark_count": 0,
+      "best_metrics": {}
+    },
+    {
       "id": "gemma-4-12b-assistant-warshanks",
       "name": "Gemma 4 12B IT Assistant (MTP draft)",
       "capabilities": [
@@ -2736,36 +2766,6 @@
         "verification": "confirmed",
         "curator_confidence": "medium",
         "last_verified": "2026-06-30"
-      },
-      "entry_completeness": {
-        "pct": 0.667,
-        "present": 4,
-        "of": 6,
-        "fields": {
-          "artifact_availability_known": true,
-          "device_support_known": true,
-          "runtime_profile_known": true,
-          "license_triaged": true,
-          "benchmarked": false,
-          "io_contract_present": false
-        }
-      },
-      "benchmark_count": 0,
-      "best_metrics": {}
-    },
-    {
-      "id": "glm-ocr",
-      "name": "GLM-OCR",
-      "capabilities": [
-        "document-ocr"
-      ],
-      "parameters": "0.9B",
-      "readiness_score": 48,
-      "lifecycle": {
-        "stage": "community",
-        "verification": "needs_review",
-        "curator_confidence": "medium",
-        "last_verified": "2026-07-04"
       },
       "entry_completeness": {
         "pct": 0.667,

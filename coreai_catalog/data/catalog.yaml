@@ -4817,9 +4817,9 @@ models:
   license:
     name: MIT
     commercial_use: likely
-  status: needs_review
+  status: confirmed
   maturity: experimental
-  confidence: medium
+  confidence: high
   sources:
   - mlboydaisuke-glm-ocr-coreai
   last_verified: '2026-07-04'
