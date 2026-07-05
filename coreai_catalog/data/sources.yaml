@@ -248,3 +248,12 @@ sources:
   volatility: medium
   last_checked: '2026-07-04'
   notes: Independent MinerU2.5-Pro Core AI conversion (Qwen2-VL ViT vision + Qwen2 decoder, whole-page layout+recognition). Port of opendatalab/MinerU2.5-Pro-2605-1.2B.
+- id: bryanbblewis11-vibevoice-coreai
+  title: bryanbblewis11/VibeVoice-1.5B-CoreAI
+  type: huggingface_repository
+  url: https://huggingface.co/bryanbblewis11/VibeVoice-1.5B-CoreAI
+  owner: bryanbblewis11
+  trust: community_secondary
+  volatility: medium
+  last_checked: '2026-07-04'
+  notes: Independent higher-fidelity (fp16) VibeVoice-1.5B Core AI conversion. Alternate host to gafiatulin's int8 build.

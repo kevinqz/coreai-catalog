@@ -4162,6 +4162,8 @@ models:
   family: VibeVoice
   source_group: external
   artifact_ref: vibevoice-1-5b
+  alternate_artifacts:
+  - vibevoice-1-5b-fp16
   source_path: https://huggingface.co/gafiatulin/vibevoice-1.5b-coreai
   capabilities:
   - text-to-speech

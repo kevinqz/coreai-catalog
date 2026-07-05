@@ -66,8 +66,8 @@ The goal is not to run models directly. The goal is to know, precisely and trace
 | Area | Count / status |
 |---|---:|
 | Model records | 89 |
-| Artifact provenance records | 89 |
-| Source records | 25 |
+| Artifact provenance records | 90 |
+| Source records | 26 |
 | Main upstreams | 2 |
 | Upstream taxonomy entries | 68 |
 | Benchmark records | 65 |

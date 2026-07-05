@@ -14,7 +14,7 @@ support, benchmark records, and verification status.
 ## Catalog facts
 
 - 89 model records (chat, vision-language, speech, embeddings, detection, more)
-- 89 artifact provenance records (Hugging Face + GitHub sources)
+- 90 artifact provenance records (Hugging Face + GitHub sources)
 - 65 benchmark records (throughput, latency, RTF — iPhone + Mac)
 - min_os on every model: all current models require macOS/iOS 27
   (the apple/coreai-models runtime declares macOS 27.0); typed io_contract

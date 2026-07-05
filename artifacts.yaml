@@ -1,7 +1,7 @@
 metadata:
   name: Core AI Catalog artifact provenance
   last_verified: '2026-07-04'
-  count: 89
+  count: 90
 artifacts:
 - id: qwen3-5-0-8b
   group: zoo
@@ -3557,6 +3557,30 @@ artifacts:
     - path: decoder/mineru_decode_int8lin_s1.aimodel/main.mlirb
       sha256: e77cc08b55e8d09f763859ceb08adffe07f7bec374d01d60d82de9430804181d
       size_bytes: 652928607
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: vibevoice-1-5b-fp16
+  group: external
+  huggingface:
+    owner: bryanbblewis11
+    repo: VibeVoice-1.5B-CoreAI
+    url: https://huggingface.co/bryanbblewis11/VibeVoice-1.5B-CoreAI
+    revision: 9fd321386d24f9872d0409c7096a7f497ad3b129
+    files:
+    - path: BackboneStateful_fp16.aimodel/main.mlirb
+      sha256: 601bcec0a1b9786acf0ef45b9956c7197d6631ffe2d5fda9bd086b07bf56dfd5
+      size_bytes: 2620921805
+    - path: AcousticDecoder.aimodel/main.mlirb
+      sha256: a2009fa180f55a69ecf4e717d2207c8d39679bf06d5474ae835fa8e447805e4a
+      size_bytes: 1374941445
+    - path: SemanticEncoder.aimodel/main.mlirb
+      sha256: 056818e04ffd4db7b3dd0210fc974466e4785790476f2be5592bfc91e8b8c384
+      size_bytes: 1378611995
+    - path: DiffusionHead.aimodel/main.mlirb
+      sha256: 4044d41d2204eb529b0803e0dd083f0b07a27cc97ec4a2eb66074134a1a68c76
+      size_bytes: 493141163
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
