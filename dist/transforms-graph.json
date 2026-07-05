@@ -110,6 +110,7 @@
       "model_ids": [
         "act-aloha-cube",
         "act-aloha-insertion",
+        "act-so101",
         "diffusion-pusht",
         "folding-latest",
         "pi0-base",
@@ -119,7 +120,7 @@
         "pi0-so101",
         "vqbet-pusht"
       ],
-      "model_count": 10
+      "model_count": 11
     },
     {
       "input": "image",
@@ -300,6 +301,7 @@
       "model_ids": [
         "act-aloha-cube",
         "act-aloha-insertion",
+        "act-so101",
         "diffusion-pusht",
         "pi0-base",
         "pi0-base-gemma",
@@ -308,7 +310,7 @@
         "pi0-so101",
         "vqbet-pusht"
       ],
-      "model_count": 9
+      "model_count": 10
     },
     {
       "input": "text",

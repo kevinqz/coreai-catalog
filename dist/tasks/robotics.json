@@ -4,7 +4,7 @@
     "vision-language-action",
     "robotics"
   ],
-  "model_count": 11,
+  "model_count": 12,
   "models": [
     {
       "id": "bitvla",
@@ -37,6 +37,20 @@
     {
       "id": "act-aloha-insertion",
       "name": "ACT ALOHA Insertion (fabric)",
+      "score": 38,
+      "parameters": "51.6M",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": false
+      },
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "act-so101",
+      "name": "ACT SO-ARM101 (fabric)",
       "score": 38,
       "parameters": "51.6M",
       "devices": {

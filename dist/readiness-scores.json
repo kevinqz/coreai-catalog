@@ -426,6 +426,11 @@
       "score": 38
     },
     {
+      "id": "act-so101",
+      "name": "ACT SO-ARM101 (fabric)",
+      "score": 38
+    },
+    {
       "id": "diffusion-pusht",
       "name": "Diffusion Policy PushT (fabric)",
       "score": 38

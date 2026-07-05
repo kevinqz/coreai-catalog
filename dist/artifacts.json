@@ -5859,12 +5859,72 @@
         },
         "recipe_source": "fabric"
       }
+    },
+    {
+      "group": "external",
+      "huggingface": {
+        "files": [
+          {
+            "path": ".gitattributes",
+            "sha256": "fd7bd2e1637dce0d4d9c7581ee7705b30258495b43ed62a5a262313724d9b24c",
+            "size_bytes": 1584
+          },
+          {
+            "path": "LICENSE",
+            "sha256": "aac56e27470ff0837c63e14dc27fa4719b7bd339a301f88e700b30574c0302ff",
+            "size_bytes": 11977
+          },
+          {
+            "path": "README.md",
+            "sha256": "b71d8a651bf020a87843f10b4d7e29a1b03abc90dc6fd778766a73359a693edf",
+            "size_bytes": 5397
+          },
+          {
+            "path": "act-so101.aimodel/main.hash",
+            "sha256": "924899b3abcbfb09018b7c09d90892bbd0b00677b679fc890efb2803b8ee38da",
+            "size_bytes": 32
+          },
+          {
+            "path": "act-so101.aimodel/main.mlirb",
+            "sha256": "253c3e428619394ed9a442ac5b0d68f330be869683d212ba6018188353a089f4",
+            "size_bytes": 137158971
+          },
+          {
+            "path": "act-so101.aimodel/metadata.json",
+            "sha256": "2aadcde8d589920d06d0307c89a04dc0738f103746b40102e53f9f5012f2e121",
+            "size_bytes": 105
+          },
+          {
+            "path": "parity-report.json",
+            "sha256": "59d67944b83c43ae9746cc52ce8a64b2a16bfe7d442d8794117b4c5baa3c85a0",
+            "size_bytes": 1844
+          }
+        ],
+        "owner": "kevinqz",
+        "repo": "ACT-SO101-CoreAI",
+        "revision": "d87698adcf63da4c8cfc271b82f3df8c64e73f70",
+        "url": "https://huggingface.co/kevinqz/ACT-SO101-CoreAI"
+      },
+      "id": "act-so101",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "provenance": {
+        "converted_by": {
+          "recipe_url": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/act-so101.yaml",
+          "tool": "models/act/export.py",
+          "version": "unknown"
+        },
+        "recipe_source": "fabric"
+      }
     }
   ],
   "export_catalog_version": "2.2.3",
   "export_schema_version": "1.0",
   "metadata": {
-    "count": 95,
+    "count": 96,
     "last_verified": "2026-07-04",
     "name": "Core AI Catalog artifact provenance"
   }

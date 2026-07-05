@@ -1,6 +1,6 @@
 # Robotics
 
-**11 models** in the catalog with this capability.
+**12 models** in the catalog with this capability.
 
 ## Task synonyms
 
@@ -13,6 +13,7 @@
 | [BitVLA](../../catalog.yaml#L1) | 63 | 2B (BitNet b1.58) | 📱💻 | MIT | ✅ likely | — | 🐼 |
 | [ACT ALOHA Insertion (fabric)](../../catalog.yaml#L1) | 38 | 51.6M |  | apache-2.0 | ✅ likely | — | fabric |
 | [ACT ALOHA Transfer-Cube (fabric)](../../catalog.yaml#L1) | 38 | 51.6M |  | apache-2.0 | ✅ likely | — | fabric |
+| [ACT SO-ARM101 (fabric)](../../catalog.yaml#L1) | 38 | 51.6M |  | apache-2.0 | ✅ likely | — | fabric |
 | [Diffusion Policy PushT (fabric)](../../catalog.yaml#L1) | 38 | 262.9M |  | apache-2.0 | ✅ likely | — | fabric |
 | [Pi0 (fabric)](../../catalog.yaml#L1) | 38 | 3.3B |  | apache-2.0 | ✅ likely | — | fabric |
 | [Pi0 SO-ARM101 (fabric)](../../catalog.yaml#L1) | 38 | 3.3B |  | apache-2.0 | ✅ likely | — | fabric |

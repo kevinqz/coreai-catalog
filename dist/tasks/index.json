@@ -488,7 +488,7 @@
         "vision-language-action",
         "robotics"
       ],
-      "model_count": 11
+      "model_count": 12
     },
     {
       "task": "scene understanding",

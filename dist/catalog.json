@@ -7124,6 +7124,104 @@
       ],
       "status": "needs_review",
       "upstream_repo": "Jingyi-Z/pi0_so101"
+    },
+    {
+      "architecture": "transformer",
+      "artifact": {
+        "availability": "available",
+        "format": "aimodel"
+      },
+      "artifact_ref": "act-so101",
+      "bundle_kind": "action",
+      "capabilities": [
+        "robotics"
+      ],
+      "confidence": "medium",
+      "device_support": {
+        "ipad": "unknown",
+        "iphone": "unknown",
+        "mac": "unknown",
+        "mac_only": "unknown"
+      },
+      "family": "LeRobot",
+      "id": "act-so101",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAIRunner",
+          "init_pattern": "load the encode + denoise_step graphs; host drives the N-step sampler + un-normalization",
+          "type": "CoreAIRunner"
+        },
+        "files": {
+          "processor_ref": "norm_stats.json"
+        },
+        "inputs": [
+          {
+            "modality": "image",
+            "name": "image"
+          },
+          {
+            "modality": "state",
+            "name": "state"
+          }
+        ],
+        "outputs": [
+          {
+            "decoding": {
+              "detokenization": "host-driven flow-matching sampler (N steps); un-normalize the action chunk with norm_stats.json"
+            },
+            "name": "action_chunk",
+            "swift_type": "[[Float]]"
+          }
+        ],
+        "session": {
+          "stateful": false,
+          "streaming": false
+        }
+      },
+      "last_verified": "2026-07-05",
+      "license": {
+        "commercial_use": "likely",
+        "name": "apache-2.0"
+      },
+      "maturity": "experimental",
+      "min_os": {
+        "ios": "27.0",
+        "macos": "27.0"
+      },
+      "modalities": {
+        "input": [
+          "image",
+          "state"
+        ],
+        "output": [
+          "action"
+        ]
+      },
+      "name": "ACT SO-ARM101 (fabric)",
+      "notes": "Converted via coreai-fabric recipe act-so101 (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/act-so101.yaml). Parity: gate A passed, gate B passed.",
+      "runtime": {
+        "aot_required": false,
+        "custom_kernel": false,
+        "patch_required": true,
+        "processor_required": true,
+        "runner": "CoreAIRunner",
+        "runtime_name": "apple-core-ai",
+        "stock_runtime": false,
+        "tokenizer_required": false
+      },
+      "size": {
+        "artifact_size": "130.8MB",
+        "parameters": "51.6M",
+        "precision": "float16",
+        "quantization": "none"
+      },
+      "source_group": "fabric",
+      "source_path": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/act-so101.yaml",
+      "sources": [
+        "coreai-fabric"
+      ],
+      "status": "needs_review",
+      "upstream_repo": "congnguyenzn/act_soarm101_v5"
     }
   ]
 }

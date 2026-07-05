@@ -24,7 +24,7 @@ Browse models by capability.
 - [Promptable Segmentation](./promptable-segmentation.md) — 2 models
 - [Reasoning](./reasoning.md) — 2 models
 - [Reranking](./reranking.md) — 1 models
-- [Robotics](./robotics.md) — 11 models
+- [Robotics](./robotics.md) — 12 models
 - [Speculative Decoding](./speculative-decoding.md) — 1 models
 - [Speech To Text](./speech-to-text.md) — 8 models
 - [Super Resolution](./super-resolution.md) — 2 models

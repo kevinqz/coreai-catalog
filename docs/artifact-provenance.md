@@ -99,3 +99,4 @@ Generated from `artifacts.yaml`.
 | pi0-libero-finetuned | external | / | kevinqz/Pi0-Libero-Finetuned-CoreAI | False | False |
 | pi0-base-gemma | external | / | kevinqz/Pi0-Base-CoreAI | False | False |
 | pi0-so101 | external | / | kevinqz/Pi0-SO101-CoreAI | False | False |
+| act-so101 | external | / | kevinqz/ACT-SO101-CoreAI | False | False |
