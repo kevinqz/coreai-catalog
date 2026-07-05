@@ -1,6 +1,6 @@
 # Document Ocr
 
-**1 models** in the catalog with this capability.
+**2 models** in the catalog with this capability.
 
 ## Task synonyms
 
@@ -11,6 +11,7 @@
 | Model | Score | Parameters | Devices | License | Commercial | Benchmark | Source |
 |---|---|---|---|---|---|---|---|
 | [Unlimited-OCR](../../catalog.yaml#L1) | 73 | not_published | 📱💻 | MIT | ⚠️ check_license | — | 🐼 |
+| [GLM-OCR](../../catalog.yaml#L1) | 48 | 0.9B | 💻 | MIT | ✅ likely | — | 🔗 |
 
 ## Install
 

@@ -4,7 +4,7 @@
     "document-ocr",
     "vision-language"
   ],
-  "model_count": 8,
+  "model_count": 9,
   "models": [
     {
       "id": "minicpm-v-4-6",
@@ -116,6 +116,20 @@
       },
       "license": "Apache-2.0",
       "commercial_use": "check_license",
+      "has_benchmark": false
+    },
+    {
+      "id": "glm-ocr",
+      "name": "GLM-OCR",
+      "score": 48,
+      "parameters": "0.9B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "MIT",
+      "commercial_use": "likely",
       "has_benchmark": false
     }
   ],

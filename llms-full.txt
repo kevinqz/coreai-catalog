@@ -25,8 +25,8 @@ independent community project — not affiliated with or endorsed by Apple.
 
 ## Catalog facts
 
-- 82 model records (chat, vision-language, speech, embeddings, detection, more)
-- 82 artifact provenance records (Hugging Face + GitHub sources)
+- 83 model records (chat, vision-language, speech, embeddings, detection, more)
+- 83 artifact provenance records (Hugging Face + GitHub sources)
 - 65 benchmark records (throughput, latency, RTF — iPhone + Mac)
 - 42 verified Apple AI terminology entries (each citing an official source)
 - 8 independent Hugging Face converters indexed (multi-upstream)
@@ -35,7 +35,7 @@ independent community project — not affiliated with or endorsed by Apple.
   (`readiness_score` is deprecated as a headline; see `docs/concepts/suitability-facets.md`.)
 - Typed integration metadata: `min_os` on every model (all current models
   require macOS/iOS 27 — the apple/coreai-models runtime declares
-  macOS 27.0), authored `bundle_kind` on all 82, typed `io_contract`
+  macOS 27.0), authored `bundle_kind` on all 83, typed `io_contract`
   blocks on priority models (entrypoint, typed inputs/outputs,
   preprocessing, decoding)
 

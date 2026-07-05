@@ -5966,6 +5966,75 @@
       "status": "confirmed",
       "streaming": false,
       "upstream_repo": "huihui-ai/Huihui-Qwen3-4B-abliterated-v2"
+    },
+    {
+      "architecture": "transformer",
+      "artifact": {
+        "availability": "available",
+        "format": "aimodel"
+      },
+      "artifact_ref": "glm-ocr",
+      "bundle_kind": "ocr",
+      "capabilities": [
+        "document-ocr"
+      ],
+      "confidence": "medium",
+      "device_support": {
+        "ipad": "unknown",
+        "iphone": "unknown",
+        "mac": true,
+        "mac_only": "unknown"
+      },
+      "family": "GLM-OCR",
+      "id": "glm-ocr",
+      "last_verified": "2026-07-04",
+      "license": {
+        "commercial_use": "likely",
+        "name": "MIT"
+      },
+      "maturity": "experimental",
+      "min_os": {
+        "ios": "27.0",
+        "macos": "27.0"
+      },
+      "modalities": {
+        "input": [
+          "document_image",
+          "image",
+          "text"
+        ],
+        "output": [
+          "text",
+          "html",
+          "latex"
+        ]
+      },
+      "name": "GLM-OCR",
+      "notes": "On-device document OCR (text, HTML tables, LaTeX formulas). Port of zai-org/GLM-OCR (0.9B, GLM-4.V CogViT vision + 16-layer GLM decoder, M-RoPE). Verified end-to-end on M4 Max GPU (Core AI pipelined engine). Community-converted by mlboydaisuke.",
+      "runtime": {
+        "aot_required": false,
+        "custom_kernel": false,
+        "patch_required": true,
+        "processor_required": true,
+        "runner": "CoreAIRunner",
+        "runtime_name": "apple-core-ai",
+        "stock_runtime": false,
+        "tokenizer_required": true
+      },
+      "size": {
+        "artifact_size": "1.6GB",
+        "parameters": "0.9B",
+        "precision": "mixed",
+        "quantization": "int8hu"
+      },
+      "source_group": "external",
+      "source_path": "https://huggingface.co/mlboydaisuke/GLM-OCR-CoreAI",
+      "sources": [
+        "mlboydaisuke-glm-ocr-coreai"
+      ],
+      "status": "needs_review",
+      "streaming": false,
+      "upstream_repo": "zai-org/GLM-OCR"
     }
   ]
 }

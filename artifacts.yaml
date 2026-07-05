@@ -1,7 +1,7 @@
 metadata:
   name: Core AI Catalog artifact provenance
   last_verified: '2026-07-04'
-  count: 82
+  count: 83
 artifacts:
 - id: qwen3-5-0-8b
   group: zoo
@@ -3321,3 +3321,21 @@ artifacts:
     last_verified: '2026-07-04'
   bundle_kind: language
   precision: int4
+- id: glm-ocr
+  group: external
+  huggingface:
+    owner: mlboydaisuke
+    repo: GLM-OCR-CoreAI
+    url: https://huggingface.co/mlboydaisuke/GLM-OCR-CoreAI
+    revision: dbf163b8f6c9952d536b95a0992ceee4827856a9
+    files:
+    - path: vision/glm_ocr_vision.aimodel/main.mlirb
+      sha256: a63d76349a324b5d6df1a263488b7a96027f411603b4d72e9119cdc1833e05ab
+      size_bytes: 869139083
+    - path: decoder/glm_ocr_decode_int8hu_s1.aimodel/main.mlirb
+      sha256: 9615c20bc0e9cbbcfd91f4968ffffb7e09f43371dffc619a1ce764a44f5872b7
+      size_bytes: 801205551
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true

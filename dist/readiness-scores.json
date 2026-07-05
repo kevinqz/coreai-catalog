@@ -406,6 +406,11 @@
       "score": 48
     },
     {
+      "id": "glm-ocr",
+      "name": "GLM-OCR",
+      "score": 48
+    },
+    {
       "id": "vjepa2-vitl-ssv2",
       "name": "V-JEPA 2 ViT-L (SSv2)",
       "score": 45

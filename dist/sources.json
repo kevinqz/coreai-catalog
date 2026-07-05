@@ -277,6 +277,17 @@
       "type": "github_repository",
       "url": "https://github.com/kevinqz/coreai-fabric",
       "volatility": "low"
+    },
+    {
+      "id": "mlboydaisuke-glm-ocr-coreai",
+      "last_checked": "2026-07-04",
+      "notes": "Independent GLM-OCR Core AI conversion (CogViT vision tower + GLM text decoder, pipelined int8hu decode). Port of zai-org/GLM-OCR.",
+      "owner": "mlboydaisuke",
+      "title": "mlboydaisuke/GLM-OCR-CoreAI",
+      "trust": "community_secondary",
+      "type": "huggingface_repository",
+      "url": "https://huggingface.co/mlboydaisuke/GLM-OCR-CoreAI",
+      "volatility": "medium"
     }
   ]
 }

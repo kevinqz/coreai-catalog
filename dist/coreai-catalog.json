@@ -5139,10 +5139,37 @@
             "url": null
           }
         }
+      },
+      {
+        "group": "external",
+        "huggingface": {
+          "files": [
+            {
+              "path": "vision/glm_ocr_vision.aimodel/main.mlirb",
+              "sha256": "a63d76349a324b5d6df1a263488b7a96027f411603b4d72e9119cdc1833e05ab",
+              "size_bytes": 869139083
+            },
+            {
+              "path": "decoder/glm_ocr_decode_int8hu_s1.aimodel/main.mlirb",
+              "sha256": "9615c20bc0e9cbbcfd91f4968ffffb7e09f43371dffc619a1ce764a44f5872b7",
+              "size_bytes": 801205551
+            }
+          ],
+          "owner": "mlboydaisuke",
+          "repo": "GLM-OCR-CoreAI",
+          "revision": "dbf163b8f6c9952d536b95a0992ceee4827856a9",
+          "url": "https://huggingface.co/mlboydaisuke/GLM-OCR-CoreAI"
+        },
+        "id": "glm-ocr",
+        "officiality": {
+          "apple_export_recipe": false,
+          "apple_hosted_artifact": false,
+          "community_packaged": true
+        }
       }
     ],
     "metadata": {
-      "count": 82,
+      "count": 83,
       "last_verified": "2026-07-04",
       "name": "Core AI Catalog artifact provenance"
     }
@@ -12812,6 +12839,75 @@
         "status": "confirmed",
         "streaming": false,
         "upstream_repo": "huihui-ai/Huihui-Qwen3-4B-abliterated-v2"
+      },
+      {
+        "architecture": "transformer",
+        "artifact": {
+          "availability": "available",
+          "format": "aimodel"
+        },
+        "artifact_ref": "glm-ocr",
+        "bundle_kind": "ocr",
+        "capabilities": [
+          "document-ocr"
+        ],
+        "confidence": "medium",
+        "device_support": {
+          "ipad": "unknown",
+          "iphone": "unknown",
+          "mac": true,
+          "mac_only": "unknown"
+        },
+        "family": "GLM-OCR",
+        "id": "glm-ocr",
+        "last_verified": "2026-07-04",
+        "license": {
+          "commercial_use": "likely",
+          "name": "MIT"
+        },
+        "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
+        "modalities": {
+          "input": [
+            "document_image",
+            "image",
+            "text"
+          ],
+          "output": [
+            "text",
+            "html",
+            "latex"
+          ]
+        },
+        "name": "GLM-OCR",
+        "notes": "On-device document OCR (text, HTML tables, LaTeX formulas). Port of zai-org/GLM-OCR (0.9B, GLM-4.V CogViT vision + 16-layer GLM decoder, M-RoPE). Verified end-to-end on M4 Max GPU (Core AI pipelined engine). Community-converted by mlboydaisuke.",
+        "runtime": {
+          "aot_required": false,
+          "custom_kernel": false,
+          "patch_required": true,
+          "processor_required": true,
+          "runner": "CoreAIRunner",
+          "runtime_name": "apple-core-ai",
+          "stock_runtime": false,
+          "tokenizer_required": true
+        },
+        "size": {
+          "artifact_size": "1.6GB",
+          "parameters": "0.9B",
+          "precision": "mixed",
+          "quantization": "int8hu"
+        },
+        "source_group": "external",
+        "source_path": "https://huggingface.co/mlboydaisuke/GLM-OCR-CoreAI",
+        "sources": [
+          "mlboydaisuke-glm-ocr-coreai"
+        ],
+        "status": "needs_review",
+        "streaming": false,
+        "upstream_repo": "zai-org/GLM-OCR"
       }
     ]
   },
@@ -13094,6 +13190,17 @@
         "type": "github_repository",
         "url": "https://github.com/kevinqz/coreai-fabric",
         "volatility": "low"
+      },
+      {
+        "id": "mlboydaisuke-glm-ocr-coreai",
+        "last_checked": "2026-07-04",
+        "notes": "Independent GLM-OCR Core AI conversion (CogViT vision tower + GLM text decoder, pipelined int8hu decode). Port of zai-org/GLM-OCR.",
+        "owner": "mlboydaisuke",
+        "title": "mlboydaisuke/GLM-OCR-CoreAI",
+        "trust": "community_secondary",
+        "type": "huggingface_repository",
+        "url": "https://huggingface.co/mlboydaisuke/GLM-OCR-CoreAI",
+        "volatility": "medium"
       }
     ]
   },

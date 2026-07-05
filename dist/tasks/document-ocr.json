@@ -3,7 +3,7 @@
   "capabilities": [
     "document-ocr"
   ],
-  "model_count": 1,
+  "model_count": 2,
   "models": [
     {
       "id": "unlimited-ocr",
@@ -18,11 +18,25 @@
       "license": "MIT",
       "commercial_use": "check_license",
       "has_benchmark": false
+    },
+    {
+      "id": "glm-ocr",
+      "name": "GLM-OCR",
+      "score": 48,
+      "parameters": "0.9B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "MIT",
+      "commercial_use": "likely",
+      "has_benchmark": false
     }
   ],
   "export_schema_version": "1.0",
   "export_catalog_version": "2.2.3",
   "best_overall": "unlimited-ocr",
   "best_iphone": "unlimited-ocr",
-  "best_commercial": null
+  "best_commercial": "glm-ocr"
 }
