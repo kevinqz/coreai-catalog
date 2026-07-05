@@ -118,9 +118,10 @@
         "pi0-libero-base",
         "pi0-libero-finetuned",
         "pi0-so101",
+        "pi05-so100",
         "vqbet-pusht"
       ],
-      "model_count": 11
+      "model_count": 12
     },
     {
       "input": "image",
@@ -308,9 +309,10 @@
         "pi0-libero-base",
         "pi0-libero-finetuned",
         "pi0-so101",
+        "pi05-so100",
         "vqbet-pusht"
       ],
-      "model_count": 10
+      "model_count": 11
     },
     {
       "input": "text",
@@ -321,9 +323,10 @@
         "pi0-base-gemma",
         "pi0-libero-base",
         "pi0-libero-finetuned",
-        "pi0-so101"
+        "pi0-so101",
+        "pi05-so100"
       ],
-      "model_count": 6
+      "model_count": 7
     },
     {
       "input": "text",

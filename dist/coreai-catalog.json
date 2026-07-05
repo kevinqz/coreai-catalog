@@ -5920,10 +5920,70 @@
           },
           "recipe_source": "fabric"
         }
+      },
+      {
+        "group": "external",
+        "huggingface": {
+          "files": [
+            {
+              "path": ".gitattributes",
+              "sha256": "df7dd2c3068ec6efb32b1d34dfc6163c9ecb66a9d9a651d883e366db0e7daf87",
+              "size_bytes": 1585
+            },
+            {
+              "path": "LICENSE",
+              "sha256": "9faf170a0903bf52ae8c614e33bd9c7ab56e3a787d6717b0b33af15bb9c03e59",
+              "size_bytes": 11993
+            },
+            {
+              "path": "README.md",
+              "sha256": "9111d4ace7e23a1711bf8f25eccd935c9617a6fc69033b89ce9d9aac62aee041",
+              "size_bytes": 5564
+            },
+            {
+              "path": "parity-report.json",
+              "sha256": "af6dd3732a023b070f59378180e049989eba574af02d0a59040dcb7f6d2e7cb4",
+              "size_bytes": 3228
+            },
+            {
+              "path": "pi05-so100.aimodel/main.hash",
+              "sha256": "c5a3ab38ba9cbbca8b3ae737eb16fb8e40542faa29838b5b297363cf55150e0d",
+              "size_bytes": 32
+            },
+            {
+              "path": "pi05-so100.aimodel/main.mlirb",
+              "sha256": "a0fc6082eff9fb0b7b1f6012a433589ed24bc7f2a19f5e4107a0058cabc4d8f2",
+              "size_bytes": 6489645704
+            },
+            {
+              "path": "pi05-so100.aimodel/metadata.json",
+              "sha256": "1da2cf78603341e778edd58e4014a21466bd701125a545ad030dd693b2def44f",
+              "size_bytes": 105
+            }
+          ],
+          "owner": "kevinqz",
+          "repo": "Pi05-SO100-CoreAI",
+          "revision": "ec3f2b0751033f69a5c54c78ebe2dd8dd2ff12a5",
+          "url": "https://huggingface.co/kevinqz/Pi05-SO100-CoreAI"
+        },
+        "id": "pi05-so100",
+        "officiality": {
+          "apple_export_recipe": false,
+          "apple_hosted_artifact": false,
+          "community_packaged": true
+        },
+        "provenance": {
+          "converted_by": {
+            "recipe_url": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/pi05-so100.yaml",
+            "tool": "models/pi05/export.py",
+            "version": "unknown"
+          },
+          "recipe_source": "fabric"
+        }
       }
     ],
     "metadata": {
-      "count": 96,
+      "count": 97,
       "last_verified": "2026-07-04",
       "name": "Core AI Catalog artifact provenance"
     }
@@ -14849,6 +14909,111 @@
         ],
         "status": "needs_review",
         "upstream_repo": "congnguyenzn/act_soarm101_v5"
+      },
+      {
+        "architecture": "transformer",
+        "artifact": {
+          "availability": "available",
+          "format": "aimodel"
+        },
+        "artifact_ref": "pi05-so100",
+        "bundle_kind": "action",
+        "capabilities": [
+          "vision-language-action",
+          "robotics"
+        ],
+        "confidence": "medium",
+        "device_support": {
+          "ipad": "unknown",
+          "iphone": "unknown",
+          "mac": "unknown",
+          "mac_only": "unknown"
+        },
+        "family": "LeRobot",
+        "id": "pi05-so100",
+        "io_contract": {
+          "entrypoint": {
+            "framework": "CoreAIRunner",
+            "init_pattern": "load the encode + denoise_step graphs; host drives the N-step sampler + un-normalization",
+            "type": "CoreAIRunner"
+          },
+          "files": {
+            "processor_ref": "norm_stats.json",
+            "tokenizer_ref": "tokenizer"
+          },
+          "inputs": [
+            {
+              "modality": "image",
+              "name": "image"
+            },
+            {
+              "modality": "text",
+              "name": "text"
+            },
+            {
+              "modality": "state",
+              "name": "state"
+            }
+          ],
+          "outputs": [
+            {
+              "decoding": {
+                "detokenization": "host-driven flow-matching sampler (N steps); un-normalize the action chunk with norm_stats.json"
+              },
+              "name": "action_chunk",
+              "swift_type": "[[Float]]"
+            }
+          ],
+          "session": {
+            "stateful": false,
+            "streaming": false
+          }
+        },
+        "last_verified": "2026-07-05",
+        "license": {
+          "commercial_use": "likely",
+          "name": "apache-2.0"
+        },
+        "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
+        "modalities": {
+          "input": [
+            "image",
+            "text",
+            "state"
+          ],
+          "output": [
+            "action"
+          ]
+        },
+        "name": "Pi0.5 SO-ARM100/101 (fabric)",
+        "notes": "Converted via coreai-fabric recipe pi05-so100 (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/pi05-so100.yaml). Parity: gate A passed, gate B passed.",
+        "runtime": {
+          "aot_required": false,
+          "custom_kernel": false,
+          "patch_required": true,
+          "processor_required": true,
+          "runner": "CoreAIRunner",
+          "runtime_name": "apple-core-ai",
+          "stock_runtime": false,
+          "tokenizer_required": true
+        },
+        "size": {
+          "artifact_size": "6.0GB",
+          "parameters": "3.3B",
+          "precision": "float16",
+          "quantization": "none"
+        },
+        "source_group": "fabric",
+        "source_path": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/pi05-so100.yaml",
+        "sources": [
+          "coreai-fabric"
+        ],
+        "status": "needs_review",
+        "upstream_repo": "StrongRoboticsLab/pi05-so100-diverse"
       }
     ]
   },

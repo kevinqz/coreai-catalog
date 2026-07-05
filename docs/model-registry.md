@@ -97,3 +97,4 @@
 | pi0-base-gemma | Pi0 base Gemma (fabric) | fabric | LeRobot | vision-language-action, robotics | image, text, state | action | 3.3B | unknown | gemma | needs_review |
 | pi0-so101 | Pi0 SO-ARM101 (fabric) | fabric | LeRobot | vision-language-action, robotics | image, text, state | action | 3.3B | unknown | apache-2.0 | needs_review |
 | act-so101 | ACT SO-ARM101 (fabric) | fabric | LeRobot | robotics | image, state | action | 51.6M | unknown | apache-2.0 | needs_review |
+| pi05-so100 | Pi0.5 SO-ARM100/101 (fabric) | fabric | LeRobot | vision-language-action, robotics | image, text, state | action | 3.3B | unknown | apache-2.0 | needs_review |

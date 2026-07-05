@@ -1,7 +1,7 @@
 metadata:
   name: Core AI Catalog artifact provenance
   last_verified: '2026-07-04'
-  count: 96
+  count: 97
 artifacts:
 - id: qwen3-5-0-8b
   group: zoo
@@ -3823,6 +3823,45 @@ artifacts:
       tool: models/act/export.py
       version: unknown
       recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/act-so101.yaml
+    recipe_source: fabric
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: pi05-so100
+  group: external
+  huggingface:
+    owner: kevinqz
+    repo: Pi05-SO100-CoreAI
+    url: https://huggingface.co/kevinqz/Pi05-SO100-CoreAI
+    revision: ec3f2b0751033f69a5c54c78ebe2dd8dd2ff12a5
+    files:
+    - path: .gitattributes
+      sha256: df7dd2c3068ec6efb32b1d34dfc6163c9ecb66a9d9a651d883e366db0e7daf87
+      size_bytes: 1585
+    - path: LICENSE
+      sha256: 9faf170a0903bf52ae8c614e33bd9c7ab56e3a787d6717b0b33af15bb9c03e59
+      size_bytes: 11993
+    - path: README.md
+      sha256: 9111d4ace7e23a1711bf8f25eccd935c9617a6fc69033b89ce9d9aac62aee041
+      size_bytes: 5564
+    - path: parity-report.json
+      sha256: af6dd3732a023b070f59378180e049989eba574af02d0a59040dcb7f6d2e7cb4
+      size_bytes: 3228
+    - path: pi05-so100.aimodel/main.hash
+      sha256: c5a3ab38ba9cbbca8b3ae737eb16fb8e40542faa29838b5b297363cf55150e0d
+      size_bytes: 32
+    - path: pi05-so100.aimodel/main.mlirb
+      sha256: a0fc6082eff9fb0b7b1f6012a433589ed24bc7f2a19f5e4107a0058cabc4d8f2
+      size_bytes: 6489645704
+    - path: pi05-so100.aimodel/metadata.json
+      sha256: 1da2cf78603341e778edd58e4014a21466bd701125a545ad030dd693b2def44f
+      size_bytes: 105
+  provenance:
+    converted_by:
+      tool: models/pi05/export.py
+      version: unknown
+      recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/pi05-so100.yaml
     recipe_source: fabric
   officiality:
     apple_export_recipe: false
