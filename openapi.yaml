@@ -385,7 +385,16 @@ components:
         parameters: { type: string }
         license: { type: string }
         commercial_use: { type: string }
-        readiness_score: { type: integer }
+        readiness_score: { type: integer }   # deprecated headline — prefer the facets below (docs/concepts/suitability-facets.md)
+        deployability:
+          type: object
+          description: "Decomposed deployment facets (obtainable/runtime/device_fit/license/measured). Prefer over readiness_score."
+        lifecycle:
+          type: object
+          description: "Ordinal entry maturity stage (official/verified/community/experimental/deprecated)."
+        entry_completeness:
+          type: object
+          description: "Catalog-entry metadata coverage (Kaggle-Usability style) — not model quality."
         has_benchmark: { type: boolean }
         artifact_url: { type: string }
         source_group: { type: string }
@@ -429,7 +438,16 @@ components:
           properties:
             name: { type: string }
             commercial_use: { type: string, enum: [likely, check_license] }
-        readiness_score: { type: integer }
+        readiness_score: { type: integer }   # deprecated headline — prefer the facets below (docs/concepts/suitability-facets.md)
+        deployability:
+          type: object
+          description: "Decomposed deployment facets (obtainable/runtime/device_fit/license/measured). Prefer over readiness_score."
+        lifecycle:
+          type: object
+          description: "Ordinal entry maturity stage (official/verified/community/experimental/deprecated)."
+        entry_completeness:
+          type: object
+          description: "Catalog-entry metadata coverage — not model quality."
         provenance: { type: object }
         benchmarks: { type: array, items: { type: object } }
 

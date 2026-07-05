@@ -12,7 +12,12 @@ from typing import Any
 
 import yaml
 
-from .catalog import Catalog
+from .catalog import (
+    Catalog,
+    deployability_facets,
+    entry_completeness,
+    lifecycle_of,
+)
 from .formatters import (
     extract_device_list,
     get_catalog_version,
@@ -213,7 +218,11 @@ def export_search_index(catalog_root: Path, dist: Path | None = None) -> int:
 
         rt = m.get("runtime", {})
         size = m.get("size", {})
+        # DEPRECATED headline: readiness_score is a curation/deployability
+        # composite that is blind to model quality. Prefer the decomposed
+        # deployability/lifecycle/entry_completeness facets attached below.
         score = cat.readiness_score(m)
+        has_bench = bool(bench_by_model.get(m["id"]))
 
         entry = {
             "id": m["id"],
@@ -244,6 +253,9 @@ def export_search_index(catalog_root: Path, dist: Path | None = None) -> int:
             "maturity": m.get("maturity"),
             "confidence": m.get("confidence"),
             "readiness_score": score,
+            "deployability": deployability_facets(m, has_bench),
+            "lifecycle": lifecycle_of(m),
+            "entry_completeness": entry_completeness(m, has_bench),
             "artifact": {
                 "format": m.get("artifact", {}).get("format"),
                 "availability": m.get("artifact", {}).get("availability"),
@@ -481,6 +493,8 @@ def export_leaderboard(catalog_root: Path, dist: Path | None = None) -> dict:
             "capabilities": m.get("capabilities", []),
             "parameters": m.get("size", {}).get("parameters", "unknown"),
             "readiness_score": score,
+            "lifecycle": lifecycle_of(m),
+            "entry_completeness": entry_completeness(m, bool(model_benchmarks)),
             "benchmark_count": len(model_benchmarks),
             "best_metrics": best_metrics,
         })
@@ -492,7 +506,7 @@ def export_leaderboard(catalog_root: Path, dist: Path | None = None) -> dict:
     output = {
         "export_schema_version": EXPORT_SCHEMA_VERSION,
         "export_catalog_version": catalog_version,
-        "description": "Ranked model leaderboard by readiness score. Each entry includes best-known benchmarks per metric.",
+        "description": "Ranked by the DEPRECATED readiness_score (a curation/deployability composite, NOT model quality). Prefer per-entry deployability/lifecycle/entry_completeness facets plus benchmark VALUES. Each entry includes best-known benchmarks per metric.",
         "total_models": len(entries),
         "leaderboard": entries,
     }

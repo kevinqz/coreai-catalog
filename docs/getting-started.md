@@ -42,13 +42,13 @@ coreai-catalog search --capability vision-language --device iphone
 coreai-catalog search --capability chat --license likely
 ```
 
-### See readiness scores
+### See deployability / curation readiness
 
 ```bash
 coreai-catalog scores
 ```
 
-Every model gets a 0–100 score based on 13 factors: device support, benchmark availability, license clarity, runtime stability, and more.
+`scores` prints a 0–100 curation/deployability composite (`readiness_score`) with a grade — **deprecated as a headline** because it is blind to model quality. Prefer the per-entry **suitability facets** (`deployability` / `lifecycle` / `entry_completeness`) in `dist/search-index.json`, and judge quality from benchmark values. See [`concepts/suitability-facets.md`](concepts/suitability-facets.md).
 
 ### Compare two models
 

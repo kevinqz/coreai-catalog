@@ -101,3 +101,24 @@
     files:   # Paths inside the pinned HF revision of the artifact repo. — optional
       tokenizer_ref: tokenizer   # optional
       processor_ref: preprocessor_config.json   # optional
+  deployability:   # Decomposed deployment facets (SotA readiness reshape) — a per-axis view for filtering/badges, DERIVED from device_support/runtime/license/artifact. NOT a quality score. Surfaced per-entry in dist/search-index.json; may also be authored on source entries. — optional
+    obtainable: available   # available | unavailable | unknown; optional
+    runtime: stock   # stock | patched | unknown — Collapses the collinear stock_runtime/custom_kernel/patch_required/aot_required flags into one axis. — optional
+    device_fit:   # optional
+      mac: true   # true | false | unknown; optional
+      iphone: true   # true | false | unknown; optional
+      ipad: true   # true | false | unknown; optional
+    license:   # optional
+      name: Apache-2.0   # optional
+      commercial_use: likely   # likely | check_license | None; optional
+    measured: false   # At least one benchmark VALUE exists for this model (presence, not a quality claim). — optional
+  lifecycle:   # Ordinal maturity stage of the catalog ENTRY (MLTRL / MLflow-tags style), DERIVED from source_group/status/maturity unless authored explicitly. Separate from model quality. — optional
+    stage: official   # official | verified | community | experimental | deprecated
+    verification: confirmed   # confirmed | needs_review | deprecated | unknown; optional
+    curator_confidence: high   # high | medium | low | needs_review | None; optional
+    last_verified: replace-me   # optional
+  entry_completeness:   # How complete this catalog ENTRY is — coverage of key metadata (Kaggle-Usability style). NOT model quality: an 'unknown'/absent facet lowers coverage, never a hidden score. — optional
+    pct: 1.0   # optional
+    present: 1   # optional
+    of: 1   # optional
+    fields: {}   # optional

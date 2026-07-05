@@ -392,6 +392,66 @@
           }
         }
       }
+    },
+    "deployability": {
+      "description": "Decomposed deployment facets (SotA readiness reshape) — a per-axis view for filtering/badges, DERIVED from device_support/runtime/license/artifact. NOT a quality score. Surfaced per-entry in dist/search-index.json; may also be authored on source entries.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "obtainable": { "type": "string", "enum": ["available", "unavailable", "unknown"] },
+        "runtime": {
+          "description": "Collapses the collinear stock_runtime/custom_kernel/patch_required/aot_required flags into one axis.",
+          "type": "string",
+          "enum": ["stock", "patched", "unknown"]
+        },
+        "device_fit": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "mac": { "type": ["boolean", "string"], "enum": [true, false, "unknown"] },
+            "iphone": { "type": ["boolean", "string"], "enum": [true, false, "unknown"] },
+            "ipad": { "type": ["boolean", "string"], "enum": [true, false, "unknown"] }
+          }
+        },
+        "license": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "name": { "type": ["string", "null"] },
+            "commercial_use": { "type": ["string", "null"], "enum": ["likely", "check_license", null] }
+          }
+        },
+        "measured": {
+          "description": "At least one benchmark VALUE exists for this model (presence, not a quality claim).",
+          "type": "boolean"
+        }
+      }
+    },
+    "lifecycle": {
+      "description": "Ordinal maturity stage of the catalog ENTRY (MLTRL / MLflow-tags style), DERIVED from source_group/status/maturity unless authored explicitly. Separate from model quality.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["stage"],
+      "properties": {
+        "stage": { "type": "string", "enum": ["official", "verified", "community", "experimental", "deprecated"] },
+        "verification": { "type": "string", "enum": ["confirmed", "needs_review", "deprecated", "unknown"] },
+        "curator_confidence": { "type": ["string", "null"], "enum": ["high", "medium", "low", "needs_review", null] },
+        "last_verified": { "type": ["string", "null"] }
+      }
+    },
+    "entry_completeness": {
+      "description": "How complete this catalog ENTRY is — coverage of key metadata (Kaggle-Usability style). NOT model quality: an 'unknown'/absent facet lowers coverage, never a hidden score.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "pct": { "type": "number", "minimum": 0, "maximum": 1 },
+        "present": { "type": "integer", "minimum": 0 },
+        "of": { "type": "integer", "minimum": 0 },
+        "fields": {
+          "type": "object",
+          "additionalProperties": { "type": "boolean" }
+        }
+      }
     }
   }
 }

@@ -32,11 +32,15 @@ The Core AI Catalog must be available at the working directory or installed via 
    coreai-catalog search --capability <cap> --device <device> --license likely
    ```
 
-5. **Rank by readiness score.** Higher score = more deployable:
-   - A (85-100): Production-ready, stock runtime, benchmarked
-   - B (70-84): Good, minor caveats
-   - C (55-69): Usable but needs verification
-   - D-F (<55): Experimental, missing data, or heavy requirements
+5. **Filter, then rank on facets — not `readiness_score`** (deprecated: blind to
+   model quality, see `docs/concepts/suitability-facets.md`).
+   - **Gate** on `deployability`: `obtainable == available`, the target device in
+     `device_fit` not `false` (keep `unknown`), and `license.commercial_use` when
+     commercial use is required.
+   - **Rank** survivors by a user-relevant axis: size/latency for on-device, or
+     `lifecycle.stage` (official > verified > community > experimental) for trust.
+   - **Quality** → compare **benchmark values** for the task; if `measured` is
+     false, say the model is unbenchmarked rather than guessing.
 
 6. **Present results.** For each recommendation, surface:
    - Model name and ID

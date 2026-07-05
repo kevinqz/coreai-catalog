@@ -23,7 +23,7 @@ Not affiliated with or endorsed by Apple. `commercial_use` fields are triage lab
 
 **Version:** v2.2.3 — [PyPI](https://pypi.org/project/coreai-catalog/) · [Live site](https://kevinqz.github.io/coreai-catalog/) · [CI](https://github.com/kevinqz/coreai-catalog/actions/workflows/validate.yml)
 
-82 Apple Core AI models with artifact provenance, benchmarks, verified terminology, readiness scores, and an MCP server for agent-native model discovery, comparison, and recommendation.
+82 Apple Core AI models with artifact provenance, benchmarks, verified terminology, per-entry suitability facets (deployability / lifecycle / entry_completeness), and an MCP server for agent-native model discovery, comparison, and recommendation.
 
 **Version contract:** PyPI = GitHub tag = `catalog.yaml` = `agent.json` = `openapi.yaml` = `README.md`. All surfaces carry the same version number.
 
@@ -411,8 +411,8 @@ pip install coreai-catalog
 ```bash
 # Discover models
 coreai-catalog search --capability vision-language --device iphone
-coreai-catalog list                          # all models, sorted by readiness score
-coreai-catalog scores                        # 0-100 readiness scores with grade distribution
+coreai-catalog list                          # all models (suitability facets in dist/search-index.json)
+coreai-catalog scores                        # deployability/curation readiness — deprecated headline; see docs/concepts/suitability-facets.md
 coreai-catalog capabilities                  # list all capabilities with model counts
 
 # Plan modality transformation pipelines

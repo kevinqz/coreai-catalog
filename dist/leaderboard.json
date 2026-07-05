@@ -1,7 +1,7 @@
 {
   "export_schema_version": "1.0",
   "export_catalog_version": "2.2.3",
-  "description": "Ranked model leaderboard by readiness score. Each entry includes best-known benchmarks per metric.",
+  "description": "Ranked by the DEPRECATED readiness_score (a curation/deployability composite, NOT model quality). Prefer per-entry deployability/lifecycle/entry_completeness facets plus benchmark VALUES. Each entry includes best-known benchmarks per metric.",
   "total_models": 82,
   "leaderboard": [
     {
@@ -12,6 +12,25 @@
       ],
       "parameters": "base",
       "readiness_score": 93,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 1.0,
+        "present": 6,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": true
+        }
+      },
       "benchmark_count": 1,
       "best_metrics": {
         "inference_latency": {
@@ -29,6 +48,25 @@
       ],
       "parameters": "small",
       "readiness_score": 93,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 1.0,
+        "present": 6,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": true
+        }
+      },
       "benchmark_count": 1,
       "best_metrics": {
         "inference_latency": {
@@ -46,6 +84,25 @@
       ],
       "parameters": "0.6B",
       "readiness_score": 93,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 1.0,
+        "present": 6,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": true
+        }
+      },
       "benchmark_count": 1,
       "best_metrics": {
         "inference_latency": {
@@ -63,6 +120,25 @@
       ],
       "parameters": "0.6B",
       "readiness_score": 93,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 1.0,
+        "present": 6,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": true
+        }
+      },
       "benchmark_count": 1,
       "best_metrics": {
         "inference_latency": {
@@ -80,6 +156,25 @@
       ],
       "parameters": "large",
       "readiness_score": 93,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 1.0,
+        "present": 6,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": true
+        }
+      },
       "benchmark_count": 1,
       "best_metrics": {
         "inference_latency": {
@@ -97,6 +192,25 @@
       ],
       "parameters": "medium",
       "readiness_score": 93,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 1.0,
+        "present": 6,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": true
+        }
+      },
       "benchmark_count": 1,
       "best_metrics": {
         "inference_latency": {
@@ -114,6 +228,25 @@
       ],
       "parameters": "nano",
       "readiness_score": 93,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 1.0,
+        "present": 6,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": true
+        }
+      },
       "benchmark_count": 1,
       "best_metrics": {
         "inference_latency": {
@@ -131,6 +264,25 @@
       ],
       "parameters": "small",
       "readiness_score": 93,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 1.0,
+        "present": 6,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": true
+        }
+      },
       "benchmark_count": 1,
       "best_metrics": {
         "inference_latency": {
@@ -148,6 +300,25 @@
       ],
       "parameters": "8.97M",
       "readiness_score": 93,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-29"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 2,
       "best_metrics": {
         "inference_latency": {
@@ -166,6 +337,25 @@
       ],
       "parameters": "0.6B",
       "readiness_score": 90,
+      "lifecycle": {
+        "stage": "official",
+        "verification": "confirmed",
+        "curator_confidence": "high",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 1.0,
+        "present": 6,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": true
+        }
+      },
       "benchmark_count": 2,
       "best_metrics": {
         "decode_throughput": {
@@ -184,6 +374,25 @@
       ],
       "parameters": "4B",
       "readiness_score": 90,
+      "lifecycle": {
+        "stage": "official",
+        "verification": "confirmed",
+        "curator_confidence": "high",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 1,
       "best_metrics": {
         "decode_throughput": {
@@ -201,6 +410,25 @@
       ],
       "parameters": "809M / ~1.5GB",
       "readiness_score": 90,
+      "lifecycle": {
+        "stage": "official",
+        "verification": "confirmed",
+        "curator_confidence": "high",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 1.0,
+        "present": 6,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": true
+        }
+      },
       "benchmark_count": 1,
       "best_metrics": {
         "transcription_latency": {
@@ -218,6 +446,25 @@
       ],
       "parameters": "not_published",
       "readiness_score": 88,
+      "lifecycle": {
+        "stage": "verified",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-30"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 0,
       "best_metrics": {}
     },
@@ -229,6 +476,25 @@
       ],
       "parameters": "4B / ~4GB",
       "readiness_score": 85,
+      "lifecycle": {
+        "stage": "official",
+        "verification": "confirmed",
+        "curator_confidence": "high",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 1.0,
+        "present": 6,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": true
+        }
+      },
       "benchmark_count": 1,
       "best_metrics": {
         "image_generation_latency": {
@@ -248,6 +514,25 @@
       ],
       "parameters": "20B / ~13GB",
       "readiness_score": 85,
+      "lifecycle": {
+        "stage": "official",
+        "verification": "confirmed",
+        "curator_confidence": "high",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 1,
       "best_metrics": {
         "decode_throughput": {
@@ -266,6 +551,25 @@
       ],
       "parameters": "4B",
       "readiness_score": 85,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "high",
+        "last_verified": "2026-07-04"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 0,
       "best_metrics": {}
     },
@@ -277,6 +581,25 @@
       ],
       "parameters": "250M",
       "readiness_score": 83,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-29"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 0,
       "best_metrics": {}
     },
@@ -290,6 +613,25 @@
       ],
       "parameters": "1.08B",
       "readiness_score": 83,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-29"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 2,
       "best_metrics": {
         "decode_throughput": {
@@ -307,6 +649,25 @@
       ],
       "parameters": "151M",
       "readiness_score": 83,
+      "lifecycle": {
+        "stage": "official",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-29"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 0,
       "best_metrics": {}
     },
@@ -318,6 +679,25 @@
       ],
       "parameters": "2xlarge",
       "readiness_score": 83,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 0,
       "best_metrics": {}
     },
@@ -329,6 +709,25 @@
       ],
       "parameters": "large",
       "readiness_score": 83,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 0,
       "best_metrics": {}
     },
@@ -340,6 +739,25 @@
       ],
       "parameters": "medium",
       "readiness_score": 83,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 0,
       "best_metrics": {}
     },
@@ -351,6 +769,25 @@
       ],
       "parameters": "nano",
       "readiness_score": 83,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 0,
       "best_metrics": {}
     },
@@ -362,6 +799,25 @@
       ],
       "parameters": "small",
       "readiness_score": 83,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 0,
       "best_metrics": {}
     },
@@ -373,6 +829,25 @@
       ],
       "parameters": "xlarge",
       "readiness_score": 83,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 0,
       "best_metrics": {}
     },
@@ -385,6 +860,25 @@
       ],
       "parameters": "7B",
       "readiness_score": 80,
+      "lifecycle": {
+        "stage": "official",
+        "verification": "confirmed",
+        "curator_confidence": "high",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 1,
       "best_metrics": {
         "decode_throughput": {
@@ -403,6 +897,25 @@
       ],
       "parameters": "8B",
       "readiness_score": 80,
+      "lifecycle": {
+        "stage": "official",
+        "verification": "confirmed",
+        "curator_confidence": "high",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 1,
       "best_metrics": {
         "decode_throughput": {
@@ -420,6 +933,25 @@
       ],
       "parameters": "~1.7GB",
       "readiness_score": 80,
+      "lifecycle": {
+        "stage": "official",
+        "verification": "confirmed",
+        "curator_confidence": "high",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 1.0,
+        "present": 6,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": true
+        }
+      },
       "benchmark_count": 1,
       "best_metrics": {
         "segmentation_latency": {
@@ -439,6 +971,25 @@
       ],
       "parameters": "4B",
       "readiness_score": 78,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-29"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 1,
       "best_metrics": {
         "decode_throughput": {
@@ -458,6 +1009,25 @@
       ],
       "parameters": "1B",
       "readiness_score": 78,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 2,
       "best_metrics": {
         "decode_throughput": {
@@ -475,6 +1045,25 @@
       ],
       "parameters": "sub-2B",
       "readiness_score": 78,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 1.0,
+        "present": 6,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": true
+        }
+      },
       "benchmark_count": 2,
       "best_metrics": {
         "decode_throughput": {
@@ -493,6 +1082,25 @@
       ],
       "parameters": "1.7B",
       "readiness_score": 78,
+      "lifecycle": {
+        "stage": "official",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-29"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 0,
       "best_metrics": {}
     },
@@ -504,6 +1112,25 @@
       ],
       "parameters": "0.6B",
       "readiness_score": 78,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-29"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 2,
       "best_metrics": {
         "realtime_factor": {
@@ -527,6 +1154,25 @@
       ],
       "parameters": "0.8B",
       "readiness_score": 78,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 3,
       "best_metrics": {
         "decode_throughput": {
@@ -545,6 +1191,25 @@
       ],
       "parameters": "2B",
       "readiness_score": 78,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 2,
       "best_metrics": {
         "decode_throughput": {
@@ -562,6 +1227,25 @@
       ],
       "parameters": "2B",
       "readiness_score": 78,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 2,
       "best_metrics": {
         "decode_throughput": {
@@ -579,6 +1263,25 @@
       ],
       "parameters": "not_published",
       "readiness_score": 78,
+      "lifecycle": {
+        "stage": "verified",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-30"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 0,
       "best_metrics": {}
     },
@@ -590,6 +1293,25 @@
       ],
       "parameters": "0.5B",
       "readiness_score": 78,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 1,
       "best_metrics": {
         "realtime_factor": {
@@ -607,6 +1329,25 @@
       ],
       "parameters": "809M",
       "readiness_score": 78,
+      "lifecycle": {
+        "stage": "verified",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-30"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 0,
       "best_metrics": {}
     },
@@ -618,6 +1359,25 @@
       ],
       "parameters": "769M",
       "readiness_score": 78,
+      "lifecycle": {
+        "stage": "verified",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-30"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 0,
       "best_metrics": {}
     },
@@ -629,6 +1389,25 @@
       ],
       "parameters": "39M",
       "readiness_score": 78,
+      "lifecycle": {
+        "stage": "verified",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-30"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 0,
       "best_metrics": {}
     },
@@ -640,6 +1419,25 @@
       ],
       "parameters": "×4",
       "readiness_score": 73,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 0,
       "best_metrics": {}
     },
@@ -651,6 +1449,25 @@
       ],
       "parameters": "300M",
       "readiness_score": 73,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 0,
       "best_metrics": {}
     },
@@ -663,6 +1480,25 @@
       ],
       "parameters": "4B",
       "readiness_score": 73,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-29"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 0,
       "best_metrics": {}
     },
@@ -674,6 +1510,25 @@
       ],
       "parameters": "82M",
       "readiness_score": 73,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 0,
       "best_metrics": {}
     },
@@ -685,6 +1540,25 @@
       ],
       "parameters": "1.7B",
       "readiness_score": 73,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-29"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 0,
       "best_metrics": {}
     },
@@ -696,6 +1570,25 @@
       ],
       "parameters": "not_published",
       "readiness_score": 73,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": true
+        }
+      },
       "benchmark_count": 0,
       "best_metrics": {}
     },
@@ -707,6 +1600,25 @@
       ],
       "parameters": "0.5B",
       "readiness_score": 73,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-30"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 1,
       "best_metrics": {
         "realtime_factor": {
@@ -724,6 +1636,25 @@
       ],
       "parameters": "1.5B",
       "readiness_score": 73,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-30"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 1,
       "best_metrics": {
         "realtime_factor": {
@@ -741,6 +1672,25 @@
       ],
       "parameters": "7B",
       "readiness_score": 73,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-30"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 1,
       "best_metrics": {
         "realtime_factor": {
@@ -758,6 +1708,25 @@
       ],
       "parameters": "7B",
       "readiness_score": 73,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-30"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 1,
       "best_metrics": {
         "realtime_factor": {
@@ -775,6 +1744,25 @@
       ],
       "parameters": "not_published",
       "readiness_score": 73,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-30"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 0,
       "best_metrics": {}
     },
@@ -786,6 +1774,25 @@
       ],
       "parameters": "0.6B",
       "readiness_score": 70,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "high",
+        "last_verified": "2026-06-30"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 0,
       "best_metrics": {}
     },
@@ -799,6 +1806,25 @@
       ],
       "parameters": "12B",
       "readiness_score": 70,
+      "lifecycle": {
+        "stage": "official",
+        "verification": "confirmed",
+        "curator_confidence": "high",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 1,
       "best_metrics": {
         "decode_throughput": {
@@ -818,6 +1844,25 @@
       ],
       "parameters": "4B",
       "readiness_score": 70,
+      "lifecycle": {
+        "stage": "official",
+        "verification": "confirmed",
+        "curator_confidence": "high",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 1,
       "best_metrics": {
         "decode_throughput": {
@@ -836,6 +1881,25 @@
       ],
       "parameters": "8B / ternary {-1,0,+1}",
       "readiness_score": 68,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-29"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 2,
       "best_metrics": {
         "decode_throughput": {
@@ -855,6 +1919,25 @@
       ],
       "parameters": "350M",
       "readiness_score": 68,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 0,
       "best_metrics": {}
     },
@@ -868,6 +1951,25 @@
       ],
       "parameters": "1.2B",
       "readiness_score": 68,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 2,
       "best_metrics": {
         "decode_throughput": {
@@ -888,6 +1990,25 @@
       ],
       "parameters": "3.93B",
       "readiness_score": 68,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 2,
       "best_metrics": {
         "decode_throughput": {
@@ -905,6 +2026,25 @@
       ],
       "parameters": "4B",
       "readiness_score": 68,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 0,
       "best_metrics": {}
     },
@@ -916,6 +2056,25 @@
       ],
       "parameters": "8B",
       "readiness_score": 68,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 0,
       "best_metrics": {}
     },
@@ -927,6 +2086,25 @@
       ],
       "parameters": "2B",
       "readiness_score": 68,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-29"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 0,
       "best_metrics": {}
     },
@@ -939,6 +2117,25 @@
       ],
       "parameters": "2B (BitNet b1.58)",
       "readiness_score": 63,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-29"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 0,
       "best_metrics": {}
     },
@@ -951,6 +2148,25 @@
       ],
       "parameters": "E2B",
       "readiness_score": 63,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 5,
       "best_metrics": {
         "decode_throughput": {
@@ -968,6 +2184,25 @@
       ],
       "parameters": "E2B",
       "readiness_score": 63,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 2,
       "best_metrics": {
         "decode_throughput": {
@@ -986,6 +2221,25 @@
       ],
       "parameters": "E4B",
       "readiness_score": 63,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 3,
       "best_metrics": {
         "decode_throughput": {
@@ -1005,6 +2259,25 @@
       ],
       "parameters": "8B",
       "readiness_score": 63,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-29"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 0,
       "best_metrics": {}
     },
@@ -1016,6 +2289,25 @@
       ],
       "parameters": "2B / DiT 1.9B + T5-XXL 4.76B",
       "readiness_score": 63,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-29"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 0,
       "best_metrics": {}
     },
@@ -1027,6 +2319,25 @@
       ],
       "parameters": "3B",
       "readiness_score": 63,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 0,
       "best_metrics": {}
     },
@@ -1039,6 +2350,25 @@
       ],
       "parameters": "27B",
       "readiness_score": 63,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 1,
       "best_metrics": {
         "decode_throughput": {
@@ -1058,6 +2388,25 @@
       ],
       "parameters": "35B / ~3B active",
       "readiness_score": 63,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 1,
       "best_metrics": {
         "decode_throughput": {
@@ -1076,6 +2425,25 @@
       ],
       "parameters": "1.5B",
       "readiness_score": 63,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-01"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 0,
       "best_metrics": {}
     },
@@ -1088,6 +2456,25 @@
       ],
       "parameters": "not_published",
       "readiness_score": 63,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-29"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 0,
       "best_metrics": {}
     },
@@ -1099,6 +2486,25 @@
       ],
       "parameters": "12B",
       "readiness_score": 58,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-30"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 1,
       "best_metrics": {
         "inference_latency": {
@@ -1118,6 +2524,25 @@
       ],
       "parameters": "9B",
       "readiness_score": 55,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "high",
+        "last_verified": "2026-07-03"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 0,
       "best_metrics": {}
     },
@@ -1130,6 +2555,25 @@
       ],
       "parameters": "12B",
       "readiness_score": 53,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 2,
       "best_metrics": {
         "decode_throughput": {
@@ -1148,6 +2592,25 @@
       ],
       "parameters": "31B",
       "readiness_score": 53,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 1,
       "best_metrics": {
         "decode_throughput": {
@@ -1168,6 +2631,25 @@
       ],
       "parameters": "30B / ~3B active",
       "readiness_score": 53,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": true,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 1,
       "best_metrics": {
         "decode_throughput": {
@@ -1187,6 +2669,25 @@
       ],
       "parameters": "8B / ~1B active",
       "readiness_score": 53,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-24"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 0,
       "best_metrics": {}
     },
@@ -1198,6 +2699,25 @@
       ],
       "parameters": "not_published",
       "readiness_score": 53,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-29"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 0,
       "best_metrics": {}
     },
@@ -1211,6 +2731,25 @@
       ],
       "parameters": "12B",
       "readiness_score": 48,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-06-30"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
       "benchmark_count": 0,
       "best_metrics": {}
     },
@@ -1222,6 +2761,25 @@
       ],
       "parameters": "300M",
       "readiness_score": 45,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "unknown",
+        "curator_confidence": "low",
+        "last_verified": "2026-07-02"
+      },
+      "entry_completeness": {
+        "pct": 0.833,
+        "present": 5,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": true
+        }
+      },
       "benchmark_count": 0,
       "best_metrics": {}
     }
