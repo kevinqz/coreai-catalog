@@ -87,3 +87,8 @@ Generated from `artifacts.yaml`.
 | ornith-1-0-9b | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/Ornith-1.0-9B-CoreAI | False | False |
 | qwen3-enhancer | external | / | bryanbblewis11/Qwen3-Enhancer-CoreAI | False | False |
 | glm-ocr | external | / | mlboydaisuke/GLM-OCR-CoreAI | False | False |
+| act-aloha-cube | external | / | kevinqz/ACT-Aloha-TransferCube-CoreAI | False | False |
+| act-aloha-insertion | external | / | kevinqz/ACT-Aloha-Insertion-CoreAI | False | False |
+| diffusion-pusht | external | / | kevinqz/Diffusion-PushT-CoreAI | False | False |
+| vqbet-pusht | external | / | kevinqz/VQ-BeT-PushT-CoreAI | False | False |
+| pi0-base | external | / | kevinqz/Pi0-CoreAI | False | False |

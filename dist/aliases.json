@@ -2,7 +2,7 @@
   "export_schema_version": "1.0",
   "export_catalog_version": "2.2.3",
   "description": "Alias mappings resolving catalog IDs to Zoo card names, CoreAIKit strings, and HF repo names.",
-  "total_models": 83,
+  "total_models": 88,
   "aliases": {
     "qwen3-5-0-8b": [
       "qwen3-5-0-8b-coreai",
@@ -477,6 +477,36 @@
       "GLM-OCR-CoreAI",
       "glm-ocr-coreai",
       "glm.ocr"
+    ],
+    "act-aloha-cube": [
+      "ACT-Aloha-TransferCube-CoreAI",
+      "act-aloha-cube.yaml",
+      "act-aloha-transfercube-coreai",
+      "act.aloha.cube"
+    ],
+    "act-aloha-insertion": [
+      "ACT-Aloha-Insertion-CoreAI",
+      "act-aloha-insertion-coreai",
+      "act-aloha-insertion.yaml",
+      "act.aloha.insertion"
+    ],
+    "diffusion-pusht": [
+      "Diffusion-PushT-CoreAI",
+      "diffusion-pusht-coreai",
+      "diffusion-pusht.yaml",
+      "diffusion.pusht"
+    ],
+    "vqbet-pusht": [
+      "VQ-BeT-PushT-CoreAI",
+      "vq-bet-pusht-coreai",
+      "vqbet-pusht.yaml",
+      "vqbet.pusht"
+    ],
+    "pi0-base": [
+      "Pi0-CoreAI",
+      "pi0-base.yaml",
+      "pi0-coreai",
+      "pi0.base"
     ]
   }
 }

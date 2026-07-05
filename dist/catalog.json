@@ -6035,6 +6035,503 @@
       "status": "needs_review",
       "streaming": false,
       "upstream_repo": "zai-org/GLM-OCR"
+    },
+    {
+      "architecture": "transformer",
+      "artifact": {
+        "availability": "available",
+        "format": "aimodel"
+      },
+      "artifact_ref": "act-aloha-cube",
+      "bundle_kind": "action",
+      "capabilities": [
+        "robotics"
+      ],
+      "confidence": "medium",
+      "device_support": {
+        "ipad": "unknown",
+        "iphone": "unknown",
+        "mac": "unknown",
+        "mac_only": "unknown"
+      },
+      "family": "LeRobot",
+      "id": "act-aloha-cube",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAIRunner",
+          "init_pattern": "load the encode + denoise_step graphs; host drives the N-step sampler + un-normalization",
+          "type": "CoreAIRunner"
+        },
+        "files": {
+          "processor_ref": "norm_stats.json"
+        },
+        "inputs": [
+          {
+            "modality": "image",
+            "name": "image"
+          },
+          {
+            "modality": "state",
+            "name": "state"
+          }
+        ],
+        "outputs": [
+          {
+            "decoding": {
+              "detokenization": "host-driven flow-matching sampler (N steps); un-normalize the action chunk with norm_stats.json"
+            },
+            "name": "action_chunk",
+            "swift_type": "[[Float]]"
+          }
+        ],
+        "session": {
+          "stateful": false,
+          "streaming": false
+        }
+      },
+      "last_verified": "2026-07-05",
+      "license": {
+        "commercial_use": "likely",
+        "name": "apache-2.0"
+      },
+      "maturity": "experimental",
+      "min_os": {
+        "ios": "27.0",
+        "macos": "27.0"
+      },
+      "modalities": {
+        "input": [
+          "image",
+          "state"
+        ],
+        "output": [
+          "action"
+        ]
+      },
+      "name": "ACT ALOHA Transfer-Cube (fabric)",
+      "notes": "Converted via coreai-fabric recipe act-aloha-cube (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/act-aloha-cube.yaml).",
+      "runtime": {
+        "aot_required": false,
+        "custom_kernel": false,
+        "patch_required": true,
+        "processor_required": true,
+        "runner": "CoreAIRunner",
+        "runtime_name": "apple-core-ai",
+        "stock_runtime": false,
+        "tokenizer_required": false
+      },
+      "size": {
+        "artifact_size": "130.9MB",
+        "parameters": "51.6M",
+        "precision": "float16",
+        "quantization": "none"
+      },
+      "source_group": "fabric",
+      "source_path": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/act-aloha-cube.yaml",
+      "sources": [
+        "coreai-fabric"
+      ],
+      "status": "needs_review",
+      "upstream_repo": "lerobot/act_aloha_sim_transfer_cube_human"
+    },
+    {
+      "architecture": "transformer",
+      "artifact": {
+        "availability": "available",
+        "format": "aimodel"
+      },
+      "artifact_ref": "act-aloha-insertion",
+      "bundle_kind": "action",
+      "capabilities": [
+        "robotics"
+      ],
+      "confidence": "medium",
+      "device_support": {
+        "ipad": "unknown",
+        "iphone": "unknown",
+        "mac": "unknown",
+        "mac_only": "unknown"
+      },
+      "family": "LeRobot",
+      "id": "act-aloha-insertion",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAIRunner",
+          "init_pattern": "load the encode + denoise_step graphs; host drives the N-step sampler + un-normalization",
+          "type": "CoreAIRunner"
+        },
+        "files": {
+          "processor_ref": "norm_stats.json"
+        },
+        "inputs": [
+          {
+            "modality": "image",
+            "name": "image"
+          },
+          {
+            "modality": "state",
+            "name": "state"
+          }
+        ],
+        "outputs": [
+          {
+            "decoding": {
+              "detokenization": "host-driven flow-matching sampler (N steps); un-normalize the action chunk with norm_stats.json"
+            },
+            "name": "action_chunk",
+            "swift_type": "[[Float]]"
+          }
+        ],
+        "session": {
+          "stateful": false,
+          "streaming": false
+        }
+      },
+      "last_verified": "2026-07-05",
+      "license": {
+        "commercial_use": "likely",
+        "name": "apache-2.0"
+      },
+      "maturity": "experimental",
+      "min_os": {
+        "ios": "27.0",
+        "macos": "27.0"
+      },
+      "modalities": {
+        "input": [
+          "image",
+          "state"
+        ],
+        "output": [
+          "action"
+        ]
+      },
+      "name": "ACT ALOHA Insertion (fabric)",
+      "notes": "Converted via coreai-fabric recipe act-aloha-insertion (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/act-aloha-insertion.yaml).",
+      "runtime": {
+        "aot_required": false,
+        "custom_kernel": false,
+        "patch_required": true,
+        "processor_required": true,
+        "runner": "CoreAIRunner",
+        "runtime_name": "apple-core-ai",
+        "stock_runtime": false,
+        "tokenizer_required": false
+      },
+      "size": {
+        "artifact_size": "131.0MB",
+        "parameters": "51.6M",
+        "precision": "float16",
+        "quantization": "none"
+      },
+      "source_group": "fabric",
+      "source_path": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/act-aloha-insertion.yaml",
+      "sources": [
+        "coreai-fabric"
+      ],
+      "status": "needs_review",
+      "upstream_repo": "lerobot/act_aloha_sim_insertion_human"
+    },
+    {
+      "architecture": "diffusion",
+      "artifact": {
+        "availability": "available",
+        "format": "aimodel"
+      },
+      "artifact_ref": "diffusion-pusht",
+      "bundle_kind": "action",
+      "capabilities": [
+        "robotics"
+      ],
+      "confidence": "medium",
+      "device_support": {
+        "ipad": "unknown",
+        "iphone": "unknown",
+        "mac": "unknown",
+        "mac_only": "unknown"
+      },
+      "family": "LeRobot",
+      "id": "diffusion-pusht",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAIRunner",
+          "init_pattern": "load the encode + denoise_step graphs; host drives the N-step sampler + un-normalization",
+          "type": "CoreAIRunner"
+        },
+        "files": {
+          "processor_ref": "norm_stats.json"
+        },
+        "inputs": [
+          {
+            "modality": "image",
+            "name": "image"
+          },
+          {
+            "modality": "state",
+            "name": "state"
+          }
+        ],
+        "outputs": [
+          {
+            "decoding": {
+              "detokenization": "host-driven flow-matching sampler (N steps); un-normalize the action chunk with norm_stats.json"
+            },
+            "name": "action_chunk",
+            "swift_type": "[[Float]]"
+          }
+        ],
+        "session": {
+          "stateful": false,
+          "streaming": false
+        }
+      },
+      "last_verified": "2026-07-05",
+      "license": {
+        "commercial_use": "likely",
+        "name": "apache-2.0"
+      },
+      "maturity": "experimental",
+      "min_os": {
+        "ios": "27.0",
+        "macos": "27.0"
+      },
+      "modalities": {
+        "input": [
+          "image",
+          "state"
+        ],
+        "output": [
+          "action"
+        ]
+      },
+      "name": "Diffusion Policy PushT (fabric)",
+      "notes": "Converted via coreai-fabric recipe diffusion-pusht (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/diffusion-pusht.yaml).",
+      "runtime": {
+        "aot_required": false,
+        "custom_kernel": false,
+        "patch_required": true,
+        "processor_required": true,
+        "runner": "CoreAIRunner",
+        "runtime_name": "apple-core-ai",
+        "stock_runtime": false,
+        "tokenizer_required": false
+      },
+      "size": {
+        "artifact_size": "1002.3MB",
+        "parameters": "262.9M",
+        "precision": "float16",
+        "quantization": "none"
+      },
+      "source_group": "fabric",
+      "source_path": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/diffusion-pusht.yaml",
+      "sources": [
+        "coreai-fabric"
+      ],
+      "status": "needs_review",
+      "upstream_repo": "lerobot/diffusion_pusht"
+    },
+    {
+      "architecture": "transformer",
+      "artifact": {
+        "availability": "available",
+        "format": "aimodel"
+      },
+      "artifact_ref": "vqbet-pusht",
+      "bundle_kind": "action",
+      "capabilities": [
+        "robotics"
+      ],
+      "confidence": "medium",
+      "device_support": {
+        "ipad": "unknown",
+        "iphone": "unknown",
+        "mac": "unknown",
+        "mac_only": "unknown"
+      },
+      "family": "LeRobot",
+      "id": "vqbet-pusht",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAIRunner",
+          "init_pattern": "load the encode + denoise_step graphs; host drives the N-step sampler + un-normalization",
+          "type": "CoreAIRunner"
+        },
+        "files": {
+          "processor_ref": "norm_stats.json"
+        },
+        "inputs": [
+          {
+            "modality": "image",
+            "name": "image"
+          },
+          {
+            "modality": "state",
+            "name": "state"
+          }
+        ],
+        "outputs": [
+          {
+            "decoding": {
+              "detokenization": "host-driven flow-matching sampler (N steps); un-normalize the action chunk with norm_stats.json"
+            },
+            "name": "action_chunk",
+            "swift_type": "[[Float]]"
+          }
+        ],
+        "session": {
+          "stateful": false,
+          "streaming": false
+        }
+      },
+      "last_verified": "2026-07-05",
+      "license": {
+        "commercial_use": "likely",
+        "name": "apache-2.0"
+      },
+      "maturity": "experimental",
+      "min_os": {
+        "ios": "27.0",
+        "macos": "27.0"
+      },
+      "modalities": {
+        "input": [
+          "image",
+          "state"
+        ],
+        "output": [
+          "action"
+        ]
+      },
+      "name": "VQ-BeT PushT greedy (fabric)",
+      "notes": "Converted via coreai-fabric recipe vqbet-pusht (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/vqbet-pusht.yaml).",
+      "runtime": {
+        "aot_required": false,
+        "custom_kernel": false,
+        "patch_required": true,
+        "processor_required": true,
+        "runner": "CoreAIRunner",
+        "runtime_name": "apple-core-ai",
+        "stock_runtime": false,
+        "tokenizer_required": false
+      },
+      "size": {
+        "artifact_size": "142.3MB",
+        "parameters": "26.0M",
+        "precision": "float16",
+        "quantization": "none"
+      },
+      "source_group": "fabric",
+      "source_path": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/vqbet-pusht.yaml",
+      "sources": [
+        "coreai-fabric"
+      ],
+      "status": "needs_review",
+      "upstream_repo": "lerobot/vqbet_pusht"
+    },
+    {
+      "architecture": "transformer",
+      "artifact": {
+        "availability": "available",
+        "format": "aimodel"
+      },
+      "artifact_ref": "pi0-base",
+      "bundle_kind": "action",
+      "capabilities": [
+        "vision-language-action",
+        "robotics"
+      ],
+      "confidence": "medium",
+      "device_support": {
+        "ipad": "unknown",
+        "iphone": "unknown",
+        "mac": "unknown",
+        "mac_only": "unknown"
+      },
+      "family": "LeRobot",
+      "id": "pi0-base",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAIRunner",
+          "init_pattern": "load the encode + denoise_step graphs; host drives the N-step sampler + un-normalization",
+          "type": "CoreAIRunner"
+        },
+        "files": {
+          "processor_ref": "norm_stats.json",
+          "tokenizer_ref": "tokenizer"
+        },
+        "inputs": [
+          {
+            "modality": "image",
+            "name": "image"
+          },
+          {
+            "modality": "text",
+            "name": "text"
+          },
+          {
+            "modality": "state",
+            "name": "state"
+          }
+        ],
+        "outputs": [
+          {
+            "decoding": {
+              "detokenization": "host-driven flow-matching sampler (N steps); un-normalize the action chunk with norm_stats.json"
+            },
+            "name": "action_chunk",
+            "swift_type": "[[Float]]"
+          }
+        ],
+        "session": {
+          "stateful": false,
+          "streaming": false
+        }
+      },
+      "last_verified": "2026-07-05",
+      "license": {
+        "commercial_use": "likely",
+        "name": "apache-2.0"
+      },
+      "maturity": "experimental",
+      "min_os": {
+        "ios": "27.0",
+        "macos": "27.0"
+      },
+      "modalities": {
+        "input": [
+          "image",
+          "text",
+          "state"
+        ],
+        "output": [
+          "action"
+        ]
+      },
+      "name": "Pi0 (fabric)",
+      "notes": "Converted via coreai-fabric recipe pi0-base (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/pi0-base.yaml). Parity: gate A passed, gate B passed.",
+      "runtime": {
+        "aot_required": false,
+        "custom_kernel": false,
+        "patch_required": true,
+        "processor_required": true,
+        "runner": "CoreAIRunner",
+        "runtime_name": "apple-core-ai",
+        "stock_runtime": false,
+        "tokenizer_required": true
+      },
+      "size": {
+        "artifact_size": "5.8GB",
+        "parameters": "3.3B",
+        "precision": "float16",
+        "quantization": "none"
+      },
+      "source_group": "fabric",
+      "source_path": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/pi0-base.yaml",
+      "sources": [
+        "coreai-fabric"
+      ],
+      "status": "needs_review",
+      "upstream_repo": "lerobot/pi0"
     }
   ]
 }

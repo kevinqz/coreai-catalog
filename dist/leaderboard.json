@@ -2,7 +2,7 @@
   "export_schema_version": "1.0",
   "export_catalog_version": "2.2.3",
   "description": "Ranked by the DEPRECATED readiness_score (a curation/deployability composite, NOT model quality). Prefer per-entry deployability/lifecycle/entry_completeness facets plus benchmark VALUES. Each entry includes best-known benchmarks per metric.",
-  "total_models": 83,
+  "total_models": 88,
   "leaderboard": [
     {
       "id": "depth-anything-3-base",
@@ -2804,6 +2804,157 @@
         "fields": {
           "artifact_availability_known": true,
           "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": true
+        }
+      },
+      "benchmark_count": 0,
+      "best_metrics": {}
+    },
+    {
+      "id": "act-aloha-cube",
+      "name": "ACT ALOHA Transfer-Cube (fabric)",
+      "capabilities": [
+        "robotics"
+      ],
+      "parameters": "51.6M",
+      "readiness_score": 38,
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-05"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": true
+        }
+      },
+      "benchmark_count": 0,
+      "best_metrics": {}
+    },
+    {
+      "id": "act-aloha-insertion",
+      "name": "ACT ALOHA Insertion (fabric)",
+      "capabilities": [
+        "robotics"
+      ],
+      "parameters": "51.6M",
+      "readiness_score": 38,
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-05"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": true
+        }
+      },
+      "benchmark_count": 0,
+      "best_metrics": {}
+    },
+    {
+      "id": "diffusion-pusht",
+      "name": "Diffusion Policy PushT (fabric)",
+      "capabilities": [
+        "robotics"
+      ],
+      "parameters": "262.9M",
+      "readiness_score": 38,
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-05"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": true
+        }
+      },
+      "benchmark_count": 0,
+      "best_metrics": {}
+    },
+    {
+      "id": "pi0-base",
+      "name": "Pi0 (fabric)",
+      "capabilities": [
+        "vision-language-action",
+        "robotics"
+      ],
+      "parameters": "3.3B",
+      "readiness_score": 38,
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-05"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": true
+        }
+      },
+      "benchmark_count": 0,
+      "best_metrics": {}
+    },
+    {
+      "id": "vqbet-pusht",
+      "name": "VQ-BeT PushT greedy (fabric)",
+      "capabilities": [
+        "robotics"
+      ],
+      "parameters": "26.0M",
+      "readiness_score": 38,
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-05"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
           "runtime_profile_known": true,
           "license_triaged": true,
           "benchmarked": false,

@@ -1,7 +1,7 @@
 metadata:
   name: Core AI Catalog artifact provenance
   last_verified: '2026-07-04'
-  count: 83
+  count: 88
 artifacts:
 - id: qwen3-5-0-8b
   group: zoo
@@ -3335,6 +3335,210 @@ artifacts:
     - path: decoder/glm_ocr_decode_int8hu_s1.aimodel/main.mlirb
       sha256: 9615c20bc0e9cbbcfd91f4968ffffb7e09f43371dffc619a1ce764a44f5872b7
       size_bytes: 801205551
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: act-aloha-cube
+  group: external
+  huggingface:
+    owner: kevinqz
+    repo: ACT-Aloha-TransferCube-CoreAI
+    url: https://huggingface.co/kevinqz/ACT-Aloha-TransferCube-CoreAI
+    revision: 17c4a61a513045e0252803077d1969b44f014210
+    files:
+    - path: .gitattributes
+      sha256: 806b76aaec631f62acb3e366dac9d2213a3af6f0c1708b36caa907ab6f73e7c8
+      size_bytes: 1589
+    - path: README.md
+      sha256: 000449cca9780353b641bb2faccf3903b2dbc11e9a5a62a588501bd5e8594b11
+      size_bytes: 5744
+    - path: act-aloha-cube.aimodel/main.hash
+      sha256: 2c2cdfab0bfea326216cea773d678e71e79b8fd6dfca2d823689e6965c6d9c34
+      size_bytes: 32
+    - path: act-aloha-cube.aimodel/main.mlirb
+      sha256: 325ccee66f255161bdb82fe194a93a92bae9af340aff1b0c6e30f9068df4bcf3
+      size_bytes: 137294197
+    - path: act-aloha-cube.aimodel/metadata.json
+      sha256: caf071c917416ae86eb9b4c00e5b5a919666e3f5b7fdcc3a11d95618b85c6835
+      size_bytes: 105
+    - path: parity-report.json
+      sha256: b55893591922a8edd79c72ecafb15d3c619e53b9afdc52f413e41c1e13f48520
+      size_bytes: 988
+  provenance:
+    converted_by:
+      tool: models/act/export.py
+      version: unknown
+      recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/act-aloha-cube.yaml
+    recipe_source: fabric
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: act-aloha-insertion
+  group: external
+  huggingface:
+    owner: kevinqz
+    repo: ACT-Aloha-Insertion-CoreAI
+    url: https://huggingface.co/kevinqz/ACT-Aloha-Insertion-CoreAI
+    revision: 23768005e881635743c1619dbb52fe6e2761828d
+    files:
+    - path: .gitattributes
+      sha256: c46bec25ce9a7f99691ff897d3d299389df02d57c48ed5edcefd74af0edf0a4c
+      size_bytes: 1594
+    - path: LICENSE
+      sha256: a7e01949c4d9261d00ad94641aaa5594c50d91bc67d3500ccfd5c398c6fd62aa
+      size_bytes: 11995
+    - path: README.md
+      sha256: 0e2a4f7072b22a2b6c7ab6374c841078a01215412aee7c939a61066a2eb15728
+      size_bytes: 5608
+    - path: act-aloha-insertion.aimodel/main.hash
+      sha256: 55fbb74ed80f2c1a9fe5edb8806999c63b886ff1512d6c5f803a8510387889b1
+      size_bytes: 32
+    - path: act-aloha-insertion.aimodel/main.mlirb
+      sha256: 0eba2c1601c9c3a7676d7c29461b3601c93ea82d9297242f2b7c5afb451473cd
+      size_bytes: 137294217
+    - path: act-aloha-insertion.aimodel/metadata.json
+      sha256: 4610c46aed5a977d16497e9b866295dd94be95f5e75c3366938e594ca262f345
+      size_bytes: 105
+    - path: parity-report.json
+      sha256: 1d0d431fd478e043ece39ce20288a617a352bc3b5045ce3658634ca99e754d3e
+      size_bytes: 1896
+    - path: reproduce-manifest.json
+      sha256: eb75dcc80a834efc0c247a790732c8fe702846d20a4f4773a091d541ab0185d2
+      size_bytes: 1622
+  provenance:
+    converted_by:
+      tool: models/act/export.py
+      version: unknown
+      recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/act-aloha-insertion.yaml
+    recipe_source: fabric
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: diffusion-pusht
+  group: external
+  huggingface:
+    owner: kevinqz
+    repo: Diffusion-PushT-CoreAI
+    url: https://huggingface.co/kevinqz/Diffusion-PushT-CoreAI
+    revision: 1e8427b1595a1616aeff7b8646294b31a4895698
+    files:
+    - path: .gitattributes
+      sha256: 00a262a8c8d4201695ace27b2b9d7a23940843f1c447e701aadc39f1b2e2020f
+      size_bytes: 1590
+    - path: LICENSE
+      sha256: 5344b7424622babe69ef79b58617f75b671a263bb11fd9012e4b3483e521faab
+      size_bytes: 11967
+    - path: README.md
+      sha256: f5941a09083ed6afcaa71a5173514a44c848d2ba671fdbbd6b32ca851a5a97e2
+      size_bytes: 5493
+    - path: diffusion-pusht.aimodel/main.hash
+      sha256: 139eff324bcde3045c4e1cb968b6b597a4d0c5a9b45cd99e5baae1e89f0b8868
+      size_bytes: 32
+    - path: diffusion-pusht.aimodel/main.mlirb
+      sha256: ae41fb13c4e2203ae38ba2398414d8d20b68b3e855a3504aadc1a58742f9735b
+      size_bytes: 1050940430
+    - path: diffusion-pusht.aimodel/metadata.json
+      sha256: 130e3489181fb9330134d28c84b747547235e539a8bc50a246d6e32e92f7d6a7
+      size_bytes: 105
+    - path: parity-report.json
+      sha256: 93419f95c0d63cf59d1a49afa733bf91316ebdc2060e56af3584c8bdb6e32ad9
+      size_bytes: 1978
+    - path: reproduce-manifest.json
+      sha256: 565186f56c26c3b0496bc56ef9c1af3c4182a63f6e3213c81714d80f6ccb6b4c
+      size_bytes: 1569
+  provenance:
+    converted_by:
+      tool: models/diffusion/export.py
+      version: unknown
+      recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/diffusion-pusht.yaml
+    recipe_source: fabric
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: vqbet-pusht
+  group: external
+  huggingface:
+    owner: kevinqz
+    repo: VQ-BeT-PushT-CoreAI
+    url: https://huggingface.co/kevinqz/VQ-BeT-PushT-CoreAI
+    revision: 23a73f647ea0c036ee6b6d47c7455e9e6299e84a
+    files:
+    - path: .gitattributes
+      sha256: ca20d2e2377427d0a7812b60dd7c4cc28794ec64644e85ed1d25b4d9b60fc5ab
+      size_bytes: 1586
+    - path: LICENSE
+      sha256: da78f18728591854c8af712b2a18396006ecda52aabdf85de88d659c9696bed1
+      size_bytes: 11959
+    - path: README.md
+      sha256: 63c8447371e821b01528b44959baf305183535e09e972d3942ee70c34aa089a2
+      size_bytes: 5384
+    - path: parity-report.json
+      sha256: 6051a34db0e47a81d552f4e178142e795db32cb6af9bfb3dea0bea622d69d238
+      size_bytes: 1998
+    - path: reproduce-manifest.json
+      sha256: 32f031683805365051468eb738ce8c294b4569a33dc57320b14e745bb04fdbf9
+      size_bytes: 1611
+    - path: vqbet-pusht.aimodel/main.hash
+      sha256: e4a70fa7f64e69c70ae7b8f4ee36e8337562c9c63ba0f2ecc4316ff60cfb1568
+      size_bytes: 32
+    - path: vqbet-pusht.aimodel/main.mlirb
+      sha256: 4206ab1e506a9165daea1f31ed5acf57d56fd0ca9451fba5e69d03577ac4c31c
+      size_bytes: 149241501
+    - path: vqbet-pusht.aimodel/metadata.json
+      sha256: 7a56856f613e239ec3c74bc52784a40710ff1dc9b9461296abe7c83e8a917127
+      size_bytes: 105
+  provenance:
+    converted_by:
+      tool: models/vqbet/export.py
+      version: unknown
+      recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/vqbet-pusht.yaml
+    recipe_source: fabric
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: pi0-base
+  group: external
+  huggingface:
+    owner: kevinqz
+    repo: Pi0-CoreAI
+    url: https://huggingface.co/kevinqz/Pi0-CoreAI
+    revision: f22743e4bfbce888a7a5c517fefcc305368a75c1
+    files:
+    - path: .gitattributes
+      sha256: faa639383bae3295ae37d14dab46d5efb59099131957d9f24133a1b71b370bc6
+      size_bytes: 1583
+    - path: LICENSE
+      sha256: c72e23b1fc9b14b4030ee297e718807586d0e186f5c38fa0f4df18ed9e766c24
+      size_bytes: 11943
+    - path: README.md
+      sha256: bf4c5f5587ff00775663c82b418e3239781b63f6b3231f718fbce54e725ce2e0
+      size_bytes: 5324
+    - path: parity-report.json
+      sha256: e746b59d412e9bc596c79cf7509f14142707ea83dc20b2263a4c396913e9f2d2
+      size_bytes: 3049
+    - path: pi0-base.aimodel/main.hash
+      sha256: 75416562f9f38ef2e2cdeb78093362f3765dc5cff1fd33f358b6fc0f86faf91e
+      size_bytes: 32
+    - path: pi0-base.aimodel/main.mlirb
+      sha256: 0df373d6e981ff3867c97dd0b78f61418b65403fa00eac83ccd629956a066db8
+      size_bytes: 6258875204
+    - path: pi0-base.aimodel/metadata.json
+      sha256: 1cc00034ae16a7d74d54c56827c62eab4b2d5f3203098c4a599bdd4a2ece86fd
+      size_bytes: 105
+    - path: reproduce-manifest.json
+      sha256: 06debc745e1ea78fcb740de4e666e36d313fffed46158a3660c0fbbd196be9a1
+      size_bytes: 1578
+  provenance:
+    converted_by:
+      tool: models/pi0/export.py
+      version: coreai_torch 0.4.1 + coremltools 9.0
+      recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/pi0-base.yaml
+    recipe_source: fabric
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false

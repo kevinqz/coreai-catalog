@@ -1,7 +1,7 @@
 {
   "export_schema_version": "1.0",
   "export_catalog_version": "2.2.3",
-  "model_count": 83,
+  "model_count": 88,
   "models": [
     {
       "id": "qwen3-5-0-8b",
@@ -2826,6 +2826,313 @@
       },
       "upstream_repo": "zai-org/GLM-OCR",
       "io_contract": null
+    },
+    {
+      "id": "act-aloha-cube",
+      "name": "ACT ALOHA Transfer-Cube (fabric)",
+      "bundle_kind": "action",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "robotics"
+      ],
+      "input_modalities": [
+        "image",
+        "state"
+      ],
+      "output_modalities": [
+        "action"
+      ],
+      "parameters": "51.6M",
+      "precision": "float16",
+      "artifact_size": "130.9MB",
+      "huggingface_url": "https://huggingface.co/kevinqz/ACT-Aloha-TransferCube-CoreAI",
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "lerobot/act_aloha_sim_transfer_cube_human",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAIRunner",
+          "type": "CoreAIRunner",
+          "init_pattern": "load the encode + denoise_step graphs; host drives the N-step sampler + un-normalization"
+        },
+        "inputs": [
+          {
+            "name": "image",
+            "modality": "image"
+          },
+          {
+            "name": "state",
+            "modality": "state"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "action_chunk",
+            "swift_type": "[[Float]]",
+            "decoding": {
+              "detokenization": "host-driven flow-matching sampler (N steps); un-normalize the action chunk with norm_stats.json"
+            }
+          }
+        ],
+        "session": {
+          "stateful": false,
+          "streaming": false
+        },
+        "files": {
+          "processor_ref": "norm_stats.json"
+        }
+      }
+    },
+    {
+      "id": "act-aloha-insertion",
+      "name": "ACT ALOHA Insertion (fabric)",
+      "bundle_kind": "action",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "robotics"
+      ],
+      "input_modalities": [
+        "image",
+        "state"
+      ],
+      "output_modalities": [
+        "action"
+      ],
+      "parameters": "51.6M",
+      "precision": "float16",
+      "artifact_size": "131.0MB",
+      "huggingface_url": "https://huggingface.co/kevinqz/ACT-Aloha-Insertion-CoreAI",
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "lerobot/act_aloha_sim_insertion_human",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAIRunner",
+          "type": "CoreAIRunner",
+          "init_pattern": "load the encode + denoise_step graphs; host drives the N-step sampler + un-normalization"
+        },
+        "inputs": [
+          {
+            "name": "image",
+            "modality": "image"
+          },
+          {
+            "name": "state",
+            "modality": "state"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "action_chunk",
+            "swift_type": "[[Float]]",
+            "decoding": {
+              "detokenization": "host-driven flow-matching sampler (N steps); un-normalize the action chunk with norm_stats.json"
+            }
+          }
+        ],
+        "session": {
+          "stateful": false,
+          "streaming": false
+        },
+        "files": {
+          "processor_ref": "norm_stats.json"
+        }
+      }
+    },
+    {
+      "id": "diffusion-pusht",
+      "name": "Diffusion Policy PushT (fabric)",
+      "bundle_kind": "action",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "robotics"
+      ],
+      "input_modalities": [
+        "image",
+        "state"
+      ],
+      "output_modalities": [
+        "action"
+      ],
+      "parameters": "262.9M",
+      "precision": "float16",
+      "artifact_size": "1002.3MB",
+      "huggingface_url": "https://huggingface.co/kevinqz/Diffusion-PushT-CoreAI",
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "lerobot/diffusion_pusht",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAIRunner",
+          "type": "CoreAIRunner",
+          "init_pattern": "load the encode + denoise_step graphs; host drives the N-step sampler + un-normalization"
+        },
+        "inputs": [
+          {
+            "name": "image",
+            "modality": "image"
+          },
+          {
+            "name": "state",
+            "modality": "state"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "action_chunk",
+            "swift_type": "[[Float]]",
+            "decoding": {
+              "detokenization": "host-driven flow-matching sampler (N steps); un-normalize the action chunk with norm_stats.json"
+            }
+          }
+        ],
+        "session": {
+          "stateful": false,
+          "streaming": false
+        },
+        "files": {
+          "processor_ref": "norm_stats.json"
+        }
+      }
+    },
+    {
+      "id": "vqbet-pusht",
+      "name": "VQ-BeT PushT greedy (fabric)",
+      "bundle_kind": "action",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "robotics"
+      ],
+      "input_modalities": [
+        "image",
+        "state"
+      ],
+      "output_modalities": [
+        "action"
+      ],
+      "parameters": "26.0M",
+      "precision": "float16",
+      "artifact_size": "142.3MB",
+      "huggingface_url": "https://huggingface.co/kevinqz/VQ-BeT-PushT-CoreAI",
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "lerobot/vqbet_pusht",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAIRunner",
+          "type": "CoreAIRunner",
+          "init_pattern": "load the encode + denoise_step graphs; host drives the N-step sampler + un-normalization"
+        },
+        "inputs": [
+          {
+            "name": "image",
+            "modality": "image"
+          },
+          {
+            "name": "state",
+            "modality": "state"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "action_chunk",
+            "swift_type": "[[Float]]",
+            "decoding": {
+              "detokenization": "host-driven flow-matching sampler (N steps); un-normalize the action chunk with norm_stats.json"
+            }
+          }
+        ],
+        "session": {
+          "stateful": false,
+          "streaming": false
+        },
+        "files": {
+          "processor_ref": "norm_stats.json"
+        }
+      }
+    },
+    {
+      "id": "pi0-base",
+      "name": "Pi0 (fabric)",
+      "bundle_kind": "action",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "vision-language-action",
+        "robotics"
+      ],
+      "input_modalities": [
+        "image",
+        "text",
+        "state"
+      ],
+      "output_modalities": [
+        "action"
+      ],
+      "parameters": "3.3B",
+      "precision": "float16",
+      "artifact_size": "5.8GB",
+      "huggingface_url": "https://huggingface.co/kevinqz/Pi0-CoreAI",
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "lerobot/pi0",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAIRunner",
+          "type": "CoreAIRunner",
+          "init_pattern": "load the encode + denoise_step graphs; host drives the N-step sampler + un-normalization"
+        },
+        "inputs": [
+          {
+            "name": "image",
+            "modality": "image"
+          },
+          {
+            "name": "text",
+            "modality": "text"
+          },
+          {
+            "name": "state",
+            "modality": "state"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "action_chunk",
+            "swift_type": "[[Float]]",
+            "decoding": {
+              "detokenization": "host-driven flow-matching sampler (N steps); un-normalize the action chunk with norm_stats.json"
+            }
+          }
+        ],
+        "session": {
+          "stateful": false,
+          "streaming": false
+        },
+        "files": {
+          "tokenizer_ref": "tokenizer",
+          "processor_ref": "norm_stats.json"
+        }
+      }
     }
   ]
 }
