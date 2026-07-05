@@ -4,7 +4,7 @@
     "vision-language-action",
     "robotics"
   ],
-  "model_count": 13,
+  "model_count": 14,
   "models": [
     {
       "id": "bitvla",
@@ -177,6 +177,20 @@
     {
       "id": "pi0-libero-finetuned",
       "name": "Pi0 LIBERO fine-tuned (fabric)",
+      "score": 28,
+      "parameters": "3.3B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": false
+      },
+      "license": "gemma",
+      "commercial_use": "check_license",
+      "has_benchmark": false
+    },
+    {
+      "id": "pi05-base",
+      "name": "Pi0.5 base Gemma (fabric)",
       "score": 28,
       "parameters": "3.3B",
       "devices": {

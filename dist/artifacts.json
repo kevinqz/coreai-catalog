@@ -5979,12 +5979,77 @@
         },
         "recipe_source": "fabric"
       }
+    },
+    {
+      "group": "external",
+      "huggingface": {
+        "files": [
+          {
+            "path": ".gitattributes",
+            "sha256": "f3e7d69590c27ba076610968c610800e99123217aab1b16b86c2ad726a185b7e",
+            "size_bytes": 1584
+          },
+          {
+            "path": "LICENSE",
+            "sha256": "e133163aa971fc426624596a7c474e49192d27b049483e0a7d8fdb134c926317",
+            "size_bytes": 9913
+          },
+          {
+            "path": "NOTICE",
+            "sha256": "de3d5ced84c928f5c8e2f6fe349cf5223008f3619866973f4a570935de7fdcb8",
+            "size_bytes": 1267
+          },
+          {
+            "path": "README.md",
+            "sha256": "62527bf941a798b7f8232cf6e56e688a28a2b2165a2885e5e3e41f146376abf2",
+            "size_bytes": 7427
+          },
+          {
+            "path": "parity-report.json",
+            "sha256": "b58c809d53b95cbcf46dc0b0059306f4ad9559fd9965e513da3a8d1fcd90c4d6",
+            "size_bytes": 3945
+          },
+          {
+            "path": "pi05-base.aimodel/main.hash",
+            "sha256": "977fe2bf8efb4a6042dd7987d1c2db822819a3ee8c33413c23c5855ca7b31c25",
+            "size_bytes": 32
+          },
+          {
+            "path": "pi05-base.aimodel/main.mlirb",
+            "sha256": "4afbc860ec3db6c86555f9100b6a503175c026e96b56acb26a9f9f368b3a1b20",
+            "size_bytes": 6489645690
+          },
+          {
+            "path": "pi05-base.aimodel/metadata.json",
+            "sha256": "635177a09f81545720490936e82947ce07daa7df1cc684baf0c589137c4242ee",
+            "size_bytes": 105
+          }
+        ],
+        "owner": "kevinqz",
+        "repo": "Pi05-Base-CoreAI",
+        "revision": "920d4dd2f1ca213237a2fc93fd31aa39997d4ded",
+        "url": "https://huggingface.co/kevinqz/Pi05-Base-CoreAI"
+      },
+      "id": "pi05-base",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "provenance": {
+        "converted_by": {
+          "recipe_url": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/pi05-base.yaml",
+          "tool": "models/pi05/export.py",
+          "version": "unknown"
+        },
+        "recipe_source": "fabric"
+      }
     }
   ],
   "export_catalog_version": "2.2.3",
   "export_schema_version": "1.0",
   "metadata": {
-    "count": 97,
+    "count": 98,
     "last_verified": "2026-07-04",
     "name": "Core AI Catalog artifact provenance"
   }

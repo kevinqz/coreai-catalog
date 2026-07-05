@@ -2,7 +2,7 @@
   "export_schema_version": "1.0",
   "export_catalog_version": "2.2.3",
   "description": "Ranked by the DEPRECATED readiness_score (a curation/deployability composite, NOT model quality). Prefer per-entry deployability/lifecycle/entry_completeness facets plus benchmark VALUES. Each entry includes best-known benchmarks per metric.",
-  "total_models": 96,
+  "total_models": 97,
   "leaderboard": [
     {
       "id": "depth-anything-3-base",
@@ -3182,6 +3182,37 @@
     {
       "id": "pi0-libero-finetuned",
       "name": "Pi0 LIBERO fine-tuned (fabric)",
+      "capabilities": [
+        "vision-language-action",
+        "robotics"
+      ],
+      "parameters": "3.3B",
+      "readiness_score": 28,
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-05"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": true
+        }
+      },
+      "benchmark_count": 0,
+      "best_metrics": {}
+    },
+    {
+      "id": "pi05-base",
+      "name": "Pi0.5 base Gemma (fabric)",
       "capabilities": [
         "vision-language-action",
         "robotics"

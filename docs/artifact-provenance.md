@@ -101,3 +101,4 @@ Generated from `artifacts.yaml`.
 | pi0-so101 | external | / | kevinqz/Pi0-SO101-CoreAI | False | False |
 | act-so101 | external | / | kevinqz/ACT-SO101-CoreAI | False | False |
 | pi05-so100 | external | / | kevinqz/Pi05-SO100-CoreAI | False | False |
+| pi05-base | external | / | kevinqz/Pi05-Base-CoreAI | False | False |

@@ -479,6 +479,11 @@
       "id": "pi0-libero-finetuned",
       "name": "Pi0 LIBERO fine-tuned (fabric)",
       "score": 28
+    },
+    {
+      "id": "pi05-base",
+      "name": "Pi0.5 base Gemma (fabric)",
+      "score": 28
     }
   ],
   "export_schema_version": "1.0",
