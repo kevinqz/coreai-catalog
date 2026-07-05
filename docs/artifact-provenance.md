@@ -87,3 +87,4 @@ Generated from `artifacts.yaml`.
 | ornith-1-0-9b | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/Ornith-1.0-9B-CoreAI | False | False |
 | qwen3-enhancer | external | / | bryanbblewis11/Qwen3-Enhancer-CoreAI | False | False |
 | glm-ocr | external | / | mlboydaisuke/GLM-OCR-CoreAI | False | False |
+| mineru-2-5-pro | external | / | mlboydaisuke/MinerU2.5-Pro-CoreAI | False | False |

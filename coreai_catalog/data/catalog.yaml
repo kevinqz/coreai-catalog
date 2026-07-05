@@ -4177,7 +4177,7 @@ models:
     parameters: 1.5B
     precision: fp16
     quantization: int8
-    artifact_size: not_published
+    artifact_size: 5.36GB
   runtime:
     runtime_name: apple-core-ai
     runner: CoreAIRunner
@@ -4829,3 +4829,59 @@ models:
   architecture: transformer
   streaming: false
   notes: On-device document OCR (text, HTML tables, LaTeX formulas). Port of zai-org/GLM-OCR (0.9B, GLM-4.V CogViT vision + 16-layer GLM decoder, M-RoPE). Verified end-to-end on M4 Max GPU (Core AI pipelined engine). Community-converted by mlboydaisuke.
+- id: mineru-2-5-pro
+  name: MinerU2.5-Pro
+  family: MinerU
+  source_group: external
+  artifact_ref: mineru-2-5-pro
+  source_path: https://huggingface.co/mlboydaisuke/MinerU2.5-Pro-CoreAI
+  capabilities:
+  - document-ocr
+  modalities:
+    input:
+    - document_image
+    - image
+    - text
+    output:
+    - markdown
+    - html
+    - latex
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 1.2B
+    precision: mixed
+    quantization: int8lin
+    artifact_size: 2.0GB
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: false
+    custom_kernel: false
+    patch_required: true
+    tokenizer_required: true
+    processor_required: true
+    aot_required: false
+  device_support:
+    iphone: unknown
+    ipad: unknown
+    mac: unknown
+    mac_only: unknown
+  license:
+    name: Apache-2.0
+    commercial_use: likely
+  status: needs_review
+  maturity: experimental
+  confidence: medium
+  sources:
+  - mlboydaisuke-mineru-coreai
+  last_verified: '2026-07-04'
+  bundle_kind: ocr
+  min_os:
+    macos: '27.0'
+    ios: '27.0'
+  upstream_repo: opendatalab/MinerU2.5-Pro-2605-1.2B
+  architecture: transformer
+  streaming: false
+  notes: Whole-page document parsing (layout + recognition into Markdown/HTML/LaTeX) in one model. Port of opendatalab/MinerU2.5-Pro-2605-1.2B (1.2B, Apache-2.0, stock Qwen2-VL). Qwen2-VL ViT vision + Qwen2-0.5B decoder, S=1 pipelined int8lin. Community-converted by mlboydaisuke.

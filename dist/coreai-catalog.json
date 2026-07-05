@@ -5166,10 +5166,37 @@
           "apple_hosted_artifact": false,
           "community_packaged": true
         }
+      },
+      {
+        "group": "external",
+        "huggingface": {
+          "files": [
+            {
+              "path": "vision/mineru_vision.aimodel/main.mlirb",
+              "sha256": "254064daf8e8a0b90f285aeb37d55653abc847ae1a559551bb81dcecb0529a21",
+              "size_bytes": 1325199338
+            },
+            {
+              "path": "decoder/mineru_decode_int8lin_s1.aimodel/main.mlirb",
+              "sha256": "e77cc08b55e8d09f763859ceb08adffe07f7bec374d01d60d82de9430804181d",
+              "size_bytes": 652928607
+            }
+          ],
+          "owner": "mlboydaisuke",
+          "repo": "MinerU2.5-Pro-CoreAI",
+          "revision": "f568ba6d6d8af6e2eadbc01757f505d322727fb0",
+          "url": "https://huggingface.co/mlboydaisuke/MinerU2.5-Pro-CoreAI"
+        },
+        "id": "mineru-2-5-pro",
+        "officiality": {
+          "apple_export_recipe": false,
+          "apple_hosted_artifact": false,
+          "community_packaged": true
+        }
       }
     ],
     "metadata": {
-      "count": 83,
+      "count": 84,
       "last_verified": "2026-07-04",
       "name": "Core AI Catalog artifact provenance"
     }
@@ -12140,7 +12167,7 @@
           "tokenizer_required": true
         },
         "size": {
-          "artifact_size": "not_published",
+          "artifact_size": "5.36GB",
           "parameters": "1.5B",
           "precision": "fp16",
           "quantization": "int8"
@@ -12908,6 +12935,75 @@
         "status": "needs_review",
         "streaming": false,
         "upstream_repo": "zai-org/GLM-OCR"
+      },
+      {
+        "architecture": "transformer",
+        "artifact": {
+          "availability": "available",
+          "format": "aimodel"
+        },
+        "artifact_ref": "mineru-2-5-pro",
+        "bundle_kind": "ocr",
+        "capabilities": [
+          "document-ocr"
+        ],
+        "confidence": "medium",
+        "device_support": {
+          "ipad": "unknown",
+          "iphone": "unknown",
+          "mac": "unknown",
+          "mac_only": "unknown"
+        },
+        "family": "MinerU",
+        "id": "mineru-2-5-pro",
+        "last_verified": "2026-07-04",
+        "license": {
+          "commercial_use": "likely",
+          "name": "Apache-2.0"
+        },
+        "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
+        "modalities": {
+          "input": [
+            "document_image",
+            "image",
+            "text"
+          ],
+          "output": [
+            "markdown",
+            "html",
+            "latex"
+          ]
+        },
+        "name": "MinerU2.5-Pro",
+        "notes": "Whole-page document parsing (layout + recognition into Markdown/HTML/LaTeX) in one model. Port of opendatalab/MinerU2.5-Pro-2605-1.2B (1.2B, Apache-2.0, stock Qwen2-VL). Qwen2-VL ViT vision + Qwen2-0.5B decoder, S=1 pipelined int8lin. Community-converted by mlboydaisuke.",
+        "runtime": {
+          "aot_required": false,
+          "custom_kernel": false,
+          "patch_required": true,
+          "processor_required": true,
+          "runner": "CoreAIRunner",
+          "runtime_name": "apple-core-ai",
+          "stock_runtime": false,
+          "tokenizer_required": true
+        },
+        "size": {
+          "artifact_size": "2.0GB",
+          "parameters": "1.2B",
+          "precision": "mixed",
+          "quantization": "int8lin"
+        },
+        "source_group": "external",
+        "source_path": "https://huggingface.co/mlboydaisuke/MinerU2.5-Pro-CoreAI",
+        "sources": [
+          "mlboydaisuke-mineru-coreai"
+        ],
+        "status": "needs_review",
+        "streaming": false,
+        "upstream_repo": "opendatalab/MinerU2.5-Pro-2605-1.2B"
       }
     ]
   },
@@ -13200,6 +13296,17 @@
         "trust": "community_secondary",
         "type": "huggingface_repository",
         "url": "https://huggingface.co/mlboydaisuke/GLM-OCR-CoreAI",
+        "volatility": "medium"
+      },
+      {
+        "id": "mlboydaisuke-mineru-coreai",
+        "last_checked": "2026-07-04",
+        "notes": "Independent MinerU2.5-Pro Core AI conversion (Qwen2-VL ViT vision + Qwen2 decoder, whole-page layout+recognition). Port of opendatalab/MinerU2.5-Pro-2605-1.2B.",
+        "owner": "mlboydaisuke",
+        "title": "mlboydaisuke/MinerU2.5-Pro-CoreAI",
+        "trust": "community_secondary",
+        "type": "huggingface_repository",
+        "url": "https://huggingface.co/mlboydaisuke/MinerU2.5-Pro-CoreAI",
         "volatility": "medium"
       }
     ]

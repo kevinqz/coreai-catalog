@@ -1,5 +1,5 @@
 {
-  "count": 83,
+  "count": 84,
   "export_schema_version": "1.0",
   "export_catalog_version": "2.2.3",
   "models": [
@@ -8015,7 +8015,7 @@
       "parameters": "1.5B",
       "precision": "fp16",
       "quantization": "int8",
-      "artifact_size": "not_published",
+      "artifact_size": "5.36GB",
       "runtime": "apple-core-ai",
       "runner": "CoreAIRunner",
       "stock_runtime": false,
@@ -9140,6 +9140,95 @@
       "benchmarks": [],
       "last_verified": "2026-07-04",
       "notes": "On-device document OCR (text, HTML tables, LaTeX formulas). Port of zai-org/GLM-OCR (0.9B, GLM-4.V CogViT vision + 16-layer GLM decoder, M-RoPE). Verified end-to-end on M4 Max GPU (Core AI pipelined engine). Community-converted by mlboydaisuke."
+    },
+    {
+      "id": "mineru-2-5-pro",
+      "name": "MinerU2.5-Pro",
+      "family": "MinerU",
+      "source_group": "external",
+      "bundle_kind": "ocr",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "opendatalab/MinerU2.5-Pro-2605-1.2B",
+      "io_contract": null,
+      "capabilities": [
+        "document-ocr"
+      ],
+      "input_modalities": [
+        "document_image",
+        "image",
+        "text"
+      ],
+      "output_modalities": [
+        "markdown",
+        "html",
+        "latex"
+      ],
+      "devices": [],
+      "parameters": "1.2B",
+      "precision": "mixed",
+      "quantization": "int8lin",
+      "artifact_size": "2.0GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": true,
+      "aot_required": false,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "needs_review",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 38,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": "unknown",
+          "iphone": "unknown",
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-04"
+      },
+      "entry_completeness": {
+        "pct": 0.5,
+        "present": 3,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/MinerU2.5-Pro-CoreAI",
+        "huggingface_repo": "mlboydaisuke/MinerU2.5-Pro-CoreAI",
+        "github_source": null,
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-07-04",
+      "notes": "Whole-page document parsing (layout + recognition into Markdown/HTML/LaTeX) in one model. Port of opendatalab/MinerU2.5-Pro-2605-1.2B (1.2B, Apache-2.0, stock Qwen2-VL). Qwen2-VL ViT vision + Qwen2-0.5B decoder, S=1 pipelined int8lin. Community-converted by mlboydaisuke."
     }
   ]
 }

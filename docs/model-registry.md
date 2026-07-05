@@ -85,3 +85,4 @@
 | ornith-1-0-9b | Ornith 1.0 9B | zoo | Qwen | chat, text-generation, code-generation | text | text | 9B | Mac | MIT | confirmed |
 | qwen3-enhancer | Qwen3 Enhancer (Huihui Qwen3-4B Abliterated v2) | external | Qwen | chat, text-generation | text | text | 4B | iPhone/Mac | Apache-2.0 | confirmed |
 | glm-ocr | GLM-OCR | external | GLM-OCR | document-ocr | document_image, image, text | text, html, latex | 0.9B | Mac | MIT | needs_review |
+| mineru-2-5-pro | MinerU2.5-Pro | external | MinerU | document-ocr | document_image, image, text | markdown, html, latex | 1.2B | unknown | Apache-2.0 | needs_review |

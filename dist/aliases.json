@@ -2,7 +2,7 @@
   "export_schema_version": "1.0",
   "export_catalog_version": "2.2.3",
   "description": "Alias mappings resolving catalog IDs to Zoo card names, CoreAIKit strings, and HF repo names.",
-  "total_models": 83,
+  "total_models": 84,
   "aliases": {
     "qwen3-5-0-8b": [
       "qwen3-5-0-8b-coreai",
@@ -477,6 +477,11 @@
       "GLM-OCR-CoreAI",
       "glm-ocr-coreai",
       "glm.ocr"
+    ],
+    "mineru-2-5-pro": [
+      "MinerU2.5-Pro-CoreAI",
+      "mineru.2.5-pro",
+      "mineru2-5-pro-coreai"
     ]
   }
 }
