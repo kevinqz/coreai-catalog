@@ -139,6 +139,7 @@ def deployability_facets(model: dict, has_bench: bool = False) -> dict[str, Any]
             "name": lic.get("name"),
             "commercial_use": lic.get("commercial_use"),
         },
+        "hosts": 1 + len(model.get("alternate_artifacts") or []),
         "measured": bool(has_bench),
     }
 

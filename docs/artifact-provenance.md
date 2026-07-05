@@ -93,3 +93,4 @@ Generated from `artifacts.yaml`.
 | vqbet-pusht | external | / | kevinqz/VQ-BeT-PushT-CoreAI | False | False |
 | pi0-base | external | / | kevinqz/Pi0-CoreAI | False | False |
 | mineru-2-5-pro | external | / | mlboydaisuke/MinerU2.5-Pro-CoreAI | False | False |
+| vibevoice-1-5b-fp16 | external | / | bryanbblewis11/VibeVoice-1.5B-CoreAI | False | False |

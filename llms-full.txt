@@ -26,7 +26,7 @@ independent community project — not affiliated with or endorsed by Apple.
 ## Catalog facts
 
 - 89 model records (chat, vision-language, speech, embeddings, detection, more)
-- 89 artifact provenance records (Hugging Face + GitHub sources)
+- 90 artifact provenance records (Hugging Face + GitHub sources)
 - 65 benchmark records (throughput, latency, RTF — iPhone + Mac)
 - 42 verified Apple AI terminology entries (each citing an official source)
 - 8 independent Hugging Face converters indexed (multi-upstream)

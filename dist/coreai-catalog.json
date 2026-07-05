@@ -5508,10 +5508,47 @@
           "apple_hosted_artifact": false,
           "community_packaged": true
         }
+      },
+      {
+        "group": "external",
+        "huggingface": {
+          "files": [
+            {
+              "path": "BackboneStateful_fp16.aimodel/main.mlirb",
+              "sha256": "601bcec0a1b9786acf0ef45b9956c7197d6631ffe2d5fda9bd086b07bf56dfd5",
+              "size_bytes": 2620921805
+            },
+            {
+              "path": "AcousticDecoder.aimodel/main.mlirb",
+              "sha256": "a2009fa180f55a69ecf4e717d2207c8d39679bf06d5474ae835fa8e447805e4a",
+              "size_bytes": 1374941445
+            },
+            {
+              "path": "SemanticEncoder.aimodel/main.mlirb",
+              "sha256": "056818e04ffd4db7b3dd0210fc974466e4785790476f2be5592bfc91e8b8c384",
+              "size_bytes": 1378611995
+            },
+            {
+              "path": "DiffusionHead.aimodel/main.mlirb",
+              "sha256": "4044d41d2204eb529b0803e0dd083f0b07a27cc97ec4a2eb66074134a1a68c76",
+              "size_bytes": 493141163
+            }
+          ],
+          "owner": "bryanbblewis11",
+          "repo": "VibeVoice-1.5B-CoreAI",
+          "revision": "9fd321386d24f9872d0409c7096a7f497ad3b129",
+          "url": "https://huggingface.co/bryanbblewis11/VibeVoice-1.5B-CoreAI"
+        },
+        "id": "vibevoice-1-5b-fp16",
+        "officiality": {
+          "apple_export_recipe": false,
+          "apple_hosted_artifact": false,
+          "community_packaged": true
+        }
       }
     ],
     "metadata": {
-      "count": 89,
+      "count": 90,
       "last_verified": "2026-07-04",
       "name": "Core AI Catalog artifact provenance"
     }
@@ -12432,6 +12469,9 @@
         "streaming": true
       },
       {
+        "alternate_artifacts": [
+          "vibevoice-1-5b-fp16"
+        ],
         "architecture": "transformer",
         "artifact": {
           "availability": "available",
@@ -14119,6 +14159,17 @@
         "trust": "community_secondary",
         "type": "huggingface_repository",
         "url": "https://huggingface.co/mlboydaisuke/MinerU2.5-Pro-CoreAI",
+        "volatility": "medium"
+      },
+      {
+        "id": "bryanbblewis11-vibevoice-coreai",
+        "last_checked": "2026-07-04",
+        "notes": "Independent higher-fidelity (fp16) VibeVoice-1.5B Core AI conversion. Alternate host to gafiatulin's int8 build.",
+        "owner": "bryanbblewis11",
+        "title": "bryanbblewis11/VibeVoice-1.5B-CoreAI",
+        "trust": "community_secondary",
+        "type": "huggingface_repository",
+        "url": "https://huggingface.co/bryanbblewis11/VibeVoice-1.5B-CoreAI",
         "volatility": "medium"
       }
     ]

@@ -268,6 +268,7 @@ def get_model(model_id: str) -> str:
         "confidence": model.get("confidence"),
         "readiness_score": catalog.readiness_score(model),
         "artifact": model.get("artifact", {}),
+        "alternate_artifacts": model.get("alternate_artifacts", []),
         # Typed integration metadata (authored, schema-constrained; P1
         # io-contract work): min_os is the deployment floor of the
         # apple/coreai-models runtime, bundle_kind the authored taxonomy.

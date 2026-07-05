@@ -299,6 +299,17 @@
       "type": "huggingface_repository",
       "url": "https://huggingface.co/mlboydaisuke/MinerU2.5-Pro-CoreAI",
       "volatility": "medium"
+    },
+    {
+      "id": "bryanbblewis11-vibevoice-coreai",
+      "last_checked": "2026-07-04",
+      "notes": "Independent higher-fidelity (fp16) VibeVoice-1.5B Core AI conversion. Alternate host to gafiatulin's int8 build.",
+      "owner": "bryanbblewis11",
+      "title": "bryanbblewis11/VibeVoice-1.5B-CoreAI",
+      "trust": "community_secondary",
+      "type": "huggingface_repository",
+      "url": "https://huggingface.co/bryanbblewis11/VibeVoice-1.5B-CoreAI",
+      "volatility": "medium"
     }
   ]
 }

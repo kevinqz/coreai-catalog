@@ -257,6 +257,7 @@ def cmd_show(args: argparse.Namespace) -> int:
             "confidence": model.get("confidence"),
             "readiness_score": score,
             "artifact": model.get("artifact", {}),
+            "alternate_artifacts": model.get("alternate_artifacts", []),
             # Typed integration metadata (authored, schema-constrained):
             # mirrors MCP get_model.
             "min_os": model.get("min_os"),
@@ -337,6 +338,12 @@ def cmd_show(args: argparse.Namespace) -> int:
         off = art.get("officiality", {}) or {}
         print(f"\n  {BOLD}Provenance:{RESET}")
         print(f"    HF:        {hf.get('url', '?')}")
+        alts = model.get("alternate_artifacts") or []
+        if alts:
+            print(f"    Hosts:     {len(alts) + 1} (primary + {len(alts)} alternate)")
+            for aid in alts:
+                alt_hf = (cat._art_by_id.get(aid) or {}).get("huggingface", {}) or {}
+                print(f"      alt:     {alt_hf.get('url', aid)}")
         gh = art.get("github", {}) or {}
         if gh.get("owner"):
             print(f"    GitHub:    {gh.get('owner', '')}/{gh.get('repo', '')}")

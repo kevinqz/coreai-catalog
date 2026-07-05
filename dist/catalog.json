@@ -5217,6 +5217,9 @@
       "streaming": true
     },
     {
+      "alternate_artifacts": [
+        "vibevoice-1-5b-fp16"
+      ],
       "architecture": "transformer",
       "artifact": {
         "availability": "available",
