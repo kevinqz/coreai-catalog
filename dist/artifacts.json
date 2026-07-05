@@ -5480,12 +5480,39 @@
         },
         "recipe_source": "fabric"
       }
+    },
+    {
+      "group": "external",
+      "huggingface": {
+        "files": [
+          {
+            "path": "vision/mineru_vision.aimodel/main.mlirb",
+            "sha256": "254064daf8e8a0b90f285aeb37d55653abc847ae1a559551bb81dcecb0529a21",
+            "size_bytes": 1325199338
+          },
+          {
+            "path": "decoder/mineru_decode_int8lin_s1.aimodel/main.mlirb",
+            "sha256": "e77cc08b55e8d09f763859ceb08adffe07f7bec374d01d60d82de9430804181d",
+            "size_bytes": 652928607
+          }
+        ],
+        "owner": "mlboydaisuke",
+        "repo": "MinerU2.5-Pro-CoreAI",
+        "revision": "f568ba6d6d8af6e2eadbc01757f505d322727fb0",
+        "url": "https://huggingface.co/mlboydaisuke/MinerU2.5-Pro-CoreAI"
+      },
+      "id": "mineru-2-5-pro",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
     }
   ],
   "export_catalog_version": "2.2.3",
   "export_schema_version": "1.0",
   "metadata": {
-    "count": 88,
+    "count": 89,
     "last_verified": "2026-07-04",
     "name": "Core AI Catalog artifact provenance"
   }

@@ -4,7 +4,7 @@
     "document-ocr",
     "vision-language"
   ],
-  "model_count": 9,
+  "model_count": 10,
   "models": [
     {
       "id": "minicpm-v-4-6",
@@ -129,6 +129,20 @@
         "mac": true
       },
       "license": "MIT",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "mineru-2-5-pro",
+      "name": "MinerU2.5-Pro",
+      "score": 38,
+      "parameters": "1.2B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": false
+      },
+      "license": "Apache-2.0",
       "commercial_use": "likely",
       "has_benchmark": false
     }

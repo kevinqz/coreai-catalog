@@ -239,3 +239,12 @@ sources:
   volatility: medium
   last_checked: '2026-07-04'
   notes: Independent GLM-OCR Core AI conversion (CogViT vision tower + GLM text decoder, pipelined int8hu decode). Port of zai-org/GLM-OCR.
+- id: mlboydaisuke-mineru-coreai
+  title: mlboydaisuke/MinerU2.5-Pro-CoreAI
+  type: huggingface_repository
+  url: https://huggingface.co/mlboydaisuke/MinerU2.5-Pro-CoreAI
+  owner: mlboydaisuke
+  trust: community_secondary
+  volatility: medium
+  last_checked: '2026-07-04'
+  notes: Independent MinerU2.5-Pro Core AI conversion (Qwen2-VL ViT vision + Qwen2 decoder, whole-page layout+recognition). Port of opendatalab/MinerU2.5-Pro-2605-1.2B.
