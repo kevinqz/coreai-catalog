@@ -121,9 +121,10 @@
         "pi05-base",
         "pi05-so100",
         "smolvla-so101",
+        "smolvla-so101-pnp",
         "vqbet-pusht"
       ],
-      "model_count": 14
+      "model_count": 15
     },
     {
       "input": "image",
@@ -314,9 +315,10 @@
         "pi05-base",
         "pi05-so100",
         "smolvla-so101",
+        "smolvla-so101-pnp",
         "vqbet-pusht"
       ],
-      "model_count": 13
+      "model_count": 14
     },
     {
       "input": "text",
@@ -330,9 +332,10 @@
         "pi0-so101",
         "pi05-base",
         "pi05-so100",
-        "smolvla-so101"
+        "smolvla-so101",
+        "smolvla-so101-pnp"
       ],
-      "model_count": 9
+      "model_count": 10
     },
     {
       "input": "text",

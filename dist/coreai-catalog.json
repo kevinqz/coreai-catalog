@@ -6171,10 +6171,70 @@
           },
           "recipe_source": "fabric"
         }
+      },
+      {
+        "group": "external",
+        "huggingface": {
+          "files": [
+            {
+              "path": ".gitattributes",
+              "sha256": "b84be7b5ecb370715c2812d75bf64a82857c32dd7c091dc2d2ba528c33101a55",
+              "size_bytes": 1592
+            },
+            {
+              "path": "LICENSE",
+              "sha256": "f783bddb2cf63d8443243ca6eb06017f316275b9150cc6ccfa25685764f801aa",
+              "size_bytes": 12011
+            },
+            {
+              "path": "README.md",
+              "sha256": "6e2e45e3c43bf351cd2f98c8277fa389374eb9048074609a666337ec30d160b5",
+              "size_bytes": 5714
+            },
+            {
+              "path": "parity-report.json",
+              "sha256": "4880f95d3514162055c8b374128ac0b90aef94ef1b442705a557525f63115a3d",
+              "size_bytes": 3880
+            },
+            {
+              "path": "smolvla-so101-pnp.aimodel/main.hash",
+              "sha256": "8b414247396fdf95bbc8857984b44a94a7257469a89cbd136753d7d98a3ab90f",
+              "size_bytes": 32
+            },
+            {
+              "path": "smolvla-so101-pnp.aimodel/main.mlirb",
+              "sha256": "b163fcb16ce30471a708c16e18933d63033aae42dadb3fbcdeadd4f1f5b433d8",
+              "size_bytes": 794201181
+            },
+            {
+              "path": "smolvla-so101-pnp.aimodel/metadata.json",
+              "sha256": "f06b03df0a39cb61a5f94fc8a57fb8a9287865b05cdca5afd0ff97bf5142dcc4",
+              "size_bytes": 105
+            }
+          ],
+          "owner": "kevinqz",
+          "repo": "SmolVLA-SO101-PickPlace-CoreAI",
+          "revision": "a413e1aa7762a3018679c70379725048a57963a3",
+          "url": "https://huggingface.co/kevinqz/SmolVLA-SO101-PickPlace-CoreAI"
+        },
+        "id": "smolvla-so101-pnp",
+        "officiality": {
+          "apple_export_recipe": false,
+          "apple_hosted_artifact": false,
+          "community_packaged": true
+        },
+        "provenance": {
+          "converted_by": {
+            "recipe_url": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/smolvla-so101-pnp.yaml",
+            "tool": "models/smolvla/export.py",
+            "version": "unknown"
+          },
+          "recipe_source": "fabric"
+        }
       }
     ],
     "metadata": {
-      "count": 100,
+      "count": 101,
       "last_verified": "2026-07-04",
       "name": "Core AI Catalog artifact provenance"
     }
@@ -15513,6 +15573,111 @@
         ],
         "status": "needs_review",
         "upstream_repo": "edge-inference/smolvla-so101-pick-orange"
+      },
+      {
+        "architecture": "transformer",
+        "artifact": {
+          "availability": "available",
+          "format": "aimodel"
+        },
+        "artifact_ref": "smolvla-so101-pnp",
+        "bundle_kind": "action",
+        "capabilities": [
+          "vision-language-action",
+          "robotics"
+        ],
+        "confidence": "medium",
+        "device_support": {
+          "ipad": "unknown",
+          "iphone": "unknown",
+          "mac": "unknown",
+          "mac_only": "unknown"
+        },
+        "family": "LeRobot",
+        "id": "smolvla-so101-pnp",
+        "io_contract": {
+          "entrypoint": {
+            "framework": "CoreAIRunner",
+            "init_pattern": "load the encode + denoise_step graphs; host drives the N-step sampler + un-normalization",
+            "type": "CoreAIRunner"
+          },
+          "files": {
+            "processor_ref": "norm_stats.json",
+            "tokenizer_ref": "tokenizer"
+          },
+          "inputs": [
+            {
+              "modality": "image",
+              "name": "image"
+            },
+            {
+              "modality": "text",
+              "name": "text"
+            },
+            {
+              "modality": "state",
+              "name": "state"
+            }
+          ],
+          "outputs": [
+            {
+              "decoding": {
+                "detokenization": "host-driven flow-matching sampler (N steps); un-normalize the action chunk with norm_stats.json"
+              },
+              "name": "action_chunk",
+              "swift_type": "[[Float]]"
+            }
+          ],
+          "session": {
+            "stateful": false,
+            "streaming": false
+          }
+        },
+        "last_verified": "2026-07-05",
+        "license": {
+          "commercial_use": "likely",
+          "name": "apache-2.0"
+        },
+        "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
+        "modalities": {
+          "input": [
+            "image",
+            "text",
+            "state"
+          ],
+          "output": [
+            "action"
+          ]
+        },
+        "name": "SmolVLA SO-ARM101 Pick&Place (fabric)",
+        "notes": "Converted via coreai-fabric recipe smolvla-so101-pnp (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/smolvla-so101-pnp.yaml). Parity: gate A passed, gate B passed.",
+        "runtime": {
+          "aot_required": false,
+          "custom_kernel": false,
+          "patch_required": true,
+          "processor_required": true,
+          "runner": "CoreAIRunner",
+          "runtime_name": "apple-core-ai",
+          "stock_runtime": false,
+          "tokenizer_required": true
+        },
+        "size": {
+          "artifact_size": "757.4MB",
+          "parameters": "500M",
+          "precision": "float32",
+          "quantization": "none"
+        },
+        "source_group": "fabric",
+        "source_path": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/smolvla-so101-pnp.yaml",
+        "sources": [
+          "coreai-fabric"
+        ],
+        "status": "needs_review",
+        "upstream_repo": "anikitakis/vla_so101_pick_n_place_full_expert"
       }
     ]
   },

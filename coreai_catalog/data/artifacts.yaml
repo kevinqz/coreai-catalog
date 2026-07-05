@@ -1,7 +1,7 @@
 metadata:
   name: Core AI Catalog artifact provenance
   last_verified: '2026-07-04'
-  count: 100
+  count: 101
 artifacts:
 - id: qwen3-5-0-8b
   group: zoo
@@ -3986,6 +3986,45 @@ artifacts:
       tool: models/smolvla/export.py
       version: unknown
       recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/smolvla-so101.yaml
+    recipe_source: fabric
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: smolvla-so101-pnp
+  group: external
+  huggingface:
+    owner: kevinqz
+    repo: SmolVLA-SO101-PickPlace-CoreAI
+    url: https://huggingface.co/kevinqz/SmolVLA-SO101-PickPlace-CoreAI
+    revision: a413e1aa7762a3018679c70379725048a57963a3
+    files:
+    - path: .gitattributes
+      sha256: b84be7b5ecb370715c2812d75bf64a82857c32dd7c091dc2d2ba528c33101a55
+      size_bytes: 1592
+    - path: LICENSE
+      sha256: f783bddb2cf63d8443243ca6eb06017f316275b9150cc6ccfa25685764f801aa
+      size_bytes: 12011
+    - path: README.md
+      sha256: 6e2e45e3c43bf351cd2f98c8277fa389374eb9048074609a666337ec30d160b5
+      size_bytes: 5714
+    - path: parity-report.json
+      sha256: 4880f95d3514162055c8b374128ac0b90aef94ef1b442705a557525f63115a3d
+      size_bytes: 3880
+    - path: smolvla-so101-pnp.aimodel/main.hash
+      sha256: 8b414247396fdf95bbc8857984b44a94a7257469a89cbd136753d7d98a3ab90f
+      size_bytes: 32
+    - path: smolvla-so101-pnp.aimodel/main.mlirb
+      sha256: b163fcb16ce30471a708c16e18933d63033aae42dadb3fbcdeadd4f1f5b433d8
+      size_bytes: 794201181
+    - path: smolvla-so101-pnp.aimodel/metadata.json
+      sha256: f06b03df0a39cb61a5f94fc8a57fb8a9287865b05cdca5afd0ff97bf5142dcc4
+      size_bytes: 105
+  provenance:
+    converted_by:
+      tool: models/smolvla/export.py
+      version: unknown
+      recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/smolvla-so101-pnp.yaml
     recipe_source: fabric
   officiality:
     apple_export_recipe: false

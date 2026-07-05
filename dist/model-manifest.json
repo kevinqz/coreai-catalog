@@ -1,7 +1,7 @@
 {
   "export_schema_version": "1.0",
   "export_catalog_version": "2.2.3",
-  "model_count": 99,
+  "model_count": 100,
   "models": [
     {
       "id": "qwen3-5-0-8b",
@@ -3777,6 +3777,73 @@
         "ios": "27.0"
       },
       "upstream_repo": "edge-inference/smolvla-so101-pick-orange",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAIRunner",
+          "type": "CoreAIRunner",
+          "init_pattern": "load the encode + denoise_step graphs; host drives the N-step sampler + un-normalization"
+        },
+        "inputs": [
+          {
+            "name": "image",
+            "modality": "image"
+          },
+          {
+            "name": "text",
+            "modality": "text"
+          },
+          {
+            "name": "state",
+            "modality": "state"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "action_chunk",
+            "swift_type": "[[Float]]",
+            "decoding": {
+              "detokenization": "host-driven flow-matching sampler (N steps); un-normalize the action chunk with norm_stats.json"
+            }
+          }
+        ],
+        "session": {
+          "stateful": false,
+          "streaming": false
+        },
+        "files": {
+          "tokenizer_ref": "tokenizer",
+          "processor_ref": "norm_stats.json"
+        }
+      }
+    },
+    {
+      "id": "smolvla-so101-pnp",
+      "name": "SmolVLA SO-ARM101 Pick&Place (fabric)",
+      "bundle_kind": "action",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "vision-language-action",
+        "robotics"
+      ],
+      "input_modalities": [
+        "image",
+        "text",
+        "state"
+      ],
+      "output_modalities": [
+        "action"
+      ],
+      "parameters": "500M",
+      "precision": "float32",
+      "artifact_size": "757.4MB",
+      "huggingface_url": "https://huggingface.co/kevinqz/SmolVLA-SO101-PickPlace-CoreAI",
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "anikitakis/vla_so101_pick_n_place_full_expert",
       "io_contract": {
         "entrypoint": {
           "framework": "CoreAIRunner",

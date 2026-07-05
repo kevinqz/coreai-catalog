@@ -4,7 +4,7 @@
     "vision-language-action",
     "robotics"
   ],
-  "model_count": 15,
+  "model_count": 16,
   "models": [
     {
       "id": "bitvla",
@@ -135,6 +135,20 @@
     {
       "id": "smolvla-so101",
       "name": "SmolVLA SO-ARM101 (fabric)",
+      "score": 38,
+      "parameters": "500M",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": false
+      },
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "smolvla-so101-pnp",
+      "name": "SmolVLA SO-ARM101 Pick&Place (fabric)",
       "score": 38,
       "parameters": "500M",
       "devices": {

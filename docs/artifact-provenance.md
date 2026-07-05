@@ -104,3 +104,4 @@ Generated from `artifacts.yaml`.
 | pi05-base | external | / | kevinqz/Pi05-Base-CoreAI | False | False |
 | vibethinker-3b | external | / | kevinqz/VibeThinker-3B-CoreAI | False | False |
 | smolvla-so101 | external | / | kevinqz/SmolVLA-SO101-CoreAI | False | False |
+| smolvla-so101-pnp | external | / | kevinqz/SmolVLA-SO101-PickPlace-CoreAI | False | False |

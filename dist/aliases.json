@@ -2,7 +2,7 @@
   "export_schema_version": "1.0",
   "export_catalog_version": "2.2.3",
   "description": "Alias mappings resolving catalog IDs to Zoo card names, CoreAIKit strings, and HF repo names.",
-  "total_models": 99,
+  "total_models": 100,
   "aliases": {
     "qwen3-5-0-8b": [
       "qwen3-5-0-8b-coreai",
@@ -572,6 +572,12 @@
       "smolvla-so101-coreai",
       "smolvla-so101.yaml",
       "smolvla.so101"
+    ],
+    "smolvla-so101-pnp": [
+      "SmolVLA-SO101-PickPlace-CoreAI",
+      "smolvla-so101-pickplace-coreai",
+      "smolvla-so101-pnp.yaml",
+      "smolvla.so101.pnp"
     ]
   }
 }
