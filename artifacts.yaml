@@ -1,7 +1,7 @@
 metadata:
   name: Core AI Catalog artifact provenance
   last_verified: '2026-07-04'
-  count: 94
+  count: 95
 artifacts:
 - id: qwen3-5-0-8b
   group: zoo
@@ -3745,6 +3745,45 @@ artifacts:
       tool: models/pi0/export.py
       version: unknown
       recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/pi0-base-gemma.yaml
+    recipe_source: fabric
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: pi0-so101
+  group: external
+  huggingface:
+    owner: kevinqz
+    repo: Pi0-SO101-CoreAI
+    url: https://huggingface.co/kevinqz/Pi0-SO101-CoreAI
+    revision: 23fe800e95aa1f6ef8204ea3db614b5eb7e61866
+    files:
+    - path: .gitattributes
+      sha256: 7276a8306fff208d52ca49005464a7b3ec64aad98b869364ccc62f2614267d8a
+      size_bytes: 1584
+    - path: LICENSE
+      sha256: e933f80133707ab77df433da602f453f41cb03b3a2e4f8e9d046cc0f9c6bcc30
+      size_bytes: 11957
+    - path: README.md
+      sha256: 84d0216caa49be6b468ad23574f895c04b7b4cc2f95dd7473e5ce7cf317bbfd0
+      size_bytes: 5375
+    - path: parity-report.json
+      sha256: 4ff3ebae6efdbbd19dc467c2bec9bbf3d5e7fd6f814cf390a9db31c8778a9a09
+      size_bytes: 3230
+    - path: pi0-so101.aimodel/main.hash
+      sha256: 373ec3b9a00ac868474c4260de0f3d0908a3021e192eaa9ad8d1622b514ebe58
+      size_bytes: 32
+    - path: pi0-so101.aimodel/main.mlirb
+      sha256: 0ce1873809f54e395210630b5ee0e66daadac2ff5c24bbcb4cfb80dc0a782dab
+      size_bytes: 6258875240
+    - path: pi0-so101.aimodel/metadata.json
+      sha256: 38e108f0f098d4180934f4e600661229b7df27772dbd00b0aed64f5935596975
+      size_bytes: 105
+  provenance:
+    converted_by:
+      tool: models/pi0/export.py
+      version: unknown
+      recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/pi0-so101.yaml
     recipe_source: fabric
   officiality:
     apple_export_recipe: false

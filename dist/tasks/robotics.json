@@ -4,7 +4,7 @@
     "vision-language-action",
     "robotics"
   ],
-  "model_count": 10,
+  "model_count": 11,
   "models": [
     {
       "id": "bitvla",
@@ -79,6 +79,20 @@
     {
       "id": "pi0-base",
       "name": "Pi0 (fabric)",
+      "score": 38,
+      "parameters": "3.3B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": false
+      },
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "pi0-so101",
+      "name": "Pi0 SO-ARM101 (fabric)",
       "score": 38,
       "parameters": "3.3B",
       "devices": {

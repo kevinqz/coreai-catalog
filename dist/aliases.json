@@ -2,7 +2,7 @@
   "export_schema_version": "1.0",
   "export_catalog_version": "2.2.3",
   "description": "Alias mappings resolving catalog IDs to Zoo card names, CoreAIKit strings, and HF repo names.",
-  "total_models": 93,
+  "total_models": 94,
   "aliases": {
     "qwen3-5-0-8b": [
       "qwen3-5-0-8b-coreai",
@@ -536,6 +536,12 @@
       "pi0-base-coreai",
       "pi0-base-gemma.yaml",
       "pi0.base.gemma"
+    ],
+    "pi0-so101": [
+      "Pi0-SO101-CoreAI",
+      "pi0-so101-coreai",
+      "pi0-so101.yaml",
+      "pi0.so101"
     ]
   }
 }

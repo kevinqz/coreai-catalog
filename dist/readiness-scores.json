@@ -446,6 +446,11 @@
       "score": 38
     },
     {
+      "id": "pi0-so101",
+      "name": "Pi0 SO-ARM101 (fabric)",
+      "score": 38
+    },
+    {
       "id": "vqbet-pusht",
       "name": "VQ-BeT PushT greedy (fabric)",
       "score": 38
