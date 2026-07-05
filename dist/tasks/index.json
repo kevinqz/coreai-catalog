@@ -56,7 +56,7 @@
         "chat",
         "text-generation"
       ],
-      "model_count": 30
+      "model_count": 31
     },
     {
       "task": "classification",
@@ -91,7 +91,7 @@
         "text-generation",
         "chat"
       ],
-      "model_count": 30
+      "model_count": 31
     },
     {
       "task": "code generation",
@@ -100,7 +100,7 @@
         "text-generation",
         "chat"
       ],
-      "model_count": 30
+      "model_count": 31
     },
     {
       "task": "computer use",
@@ -117,7 +117,7 @@
         "chat",
         "text-generation"
       ],
-      "model_count": 30
+      "model_count": 31
     },
     {
       "task": "depth estimation",
@@ -258,7 +258,7 @@
         "chat",
         "text-generation"
       ],
-      "model_count": 30
+      "model_count": 31
     },
     {
       "task": "instruction following",
@@ -267,7 +267,7 @@
         "chat",
         "text-generation"
       ],
-      "model_count": 30
+      "model_count": 31
     },
     {
       "task": "json generation",
@@ -276,7 +276,7 @@
         "text-generation",
         "chat"
       ],
-      "model_count": 30
+      "model_count": 31
     },
     {
       "task": "layout analysis",
@@ -294,7 +294,7 @@
         "chat",
         "text-generation"
       ],
-      "model_count": 30
+      "model_count": 31
     },
     {
       "task": "math",
@@ -303,7 +303,7 @@
         "reasoning",
         "chat"
       ],
-      "model_count": 30
+      "model_count": 31
     },
     {
       "task": "math reasoning",
@@ -312,7 +312,7 @@
         "reasoning",
         "chat"
       ],
-      "model_count": 30
+      "model_count": 31
     },
     {
       "task": "monocular depth",
@@ -398,7 +398,7 @@
         "chat",
         "text-generation"
       ],
-      "model_count": 30
+      "model_count": 31
     },
     {
       "task": "private on-device ocr",
@@ -416,7 +416,7 @@
         "chat",
         "text-generation"
       ],
-      "model_count": 30
+      "model_count": 31
     },
     {
       "task": "question answering",
@@ -425,7 +425,7 @@
         "chat",
         "text-generation"
       ],
-      "model_count": 30
+      "model_count": 31
     },
     {
       "task": "rag",
@@ -452,7 +452,7 @@
         "reasoning",
         "chat"
       ],
-      "model_count": 30
+      "model_count": 31
     },
     {
       "task": "reranker",
@@ -540,7 +540,7 @@
         "chat",
         "text-generation"
       ],
-      "model_count": 30
+      "model_count": 31
     },
     {
       "task": "summarize",
@@ -549,7 +549,7 @@
         "chat",
         "text-generation"
       ],
-      "model_count": 30
+      "model_count": 31
     },
     {
       "task": "super resolution",
@@ -584,7 +584,7 @@
         "text-generation",
         "chat"
       ],
-      "model_count": 30
+      "model_count": 31
     },
     {
       "task": "text summarization",
@@ -593,7 +593,7 @@
         "chat",
         "text-generation"
       ],
-      "model_count": 30
+      "model_count": 31
     },
     {
       "task": "text to audio",
@@ -651,7 +651,7 @@
         "chat",
         "text-generation"
       ],
-      "model_count": 30
+      "model_count": 31
     },
     {
       "task": "tts",
@@ -700,7 +700,7 @@
         "vision-language",
         "reasoning"
       ],
-      "model_count": 9
+      "model_count": 10
     },
     {
       "task": "vla",
@@ -751,7 +751,7 @@
         "chat",
         "text-generation"
       ],
-      "model_count": 30
+      "model_count": 31
     },
     {
       "task": "zero-shot classification",

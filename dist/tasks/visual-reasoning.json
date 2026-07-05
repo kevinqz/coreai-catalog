@@ -4,7 +4,7 @@
     "vision-language",
     "reasoning"
   ],
-  "model_count": 9,
+  "model_count": 10,
   "models": [
     {
       "id": "minicpm5-1b",
@@ -117,6 +117,20 @@
       "license": "Gemma Terms",
       "commercial_use": "check_license",
       "has_benchmark": true
+    },
+    {
+      "id": "vibethinker-3b",
+      "name": "VibeThinker 3B (fabric)",
+      "score": 53,
+      "parameters": "3B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": false
+      },
+      "license": "mit",
+      "commercial_use": "likely",
+      "has_benchmark": false
     },
     {
       "id": "gemma-4-12b-mm-warshanks",

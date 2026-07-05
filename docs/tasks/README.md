@@ -22,13 +22,13 @@ Browse models by capability.
 - [Music Generation](./music-generation.md) — 1 models
 - [Object Detection](./object-detection.md) — 5 models
 - [Promptable Segmentation](./promptable-segmentation.md) — 2 models
-- [Reasoning](./reasoning.md) — 2 models
+- [Reasoning](./reasoning.md) — 3 models
 - [Reranking](./reranking.md) — 1 models
 - [Robotics](./robotics.md) — 14 models
 - [Speculative Decoding](./speculative-decoding.md) — 1 models
 - [Speech To Text](./speech-to-text.md) — 8 models
 - [Super Resolution](./super-resolution.md) — 2 models
-- [Text Generation](./text-generation.md) — 30 models
+- [Text Generation](./text-generation.md) — 31 models
 - [Text To Audio](./text-to-audio.md) — 1 models
 - [Text To Speech](./text-to-speech.md) — 6 models
 - [Text To Video](./text-to-video.md) — 1 models

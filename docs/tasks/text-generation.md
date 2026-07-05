@@ -1,6 +1,6 @@
 # Text Generation
 
-**30 models** in the catalog with this capability.
+**31 models** in the catalog with this capability.
 
 ## Task synonyms
 
@@ -39,6 +39,7 @@
 | [Gemma 4 12B](../../catalog.yaml#L1) | 53 | 12B | 💻 | Gemma Terms | ⚠️ check_license | 📊 | 🐼 |
 | [Gemma 4 31B](../../catalog.yaml#L1) | 53 | 31B | 💻 | Gemma Terms | ⚠️ check_license | 📊 | 🐼 |
 | [LFM2.5-8B-A1B](../../catalog.yaml#L1) | 53 | 8B / ~1B active | 📱💻 | LFM Open License v1.0 | ⚠️ check_license | — | 🐼 |
+| [VibeThinker 3B (fabric)](../../catalog.yaml#L1) | 53 | 3B |  | mit | ✅ likely | — | fabric |
 | [Gemma 4 12B IT Multimodal (warshanks)](../../catalog.yaml#L1) | 48 | 12B | 💻 | Apache-2.0 | ⚠️ check_license | — | 🔗 |
 
 ## Install

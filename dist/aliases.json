@@ -2,7 +2,7 @@
   "export_schema_version": "1.0",
   "export_catalog_version": "2.2.3",
   "description": "Alias mappings resolving catalog IDs to Zoo card names, CoreAIKit strings, and HF repo names.",
-  "total_models": 97,
+  "total_models": 98,
   "aliases": {
     "qwen3-5-0-8b": [
       "qwen3-5-0-8b-coreai",
@@ -560,6 +560,12 @@
       "pi05-base-coreai",
       "pi05-base.yaml",
       "pi05.base"
+    ],
+    "vibethinker-3b": [
+      "VibeThinker-3B-CoreAI",
+      "vibethinker-3b-coreai",
+      "vibethinker-3b.yaml",
+      "vibethinker.3b"
     ]
   }
 }

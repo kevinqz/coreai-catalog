@@ -102,3 +102,4 @@ Generated from `artifacts.yaml`.
 | act-so101 | external | / | kevinqz/ACT-SO101-CoreAI | False | False |
 | pi05-so100 | external | / | kevinqz/Pi05-SO100-CoreAI | False | False |
 | pi05-base | external | / | kevinqz/Pi05-Base-CoreAI | False | False |
+| vibethinker-3b | external | / | kevinqz/VibeThinker-3B-CoreAI | False | False |

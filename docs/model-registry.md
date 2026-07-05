@@ -99,3 +99,4 @@
 | act-so101 | ACT SO-ARM101 (fabric) | fabric | LeRobot | robotics | image, state | action | 51.6M | unknown | apache-2.0 | needs_review |
 | pi05-so100 | Pi0.5 SO-ARM100/101 (fabric) | fabric | LeRobot | vision-language-action, robotics | image, text, state | action | 3.3B | unknown | apache-2.0 | needs_review |
 | pi05-base | Pi0.5 base Gemma (fabric) | fabric | LeRobot | vision-language-action, robotics | image, text, state | action | 3.3B | unknown | gemma | needs_review |
+| vibethinker-3b | VibeThinker 3B (fabric) | fabric | Qwen | text-generation, reasoning | text | text | 3B | unknown | mit | needs_review |

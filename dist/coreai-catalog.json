@@ -6045,10 +6045,76 @@
           },
           "recipe_source": "fabric"
         }
+      },
+      {
+        "group": "external",
+        "huggingface": {
+          "files": [
+            {
+              "path": ".gitattributes",
+              "sha256": "96b5336f947b109dbbba2265040dacb0f375657d39e6a0ce737b95a247a9c9fd",
+              "size_bytes": 1589
+            },
+            {
+              "path": "LICENSE",
+              "sha256": "be454059573997377abaa0434211b8c4ca9aaeddb1b06b6936c545450805acfd",
+              "size_bytes": 1671
+            },
+            {
+              "path": "README.md",
+              "sha256": "bfa3c9a41d0cad1ce835a58cf3ca752d9fef53673a515b11216ef4fbac02297f",
+              "size_bytes": 6039
+            },
+            {
+              "path": "parity-report.json",
+              "sha256": "e5d6bd079a96549de11740b599944ac179aad7d445d52506a90ae4b58d5ad072",
+              "size_bytes": 1824
+            },
+            {
+              "path": "reproduce-manifest.json",
+              "sha256": "da13c8ad50d378500f7ff2756bf39de5ed32646fd482ac3e1c227d856787b1d5",
+              "size_bytes": 869
+            },
+            {
+              "path": "vibethinker-3b.aimodel/main.hash",
+              "sha256": "c387acfef852a494f49671cd2c82cb8e978d480d0b83ab728eacf9d4fca144b9",
+              "size_bytes": 32
+            },
+            {
+              "path": "vibethinker-3b.aimodel/main.mlirb",
+              "sha256": "1e75ad08d30ba04cf1cbbe5775064bb28a6259c41b382b357332c2685dbcc640",
+              "size_bytes": 6172368089
+            },
+            {
+              "path": "vibethinker-3b.aimodel/metadata.json",
+              "sha256": "3892b2e36d5caaf1a1be0d26851899df146eaa953cbb7a8ad875cf27571c6404",
+              "size_bytes": 105
+            }
+          ],
+          "owner": "kevinqz",
+          "repo": "VibeThinker-3B-CoreAI",
+          "revision": "9ee2dd03a19aaae79b249a62c21d8d6c5c66888e",
+          "url": "https://huggingface.co/kevinqz/VibeThinker-3B-CoreAI"
+        },
+        "id": "vibethinker-3b",
+        "officiality": {
+          "apple_export_recipe": false,
+          "apple_hosted_artifact": false,
+          "community_packaged": true
+        },
+        "provenance": {
+          "converted_by": {
+            "recipe_url": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/vibethinker-3b.yaml",
+            "tool": "coreai.llm.export",
+            "version": "unknown"
+          },
+          "format_version": "2.0",
+          "recipe_source": "fabric"
+        }
       }
     ],
     "metadata": {
-      "count": 98,
+      "count": 99,
       "last_verified": "2026-07-04",
       "name": "Core AI Catalog artifact provenance"
     }
@@ -15184,6 +15250,104 @@
         ],
         "status": "needs_review",
         "upstream_repo": "lerobot/pi05_base"
+      },
+      {
+        "architecture": "transformer",
+        "artifact": {
+          "availability": "available",
+          "format": "aimodel"
+        },
+        "artifact_ref": "vibethinker-3b",
+        "bundle_kind": "llm",
+        "capabilities": [
+          "text-generation",
+          "reasoning"
+        ],
+        "confidence": "medium",
+        "device_support": {
+          "ipad": "unknown",
+          "iphone": "unknown",
+          "mac": "unknown",
+          "mac_only": "unknown"
+        },
+        "family": "Qwen",
+        "id": "vibethinker-3b",
+        "io_contract": {
+          "entrypoint": {
+            "framework": "CoreAILanguageModels",
+            "init_pattern": "let model = try await CoreAILanguageModel(resourcesAt: bundleURL)",
+            "type": "CoreAILanguageModel"
+          },
+          "files": {
+            "tokenizer_ref": "macos/tokenizer"
+          },
+          "inputs": [
+            {
+              "constraints": {
+                "max_context": 32768
+              },
+              "modality": "text",
+              "name": "prompt",
+              "swift_type": "String"
+            }
+          ],
+          "outputs": [
+            {
+              "decoding": {
+                "detokenization": "embedded tokenizer (WeiboAI/VibeThinker-3B); LanguageModelSession.respond(to:) returns detokenized text"
+              },
+              "name": "response",
+              "swift_type": "String"
+            }
+          ],
+          "session": {
+            "stateful": true,
+            "streaming": true
+          }
+        },
+        "last_verified": "2026-07-05",
+        "license": {
+          "commercial_use": "likely",
+          "name": "mit"
+        },
+        "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "name": "VibeThinker 3B (fabric)",
+        "notes": "Converted via coreai-fabric recipe vibethinker-3b (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/vibethinker-3b.yaml).",
+        "runtime": {
+          "aot_required": false,
+          "custom_kernel": false,
+          "patch_required": false,
+          "processor_required": false,
+          "runner": "CoreAIRunner",
+          "runtime_name": "apple-core-ai",
+          "stock_runtime": true,
+          "tokenizer_required": true
+        },
+        "size": {
+          "artifact_size": "5.7GB",
+          "parameters": "3B",
+          "precision": "float16",
+          "quantization": "none"
+        },
+        "source_group": "fabric",
+        "source_path": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/vibethinker-3b.yaml",
+        "sources": [
+          "coreai-fabric"
+        ],
+        "status": "needs_review",
+        "upstream_repo": "WeiboAI/VibeThinker-3B"
       }
     ]
   },

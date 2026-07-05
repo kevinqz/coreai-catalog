@@ -1,7 +1,7 @@
 {
   "export_schema_version": "1.0",
   "export_catalog_version": "2.2.3",
-  "model_count": 97,
+  "model_count": 98,
   "models": [
     {
       "id": "qwen3-5-0-8b",
@@ -3686,6 +3686,66 @@
         "files": {
           "tokenizer_ref": "tokenizer",
           "processor_ref": "norm_stats.json"
+        }
+      }
+    },
+    {
+      "id": "vibethinker-3b",
+      "name": "VibeThinker 3B (fabric)",
+      "bundle_kind": "llm",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "text-generation",
+        "reasoning"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "parameters": "3B",
+      "precision": "float16",
+      "artifact_size": "5.7GB",
+      "huggingface_url": "https://huggingface.co/kevinqz/VibeThinker-3B-CoreAI",
+      "license": "mit",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "WeiboAI/VibeThinker-3B",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAILanguageModels",
+          "type": "CoreAILanguageModel",
+          "init_pattern": "let model = try await CoreAILanguageModel(resourcesAt: bundleURL)"
+        },
+        "inputs": [
+          {
+            "name": "prompt",
+            "modality": "text",
+            "swift_type": "String",
+            "constraints": {
+              "max_context": 32768
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "name": "response",
+            "swift_type": "String",
+            "decoding": {
+              "detokenization": "embedded tokenizer (WeiboAI/VibeThinker-3B); LanguageModelSession.respond(to:) returns detokenized text"
+            }
+          }
+        ],
+        "session": {
+          "stateful": true,
+          "streaming": true
+        },
+        "files": {
+          "tokenizer_ref": "macos/tokenizer"
         }
       }
     }

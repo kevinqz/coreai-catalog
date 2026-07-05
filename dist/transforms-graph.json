@@ -460,9 +460,10 @@
         "qwen3-vl-2b",
         "qwen3-vl-4b",
         "qwen3-vl-8b",
-        "rwkv7-goose-1-5b"
+        "rwkv7-goose-1-5b",
+        "vibethinker-3b"
       ],
-      "model_count": 37
+      "model_count": 38
     },
     {
       "input": "text",

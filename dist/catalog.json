@@ -7432,6 +7432,104 @@
       ],
       "status": "needs_review",
       "upstream_repo": "lerobot/pi05_base"
+    },
+    {
+      "architecture": "transformer",
+      "artifact": {
+        "availability": "available",
+        "format": "aimodel"
+      },
+      "artifact_ref": "vibethinker-3b",
+      "bundle_kind": "llm",
+      "capabilities": [
+        "text-generation",
+        "reasoning"
+      ],
+      "confidence": "medium",
+      "device_support": {
+        "ipad": "unknown",
+        "iphone": "unknown",
+        "mac": "unknown",
+        "mac_only": "unknown"
+      },
+      "family": "Qwen",
+      "id": "vibethinker-3b",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAILanguageModels",
+          "init_pattern": "let model = try await CoreAILanguageModel(resourcesAt: bundleURL)",
+          "type": "CoreAILanguageModel"
+        },
+        "files": {
+          "tokenizer_ref": "macos/tokenizer"
+        },
+        "inputs": [
+          {
+            "constraints": {
+              "max_context": 32768
+            },
+            "modality": "text",
+            "name": "prompt",
+            "swift_type": "String"
+          }
+        ],
+        "outputs": [
+          {
+            "decoding": {
+              "detokenization": "embedded tokenizer (WeiboAI/VibeThinker-3B); LanguageModelSession.respond(to:) returns detokenized text"
+            },
+            "name": "response",
+            "swift_type": "String"
+          }
+        ],
+        "session": {
+          "stateful": true,
+          "streaming": true
+        }
+      },
+      "last_verified": "2026-07-05",
+      "license": {
+        "commercial_use": "likely",
+        "name": "mit"
+      },
+      "maturity": "experimental",
+      "min_os": {
+        "ios": "27.0",
+        "macos": "27.0"
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "name": "VibeThinker 3B (fabric)",
+      "notes": "Converted via coreai-fabric recipe vibethinker-3b (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/vibethinker-3b.yaml).",
+      "runtime": {
+        "aot_required": false,
+        "custom_kernel": false,
+        "patch_required": false,
+        "processor_required": false,
+        "runner": "CoreAIRunner",
+        "runtime_name": "apple-core-ai",
+        "stock_runtime": true,
+        "tokenizer_required": true
+      },
+      "size": {
+        "artifact_size": "5.7GB",
+        "parameters": "3B",
+        "precision": "float16",
+        "quantization": "none"
+      },
+      "source_group": "fabric",
+      "source_path": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/vibethinker-3b.yaml",
+      "sources": [
+        "coreai-fabric"
+      ],
+      "status": "needs_review",
+      "upstream_repo": "WeiboAI/VibeThinker-3B"
     }
   ]
 }

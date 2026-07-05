@@ -4,7 +4,7 @@
     "chat",
     "text-generation"
   ],
-  "model_count": 30,
+  "model_count": 31,
   "models": [
     {
       "id": "official-qwen3-0-6b",
@@ -410,6 +410,20 @@
       },
       "license": "LFM Open License v1.0",
       "commercial_use": "check_license",
+      "has_benchmark": false
+    },
+    {
+      "id": "vibethinker-3b",
+      "name": "VibeThinker 3B (fabric)",
+      "score": 53,
+      "parameters": "3B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": false
+      },
+      "license": "mit",
+      "commercial_use": "likely",
       "has_benchmark": false
     },
     {
