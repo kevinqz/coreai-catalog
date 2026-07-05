@@ -1,0 +1,538 @@
+{
+  "as_of": "2026-07-04",
+  "source": "huggingface.co/api/models",
+  "note": "Volatile popularity/recency signals — tiebreaker only, not source-grounded truth.",
+  "signals": {
+    "qwen3-5-0-8b": {
+      "downloads": 131,
+      "likes": 0,
+      "last_modified": "2026-07-02",
+      "gated": false
+    },
+    "qwen3-5-2b": {
+      "downloads": 54,
+      "likes": 1,
+      "last_modified": "2026-07-02",
+      "gated": false
+    },
+    "qwen3-6-35b-a3b": {
+      "downloads": 169,
+      "likes": 3,
+      "last_modified": "2026-07-02",
+      "gated": false
+    },
+    "qwen3-6-27b": {
+      "downloads": 178,
+      "likes": 0,
+      "last_modified": "2026-07-02",
+      "gated": false
+    },
+    "glm-4-7-flash": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-07-02",
+      "gated": false
+    },
+    "gemma-4-e2b": {
+      "downloads": 32,
+      "likes": 0,
+      "last_modified": "2026-07-04",
+      "gated": false
+    },
+    "gemma-4-e4b": {
+      "downloads": 27,
+      "likes": 0,
+      "last_modified": "2026-07-04",
+      "gated": false
+    },
+    "gemma-4-12b": {
+      "downloads": 0,
+      "likes": 1,
+      "last_modified": "2026-07-02",
+      "gated": false
+    },
+    "gemma-4-31b": {
+      "downloads": 0,
+      "likes": 1,
+      "last_modified": "2026-07-02",
+      "gated": false
+    },
+    "lfm2-5-1-2b-instruct": {
+      "downloads": 217,
+      "likes": 0,
+      "last_modified": "2026-07-02",
+      "gated": false
+    },
+    "lfm2-5-8b-a1b": {
+      "downloads": 308,
+      "likes": 0,
+      "last_modified": "2026-07-02",
+      "gated": false
+    },
+    "granite-4-0-h-1b": {
+      "downloads": 26,
+      "likes": 0,
+      "last_modified": "2026-07-02",
+      "gated": false
+    },
+    "granite-4-0-h-350m": {
+      "downloads": 26,
+      "likes": 0,
+      "last_modified": "2026-07-02",
+      "gated": false
+    },
+    "nanbeige4-1-3b": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-07-02",
+      "gated": false
+    },
+    "qwen3-vl-2b": {
+      "downloads": 21,
+      "likes": 0,
+      "last_modified": "2026-07-02",
+      "gated": false
+    },
+    "qwen3-vl-4b": {
+      "downloads": 18,
+      "likes": 0,
+      "last_modified": "2026-07-02",
+      "gated": false
+    },
+    "qwen3-vl-8b": {
+      "downloads": 24,
+      "likes": 0,
+      "last_modified": "2026-07-02",
+      "gated": false
+    },
+    "minicpm-v-4-6": {
+      "downloads": 0,
+      "likes": 2,
+      "last_modified": "2026-07-04",
+      "gated": false
+    },
+    "gemma-4-e2b-vision": {
+      "downloads": 32,
+      "likes": 0,
+      "last_modified": "2026-07-04",
+      "gated": false
+    },
+    "unlimited-ocr": {
+      "downloads": 0,
+      "likes": 6,
+      "last_modified": "2026-07-03",
+      "gated": false
+    },
+    "qwen2-5-omni-3b-audio": {
+      "downloads": 0,
+      "likes": 1,
+      "last_modified": "2026-07-03",
+      "gated": false
+    },
+    "kokoro-82m": {
+      "downloads": 0,
+      "likes": 1,
+      "last_modified": "2026-07-03",
+      "gated": false
+    },
+    "voxcpm-0-5b": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-07-03",
+      "gated": false
+    },
+    "embeddinggemma-300m": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-06-12",
+      "gated": false
+    },
+    "qwen3-embedding-0-6b": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-06-14",
+      "gated": false
+    },
+    "qwen3-reranker-0-6b": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-06-14",
+      "gated": false
+    },
+    "rf-detr-nano": {
+      "downloads": 123,
+      "likes": 1,
+      "last_modified": "2026-07-03",
+      "gated": false
+    },
+    "rf-detr-small": {
+      "downloads": 123,
+      "likes": 1,
+      "last_modified": "2026-07-03",
+      "gated": false
+    },
+    "rf-detr-medium": {
+      "downloads": 123,
+      "likes": 1,
+      "last_modified": "2026-07-03",
+      "gated": false
+    },
+    "rf-detr-large": {
+      "downloads": 123,
+      "likes": 1,
+      "last_modified": "2026-07-03",
+      "gated": false
+    },
+    "rf-detr-seg-nano": {
+      "downloads": 123,
+      "likes": 1,
+      "last_modified": "2026-07-03",
+      "gated": false
+    },
+    "rf-detr-seg-small": {
+      "downloads": 123,
+      "likes": 1,
+      "last_modified": "2026-07-03",
+      "gated": false
+    },
+    "rf-detr-seg-medium": {
+      "downloads": 123,
+      "likes": 1,
+      "last_modified": "2026-07-03",
+      "gated": false
+    },
+    "rf-detr-seg-large": {
+      "downloads": 123,
+      "likes": 1,
+      "last_modified": "2026-07-03",
+      "gated": false
+    },
+    "rf-detr-seg-xlarge": {
+      "downloads": 123,
+      "likes": 1,
+      "last_modified": "2026-07-03",
+      "gated": false
+    },
+    "rf-detr-seg-2xlarge": {
+      "downloads": 123,
+      "likes": 1,
+      "last_modified": "2026-07-03",
+      "gated": false
+    },
+    "adcsr-x4": {
+      "downloads": 0,
+      "likes": 3,
+      "last_modified": "2026-07-02",
+      "gated": false
+    },
+    "depth-anything-3-small": {
+      "downloads": 0,
+      "likes": 1,
+      "last_modified": "2026-07-02",
+      "gated": false
+    },
+    "depth-anything-3-base": {
+      "downloads": 0,
+      "likes": 1,
+      "last_modified": "2026-07-02",
+      "gated": false
+    },
+    "official-gpt-oss-20b": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-06-11",
+      "gated": false
+    },
+    "official-qwen3-0-6b": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-07-02",
+      "gated": false
+    },
+    "official-qwen3-4b": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-07-02",
+      "gated": false
+    },
+    "official-qwen3-8b": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-07-02",
+      "gated": false
+    },
+    "official-gemma-3-4b-it": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-07-02",
+      "gated": false
+    },
+    "official-gemma-3-12b-it": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-07-02",
+      "gated": false
+    },
+    "official-mistral-7b-v0-3": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-07-02",
+      "gated": false
+    },
+    "official-flux-2-klein-4b": {
+      "downloads": 0,
+      "likes": 1,
+      "last_modified": "2026-06-15",
+      "gated": false
+    },
+    "official-sam-3": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-06-23",
+      "gated": false
+    },
+    "official-whisper-large-v3-turbo": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-07-03",
+      "gated": false
+    },
+    "minicpm5-1b": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-07-02",
+      "gated": false
+    },
+    "fastcontext-1-0-4b": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-06-27",
+      "gated": false
+    },
+    "bitcpm-8b": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-06-29",
+      "gated": false
+    },
+    "holo2-4b": {
+      "downloads": 0,
+      "likes": 2,
+      "last_modified": "2026-07-03",
+      "gated": false
+    },
+    "colmodernvbert": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-07-04",
+      "gated": false
+    },
+    "qwen3-asr-1-7b": {
+      "downloads": 0,
+      "likes": 1,
+      "last_modified": "2026-07-03",
+      "gated": false
+    },
+    "parakeet-tdt-0-6b": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-07-03",
+      "gated": false
+    },
+    "voxcpm2-2b": {
+      "downloads": 0,
+      "likes": 2,
+      "last_modified": "2026-07-03",
+      "gated": false
+    },
+    "yolox-s": {
+      "error": "HTTP Error 401: Unauthorized"
+    },
+    "tripo-splat": {
+      "downloads": 0,
+      "likes": 7,
+      "last_modified": "2026-07-03",
+      "gated": false
+    },
+    "ltx-video-2b": {
+      "downloads": 0,
+      "likes": 2,
+      "last_modified": "2026-07-03",
+      "gated": false
+    },
+    "official-qwen3-1-7b": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-06-19",
+      "gated": false
+    },
+    "official-clip-vit-base-patch32": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-06-12",
+      "gated": false
+    },
+    "llada-8b-dllm": {
+      "downloads": 0,
+      "likes": 2,
+      "last_modified": "2026-07-03",
+      "gated": false
+    },
+    "bitvla": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-06-30",
+      "gated": false
+    },
+    "stable-audio-open-small": {
+      "downloads": 0,
+      "likes": 1,
+      "last_modified": "2026-07-03",
+      "gated": false
+    },
+    "whisper-large-v3-turbo-carstenl": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-06-09",
+      "gated": false
+    },
+    "whisper-tiny-en-intiser": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-06-29",
+      "gated": false
+    },
+    "whisper-medium-intiser": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-06-29",
+      "gated": false
+    },
+    "gemma-4-12b-mm-warshanks": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-06-12",
+      "gated": false
+    },
+    "gemma-4-12b-assistant-warshanks": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-06-12",
+      "gated": false
+    },
+    "vibevoice-0-5b": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-06-19",
+      "gated": false
+    },
+    "vibevoice-1-5b": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-06-19",
+      "gated": false
+    },
+    "vibevoice-7b": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-06-19",
+      "gated": false
+    },
+    "vibevoice-asr": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-06-19",
+      "gated": false
+    },
+    "nemotron-3-5-asr-streaming": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-06-21",
+      "gated": false
+    },
+    "z-image-turbo": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-07-03",
+      "gated": false
+    },
+    "real-esrgan-x4v3": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-06-25",
+      "gated": false
+    },
+    "efficientsam3-tinyvit": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-06-16",
+      "gated": false
+    },
+    "rwkv7-goose-1-5b": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-07-01",
+      "gated": false
+    },
+    "art-vjepa2-vitl-ssv2": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-07-03",
+      "gated": false
+    },
+    "ornith-1-0-9b": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-07-03",
+      "gated": false
+    },
+    "qwen3-enhancer": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-07-03",
+      "gated": false
+    },
+    "glm-ocr": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-07-04",
+      "gated": false
+    },
+    "act-aloha-cube": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-07-04",
+      "gated": false
+    },
+    "act-aloha-insertion": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-07-04",
+      "gated": false
+    },
+    "diffusion-pusht": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-07-04",
+      "gated": false
+    },
+    "vqbet-pusht": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-07-04",
+      "gated": false
+    },
+    "pi0-base": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-07-04",
+      "gated": false
+    },
+    "mineru-2-5-pro": {
+      "downloads": 0,
+      "likes": 0,
+      "last_modified": "2026-07-04",
+      "gated": false
+    }
+  }
+}

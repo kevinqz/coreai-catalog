@@ -49,6 +49,12 @@
       "type": "string",
       "minLength": 1
     },
+    "alternate_artifacts": {
+      "description": "Artifact ids of INDEPENDENT alternate conversions of the same upstream model (different bytes/quantization, own sha256) — distinct from artifact.mirrors (byte-identical failover hosts). Primary is artifact_ref; a deterministic policy (docs/concepts/multi-host-provenance.md) picks the default. Expected to grow as many converters produce the same model.",
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
     "capabilities": {
       "type": "array",
       "items": {

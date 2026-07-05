@@ -10,6 +10,8 @@
   source_group: zoo   # zoo | official | external | fabric | unknown
   source_path: 'https://example.com/replace-me'
   artifact_ref: model-id-here
+  alternate_artifacts:   # Artifact ids of INDEPENDENT alternate conversions of the same upstream model (different bytes/quantization, own sha256) — distinct from artifact.mirrors (byte-identical failover hosts). Primary is artifact_ref; a deterministic policy (docs/concepts/multi-host-provenance.md) picks the default. Expected to grow as many converters produce the same model. — optional
+  - replace-me
   capabilities:
   - chat
   - text-generation
