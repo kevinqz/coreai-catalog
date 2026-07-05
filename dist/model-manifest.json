@@ -1,7 +1,7 @@
 {
   "export_schema_version": "1.0",
   "export_catalog_version": "2.2.3",
-  "model_count": 88,
+  "model_count": 89,
   "models": [
     {
       "id": "qwen3-5-0-8b",
@@ -2475,7 +2475,7 @@
       ],
       "parameters": "1.5B",
       "precision": "fp16",
-      "artifact_size": "not_published",
+      "artifact_size": "5.36GB",
       "huggingface_url": "https://huggingface.co/gafiatulin/vibevoice-1.5b-coreai",
       "license": "MIT",
       "commercial_use": "likely",
@@ -3133,6 +3133,37 @@
           "processor_ref": "norm_stats.json"
         }
       }
+    },
+    {
+      "id": "mineru-2-5-pro",
+      "name": "MinerU2.5-Pro",
+      "bundle_kind": "ocr",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "document-ocr"
+      ],
+      "input_modalities": [
+        "document_image",
+        "image",
+        "text"
+      ],
+      "output_modalities": [
+        "markdown",
+        "html",
+        "latex"
+      ],
+      "parameters": "1.2B",
+      "precision": "mixed",
+      "artifact_size": "2.0GB",
+      "huggingface_url": "https://huggingface.co/mlboydaisuke/MinerU2.5-Pro-CoreAI",
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "opendatalab/MinerU2.5-Pro-2605-1.2B",
+      "io_contract": null
     }
   ]
 }

@@ -288,6 +288,17 @@
       "type": "huggingface_repository",
       "url": "https://huggingface.co/mlboydaisuke/GLM-OCR-CoreAI",
       "volatility": "medium"
+    },
+    {
+      "id": "mlboydaisuke-mineru-coreai",
+      "last_checked": "2026-07-04",
+      "notes": "Independent MinerU2.5-Pro Core AI conversion (Qwen2-VL ViT vision + Qwen2 decoder, whole-page layout+recognition). Port of opendatalab/MinerU2.5-Pro-2605-1.2B.",
+      "owner": "mlboydaisuke",
+      "title": "mlboydaisuke/MinerU2.5-Pro-CoreAI",
+      "trust": "community_secondary",
+      "type": "huggingface_repository",
+      "url": "https://huggingface.co/mlboydaisuke/MinerU2.5-Pro-CoreAI",
+      "volatility": "medium"
     }
   ]
 }
