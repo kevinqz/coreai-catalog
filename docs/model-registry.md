@@ -84,3 +84,4 @@
 | vjepa2-vitl-ssv2 | V-JEPA 2 ViT-L (SSv2) | zoo | V-JEPA | video-classification | video | action-tokens | 300M | Mac | MIT | unknown |
 | ornith-1-0-9b | Ornith 1.0 9B | zoo | Qwen | chat, text-generation, code-generation | text | text | 9B | Mac | MIT | confirmed |
 | qwen3-enhancer | Qwen3 Enhancer (Huihui Qwen3-4B Abliterated v2) | external | Qwen | chat, text-generation | text | text | 4B | iPhone/Mac | Apache-2.0 | confirmed |
+| glm-ocr | GLM-OCR | external | GLM-OCR | document-ocr | document_image, image, text | text, html, latex | 0.9B | Mac | MIT | needs_review |

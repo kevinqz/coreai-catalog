@@ -86,3 +86,4 @@ Generated from `artifacts.yaml`.
 | art-vjepa2-vitl-ssv2 | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/VJEPA2-ViTL-SSv2-CoreAI | False | False |
 | ornith-1-0-9b | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/Ornith-1.0-9B-CoreAI | False | False |
 | qwen3-enhancer | external | / | bryanbblewis11/Qwen3-Enhancer-CoreAI | False | False |
+| glm-ocr | external | / | mlboydaisuke/GLM-OCR-CoreAI | False | False |

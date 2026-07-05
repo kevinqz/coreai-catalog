@@ -133,7 +133,7 @@
       "capabilities": [
         "document-ocr"
       ],
-      "model_count": 1
+      "model_count": 2
     },
     {
       "task": "document understanding",
@@ -142,7 +142,7 @@
         "document-ocr",
         "vision-language"
       ],
-      "model_count": 8
+      "model_count": 9
     },
     {
       "task": "embedding",
@@ -174,7 +174,7 @@
       "capabilities": [
         "document-ocr"
       ],
-      "model_count": 1
+      "model_count": 2
     },
     {
       "task": "function calling",
@@ -285,7 +285,7 @@
         "document-ocr",
         "vision-language"
       ],
-      "model_count": 8
+      "model_count": 9
     },
     {
       "task": "llm",
@@ -363,7 +363,7 @@
         "document-ocr",
         "vision-language"
       ],
-      "model_count": 8
+      "model_count": 9
     },
     {
       "task": "on-device rag",
@@ -407,7 +407,7 @@
         "document-ocr",
         "vision-language"
       ],
-      "model_count": 8
+      "model_count": 9
     },
     {
       "task": "qa",
@@ -566,7 +566,7 @@
         "document-ocr",
         "vision-language"
       ],
-      "model_count": 8
+      "model_count": 9
     },
     {
       "task": "text classification",

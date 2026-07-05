@@ -1,7 +1,7 @@
 {
   "export_schema_version": "1.0",
   "export_catalog_version": "2.2.3",
-  "model_count": 82,
+  "model_count": 83,
   "models": [
     {
       "id": "qwen3-5-0-8b",
@@ -2794,6 +2794,37 @@
         "ios": "27.0"
       },
       "upstream_repo": "huihui-ai/Huihui-Qwen3-4B-abliterated-v2",
+      "io_contract": null
+    },
+    {
+      "id": "glm-ocr",
+      "name": "GLM-OCR",
+      "bundle_kind": "ocr",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "document-ocr"
+      ],
+      "input_modalities": [
+        "document_image",
+        "image",
+        "text"
+      ],
+      "output_modalities": [
+        "text",
+        "html",
+        "latex"
+      ],
+      "parameters": "0.9B",
+      "precision": "mixed",
+      "artifact_size": "1.6GB",
+      "huggingface_url": "https://huggingface.co/mlboydaisuke/GLM-OCR-CoreAI",
+      "license": "MIT",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "zai-org/GLM-OCR",
       "io_contract": null
     }
   ]
