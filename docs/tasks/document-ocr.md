@@ -1,6 +1,6 @@
 # Document Ocr
 
-**2 models** in the catalog with this capability.
+**3 models** in the catalog with this capability.
 
 ## Task synonyms
 
@@ -12,6 +12,7 @@
 |---|---|---|---|---|---|---|---|
 | [Unlimited-OCR](../../catalog.yaml#L1) | 73 | not_published | 📱💻 | MIT | ⚠️ check_license | — | 🐼 |
 | [GLM-OCR](../../catalog.yaml#L1) | 48 | 0.9B | 💻 | MIT | ✅ likely | — | 🔗 |
+| [MinerU2.5-Pro](../../catalog.yaml#L1) | 38 | 1.2B |  | Apache-2.0 | ✅ likely | — | 🔗 |
 
 ## Install
 

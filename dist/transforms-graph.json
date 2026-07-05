@@ -32,7 +32,7 @@
     "vector",
     "video"
   ],
-  "direct_edge_count": 38,
+  "direct_edge_count": 39,
   "total_reachable_pairs": 75,
   "direct_edges": [
     {
@@ -64,26 +64,29 @@
       "output": "html",
       "model_ids": [
         "glm-ocr",
+        "mineru-2-5-pro",
         "unlimited-ocr"
       ],
-      "model_count": 2
+      "model_count": 3
     },
     {
       "input": "document_image",
       "output": "latex",
       "model_ids": [
         "glm-ocr",
+        "mineru-2-5-pro",
         "unlimited-ocr"
       ],
-      "model_count": 2
+      "model_count": 3
     },
     {
       "input": "document_image",
       "output": "markdown",
       "model_ids": [
+        "mineru-2-5-pro",
         "unlimited-ocr"
       ],
-      "model_count": 1
+      "model_count": 2
     },
     {
       "input": "document_image",
@@ -188,9 +191,10 @@
       "output": "html",
       "model_ids": [
         "glm-ocr",
+        "mineru-2-5-pro",
         "unlimited-ocr"
       ],
-      "model_count": 2
+      "model_count": 3
     },
     {
       "input": "image",
@@ -206,17 +210,19 @@
       "output": "latex",
       "model_ids": [
         "glm-ocr",
+        "mineru-2-5-pro",
         "unlimited-ocr"
       ],
-      "model_count": 2
+      "model_count": 3
     },
     {
       "input": "image",
       "output": "markdown",
       "model_ids": [
+        "mineru-2-5-pro",
         "unlimited-ocr"
       ],
-      "model_count": 1
+      "model_count": 2
     },
     {
       "input": "image",
@@ -345,9 +351,10 @@
       "input": "text",
       "output": "html",
       "model_ids": [
-        "glm-ocr"
+        "glm-ocr",
+        "mineru-2-5-pro"
       ],
-      "model_count": 1
+      "model_count": 2
     },
     {
       "input": "text",
@@ -362,7 +369,16 @@
       "input": "text",
       "output": "latex",
       "model_ids": [
-        "glm-ocr"
+        "glm-ocr",
+        "mineru-2-5-pro"
+      ],
+      "model_count": 2
+    },
+    {
+      "input": "text",
+      "output": "markdown",
+      "model_ids": [
+        "mineru-2-5-pro"
       ],
       "model_count": 1
     },
@@ -980,19 +996,17 @@
     "audio→markdown": {
       "input_modality": "audio",
       "output_modality": "markdown",
-      "hop_count": 3,
+      "hop_count": 2,
       "modality_chain": [
         "audio",
         "text",
-        "image",
         "markdown"
       ],
       "model_ids": [
         "qwen2-5-omni-3b-audio",
-        "official-flux-2-klein-4b",
-        "unlimited-ocr"
+        "mineru-2-5-pro"
       ],
-      "total_artifact_size": "5.1GB + 4GB + not_published",
+      "total_artifact_size": "5.1GB + 2.0GB",
       "stages": [
         {
           "model_id": "qwen2-5-omni-3b-audio",
@@ -1006,26 +1020,15 @@
           "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen2.5-Omni-3B-Audio-CoreAI"
         },
         {
-          "model_id": "official-flux-2-klein-4b",
-          "model_name": "FLUX.2 klein 4B",
+          "model_id": "mineru-2-5-pro",
+          "model_name": "MinerU2.5-Pro",
           "input_modality": "text",
-          "output_modality": "image",
-          "estimated_tokens_per_sec": 0.0,
-          "parameters": "4B / ~4GB",
-          "runner": "CoreAIDiffusionPipeline",
-          "artifact_size": "4GB",
-          "huggingface_url": "https://huggingface.co/mlboydaisuke/FLUX.2-klein-4B-CoreAI"
-        },
-        {
-          "model_id": "unlimited-ocr",
-          "model_name": "Unlimited-OCR",
-          "input_modality": "image",
           "output_modality": "markdown",
           "estimated_tokens_per_sec": 0.0,
-          "parameters": "not_published",
-          "runner": "stock-runner",
-          "artifact_size": "not_published",
-          "huggingface_url": "https://huggingface.co/mlboydaisuke/Unlimited-OCR-CoreAI"
+          "parameters": "1.2B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "2.0GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/MinerU2.5-Pro-CoreAI"
         }
       ]
     },
@@ -2865,39 +2868,26 @@
     "text→markdown": {
       "input_modality": "text",
       "output_modality": "markdown",
-      "hop_count": 2,
+      "hop_count": 1,
       "modality_chain": [
         "text",
-        "image",
         "markdown"
       ],
       "model_ids": [
-        "official-flux-2-klein-4b",
-        "unlimited-ocr"
+        "mineru-2-5-pro"
       ],
-      "total_artifact_size": "4GB + not_published",
+      "total_artifact_size": "2.0GB",
       "stages": [
         {
-          "model_id": "official-flux-2-klein-4b",
-          "model_name": "FLUX.2 klein 4B",
+          "model_id": "mineru-2-5-pro",
+          "model_name": "MinerU2.5-Pro",
           "input_modality": "text",
-          "output_modality": "image",
-          "estimated_tokens_per_sec": 0.0,
-          "parameters": "4B / ~4GB",
-          "runner": "CoreAIDiffusionPipeline",
-          "artifact_size": "4GB",
-          "huggingface_url": "https://huggingface.co/mlboydaisuke/FLUX.2-klein-4B-CoreAI"
-        },
-        {
-          "model_id": "unlimited-ocr",
-          "model_name": "Unlimited-OCR",
-          "input_modality": "image",
           "output_modality": "markdown",
           "estimated_tokens_per_sec": 0.0,
-          "parameters": "not_published",
-          "runner": "stock-runner",
-          "artifact_size": "not_published",
-          "huggingface_url": "https://huggingface.co/mlboydaisuke/Unlimited-OCR-CoreAI"
+          "parameters": "1.2B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "2.0GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/MinerU2.5-Pro-CoreAI"
         }
       ]
     },

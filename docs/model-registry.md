@@ -90,3 +90,4 @@
 | diffusion-pusht | Diffusion Policy PushT (fabric) | fabric | LeRobot | robotics | image, state | action | 262.9M | unknown | apache-2.0 | needs_review |
 | vqbet-pusht | VQ-BeT PushT greedy (fabric) | fabric | LeRobot | robotics | image, state | action | 26.0M | unknown | apache-2.0 | needs_review |
 | pi0-base | Pi0 (fabric) | fabric | LeRobot | vision-language-action, robotics | image, text, state | action | 3.3B | unknown | apache-2.0 | needs_review |
+| mineru-2-5-pro | MinerU2.5-Pro | external | MinerU | document-ocr | document_image, image, text | markdown, html, latex | 1.2B | unknown | Apache-2.0 | needs_review |

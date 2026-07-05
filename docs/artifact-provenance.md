@@ -92,3 +92,4 @@ Generated from `artifacts.yaml`.
 | diffusion-pusht | external | / | kevinqz/Diffusion-PushT-CoreAI | False | False |
 | vqbet-pusht | external | / | kevinqz/VQ-BeT-PushT-CoreAI | False | False |
 | pi0-base | external | / | kevinqz/Pi0-CoreAI | False | False |
+| mineru-2-5-pro | external | / | mlboydaisuke/MinerU2.5-Pro-CoreAI | False | False |

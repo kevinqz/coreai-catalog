@@ -2,7 +2,7 @@
   "export_schema_version": "1.0",
   "export_catalog_version": "2.2.3",
   "description": "Ranked by the DEPRECATED readiness_score (a curation/deployability composite, NOT model quality). Prefer per-entry deployability/lifecycle/entry_completeness facets plus benchmark VALUES. Each entry includes best-known benchmarks per metric.",
-  "total_models": 88,
+  "total_models": 89,
   "leaderboard": [
     {
       "id": "depth-anything-3-base",
@@ -2898,6 +2898,36 @@
           "license_triaged": true,
           "benchmarked": false,
           "io_contract_present": true
+        }
+      },
+      "benchmark_count": 0,
+      "best_metrics": {}
+    },
+    {
+      "id": "mineru-2-5-pro",
+      "name": "MinerU2.5-Pro",
+      "capabilities": [
+        "document-ocr"
+      ],
+      "parameters": "1.2B",
+      "readiness_score": 38,
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-04"
+      },
+      "entry_completeness": {
+        "pct": 0.5,
+        "present": 3,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
         }
       },
       "benchmark_count": 0,

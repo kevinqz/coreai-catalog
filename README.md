@@ -23,7 +23,7 @@ Not affiliated with or endorsed by Apple. `commercial_use` fields are triage lab
 
 **Version:** v2.2.3 — [PyPI](https://pypi.org/project/coreai-catalog/) · [Live site](https://kevinqz.github.io/coreai-catalog/) · [CI](https://github.com/kevinqz/coreai-catalog/actions/workflows/validate.yml)
 
-88 Apple Core AI models with artifact provenance, benchmarks, verified terminology, per-entry suitability facets (deployability / lifecycle / entry_completeness), and an MCP server for agent-native model discovery, comparison, and recommendation.
+89 Apple Core AI models with artifact provenance, benchmarks, verified terminology, per-entry suitability facets (deployability / lifecycle / entry_completeness), and an MCP server for agent-native model discovery, comparison, and recommendation.
 
 **Version contract:** PyPI = GitHub tag = `catalog.yaml` = `agent.json` = `openapi.yaml` = `README.md`. All surfaces carry the same version number.
 
@@ -65,9 +65,9 @@ The goal is not to run models directly. The goal is to know, precisely and trace
 
 | Area | Count / status |
 |---|---:|
-| Model records | 88 |
-| Artifact provenance records | 88 |
-| Source records | 24 |
+| Model records | 89 |
+| Artifact provenance records | 89 |
+| Source records | 25 |
 | Main upstreams | 2 |
 | Upstream taxonomy entries | 68 |
 | Benchmark records | 65 |
