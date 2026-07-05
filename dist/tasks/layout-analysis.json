@@ -105,6 +105,20 @@
       "has_benchmark": true
     },
     {
+      "id": "glm-ocr",
+      "name": "GLM-OCR",
+      "score": 60,
+      "parameters": "0.9B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "MIT",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
       "id": "gemma-4-12b-mm-warshanks",
       "name": "Gemma 4 12B IT Multimodal (warshanks)",
       "score": 48,
@@ -116,20 +130,6 @@
       },
       "license": "Apache-2.0",
       "commercial_use": "check_license",
-      "has_benchmark": false
-    },
-    {
-      "id": "glm-ocr",
-      "name": "GLM-OCR",
-      "score": 48,
-      "parameters": "0.9B",
-      "devices": {
-        "iphone": false,
-        "ipad": false,
-        "mac": true
-      },
-      "license": "MIT",
-      "commercial_use": "likely",
       "has_benchmark": false
     },
     {

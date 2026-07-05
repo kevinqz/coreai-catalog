@@ -22,7 +22,7 @@
     {
       "id": "glm-ocr",
       "name": "GLM-OCR",
-      "score": 48,
+      "score": 60,
       "parameters": "0.9B",
       "devices": {
         "iphone": false,

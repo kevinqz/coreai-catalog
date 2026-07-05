@@ -9172,10 +9172,10 @@
       "aot_required": false,
       "license": "MIT",
       "commercial_use": "likely",
-      "status": "needs_review",
+      "status": "confirmed",
       "maturity": "experimental",
-      "confidence": "medium",
-      "readiness_score": 48,
+      "confidence": "high",
+      "readiness_score": 60,
       "deployability": {
         "obtainable": "available",
         "runtime": "patched",
@@ -9192,9 +9192,9 @@
         "measured": false
       },
       "lifecycle": {
-        "stage": "community",
-        "verification": "needs_review",
-        "curator_confidence": "medium",
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "high",
         "last_verified": "2026-07-04"
       },
       "entry_completeness": {
