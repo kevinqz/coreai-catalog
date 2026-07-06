@@ -2,7 +2,7 @@
   "export_schema_version": "1.0",
   "export_catalog_version": "2.2.3",
   "description": "Ranked by the DEPRECATED readiness_score (a curation/deployability composite, NOT model quality). Prefer per-entry deployability/lifecycle/entry_completeness facets plus benchmark VALUES. Each entry includes best-known benchmarks per metric.",
-  "total_models": 101,
+  "total_models": 109,
   "leaderboard": [
     {
       "id": "depth-anything-3-base",
@@ -2716,6 +2716,251 @@
           "license_triaged": true,
           "benchmarked": false,
           "io_contract_present": false
+        }
+      },
+      "benchmark_count": 0,
+      "best_metrics": {}
+    },
+    {
+      "id": "qwen2.5-0.5b-instruct-int8",
+      "name": "Qwen2.5 0.5B Instruct (fabric, int8)",
+      "capabilities": [
+        "text-generation"
+      ],
+      "parameters": "not_published",
+      "readiness_score": 53,
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-06"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": true
+        }
+      },
+      "benchmark_count": 0,
+      "best_metrics": {}
+    },
+    {
+      "id": "qwen2.5-1.5b-instruct-int8",
+      "name": "Qwen2.5-1.5B-Instruct (fabric, int8)",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "parameters": "1.5B",
+      "readiness_score": 53,
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-06"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": true
+        }
+      },
+      "benchmark_count": 0,
+      "best_metrics": {}
+    },
+    {
+      "id": "qwen2.5-coder-0.5b-instruct-int8",
+      "name": "Qwen2.5-Coder 0.5B Instruct (fabric, int8)",
+      "capabilities": [
+        "code-generation",
+        "text-generation"
+      ],
+      "parameters": "not_published",
+      "readiness_score": 53,
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-06"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": true
+        }
+      },
+      "benchmark_count": 0,
+      "best_metrics": {}
+    },
+    {
+      "id": "qwen2.5-coder-1.5b-instruct-int8",
+      "name": "Qwen2.5-Coder 1.5B Instruct (fabric, int8)",
+      "capabilities": [
+        "code-generation",
+        "text-generation"
+      ],
+      "parameters": "not_published",
+      "readiness_score": 53,
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-06"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": true
+        }
+      },
+      "benchmark_count": 0,
+      "best_metrics": {}
+    },
+    {
+      "id": "qwen2.5-math-1.5b-instruct-int8",
+      "name": "Qwen2.5-Math 1.5B Instruct (fabric, int8)",
+      "capabilities": [
+        "text-generation",
+        "reasoning"
+      ],
+      "parameters": "not_published",
+      "readiness_score": 53,
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-06"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": true
+        }
+      },
+      "benchmark_count": 0,
+      "best_metrics": {}
+    },
+    {
+      "id": "qwen3-0.6b-int8",
+      "name": "Qwen3 0.6B (fabric, int8)",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "parameters": "0.6B",
+      "readiness_score": 53,
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-06"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": true
+        }
+      },
+      "benchmark_count": 0,
+      "best_metrics": {}
+    },
+    {
+      "id": "qwen3-1.7b-int8",
+      "name": "Qwen3 1.7B (fabric, int8)",
+      "capabilities": [
+        "text-generation"
+      ],
+      "parameters": "not_published",
+      "readiness_score": 53,
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-06"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": true
+        }
+      },
+      "benchmark_count": 0,
+      "best_metrics": {}
+    },
+    {
+      "id": "qwen3-4b-int8",
+      "name": "Qwen3-4B (fabric, int8)",
+      "capabilities": [
+        "text-generation"
+      ],
+      "parameters": "4B",
+      "readiness_score": 53,
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-06"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": true
         }
       },
       "benchmark_count": 0,

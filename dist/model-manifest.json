@@ -1,7 +1,7 @@
 {
   "export_schema_version": "1.0",
   "export_catalog_version": "2.2.3",
-  "model_count": 101,
+  "model_count": 109,
   "models": [
     {
       "id": "qwen3-5-0-8b",
@@ -3947,6 +3947,468 @@
         "files": {
           "tokenizer_ref": "tokenizer",
           "processor_ref": "norm_stats.json"
+        }
+      }
+    },
+    {
+      "id": "qwen2.5-0.5b-instruct-int8",
+      "name": "Qwen2.5 0.5B Instruct (fabric, int8)",
+      "bundle_kind": "llm",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "text-generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "parameters": "not_published",
+      "precision": "float16",
+      "artifact_size": "501.0MB",
+      "huggingface_url": "https://huggingface.co/kevinqz/Qwen2.5-0.5B-Instruct-CoreAI/tree/main/int8",
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen2.5-0.5B-Instruct",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAILanguageModels",
+          "type": "CoreAILanguageModel",
+          "init_pattern": "let model = try await CoreAILanguageModel(resourcesAt: bundleURL)"
+        },
+        "inputs": [
+          {
+            "name": "prompt",
+            "modality": "text",
+            "swift_type": "String"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "response",
+            "swift_type": "String",
+            "decoding": {
+              "detokenization": "embedded tokenizer (Qwen/Qwen2.5-0.5B-Instruct); LanguageModelSession.respond(to:) returns detokenized text"
+            }
+          }
+        ],
+        "session": {
+          "stateful": true,
+          "streaming": true
+        },
+        "files": {
+          "tokenizer_ref": "macos/tokenizer"
+        }
+      }
+    },
+    {
+      "id": "qwen2.5-1.5b-instruct-int8",
+      "name": "Qwen2.5-1.5B-Instruct (fabric, int8)",
+      "bundle_kind": "llm",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "parameters": "1.5B",
+      "precision": "float16",
+      "artifact_size": "1.5GB",
+      "huggingface_url": "https://huggingface.co/kevinqz/Qwen2.5-1.5B-Instruct-CoreAI/tree/main/int8",
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen2.5-1.5B-Instruct",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAILanguageModels",
+          "type": "CoreAILanguageModel",
+          "init_pattern": "let model = try await CoreAILanguageModel(resourcesAt: bundleURL)"
+        },
+        "inputs": [
+          {
+            "name": "prompt",
+            "modality": "text",
+            "swift_type": "String",
+            "constraints": {
+              "max_context": 32768
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "name": "response",
+            "swift_type": "String",
+            "decoding": {
+              "detokenization": "embedded tokenizer (Qwen/Qwen2.5-1.5B-Instruct); LanguageModelSession.respond(to:) returns detokenized text"
+            }
+          }
+        ],
+        "session": {
+          "stateful": true,
+          "streaming": true
+        },
+        "files": {
+          "tokenizer_ref": "macos/tokenizer"
+        }
+      }
+    },
+    {
+      "id": "qwen2.5-coder-0.5b-instruct-int8",
+      "name": "Qwen2.5-Coder 0.5B Instruct (fabric, int8)",
+      "bundle_kind": "llm",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "code-generation",
+        "text-generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "parameters": "not_published",
+      "precision": "float16",
+      "artifact_size": "501.0MB",
+      "huggingface_url": "https://huggingface.co/kevinqz/Qwen2.5-Coder-0.5B-Instruct-CoreAI/tree/main/int8",
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen2.5-Coder-0.5B-Instruct",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAILanguageModels",
+          "type": "CoreAILanguageModel",
+          "init_pattern": "let model = try await CoreAILanguageModel(resourcesAt: bundleURL)"
+        },
+        "inputs": [
+          {
+            "name": "prompt",
+            "modality": "text",
+            "swift_type": "String"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "response",
+            "swift_type": "String",
+            "decoding": {
+              "detokenization": "embedded tokenizer (Qwen/Qwen2.5-Coder-0.5B-Instruct); LanguageModelSession.respond(to:) returns detokenized text"
+            }
+          }
+        ],
+        "session": {
+          "stateful": true,
+          "streaming": true
+        },
+        "files": {
+          "tokenizer_ref": "macos/tokenizer"
+        }
+      }
+    },
+    {
+      "id": "qwen2.5-coder-1.5b-instruct-int8",
+      "name": "Qwen2.5-Coder 1.5B Instruct (fabric, int8)",
+      "bundle_kind": "llm",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "code-generation",
+        "text-generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "parameters": "not_published",
+      "precision": "float16",
+      "artifact_size": "1.5GB",
+      "huggingface_url": "https://huggingface.co/kevinqz/Qwen2.5-Coder-1.5B-Instruct-CoreAI/tree/main/int8",
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAILanguageModels",
+          "type": "CoreAILanguageModel",
+          "init_pattern": "let model = try await CoreAILanguageModel(resourcesAt: bundleURL)"
+        },
+        "inputs": [
+          {
+            "name": "prompt",
+            "modality": "text",
+            "swift_type": "String"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "response",
+            "swift_type": "String",
+            "decoding": {
+              "detokenization": "embedded tokenizer (Qwen/Qwen2.5-Coder-1.5B-Instruct); LanguageModelSession.respond(to:) returns detokenized text"
+            }
+          }
+        ],
+        "session": {
+          "stateful": true,
+          "streaming": true
+        },
+        "files": {
+          "tokenizer_ref": "macos/tokenizer"
+        }
+      }
+    },
+    {
+      "id": "qwen2.5-math-1.5b-instruct-int8",
+      "name": "Qwen2.5-Math 1.5B Instruct (fabric, int8)",
+      "bundle_kind": "llm",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "text-generation",
+        "reasoning"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "parameters": "not_published",
+      "precision": "float16",
+      "artifact_size": "1.5GB",
+      "huggingface_url": "https://huggingface.co/kevinqz/Qwen2.5-Math-1.5B-Instruct-CoreAI/tree/main/int8",
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen2.5-Math-1.5B-Instruct",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAILanguageModels",
+          "type": "CoreAILanguageModel",
+          "init_pattern": "let model = try await CoreAILanguageModel(resourcesAt: bundleURL)"
+        },
+        "inputs": [
+          {
+            "name": "prompt",
+            "modality": "text",
+            "swift_type": "String"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "response",
+            "swift_type": "String",
+            "decoding": {
+              "detokenization": "embedded tokenizer (Qwen/Qwen2.5-Math-1.5B-Instruct); LanguageModelSession.respond(to:) returns detokenized text"
+            }
+          }
+        ],
+        "session": {
+          "stateful": true,
+          "streaming": true
+        },
+        "files": {
+          "tokenizer_ref": "macos/tokenizer"
+        }
+      }
+    },
+    {
+      "id": "qwen3-0.6b-int8",
+      "name": "Qwen3 0.6B (fabric, int8)",
+      "bundle_kind": "llm",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "parameters": "0.6B",
+      "precision": "float16",
+      "artifact_size": "604.6MB",
+      "huggingface_url": "https://huggingface.co/kevinqz/Qwen3-0.6B-CoreAI/tree/main/int8",
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen3-0.6B",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAILanguageModels",
+          "type": "CoreAILanguageModel",
+          "init_pattern": "let model = try await CoreAILanguageModel(resourcesAt: bundleURL)"
+        },
+        "inputs": [
+          {
+            "name": "prompt",
+            "modality": "text",
+            "swift_type": "String",
+            "constraints": {
+              "max_context": 8192
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "name": "response",
+            "swift_type": "String",
+            "decoding": {
+              "detokenization": "embedded tokenizer (Qwen/Qwen3-0.6B); LanguageModelSession.respond(to:) returns detokenized text"
+            }
+          }
+        ],
+        "session": {
+          "stateful": true,
+          "streaming": true
+        },
+        "files": {
+          "tokenizer_ref": "macos/tokenizer"
+        }
+      }
+    },
+    {
+      "id": "qwen3-1.7b-int8",
+      "name": "Qwen3 1.7B (fabric, int8)",
+      "bundle_kind": "llm",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "text-generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "parameters": "not_published",
+      "precision": "float16",
+      "artifact_size": "1.7GB",
+      "huggingface_url": "https://huggingface.co/kevinqz/Qwen3-1.7B-CoreAI/tree/main/int8",
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen3-1.7B",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAILanguageModels",
+          "type": "CoreAILanguageModel",
+          "init_pattern": "let model = try await CoreAILanguageModel(resourcesAt: bundleURL)"
+        },
+        "inputs": [
+          {
+            "name": "prompt",
+            "modality": "text",
+            "swift_type": "String"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "response",
+            "swift_type": "String",
+            "decoding": {
+              "detokenization": "embedded tokenizer (Qwen/Qwen3-1.7B); LanguageModelSession.respond(to:) returns detokenized text"
+            }
+          }
+        ],
+        "session": {
+          "stateful": true,
+          "streaming": true
+        },
+        "files": {
+          "tokenizer_ref": "macos/tokenizer"
+        }
+      }
+    },
+    {
+      "id": "qwen3-4b-int8",
+      "name": "Qwen3-4B (fabric, int8)",
+      "bundle_kind": "llm",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "text-generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "parameters": "4B",
+      "precision": "float16",
+      "artifact_size": "4.0GB",
+      "huggingface_url": "https://huggingface.co/kevinqz/Qwen3-4B-CoreAI/tree/main/int8",
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen3-4B",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAILanguageModels",
+          "type": "CoreAILanguageModel",
+          "init_pattern": "let model = try await CoreAILanguageModel(resourcesAt: bundleURL)"
+        },
+        "inputs": [
+          {
+            "name": "prompt",
+            "modality": "text",
+            "swift_type": "String",
+            "constraints": {
+              "max_context": 40960
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "name": "response",
+            "swift_type": "String",
+            "decoding": {
+              "detokenization": "embedded tokenizer (Qwen/Qwen3-4B); LanguageModelSession.respond(to:) returns detokenized text"
+            }
+          }
+        ],
+        "session": {
+          "stateful": true,
+          "streaming": true
+        },
+        "files": {
+          "tokenizer_ref": "macos/tokenizer"
         }
       }
     }

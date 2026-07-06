@@ -103,3 +103,11 @@
 | smolvla-so101 | SmolVLA SO-ARM101 (fabric) | fabric | LeRobot | vision-language-action, robotics | image, text, state | action | 500M | unknown | apache-2.0 | needs_review |
 | smolvla-so101-pnp | SmolVLA SO-ARM101 Pick&Place (fabric) | fabric | LeRobot | vision-language-action, robotics | image, text, state | action | 500M | unknown | apache-2.0 | needs_review |
 | pi0fast-base | pi0-FAST base Gemma (fabric) | fabric | LeRobot | vision-language-action, robotics | image, text, state | action | 3.3B | unknown | gemma | needs_review |
+| qwen2.5-0.5b-instruct-int8 | Qwen2.5 0.5B Instruct (fabric, int8) | fabric | Qwen | text-generation | text | text | not_published | unknown | apache-2.0 | needs_review |
+| qwen2.5-1.5b-instruct-int8 | Qwen2.5-1.5B-Instruct (fabric, int8) | fabric | Qwen | chat, text-generation | text | text | 1.5B | unknown | apache-2.0 | needs_review |
+| qwen2.5-coder-0.5b-instruct-int8 | Qwen2.5-Coder 0.5B Instruct (fabric, int8) | fabric | Qwen | code-generation, text-generation | text | text | not_published | unknown | apache-2.0 | needs_review |
+| qwen2.5-coder-1.5b-instruct-int8 | Qwen2.5-Coder 1.5B Instruct (fabric, int8) | fabric | Qwen | code-generation, text-generation | text | text | not_published | unknown | apache-2.0 | needs_review |
+| qwen2.5-math-1.5b-instruct-int8 | Qwen2.5-Math 1.5B Instruct (fabric, int8) | fabric | Qwen | text-generation, reasoning | text | text | not_published | unknown | apache-2.0 | needs_review |
+| qwen3-0.6b-int8 | Qwen3 0.6B (fabric, int8) | fabric | Qwen | chat, text-generation | text | text | 0.6B | unknown | apache-2.0 | needs_review |
+| qwen3-1.7b-int8 | Qwen3 1.7B (fabric, int8) | fabric | Qwen | text-generation | text | text | not_published | unknown | apache-2.0 | needs_review |
+| qwen3-4b-int8 | Qwen3-4B (fabric, int8) | fabric | Qwen | text-generation | text | text | 4B | unknown | apache-2.0 | needs_review |

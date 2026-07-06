@@ -1,6 +1,6 @@
 # Comparison: text-generation
 
-Side-by-side comparison of all 31 model(s) with the `text-generation` capability.
+Side-by-side comparison of all 39 model(s) with the `text-generation` capability.
 
 | Model | Family | Parameters | Precision | Devices | License | Runtime | Benchmark | Source |
 |---|---|---|---|---|---|---|---|---|
@@ -23,11 +23,19 @@ Side-by-side comparison of all 31 model(s) with the `text-generation` capability
 | Mistral 7B v0.3 | Mistral | 7B | int4 | Mac | Apache-2.0 | stock-runner | 101.7 tokens_per_second (M4 Max) | 🍎 Apple recipe |
 | Nanbeige4.1-3B | Nanbeige | 3.93B | int8 | iPhone/Mac | Apache-2.0 | CoreAIRunner | 114.5 tokens_per_second (M4 Max) | 🐼 Zoo |
 | Ornith 1.0 9B | Qwen | 9B | int8 | Mac | MIT | CoreAIRunner | — | 🐼 Zoo |
+| Qwen2.5 0.5B Instruct (fabric, int8) | Qwen | not_published | float16 | unknown | apache-2.0 | CoreAIRunner | — | 🐼 Zoo |
+| Qwen2.5-1.5B-Instruct (fabric, int8) | Qwen | 1.5B | float16 | unknown | apache-2.0 | CoreAIRunner | — | 🐼 Zoo |
+| Qwen2.5-Coder 0.5B Instruct (fabric, int8) | Qwen | not_published | float16 | unknown | apache-2.0 | CoreAIRunner | — | 🐼 Zoo |
+| Qwen2.5-Coder 1.5B Instruct (fabric, int8) | Qwen | not_published | float16 | unknown | apache-2.0 | CoreAIRunner | — | 🐼 Zoo |
+| Qwen2.5-Math 1.5B Instruct (fabric, int8) | Qwen | not_published | float16 | unknown | apache-2.0 | CoreAIRunner | — | 🐼 Zoo |
 | Qwen3 0.6B | Qwen | 0.6B | int4 | iPhone/Mac | Apache-2.0 | stock-runner | 1121 tokens_per_second (M4 Max) | 🍎 Apple recipe |
+| Qwen3 0.6B (fabric, int8) | Qwen | 0.6B | float16 | unknown | apache-2.0 | CoreAIRunner | — | 🐼 Zoo |
 | Qwen3 1.7B | Qwen | 1.7B | int4 | iPhone/Mac | Apache-2.0 | stock-runner | — | 🍎 Apple recipe |
+| Qwen3 1.7B (fabric, int8) | Qwen | not_published | float16 | unknown | apache-2.0 | CoreAIRunner | — | 🐼 Zoo |
 | Qwen3 4B | Qwen | 4B | int4 | iPhone/Mac | Apache-2.0 | stock-runner | 145.4 tokens_per_second (M4 Max) | 🍎 Apple recipe |
 | Qwen3 8B | Qwen | 8B | int4 | Mac | Apache-2.0 | stock-runner | 94.1 tokens_per_second (M4 Max) | 🍎 Apple recipe |
 | Qwen3 Enhancer (Huihui Qwen3-4B Abliterated v2) | Qwen | 4B | int4 | iPhone/Mac | Apache-2.0 | CoreAIRunner | — | 🔗 Independent |
+| Qwen3-4B (fabric, int8) | Qwen | 4B | float16 | unknown | apache-2.0 | CoreAIRunner | — | 🐼 Zoo |
 | Qwen3.5-0.8B | Qwen | 0.8B | int8 | iPhone/Mac | Apache-2.0 | CoreAIRunner | 210 tokens_per_second (M4 Max) | 🐼 Zoo |
 | Qwen3.5-2B | Qwen | 2B | int8 | iPhone/Mac | Apache-2.0 | CoreAIRunner | 161 tokens_per_second (M4 Max) | 🐼 Zoo |
 | Qwen3.6-27B | Qwen | 27B | int8 | Mac | Apache-2.0 | CoreAIRunner | 15.9 tokens_per_second (M4 Max) | 🐼 Zoo |

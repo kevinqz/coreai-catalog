@@ -106,3 +106,11 @@ Generated from `artifacts.yaml`.
 | smolvla-so101 | external | / | kevinqz/SmolVLA-SO101-CoreAI | False | False |
 | smolvla-so101-pnp | external | / | kevinqz/SmolVLA-SO101-PickPlace-CoreAI | False | False |
 | pi0fast-base | external | / | kevinqz/Pi0Fast-Base-CoreAI | False | False |
+| qwen2.5-0.5b-instruct-int8 | external | / | kevinqz/Qwen2.5-0.5B-Instruct-CoreAI | False | False |
+| qwen2.5-1.5b-instruct-int8 | external | / | kevinqz/Qwen2.5-1.5B-Instruct-CoreAI | False | False |
+| qwen2.5-coder-0.5b-instruct-int8 | external | / | kevinqz/Qwen2.5-Coder-0.5B-Instruct-CoreAI | False | False |
+| qwen2.5-coder-1.5b-instruct-int8 | external | / | kevinqz/Qwen2.5-Coder-1.5B-Instruct-CoreAI | False | False |
+| qwen2.5-math-1.5b-instruct-int8 | external | / | kevinqz/Qwen2.5-Math-1.5B-Instruct-CoreAI | False | False |
+| qwen3-0.6b-int8 | external | / | kevinqz/Qwen3-0.6B-CoreAI | False | False |
+| qwen3-1.7b-int8 | external | / | kevinqz/Qwen3-1.7B-CoreAI | False | False |
+| qwen3-4b-int8 | external | / | kevinqz/Qwen3-4B-CoreAI | False | False |

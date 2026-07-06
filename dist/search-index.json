@@ -1,5 +1,5 @@
 {
-  "count": 101,
+  "count": 109,
   "export_schema_version": "1.0",
   "export_catalog_version": "2.2.3",
   "models": [
@@ -11408,6 +11408,940 @@
       "benchmarks": [],
       "last_verified": "2026-07-06",
       "notes": "Converted via coreai-fabric recipe pi0fast-base (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/pi0fast-base.yaml). Parity: gate A passed, gate B passed."
+    },
+    {
+      "id": "qwen2.5-0.5b-instruct-int8",
+      "name": "Qwen2.5 0.5B Instruct (fabric, int8)",
+      "family": "Qwen",
+      "source_group": "fabric",
+      "bundle_kind": "llm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen2.5-0.5B-Instruct",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAILanguageModels",
+          "type": "CoreAILanguageModel",
+          "init_pattern": "let model = try await CoreAILanguageModel(resourcesAt: bundleURL)"
+        },
+        "inputs": [
+          {
+            "name": "prompt",
+            "modality": "text",
+            "swift_type": "String"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "response",
+            "swift_type": "String",
+            "decoding": {
+              "detokenization": "embedded tokenizer (Qwen/Qwen2.5-0.5B-Instruct); LanguageModelSession.respond(to:) returns detokenized text"
+            }
+          }
+        ],
+        "session": {
+          "stateful": true,
+          "streaming": true
+        },
+        "files": {
+          "tokenizer_ref": "macos/tokenizer"
+        }
+      },
+      "capabilities": [
+        "text-generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [],
+      "parameters": "not_published",
+      "precision": "float16",
+      "quantization": "int8",
+      "artifact_size": "501.0MB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "status": "needs_review",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 53,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": "unknown",
+          "iphone": "unknown",
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "apache-2.0",
+          "commercial_use": "likely"
+        },
+        "hosts": 1,
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-06"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": true
+        }
+      },
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/kevinqz/Qwen2.5-0.5B-Instruct-CoreAI/tree/main/int8",
+        "huggingface_repo": "kevinqz/Qwen2.5-0.5B-Instruct-CoreAI",
+        "github_source": null,
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-07-06",
+      "notes": "Converted via coreai-fabric recipe qwen2.5-0.5b-instruct-int8 (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/qwen2.5-0.5b-instruct-int8.yaml)."
+    },
+    {
+      "id": "qwen2.5-1.5b-instruct-int8",
+      "name": "Qwen2.5-1.5B-Instruct (fabric, int8)",
+      "family": "Qwen",
+      "source_group": "fabric",
+      "bundle_kind": "llm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen2.5-1.5B-Instruct",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAILanguageModels",
+          "type": "CoreAILanguageModel",
+          "init_pattern": "let model = try await CoreAILanguageModel(resourcesAt: bundleURL)"
+        },
+        "inputs": [
+          {
+            "name": "prompt",
+            "modality": "text",
+            "swift_type": "String",
+            "constraints": {
+              "max_context": 32768
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "name": "response",
+            "swift_type": "String",
+            "decoding": {
+              "detokenization": "embedded tokenizer (Qwen/Qwen2.5-1.5B-Instruct); LanguageModelSession.respond(to:) returns detokenized text"
+            }
+          }
+        ],
+        "session": {
+          "stateful": true,
+          "streaming": true
+        },
+        "files": {
+          "tokenizer_ref": "macos/tokenizer"
+        }
+      },
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [],
+      "parameters": "1.5B",
+      "precision": "float16",
+      "quantization": "int8",
+      "artifact_size": "1.5GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "status": "needs_review",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 53,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": "unknown",
+          "iphone": "unknown",
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "apache-2.0",
+          "commercial_use": "likely"
+        },
+        "hosts": 1,
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-06"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": true
+        }
+      },
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/kevinqz/Qwen2.5-1.5B-Instruct-CoreAI/tree/main/int8",
+        "huggingface_repo": "kevinqz/Qwen2.5-1.5B-Instruct-CoreAI",
+        "github_source": null,
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-07-06",
+      "notes": "Converted via coreai-fabric recipe qwen2.5-1.5b-instruct-int8 (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/qwen2.5-1.5b-instruct-int8.yaml)."
+    },
+    {
+      "id": "qwen2.5-coder-0.5b-instruct-int8",
+      "name": "Qwen2.5-Coder 0.5B Instruct (fabric, int8)",
+      "family": "Qwen",
+      "source_group": "fabric",
+      "bundle_kind": "llm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen2.5-Coder-0.5B-Instruct",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAILanguageModels",
+          "type": "CoreAILanguageModel",
+          "init_pattern": "let model = try await CoreAILanguageModel(resourcesAt: bundleURL)"
+        },
+        "inputs": [
+          {
+            "name": "prompt",
+            "modality": "text",
+            "swift_type": "String"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "response",
+            "swift_type": "String",
+            "decoding": {
+              "detokenization": "embedded tokenizer (Qwen/Qwen2.5-Coder-0.5B-Instruct); LanguageModelSession.respond(to:) returns detokenized text"
+            }
+          }
+        ],
+        "session": {
+          "stateful": true,
+          "streaming": true
+        },
+        "files": {
+          "tokenizer_ref": "macos/tokenizer"
+        }
+      },
+      "capabilities": [
+        "code-generation",
+        "text-generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [],
+      "parameters": "not_published",
+      "precision": "float16",
+      "quantization": "int8",
+      "artifact_size": "501.0MB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "status": "needs_review",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 53,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": "unknown",
+          "iphone": "unknown",
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "apache-2.0",
+          "commercial_use": "likely"
+        },
+        "hosts": 1,
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-06"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": true
+        }
+      },
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/kevinqz/Qwen2.5-Coder-0.5B-Instruct-CoreAI/tree/main/int8",
+        "huggingface_repo": "kevinqz/Qwen2.5-Coder-0.5B-Instruct-CoreAI",
+        "github_source": null,
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-07-06",
+      "notes": "Converted via coreai-fabric recipe qwen2.5-coder-0.5b-instruct-int8 (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/qwen2.5-coder-0.5b-instruct-int8.yaml)."
+    },
+    {
+      "id": "qwen2.5-coder-1.5b-instruct-int8",
+      "name": "Qwen2.5-Coder 1.5B Instruct (fabric, int8)",
+      "family": "Qwen",
+      "source_group": "fabric",
+      "bundle_kind": "llm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAILanguageModels",
+          "type": "CoreAILanguageModel",
+          "init_pattern": "let model = try await CoreAILanguageModel(resourcesAt: bundleURL)"
+        },
+        "inputs": [
+          {
+            "name": "prompt",
+            "modality": "text",
+            "swift_type": "String"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "response",
+            "swift_type": "String",
+            "decoding": {
+              "detokenization": "embedded tokenizer (Qwen/Qwen2.5-Coder-1.5B-Instruct); LanguageModelSession.respond(to:) returns detokenized text"
+            }
+          }
+        ],
+        "session": {
+          "stateful": true,
+          "streaming": true
+        },
+        "files": {
+          "tokenizer_ref": "macos/tokenizer"
+        }
+      },
+      "capabilities": [
+        "code-generation",
+        "text-generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [],
+      "parameters": "not_published",
+      "precision": "float16",
+      "quantization": "int8",
+      "artifact_size": "1.5GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "status": "needs_review",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 53,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": "unknown",
+          "iphone": "unknown",
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "apache-2.0",
+          "commercial_use": "likely"
+        },
+        "hosts": 1,
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-06"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": true
+        }
+      },
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/kevinqz/Qwen2.5-Coder-1.5B-Instruct-CoreAI/tree/main/int8",
+        "huggingface_repo": "kevinqz/Qwen2.5-Coder-1.5B-Instruct-CoreAI",
+        "github_source": null,
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-07-06",
+      "notes": "Converted via coreai-fabric recipe qwen2.5-coder-1.5b-instruct-int8 (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/qwen2.5-coder-1.5b-instruct-int8.yaml)."
+    },
+    {
+      "id": "qwen2.5-math-1.5b-instruct-int8",
+      "name": "Qwen2.5-Math 1.5B Instruct (fabric, int8)",
+      "family": "Qwen",
+      "source_group": "fabric",
+      "bundle_kind": "llm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen2.5-Math-1.5B-Instruct",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAILanguageModels",
+          "type": "CoreAILanguageModel",
+          "init_pattern": "let model = try await CoreAILanguageModel(resourcesAt: bundleURL)"
+        },
+        "inputs": [
+          {
+            "name": "prompt",
+            "modality": "text",
+            "swift_type": "String"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "response",
+            "swift_type": "String",
+            "decoding": {
+              "detokenization": "embedded tokenizer (Qwen/Qwen2.5-Math-1.5B-Instruct); LanguageModelSession.respond(to:) returns detokenized text"
+            }
+          }
+        ],
+        "session": {
+          "stateful": true,
+          "streaming": true
+        },
+        "files": {
+          "tokenizer_ref": "macos/tokenizer"
+        }
+      },
+      "capabilities": [
+        "text-generation",
+        "reasoning"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [],
+      "parameters": "not_published",
+      "precision": "float16",
+      "quantization": "int8",
+      "artifact_size": "1.5GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "status": "needs_review",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 53,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": "unknown",
+          "iphone": "unknown",
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "apache-2.0",
+          "commercial_use": "likely"
+        },
+        "hosts": 1,
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-06"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": true
+        }
+      },
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/kevinqz/Qwen2.5-Math-1.5B-Instruct-CoreAI/tree/main/int8",
+        "huggingface_repo": "kevinqz/Qwen2.5-Math-1.5B-Instruct-CoreAI",
+        "github_source": null,
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-07-06",
+      "notes": "Converted via coreai-fabric recipe qwen2.5-math-1.5b-instruct-int8 (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/qwen2.5-math-1.5b-instruct-int8.yaml)."
+    },
+    {
+      "id": "qwen3-0.6b-int8",
+      "name": "Qwen3 0.6B (fabric, int8)",
+      "family": "Qwen",
+      "source_group": "fabric",
+      "bundle_kind": "llm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen3-0.6B",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAILanguageModels",
+          "type": "CoreAILanguageModel",
+          "init_pattern": "let model = try await CoreAILanguageModel(resourcesAt: bundleURL)"
+        },
+        "inputs": [
+          {
+            "name": "prompt",
+            "modality": "text",
+            "swift_type": "String",
+            "constraints": {
+              "max_context": 8192
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "name": "response",
+            "swift_type": "String",
+            "decoding": {
+              "detokenization": "embedded tokenizer (Qwen/Qwen3-0.6B); LanguageModelSession.respond(to:) returns detokenized text"
+            }
+          }
+        ],
+        "session": {
+          "stateful": true,
+          "streaming": true
+        },
+        "files": {
+          "tokenizer_ref": "macos/tokenizer"
+        }
+      },
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [],
+      "parameters": "0.6B",
+      "precision": "float16",
+      "quantization": "int8",
+      "artifact_size": "604.6MB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "status": "needs_review",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 53,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": "unknown",
+          "iphone": "unknown",
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "apache-2.0",
+          "commercial_use": "likely"
+        },
+        "hosts": 1,
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-06"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": true
+        }
+      },
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/kevinqz/Qwen3-0.6B-CoreAI/tree/main/int8",
+        "huggingface_repo": "kevinqz/Qwen3-0.6B-CoreAI",
+        "github_source": null,
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-07-06",
+      "notes": "Converted via coreai-fabric recipe qwen3-0.6b-int8 (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/qwen3-0.6b-int8.yaml)."
+    },
+    {
+      "id": "qwen3-1.7b-int8",
+      "name": "Qwen3 1.7B (fabric, int8)",
+      "family": "Qwen",
+      "source_group": "fabric",
+      "bundle_kind": "llm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen3-1.7B",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAILanguageModels",
+          "type": "CoreAILanguageModel",
+          "init_pattern": "let model = try await CoreAILanguageModel(resourcesAt: bundleURL)"
+        },
+        "inputs": [
+          {
+            "name": "prompt",
+            "modality": "text",
+            "swift_type": "String"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "response",
+            "swift_type": "String",
+            "decoding": {
+              "detokenization": "embedded tokenizer (Qwen/Qwen3-1.7B); LanguageModelSession.respond(to:) returns detokenized text"
+            }
+          }
+        ],
+        "session": {
+          "stateful": true,
+          "streaming": true
+        },
+        "files": {
+          "tokenizer_ref": "macos/tokenizer"
+        }
+      },
+      "capabilities": [
+        "text-generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [],
+      "parameters": "not_published",
+      "precision": "float16",
+      "quantization": "int8",
+      "artifact_size": "1.7GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "status": "needs_review",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 53,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": "unknown",
+          "iphone": "unknown",
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "apache-2.0",
+          "commercial_use": "likely"
+        },
+        "hosts": 1,
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-06"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": true
+        }
+      },
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/kevinqz/Qwen3-1.7B-CoreAI/tree/main/int8",
+        "huggingface_repo": "kevinqz/Qwen3-1.7B-CoreAI",
+        "github_source": null,
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-07-06",
+      "notes": "Converted via coreai-fabric recipe qwen3-1.7b-int8 (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/qwen3-1.7b-int8.yaml)."
+    },
+    {
+      "id": "qwen3-4b-int8",
+      "name": "Qwen3-4B (fabric, int8)",
+      "family": "Qwen",
+      "source_group": "fabric",
+      "bundle_kind": "llm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen3-4B",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAILanguageModels",
+          "type": "CoreAILanguageModel",
+          "init_pattern": "let model = try await CoreAILanguageModel(resourcesAt: bundleURL)"
+        },
+        "inputs": [
+          {
+            "name": "prompt",
+            "modality": "text",
+            "swift_type": "String",
+            "constraints": {
+              "max_context": 40960
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "name": "response",
+            "swift_type": "String",
+            "decoding": {
+              "detokenization": "embedded tokenizer (Qwen/Qwen3-4B); LanguageModelSession.respond(to:) returns detokenized text"
+            }
+          }
+        ],
+        "session": {
+          "stateful": true,
+          "streaming": true
+        },
+        "files": {
+          "tokenizer_ref": "macos/tokenizer"
+        }
+      },
+      "capabilities": [
+        "text-generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [],
+      "parameters": "4B",
+      "precision": "float16",
+      "quantization": "int8",
+      "artifact_size": "4.0GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "status": "needs_review",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 53,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": "unknown",
+          "iphone": "unknown",
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "apache-2.0",
+          "commercial_use": "likely"
+        },
+        "hosts": 1,
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-06"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": true
+        }
+      },
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/kevinqz/Qwen3-4B-CoreAI/tree/main/int8",
+        "huggingface_repo": "kevinqz/Qwen3-4B-CoreAI",
+        "github_source": null,
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-07-06",
+      "notes": "Converted via coreai-fabric recipe qwen3-4b-int8 (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/qwen3-4b-int8.yaml)."
     }
   ]
 }

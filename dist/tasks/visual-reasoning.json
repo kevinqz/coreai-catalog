@@ -4,7 +4,7 @@
     "vision-language",
     "reasoning"
   ],
-  "model_count": 10,
+  "model_count": 11,
   "models": [
     {
       "id": "minicpm5-1b",
@@ -117,6 +117,20 @@
       "license": "Gemma Terms",
       "commercial_use": "check_license",
       "has_benchmark": true
+    },
+    {
+      "id": "qwen2.5-math-1.5b-instruct-int8",
+      "name": "Qwen2.5-Math 1.5B Instruct (fabric, int8)",
+      "score": 53,
+      "parameters": "not_published",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": false
+      },
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
     },
     {
       "id": "vibethinker-3b",

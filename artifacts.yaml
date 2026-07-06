@@ -1,7 +1,7 @@
 metadata:
   name: Core AI Catalog artifact provenance
   last_verified: '2026-07-04'
-  count: 102
+  count: 110
 artifacts:
 - id: qwen3-5-0-8b
   group: zoo
@@ -4068,6 +4068,350 @@ artifacts:
       version: unknown
       recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/pi0fast-base.yaml
     recipe_source: fabric
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: qwen2.5-0.5b-instruct-int8
+  group: external
+  huggingface:
+    owner: kevinqz
+    repo: Qwen2.5-0.5B-Instruct-CoreAI
+    url: https://huggingface.co/kevinqz/Qwen2.5-0.5B-Instruct-CoreAI/tree/main/int8
+    revision: 6b127fd099db84d3e903a8b9ad29aa73e76be216
+    files:
+    - path: .gitattributes
+      sha256: 83a09d9156876134dd3f43005c23df09c1575e861a042280e2bde791615c557c
+      size_bytes: 1606
+    - path: LICENSE
+      sha256: 832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e
+      size_bytes: 11343
+    - path: README.md
+      sha256: a86b9445d06301d0aea1971830961d78466e1086031d9f279105148bb7da4e42
+      size_bytes: 6289
+    - path: int8/parity-report.json
+      sha256: 46d1f4de688a574df7f8f3166e57145ad560b97deba6a739b890129e49a6476e
+      size_bytes: 2082
+    - path: int8/qwen2.5-0.5b-instruct-int8.aimodel/main.hash
+      sha256: 53e5df84b591a8f06d45f5252f9329050306b69fbeadc9d3c594d7bbc7cb3ebe
+      size_bytes: 32
+    - path: int8/qwen2.5-0.5b-instruct-int8.aimodel/main.mlirb
+      sha256: 8ab4d26cb62dcc0d7e23e8dbc635bf844e3df1fdf6d39dd7e2626483fc1a8459
+      size_bytes: 525354407
+    - path: int8/qwen2.5-0.5b-instruct-int8.aimodel/metadata.json
+      sha256: 8a648fe5f261160e69fa5fa70cecdaa24c1d58eb147510769558c06ce25d3528
+      size_bytes: 105
+    - path: int8/reproduce-manifest.json
+      sha256: 4006ec8655033cb8c4cbc25f217cf5e02edb104090846fb7a2a29b399f7546ff
+      size_bytes: 963
+    path: tree/main/int8
+  provenance:
+    converted_by:
+      tool: coreai.llm.export
+      version: unknown
+      recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/qwen2.5-0.5b-instruct-int8.yaml
+    recipe_source: fabric
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: qwen2.5-1.5b-instruct-int8
+  group: external
+  huggingface:
+    owner: kevinqz
+    repo: Qwen2.5-1.5B-Instruct-CoreAI
+    url: https://huggingface.co/kevinqz/Qwen2.5-1.5B-Instruct-CoreAI/tree/main/int8
+    revision: ec241c1a53561c41154d265facb1e89117b78d60
+    files:
+    - path: .gitattributes
+      sha256: ea8c7d7526669c1c429d90e167d6c22f3a69697f4e857bd8ef0bb4951d8e547b
+      size_bytes: 1606
+    - path: LICENSE
+      sha256: 832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e
+      size_bytes: 11343
+    - path: README.md
+      sha256: aa37abb08fb18e369f9ea51820687c83a484470d060bedf9a27926fd5eec4b9e
+      size_bytes: 6294
+    - path: int8/parity-report.json
+      sha256: a496d2c437fff3e08c6abeab20fc089600e43232de1b195b5550a00dba7b1f53
+      size_bytes: 1917
+    - path: int8/qwen2.5-1.5b-instruct-int8.aimodel/main.hash
+      sha256: c0cb2d330835d304028eda3473e6db2e2e8ea3fd459e9bd2b65c723c548f8278
+      size_bytes: 32
+    - path: int8/qwen2.5-1.5b-instruct-int8.aimodel/main.mlirb
+      sha256: 5084cc22936f50e4b2225037597ae0e53268aa0436f527b03fe5d4977c8c13b4
+      size_bytes: 1640775106
+    - path: int8/qwen2.5-1.5b-instruct-int8.aimodel/metadata.json
+      sha256: be325b346d912bd1a0af8cde6f9aec8c20292b40aae582c7385e97380614f0db
+      size_bytes: 349
+    - path: int8/reproduce-manifest.json
+      sha256: a9c2da0048da026f99e135cddefef2687f59a0493acbe9ed2347044f1d1788b9
+      size_bytes: 963
+    path: tree/main/int8
+  provenance:
+    converted_by:
+      tool: coreai.llm.export
+      version: unknown
+      recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/qwen2.5-1.5b-instruct-int8.yaml
+    recipe_source: fabric
+    format_version: '2.0'
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: qwen2.5-coder-0.5b-instruct-int8
+  group: external
+  huggingface:
+    owner: kevinqz
+    repo: Qwen2.5-Coder-0.5B-Instruct-CoreAI
+    url: https://huggingface.co/kevinqz/Qwen2.5-Coder-0.5B-Instruct-CoreAI/tree/main/int8
+    revision: 379b3363857f1bf7217f375ab4230a9ccce6963b
+    files:
+    - path: .gitattributes
+      sha256: 994f74b5f21cee4c85f46a60b8cda3ad045b00f1f1cefa68f8cd55bd88dcd538
+      size_bytes: 1612
+    - path: LICENSE
+      sha256: 832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e
+      size_bytes: 11343
+    - path: README.md
+      sha256: 40f72358e2b60e7d569c2a4df6046d283901bdb4ec5df192fd1df3c46f2cf7c5
+      size_bytes: 6386
+    - path: int8/parity-report.json
+      sha256: 8dc562e579a558921e849e38c59b74f5b5ab21e49b03c84fe360190a83c98179
+      size_bytes: 2057
+    - path: int8/qwen2.5-coder-0.5b-instruct-int8.aimodel/main.hash
+      sha256: e276bf47646d149fa0e6e107f128721355cc03924f4586923738d97793c78fa1
+      size_bytes: 32
+    - path: int8/qwen2.5-coder-0.5b-instruct-int8.aimodel/main.mlirb
+      sha256: c3f75b252bf3547af8f2c52f931477ad34f68ce0853e84d65c89b6a81b94de29
+      size_bytes: 525354401
+    - path: int8/qwen2.5-coder-0.5b-instruct-int8.aimodel/metadata.json
+      sha256: c57fa673b97fe4a7bbedc5fd19512cd53c40716e1d2edd33c01731df11bb9e67
+      size_bytes: 105
+    - path: int8/reproduce-manifest.json
+      sha256: 04c703add23d035e296ab4fc06036b837ac43889b8446573cbc136992e3cfe5e
+      size_bytes: 999
+    path: tree/main/int8
+  provenance:
+    converted_by:
+      tool: coreai.llm.export
+      version: unknown
+      recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/qwen2.5-coder-0.5b-instruct-int8.yaml
+    recipe_source: fabric
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: qwen2.5-coder-1.5b-instruct-int8
+  group: external
+  huggingface:
+    owner: kevinqz
+    repo: Qwen2.5-Coder-1.5B-Instruct-CoreAI
+    url: https://huggingface.co/kevinqz/Qwen2.5-Coder-1.5B-Instruct-CoreAI/tree/main/int8
+    revision: fda33c650a9eb45e7f8289d8bd30ff77624d907e
+    files:
+    - path: .gitattributes
+      sha256: 02207f7c95b768fef4d9e11db576e523e804d8291e02d8ccfa675138a7783e59
+      size_bytes: 1612
+    - path: LICENSE
+      sha256: 832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e
+      size_bytes: 11343
+    - path: README.md
+      sha256: c9244a693e96cdb132488cad631d295b2b86bfde81f1ec369cbda8221e589075
+      size_bytes: 6378
+    - path: int8/parity-report.json
+      sha256: 60f70d1a3e6e378bb809b056fcbefcf16c971c67c3b81d7254c477bc802dcd1a
+      size_bytes: 2047
+    - path: int8/qwen2.5-coder-1.5b-instruct-int8.aimodel/main.hash
+      sha256: 37f51cb3bd20d75d41b730172e99c04376d867ee81f8e55a846f25e7b7f7ddb8
+      size_bytes: 32
+    - path: int8/qwen2.5-coder-1.5b-instruct-int8.aimodel/main.mlirb
+      sha256: 902045f88cdd14429dab34bdc954552eef4c2dea3c3bd17c621445598d66cd0f
+      size_bytes: 1640775131
+    - path: int8/qwen2.5-coder-1.5b-instruct-int8.aimodel/metadata.json
+      sha256: 411694599ad0c5d1164749fa2e7de02926c56007a5ed5deb2bdcd5ded76b73b2
+      size_bytes: 105
+    - path: int8/reproduce-manifest.json
+      sha256: a91daf80280dc2b580cabedbcd3fea5a73ed6581ed6e44147c2bfdb0e5a09c71
+      size_bytes: 999
+    path: tree/main/int8
+  provenance:
+    converted_by:
+      tool: coreai.llm.export
+      version: unknown
+      recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/qwen2.5-coder-1.5b-instruct-int8.yaml
+    recipe_source: fabric
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: qwen2.5-math-1.5b-instruct-int8
+  group: external
+  huggingface:
+    owner: kevinqz
+    repo: Qwen2.5-Math-1.5B-Instruct-CoreAI
+    url: https://huggingface.co/kevinqz/Qwen2.5-Math-1.5B-Instruct-CoreAI/tree/main/int8
+    revision: af307590416053f922f67ebb4d85ff8e2e33c7f6
+    files:
+    - path: .gitattributes
+      sha256: 38466d45b7babfa0b6228de7bc37a409c37e30d844ccb13f6a06c87100d786e7
+      size_bytes: 1611
+    - path: LICENSE
+      sha256: c156170b718ec29139d3653d40ed1986fd92fb7e0959b5c71f3c48f62e6636f4
+      size_bytes: 11344
+    - path: README.md
+      sha256: aeb76f21441f0e722be138bf973cfe799625236bc477147d3394ad7b51ae1c58
+      size_bytes: 6347
+    - path: int8/parity-report.json
+      sha256: e726aaf382db8ee37c9a79332f7745cc78f798df68ad3a6da26bdb03ccc30a48
+      size_bytes: 2017
+    - path: int8/qwen2.5-math-1.5b-instruct-int8.aimodel/main.hash
+      sha256: 50171660705f7485498e3e3c1fe0a35e2d2424e052e5f08887c30eae5297a84a
+      size_bytes: 32
+    - path: int8/qwen2.5-math-1.5b-instruct-int8.aimodel/main.mlirb
+      sha256: 476c1613f7e69c74a77e3695c665c2164a2c5c99bc622ca2b12ae4cf7f26c03d
+      size_bytes: 1640775115
+    - path: int8/qwen2.5-math-1.5b-instruct-int8.aimodel/metadata.json
+      sha256: 90093bcf8baf88d958b7afb6bb56474e35154f938df2ef4f2210032ab4ec54df
+      size_bytes: 105
+    - path: int8/reproduce-manifest.json
+      sha256: 5d5b97567b1eaa584c12c24be4defa5289e50732352d5d5aaa2f89c2e7482818
+      size_bytes: 993
+    path: tree/main/int8
+  provenance:
+    converted_by:
+      tool: coreai.llm.export
+      version: unknown
+      recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/qwen2.5-math-1.5b-instruct-int8.yaml
+    recipe_source: fabric
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: qwen3-0.6b-int8
+  group: external
+  huggingface:
+    owner: kevinqz
+    repo: Qwen3-0.6B-CoreAI
+    url: https://huggingface.co/kevinqz/Qwen3-0.6B-CoreAI/tree/main/int8
+    revision: 406aff00bcfb85863c4bc423cbf326e00ce425f1
+    files:
+    - path: .gitattributes
+      sha256: fd8442ee22e89bf7da3cdf884dc6cf091fcdc15a05953a5d899966bc1191da36
+      size_bytes: 1595
+    - path: LICENSE
+      sha256: 832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e
+      size_bytes: 11343
+    - path: README.md
+      sha256: 1402f34cdcb5f8e7808265c66f6b880af101a3bd5d94e5254db9adff950f1164
+      size_bytes: 6123
+    - path: int8/parity-report.json
+      sha256: 3a7698e7b46f5839a523f12cac4a918ace134f4b3a98c9733c8ca00c9fc211e6
+      size_bytes: 1823
+    - path: int8/qwen3-0.6b-int8.aimodel/main.hash
+      sha256: 73534513299a66c50174307d877499e20b1817b12325fccdc8bb9d80e7d89175
+      size_bytes: 32
+    - path: int8/qwen3-0.6b-int8.aimodel/main.mlirb
+      sha256: 61631f1733d749908c8fc1e16af6e2f36e3d53055d23dd73f788c16c9c85c727
+      size_bytes: 633970016
+    - path: int8/qwen3-0.6b-int8.aimodel/metadata.json
+      sha256: 5cf1a472e430a4a224527b2a5d22dbfc97c99858e0d1206a97149c16be04652e
+      size_bytes: 307
+    path: tree/main/int8
+  provenance:
+    converted_by:
+      tool: coreai.llm.export
+      version: unknown
+      recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/qwen3-0.6b-int8.yaml
+    recipe_source: fabric
+    format_version: '2.0'
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: qwen3-1.7b-int8
+  group: external
+  huggingface:
+    owner: kevinqz
+    repo: Qwen3-1.7B-CoreAI
+    url: https://huggingface.co/kevinqz/Qwen3-1.7B-CoreAI/tree/main/int8
+    revision: 3dee30c13a0f514c9e6ccf3f0d4cbc5f899bdbdb
+    files:
+    - path: .gitattributes
+      sha256: e72767e7b0cc4854e50e71fc4b7bf706aecad7a6ae56e94efe8396e65c08aa65
+      size_bytes: 1595
+    - path: LICENSE
+      sha256: 832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e
+      size_bytes: 11343
+    - path: README.md
+      sha256: 2994f9b32deaa7bc3ed523b14b0a11827e21042858add0a120adc72a1198a34e
+      size_bytes: 6112
+    - path: int8/parity-report.json
+      sha256: 9164be39f36db96e53065548a3e2049f84eb70f52d115d6864cfbbe0fe1f46d4
+      size_bytes: 2007
+    - path: int8/qwen3-1.7b-int8.aimodel/main.hash
+      sha256: 73e048945ee5caa840402ad7289831374d3c2af42bba80706b7a0968de687be5
+      size_bytes: 32
+    - path: int8/qwen3-1.7b-int8.aimodel/main.mlirb
+      sha256: 401d8ff058f2860724b135813230153e927cfd87b4c81d7cb1be81f95f7fa1a2
+      size_bytes: 1828832596
+    - path: int8/qwen3-1.7b-int8.aimodel/metadata.json
+      sha256: 399db3b613c3868c9c917c1989ae8fcaaa423cd468a9109036a143df057c34b3
+      size_bytes: 105
+    - path: int8/reproduce-manifest.json
+      sha256: 57830d459069ec701669ad9353e55df35ea0921ef6bb24a3fd431acf59d3362d
+      size_bytes: 897
+    path: tree/main/int8
+  provenance:
+    converted_by:
+      tool: coreai.llm.export
+      version: unknown
+      recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/qwen3-1.7b-int8.yaml
+    recipe_source: fabric
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: qwen3-4b-int8
+  group: external
+  huggingface:
+    owner: kevinqz
+    repo: Qwen3-4B-CoreAI
+    url: https://huggingface.co/kevinqz/Qwen3-4B-CoreAI/tree/main/int8
+    revision: 50b8a7d7eb38cbf0130b69877a7cd4428265d05f
+    files:
+    - path: .gitattributes
+      sha256: 25f5e4643dde9dd76aaed35d99cb767a5b6af05bfd0192b5961df51bce8e226d
+      size_bytes: 1593
+    - path: LICENSE
+      sha256: 832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e
+      size_bytes: 11343
+    - path: README.md
+      sha256: b8cf963569b30db100cd55d1eaf80ea4d0533d6ca5a778e9678aa4b87851a160
+      size_bytes: 6101
+    - path: int8/parity-report.json
+      sha256: a958f5a18453d6e2ba7fc85ca189c0dfd3ec6cf86c6d45a96627e2545c3067fd
+      size_bytes: 1900
+    - path: int8/qwen3-4b-int8.aimodel/main.hash
+      sha256: 9ebffdd6026bd133a893ff3aba41b0068e3b17e98d205918174f5a58646b6e42
+      size_bytes: 32
+    - path: int8/qwen3-4b-int8.aimodel/main.mlirb
+      sha256: 75e0c252092c78a403fa6423cf974087a2c8fb6ad6bd7ab604bbe505db17f38e
+      size_bytes: 4274987564
+    - path: int8/qwen3-4b-int8.aimodel/metadata.json
+      sha256: b15065b14a9b64a30514561110e9bbac4a2175db949c73901cc77fddd9d770c3
+      size_bytes: 301
+    - path: int8/reproduce-manifest.json
+      sha256: 5ab1f55c8c13ac924479fbb8f9a771f041ec5023541e9de62301c4f98f42149e
+      size_bytes: 885
+    path: tree/main/int8
+  provenance:
+    converted_by:
+      tool: coreai.llm.export
+      version: unknown
+      recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/qwen3-4b-int8.yaml
+    recipe_source: fabric
+    format_version: '2.0'
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false

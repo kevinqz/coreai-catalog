@@ -2,7 +2,7 @@
   "export_schema_version": "1.0",
   "export_catalog_version": "2.2.3",
   "description": "Alias mappings resolving catalog IDs to Zoo card names, CoreAIKit strings, and HF repo names.",
-  "total_models": 101,
+  "total_models": 109,
   "aliases": {
     "qwen3-5-0-8b": [
       "qwen3-5-0-8b-coreai",
@@ -584,6 +584,54 @@
       "pi0fast-base-coreai",
       "pi0fast-base.yaml",
       "pi0fast.base"
+    ],
+    "qwen2.5-0.5b-instruct-int8": [
+      "Qwen2.5-0.5B-Instruct-CoreAI",
+      "qwen2-5-0-5b-instruct-coreai",
+      "qwen2.5-0.5b-instruct-int8.yaml",
+      "qwen2.5.0.5b.instruct-int8"
+    ],
+    "qwen2.5-1.5b-instruct-int8": [
+      "Qwen2.5-1.5B-Instruct-CoreAI",
+      "qwen2-5-1-5b-instruct-coreai",
+      "qwen2.5-1.5b-instruct-int8.yaml",
+      "qwen2.5.1.5b.instruct-int8"
+    ],
+    "qwen2.5-coder-0.5b-instruct-int8": [
+      "Qwen2.5-Coder-0.5B-Instruct-CoreAI",
+      "qwen2-5-coder-0-5b-instruct-coreai",
+      "qwen2.5-coder-0.5b-instruct-int8.yaml",
+      "qwen2.5.coder.0.5b-instruct-int8"
+    ],
+    "qwen2.5-coder-1.5b-instruct-int8": [
+      "Qwen2.5-Coder-1.5B-Instruct-CoreAI",
+      "qwen2-5-coder-1-5b-instruct-coreai",
+      "qwen2.5-coder-1.5b-instruct-int8.yaml",
+      "qwen2.5.coder.1.5b-instruct-int8"
+    ],
+    "qwen2.5-math-1.5b-instruct-int8": [
+      "Qwen2.5-Math-1.5B-Instruct-CoreAI",
+      "qwen2-5-math-1-5b-instruct-coreai",
+      "qwen2.5-math-1.5b-instruct-int8.yaml",
+      "qwen2.5.math.1.5b-instruct-int8"
+    ],
+    "qwen3-0.6b-int8": [
+      "Qwen3-0.6B-CoreAI",
+      "qwen3-0-6b-coreai",
+      "qwen3-0.6b-int8.yaml",
+      "qwen3.0.6b.int8"
+    ],
+    "qwen3-1.7b-int8": [
+      "Qwen3-1.7B-CoreAI",
+      "qwen3-1-7b-coreai",
+      "qwen3-1.7b-int8.yaml",
+      "qwen3.1.7b.int8"
+    ],
+    "qwen3-4b-int8": [
+      "Qwen3-4B-CoreAI",
+      "qwen3-4b-coreai",
+      "qwen3-4b-int8.yaml",
+      "qwen3.4b.int8"
     ]
   }
 }
