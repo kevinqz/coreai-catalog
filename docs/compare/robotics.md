@@ -1,6 +1,6 @@
 # Comparison: robotics
 
-Side-by-side comparison of all 16 model(s) with the `robotics` capability.
+Side-by-side comparison of all 17 model(s) with the `robotics` capability.
 
 | Model | Family | Parameters | Precision | Devices | License | Runtime | Benchmark | Source |
 |---|---|---|---|---|---|---|---|---|
@@ -20,6 +20,7 @@ Side-by-side comparison of all 16 model(s) with the `robotics` capability.
 | SmolVLA SO-ARM101 (fabric) | LeRobot | 500M | float32 | unknown | apache-2.0 | CoreAIRunner | — | 🐼 Zoo |
 | SmolVLA SO-ARM101 Pick&Place (fabric) | LeRobot | 500M | float32 | unknown | apache-2.0 | CoreAIRunner | — | 🐼 Zoo |
 | VQ-BeT PushT greedy (fabric) | LeRobot | 26.0M | float16 | unknown | apache-2.0 | CoreAIRunner | — | 🐼 Zoo |
+| pi0-FAST base Gemma (fabric) | LeRobot | 3.3B | float16 | unknown | gemma | CoreAIRunner | — | 🐼 Zoo |
 
 > Generated automatically by `scripts/generate.py` from `catalog.yaml` + `benchmarks.jsonl`.
 

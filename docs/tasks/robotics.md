@@ -1,6 +1,6 @@
 # Robotics
 
-**16 models** in the catalog with this capability.
+**17 models** in the catalog with this capability.
 
 ## Task synonyms
 
@@ -26,6 +26,7 @@
 | [Pi0 LIBERO fine-tuned (fabric)](../../catalog.yaml#L1) | 28 | 3.3B |  | gemma | ⚠️ check_license | — | fabric |
 | [Pi0 base Gemma (fabric)](../../catalog.yaml#L1) | 28 | 3.3B |  | gemma | ⚠️ check_license | — | fabric |
 | [Pi0.5 base Gemma (fabric)](../../catalog.yaml#L1) | 28 | 3.3B |  | gemma | ⚠️ check_license | — | fabric |
+| [pi0-FAST base Gemma (fabric)](../../catalog.yaml#L1) | 28 | 3.3B |  | gemma | ⚠️ check_license | — | fabric |
 
 ## Install
 

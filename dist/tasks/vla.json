@@ -3,7 +3,7 @@
   "capabilities": [
     "vision-language-action"
   ],
-  "model_count": 11,
+  "model_count": 12,
   "models": [
     {
       "id": "bitvla",
@@ -148,6 +148,20 @@
     {
       "id": "pi05-base",
       "name": "Pi0.5 base Gemma (fabric)",
+      "score": 28,
+      "parameters": "3.3B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": false
+      },
+      "license": "gemma",
+      "commercial_use": "check_license",
+      "has_benchmark": false
+    },
+    {
+      "id": "pi0fast-base",
+      "name": "pi0-FAST base Gemma (fabric)",
       "score": 28,
       "parameters": "3.3B",
       "devices": {

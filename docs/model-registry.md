@@ -102,3 +102,4 @@
 | vibethinker-3b | VibeThinker 3B (fabric) | fabric | Qwen | text-generation, reasoning | text | text | 3B | unknown | mit | needs_review |
 | smolvla-so101 | SmolVLA SO-ARM101 (fabric) | fabric | LeRobot | vision-language-action, robotics | image, text, state | action | 500M | unknown | apache-2.0 | needs_review |
 | smolvla-so101-pnp | SmolVLA SO-ARM101 Pick&Place (fabric) | fabric | LeRobot | vision-language-action, robotics | image, text, state | action | 500M | unknown | apache-2.0 | needs_review |
+| pi0fast-base | pi0-FAST base Gemma (fabric) | fabric | LeRobot | vision-language-action, robotics | image, text, state | action | 3.3B | unknown | gemma | needs_review |

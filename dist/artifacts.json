@@ -6230,12 +6230,77 @@
         },
         "recipe_source": "fabric"
       }
+    },
+    {
+      "group": "external",
+      "huggingface": {
+        "files": [
+          {
+            "path": ".gitattributes",
+            "sha256": "780e3cc8833d7ec8090200bd507b7029825eff25a7fd2447fed985a172a08608",
+            "size_bytes": 1587
+          },
+          {
+            "path": "LICENSE",
+            "sha256": "807d96ffec11249ca9f1491430259a7173d6ed338283c57c78c3397fc2235e58",
+            "size_bytes": 9919
+          },
+          {
+            "path": "NOTICE",
+            "sha256": "1c9021cdffe508d01c5c0583b6eb5f76ceab0c5ae428fae3d6fdab928602eddd",
+            "size_bytes": 1270
+          },
+          {
+            "path": "README.md",
+            "sha256": "2ae581a0ef92a845ee394d2515972bd6c228a0f31ac02d63485c3f3946287aa6",
+            "size_bytes": 6904
+          },
+          {
+            "path": "parity-report.json",
+            "sha256": "225de2d27797d7c282218243395864c92fc41cb8d45ff2d8ebf61654727ffe64",
+            "size_bytes": 3104
+          },
+          {
+            "path": "pi0fast-base.aimodel/main.hash",
+            "sha256": "fda4214e3b8831ac2e58c11e6780b6b0e4ad6ce1c1543fa96c03a362854f2067",
+            "size_bytes": 32
+          },
+          {
+            "path": "pi0fast-base.aimodel/main.mlirb",
+            "sha256": "af73e32d9faa64b70d8aafcea30f1bff5863b1c6eeef7217ff248034bd23437c",
+            "size_bytes": 5850986232
+          },
+          {
+            "path": "pi0fast-base.aimodel/metadata.json",
+            "sha256": "eb8995f784fc7213bb2e043ad33dc4d623465b1bb4eb2a925870ac7880186a6b",
+            "size_bytes": 105
+          }
+        ],
+        "owner": "kevinqz",
+        "repo": "Pi0Fast-Base-CoreAI",
+        "revision": "10464d5d0da061d2c66c2b6024dcf96c6fa77169",
+        "url": "https://huggingface.co/kevinqz/Pi0Fast-Base-CoreAI"
+      },
+      "id": "pi0fast-base",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "provenance": {
+        "converted_by": {
+          "recipe_url": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/pi0fast-base.yaml",
+          "tool": "models/pi0fast/export.py",
+          "version": "unknown"
+        },
+        "recipe_source": "fabric"
+      }
     }
   ],
   "export_catalog_version": "2.2.3",
   "export_schema_version": "1.0",
   "metadata": {
-    "count": 101,
+    "count": 102,
     "last_verified": "2026-07-04",
     "name": "Core AI Catalog artifact provenance"
   }
