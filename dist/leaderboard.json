@@ -1,6 +1,6 @@
 {
   "export_schema_version": "1.0",
-  "export_catalog_version": "2.2.3",
+  "export_catalog_version": "2.3.0",
   "description": "Ranked by the DEPRECATED readiness_score (a curation/deployability composite, NOT model quality). Prefer per-entry deployability/lifecycle/entry_completeness facets plus benchmark VALUES. Each entry includes best-known benchmarks per metric.",
   "total_models": 109,
   "leaderboard": [

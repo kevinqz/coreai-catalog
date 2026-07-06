@@ -1,6 +1,6 @@
 # Core AI Catalog
 
-> A source-grounded catalog of 100 Apple Core AI models, artifacts, benchmarks,
+> A source-grounded catalog of 109 Apple Core AI models, artifacts, benchmarks,
 > provenance, and a verified Apple AI terminology layer.
 
 Core AI Catalog helps you discover, compare, verify, and install Apple Core AI
@@ -8,17 +8,17 @@ models. It maps Core AI-compatible model artifacts with granular metadata,
 source links, Hugging Face artifact references, runtime requirements, device
 support, benchmark records, and verification status.
 
-- **Version:** 2.2.3
+- **Version:** 2.3.0
 - **Last verified:** 2026-07-04
 
 ## Catalog facts
 
-- 100 model records (chat, vision-language, speech, embeddings, detection, more)
-- 101 artifact provenance records (Hugging Face + GitHub sources)
+- 109 model records (chat, vision-language, speech, embeddings, detection, more)
+- 110 artifact provenance records (Hugging Face + GitHub sources)
 - 65 benchmark records (throughput, latency, RTF — iPhone + Mac)
 - min_os on every model: all current models require macOS/iOS 27
   (the apple/coreai-models runtime declares macOS 27.0); typed io_contract
-  blocks on priority models, authored bundle_kind on all 100
+  blocks on priority models, authored bundle_kind on all 109
 - 42 verified Apple AI terminology entries (each citing an official source)
 - 8 independent Hugging Face converters indexed (multi-upstream)
 - Suitability facets per entry: **deployability** (obtainable/runtime/device/license),

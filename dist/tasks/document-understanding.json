@@ -148,7 +148,7 @@
     }
   ],
   "export_schema_version": "1.0",
-  "export_catalog_version": "2.2.3",
+  "export_catalog_version": "2.3.0",
   "best_overall": "minicpm-v-4-6",
   "best_iphone": "minicpm-v-4-6",
   "best_commercial": "minicpm-v-4-6"

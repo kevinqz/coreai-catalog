@@ -6,12 +6,26 @@ project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [2.3.0] — 2026-07-06
+
 ### Added
 
+- **Catalog expansion to 109 models / 110 artifacts** (was 82) — the full LeRobot
+  VLA / action lane produced by coreai-fabric: ACT · Diffusion · VQ-BeT · pi0 · pi0.5 ·
+  SmolVLA · **pi0fast** (the first autoregressive VLA), including the SO-ARM101 suite;
+  plus **8 int8 Qwen conversions** (Qwen2.5 ×5 + Qwen3 ×3) and VibeThinker-3B. Every
+  entry is provenance-linked to its `source_group: fabric` recipe.
 - **Suitability facets** — decomposed `deployability` / `lifecycle` /
   `entry_completeness` per entry (`dist/search-index.json`, `dist/leaderboard.json`),
   with `schema/model.schema.json` definitions and a full reference at
   `docs/concepts/suitability-facets.md`. Model quality now lives in benchmark values.
+
+### Fixed
+
+- **Version + count contract re-synced** across all surfaces (README, `llms.txt`,
+  `llms-full.txt`, `agent.json`, `openapi.yaml`, `catalog.yaml`, site) — the model/
+  artifact counts had drifted (100/101 → 109/110) as entries were ingested without a
+  surface sync. `scripts/check_counts.py` (in CI) is the single source of truth.
 
 ### Deprecated
 
