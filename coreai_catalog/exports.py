@@ -53,6 +53,7 @@ def derive_bundle_kind(model: dict[str, Any]) -> str:
         ({"embedding", "image-text-similarity", "visual-document-retrieval"},
          "embedding"),
         ({"reranking"}, "reranker"),
+        ({"token-classification"}, "token-classification"),
         ({"object-detection"}, "object-detection"),
         ({"instance-segmentation", "promptable-segmentation"}, "segmentation"),
         ({"monocular-depth"}, "depth"),
