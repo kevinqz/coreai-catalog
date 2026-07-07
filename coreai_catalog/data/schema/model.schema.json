@@ -263,7 +263,8 @@
         "audio-generation",
         "video",
         "3d",
-        "action"
+        "action",
+        "token-classification"
       ]
     },
     "min_os": {

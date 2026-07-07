@@ -117,3 +117,4 @@ Generated from `artifacts.yaml`.
 | vla-jepa-libero | external | / | kevinqz/VLA-JEPA-LIBERO-CoreAI | False | False |
 | vla-jepa-pretrain | external | / | kevinqz/VLA-JEPA-Pretrain-CoreAI | False | False |
 | vla-jepa-simpler-env | external | / | kevinqz/VLA-JEPA-SimplerEnv-CoreAI | False | False |
+| pulpie-orange-base | external | / | kevinqz/Pulpie-Orange-Base-CoreAI | False | False |

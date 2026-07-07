@@ -32,6 +32,7 @@ Browse models by capability.
 - [Text To Audio](./text-to-audio.md) — 1 models
 - [Text To Speech](./text-to-speech.md) — 6 models
 - [Text To Video](./text-to-video.md) — 1 models
+- [Token Classification](./token-classification.md) — 1 models
 - [Video Classification](./video-classification.md) — 1 models
 - [Vision Language](./vision-language.md) — 7 models
 - [Vision Language Action](./vision-language-action.md) — 15 models
