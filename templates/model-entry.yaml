@@ -28,6 +28,7 @@
     precision: int8
     quantization: int8lin
     artifact_size: 850MB
+    fidelity_tier: high_fidelity   # high_fidelity | balanced | size; optional
   runtime:
     runtime_name: apple-core-ai   # apple-core-ai | coreml | unknown
     runner: CoreAIRunner   # CoreAIRunner | stock-runner | CoreAIDiffusionPipeline | CoreAIImageSegmenter | CoreAITranscribe | CoreAIVideoPipeline | CoreAIKit-GraphModel | unknown
@@ -124,3 +125,19 @@
     present: 1   # optional
     of: 1   # optional
     fields: {}   # optional
+  evaluation:   # The measured Gate B parity signature (verbatim from the fabric parity-report gate_b), so the number reaches the registry instead of dying in a note. Keys vary by metric family; absent when unmeasured. — optional
+    metric: replace-me
+    status: replace-me   # optional
+    reason: replace-me   # optional
+    margin_gated_match_rate: 1.0   # optional
+    margin_gated_ci95:   # optional
+    - 1.0
+    argmax_match_rate: 1.0   # optional
+    top5_agreement_rate: 1.0   # optional
+    matched: 1   # optional
+    compared: 1   # optional
+    greedy_token_exact: false   # optional
+    reference_dtype: replace-me   # optional
+    flip_margin_nats: 1.0   # optional
+    runner: replace-me   # optional
+    measured_on: replace-me   # optional
