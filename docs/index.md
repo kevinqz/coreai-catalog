@@ -17,8 +17,8 @@
 
 ## Counts
 
-- Models: 123
-- Artifacts: 124
+- Models: 124
+- Artifacts: 125
 - Sources: 26
 - Upstream taxonomy entries: 68
 - Benchmark records: 65

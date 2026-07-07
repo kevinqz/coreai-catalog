@@ -125,3 +125,4 @@
 | youtu-llm-2b | Youtu-LLM-2B | zoo | Youtu | chat, text-generation, mla | text | text | 2B | iPhone/Mac | Other | confirmed |
 | streaming-sortformer-diar | Streaming Sortformer Diarization | zoo | Sortformer | speaker-diarization, voice-activity-detection | audio | labels | 117M | iPhone/Mac | CC-BY-4.0 | confirmed |
 | evo1-so100 | EVO1 SO-100 (fabric) | fabric | LeRobot | vision-language-action, robotics | image, text, state | action | 0.77B | unknown | apache-2.0 | needs_review |
+| robometer-4b | Robometer-4B Reward (fabric) | fabric | Robometer | reward-modeling, robotics | image, text | reward | 4.45B | unknown | apache-2.0 | needs_review |

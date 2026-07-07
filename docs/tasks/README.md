@@ -27,7 +27,8 @@ Browse models by capability.
 - [Promptable Segmentation](./promptable-segmentation.md) — 2 models
 - [Reasoning](./reasoning.md) — 4 models
 - [Reranking](./reranking.md) — 1 models
-- [Robotics](./robotics.md) — 21 models
+- [Reward Modeling](./reward-modeling.md) — 1 models
+- [Robotics](./robotics.md) — 22 models
 - [Speaker Diarization](./speaker-diarization.md) — 1 models
 - [Speculative Decoding](./speculative-decoding.md) — 1 models
 - [Speech To Text](./speech-to-text.md) — 8 models

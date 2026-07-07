@@ -1,7 +1,7 @@
 metadata:
   name: Core AI Catalog artifact provenance
   last_verified: '2026-07-04'
-  count: 124
+  count: 125
 artifacts:
 - id: qwen3-5-0-8b
   group: zoo
@@ -4846,6 +4846,46 @@ artifacts:
       tool: models/evo1/export.py
       version: unknown
       recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/evo1-so100.yaml
+    recipe_source: fabric
+    format_version: '2.0'
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: robometer-4b
+  group: external
+  huggingface:
+    owner: kevinqz
+    repo: Robometer-4B-CoreAI
+    url: https://huggingface.co/kevinqz/Robometer-4B-CoreAI
+    revision: 71c3cb96f0eb06027b6a6a08307e81e4a717a8ed
+    files:
+    - path: .gitattributes
+      sha256: d823f243fbb92a3d6d6001ed4be62345ff8155e3038367438e0da5ca1e8d4a55
+      size_bytes: 1587
+    - path: LICENSE
+      sha256: f9b5a5bf33163f0fd5e831d4bc6fdc4f4401b7e0101abe337add2d0872914449
+      size_bytes: 11961
+    - path: README.md
+      sha256: 82ab019f973275233163129f4ac539be62a1c8c7ee5148f7acdf56e02e432625
+      size_bytes: 5272
+    - path: parity-report.json
+      sha256: 9b27be8052e6331a5dd09cb2615db970050ec140230981caac5a71803a37d9cf
+      size_bytes: 2238
+    - path: robometer-4b.aimodel/main.hash
+      sha256: f377ac6a12dadd659b88e1bfb4fcd83e11ab4b5920f741b8bf0fd57d80f62d9c
+      size_bytes: 32
+    - path: robometer-4b.aimodel/main.mlirb
+      sha256: a8ba8b0b451ee62489a379f144aec84b74285b8e5f361a0761496c3d1608f1da
+      size_bytes: 26300680
+    - path: robometer-4b.aimodel/metadata.json
+      sha256: 90fd55f5236f47a9836b0de7d100c33ba6c391b6717a0a27d726f2b6e77a8bac
+      size_bytes: 105
+  provenance:
+    converted_by:
+      tool: models/robometer/export.py
+      version: unknown
+      recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/robometer-4b.yaml
     recipe_source: fabric
     format_version: '2.0'
   officiality:

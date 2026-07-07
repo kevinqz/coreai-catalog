@@ -128,3 +128,4 @@ Generated from `artifacts.yaml`.
 | youtu-llm-2b | zoo | / | mlboydaisuke/Youtu-LLM-2B-CoreAI | False | False |
 | streaming-sortformer-diar | zoo | / | mlboydaisuke/Streaming-Sortformer-Diar-CoreAI | False | False |
 | evo1-so100 | external | / | kevinqz/EVO1-SO100-CoreAI | False | False |
+| robometer-4b | external | / | kevinqz/Robometer-4B-CoreAI | False | False |

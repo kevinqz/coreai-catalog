@@ -1,7 +1,7 @@
 {
   "export_schema_version": "1.0",
   "export_catalog_version": "2.3.0",
-  "model_count": 123,
+  "model_count": 124,
   "models": [
     {
       "id": "qwen3-5-0-8b",
@@ -4950,6 +4950,35 @@
           "processor_ref": "norm_stats.json"
         }
       }
+    },
+    {
+      "id": "robometer-4b",
+      "name": "Robometer-4B Reward (fabric)",
+      "bundle_kind": "reward-model",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "reward-modeling",
+        "robotics"
+      ],
+      "input_modalities": [
+        "image",
+        "text"
+      ],
+      "output_modalities": [
+        "reward"
+      ],
+      "parameters": "4.45B",
+      "precision": "float32",
+      "artifact_size": "25.1MB",
+      "huggingface_url": "https://huggingface.co/kevinqz/Robometer-4B-CoreAI",
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "lerobot/Robometer-4B",
+      "io_contract": null
     }
   ]
 }

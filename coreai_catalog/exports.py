@@ -47,6 +47,7 @@ def derive_bundle_kind(model: dict[str, Any]) -> str:
 
     rules: list[tuple[set[str], str]] = [
         ({"document-ocr"}, "ocr"),
+        ({"reward-modeling"}, "reward-model"),
         ({"vision-language-action", "robotics"}, "action"),
         ({"vision-language", "gui-grounding"}, "vlm"),
         ({"audio-understanding"}, "audio-lm"),

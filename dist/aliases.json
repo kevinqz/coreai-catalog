@@ -2,7 +2,7 @@
   "export_schema_version": "1.0",
   "export_catalog_version": "2.3.0",
   "description": "Alias mappings resolving catalog IDs to Zoo card names, CoreAIKit strings, and HF repo names.",
-  "total_models": 123,
+  "total_models": 124,
   "aliases": {
     "qwen3-5-0-8b": [
       "qwen3-5-0-8b-coreai",
@@ -715,6 +715,12 @@
       "evo1-so100-coreai",
       "evo1-so100.yaml",
       "evo1.so100"
+    ],
+    "robometer-4b": [
+      "Robometer-4B-CoreAI",
+      "robometer-4b-coreai",
+      "robometer-4b.yaml",
+      "robometer.4b"
     ]
   }
 }

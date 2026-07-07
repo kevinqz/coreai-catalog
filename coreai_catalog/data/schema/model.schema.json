@@ -266,7 +266,8 @@
         "action",
         "token-classification",
         "image-feature-extraction",
-        "diarization"
+        "diarization",
+        "reward-model"
       ]
     },
     "min_os": {
