@@ -5,7 +5,7 @@
     "reranking",
     "chat"
   ],
-  "model_count": 35,
+  "model_count": 36,
   "models": [
     {
       "id": "qwen3-embedding-0-6b",
@@ -481,6 +481,20 @@
       },
       "license": "apache-2.0",
       "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "youtu-llm-2b",
+      "name": "Youtu-LLM-2B",
+      "score": 53,
+      "parameters": "2B",
+      "devices": {
+        "iphone": true,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "Other",
+      "commercial_use": "check_license",
       "has_benchmark": false
     },
     {

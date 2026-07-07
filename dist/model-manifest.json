@@ -1,7 +1,7 @@
 {
   "export_schema_version": "1.0",
   "export_catalog_version": "2.3.0",
-  "model_count": 113,
+  "model_count": 117,
   "models": [
     {
       "id": "qwen3-5-0-8b",
@@ -4633,6 +4633,120 @@
         "ios": "27.0"
       },
       "upstream_repo": "feyninc/pulpie-orange-base",
+      "io_contract": null
+    },
+    {
+      "id": "gliner2-pii",
+      "name": "GLiNER2 PII",
+      "bundle_kind": "token-classification",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "token-classification",
+        "named-entity-recognition",
+        "pii-redaction"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "parameters": "278M",
+      "precision": "float16",
+      "artifact_size": "823MB",
+      "huggingface_url": "https://huggingface.co/mlboydaisuke/GLiNER2-PII-CoreAI",
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "fastino/gliner2-privacy-filter-PII-multi",
+      "io_contract": null
+    },
+    {
+      "id": "glm-image",
+      "name": "GLM-Image",
+      "bundle_kind": "image-generation",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "image-generation",
+        "text-to-image"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "image"
+      ],
+      "parameters": "16B",
+      "precision": "int8",
+      "artifact_size": "20GB",
+      "huggingface_url": "https://huggingface.co/mlboydaisuke/GLM-Image-CoreAI",
+      "license": "MIT",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "zai-org/GLM-Image",
+      "io_contract": null
+    },
+    {
+      "id": "youtu-llm-2b",
+      "name": "Youtu-LLM-2B",
+      "bundle_kind": "llm",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "chat",
+        "text-generation",
+        "mla"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "parameters": "2B",
+      "precision": "int8",
+      "artifact_size": "2.39GB",
+      "huggingface_url": "https://huggingface.co/mlboydaisuke/Youtu-LLM-2B-CoreAI",
+      "license": "Other",
+      "commercial_use": "check_license",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "tencent/Youtu-LLM-2B",
+      "io_contract": null
+    },
+    {
+      "id": "streaming-sortformer-diar",
+      "name": "Streaming Sortformer Diarization",
+      "bundle_kind": "diarization",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "speaker-diarization",
+        "voice-activity-detection"
+      ],
+      "input_modalities": [
+        "audio"
+      ],
+      "output_modalities": [
+        "labels"
+      ],
+      "parameters": "117M",
+      "precision": "float16",
+      "artifact_size": "708MB",
+      "huggingface_url": "https://huggingface.co/mlboydaisuke/Streaming-Sortformer-Diar-CoreAI",
+      "license": "CC-BY-4.0",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "nvidia/diar_streaming_sortformer_4spk-v2",
       "io_contract": null
     }
   ]

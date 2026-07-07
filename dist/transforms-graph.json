@@ -22,6 +22,7 @@
     "gaussian-splats",
     "html",
     "image",
+    "labels",
     "latex",
     "markdown",
     "masks",
@@ -32,9 +33,17 @@
     "vector",
     "video"
   ],
-  "direct_edge_count": 39,
-  "total_reachable_pairs": 75,
+  "direct_edge_count": 40,
+  "total_reachable_pairs": 79,
   "direct_edges": [
+    {
+      "input": "audio",
+      "output": "labels",
+      "model_ids": [
+        "streaming-sortformer-diar"
+      ],
+      "model_count": 1
+    },
     {
       "input": "audio",
       "output": "text",
@@ -399,10 +408,11 @@
       "input": "text",
       "output": "image",
       "model_ids": [
+        "glm-image",
         "official-flux-2-klein-4b",
         "z-image-turbo"
       ],
-      "model_count": 2
+      "model_count": 3
     },
     {
       "input": "text",
@@ -450,6 +460,7 @@
         "gemma-4-e2b",
         "gemma-4-e2b-vision",
         "gemma-4-e4b",
+        "gliner2-pii",
         "glm-4-7-flash",
         "glm-ocr",
         "granite-4-0-h-1b",
@@ -487,9 +498,10 @@
         "qwen3-vl-4b",
         "qwen3-vl-8b",
         "rwkv7-goose-1-5b",
-        "vibethinker-3b"
+        "vibethinker-3b",
+        "youtu-llm-2b"
       ],
-      "model_count": 47
+      "model_count": 49
     },
     {
       "input": "text",
@@ -530,6 +542,7 @@
       "gaussian-splats",
       "html",
       "image",
+      "labels",
       "latex",
       "markdown",
       "masks",
@@ -550,6 +563,7 @@
       "gaussian-splats",
       "html",
       "image",
+      "labels",
       "latex",
       "markdown",
       "masks",
@@ -573,6 +587,7 @@
       "gaussian-splats",
       "html",
       "image",
+      "labels",
       "latex",
       "markdown",
       "masks",
@@ -599,6 +614,7 @@
       "gaussian-splats",
       "html",
       "image",
+      "labels",
       "latex",
       "markdown",
       "masks",
@@ -1000,6 +1016,32 @@
           "runner": "CoreAIDiffusionPipeline",
           "artifact_size": "4GB",
           "huggingface_url": "https://huggingface.co/mlboydaisuke/FLUX.2-klein-4B-CoreAI"
+        }
+      ]
+    },
+    "audio→labels": {
+      "input_modality": "audio",
+      "output_modality": "labels",
+      "hop_count": 1,
+      "modality_chain": [
+        "audio",
+        "labels"
+      ],
+      "model_ids": [
+        "streaming-sortformer-diar"
+      ],
+      "total_artifact_size": "708MB",
+      "stages": [
+        {
+          "model_id": "streaming-sortformer-diar",
+          "model_name": "Streaming Sortformer Diarization",
+          "input_modality": "audio",
+          "output_modality": "labels",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "117M",
+          "runner": "CoreAIRunner",
+          "artifact_size": "708MB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Streaming-Sortformer-Diar-CoreAI"
         }
       ]
     },
@@ -1705,6 +1747,58 @@
         }
       ]
     },
+    "document_image→labels": {
+      "input_modality": "document_image",
+      "output_modality": "labels",
+      "hop_count": 3,
+      "modality_chain": [
+        "document_image",
+        "text",
+        "audio",
+        "labels"
+      ],
+      "model_ids": [
+        "glm-ocr",
+        "voxcpm-0-5b",
+        "streaming-sortformer-diar"
+      ],
+      "total_artifact_size": "1.6GB + 1.0GB + 708MB",
+      "stages": [
+        {
+          "model_id": "glm-ocr",
+          "model_name": "GLM-OCR",
+          "input_modality": "document_image",
+          "output_modality": "text",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "0.9B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "1.6GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/GLM-OCR-CoreAI"
+        },
+        {
+          "model_id": "voxcpm-0-5b",
+          "model_name": "VoxCPM-0.5B",
+          "input_modality": "text",
+          "output_modality": "audio",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "0.5B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "1.0GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/VoxCPM-0.5B-CoreAI"
+        },
+        {
+          "model_id": "streaming-sortformer-diar",
+          "model_name": "Streaming Sortformer Diarization",
+          "input_modality": "audio",
+          "output_modality": "labels",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "117M",
+          "runner": "CoreAIRunner",
+          "artifact_size": "708MB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Streaming-Sortformer-Diar-CoreAI"
+        }
+      ]
+    },
     "document_image→latex": {
       "input_modality": "document_image",
       "output_modality": "latex",
@@ -2287,6 +2381,58 @@
           "runner": "CoreAIImageSegmenter",
           "artifact_size": "not_published",
           "huggingface_url": "https://huggingface.co/bryanbblewis11/RealESRGAN-x4v3-CoreAI"
+        }
+      ]
+    },
+    "image→labels": {
+      "input_modality": "image",
+      "output_modality": "labels",
+      "hop_count": 3,
+      "modality_chain": [
+        "image",
+        "text",
+        "audio",
+        "labels"
+      ],
+      "model_ids": [
+        "minicpm-v-4-6",
+        "voxcpm-0-5b",
+        "streaming-sortformer-diar"
+      ],
+      "total_artifact_size": "not_published + 1.0GB + 708MB",
+      "stages": [
+        {
+          "model_id": "minicpm-v-4-6",
+          "model_name": "MiniCPM-V 4.6",
+          "input_modality": "image",
+          "output_modality": "text",
+          "estimated_tokens_per_sec": 224.3,
+          "parameters": "sub-2B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "not_published",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/MiniCPM-V-4.6-CoreAI"
+        },
+        {
+          "model_id": "voxcpm-0-5b",
+          "model_name": "VoxCPM-0.5B",
+          "input_modality": "text",
+          "output_modality": "audio",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "0.5B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "1.0GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/VoxCPM-0.5B-CoreAI"
+        },
+        {
+          "model_id": "streaming-sortformer-diar",
+          "model_name": "Streaming Sortformer Diarization",
+          "input_modality": "audio",
+          "output_modality": "labels",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "117M",
+          "runner": "CoreAIRunner",
+          "artifact_size": "708MB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Streaming-Sortformer-Diar-CoreAI"
         }
       ]
     },
@@ -2885,6 +3031,45 @@
           "runner": "CoreAIDiffusionPipeline",
           "artifact_size": "4GB",
           "huggingface_url": "https://huggingface.co/mlboydaisuke/FLUX.2-klein-4B-CoreAI"
+        }
+      ]
+    },
+    "text→labels": {
+      "input_modality": "text",
+      "output_modality": "labels",
+      "hop_count": 2,
+      "modality_chain": [
+        "text",
+        "audio",
+        "labels"
+      ],
+      "model_ids": [
+        "voxcpm-0-5b",
+        "streaming-sortformer-diar"
+      ],
+      "total_artifact_size": "1.0GB + 708MB",
+      "stages": [
+        {
+          "model_id": "voxcpm-0-5b",
+          "model_name": "VoxCPM-0.5B",
+          "input_modality": "text",
+          "output_modality": "audio",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "0.5B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "1.0GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/VoxCPM-0.5B-CoreAI"
+        },
+        {
+          "model_id": "streaming-sortformer-diar",
+          "model_name": "Streaming Sortformer Diarization",
+          "input_modality": "audio",
+          "output_modality": "labels",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "117M",
+          "runner": "CoreAIRunner",
+          "artifact_size": "708MB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Streaming-Sortformer-Diar-CoreAI"
         }
       ]
     },

@@ -115,3 +115,7 @@
 | vla-jepa-pretrain | VLA-JEPA Pretrain (fabric) | fabric | LeRobot | vision-language-action, robotics | image, text, state | action | 3B | unknown | apache-2.0 | needs_review |
 | vla-jepa-simpler-env | VLA-JEPA SimplerEnv (fabric) | fabric | LeRobot | vision-language-action, robotics | image, text | action | 3B | unknown | apache-2.0 | needs_review |
 | pulpie-orange-base | Pulpie Orange Base (fabric) | fabric | EuroBERT | token-classification | text | text | 0.6B | unknown | apache-2.0 | needs_review |
+| gliner2-pii | GLiNER2 PII | zoo | GLiNER | token-classification, named-entity-recognition, pii-redaction | text | text | 278M | iPhone/Mac | Apache-2.0 | confirmed |
+| glm-image | GLM-Image | zoo | GLM | image-generation, text-to-image | text | image | 16B | Mac | MIT | confirmed |
+| youtu-llm-2b | Youtu-LLM-2B | zoo | Youtu | chat, text-generation, mla | text | text | 2B | iPhone/Mac | Other | confirmed |
+| streaming-sortformer-diar | Streaming Sortformer Diarization | zoo | Sortformer | speaker-diarization, voice-activity-detection | audio | labels | 117M | iPhone/Mac | CC-BY-4.0 | confirmed |

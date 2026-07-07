@@ -306,6 +306,11 @@
       "score": 68
     },
     {
+      "id": "streaming-sortformer-diar",
+      "name": "Streaming Sortformer Diarization",
+      "score": 68
+    },
+    {
       "id": "voxcpm2-2b",
       "name": "VoxCPM2 2B",
       "score": 68
@@ -328,6 +333,11 @@
     {
       "id": "gemma-4-e4b",
       "name": "Gemma 4 E4B",
+      "score": 63
+    },
+    {
+      "id": "gliner2-pii",
+      "name": "GLiNER2 PII",
       "score": 63
     },
     {
@@ -393,6 +403,11 @@
     {
       "id": "glm-4-7-flash",
       "name": "GLM-4.7-Flash",
+      "score": 53
+    },
+    {
+      "id": "glm-image",
+      "name": "GLM-Image",
       "score": 53
     },
     {
@@ -463,6 +478,11 @@
     {
       "id": "vla-jepa-simpler-env",
       "name": "VLA-JEPA SimplerEnv (fabric)",
+      "score": 53
+    },
+    {
+      "id": "youtu-llm-2b",
+      "name": "Youtu-LLM-2B",
       "score": 53
     },
     {

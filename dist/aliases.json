@@ -2,7 +2,7 @@
   "export_schema_version": "1.0",
   "export_catalog_version": "2.3.0",
   "description": "Alias mappings resolving catalog IDs to Zoo card names, CoreAIKit strings, and HF repo names.",
-  "total_models": 113,
+  "total_models": 117,
   "aliases": {
     "qwen3-5-0-8b": [
       "qwen3-5-0-8b-coreai",
@@ -656,6 +656,29 @@
       "pulpie-orange-base-coreai",
       "pulpie-orange-base.yaml",
       "pulpie.orange.base"
+    ],
+    "gliner2-pii": [
+      "GLiNER2-PII-CoreAI",
+      "gliner2-pii-coreai",
+      "gliner2.pii"
+    ],
+    "glm-image": [
+      "GLM-Image-CoreAI",
+      "glm-image-coreai",
+      "glm-image.md",
+      "glm.image"
+    ],
+    "youtu-llm-2b": [
+      "Youtu-LLM-2B-CoreAI",
+      "youtu",
+      "youtu-llm-2b-coreai",
+      "youtu.llm.2b"
+    ],
+    "streaming-sortformer-diar": [
+      "Streaming-Sortformer-Diar-CoreAI",
+      "sortformer_diar",
+      "streaming-sortformer-diar-coreai",
+      "streaming.sortformer.diar"
     ]
   }
 }

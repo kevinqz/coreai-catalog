@@ -7062,12 +7062,68 @@
         "format_version": "2.0",
         "recipe_source": "fabric"
       }
+    },
+    {
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "GLiNER2-PII-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/GLiNER2-PII-CoreAI"
+      },
+      "id": "gliner2-pii",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "GLM-Image-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/GLM-Image-CoreAI"
+      },
+      "id": "glm-image",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "Youtu-LLM-2B-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/Youtu-LLM-2B-CoreAI"
+      },
+      "id": "youtu-llm-2b",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "Streaming-Sortformer-Diar-CoreAI",
+        "url": "https://huggingface.co/mlboydaisuke/Streaming-Sortformer-Diar-CoreAI"
+      },
+      "id": "streaming-sortformer-diar",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
     }
   ],
   "export_catalog_version": "2.3.0",
   "export_schema_version": "1.0",
   "metadata": {
-    "count": 114,
+    "count": 118,
     "last_verified": "2026-07-04",
     "name": "Core AI Catalog artifact provenance"
   }

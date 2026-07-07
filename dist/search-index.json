@@ -1,5 +1,5 @@
 {
-  "count": 113,
+  "count": 117,
   "export_schema_version": "1.0",
   "export_catalog_version": "2.3.0",
   "models": [
@@ -12801,6 +12801,367 @@
       "benchmarks": [],
       "last_verified": "2026-07-07",
       "notes": "Converted via coreai-fabric recipe pulpie-orange-base (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/pulpie-orange-base.yaml). Parity: gate A passed, gate B passed."
+    },
+    {
+      "id": "gliner2-pii",
+      "name": "GLiNER2 PII",
+      "family": "GLiNER",
+      "source_group": "zoo",
+      "bundle_kind": "token-classification",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "fastino/gliner2-privacy-filter-PII-multi",
+      "io_contract": null,
+      "capabilities": [
+        "token-classification",
+        "named-entity-recognition",
+        "pii-redaction"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "278M",
+      "precision": "float16",
+      "quantization": "none",
+      "artifact_size": "823MB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": true,
+      "aot_required": true,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 63,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "hosts": 1,
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-07"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/GLiNER2-PII-CoreAI",
+        "huggingface_repo": "mlboydaisuke/GLiNER2-PII-CoreAI",
+        "github_source": null,
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-07-07",
+      "notes": "Zero-shot GLiNER2 NER/PII extraction on mDeBERTa-v3 (seq len 256), fused into one static Core AI graph; the packager's README reports fp16-vs-fp32 span-scores cosine 0.999993 with byte-identical decoded entities and an iPhone 17 Pro AOT GATE_RESULT PASS."
+    },
+    {
+      "id": "glm-image",
+      "name": "GLM-Image",
+      "family": "GLM",
+      "source_group": "zoo",
+      "bundle_kind": "image-generation",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "zai-org/GLM-Image",
+      "io_contract": null,
+      "capabilities": [
+        "image-generation",
+        "text-to-image"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "image"
+      ],
+      "devices": [
+        "mac"
+      ],
+      "parameters": "16B",
+      "precision": "int8",
+      "quantization": "int8 per-block-32 (AR+DiT); VAE fp32",
+      "artifact_size": "20GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": true,
+      "aot_required": true,
+      "license": "MIT",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 53,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": false,
+          "ipad": false
+        },
+        "license": {
+          "name": "MIT",
+          "commercial_use": "likely"
+        },
+        "hosts": 1,
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-07"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/GLM-Image-CoreAI",
+        "huggingface_repo": "mlboydaisuke/GLM-Image-CoreAI",
+        "github_source": null,
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-07-07",
+      "notes": "Ships an autoregressive GLM-4-9B visual-token graph (glm_image_ar) plus a flow-matching DiT graph (glm_image_dit_1024), both compiled .aimodelc; the packager's README claims DiT single-forward cosine 0.9999 and byte-exact VAE vs the bf16 diffusers reference. macOS-only (~20GB per resolution on disk)."
+    },
+    {
+      "id": "youtu-llm-2b",
+      "name": "Youtu-LLM-2B",
+      "family": "Youtu",
+      "source_group": "zoo",
+      "bundle_kind": "llm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "tencent/Youtu-LLM-2B",
+      "io_contract": null,
+      "capabilities": [
+        "chat",
+        "text-generation",
+        "mla"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "2B",
+      "precision": "int8",
+      "quantization": "int8 per-block-32 (body + head)",
+      "artifact_size": "2.39GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": true,
+      "patch_required": true,
+      "aot_required": false,
+      "license": "Other",
+      "commercial_use": "check_license",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 53,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Other",
+          "commercial_use": "check_license"
+        },
+        "hosts": 1,
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-07"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/Youtu-LLM-2B-CoreAI",
+        "huggingface_repo": "mlboydaisuke/Youtu-LLM-2B-CoreAI",
+        "github_source": null,
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-07-07",
+      "notes": "Community-packaged int8 decode-only Core AI bundle of Tencent's dense MLA LLM, shipping an absorbed-MLA flash-decode Metal kernel over the coreai-pipelined GPU engine; license is non-standard 'other' (youtu-llm) so commercial use needs the upstream license check (README claims commercial use with attribution + an EU-use exclusion; the upstream LICENSE file 404s)."
+    },
+    {
+      "id": "streaming-sortformer-diar",
+      "name": "Streaming Sortformer Diarization",
+      "family": "Sortformer",
+      "source_group": "zoo",
+      "bundle_kind": "diarization",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "nvidia/diar_streaming_sortformer_4spk-v2",
+      "io_contract": null,
+      "capabilities": [
+        "speaker-diarization",
+        "voice-activity-detection"
+      ],
+      "input_modalities": [
+        "audio"
+      ],
+      "output_modalities": [
+        "labels"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "117M",
+      "precision": "float16",
+      "quantization": "none",
+      "artifact_size": "708MB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": true,
+      "aot_required": false,
+      "license": "CC-BY-4.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 68,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "CC-BY-4.0",
+          "commercial_use": "likely"
+        },
+        "hosts": 1,
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-07"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/Streaming-Sortformer-Diar-CoreAI",
+        "huggingface_repo": "mlboydaisuke/Streaming-Sortformer-Diar-CoreAI",
+        "github_source": null,
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-07-07",
+      "notes": "Streaming 4-speaker on-device diarization (neural core exported to Core AI fp16; NeMo mel frontend + arrival-order speaker cache live in the Swift host); the packager's README reports 100.00% speaker-activity agreement vs NeMo forward_streaming on Mac GPU and iPhone 17 Pro. CC-BY-4.0 permits commercial use but requires attribution to NVIDIA."
     }
   ]
 }

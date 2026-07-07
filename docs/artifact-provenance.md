@@ -118,3 +118,7 @@ Generated from `artifacts.yaml`.
 | vla-jepa-pretrain | external | / | kevinqz/VLA-JEPA-Pretrain-CoreAI | False | False |
 | vla-jepa-simpler-env | external | / | kevinqz/VLA-JEPA-SimplerEnv-CoreAI | False | False |
 | pulpie-orange-base | external | / | kevinqz/Pulpie-Orange-Base-CoreAI | False | False |
+| gliner2-pii | zoo | / | mlboydaisuke/GLiNER2-PII-CoreAI | False | False |
+| glm-image | zoo | / | mlboydaisuke/GLM-Image-CoreAI | False | False |
+| youtu-llm-2b | zoo | / | mlboydaisuke/Youtu-LLM-2B-CoreAI | False | False |
+| streaming-sortformer-diar | zoo | / | mlboydaisuke/Streaming-Sortformer-Diar-CoreAI | False | False |

@@ -7102,3 +7102,223 @@ models:
     reference_dtype: float32
     runner: coreai-fabric-parity-runner/0.1.0
     measured_on: apple_silicon
+- id: gliner2-pii
+  name: GLiNER2 PII
+  family: GLiNER
+  source_group: zoo
+  artifact_ref: gliner2-pii
+  source_path: https://github.com/john-rocky/coreai-model-zoo/tree/main/zoo/gliner2-pii
+  capabilities:
+  - token-classification
+  - named-entity-recognition
+  - pii-redaction
+  modalities:
+    input:
+    - text
+    output:
+    - text
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 278M
+    precision: float16
+    quantization: none
+    artifact_size: 823MB
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: false
+    custom_kernel: false
+    patch_required: true
+    tokenizer_required: true
+    processor_required: false
+    aot_required: true
+  device_support:
+    iphone: true
+    ipad: unknown
+    mac: true
+    mac_only: false
+  license:
+    name: Apache-2.0
+    commercial_use: likely
+  status: confirmed
+  maturity: experimental
+  confidence: medium
+  sources:
+  - coreai-model-zoo-readme
+  - coreai-model-zoo-zoo
+  - huggingface-mlboydaisuke
+  last_verified: '2026-07-07'
+  notes: Zero-shot GLiNER2 NER/PII extraction on mDeBERTa-v3 (seq len 256), fused into one static Core AI graph; the packager's README reports fp16-vs-fp32 span-scores cosine 0.999993 with byte-identical decoded entities and an iPhone 17 Pro AOT GATE_RESULT PASS.
+  architecture: encoder
+  bundle_kind: token-classification
+  min_os:
+    macos: '27.0'
+    ios: '27.0'
+  upstream_repo: fastino/gliner2-privacy-filter-PII-multi
+- id: glm-image
+  name: GLM-Image
+  family: GLM
+  source_group: zoo
+  artifact_ref: glm-image
+  source_path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/glm-image.md
+  capabilities:
+  - image-generation
+  - text-to-image
+  modalities:
+    input:
+    - text
+    output:
+    - image
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 16B
+    precision: int8
+    quantization: int8 per-block-32 (AR+DiT); VAE fp32
+    artifact_size: 20GB
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: false
+    custom_kernel: false
+    patch_required: true
+    tokenizer_required: true
+    processor_required: false
+    aot_required: true
+  device_support:
+    iphone: false
+    ipad: false
+    mac: true
+    mac_only: true
+  license:
+    name: MIT
+    commercial_use: likely
+  status: confirmed
+  maturity: experimental
+  confidence: medium
+  sources:
+  - coreai-model-zoo-readme
+  - coreai-model-zoo-zoo
+  - huggingface-mlboydaisuke
+  last_verified: '2026-07-07'
+  notes: Ships an autoregressive GLM-4-9B visual-token graph (glm_image_ar) plus a flow-matching DiT graph (glm_image_dit_1024), both compiled .aimodelc; the packager's README claims DiT single-forward cosine 0.9999 and byte-exact VAE vs the bf16 diffusers reference. macOS-only (~20GB per resolution on disk).
+  architecture: diffusion
+  bundle_kind: image-generation
+  min_os:
+    macos: '27.0'
+    ios: '27.0'
+  upstream_repo: zai-org/GLM-Image
+- id: youtu-llm-2b
+  name: Youtu-LLM-2B
+  family: Youtu
+  source_group: zoo
+  artifact_ref: youtu-llm-2b
+  source_path: https://github.com/john-rocky/coreai-model-zoo/tree/main/zoo/youtu
+  capabilities:
+  - chat
+  - text-generation
+  - mla
+  modalities:
+    input:
+    - text
+    output:
+    - text
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 2B
+    precision: int8
+    quantization: int8 per-block-32 (body + head)
+    artifact_size: 2.39GB
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: false
+    custom_kernel: true
+    patch_required: true
+    tokenizer_required: true
+    processor_required: false
+    aot_required: false
+  device_support:
+    iphone: true
+    ipad: unknown
+    mac: true
+    mac_only: false
+  license:
+    name: Other
+    commercial_use: check_license
+  status: confirmed
+  maturity: experimental
+  confidence: medium
+  sources:
+  - coreai-model-zoo-readme
+  - coreai-model-zoo-zoo
+  - huggingface-mlboydaisuke
+  last_verified: '2026-07-07'
+  notes: Community-packaged int8 decode-only Core AI bundle of Tencent's dense MLA LLM, shipping an absorbed-MLA flash-decode Metal kernel over the coreai-pipelined GPU engine; license is non-standard 'other' (youtu-llm) so commercial use needs the upstream license check (README claims commercial use with attribution + an EU-use exclusion; the upstream LICENSE file 404s).
+  architecture: transformer
+  context_window: '131072'
+  streaming: true
+  bundle_kind: llm
+  min_os:
+    macos: '27.0'
+    ios: '27.0'
+  upstream_repo: tencent/Youtu-LLM-2B
+- id: streaming-sortformer-diar
+  name: Streaming Sortformer Diarization
+  family: Sortformer
+  source_group: zoo
+  artifact_ref: streaming-sortformer-diar
+  source_path: https://github.com/john-rocky/coreai-model-zoo/tree/main/conversion/sortformer_diar
+  capabilities:
+  - speaker-diarization
+  - voice-activity-detection
+  modalities:
+    input:
+    - audio
+    output:
+    - labels
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 117M
+    precision: float16
+    quantization: none
+    artifact_size: 708MB
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: false
+    custom_kernel: false
+    patch_required: true
+    tokenizer_required: false
+    processor_required: true
+    aot_required: false
+  device_support:
+    iphone: true
+    ipad: unknown
+    mac: true
+    mac_only: false
+  license:
+    name: CC-BY-4.0
+    commercial_use: likely
+  status: confirmed
+  maturity: experimental
+  confidence: medium
+  sources:
+  - coreai-model-zoo-readme
+  - coreai-model-zoo-conversion
+  - huggingface-mlboydaisuke
+  last_verified: '2026-07-07'
+  notes: Streaming 4-speaker on-device diarization (neural core exported to Core AI fp16; NeMo mel frontend + arrival-order speaker cache live in the Swift host); the packager's README reports 100.00% speaker-activity agreement vs NeMo forward_streaming on Mac GPU and iPhone 17 Pro. CC-BY-4.0 permits commercial use but requires attribution to NVIDIA.
+  architecture: transformer
+  bundle_kind: diarization
+  min_os:
+    macos: '27.0'
+    ios: '27.0'
+  upstream_repo: nvidia/diar_streaming_sortformer_4spk-v2
