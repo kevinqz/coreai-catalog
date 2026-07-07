@@ -141,9 +141,91 @@ def _version_errors() -> list[str]:
     return errs
 
 
+def _fix_rules() -> list[tuple[str, list[tuple[str, str]]]]:
+    """Per-surface (regex -> canonical replacement) rules that rewrite every
+    count string check() guards. Parallel to check() ON PURPOSE: check() stays
+    the untouched CI guard, and after --fix runs, check() re-verifies — so a rule
+    that misses a surface fails loud rather than silently passing.
+    """
+    c = canonical()
+    m, a, s, u, b, t, tools = (
+        c["models"], c["artifacts"], c["sources"], c["upstreams"],
+        c["benchmarks"], c["terms"], c["mcp_tools"],
+    )
+    return [
+        ("README.md", [
+            (r"\d+ Apple Core AI models", f"{m} Apple Core AI models"),
+            (r"\| Model records \| \d+ \|", f"| Model records | {m} |"),
+            (r"\| Artifact provenance records \| \d+ \|", f"| Artifact provenance records | {a} |"),
+            (r"\| Source records \| \d+ \|", f"| Source records | {s} |"),
+            (r"\| Upstream taxonomy entries \| \d+ \|", f"| Upstream taxonomy entries | {u} |"),
+            (r"\| Benchmark records \| \d+ \|", f"| Benchmark records | {b} |"),
+            (r"\| Terminology records \| \d+ \|", f"| Terminology records | {t} |"),
+            (r"exposes \d+ tools", f"exposes {tools} tools"),
+            (r"### Available tools \(\d+\)", f"### Available tools ({tools})"),
+        ]),
+        ("llms.txt", [
+            (r"catalog of \d+ Apple Core AI models", f"catalog of {m} Apple Core AI models"),
+            (r"- \d+ model records", f"- {m} model records"),
+            (r"- \d+ artifact provenance records", f"- {a} artifact provenance records"),
+            (r"- \d+ benchmark records", f"- {b} benchmark records"),
+            (r"bundle_kind on all \d+", f"bundle_kind on all {m}"),
+        ]),
+        ("llms-full.txt", [
+            (r"- \d+ model records", f"- {m} model records"),
+            (r"- \d+ artifact provenance records", f"- {a} artifact provenance records"),
+            (r"- \d+ benchmark records", f"- {b} benchmark records"),
+            (r"bundle_kind` on all \d+", f"bundle_kind` on all {m}"),
+        ]),
+        ("agent.json", [
+            (r"catalog of \d+ Apple Core AI models", f"catalog of {m} Apple Core AI models"),
+        ]),
+        ("openapi.yaml", [
+            (r"catalog of \d+ Apple Core AI models", f"catalog of {m} Apple Core AI models"),
+        ]),
+        ("site/index.html", [
+            (r">\d+ Apple Core AI models", f">{m} Apple Core AI models"),
+            (r"registry of \d+ Apple Core AI models", f"registry of {m} Apple Core AI models"),
+            (r'content="The agent-ready registry for Apple on-device AI\. \d+ Core AI models',
+             f'content="The agent-ready registry for Apple on-device AI. {m} Core AI models'),
+            (r'id="stat-models">\d+<', f'id="stat-models">{m}<'),
+            (r'id="stat-mcp">\d+<', f'id="stat-mcp">{tools}<'),
+        ]),
+    ]
+
+
+def fix() -> int:
+    """Rewrite every count surface to the canonical counts, then re-verify via
+    check(). Idempotent: a no-op when surfaces already agree. Returns check()'s
+    exit code so the caller learns whether the surfaces are now consistent."""
+    changed: list[str] = []
+    for rel, rules in _fix_rules():
+        path = ROOT / rel
+        text = original = path.read_text()
+        for pattern, replacement in rules:
+            text = re.sub(pattern, replacement, text)
+        if text != original:
+            path.write_text(text)
+            changed.append(rel)
+    if changed:
+        print("count-sync --fix rewrote: " + ", ".join(sorted(set(changed))))
+    else:
+        print("count-sync --fix: no changes (surfaces already canonical)")
+    errors = check()
+    if errors:
+        print(f"count-sync still FAILED after --fix ({len(errors)} surface(s)); "
+              "a surface has no fix rule:")
+        for e in errors:
+            print(f"  - {e}")
+        return 1
+    return 0
+
+
 def main() -> int:
     c = canonical()
     print("canonical counts: " + ", ".join(f"{k}={v}" for k, v in c.items()))
+    if "--fix" in sys.argv[1:]:
+        return fix()
     errors = check()
     if errors:
         print(f"\ncount-sync FAILED ({len(errors)} surface(s) stale):")
