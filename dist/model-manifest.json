@@ -1,7 +1,7 @@
 {
   "export_schema_version": "1.0",
   "export_catalog_version": "2.3.0",
-  "model_count": 113,
+  "model_count": 114,
   "models": [
     {
       "id": "qwen3-5-0-8b",
@@ -4633,6 +4633,33 @@
         "ios": "27.0"
       },
       "upstream_repo": "feyninc/pulpie-orange-base",
+      "io_contract": null
+    },
+    {
+      "id": "pulpie-orange-large",
+      "name": "Pulpie Orange Large (fabric)",
+      "bundle_kind": "token-classification",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "token-classification"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "parameters": "2.1B",
+      "precision": "float32",
+      "artifact_size": "7.9GB",
+      "huggingface_url": "https://huggingface.co/kevinqz/Pulpie-Orange-Large-CoreAI",
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "feyninc/pulpie-orange-large",
       "io_contract": null
     }
   ]

@@ -1,7 +1,7 @@
 metadata:
   name: Core AI Catalog artifact provenance
   last_verified: '2026-07-04'
-  count: 114
+  count: 115
 artifacts:
 - id: qwen3-5-0-8b
   group: zoo
@@ -4567,6 +4567,46 @@ artifacts:
       tool: models/eurobert/export.py
       version: unknown
       recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/pulpie-orange-base.yaml
+    recipe_source: fabric
+    format_version: '2.0'
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: pulpie-orange-large
+  group: external
+  huggingface:
+    owner: kevinqz
+    repo: Pulpie-Orange-Large-CoreAI
+    url: https://huggingface.co/kevinqz/Pulpie-Orange-Large-CoreAI
+    revision: 9470e1c406ac4fe3e88170331f3140b88c74d789
+    files:
+    - path: .gitattributes
+      sha256: 49706716200604fe03c5f616f8675ae7386a9003d4548c7ccfaca367a1e923d3
+      size_bytes: 1594
+    - path: LICENSE
+      sha256: e8e4bc99b7035077f62153811bb01dffed99dfbc767fe0d77be5722a985141fb
+      size_bytes: 11975
+    - path: README.md
+      sha256: d555c5a9fb2f165a769b476be4d5db9d70bfc5d27aff835a4eb310d60d7f448f
+      size_bytes: 4768
+    - path: parity-report.json
+      sha256: 2b35e8cadf60592036a9db9f070d55463ea4f9a83947012dc24c8a16df5fa7d6
+      size_bytes: 2021
+    - path: pulpie-orange-large.aimodel/main.hash
+      sha256: 375f3bda1e148c92538be3fa18b8acc5674ac921631bc214ca771494a2011b89
+      size_bytes: 32
+    - path: pulpie-orange-large.aimodel/main.mlirb
+      sha256: 9b74db3825c049693200a3e6fb434f57f791cfbce36ed151b71f8194f7f5a011
+      size_bytes: 8431059314
+    - path: pulpie-orange-large.aimodel/metadata.json
+      sha256: fe36bbc2ca9eb4109567b5dbce95e14663b2277afa783bf1bcb18a97c5ae29c6
+      size_bytes: 105
+  provenance:
+    converted_by:
+      tool: models/eurobert/export.py
+      version: unknown
+      recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/pulpie-orange-large.yaml
     recipe_source: fabric
     format_version: '2.0'
   officiality:
