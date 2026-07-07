@@ -2,7 +2,7 @@
   "export_schema_version": "1.0",
   "export_catalog_version": "2.3.0",
   "description": "Alias mappings resolving catalog IDs to Zoo card names, CoreAIKit strings, and HF repo names.",
-  "total_models": 113,
+  "total_models": 114,
   "aliases": {
     "qwen3-5-0-8b": [
       "qwen3-5-0-8b-coreai",
@@ -656,6 +656,12 @@
       "pulpie-orange-base-coreai",
       "pulpie-orange-base.yaml",
       "pulpie.orange.base"
+    ],
+    "lingbot-va-base": [
+      "LingBot-VA-Base-CoreAI",
+      "lingbot-va-base-coreai",
+      "lingbot-va-base.yaml",
+      "lingbot.va.base"
     ]
   }
 }

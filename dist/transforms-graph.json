@@ -113,6 +113,7 @@
         "act-so101",
         "diffusion-pusht",
         "folding-latest",
+        "lingbot-va-base",
         "pi0-base",
         "pi0-base-gemma",
         "pi0-libero-base",
@@ -128,7 +129,7 @@
         "vla-jepa-simpler-env",
         "vqbet-pusht"
       ],
-      "model_count": 19
+      "model_count": 20
     },
     {
       "input": "image",
@@ -311,6 +312,7 @@
         "act-aloha-insertion",
         "act-so101",
         "diffusion-pusht",
+        "lingbot-va-base",
         "pi0-base",
         "pi0-base-gemma",
         "pi0-libero-base",
@@ -325,13 +327,14 @@
         "vla-jepa-pretrain",
         "vqbet-pusht"
       ],
-      "model_count": 17
+      "model_count": 18
     },
     {
       "input": "text",
       "output": "action",
       "model_ids": [
         "folding-latest",
+        "lingbot-va-base",
         "pi0-base",
         "pi0-base-gemma",
         "pi0-libero-base",
@@ -346,7 +349,7 @@
         "vla-jepa-pretrain",
         "vla-jepa-simpler-env"
       ],
-      "model_count": 14
+      "model_count": 15
     },
     {
       "input": "text",

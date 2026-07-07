@@ -3,7 +3,7 @@
   "capabilities": [
     "vision-language-action"
   ],
-  "model_count": 15,
+  "model_count": 16,
   "models": [
     {
       "id": "bitvla",
@@ -52,6 +52,20 @@
       "name": "VLA-JEPA SimplerEnv (fabric)",
       "score": 53,
       "parameters": "3B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": false
+      },
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "lingbot-va-base",
+      "name": "LingBot-VA Base (fabric)",
+      "score": 43,
+      "parameters": "5B",
       "devices": {
         "iphone": false,
         "ipad": false,

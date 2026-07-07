@@ -1,7 +1,7 @@
 metadata:
   name: Core AI Catalog artifact provenance
   last_verified: '2026-07-04'
-  count: 114
+  count: 115
 artifacts:
 - id: qwen3-5-0-8b
   group: zoo
@@ -4567,6 +4567,46 @@ artifacts:
       tool: models/eurobert/export.py
       version: unknown
       recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/pulpie-orange-base.yaml
+    recipe_source: fabric
+    format_version: '2.0'
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: lingbot-va-base
+  group: external
+  huggingface:
+    owner: kevinqz
+    repo: LingBot-VA-Base-CoreAI
+    url: https://huggingface.co/kevinqz/LingBot-VA-Base-CoreAI
+    revision: 735faecbfd6252f44228bbd4456f757f6f4b1bc6
+    files:
+    - path: .gitattributes
+      sha256: 68e778ccdb52d41de37bc021ae7c3d0e804d0c639520894c729843895f04ee69
+      size_bytes: 1590
+    - path: LICENSE
+      sha256: c9ba1d4335530c7d51f0caf7cf0d4e5d004fae61a6e3e6e1e609a3f62dd5551c
+      size_bytes: 11967
+    - path: README.md
+      sha256: 676f073ea3332c8fb31f3b871425e66d8c095a65086f8a21a6fc818e01476b40
+      size_bytes: 5484
+    - path: lingbot-va-base.aimodel/main.hash
+      sha256: 3bdb8b75063faafbd9ccd3e52dcd76dea1c9d0a7dc5901536d098dfec2787130
+      size_bytes: 32
+    - path: lingbot-va-base.aimodel/main.mlirb
+      sha256: c92d96e365dd76ecd78548784320b05dde9754f9a46aefe313a2b28ed583b48f
+      size_bytes: 5013030676
+    - path: lingbot-va-base.aimodel/metadata.json
+      sha256: 029f125e6704f8163815469f543e725f1b351762033fdd0aed507b4d47fedbf7
+      size_bytes: 105
+    - path: parity-report.json
+      sha256: 919e13e50666c5392d7c8b590a9461526682a272a718e11fed12e899181b1a7e
+      size_bytes: 2016
+  provenance:
+    converted_by:
+      tool: models/lingbot_va/export.py
+      version: unknown
+      recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-va-base.yaml
     recipe_source: fabric
     format_version: '2.0'
   officiality:

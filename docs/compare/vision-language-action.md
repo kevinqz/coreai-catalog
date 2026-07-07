@@ -1,10 +1,11 @@
 # Comparison: vision-language-action
 
-Side-by-side comparison of all 15 model(s) with the `vision-language-action` capability.
+Side-by-side comparison of all 16 model(s) with the `vision-language-action` capability.
 
 | Model | Family | Parameters | Precision | Devices | License | Runtime | Benchmark | Source |
 |---|---|---|---|---|---|---|---|---|
 | BitVLA | BitVLA | 2B (BitNet b1.58) | 1.58-bit ternary | iPhone/Mac | MIT | CoreAIRunner | — | 🐼 Zoo |
+| LingBot-VA Base (fabric) | LingBot-VA | 5B | float32 | unknown | apache-2.0 | CoreAIRunner | — | 🐼 Zoo |
 | Pi0 (fabric) | LeRobot | 3.3B | float16 | unknown | apache-2.0 | CoreAIRunner | — | 🐼 Zoo |
 | Pi0 LIBERO base (fabric) | LeRobot | 3.3B | float16 | unknown | gemma | CoreAIRunner | — | 🐼 Zoo |
 | Pi0 LIBERO fine-tuned (fabric) | LeRobot | 3.3B | float16 | unknown | gemma | CoreAIRunner | — | 🐼 Zoo |
