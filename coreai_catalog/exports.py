@@ -62,6 +62,7 @@ def derive_bundle_kind(model: dict[str, Any]) -> str:
         ({"super-resolution"}, "super-resolution"),
         ({"text-to-speech"}, "tts"),
         ({"speech-to-text", "transcription"}, "asr"),
+        ({"speaker-diarization", "voice-activity-detection"}, "diarization"),
         ({"text-to-audio", "music-generation"}, "audio-generation"),
         ({"text-to-video", "video-classification"}, "video"),
         ({"image-to-3d"}, "3d"),

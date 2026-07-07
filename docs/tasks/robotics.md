@@ -1,6 +1,6 @@
 # Robotics
 
-**20 models** in the catalog with this capability.
+**21 models** in the catalog with this capability.
 
 ## Task synonyms
 
@@ -14,6 +14,7 @@
 | [VLA-JEPA LIBERO (fabric)](../../catalog.yaml#L1) | 53 | 3B |  | apache-2.0 | ✅ likely | — | fabric |
 | [VLA-JEPA Pretrain (fabric)](../../catalog.yaml#L1) | 53 | 3B |  | apache-2.0 | ✅ likely | — | fabric |
 | [VLA-JEPA SimplerEnv (fabric)](../../catalog.yaml#L1) | 53 | 3B |  | apache-2.0 | ✅ likely | — | fabric |
+| [EVO1 SO-100 (fabric)](../../catalog.yaml#L1) | 43 | 0.77B |  | apache-2.0 | ✅ likely | — | fabric |
 | [ACT ALOHA Insertion (fabric)](../../catalog.yaml#L1) | 38 | 51.6M |  | apache-2.0 | ✅ likely | — | fabric |
 | [ACT ALOHA Transfer-Cube (fabric)](../../catalog.yaml#L1) | 38 | 51.6M |  | apache-2.0 | ✅ likely | — | fabric |
 | [ACT SO-ARM101 (fabric)](../../catalog.yaml#L1) | 38 | 51.6M |  | apache-2.0 | ✅ likely | — | fabric |

@@ -1,6 +1,6 @@
 # Chat
 
-**32 models** in the catalog with this capability.
+**33 models** in the catalog with this capability.
 
 ## Task synonyms
 
@@ -41,6 +41,7 @@
 | [LFM2.5-8B-A1B](../../catalog.yaml#L1) | 53 | 8B / ~1B active | 📱💻 | LFM Open License v1.0 | ⚠️ check_license | — | 🐼 |
 | [Qwen2.5-1.5B-Instruct (fabric, int8)](../../catalog.yaml#L1) | 53 | 1.5B |  | apache-2.0 | ✅ likely | — | fabric |
 | [Qwen3 0.6B (fabric, int8)](../../catalog.yaml#L1) | 53 | 0.6B |  | apache-2.0 | ✅ likely | — | fabric |
+| [Youtu-LLM-2B](../../catalog.yaml#L1) | 53 | 2B | 📱💻 | Other | ⚠️ check_license | — | 🐼 |
 | [Gemma 4 12B IT Multimodal (warshanks)](../../catalog.yaml#L1) | 48 | 12B | 💻 | Apache-2.0 | ⚠️ check_license | — | 🔗 |
 
 ## Install

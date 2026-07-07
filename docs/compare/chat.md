@@ -1,6 +1,6 @@
 # Comparison: chat
 
-Side-by-side comparison of all 32 model(s) with the `chat` capability.
+Side-by-side comparison of all 33 model(s) with the `chat` capability.
 
 | Model | Family | Parameters | Precision | Devices | License | Runtime | Benchmark | Source |
 |---|---|---|---|---|---|---|---|---|
@@ -35,6 +35,7 @@ Side-by-side comparison of all 32 model(s) with the `chat` capability.
 | Qwen3.6-27B | Qwen | 27B | int8 | Mac | Apache-2.0 | CoreAIRunner | 15.9 tokens_per_second (M4 Max) | 🐼 Zoo |
 | Qwen3.6-35B-A3B | Qwen | 35B / ~3B active | int8 | Mac | Apache-2.0 | CoreAIRunner | 64.9 tokens_per_second (M4 Max) | 🐼 Zoo |
 | RWKV-7 Goose 1.5B | RWKV | 1.5B | int8 | Mac | Apache-2.0 | CoreAIRunner | — | 🐼 Zoo |
+| Youtu-LLM-2B | Youtu | 2B | int8 | iPhone/Mac | Other | CoreAIRunner | — | 🐼 Zoo |
 | gpt-oss-20B | gpt-oss | 20B / ~13GB | MXFP4 | Mac | Apache-2.0 | stock-runner | 78.1 tokens_per_second (M4 Max) | 🍎 Apple recipe |
 
 > Generated automatically by `scripts/generate.py` from `catalog.yaml` + `benchmarks.jsonl`.

@@ -306,6 +306,11 @@
       "score": 68
     },
     {
+      "id": "streaming-sortformer-diar",
+      "name": "Streaming Sortformer Diarization",
+      "score": 68
+    },
+    {
       "id": "voxcpm2-2b",
       "name": "VoxCPM2 2B",
       "score": 68
@@ -328,6 +333,11 @@
     {
       "id": "gemma-4-e4b",
       "name": "Gemma 4 E4B",
+      "score": 63
+    },
+    {
+      "id": "gliner2-pii",
+      "name": "GLiNER2 PII",
       "score": 63
     },
     {
@@ -393,6 +403,11 @@
     {
       "id": "glm-4-7-flash",
       "name": "GLM-4.7-Flash",
+      "score": 53
+    },
+    {
+      "id": "glm-image",
+      "name": "GLM-Image",
       "score": 53
     },
     {
@@ -466,6 +481,11 @@
       "score": 53
     },
     {
+      "id": "youtu-llm-2b",
+      "name": "Youtu-LLM-2B",
+      "score": 53
+    },
+    {
       "id": "gemma-4-12b-mm-warshanks",
       "name": "Gemma 4 12B IT Multimodal (warshanks)",
       "score": 48
@@ -476,8 +496,38 @@
       "score": 45
     },
     {
+      "id": "evo1-so100",
+      "name": "EVO1 SO-100 (fabric)",
+      "score": 43
+    },
+    {
+      "id": "lingbot-vision-vit-base",
+      "name": "LingBot-Vision ViT-B (fabric)",
+      "score": 43
+    },
+    {
+      "id": "lingbot-vision-vit-giant",
+      "name": "LingBot-Vision ViT-g (fabric)",
+      "score": 43
+    },
+    {
+      "id": "lingbot-vision-vit-large",
+      "name": "LingBot-Vision ViT-L (fabric)",
+      "score": 43
+    },
+    {
+      "id": "lingbot-vision-vit-small",
+      "name": "LingBot-Vision ViT-S (fabric)",
+      "score": 43
+    },
+    {
       "id": "pulpie-orange-base",
       "name": "Pulpie Orange Base (fabric)",
+      "score": 43
+    },
+    {
+      "id": "pulpie-orange-large",
+      "name": "Pulpie Orange Large (fabric)",
       "score": 43
     },
     {

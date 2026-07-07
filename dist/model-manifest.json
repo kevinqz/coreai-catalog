@@ -1,7 +1,7 @@
 {
   "export_schema_version": "1.0",
   "export_catalog_version": "2.3.0",
-  "model_count": 113,
+  "model_count": 123,
   "models": [
     {
       "id": "qwen3-5-0-8b",
@@ -581,7 +581,7 @@
       "parameters": "E2B",
       "precision": "int4",
       "artifact_size": "not_published",
-      "huggingface_url": "https://huggingface.co/mlboydaisuke/gemma-4-E2B-CoreAI/tree/main/vl",
+      "huggingface_url": "https://huggingface.co/mlboydaisuke/gemma-4-E2B-CoreAI",
       "license": "Gemma Terms",
       "commercial_use": "check_license",
       "min_os": {
@@ -2087,7 +2087,7 @@
       "parameters": "8.97M",
       "precision": "fp32",
       "artifact_size": "36.2MB",
-      "huggingface_url": "https://huggingface.co/mlboydaisuke/YOLOX-S-CoreAI",
+      "huggingface_url": "https://huggingface.co/mlboydaisuke/YOLOX-CoreAI",
       "license": "Apache-2.0",
       "commercial_use": "likely",
       "min_os": {
@@ -4634,6 +4634,322 @@
       },
       "upstream_repo": "feyninc/pulpie-orange-base",
       "io_contract": null
+    },
+    {
+      "id": "pulpie-orange-large",
+      "name": "Pulpie Orange Large (fabric)",
+      "bundle_kind": "token-classification",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "token-classification"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "parameters": "2.1B",
+      "precision": "float32",
+      "artifact_size": "7.9GB",
+      "huggingface_url": "https://huggingface.co/kevinqz/Pulpie-Orange-Large-CoreAI",
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "feyninc/pulpie-orange-large",
+      "io_contract": null
+    },
+    {
+      "id": "lingbot-vision-vit-small",
+      "name": "LingBot-Vision ViT-S (fabric)",
+      "bundle_kind": "image-feature-extraction",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "image-feature-extraction"
+      ],
+      "input_modalities": [
+        "image"
+      ],
+      "output_modalities": [
+        "embedding"
+      ],
+      "parameters": "22M",
+      "precision": "float32",
+      "artifact_size": "83.1MB",
+      "huggingface_url": "https://huggingface.co/kevinqz/LingBot-Vision-ViT-Small-CoreAI",
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "robbyant/lingbot-vision-vit-small",
+      "io_contract": null
+    },
+    {
+      "id": "lingbot-vision-vit-base",
+      "name": "LingBot-Vision ViT-B (fabric)",
+      "bundle_kind": "image-feature-extraction",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "image-feature-extraction"
+      ],
+      "input_modalities": [
+        "image"
+      ],
+      "output_modalities": [
+        "embedding"
+      ],
+      "parameters": "86M",
+      "precision": "float32",
+      "artifact_size": "327.5MB",
+      "huggingface_url": "https://huggingface.co/kevinqz/LingBot-Vision-ViT-Base-CoreAI",
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "robbyant/lingbot-vision-vit-base",
+      "io_contract": null
+    },
+    {
+      "id": "lingbot-vision-vit-large",
+      "name": "LingBot-Vision ViT-L (fabric)",
+      "bundle_kind": "image-feature-extraction",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "image-feature-extraction"
+      ],
+      "input_modalities": [
+        "image"
+      ],
+      "output_modalities": [
+        "embedding"
+      ],
+      "parameters": "0.3B",
+      "precision": "float32",
+      "artifact_size": "1.1GB",
+      "huggingface_url": "https://huggingface.co/kevinqz/LingBot-Vision-ViT-Large-CoreAI",
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "robbyant/lingbot-vision-vit-large",
+      "io_contract": null
+    },
+    {
+      "id": "lingbot-vision-vit-giant",
+      "name": "LingBot-Vision ViT-g (fabric)",
+      "bundle_kind": "image-feature-extraction",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "image-feature-extraction"
+      ],
+      "input_modalities": [
+        "image"
+      ],
+      "output_modalities": [
+        "embedding"
+      ],
+      "parameters": "1.1B",
+      "precision": "float32",
+      "artifact_size": "4.2GB",
+      "huggingface_url": "https://huggingface.co/kevinqz/LingBot-Vision-ViT-Giant-CoreAI",
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "robbyant/lingbot-vision-vit-giant",
+      "io_contract": null
+    },
+    {
+      "id": "gliner2-pii",
+      "name": "GLiNER2 PII",
+      "bundle_kind": "token-classification",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "token-classification",
+        "named-entity-recognition",
+        "pii-redaction"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "parameters": "278M",
+      "precision": "float16",
+      "artifact_size": "823MB",
+      "huggingface_url": "https://huggingface.co/mlboydaisuke/GLiNER2-PII-CoreAI",
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "fastino/gliner2-privacy-filter-PII-multi",
+      "io_contract": null
+    },
+    {
+      "id": "glm-image",
+      "name": "GLM-Image",
+      "bundle_kind": "image-generation",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "image-generation",
+        "text-to-image"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "image"
+      ],
+      "parameters": "16B",
+      "precision": "int8",
+      "artifact_size": "20GB",
+      "huggingface_url": "https://huggingface.co/mlboydaisuke/GLM-Image-CoreAI",
+      "license": "MIT",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "zai-org/GLM-Image",
+      "io_contract": null
+    },
+    {
+      "id": "youtu-llm-2b",
+      "name": "Youtu-LLM-2B",
+      "bundle_kind": "llm",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "chat",
+        "text-generation",
+        "mla"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "parameters": "2B",
+      "precision": "int8",
+      "artifact_size": "2.39GB",
+      "huggingface_url": "https://huggingface.co/mlboydaisuke/Youtu-LLM-2B-CoreAI",
+      "license": "Other",
+      "commercial_use": "check_license",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "tencent/Youtu-LLM-2B",
+      "io_contract": null
+    },
+    {
+      "id": "streaming-sortformer-diar",
+      "name": "Streaming Sortformer Diarization",
+      "bundle_kind": "diarization",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "speaker-diarization",
+        "voice-activity-detection"
+      ],
+      "input_modalities": [
+        "audio"
+      ],
+      "output_modalities": [
+        "labels"
+      ],
+      "parameters": "117M",
+      "precision": "float16",
+      "artifact_size": "708MB",
+      "huggingface_url": "https://huggingface.co/mlboydaisuke/Streaming-Sortformer-Diar-CoreAI",
+      "license": "CC-BY-4.0",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "nvidia/diar_streaming_sortformer_4spk-v2",
+      "io_contract": null
+    },
+    {
+      "id": "evo1-so100",
+      "name": "EVO1 SO-100 (fabric)",
+      "bundle_kind": "action",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "vision-language-action",
+        "robotics"
+      ],
+      "input_modalities": [
+        "image",
+        "text",
+        "state"
+      ],
+      "output_modalities": [
+        "action"
+      ],
+      "parameters": "0.77B",
+      "precision": "float32",
+      "artifact_size": "360.6MB",
+      "huggingface_url": "https://huggingface.co/kevinqz/EVO1-SO100-CoreAI",
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Beilinghamburger/evo1_so100_vla",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAIRunner",
+          "type": "CoreAIRunner",
+          "init_pattern": "load the encode + denoise_step graphs; host drives the N-step sampler + un-normalization"
+        },
+        "inputs": [
+          {
+            "name": "image",
+            "modality": "image"
+          },
+          {
+            "name": "text",
+            "modality": "text"
+          },
+          {
+            "name": "state",
+            "modality": "state"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "action_chunk",
+            "swift_type": "[[Float]]",
+            "decoding": {
+              "detokenization": "host-driven flow-matching sampler (N steps); un-normalize the action chunk with norm_stats.json"
+            }
+          }
+        ],
+        "session": {
+          "stateful": false,
+          "streaming": false
+        },
+        "files": {
+          "tokenizer_ref": "tokenizer",
+          "processor_ref": "norm_stats.json"
+        }
+      }
     }
   ]
 }

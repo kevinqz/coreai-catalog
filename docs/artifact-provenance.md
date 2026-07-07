@@ -61,7 +61,7 @@ Generated from `artifacts.yaml`.
 | qwen3-asr-1-7b | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/Qwen3-ASR-1.7B-CoreAI | False | False |
 | parakeet-tdt-0-6b | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/Parakeet-TDT-0.6B-CoreAI | False | False |
 | voxcpm2-2b | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/VoxCPM2-CoreAI | False | False |
-| yolox-s | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/YOLOX-S-CoreAI | False | False |
+| yolox-s | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/YOLOX-CoreAI | False | False |
 | tripo-splat | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/TripoSplat-CoreAI | False | False |
 | ltx-video-2b | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/LTX-Video-2B-CoreAI | False | False |
 | official-qwen3-1-7b | official | john-rocky/coreai-model-zoo | mlboydaisuke/qwen3-1.7b-CoreAI-official | True | False |
@@ -118,3 +118,13 @@ Generated from `artifacts.yaml`.
 | vla-jepa-pretrain | external | / | kevinqz/VLA-JEPA-Pretrain-CoreAI | False | False |
 | vla-jepa-simpler-env | external | / | kevinqz/VLA-JEPA-SimplerEnv-CoreAI | False | False |
 | pulpie-orange-base | external | / | kevinqz/Pulpie-Orange-Base-CoreAI | False | False |
+| pulpie-orange-large | external | / | kevinqz/Pulpie-Orange-Large-CoreAI | False | False |
+| lingbot-vision-vit-small | external | / | kevinqz/LingBot-Vision-ViT-Small-CoreAI | False | False |
+| lingbot-vision-vit-base | external | / | kevinqz/LingBot-Vision-ViT-Base-CoreAI | False | False |
+| lingbot-vision-vit-large | external | / | kevinqz/LingBot-Vision-ViT-Large-CoreAI | False | False |
+| lingbot-vision-vit-giant | external | / | kevinqz/LingBot-Vision-ViT-Giant-CoreAI | False | False |
+| gliner2-pii | zoo | / | mlboydaisuke/GLiNER2-PII-CoreAI | False | False |
+| glm-image | zoo | / | mlboydaisuke/GLM-Image-CoreAI | False | False |
+| youtu-llm-2b | zoo | / | mlboydaisuke/Youtu-LLM-2B-CoreAI | False | False |
+| streaming-sortformer-diar | zoo | / | mlboydaisuke/Streaming-Sortformer-Diar-CoreAI | False | False |
+| evo1-so100 | external | / | kevinqz/EVO1-SO100-CoreAI | False | False |

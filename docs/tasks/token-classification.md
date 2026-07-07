@@ -1,17 +1,19 @@
 # Token Classification
 
-**1 models** in the catalog with this capability.
+**3 models** in the catalog with this capability.
 
 ## Models
 
 | Model | Score | Parameters | Devices | License | Commercial | Benchmark | Source |
 |---|---|---|---|---|---|---|---|
+| [GLiNER2 PII](../../catalog.yaml#L1) | 63 | 278M | 📱💻 | Apache-2.0 | ✅ likely | — | 🐼 |
 | [Pulpie Orange Base (fabric)](../../catalog.yaml#L1) | 43 | 0.6B |  | apache-2.0 | ✅ likely | — | fabric |
+| [Pulpie Orange Large (fabric)](../../catalog.yaml#L1) | 43 | 2.1B |  | apache-2.0 | ✅ likely | — | fabric |
 
 ## Install
 
 ```bash
-coreai-catalog install pulpie-orange-base
+coreai-catalog install gliner2-pii
 ```
 
 ## Related
