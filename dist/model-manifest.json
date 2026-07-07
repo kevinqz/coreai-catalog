@@ -1,7 +1,7 @@
 {
   "export_schema_version": "1.0",
   "export_catalog_version": "2.3.0",
-  "model_count": 113,
+  "model_count": 118,
   "models": [
     {
       "id": "qwen3-5-0-8b",
@@ -4633,6 +4633,141 @@
         "ios": "27.0"
       },
       "upstream_repo": "feyninc/pulpie-orange-base",
+      "io_contract": null
+    },
+    {
+      "id": "pulpie-orange-large",
+      "name": "Pulpie Orange Large (fabric)",
+      "bundle_kind": "token-classification",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "token-classification"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "parameters": "2.1B",
+      "precision": "float32",
+      "artifact_size": "7.9GB",
+      "huggingface_url": "https://huggingface.co/kevinqz/Pulpie-Orange-Large-CoreAI",
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "feyninc/pulpie-orange-large",
+      "io_contract": null
+    },
+    {
+      "id": "lingbot-vision-vit-small",
+      "name": "LingBot-Vision ViT-S (fabric)",
+      "bundle_kind": "image-feature-extraction",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "image-feature-extraction"
+      ],
+      "input_modalities": [
+        "image"
+      ],
+      "output_modalities": [
+        "embedding"
+      ],
+      "parameters": "22M",
+      "precision": "float32",
+      "artifact_size": "83.1MB",
+      "huggingface_url": "https://huggingface.co/kevinqz/LingBot-Vision-ViT-Small-CoreAI",
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "robbyant/lingbot-vision-vit-small",
+      "io_contract": null
+    },
+    {
+      "id": "lingbot-vision-vit-base",
+      "name": "LingBot-Vision ViT-B (fabric)",
+      "bundle_kind": "image-feature-extraction",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "image-feature-extraction"
+      ],
+      "input_modalities": [
+        "image"
+      ],
+      "output_modalities": [
+        "embedding"
+      ],
+      "parameters": "86M",
+      "precision": "float32",
+      "artifact_size": "327.5MB",
+      "huggingface_url": "https://huggingface.co/kevinqz/LingBot-Vision-ViT-Base-CoreAI",
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "robbyant/lingbot-vision-vit-base",
+      "io_contract": null
+    },
+    {
+      "id": "lingbot-vision-vit-large",
+      "name": "LingBot-Vision ViT-L (fabric)",
+      "bundle_kind": "image-feature-extraction",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "image-feature-extraction"
+      ],
+      "input_modalities": [
+        "image"
+      ],
+      "output_modalities": [
+        "embedding"
+      ],
+      "parameters": "0.3B",
+      "precision": "float32",
+      "artifact_size": "1.1GB",
+      "huggingface_url": "https://huggingface.co/kevinqz/LingBot-Vision-ViT-Large-CoreAI",
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "robbyant/lingbot-vision-vit-large",
+      "io_contract": null
+    },
+    {
+      "id": "lingbot-vision-vit-giant",
+      "name": "LingBot-Vision ViT-g (fabric)",
+      "bundle_kind": "image-feature-extraction",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "image-feature-extraction"
+      ],
+      "input_modalities": [
+        "image"
+      ],
+      "output_modalities": [
+        "embedding"
+      ],
+      "parameters": "1.1B",
+      "precision": "float32",
+      "artifact_size": "4.2GB",
+      "huggingface_url": "https://huggingface.co/kevinqz/LingBot-Vision-ViT-Giant-CoreAI",
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "robbyant/lingbot-vision-vit-giant",
       "io_contract": null
     }
   ]

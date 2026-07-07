@@ -2,7 +2,7 @@
   "export_schema_version": "1.0",
   "export_catalog_version": "2.3.0",
   "description": "Alias mappings resolving catalog IDs to Zoo card names, CoreAIKit strings, and HF repo names.",
-  "total_models": 113,
+  "total_models": 118,
   "aliases": {
     "qwen3-5-0-8b": [
       "qwen3-5-0-8b-coreai",
@@ -656,6 +656,36 @@
       "pulpie-orange-base-coreai",
       "pulpie-orange-base.yaml",
       "pulpie.orange.base"
+    ],
+    "pulpie-orange-large": [
+      "Pulpie-Orange-Large-CoreAI",
+      "pulpie-orange-large-coreai",
+      "pulpie-orange-large.yaml",
+      "pulpie.orange.large"
+    ],
+    "lingbot-vision-vit-small": [
+      "LingBot-Vision-ViT-Small-CoreAI",
+      "lingbot-vision-vit-small-coreai",
+      "lingbot-vision-vit-small.yaml",
+      "lingbot.vision.vit-small"
+    ],
+    "lingbot-vision-vit-base": [
+      "LingBot-Vision-ViT-Base-CoreAI",
+      "lingbot-vision-vit-base-coreai",
+      "lingbot-vision-vit-base.yaml",
+      "lingbot.vision.vit-base"
+    ],
+    "lingbot-vision-vit-large": [
+      "LingBot-Vision-ViT-Large-CoreAI",
+      "lingbot-vision-vit-large-coreai",
+      "lingbot-vision-vit-large.yaml",
+      "lingbot.vision.vit-large"
+    ],
+    "lingbot-vision-vit-giant": [
+      "LingBot-Vision-ViT-Giant-CoreAI",
+      "lingbot-vision-vit-giant-coreai",
+      "lingbot-vision-vit-giant.yaml",
+      "lingbot.vision.vit-giant"
     ]
   }
 }

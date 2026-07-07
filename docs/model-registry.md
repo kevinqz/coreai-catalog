@@ -115,3 +115,8 @@
 | vla-jepa-pretrain | VLA-JEPA Pretrain (fabric) | fabric | LeRobot | vision-language-action, robotics | image, text, state | action | 3B | unknown | apache-2.0 | needs_review |
 | vla-jepa-simpler-env | VLA-JEPA SimplerEnv (fabric) | fabric | LeRobot | vision-language-action, robotics | image, text | action | 3B | unknown | apache-2.0 | needs_review |
 | pulpie-orange-base | Pulpie Orange Base (fabric) | fabric | EuroBERT | token-classification | text | text | 0.6B | unknown | apache-2.0 | needs_review |
+| pulpie-orange-large | Pulpie Orange Large (fabric) | fabric | EuroBERT | token-classification | text | text | 2.1B | unknown | apache-2.0 | needs_review |
+| lingbot-vision-vit-small | LingBot-Vision ViT-S (fabric) | fabric | LingBot | image-feature-extraction | image | embedding | 22M | unknown | apache-2.0 | needs_review |
+| lingbot-vision-vit-base | LingBot-Vision ViT-B (fabric) | fabric | LingBot | image-feature-extraction | image | embedding | 86M | unknown | apache-2.0 | needs_review |
+| lingbot-vision-vit-large | LingBot-Vision ViT-L (fabric) | fabric | LingBot | image-feature-extraction | image | embedding | 0.3B | unknown | apache-2.0 | needs_review |
+| lingbot-vision-vit-giant | LingBot-Vision ViT-g (fabric) | fabric | LingBot | image-feature-extraction | image | embedding | 1.1B | unknown | apache-2.0 | needs_review |

@@ -476,8 +476,33 @@
       "score": 45
     },
     {
+      "id": "lingbot-vision-vit-base",
+      "name": "LingBot-Vision ViT-B (fabric)",
+      "score": 43
+    },
+    {
+      "id": "lingbot-vision-vit-giant",
+      "name": "LingBot-Vision ViT-g (fabric)",
+      "score": 43
+    },
+    {
+      "id": "lingbot-vision-vit-large",
+      "name": "LingBot-Vision ViT-L (fabric)",
+      "score": 43
+    },
+    {
+      "id": "lingbot-vision-vit-small",
+      "name": "LingBot-Vision ViT-S (fabric)",
+      "score": 43
+    },
+    {
       "id": "pulpie-orange-base",
       "name": "Pulpie Orange Base (fabric)",
+      "score": 43
+    },
+    {
+      "id": "pulpie-orange-large",
+      "name": "Pulpie Orange Large (fabric)",
       "score": 43
     },
     {

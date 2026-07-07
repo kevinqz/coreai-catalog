@@ -118,3 +118,8 @@ Generated from `artifacts.yaml`.
 | vla-jepa-pretrain | external | / | kevinqz/VLA-JEPA-Pretrain-CoreAI | False | False |
 | vla-jepa-simpler-env | external | / | kevinqz/VLA-JEPA-SimplerEnv-CoreAI | False | False |
 | pulpie-orange-base | external | / | kevinqz/Pulpie-Orange-Base-CoreAI | False | False |
+| pulpie-orange-large | external | / | kevinqz/Pulpie-Orange-Large-CoreAI | False | False |
+| lingbot-vision-vit-small | external | / | kevinqz/LingBot-Vision-ViT-Small-CoreAI | False | False |
+| lingbot-vision-vit-base | external | / | kevinqz/LingBot-Vision-ViT-Base-CoreAI | False | False |
+| lingbot-vision-vit-large | external | / | kevinqz/LingBot-Vision-ViT-Large-CoreAI | False | False |
+| lingbot-vision-vit-giant | external | / | kevinqz/LingBot-Vision-ViT-Giant-CoreAI | False | False |

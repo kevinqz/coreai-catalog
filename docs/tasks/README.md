@@ -11,6 +11,7 @@ Browse models by capability.
 - [Embedding](./embedding.md) — 2 models
 - [Gui Grounding](./gui-grounding.md) — 1 models
 - [Hybrid Llm](./hybrid-llm.md) — 2 models
+- [Image Feature Extraction](./image-feature-extraction.md) — 4 models
 - [Image Generation](./image-generation.md) — 2 models
 - [Image Text Similarity](./image-text-similarity.md) — 1 models
 - [Image To 3D](./image-to-3d.md) — 1 models
@@ -32,7 +33,7 @@ Browse models by capability.
 - [Text To Audio](./text-to-audio.md) — 1 models
 - [Text To Speech](./text-to-speech.md) — 6 models
 - [Text To Video](./text-to-video.md) — 1 models
-- [Token Classification](./token-classification.md) — 1 models
+- [Token Classification](./token-classification.md) — 2 models
 - [Video Classification](./video-classification.md) — 1 models
 - [Vision Language](./vision-language.md) — 7 models
 - [Vision Language Action](./vision-language-action.md) — 15 models
