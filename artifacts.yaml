@@ -1,7 +1,7 @@
 metadata:
   name: Core AI Catalog artifact provenance
   last_verified: '2026-07-04'
-  count: 114
+  count: 118
 artifacts:
 - id: qwen3-5-0-8b
   group: zoo
@@ -4569,6 +4569,46 @@ artifacts:
       recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/pulpie-orange-base.yaml
     recipe_source: fabric
     format_version: '2.0'
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: gliner2-pii
+  group: zoo
+  huggingface:
+    owner: mlboydaisuke
+    repo: GLiNER2-PII-CoreAI
+    url: https://huggingface.co/mlboydaisuke/GLiNER2-PII-CoreAI
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: glm-image
+  group: zoo
+  huggingface:
+    owner: mlboydaisuke
+    repo: GLM-Image-CoreAI
+    url: https://huggingface.co/mlboydaisuke/GLM-Image-CoreAI
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: youtu-llm-2b
+  group: zoo
+  huggingface:
+    owner: mlboydaisuke
+    repo: Youtu-LLM-2B-CoreAI
+    url: https://huggingface.co/mlboydaisuke/Youtu-LLM-2B-CoreAI
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: streaming-sortformer-diar
+  group: zoo
+  huggingface:
+    owner: mlboydaisuke
+    repo: Streaming-Sortformer-Diar-CoreAI
+    url: https://huggingface.co/mlboydaisuke/Streaming-Sortformer-Diar-CoreAI
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
