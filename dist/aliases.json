@@ -2,7 +2,7 @@
   "export_schema_version": "1.0",
   "export_catalog_version": "2.3.0",
   "description": "Alias mappings resolving catalog IDs to Zoo card names, CoreAIKit strings, and HF repo names.",
-  "total_models": 109,
+  "total_models": 112,
   "aliases": {
     "qwen3-5-0-8b": [
       "qwen3-5-0-8b-coreai",
@@ -632,6 +632,24 @@
       "qwen3-4b-coreai",
       "qwen3-4b-int8.yaml",
       "qwen3.4b.int8"
+    ],
+    "vla-jepa-libero": [
+      "VLA-JEPA-LIBERO-CoreAI",
+      "vla-jepa-libero-coreai",
+      "vla-jepa-libero.yaml",
+      "vla.jepa.libero"
+    ],
+    "vla-jepa-pretrain": [
+      "VLA-JEPA-Pretrain-CoreAI",
+      "vla-jepa-pretrain-coreai",
+      "vla-jepa-pretrain.yaml",
+      "vla.jepa.pretrain"
+    ],
+    "vla-jepa-simpler-env": [
+      "VLA-JEPA-SimplerEnv-CoreAI",
+      "vla-jepa-simpler-env.yaml",
+      "vla-jepa-simplerenv-coreai",
+      "vla.jepa.simpler-env"
     ]
   }
 }

@@ -451,6 +451,21 @@
       "score": 53
     },
     {
+      "id": "vla-jepa-libero",
+      "name": "VLA-JEPA LIBERO (fabric)",
+      "score": 53
+    },
+    {
+      "id": "vla-jepa-pretrain",
+      "name": "VLA-JEPA Pretrain (fabric)",
+      "score": 53
+    },
+    {
+      "id": "vla-jepa-simpler-env",
+      "name": "VLA-JEPA SimplerEnv (fabric)",
+      "score": 53
+    },
+    {
       "id": "gemma-4-12b-mm-warshanks",
       "name": "Gemma 4 12B IT Multimodal (warshanks)",
       "score": 48

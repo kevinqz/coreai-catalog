@@ -111,3 +111,6 @@
 | qwen3-0.6b-int8 | Qwen3 0.6B (fabric, int8) | fabric | Qwen | chat, text-generation | text | text | 0.6B | unknown | apache-2.0 | needs_review |
 | qwen3-1.7b-int8 | Qwen3 1.7B (fabric, int8) | fabric | Qwen | text-generation | text | text | not_published | unknown | apache-2.0 | needs_review |
 | qwen3-4b-int8 | Qwen3-4B (fabric, int8) | fabric | Qwen | text-generation | text | text | 4B | unknown | apache-2.0 | needs_review |
+| vla-jepa-libero | VLA-JEPA LIBERO (fabric) | fabric | LeRobot | vision-language-action, robotics | image, text, state | action | 3B | unknown | apache-2.0 | needs_review |
+| vla-jepa-pretrain | VLA-JEPA Pretrain (fabric) | fabric | LeRobot | vision-language-action, robotics | image, text, state | action | 3B | unknown | apache-2.0 | needs_review |
+| vla-jepa-simpler-env | VLA-JEPA SimplerEnv (fabric) | fabric | LeRobot | vision-language-action, robotics | image, text | action | 3B | unknown | apache-2.0 | needs_review |

@@ -123,9 +123,12 @@
         "pi0fast-base",
         "smolvla-so101",
         "smolvla-so101-pnp",
+        "vla-jepa-libero",
+        "vla-jepa-pretrain",
+        "vla-jepa-simpler-env",
         "vqbet-pusht"
       ],
-      "model_count": 16
+      "model_count": 19
     },
     {
       "input": "image",
@@ -318,9 +321,11 @@
         "pi0fast-base",
         "smolvla-so101",
         "smolvla-so101-pnp",
+        "vla-jepa-libero",
+        "vla-jepa-pretrain",
         "vqbet-pusht"
       ],
-      "model_count": 15
+      "model_count": 17
     },
     {
       "input": "text",
@@ -336,9 +341,12 @@
         "pi05-so100",
         "pi0fast-base",
         "smolvla-so101",
-        "smolvla-so101-pnp"
+        "smolvla-so101-pnp",
+        "vla-jepa-libero",
+        "vla-jepa-pretrain",
+        "vla-jepa-simpler-env"
       ],
-      "model_count": 11
+      "model_count": 14
     },
     {
       "input": "text",
@@ -615,9 +623,9 @@
       ],
       "model_ids": [
         "qwen2-5-omni-3b-audio",
-        "folding-latest"
+        "vla-jepa-libero"
       ],
-      "total_artifact_size": "5.1GB + 6.0GB",
+      "total_artifact_size": "5.1GB + 3.2GB",
       "stages": [
         {
           "model_id": "qwen2-5-omni-3b-audio",
@@ -631,15 +639,15 @@
           "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen2.5-Omni-3B-Audio-CoreAI"
         },
         {
-          "model_id": "folding-latest",
-          "model_name": "Pi0.5 Folding (fabric)",
+          "model_id": "vla-jepa-libero",
+          "model_name": "VLA-JEPA LIBERO (fabric)",
           "input_modality": "text",
           "output_modality": "action",
           "estimated_tokens_per_sec": 0.0,
-          "parameters": "3.3B",
+          "parameters": "3B",
           "runner": "CoreAIRunner",
-          "artifact_size": "6.0GB",
-          "huggingface_url": "https://huggingface.co/kevinqz/Pi05-Folding-CoreAI"
+          "artifact_size": "3.2GB",
+          "huggingface_url": "https://huggingface.co/kevinqz/VLA-JEPA-LIBERO-CoreAI"
         }
       ]
     },
@@ -1291,9 +1299,9 @@
       ],
       "model_ids": [
         "glm-ocr",
-        "folding-latest"
+        "vla-jepa-libero"
       ],
-      "total_artifact_size": "1.6GB + 6.0GB",
+      "total_artifact_size": "1.6GB + 3.2GB",
       "stages": [
         {
           "model_id": "glm-ocr",
@@ -1307,15 +1315,15 @@
           "huggingface_url": "https://huggingface.co/mlboydaisuke/GLM-OCR-CoreAI"
         },
         {
-          "model_id": "folding-latest",
-          "model_name": "Pi0.5 Folding (fabric)",
+          "model_id": "vla-jepa-libero",
+          "model_name": "VLA-JEPA LIBERO (fabric)",
           "input_modality": "text",
           "output_modality": "action",
           "estimated_tokens_per_sec": 0.0,
-          "parameters": "3.3B",
+          "parameters": "3B",
           "runner": "CoreAIRunner",
-          "artifact_size": "6.0GB",
-          "huggingface_url": "https://huggingface.co/kevinqz/Pi05-Folding-CoreAI"
+          "artifact_size": "3.2GB",
+          "huggingface_url": "https://huggingface.co/kevinqz/VLA-JEPA-LIBERO-CoreAI"
         }
       ]
     },
@@ -2017,20 +2025,20 @@
         "action"
       ],
       "model_ids": [
-        "act-aloha-cube"
+        "vla-jepa-libero"
       ],
-      "total_artifact_size": "130.9MB",
+      "total_artifact_size": "3.2GB",
       "stages": [
         {
-          "model_id": "act-aloha-cube",
-          "model_name": "ACT ALOHA Transfer-Cube (fabric)",
+          "model_id": "vla-jepa-libero",
+          "model_name": "VLA-JEPA LIBERO (fabric)",
           "input_modality": "image",
           "output_modality": "action",
           "estimated_tokens_per_sec": 0.0,
-          "parameters": "51.6M",
+          "parameters": "3B",
           "runner": "CoreAIRunner",
-          "artifact_size": "130.9MB",
-          "huggingface_url": "https://huggingface.co/kevinqz/ACT-Aloha-TransferCube-CoreAI"
+          "artifact_size": "3.2GB",
+          "huggingface_url": "https://huggingface.co/kevinqz/VLA-JEPA-LIBERO-CoreAI"
         }
       ]
     },
@@ -2563,20 +2571,20 @@
         "action"
       ],
       "model_ids": [
-        "act-aloha-cube"
+        "vla-jepa-libero"
       ],
-      "total_artifact_size": "130.9MB",
+      "total_artifact_size": "3.2GB",
       "stages": [
         {
-          "model_id": "act-aloha-cube",
-          "model_name": "ACT ALOHA Transfer-Cube (fabric)",
+          "model_id": "vla-jepa-libero",
+          "model_name": "VLA-JEPA LIBERO (fabric)",
           "input_modality": "state",
           "output_modality": "action",
           "estimated_tokens_per_sec": 0.0,
-          "parameters": "51.6M",
+          "parameters": "3B",
           "runner": "CoreAIRunner",
-          "artifact_size": "130.9MB",
-          "huggingface_url": "https://huggingface.co/kevinqz/ACT-Aloha-TransferCube-CoreAI"
+          "artifact_size": "3.2GB",
+          "huggingface_url": "https://huggingface.co/kevinqz/VLA-JEPA-LIBERO-CoreAI"
         }
       ]
     },
@@ -2589,20 +2597,20 @@
         "action"
       ],
       "model_ids": [
-        "folding-latest"
+        "vla-jepa-libero"
       ],
-      "total_artifact_size": "6.0GB",
+      "total_artifact_size": "3.2GB",
       "stages": [
         {
-          "model_id": "folding-latest",
-          "model_name": "Pi0.5 Folding (fabric)",
+          "model_id": "vla-jepa-libero",
+          "model_name": "VLA-JEPA LIBERO (fabric)",
           "input_modality": "text",
           "output_modality": "action",
           "estimated_tokens_per_sec": 0.0,
-          "parameters": "3.3B",
+          "parameters": "3B",
           "runner": "CoreAIRunner",
-          "artifact_size": "6.0GB",
-          "huggingface_url": "https://huggingface.co/kevinqz/Pi05-Folding-CoreAI"
+          "artifact_size": "3.2GB",
+          "huggingface_url": "https://huggingface.co/kevinqz/VLA-JEPA-LIBERO-CoreAI"
         }
       ]
     },
