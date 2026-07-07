@@ -7102,3 +7102,62 @@ models:
     reference_dtype: float32
     runner: coreai-fabric-parity-runner/0.1.0
     measured_on: apple_silicon
+- id: lingbot-vision-vit-small
+  name: LingBot-Vision ViT-S (fabric)
+  family: LingBot
+  source_group: fabric
+  source_path: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-vision-vit-small.yaml
+  artifact_ref: lingbot-vision-vit-small
+  capabilities:
+  - image-feature-extraction
+  bundle_kind: image-feature-extraction
+  min_os:
+    macos: '27.0'
+    ios: '27.0'
+  upstream_repo: robbyant/lingbot-vision-vit-small
+  modalities:
+    input:
+    - image
+    output:
+    - embedding
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 22M
+    precision: float32
+    quantization: none
+    artifact_size: 83.1MB
+    fidelity_tier: high_fidelity
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: false
+    custom_kernel: false
+    patch_required: false
+    tokenizer_required: false
+    processor_required: true
+    aot_required: false
+  device_support:
+    iphone: unknown
+    ipad: unknown
+    mac: unknown
+    mac_only: unknown
+  license:
+    name: apache-2.0
+    commercial_use: likely
+  status: needs_review
+  maturity: experimental
+  confidence: medium
+  sources:
+  - coreai-fabric
+  last_verified: '2026-07-07'
+  notes: 'Converted via coreai-fabric recipe lingbot-vision-vit-small (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-vision-vit-small.yaml).
+    Parity: gate A passed, gate B passed.'
+  architecture: transformer
+  evaluation:
+    metric: graph_output_cosine
+    status: passed
+    reference_dtype: float32
+    runner: coreai-fabric-parity-runner/0.1.0
+    measured_on: apple_silicon

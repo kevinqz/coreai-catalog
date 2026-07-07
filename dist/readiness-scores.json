@@ -476,6 +476,11 @@
       "score": 45
     },
     {
+      "id": "lingbot-vision-vit-small",
+      "name": "LingBot-Vision ViT-S (fabric)",
+      "score": 43
+    },
+    {
       "id": "pulpie-orange-base",
       "name": "Pulpie Orange Base (fabric)",
       "score": 43

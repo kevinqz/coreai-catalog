@@ -115,3 +115,4 @@
 | vla-jepa-pretrain | VLA-JEPA Pretrain (fabric) | fabric | LeRobot | vision-language-action, robotics | image, text, state | action | 3B | unknown | apache-2.0 | needs_review |
 | vla-jepa-simpler-env | VLA-JEPA SimplerEnv (fabric) | fabric | LeRobot | vision-language-action, robotics | image, text | action | 3B | unknown | apache-2.0 | needs_review |
 | pulpie-orange-base | Pulpie Orange Base (fabric) | fabric | EuroBERT | token-classification | text | text | 0.6B | unknown | apache-2.0 | needs_review |
+| lingbot-vision-vit-small | LingBot-Vision ViT-S (fabric) | fabric | LingBot | image-feature-extraction | image | embedding | 22M | unknown | apache-2.0 | needs_review |

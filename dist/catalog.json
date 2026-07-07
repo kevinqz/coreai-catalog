@@ -9014,6 +9014,78 @@
       ],
       "status": "needs_review",
       "upstream_repo": "feyninc/pulpie-orange-base"
+    },
+    {
+      "architecture": "transformer",
+      "artifact": {
+        "availability": "available",
+        "format": "aimodel"
+      },
+      "artifact_ref": "lingbot-vision-vit-small",
+      "bundle_kind": "image-feature-extraction",
+      "capabilities": [
+        "image-feature-extraction"
+      ],
+      "confidence": "medium",
+      "device_support": {
+        "ipad": "unknown",
+        "iphone": "unknown",
+        "mac": "unknown",
+        "mac_only": "unknown"
+      },
+      "evaluation": {
+        "measured_on": "apple_silicon",
+        "metric": "graph_output_cosine",
+        "reference_dtype": "float32",
+        "runner": "coreai-fabric-parity-runner/0.1.0",
+        "status": "passed"
+      },
+      "family": "LingBot",
+      "id": "lingbot-vision-vit-small",
+      "last_verified": "2026-07-07",
+      "license": {
+        "commercial_use": "likely",
+        "name": "apache-2.0"
+      },
+      "maturity": "experimental",
+      "min_os": {
+        "ios": "27.0",
+        "macos": "27.0"
+      },
+      "modalities": {
+        "input": [
+          "image"
+        ],
+        "output": [
+          "embedding"
+        ]
+      },
+      "name": "LingBot-Vision ViT-S (fabric)",
+      "notes": "Converted via coreai-fabric recipe lingbot-vision-vit-small (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-vision-vit-small.yaml). Parity: gate A passed, gate B passed.",
+      "runtime": {
+        "aot_required": false,
+        "custom_kernel": false,
+        "patch_required": false,
+        "processor_required": true,
+        "runner": "CoreAIRunner",
+        "runtime_name": "apple-core-ai",
+        "stock_runtime": false,
+        "tokenizer_required": false
+      },
+      "size": {
+        "artifact_size": "83.1MB",
+        "fidelity_tier": "high_fidelity",
+        "parameters": "22M",
+        "precision": "float32",
+        "quantization": "none"
+      },
+      "source_group": "fabric",
+      "source_path": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-vision-vit-small.yaml",
+      "sources": [
+        "coreai-fabric"
+      ],
+      "status": "needs_review",
+      "upstream_repo": "robbyant/lingbot-vision-vit-small"
     }
   ]
 }
