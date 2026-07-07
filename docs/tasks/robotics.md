@@ -1,6 +1,6 @@
 # Robotics
 
-**17 models** in the catalog with this capability.
+**20 models** in the catalog with this capability.
 
 ## Task synonyms
 
@@ -11,6 +11,9 @@
 | Model | Score | Parameters | Devices | License | Commercial | Benchmark | Source |
 |---|---|---|---|---|---|---|---|
 | [BitVLA](../../catalog.yaml#L1) | 63 | 2B (BitNet b1.58) | 📱💻 | MIT | ✅ likely | — | 🐼 |
+| [VLA-JEPA LIBERO (fabric)](../../catalog.yaml#L1) | 53 | 3B |  | apache-2.0 | ✅ likely | — | fabric |
+| [VLA-JEPA Pretrain (fabric)](../../catalog.yaml#L1) | 53 | 3B |  | apache-2.0 | ✅ likely | — | fabric |
+| [VLA-JEPA SimplerEnv (fabric)](../../catalog.yaml#L1) | 53 | 3B |  | apache-2.0 | ✅ likely | — | fabric |
 | [ACT ALOHA Insertion (fabric)](../../catalog.yaml#L1) | 38 | 51.6M |  | apache-2.0 | ✅ likely | — | fabric |
 | [ACT ALOHA Transfer-Cube (fabric)](../../catalog.yaml#L1) | 38 | 51.6M |  | apache-2.0 | ✅ likely | — | fabric |
 | [ACT SO-ARM101 (fabric)](../../catalog.yaml#L1) | 38 | 51.6M |  | apache-2.0 | ✅ likely | — | fabric |

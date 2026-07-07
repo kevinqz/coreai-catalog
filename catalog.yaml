@@ -6788,3 +6788,258 @@ models:
       streaming: true
     files:
       tokenizer_ref: macos/tokenizer
+- id: vla-jepa-libero
+  name: VLA-JEPA LIBERO (fabric)
+  family: LeRobot
+  source_group: fabric
+  source_path: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/vla-jepa-libero.yaml
+  artifact_ref: vla-jepa-libero
+  capabilities:
+  - vision-language-action
+  - robotics
+  bundle_kind: action
+  min_os:
+    macos: '27.0'
+    ios: '27.0'
+  upstream_repo: lerobot/VLA-JEPA-LIBERO
+  modalities:
+    input:
+    - image
+    - text
+    - state
+    output:
+    - action
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 3B
+    precision: bfloat16
+    quantization: none
+    artifact_size: 3.2GB
+    fidelity_tier: high_fidelity
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: true
+    custom_kernel: false
+    patch_required: false
+    tokenizer_required: true
+    processor_required: true
+    aot_required: false
+  device_support:
+    iphone: unknown
+    ipad: unknown
+    mac: unknown
+    mac_only: unknown
+  license:
+    name: apache-2.0
+    commercial_use: likely
+  status: needs_review
+  maturity: experimental
+  confidence: medium
+  sources:
+  - coreai-fabric
+  last_verified: '2026-07-07'
+  notes: 'Converted via coreai-fabric recipe vla-jepa-libero (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/vla-jepa-libero.yaml).
+    Parity: gate A passed, gate B passed.'
+  architecture: transformer
+  evaluation:
+    metric: action_parity
+    status: passed
+    runner: coreai-fabric-parity-runner/0.1.0
+    measured_on: apple_silicon
+  io_contract:
+    entrypoint:
+      framework: CoreAIRunner
+      type: CoreAIRunner
+      init_pattern: load the encode + denoise_step graphs; host drives the N-step sampler
+        + un-normalization
+    inputs:
+    - name: image
+      modality: image
+    - name: text
+      modality: text
+    - name: state
+      modality: state
+    outputs:
+    - name: action_chunk
+      swift_type: '[[Float]]'
+      decoding:
+        detokenization: host-driven flow-matching sampler (N steps); un-normalize the action
+          chunk with norm_stats.json
+    session:
+      stateful: false
+      streaming: false
+    files:
+      tokenizer_ref: tokenizer
+      processor_ref: norm_stats.json
+- id: vla-jepa-pretrain
+  name: VLA-JEPA Pretrain (fabric)
+  family: LeRobot
+  source_group: fabric
+  source_path: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/vla-jepa-pretrain.yaml
+  artifact_ref: vla-jepa-pretrain
+  capabilities:
+  - vision-language-action
+  - robotics
+  bundle_kind: action
+  min_os:
+    macos: '27.0'
+    ios: '27.0'
+  upstream_repo: lerobot/VLA-JEPA-Pretrain
+  modalities:
+    input:
+    - image
+    - text
+    - state
+    output:
+    - action
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 3B
+    precision: bfloat16
+    quantization: none
+    artifact_size: 3.2GB
+    fidelity_tier: high_fidelity
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: true
+    custom_kernel: false
+    patch_required: false
+    tokenizer_required: true
+    processor_required: true
+    aot_required: false
+  device_support:
+    iphone: unknown
+    ipad: unknown
+    mac: unknown
+    mac_only: unknown
+  license:
+    name: apache-2.0
+    commercial_use: likely
+  status: needs_review
+  maturity: experimental
+  confidence: medium
+  sources:
+  - coreai-fabric
+  last_verified: '2026-07-07'
+  notes: 'Converted via coreai-fabric recipe vla-jepa-pretrain (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/vla-jepa-pretrain.yaml).
+    Parity: gate A passed, gate B passed.'
+  architecture: transformer
+  evaluation:
+    metric: action_parity
+    status: passed
+    runner: coreai-fabric-parity-runner/0.1.0
+    measured_on: apple_silicon
+  io_contract:
+    entrypoint:
+      framework: CoreAIRunner
+      type: CoreAIRunner
+      init_pattern: load the encode + denoise_step graphs; host drives the N-step sampler
+        + un-normalization
+    inputs:
+    - name: image
+      modality: image
+    - name: text
+      modality: text
+    - name: state
+      modality: state
+    outputs:
+    - name: action_chunk
+      swift_type: '[[Float]]'
+      decoding:
+        detokenization: host-driven flow-matching sampler (N steps); un-normalize the action
+          chunk with norm_stats.json
+    session:
+      stateful: false
+      streaming: false
+    files:
+      tokenizer_ref: tokenizer
+      processor_ref: norm_stats.json
+- id: vla-jepa-simpler-env
+  name: VLA-JEPA SimplerEnv (fabric)
+  family: LeRobot
+  source_group: fabric
+  source_path: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/vla-jepa-simpler-env.yaml
+  artifact_ref: vla-jepa-simpler-env
+  capabilities:
+  - vision-language-action
+  - robotics
+  bundle_kind: action
+  min_os:
+    macos: '27.0'
+    ios: '27.0'
+  upstream_repo: lerobot/VLA-JEPA-SimplerEnv
+  modalities:
+    input:
+    - image
+    - text
+    output:
+    - action
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 3B
+    precision: bfloat16
+    quantization: none
+    artifact_size: 3.2GB
+    fidelity_tier: high_fidelity
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: true
+    custom_kernel: false
+    patch_required: false
+    tokenizer_required: true
+    processor_required: true
+    aot_required: false
+  device_support:
+    iphone: unknown
+    ipad: unknown
+    mac: unknown
+    mac_only: unknown
+  license:
+    name: apache-2.0
+    commercial_use: likely
+  status: needs_review
+  maturity: experimental
+  confidence: medium
+  sources:
+  - coreai-fabric
+  last_verified: '2026-07-07'
+  notes: 'Converted via coreai-fabric recipe vla-jepa-simpler-env (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/vla-jepa-simpler-env.yaml).
+    Parity: gate A passed, gate B passed.'
+  architecture: transformer
+  evaluation:
+    metric: action_parity
+    status: passed
+    runner: coreai-fabric-parity-runner/0.1.0
+    measured_on: apple_silicon
+  io_contract:
+    entrypoint:
+      framework: CoreAIRunner
+      type: CoreAIRunner
+      init_pattern: load the encode + denoise_step graphs; host drives the N-step sampler
+        + un-normalization
+    inputs:
+    - name: image
+      modality: image
+    - name: text
+      modality: text
+    outputs:
+    - name: action_chunk
+      swift_type: '[[Float]]'
+      decoding:
+        detokenization: host-driven flow-matching sampler (N steps); un-normalize the action
+          chunk with norm_stats.json
+    session:
+      stateful: false
+      streaming: false
+    files:
+      tokenizer_ref: tokenizer
+      processor_ref: norm_stats.json

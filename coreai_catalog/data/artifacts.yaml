@@ -1,7 +1,7 @@
 metadata:
   name: Core AI Catalog artifact provenance
   last_verified: '2026-07-04'
-  count: 110
+  count: 113
 artifacts:
 - id: qwen3-5-0-8b
   group: zoo
@@ -4412,6 +4412,123 @@ artifacts:
       recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/qwen3-4b-int8.yaml
     recipe_source: fabric
     format_version: '2.0'
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: vla-jepa-libero
+  group: external
+  huggingface:
+    owner: kevinqz
+    repo: VLA-JEPA-LIBERO-CoreAI
+    url: https://huggingface.co/kevinqz/VLA-JEPA-LIBERO-CoreAI
+    revision: 8c310430001b756d6f8b54154aee6593121789ec
+    files:
+    - path: .gitattributes
+      sha256: 52b442be54a63f48e4865d705a50c853ada33dc84b248b3ed54532250cad438c
+      size_bytes: 1590
+    - path: LICENSE
+      sha256: 920eb5f84fd2e880e7caa1f89b8e3456af71336b53fcdb1b0b7d795fa1adfc61
+      size_bytes: 11967
+    - path: README.md
+      sha256: 5466208b69322306aa4456ce266e436b17ac8391945857677629d491999f709a
+      size_bytes: 5488
+    - path: parity-report.json
+      sha256: 3d2b17084d28924d30577505805cee3df3c411960f87467b165dd17835eab42f
+      size_bytes: 2972
+    - path: vla-jepa-libero.aimodel/main.hash
+      sha256: 679b7dc2ef9c2d6d94ff59f37ab7ef9efddec790f63b9adf61ebc6969cab67f7
+      size_bytes: 32
+    - path: vla-jepa-libero.aimodel/main.mlirb
+      sha256: 5423b8858924b80438a3f5d754d4432dc99d3a7ae686f39570ba33d1e514cb4e
+      size_bytes: 3437230413
+    - path: vla-jepa-libero.aimodel/metadata.json
+      sha256: e3f9ca075edac7407eaf7e2e2328820ed2a01f402905dd94760555a396726b17
+      size_bytes: 105
+  provenance:
+    converted_by:
+      tool: models/vla_jepa/export.py
+      version: unknown
+      recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/vla-jepa-libero.yaml
+    recipe_source: fabric
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: vla-jepa-pretrain
+  group: external
+  huggingface:
+    owner: kevinqz
+    repo: VLA-JEPA-Pretrain-CoreAI
+    url: https://huggingface.co/kevinqz/VLA-JEPA-Pretrain-CoreAI
+    revision: 25b9d1d6c6c3a18aa4587998e946a9454baa8505
+    files:
+    - path: .gitattributes
+      sha256: 13c6490479d0696a2f389842fb85a801e1e08c29b74db75fc2c6bafa8e6e977a
+      size_bytes: 1592
+    - path: LICENSE
+      sha256: 64221690342a6e1fd4381c1660d5a2f136df2283b16b1cd004dfbc6bcd2a335f
+      size_bytes: 11971
+    - path: README.md
+      sha256: 87f438c207f45de34723d84b24af74b0b7cc193a5ee42b1fdb8a9047e14d3c8e
+      size_bytes: 5534
+    - path: parity-report.json
+      sha256: 30d24caaed49dcba1c1064c891ba768491c5c3217794420ee9f5722110f165ba
+      size_bytes: 2979
+    - path: vla-jepa-pretrain.aimodel/main.hash
+      sha256: 579904416524d9a964f27ebdceb934d4ccedb0d18799054c86a78eeafa2914b2
+      size_bytes: 32
+    - path: vla-jepa-pretrain.aimodel/main.mlirb
+      sha256: 63f4c59980511ee59704a855eb9e49985d5b8a8cae3cb855bf6b1062fd1d088b
+      size_bytes: 3434043069
+    - path: vla-jepa-pretrain.aimodel/metadata.json
+      sha256: 0b2fa915f1f591067269c5d12e9cc1b25a192b8c1f205beed263189e1425208c
+      size_bytes: 105
+  provenance:
+    converted_by:
+      tool: models/vla_jepa/export.py
+      version: unknown
+      recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/vla-jepa-pretrain.yaml
+    recipe_source: fabric
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: vla-jepa-simpler-env
+  group: external
+  huggingface:
+    owner: kevinqz
+    repo: VLA-JEPA-SimplerEnv-CoreAI
+    url: https://huggingface.co/kevinqz/VLA-JEPA-SimplerEnv-CoreAI
+    revision: 241cd0d8eb59bf824727656acc5cf6b077278175
+    files:
+    - path: .gitattributes
+      sha256: e9479f46a684d653e935d83aa3c685e3ffd8813a9dc81fc4e47c6adf5534172c
+      size_bytes: 1595
+    - path: LICENSE
+      sha256: 5f19e4323c7eaa293e84d48b42d58b4617decf9f0a8c75e18cf945ece4ec934a
+      size_bytes: 11975
+    - path: README.md
+      sha256: 0abe1659fbeae07cf8c24826270b8b229308aa6a6c76c34d5bfe52fdc960366f
+      size_bytes: 5592
+    - path: parity-report.json
+      sha256: 42c9f762297dad33c4a24ab41f35b3adde38bd4eec57516facf3e7d90496fcd1
+      size_bytes: 2994
+    - path: vla-jepa-simpler-env.aimodel/main.hash
+      sha256: 4c294bd8759bb5fe6819c900e76ab05e8de411f6fe16890e0a7293153a6f7b17
+      size_bytes: 32
+    - path: vla-jepa-simpler-env.aimodel/main.mlirb
+      sha256: 55e181ccdd1bef66fcf7d19debc936345738f4b612ef014cd264ec123193f501
+      size_bytes: 3434017835
+    - path: vla-jepa-simpler-env.aimodel/metadata.json
+      sha256: 5ca4ca3768e0de435c1967476dc2ea6653a91a164bcd733a359b16c386b1bb45
+      size_bytes: 105
+  provenance:
+    converted_by:
+      tool: models/vla_jepa/export.py
+      version: unknown
+      recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/vla-jepa-simpler-env.yaml
+    recipe_source: fabric
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false

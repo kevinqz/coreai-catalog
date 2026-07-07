@@ -114,3 +114,6 @@ Generated from `artifacts.yaml`.
 | qwen3-0.6b-int8 | external | / | kevinqz/Qwen3-0.6B-CoreAI | False | False |
 | qwen3-1.7b-int8 | external | / | kevinqz/Qwen3-1.7B-CoreAI | False | False |
 | qwen3-4b-int8 | external | / | kevinqz/Qwen3-4B-CoreAI | False | False |
+| vla-jepa-libero | external | / | kevinqz/VLA-JEPA-LIBERO-CoreAI | False | False |
+| vla-jepa-pretrain | external | / | kevinqz/VLA-JEPA-Pretrain-CoreAI | False | False |
+| vla-jepa-simpler-env | external | / | kevinqz/VLA-JEPA-SimplerEnv-CoreAI | False | False |
