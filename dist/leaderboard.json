@@ -2,7 +2,7 @@
   "export_schema_version": "1.0",
   "export_catalog_version": "2.3.0",
   "description": "Ranked by the DEPRECATED readiness_score (a curation/deployability composite, NOT model quality). Prefer per-entry deployability/lifecycle/entry_completeness facets plus benchmark VALUES. Each entry includes best-known benchmarks per metric.",
-  "total_models": 113,
+  "total_models": 124,
   "leaderboard": [
     {
       "id": "depth-anything-3-base",
@@ -2079,6 +2079,37 @@
       "best_metrics": {}
     },
     {
+      "id": "streaming-sortformer-diar",
+      "name": "Streaming Sortformer Diarization",
+      "capabilities": [
+        "speaker-diarization",
+        "voice-activity-detection"
+      ],
+      "parameters": "117M",
+      "readiness_score": 68,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-07"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
+      "benchmark_count": 0,
+      "best_metrics": {}
+    },
+    {
       "id": "voxcpm2-2b",
       "name": "VoxCPM2 2B",
       "capabilities": [
@@ -2248,6 +2279,38 @@
           "unit": "tokens_per_second"
         }
       }
+    },
+    {
+      "id": "gliner2-pii",
+      "name": "GLiNER2 PII",
+      "capabilities": [
+        "token-classification",
+        "named-entity-recognition",
+        "pii-redaction"
+      ],
+      "parameters": "278M",
+      "readiness_score": 63,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-07"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
+      "benchmark_count": 0,
+      "best_metrics": {}
     },
     {
       "id": "llada-8b-dllm",
@@ -2690,6 +2753,37 @@
       }
     },
     {
+      "id": "glm-image",
+      "name": "GLM-Image",
+      "capabilities": [
+        "image-generation",
+        "text-to-image"
+      ],
+      "parameters": "16B",
+      "readiness_score": 53,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-07"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
+      "benchmark_count": 0,
+      "best_metrics": {}
+    },
+    {
       "id": "lfm2-5-8b-a1b",
       "name": "LFM2.5-8B-A1B",
       "capabilities": [
@@ -3121,6 +3215,38 @@
       "best_metrics": {}
     },
     {
+      "id": "youtu-llm-2b",
+      "name": "Youtu-LLM-2B",
+      "capabilities": [
+        "chat",
+        "text-generation",
+        "mla"
+      ],
+      "parameters": "2B",
+      "readiness_score": 53,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-07"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
+      "benchmark_count": 0,
+      "best_metrics": {}
+    },
+    {
       "id": "gemma-4-12b-mm-warshanks",
       "name": "Gemma 4 12B IT Multimodal (warshanks)",
       "capabilities": [
@@ -3183,12 +3309,224 @@
       "best_metrics": {}
     },
     {
+      "id": "evo1-so100",
+      "name": "EVO1 SO-100 (fabric)",
+      "capabilities": [
+        "vision-language-action",
+        "robotics"
+      ],
+      "parameters": "0.77B",
+      "readiness_score": 43,
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-07"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": true
+        }
+      },
+      "benchmark_count": 0,
+      "best_metrics": {}
+    },
+    {
+      "id": "lingbot-vision-vit-base",
+      "name": "LingBot-Vision ViT-B (fabric)",
+      "capabilities": [
+        "image-feature-extraction"
+      ],
+      "parameters": "86M",
+      "readiness_score": 43,
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-07"
+      },
+      "entry_completeness": {
+        "pct": 0.5,
+        "present": 3,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
+      "benchmark_count": 0,
+      "best_metrics": {}
+    },
+    {
+      "id": "lingbot-vision-vit-giant",
+      "name": "LingBot-Vision ViT-g (fabric)",
+      "capabilities": [
+        "image-feature-extraction"
+      ],
+      "parameters": "1.1B",
+      "readiness_score": 43,
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-07"
+      },
+      "entry_completeness": {
+        "pct": 0.5,
+        "present": 3,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
+      "benchmark_count": 0,
+      "best_metrics": {}
+    },
+    {
+      "id": "lingbot-vision-vit-large",
+      "name": "LingBot-Vision ViT-L (fabric)",
+      "capabilities": [
+        "image-feature-extraction"
+      ],
+      "parameters": "0.3B",
+      "readiness_score": 43,
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-07"
+      },
+      "entry_completeness": {
+        "pct": 0.5,
+        "present": 3,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
+      "benchmark_count": 0,
+      "best_metrics": {}
+    },
+    {
+      "id": "lingbot-vision-vit-small",
+      "name": "LingBot-Vision ViT-S (fabric)",
+      "capabilities": [
+        "image-feature-extraction"
+      ],
+      "parameters": "22M",
+      "readiness_score": 43,
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-07"
+      },
+      "entry_completeness": {
+        "pct": 0.5,
+        "present": 3,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
+      "benchmark_count": 0,
+      "best_metrics": {}
+    },
+    {
       "id": "pulpie-orange-base",
       "name": "Pulpie Orange Base (fabric)",
       "capabilities": [
         "token-classification"
       ],
       "parameters": "0.6B",
+      "readiness_score": 43,
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-07"
+      },
+      "entry_completeness": {
+        "pct": 0.5,
+        "present": 3,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
+      "benchmark_count": 0,
+      "best_metrics": {}
+    },
+    {
+      "id": "pulpie-orange-large",
+      "name": "Pulpie Orange Large (fabric)",
+      "capabilities": [
+        "token-classification"
+      ],
+      "parameters": "2.1B",
+      "readiness_score": 43,
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-07"
+      },
+      "entry_completeness": {
+        "pct": 0.5,
+        "present": 3,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
+      "benchmark_count": 0,
+      "best_metrics": {}
+    },
+    {
+      "id": "robometer-4b",
+      "name": "Robometer-4B Reward (fabric)",
+      "capabilities": [
+        "reward-modeling",
+        "robotics"
+      ],
+      "parameters": "4.45B",
       "readiness_score": 43,
       "lifecycle": {
         "stage": "community",

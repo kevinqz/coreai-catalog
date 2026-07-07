@@ -56,7 +56,7 @@
   context_window: replace-me   # optional
   streaming: false   # optional
   notes: One-line description or caveats.
-  bundle_kind: llm   # llm | vlm | ocr | audio-lm | embedding | reranker | object-detection | segmentation | depth | image-generation | super-resolution | tts | asr | audio-generation | video | 3d | action | token-classification | image-feature-extraction — Authored task-level bundle kind (redteam C5). Derived from the catalog's capability vocabulary — NOT the runtime's 4-value BundleKind enum (apple/coreai-models swift/Sources/CoreAIShared/Bundle/BundleKind.swift:12-17: llm/vlm/diffusion/segmenter). exports.py re-derives this from capabilities and fails the export on disagreement. — optional
+  bundle_kind: llm   # llm | vlm | ocr | audio-lm | embedding | reranker | object-detection | segmentation | depth | image-generation | super-resolution | tts | asr | audio-generation | video | 3d | action | token-classification | image-feature-extraction | diarization | reward-model — Authored task-level bundle kind (redteam C5). Derived from the catalog's capability vocabulary — NOT the runtime's 4-value BundleKind enum (apple/coreai-models swift/Sources/CoreAIShared/Bundle/BundleKind.swift:12-17: llm/vlm/diffusion/segmenter). exports.py re-derives this from capabilities and fails the export on disagreement. — optional
   min_os:   # Minimum OS version required by the model's runtime (redteam E5 / min_os data gap). For runtime_name apple-core-ai this is grounded in apple/coreai-models Package.swift: platforms: [.macOS("27.0"), .iOS("27.0")]. — optional
     macos: '27.0'   # optional
     ios: '27.0'   # optional

@@ -1,5 +1,5 @@
 {
-  "count": 113,
+  "count": 124,
   "export_schema_version": "1.0",
   "export_catalog_version": "2.3.0",
   "models": [
@@ -2318,7 +2318,7 @@
       "artifact": {
         "format": "aimodel",
         "availability": "available",
-        "huggingface_url": "https://huggingface.co/mlboydaisuke/gemma-4-E2B-CoreAI/tree/main/vl",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/gemma-4-E2B-CoreAI",
         "huggingface_repo": "mlboydaisuke/gemma-4-E2B-CoreAI",
         "github_source": "john-rocky/coreai-model-zoo",
         "apple_export_recipe": false,
@@ -6811,8 +6811,8 @@
       "artifact": {
         "format": "aimodel",
         "availability": "available",
-        "huggingface_url": "https://huggingface.co/mlboydaisuke/YOLOX-S-CoreAI",
-        "huggingface_repo": "mlboydaisuke/YOLOX-S-CoreAI",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/YOLOX-CoreAI",
+        "huggingface_repo": "mlboydaisuke/YOLOX-CoreAI",
         "github_source": "john-rocky/coreai-model-zoo",
         "apple_export_recipe": false,
         "apple_hosted_artifact": false,
@@ -12801,6 +12801,1011 @@
       "benchmarks": [],
       "last_verified": "2026-07-07",
       "notes": "Converted via coreai-fabric recipe pulpie-orange-base (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/pulpie-orange-base.yaml). Parity: gate A passed, gate B passed."
+    },
+    {
+      "id": "pulpie-orange-large",
+      "name": "Pulpie Orange Large (fabric)",
+      "family": "EuroBERT",
+      "source_group": "fabric",
+      "bundle_kind": "token-classification",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "feyninc/pulpie-orange-large",
+      "io_contract": null,
+      "capabilities": [
+        "token-classification"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [],
+      "parameters": "2.1B",
+      "precision": "float32",
+      "quantization": "none",
+      "artifact_size": "7.9GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "status": "needs_review",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 43,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": "unknown",
+          "iphone": "unknown",
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "apache-2.0",
+          "commercial_use": "likely"
+        },
+        "hosts": 1,
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-07"
+      },
+      "entry_completeness": {
+        "pct": 0.5,
+        "present": 3,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/kevinqz/Pulpie-Orange-Large-CoreAI",
+        "huggingface_repo": "kevinqz/Pulpie-Orange-Large-CoreAI",
+        "github_source": null,
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-07-07",
+      "notes": "Converted via coreai-fabric recipe pulpie-orange-large (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/pulpie-orange-large.yaml). Parity: gate A passed, gate B passed."
+    },
+    {
+      "id": "lingbot-vision-vit-small",
+      "name": "LingBot-Vision ViT-S (fabric)",
+      "family": "LingBot",
+      "source_group": "fabric",
+      "bundle_kind": "image-feature-extraction",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "robbyant/lingbot-vision-vit-small",
+      "io_contract": null,
+      "capabilities": [
+        "image-feature-extraction"
+      ],
+      "input_modalities": [
+        "image"
+      ],
+      "output_modalities": [
+        "embedding"
+      ],
+      "devices": [],
+      "parameters": "22M",
+      "precision": "float32",
+      "quantization": "none",
+      "artifact_size": "83.1MB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "status": "needs_review",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 43,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": "unknown",
+          "iphone": "unknown",
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "apache-2.0",
+          "commercial_use": "likely"
+        },
+        "hosts": 1,
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-07"
+      },
+      "entry_completeness": {
+        "pct": 0.5,
+        "present": 3,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/kevinqz/LingBot-Vision-ViT-Small-CoreAI",
+        "huggingface_repo": "kevinqz/LingBot-Vision-ViT-Small-CoreAI",
+        "github_source": null,
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-07-07",
+      "notes": "Converted via coreai-fabric recipe lingbot-vision-vit-small (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-vision-vit-small.yaml). Parity: gate A passed, gate B passed."
+    },
+    {
+      "id": "lingbot-vision-vit-base",
+      "name": "LingBot-Vision ViT-B (fabric)",
+      "family": "LingBot",
+      "source_group": "fabric",
+      "bundle_kind": "image-feature-extraction",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "robbyant/lingbot-vision-vit-base",
+      "io_contract": null,
+      "capabilities": [
+        "image-feature-extraction"
+      ],
+      "input_modalities": [
+        "image"
+      ],
+      "output_modalities": [
+        "embedding"
+      ],
+      "devices": [],
+      "parameters": "86M",
+      "precision": "float32",
+      "quantization": "none",
+      "artifact_size": "327.5MB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "status": "needs_review",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 43,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": "unknown",
+          "iphone": "unknown",
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "apache-2.0",
+          "commercial_use": "likely"
+        },
+        "hosts": 1,
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-07"
+      },
+      "entry_completeness": {
+        "pct": 0.5,
+        "present": 3,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/kevinqz/LingBot-Vision-ViT-Base-CoreAI",
+        "huggingface_repo": "kevinqz/LingBot-Vision-ViT-Base-CoreAI",
+        "github_source": null,
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-07-07",
+      "notes": "Converted via coreai-fabric recipe lingbot-vision-vit-base (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-vision-vit-base.yaml). Parity: gate A passed, gate B passed."
+    },
+    {
+      "id": "lingbot-vision-vit-large",
+      "name": "LingBot-Vision ViT-L (fabric)",
+      "family": "LingBot",
+      "source_group": "fabric",
+      "bundle_kind": "image-feature-extraction",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "robbyant/lingbot-vision-vit-large",
+      "io_contract": null,
+      "capabilities": [
+        "image-feature-extraction"
+      ],
+      "input_modalities": [
+        "image"
+      ],
+      "output_modalities": [
+        "embedding"
+      ],
+      "devices": [],
+      "parameters": "0.3B",
+      "precision": "float32",
+      "quantization": "none",
+      "artifact_size": "1.1GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "status": "needs_review",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 43,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": "unknown",
+          "iphone": "unknown",
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "apache-2.0",
+          "commercial_use": "likely"
+        },
+        "hosts": 1,
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-07"
+      },
+      "entry_completeness": {
+        "pct": 0.5,
+        "present": 3,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/kevinqz/LingBot-Vision-ViT-Large-CoreAI",
+        "huggingface_repo": "kevinqz/LingBot-Vision-ViT-Large-CoreAI",
+        "github_source": null,
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-07-07",
+      "notes": "Converted via coreai-fabric recipe lingbot-vision-vit-large (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-vision-vit-large.yaml). Parity: gate A passed, gate B passed."
+    },
+    {
+      "id": "lingbot-vision-vit-giant",
+      "name": "LingBot-Vision ViT-g (fabric)",
+      "family": "LingBot",
+      "source_group": "fabric",
+      "bundle_kind": "image-feature-extraction",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "robbyant/lingbot-vision-vit-giant",
+      "io_contract": null,
+      "capabilities": [
+        "image-feature-extraction"
+      ],
+      "input_modalities": [
+        "image"
+      ],
+      "output_modalities": [
+        "embedding"
+      ],
+      "devices": [],
+      "parameters": "1.1B",
+      "precision": "float32",
+      "quantization": "none",
+      "artifact_size": "4.2GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "status": "needs_review",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 43,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": "unknown",
+          "iphone": "unknown",
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "apache-2.0",
+          "commercial_use": "likely"
+        },
+        "hosts": 1,
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-07"
+      },
+      "entry_completeness": {
+        "pct": 0.5,
+        "present": 3,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/kevinqz/LingBot-Vision-ViT-Giant-CoreAI",
+        "huggingface_repo": "kevinqz/LingBot-Vision-ViT-Giant-CoreAI",
+        "github_source": null,
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-07-07",
+      "notes": "Converted via coreai-fabric recipe lingbot-vision-vit-giant (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-vision-vit-giant.yaml). Parity: gate A passed, gate B passed."
+    },
+    {
+      "id": "gliner2-pii",
+      "name": "GLiNER2 PII",
+      "family": "GLiNER",
+      "source_group": "zoo",
+      "bundle_kind": "token-classification",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "fastino/gliner2-privacy-filter-PII-multi",
+      "io_contract": null,
+      "capabilities": [
+        "token-classification",
+        "named-entity-recognition",
+        "pii-redaction"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "278M",
+      "precision": "float16",
+      "quantization": "none",
+      "artifact_size": "823MB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": true,
+      "aot_required": true,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 63,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "hosts": 1,
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-07"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/GLiNER2-PII-CoreAI",
+        "huggingface_repo": "mlboydaisuke/GLiNER2-PII-CoreAI",
+        "github_source": null,
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-07-07",
+      "notes": "Zero-shot GLiNER2 NER/PII extraction on mDeBERTa-v3 (seq len 256), fused into one static Core AI graph; the packager's README reports fp16-vs-fp32 span-scores cosine 0.999993 with byte-identical decoded entities and an iPhone 17 Pro AOT GATE_RESULT PASS."
+    },
+    {
+      "id": "glm-image",
+      "name": "GLM-Image",
+      "family": "GLM",
+      "source_group": "zoo",
+      "bundle_kind": "image-generation",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "zai-org/GLM-Image",
+      "io_contract": null,
+      "capabilities": [
+        "image-generation",
+        "text-to-image"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "image"
+      ],
+      "devices": [
+        "mac"
+      ],
+      "parameters": "16B",
+      "precision": "int8",
+      "quantization": "int8 per-block-32 (AR+DiT); VAE fp32",
+      "artifact_size": "20GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": true,
+      "aot_required": true,
+      "license": "MIT",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 53,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": false,
+          "ipad": false
+        },
+        "license": {
+          "name": "MIT",
+          "commercial_use": "likely"
+        },
+        "hosts": 1,
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-07"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/GLM-Image-CoreAI",
+        "huggingface_repo": "mlboydaisuke/GLM-Image-CoreAI",
+        "github_source": null,
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-07-07",
+      "notes": "Ships an autoregressive GLM-4-9B visual-token graph (glm_image_ar) plus a flow-matching DiT graph (glm_image_dit_1024), both compiled .aimodelc; the packager's README claims DiT single-forward cosine 0.9999 and byte-exact VAE vs the bf16 diffusers reference. macOS-only (~20GB per resolution on disk)."
+    },
+    {
+      "id": "youtu-llm-2b",
+      "name": "Youtu-LLM-2B",
+      "family": "Youtu",
+      "source_group": "zoo",
+      "bundle_kind": "llm",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "tencent/Youtu-LLM-2B",
+      "io_contract": null,
+      "capabilities": [
+        "chat",
+        "text-generation",
+        "mla"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "2B",
+      "precision": "int8",
+      "quantization": "int8 per-block-32 (body + head)",
+      "artifact_size": "2.39GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": true,
+      "patch_required": true,
+      "aot_required": false,
+      "license": "Other",
+      "commercial_use": "check_license",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 53,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Other",
+          "commercial_use": "check_license"
+        },
+        "hosts": 1,
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-07"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/Youtu-LLM-2B-CoreAI",
+        "huggingface_repo": "mlboydaisuke/Youtu-LLM-2B-CoreAI",
+        "github_source": null,
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-07-07",
+      "notes": "Community-packaged int8 decode-only Core AI bundle of Tencent's dense MLA LLM, shipping an absorbed-MLA flash-decode Metal kernel over the coreai-pipelined GPU engine; license is non-standard 'other' (youtu-llm) so commercial use needs the upstream license check (README claims commercial use with attribution + an EU-use exclusion; the upstream LICENSE file 404s)."
+    },
+    {
+      "id": "streaming-sortformer-diar",
+      "name": "Streaming Sortformer Diarization",
+      "family": "Sortformer",
+      "source_group": "zoo",
+      "bundle_kind": "diarization",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "nvidia/diar_streaming_sortformer_4spk-v2",
+      "io_contract": null,
+      "capabilities": [
+        "speaker-diarization",
+        "voice-activity-detection"
+      ],
+      "input_modalities": [
+        "audio"
+      ],
+      "output_modalities": [
+        "labels"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "117M",
+      "precision": "float16",
+      "quantization": "none",
+      "artifact_size": "708MB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": true,
+      "aot_required": false,
+      "license": "CC-BY-4.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 68,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "CC-BY-4.0",
+          "commercial_use": "likely"
+        },
+        "hosts": 1,
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-07"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/Streaming-Sortformer-Diar-CoreAI",
+        "huggingface_repo": "mlboydaisuke/Streaming-Sortformer-Diar-CoreAI",
+        "github_source": null,
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-07-07",
+      "notes": "Streaming 4-speaker on-device diarization (neural core exported to Core AI fp16; NeMo mel frontend + arrival-order speaker cache live in the Swift host); the packager's README reports 100.00% speaker-activity agreement vs NeMo forward_streaming on Mac GPU and iPhone 17 Pro. CC-BY-4.0 permits commercial use but requires attribution to NVIDIA."
+    },
+    {
+      "id": "evo1-so100",
+      "name": "EVO1 SO-100 (fabric)",
+      "family": "LeRobot",
+      "source_group": "fabric",
+      "bundle_kind": "action",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Beilinghamburger/evo1_so100_vla",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAIRunner",
+          "type": "CoreAIRunner",
+          "init_pattern": "load the encode + denoise_step graphs; host drives the N-step sampler + un-normalization"
+        },
+        "inputs": [
+          {
+            "name": "image",
+            "modality": "image"
+          },
+          {
+            "name": "text",
+            "modality": "text"
+          },
+          {
+            "name": "state",
+            "modality": "state"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "action_chunk",
+            "swift_type": "[[Float]]",
+            "decoding": {
+              "detokenization": "host-driven flow-matching sampler (N steps); un-normalize the action chunk with norm_stats.json"
+            }
+          }
+        ],
+        "session": {
+          "stateful": false,
+          "streaming": false
+        },
+        "files": {
+          "tokenizer_ref": "tokenizer",
+          "processor_ref": "norm_stats.json"
+        }
+      },
+      "capabilities": [
+        "vision-language-action",
+        "robotics"
+      ],
+      "input_modalities": [
+        "image",
+        "text",
+        "state"
+      ],
+      "output_modalities": [
+        "action"
+      ],
+      "devices": [],
+      "parameters": "0.77B",
+      "precision": "float32",
+      "quantization": "none",
+      "artifact_size": "360.6MB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "status": "needs_review",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 43,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": "unknown",
+          "iphone": "unknown",
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "apache-2.0",
+          "commercial_use": "likely"
+        },
+        "hosts": 1,
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-07"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": true
+        }
+      },
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/kevinqz/EVO1-SO100-CoreAI",
+        "huggingface_repo": "kevinqz/EVO1-SO100-CoreAI",
+        "github_source": null,
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-07-07",
+      "notes": "Converted via coreai-fabric recipe evo1-so100 (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/evo1-so100.yaml). Parity: gate A passed, gate B passed."
+    },
+    {
+      "id": "robometer-4b",
+      "name": "Robometer-4B Reward (fabric)",
+      "family": "Robometer",
+      "source_group": "fabric",
+      "bundle_kind": "reward-model",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "lerobot/Robometer-4B",
+      "io_contract": null,
+      "capabilities": [
+        "reward-modeling",
+        "robotics"
+      ],
+      "input_modalities": [
+        "image",
+        "text"
+      ],
+      "output_modalities": [
+        "reward"
+      ],
+      "devices": [],
+      "parameters": "4.45B",
+      "precision": "float32",
+      "quantization": "none",
+      "artifact_size": "25.1MB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "status": "needs_review",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 43,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": "unknown",
+          "iphone": "unknown",
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "apache-2.0",
+          "commercial_use": "likely"
+        },
+        "hosts": 1,
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-07"
+      },
+      "entry_completeness": {
+        "pct": 0.5,
+        "present": 3,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/kevinqz/Robometer-4B-CoreAI",
+        "huggingface_repo": "kevinqz/Robometer-4B-CoreAI",
+        "github_source": null,
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-07-07",
+      "notes": "Converted via coreai-fabric recipe robometer-4b (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/robometer-4b.yaml). Parity: gate A passed, gate B passed."
     }
   ]
 }

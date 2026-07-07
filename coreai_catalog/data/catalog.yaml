@@ -7102,3 +7102,665 @@ models:
     reference_dtype: float32
     runner: coreai-fabric-parity-runner/0.1.0
     measured_on: apple_silicon
+- id: pulpie-orange-large
+  name: Pulpie Orange Large (fabric)
+  family: EuroBERT
+  source_group: fabric
+  source_path: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/pulpie-orange-large.yaml
+  artifact_ref: pulpie-orange-large
+  capabilities:
+  - token-classification
+  bundle_kind: token-classification
+  min_os:
+    macos: '27.0'
+    ios: '27.0'
+  upstream_repo: feyninc/pulpie-orange-large
+  modalities:
+    input:
+    - text
+    output:
+    - text
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 2.1B
+    precision: float32
+    quantization: none
+    artifact_size: 7.9GB
+    fidelity_tier: high_fidelity
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: false
+    custom_kernel: false
+    patch_required: false
+    tokenizer_required: true
+    processor_required: false
+    aot_required: false
+  device_support:
+    iphone: unknown
+    ipad: unknown
+    mac: unknown
+    mac_only: unknown
+  license:
+    name: apache-2.0
+    commercial_use: likely
+  status: needs_review
+  maturity: experimental
+  confidence: medium
+  sources:
+  - coreai-fabric
+  last_verified: '2026-07-07'
+  notes: 'Converted via coreai-fabric recipe pulpie-orange-large (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/pulpie-orange-large.yaml).
+    Parity: gate A passed, gate B passed.'
+  architecture: transformer
+  evaluation:
+    metric: graph_output_cosine
+    status: passed
+    reference_dtype: float32
+    runner: coreai-fabric-parity-runner/0.1.0
+    measured_on: apple_silicon
+- id: lingbot-vision-vit-small
+  name: LingBot-Vision ViT-S (fabric)
+  family: LingBot
+  source_group: fabric
+  source_path: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-vision-vit-small.yaml
+  artifact_ref: lingbot-vision-vit-small
+  capabilities:
+  - image-feature-extraction
+  bundle_kind: image-feature-extraction
+  min_os:
+    macos: '27.0'
+    ios: '27.0'
+  upstream_repo: robbyant/lingbot-vision-vit-small
+  modalities:
+    input:
+    - image
+    output:
+    - embedding
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 22M
+    precision: float32
+    quantization: none
+    artifact_size: 83.1MB
+    fidelity_tier: high_fidelity
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: false
+    custom_kernel: false
+    patch_required: false
+    tokenizer_required: false
+    processor_required: true
+    aot_required: false
+  device_support:
+    iphone: unknown
+    ipad: unknown
+    mac: unknown
+    mac_only: unknown
+  license:
+    name: apache-2.0
+    commercial_use: likely
+  status: needs_review
+  maturity: experimental
+  confidence: medium
+  sources:
+  - coreai-fabric
+  last_verified: '2026-07-07'
+  notes: 'Converted via coreai-fabric recipe lingbot-vision-vit-small (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-vision-vit-small.yaml).
+    Parity: gate A passed, gate B passed.'
+  architecture: transformer
+  evaluation:
+    metric: graph_output_cosine
+    status: passed
+    reference_dtype: float32
+    runner: coreai-fabric-parity-runner/0.1.0
+    measured_on: apple_silicon
+- id: lingbot-vision-vit-base
+  name: LingBot-Vision ViT-B (fabric)
+  family: LingBot
+  source_group: fabric
+  source_path: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-vision-vit-base.yaml
+  artifact_ref: lingbot-vision-vit-base
+  capabilities:
+  - image-feature-extraction
+  bundle_kind: image-feature-extraction
+  min_os:
+    macos: '27.0'
+    ios: '27.0'
+  upstream_repo: robbyant/lingbot-vision-vit-base
+  modalities:
+    input:
+    - image
+    output:
+    - embedding
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 86M
+    precision: float32
+    quantization: none
+    artifact_size: 327.5MB
+    fidelity_tier: high_fidelity
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: false
+    custom_kernel: false
+    patch_required: false
+    tokenizer_required: false
+    processor_required: true
+    aot_required: false
+  device_support:
+    iphone: unknown
+    ipad: unknown
+    mac: unknown
+    mac_only: unknown
+  license:
+    name: apache-2.0
+    commercial_use: likely
+  status: needs_review
+  maturity: experimental
+  confidence: medium
+  sources:
+  - coreai-fabric
+  last_verified: '2026-07-07'
+  notes: 'Converted via coreai-fabric recipe lingbot-vision-vit-base (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-vision-vit-base.yaml).
+    Parity: gate A passed, gate B passed.'
+  architecture: transformer
+  evaluation:
+    metric: graph_output_cosine
+    status: passed
+    reference_dtype: float32
+    runner: coreai-fabric-parity-runner/0.1.0
+    measured_on: apple_silicon
+- id: lingbot-vision-vit-large
+  name: LingBot-Vision ViT-L (fabric)
+  family: LingBot
+  source_group: fabric
+  source_path: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-vision-vit-large.yaml
+  artifact_ref: lingbot-vision-vit-large
+  capabilities:
+  - image-feature-extraction
+  bundle_kind: image-feature-extraction
+  min_os:
+    macos: '27.0'
+    ios: '27.0'
+  upstream_repo: robbyant/lingbot-vision-vit-large
+  modalities:
+    input:
+    - image
+    output:
+    - embedding
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 0.3B
+    precision: float32
+    quantization: none
+    artifact_size: 1.1GB
+    fidelity_tier: high_fidelity
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: false
+    custom_kernel: false
+    patch_required: false
+    tokenizer_required: false
+    processor_required: true
+    aot_required: false
+  device_support:
+    iphone: unknown
+    ipad: unknown
+    mac: unknown
+    mac_only: unknown
+  license:
+    name: apache-2.0
+    commercial_use: likely
+  status: needs_review
+  maturity: experimental
+  confidence: medium
+  sources:
+  - coreai-fabric
+  last_verified: '2026-07-07'
+  notes: 'Converted via coreai-fabric recipe lingbot-vision-vit-large (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-vision-vit-large.yaml).
+    Parity: gate A passed, gate B passed.'
+  architecture: transformer
+  evaluation:
+    metric: graph_output_cosine
+    status: passed
+    reference_dtype: float32
+    runner: coreai-fabric-parity-runner/0.1.0
+    measured_on: apple_silicon
+- id: lingbot-vision-vit-giant
+  name: LingBot-Vision ViT-g (fabric)
+  family: LingBot
+  source_group: fabric
+  source_path: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-vision-vit-giant.yaml
+  artifact_ref: lingbot-vision-vit-giant
+  capabilities:
+  - image-feature-extraction
+  bundle_kind: image-feature-extraction
+  min_os:
+    macos: '27.0'
+    ios: '27.0'
+  upstream_repo: robbyant/lingbot-vision-vit-giant
+  modalities:
+    input:
+    - image
+    output:
+    - embedding
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 1.1B
+    precision: float32
+    quantization: none
+    artifact_size: 4.2GB
+    fidelity_tier: high_fidelity
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: false
+    custom_kernel: false
+    patch_required: false
+    tokenizer_required: false
+    processor_required: true
+    aot_required: false
+  device_support:
+    iphone: unknown
+    ipad: unknown
+    mac: unknown
+    mac_only: unknown
+  license:
+    name: apache-2.0
+    commercial_use: likely
+  status: needs_review
+  maturity: experimental
+  confidence: medium
+  sources:
+  - coreai-fabric
+  last_verified: '2026-07-07'
+  notes: 'Converted via coreai-fabric recipe lingbot-vision-vit-giant (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-vision-vit-giant.yaml).
+    Parity: gate A passed, gate B passed.'
+  architecture: transformer
+  evaluation:
+    metric: graph_output_cosine
+    status: passed
+    reference_dtype: float32
+    runner: coreai-fabric-parity-runner/0.1.0
+    measured_on: apple_silicon
+- id: gliner2-pii
+  name: GLiNER2 PII
+  family: GLiNER
+  source_group: zoo
+  artifact_ref: gliner2-pii
+  source_path: https://github.com/john-rocky/coreai-model-zoo/tree/main/zoo/gliner2-pii
+  capabilities:
+  - token-classification
+  - named-entity-recognition
+  - pii-redaction
+  modalities:
+    input:
+    - text
+    output:
+    - text
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 278M
+    precision: float16
+    quantization: none
+    artifact_size: 823MB
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: false
+    custom_kernel: false
+    patch_required: true
+    tokenizer_required: true
+    processor_required: false
+    aot_required: true
+  device_support:
+    iphone: true
+    ipad: unknown
+    mac: true
+    mac_only: false
+  license:
+    name: Apache-2.0
+    commercial_use: likely
+  status: confirmed
+  maturity: experimental
+  confidence: medium
+  sources:
+  - coreai-model-zoo-readme
+  - coreai-model-zoo-zoo
+  - huggingface-mlboydaisuke
+  last_verified: '2026-07-07'
+  notes: Zero-shot GLiNER2 NER/PII extraction on mDeBERTa-v3 (seq len 256), fused into one static Core AI graph; the packager's README reports fp16-vs-fp32 span-scores cosine 0.999993 with byte-identical decoded entities and an iPhone 17 Pro AOT GATE_RESULT PASS.
+  architecture: encoder
+  bundle_kind: token-classification
+  min_os:
+    macos: '27.0'
+    ios: '27.0'
+  upstream_repo: fastino/gliner2-privacy-filter-PII-multi
+- id: glm-image
+  name: GLM-Image
+  family: GLM
+  source_group: zoo
+  artifact_ref: glm-image
+  source_path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/glm-image.md
+  capabilities:
+  - image-generation
+  - text-to-image
+  modalities:
+    input:
+    - text
+    output:
+    - image
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 16B
+    precision: int8
+    quantization: int8 per-block-32 (AR+DiT); VAE fp32
+    artifact_size: 20GB
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: false
+    custom_kernel: false
+    patch_required: true
+    tokenizer_required: true
+    processor_required: false
+    aot_required: true
+  device_support:
+    iphone: false
+    ipad: false
+    mac: true
+    mac_only: true
+  license:
+    name: MIT
+    commercial_use: likely
+  status: confirmed
+  maturity: experimental
+  confidence: medium
+  sources:
+  - coreai-model-zoo-readme
+  - coreai-model-zoo-zoo
+  - huggingface-mlboydaisuke
+  last_verified: '2026-07-07'
+  notes: Ships an autoregressive GLM-4-9B visual-token graph (glm_image_ar) plus a flow-matching DiT graph (glm_image_dit_1024), both compiled .aimodelc; the packager's README claims DiT single-forward cosine 0.9999 and byte-exact VAE vs the bf16 diffusers reference. macOS-only (~20GB per resolution on disk).
+  architecture: diffusion
+  bundle_kind: image-generation
+  min_os:
+    macos: '27.0'
+    ios: '27.0'
+  upstream_repo: zai-org/GLM-Image
+- id: youtu-llm-2b
+  name: Youtu-LLM-2B
+  family: Youtu
+  source_group: zoo
+  artifact_ref: youtu-llm-2b
+  source_path: https://github.com/john-rocky/coreai-model-zoo/tree/main/zoo/youtu
+  capabilities:
+  - chat
+  - text-generation
+  - mla
+  modalities:
+    input:
+    - text
+    output:
+    - text
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 2B
+    precision: int8
+    quantization: int8 per-block-32 (body + head)
+    artifact_size: 2.39GB
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: false
+    custom_kernel: true
+    patch_required: true
+    tokenizer_required: true
+    processor_required: false
+    aot_required: false
+  device_support:
+    iphone: true
+    ipad: unknown
+    mac: true
+    mac_only: false
+  license:
+    name: Other
+    commercial_use: check_license
+  status: confirmed
+  maturity: experimental
+  confidence: medium
+  sources:
+  - coreai-model-zoo-readme
+  - coreai-model-zoo-zoo
+  - huggingface-mlboydaisuke
+  last_verified: '2026-07-07'
+  notes: Community-packaged int8 decode-only Core AI bundle of Tencent's dense MLA LLM, shipping an absorbed-MLA flash-decode Metal kernel over the coreai-pipelined GPU engine; license is non-standard 'other' (youtu-llm) so commercial use needs the upstream license check (README claims commercial use with attribution + an EU-use exclusion; the upstream LICENSE file 404s).
+  architecture: transformer
+  context_window: '131072'
+  streaming: true
+  bundle_kind: llm
+  min_os:
+    macos: '27.0'
+    ios: '27.0'
+  upstream_repo: tencent/Youtu-LLM-2B
+- id: streaming-sortformer-diar
+  name: Streaming Sortformer Diarization
+  family: Sortformer
+  source_group: zoo
+  artifact_ref: streaming-sortformer-diar
+  source_path: https://github.com/john-rocky/coreai-model-zoo/tree/main/conversion/sortformer_diar
+  capabilities:
+  - speaker-diarization
+  - voice-activity-detection
+  modalities:
+    input:
+    - audio
+    output:
+    - labels
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 117M
+    precision: float16
+    quantization: none
+    artifact_size: 708MB
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: false
+    custom_kernel: false
+    patch_required: true
+    tokenizer_required: false
+    processor_required: true
+    aot_required: false
+  device_support:
+    iphone: true
+    ipad: unknown
+    mac: true
+    mac_only: false
+  license:
+    name: CC-BY-4.0
+    commercial_use: likely
+  status: confirmed
+  maturity: experimental
+  confidence: medium
+  sources:
+  - coreai-model-zoo-readme
+  - coreai-model-zoo-conversion
+  - huggingface-mlboydaisuke
+  last_verified: '2026-07-07'
+  notes: Streaming 4-speaker on-device diarization (neural core exported to Core AI fp16; NeMo mel frontend + arrival-order speaker cache live in the Swift host); the packager's README reports 100.00% speaker-activity agreement vs NeMo forward_streaming on Mac GPU and iPhone 17 Pro. CC-BY-4.0 permits commercial use but requires attribution to NVIDIA.
+  architecture: transformer
+  bundle_kind: diarization
+  min_os:
+    macos: '27.0'
+    ios: '27.0'
+  upstream_repo: nvidia/diar_streaming_sortformer_4spk-v2
+- id: evo1-so100
+  name: EVO1 SO-100 (fabric)
+  family: LeRobot
+  source_group: fabric
+  source_path: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/evo1-so100.yaml
+  artifact_ref: evo1-so100
+  capabilities:
+  - vision-language-action
+  - robotics
+  bundle_kind: action
+  min_os:
+    macos: '27.0'
+    ios: '27.0'
+  upstream_repo: Beilinghamburger/evo1_so100_vla
+  modalities:
+    input:
+    - image
+    - text
+    - state
+    output:
+    - action
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 0.77B
+    precision: float32
+    quantization: none
+    artifact_size: 360.6MB
+    fidelity_tier: high_fidelity
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: false
+    custom_kernel: false
+    patch_required: false
+    tokenizer_required: true
+    processor_required: true
+    aot_required: false
+  device_support:
+    iphone: unknown
+    ipad: unknown
+    mac: unknown
+    mac_only: unknown
+  license:
+    name: apache-2.0
+    commercial_use: likely
+  status: needs_review
+  maturity: experimental
+  confidence: medium
+  sources:
+  - coreai-fabric
+  last_verified: '2026-07-07'
+  notes: 'Converted via coreai-fabric recipe evo1-so100 (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/evo1-so100.yaml).
+    Parity: gate A passed, gate B passed.'
+  architecture: transformer
+  evaluation:
+    metric: action_parity
+    status: passed
+    runner: coreai-fabric-parity-runner/0.1.0
+    measured_on: apple_silicon
+  io_contract:
+    entrypoint:
+      framework: CoreAIRunner
+      type: CoreAIRunner
+      init_pattern: load the encode + denoise_step graphs; host drives the N-step sampler
+        + un-normalization
+    inputs:
+    - name: image
+      modality: image
+    - name: text
+      modality: text
+    - name: state
+      modality: state
+    outputs:
+    - name: action_chunk
+      swift_type: '[[Float]]'
+      decoding:
+        detokenization: host-driven flow-matching sampler (N steps); un-normalize the action
+          chunk with norm_stats.json
+    session:
+      stateful: false
+      streaming: false
+    files:
+      tokenizer_ref: tokenizer
+      processor_ref: norm_stats.json
+- id: robometer-4b
+  name: Robometer-4B Reward (fabric)
+  family: Robometer
+  source_group: fabric
+  source_path: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/robometer-4b.yaml
+  artifact_ref: robometer-4b
+  capabilities:
+  - reward-modeling
+  - robotics
+  bundle_kind: reward-model
+  min_os:
+    macos: '27.0'
+    ios: '27.0'
+  upstream_repo: lerobot/Robometer-4B
+  modalities:
+    input:
+    - image
+    - text
+    output:
+    - reward
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 4.45B
+    precision: float32
+    quantization: none
+    artifact_size: 25.1MB
+    fidelity_tier: high_fidelity
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: false
+    custom_kernel: false
+    patch_required: false
+    tokenizer_required: true
+    processor_required: true
+    aot_required: false
+  device_support:
+    iphone: unknown
+    ipad: unknown
+    mac: unknown
+    mac_only: unknown
+  license:
+    name: apache-2.0
+    commercial_use: likely
+  status: needs_review
+  maturity: experimental
+  confidence: medium
+  sources:
+  - coreai-fabric
+  last_verified: '2026-07-07'
+  notes: 'Converted via coreai-fabric recipe robometer-4b (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/robometer-4b.yaml).
+    Parity: gate A passed, gate B passed.'
+  architecture: transformer
+  evaluation:
+    metric: graph_output_cosine
+    status: passed
+    reference_dtype: float32
+    runner: coreai-fabric-parity-runner/0.1.0
+    measured_on: apple_silicon

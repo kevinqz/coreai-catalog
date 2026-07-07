@@ -1,12 +1,13 @@
 # Mla
 
-**1 models** in the catalog with this capability.
+**2 models** in the catalog with this capability.
 
 ## Models
 
 | Model | Score | Parameters | Devices | License | Commercial | Benchmark | Source |
 |---|---|---|---|---|---|---|---|
 | [GLM-4.7-Flash](../../catalog.yaml#L1) | 53 | 30B / ~3B active | 💻 | MIT | ⚠️ check_license | 📊 | 🐼 |
+| [Youtu-LLM-2B](../../catalog.yaml#L1) | 53 | 2B | 📱💻 | Other | ⚠️ check_license | — | 🐼 |
 
 ## Install
 

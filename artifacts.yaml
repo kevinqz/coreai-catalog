@@ -1,7 +1,7 @@
 metadata:
   name: Core AI Catalog artifact provenance
   last_verified: '2026-07-04'
-  count: 114
+  count: 125
 artifacts:
 - id: qwen3-5-0-8b
   group: zoo
@@ -633,8 +633,7 @@ artifacts:
   huggingface:
     owner: mlboydaisuke
     repo: gemma-4-E2B-CoreAI
-    path: tree/main/vl
-    url: https://huggingface.co/mlboydaisuke/gemma-4-E2B-CoreAI/tree/main/vl
+    url: https://huggingface.co/mlboydaisuke/gemma-4-E2B-CoreAI
     revision: 1b6adc0eb22ea907247833014132f7b1f76cff9a
     files:
     - path: gpu-pipelined/gemma4_e2b_decode_int4lin_tbl/gemma4_e2b_decode_int4lin_tbl.aimodel/main.mlirb
@@ -2295,7 +2294,7 @@ artifacts:
   github:
     owner: john-rocky
     repo: coreai-model-zoo
-    path: https://github.com/john-rocky/coreai-model-zoo/README.md
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/README.md
   huggingface:
     owner: mlboydaisuke
     repo: Qwen3-ASR-1.7B-CoreAI
@@ -2351,7 +2350,7 @@ artifacts:
   github:
     owner: john-rocky
     repo: coreai-model-zoo
-    path: https://github.com/john-rocky/coreai-model-zoo/README.md
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/README.md
   huggingface:
     owner: mlboydaisuke
     repo: VoxCPM2-CoreAI
@@ -2481,8 +2480,8 @@ artifacts:
     path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/yolox.md
   huggingface:
     owner: mlboydaisuke
-    repo: YOLOX-S-CoreAI
-    url: https://huggingface.co/mlboydaisuke/YOLOX-S-CoreAI
+    repo: YOLOX-CoreAI
+    url: https://huggingface.co/mlboydaisuke/YOLOX-CoreAI
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -2492,7 +2491,7 @@ artifacts:
   github:
     owner: john-rocky
     repo: coreai-model-zoo
-    path: https://github.com/john-rocky/coreai-model-zoo/README.md
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/README.md
   huggingface:
     owner: mlboydaisuke
     repo: TripoSplat-CoreAI
@@ -4567,6 +4566,326 @@ artifacts:
       tool: models/eurobert/export.py
       version: unknown
       recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/pulpie-orange-base.yaml
+    recipe_source: fabric
+    format_version: '2.0'
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: pulpie-orange-large
+  group: external
+  huggingface:
+    owner: kevinqz
+    repo: Pulpie-Orange-Large-CoreAI
+    url: https://huggingface.co/kevinqz/Pulpie-Orange-Large-CoreAI
+    revision: 9470e1c406ac4fe3e88170331f3140b88c74d789
+    files:
+    - path: .gitattributes
+      sha256: 49706716200604fe03c5f616f8675ae7386a9003d4548c7ccfaca367a1e923d3
+      size_bytes: 1594
+    - path: LICENSE
+      sha256: e8e4bc99b7035077f62153811bb01dffed99dfbc767fe0d77be5722a985141fb
+      size_bytes: 11975
+    - path: README.md
+      sha256: d555c5a9fb2f165a769b476be4d5db9d70bfc5d27aff835a4eb310d60d7f448f
+      size_bytes: 4768
+    - path: parity-report.json
+      sha256: 2b35e8cadf60592036a9db9f070d55463ea4f9a83947012dc24c8a16df5fa7d6
+      size_bytes: 2021
+    - path: pulpie-orange-large.aimodel/main.hash
+      sha256: 375f3bda1e148c92538be3fa18b8acc5674ac921631bc214ca771494a2011b89
+      size_bytes: 32
+    - path: pulpie-orange-large.aimodel/main.mlirb
+      sha256: 9b74db3825c049693200a3e6fb434f57f791cfbce36ed151b71f8194f7f5a011
+      size_bytes: 8431059314
+    - path: pulpie-orange-large.aimodel/metadata.json
+      sha256: fe36bbc2ca9eb4109567b5dbce95e14663b2277afa783bf1bcb18a97c5ae29c6
+      size_bytes: 105
+  provenance:
+    converted_by:
+      tool: models/eurobert/export.py
+      version: unknown
+      recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/pulpie-orange-large.yaml
+    recipe_source: fabric
+    format_version: '2.0'
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: lingbot-vision-vit-small
+  group: external
+  huggingface:
+    owner: kevinqz
+    repo: LingBot-Vision-ViT-Small-CoreAI
+    url: https://huggingface.co/kevinqz/LingBot-Vision-ViT-Small-CoreAI
+    revision: 5508ec68b2a18cac7ea6269eb1e8d1c27cc24187
+    files:
+    - path: .gitattributes
+      sha256: 496720a797c1d80e601f28e9ca8bdf2c89dcd2e64b8de2dcefbae82eccc439f3
+      size_bytes: 1599
+    - path: LICENSE
+      sha256: ad7eaa47dc622600858b3c161ce2597b0e96c1b8d7b464ca112d6aa6054706e2
+      size_bytes: 11987
+    - path: README.md
+      sha256: 1525e17a0dde4bed4c8df20f99a28950f814181d3625a6d6abf05898d92d8a5a
+      size_bytes: 4792
+    - path: lingbot-vision-vit-small.aimodel/main.hash
+      sha256: 36b399a4ab92d528dc4336d3caf50c76133ae492ac9a25425d8484f43dc20a27
+      size_bytes: 32
+    - path: lingbot-vision-vit-small.aimodel/main.mlirb
+      sha256: c565fc469b67fe3f5421784fabee561eedba3d50ccc5fd4c3ab0cd02c611095a
+      size_bytes: 87082107
+    - path: lingbot-vision-vit-small.aimodel/metadata.json
+      sha256: 5a83a07d2cf3b43d75e8d54a92926a4ba9c880f99cbb59289f383584bf2aa4e6
+      size_bytes: 105
+    - path: parity-report.json
+      sha256: 17ab10770be40aa5785f4892a5fd51691ead6eb98a74e9d93ba20435eb099e86
+      size_bytes: 2070
+  provenance:
+    converted_by:
+      tool: models/lingbot/export.py
+      version: unknown
+      recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-vision-vit-small.yaml
+    recipe_source: fabric
+    format_version: '2.0'
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: lingbot-vision-vit-base
+  group: external
+  huggingface:
+    owner: kevinqz
+    repo: LingBot-Vision-ViT-Base-CoreAI
+    url: https://huggingface.co/kevinqz/LingBot-Vision-ViT-Base-CoreAI
+    revision: c25947b87aed50e94ae893504332546247e29834
+    files:
+    - path: .gitattributes
+      sha256: e0e8a34d664b28831b0f0305a5b6dbd9c5b7fa4be9a5d6eb8dc02b668cf0e7bb
+      size_bytes: 1598
+    - path: LICENSE
+      sha256: 94d0830f4a04280b800f1fc12b96b01ef0dfbe68c5482c510fc1cfabe0639d9a
+      size_bytes: 11985
+    - path: README.md
+      sha256: 7325a55c050405654ae6988af166d6c622e174dc7a5319e70800c7b4b435cae4
+      size_bytes: 4778
+    - path: lingbot-vision-vit-base.aimodel/main.hash
+      sha256: 9760253e0f3dc3e591a5df903bf241b9275117900fc749c148f6f0896baec4a7
+      size_bytes: 32
+    - path: lingbot-vision-vit-base.aimodel/main.mlirb
+      sha256: 867a3e7b2d56f8aa2e9592e5a319b8c46b8aea74dfede434af8983759887f3d8
+      size_bytes: 343354520
+    - path: lingbot-vision-vit-base.aimodel/metadata.json
+      sha256: 6ae26be48e0d8037c319df0449d60b83bcd86055e3fcc20c6ed26d5d6cf50195
+      size_bytes: 105
+    - path: parity-report.json
+      sha256: 0d51eb756c29cdbcdcb06ede8cfca2dafe22fc04d253b177e446e4fd63e474c8
+      size_bytes: 2069
+  provenance:
+    converted_by:
+      tool: models/lingbot/export.py
+      version: unknown
+      recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-vision-vit-base.yaml
+    recipe_source: fabric
+    format_version: '2.0'
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: lingbot-vision-vit-large
+  group: external
+  huggingface:
+    owner: kevinqz
+    repo: LingBot-Vision-ViT-Large-CoreAI
+    url: https://huggingface.co/kevinqz/LingBot-Vision-ViT-Large-CoreAI
+    revision: e5c8db6081835d34c047785d3ceb60a95e0973c0
+    files:
+    - path: .gitattributes
+      sha256: 170635fe54ff07f7538e631ab66873ac4439e796ebe22eb93256f32167a01d76
+      size_bytes: 1599
+    - path: LICENSE
+      sha256: 26e3351d7beffc6f2c0efbd20f0cc32aa28f462848293d8a160bb02c3754f146
+      size_bytes: 11987
+    - path: README.md
+      sha256: af286cbb9895d5aaa7cabe0ac522a9e967554f454a1fdd139b7bcd27728b73f5
+      size_bytes: 4795
+    - path: lingbot-vision-vit-large.aimodel/main.hash
+      sha256: a8d47092fbd6342da7657071c2cf58773a878eb2d9320836db7b76fe214fccc8
+      size_bytes: 32
+    - path: lingbot-vision-vit-large.aimodel/main.mlirb
+      sha256: 20a81bcf580f87744e346be8b2c267efd383c2579fb9b9127ee210399757e9fa
+      size_bytes: 1213457434
+    - path: lingbot-vision-vit-large.aimodel/metadata.json
+      sha256: 521d0ba35867f7247919dbcb21b9f2bb0e57e7c27be26b73cf73e53f943ddb3f
+      size_bytes: 105
+    - path: parity-report.json
+      sha256: cbd6619a14b9260a04fbe441a047deb5d184b826db858fdc2cd30e8c6c204b40
+      size_bytes: 2075
+  provenance:
+    converted_by:
+      tool: models/lingbot/export.py
+      version: unknown
+      recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-vision-vit-large.yaml
+    recipe_source: fabric
+    format_version: '2.0'
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: lingbot-vision-vit-giant
+  group: external
+  huggingface:
+    owner: kevinqz
+    repo: LingBot-Vision-ViT-Giant-CoreAI
+    url: https://huggingface.co/kevinqz/LingBot-Vision-ViT-Giant-CoreAI
+    revision: b161791cf04146400737d2864cd0f732ef459919
+    files:
+    - path: .gitattributes
+      sha256: 1039333d5352c49e8d5070db44e680016925fecb61527a48f3d2b98b43488ed3
+      size_bytes: 1599
+    - path: LICENSE
+      sha256: 90cd8a297f9af1f5723730f1f679728c374172e5064ce2c53bfa08c8dedcdd99
+      size_bytes: 11987
+    - path: README.md
+      sha256: 27e579f7fc1581b2487886fc654fcebc7ddba86bdb3ed1abf3402eea1b87ba2e
+      size_bytes: 4795
+    - path: lingbot-vision-vit-giant.aimodel/main.hash
+      sha256: bf39a0e205a882df8c934f6b894168466c1178a708508eb6dec12c1d243839b0
+      size_bytes: 32
+    - path: lingbot-vision-vit-giant.aimodel/main.mlirb
+      sha256: 803c365ea1057ae1e0d88c373b80d43c7752604318dc7e304085591d2c21ac64
+      size_bytes: 4539017626
+    - path: lingbot-vision-vit-giant.aimodel/metadata.json
+      sha256: a2fdb8068af07bb5c169b3877570dac85d53653422e72858ddf60d70680f8a8a
+      size_bytes: 105
+    - path: parity-report.json
+      sha256: bb02360b4d5350a6eaacac2b4388c90cd9f13f74ee5bbd7a97c162c8d4e2a9a4
+      size_bytes: 2072
+  provenance:
+    converted_by:
+      tool: models/lingbot/export.py
+      version: unknown
+      recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-vision-vit-giant.yaml
+    recipe_source: fabric
+    format_version: '2.0'
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: gliner2-pii
+  group: zoo
+  huggingface:
+    owner: mlboydaisuke
+    repo: GLiNER2-PII-CoreAI
+    url: https://huggingface.co/mlboydaisuke/GLiNER2-PII-CoreAI
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: glm-image
+  group: zoo
+  huggingface:
+    owner: mlboydaisuke
+    repo: GLM-Image-CoreAI
+    url: https://huggingface.co/mlboydaisuke/GLM-Image-CoreAI
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: youtu-llm-2b
+  group: zoo
+  huggingface:
+    owner: mlboydaisuke
+    repo: Youtu-LLM-2B-CoreAI
+    url: https://huggingface.co/mlboydaisuke/Youtu-LLM-2B-CoreAI
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: streaming-sortformer-diar
+  group: zoo
+  huggingface:
+    owner: mlboydaisuke
+    repo: Streaming-Sortformer-Diar-CoreAI
+    url: https://huggingface.co/mlboydaisuke/Streaming-Sortformer-Diar-CoreAI
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: evo1-so100
+  group: external
+  huggingface:
+    owner: kevinqz
+    repo: EVO1-SO100-CoreAI
+    url: https://huggingface.co/kevinqz/EVO1-SO100-CoreAI
+    revision: 0d65632860c32f6bbeedc21808ae445ca833a616
+    files:
+    - path: .gitattributes
+      sha256: 355770992957a03fa4f6529b066e31f5cc306c64b7c7792c8d5b165489984f19
+      size_bytes: 1585
+    - path: LICENSE
+      sha256: 9af4248b04feef7a1ee97eb54618ef1a33ed2da7445bf8b27a67692f357c60c7
+      size_bytes: 11983
+    - path: README.md
+      sha256: 93eb9cbdd7acccd57eb22a0bf91505321cb924e296ba76c4b97d558872e6c583
+      size_bytes: 5501
+    - path: evo1-so100.aimodel/main.hash
+      sha256: fddaac84cad8086cd89c559659e64961ce802dc07752f1f6981d0654dca51eed
+      size_bytes: 32
+    - path: evo1-so100.aimodel/main.mlirb
+      sha256: a94ce9bc6d665a288c74da09646eee0d37037745e17c9c75fe6b5c5e0474e2d3
+      size_bytes: 378079976
+    - path: evo1-so100.aimodel/metadata.json
+      sha256: e611849e43f06fab4e64032cf8575907098e3f34b103b594bb3c6d02504ed761
+      size_bytes: 105
+    - path: parity-report.json
+      sha256: 03bc104e51e8642b67219a6bfd9ba4c3dd7833fbd1519df5ff0f94a4a154d1d1
+      size_bytes: 2792
+  provenance:
+    converted_by:
+      tool: models/evo1/export.py
+      version: unknown
+      recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/evo1-so100.yaml
+    recipe_source: fabric
+    format_version: '2.0'
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: robometer-4b
+  group: external
+  huggingface:
+    owner: kevinqz
+    repo: Robometer-4B-CoreAI
+    url: https://huggingface.co/kevinqz/Robometer-4B-CoreAI
+    revision: 71c3cb96f0eb06027b6a6a08307e81e4a717a8ed
+    files:
+    - path: .gitattributes
+      sha256: d823f243fbb92a3d6d6001ed4be62345ff8155e3038367438e0da5ca1e8d4a55
+      size_bytes: 1587
+    - path: LICENSE
+      sha256: f9b5a5bf33163f0fd5e831d4bc6fdc4f4401b7e0101abe337add2d0872914449
+      size_bytes: 11961
+    - path: README.md
+      sha256: 82ab019f973275233163129f4ac539be62a1c8c7ee5148f7acdf56e02e432625
+      size_bytes: 5272
+    - path: parity-report.json
+      sha256: 9b27be8052e6331a5dd09cb2615db970050ec140230981caac5a71803a37d9cf
+      size_bytes: 2238
+    - path: robometer-4b.aimodel/main.hash
+      sha256: f377ac6a12dadd659b88e1bfb4fcd83e11ab4b5920f741b8bf0fd57d80f62d9c
+      size_bytes: 32
+    - path: robometer-4b.aimodel/main.mlirb
+      sha256: a8ba8b0b451ee62489a379f144aec84b74285b8e5f361a0761496c3d1608f1da
+      size_bytes: 26300680
+    - path: robometer-4b.aimodel/metadata.json
+      sha256: 90fd55f5236f47a9836b0de7d100c33ba6c391b6717a0a27d726f2b6e77a8bac
+      size_bytes: 105
+  provenance:
+    converted_by:
+      tool: models/robometer/export.py
+      version: unknown
+      recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/robometer-4b.yaml
     recipe_source: fabric
     format_version: '2.0'
   officiality:

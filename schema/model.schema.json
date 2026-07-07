@@ -265,7 +265,9 @@
         "3d",
         "action",
         "token-classification",
-        "image-feature-extraction"
+        "image-feature-extraction",
+        "diarization",
+        "reward-model"
       ]
     },
     "min_os": {

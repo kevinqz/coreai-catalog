@@ -19,12 +19,15 @@
     "classes",
     "coordinates",
     "depth_map",
+    "embedding",
     "gaussian-splats",
     "html",
     "image",
+    "labels",
     "latex",
     "markdown",
     "masks",
+    "reward",
     "score",
     "scores",
     "text",
@@ -32,9 +35,17 @@
     "vector",
     "video"
   ],
-  "direct_edge_count": 39,
-  "total_reachable_pairs": 75,
+  "direct_edge_count": 43,
+  "total_reachable_pairs": 87,
   "direct_edges": [
+    {
+      "input": "audio",
+      "output": "labels",
+      "model_ids": [
+        "streaming-sortformer-diar"
+      ],
+      "model_count": 1
+    },
     {
       "input": "audio",
       "output": "text",
@@ -112,6 +123,7 @@
         "act-aloha-insertion",
         "act-so101",
         "diffusion-pusht",
+        "evo1-so100",
         "folding-latest",
         "pi0-base",
         "pi0-base-gemma",
@@ -128,7 +140,7 @@
         "vla-jepa-simpler-env",
         "vqbet-pusht"
       ],
-      "model_count": 19
+      "model_count": 20
     },
     {
       "input": "image",
@@ -194,6 +206,17 @@
     },
     {
       "input": "image",
+      "output": "embedding",
+      "model_ids": [
+        "lingbot-vision-vit-base",
+        "lingbot-vision-vit-giant",
+        "lingbot-vision-vit-large",
+        "lingbot-vision-vit-small"
+      ],
+      "model_count": 4
+    },
+    {
+      "input": "image",
       "output": "gaussian-splats",
       "model_ids": [
         "tripo-splat"
@@ -255,6 +278,14 @@
     },
     {
       "input": "image",
+      "output": "reward",
+      "model_ids": [
+        "robometer-4b"
+      ],
+      "model_count": 1
+    },
+    {
+      "input": "image",
       "output": "scores",
       "model_ids": [
         "official-sam-3",
@@ -311,6 +342,7 @@
         "act-aloha-insertion",
         "act-so101",
         "diffusion-pusht",
+        "evo1-so100",
         "pi0-base",
         "pi0-base-gemma",
         "pi0-libero-base",
@@ -325,12 +357,13 @@
         "vla-jepa-pretrain",
         "vqbet-pusht"
       ],
-      "model_count": 17
+      "model_count": 18
     },
     {
       "input": "text",
       "output": "action",
       "model_ids": [
+        "evo1-so100",
         "folding-latest",
         "pi0-base",
         "pi0-base-gemma",
@@ -346,7 +379,7 @@
         "vla-jepa-pretrain",
         "vla-jepa-simpler-env"
       ],
-      "model_count": 14
+      "model_count": 15
     },
     {
       "input": "text",
@@ -399,10 +432,11 @@
       "input": "text",
       "output": "image",
       "model_ids": [
+        "glm-image",
         "official-flux-2-klein-4b",
         "z-image-turbo"
       ],
-      "model_count": 2
+      "model_count": 3
     },
     {
       "input": "text",
@@ -431,6 +465,14 @@
     },
     {
       "input": "text",
+      "output": "reward",
+      "model_ids": [
+        "robometer-4b"
+      ],
+      "model_count": 1
+    },
+    {
+      "input": "text",
       "output": "scores",
       "model_ids": [
         "official-sam-3"
@@ -450,6 +492,7 @@
         "gemma-4-e2b",
         "gemma-4-e2b-vision",
         "gemma-4-e4b",
+        "gliner2-pii",
         "glm-4-7-flash",
         "glm-ocr",
         "granite-4-0-h-1b",
@@ -470,6 +513,7 @@
         "official-qwen3-8b",
         "ornith-1-0-9b",
         "pulpie-orange-base",
+        "pulpie-orange-large",
         "qwen2.5-0.5b-instruct-int8",
         "qwen2.5-1.5b-instruct-int8",
         "qwen2.5-coder-0.5b-instruct-int8",
@@ -487,9 +531,10 @@
         "qwen3-vl-4b",
         "qwen3-vl-8b",
         "rwkv7-goose-1-5b",
-        "vibethinker-3b"
+        "vibethinker-3b",
+        "youtu-llm-2b"
       ],
-      "model_count": 47
+      "model_count": 50
     },
     {
       "input": "text",
@@ -527,12 +572,15 @@
       "classes",
       "coordinates",
       "depth_map",
+      "embedding",
       "gaussian-splats",
       "html",
       "image",
+      "labels",
       "latex",
       "markdown",
       "masks",
+      "reward",
       "scores",
       "text",
       "transcript",
@@ -547,12 +595,15 @@
       "classes",
       "coordinates",
       "depth_map",
+      "embedding",
       "gaussian-splats",
       "html",
       "image",
+      "labels",
       "latex",
       "markdown",
       "masks",
+      "reward",
       "scores",
       "text",
       "transcript",
@@ -570,12 +621,15 @@
       "classes",
       "coordinates",
       "depth_map",
+      "embedding",
       "gaussian-splats",
       "html",
       "image",
+      "labels",
       "latex",
       "markdown",
       "masks",
+      "reward",
       "scores",
       "text",
       "transcript",
@@ -596,12 +650,15 @@
       "classes",
       "coordinates",
       "depth_map",
+      "embedding",
       "gaussian-splats",
       "html",
       "image",
+      "labels",
       "latex",
       "markdown",
       "masks",
+      "reward",
       "scores",
       "text",
       "transcript",
@@ -873,6 +930,58 @@
         }
       ]
     },
+    "audio→embedding": {
+      "input_modality": "audio",
+      "output_modality": "embedding",
+      "hop_count": 3,
+      "modality_chain": [
+        "audio",
+        "text",
+        "image",
+        "embedding"
+      ],
+      "model_ids": [
+        "qwen2-5-omni-3b-audio",
+        "official-flux-2-klein-4b",
+        "lingbot-vision-vit-base"
+      ],
+      "total_artifact_size": "5.1GB + 4GB + 327.5MB",
+      "stages": [
+        {
+          "model_id": "qwen2-5-omni-3b-audio",
+          "model_name": "Qwen2.5-Omni-3B Audio",
+          "input_modality": "audio",
+          "output_modality": "text",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "3B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "5.1GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen2.5-Omni-3B-Audio-CoreAI"
+        },
+        {
+          "model_id": "official-flux-2-klein-4b",
+          "model_name": "FLUX.2 klein 4B",
+          "input_modality": "text",
+          "output_modality": "image",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "4B / ~4GB",
+          "runner": "CoreAIDiffusionPipeline",
+          "artifact_size": "4GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/FLUX.2-klein-4B-CoreAI"
+        },
+        {
+          "model_id": "lingbot-vision-vit-base",
+          "model_name": "LingBot-Vision ViT-B (fabric)",
+          "input_modality": "image",
+          "output_modality": "embedding",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "86M",
+          "runner": "CoreAIRunner",
+          "artifact_size": "327.5MB",
+          "huggingface_url": "https://huggingface.co/kevinqz/LingBot-Vision-ViT-Base-CoreAI"
+        }
+      ]
+    },
     "audio→gaussian-splats": {
       "input_modality": "audio",
       "output_modality": "gaussian-splats",
@@ -1003,6 +1112,32 @@
         }
       ]
     },
+    "audio→labels": {
+      "input_modality": "audio",
+      "output_modality": "labels",
+      "hop_count": 1,
+      "modality_chain": [
+        "audio",
+        "labels"
+      ],
+      "model_ids": [
+        "streaming-sortformer-diar"
+      ],
+      "total_artifact_size": "708MB",
+      "stages": [
+        {
+          "model_id": "streaming-sortformer-diar",
+          "model_name": "Streaming Sortformer Diarization",
+          "input_modality": "audio",
+          "output_modality": "labels",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "117M",
+          "runner": "CoreAIRunner",
+          "artifact_size": "708MB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Streaming-Sortformer-Diar-CoreAI"
+        }
+      ]
+    },
     "audio→latex": {
       "input_modality": "audio",
       "output_modality": "latex",
@@ -1117,6 +1252,45 @@
           "runner": "CoreAIImageSegmenter",
           "artifact_size": "1.7GB",
           "huggingface_url": "https://huggingface.co/mlboydaisuke/sam3-CoreAI-official"
+        }
+      ]
+    },
+    "audio→reward": {
+      "input_modality": "audio",
+      "output_modality": "reward",
+      "hop_count": 2,
+      "modality_chain": [
+        "audio",
+        "text",
+        "reward"
+      ],
+      "model_ids": [
+        "qwen2-5-omni-3b-audio",
+        "robometer-4b"
+      ],
+      "total_artifact_size": "5.1GB + 25.1MB",
+      "stages": [
+        {
+          "model_id": "qwen2-5-omni-3b-audio",
+          "model_name": "Qwen2.5-Omni-3B Audio",
+          "input_modality": "audio",
+          "output_modality": "text",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "3B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "5.1GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Qwen2.5-Omni-3B-Audio-CoreAI"
+        },
+        {
+          "model_id": "robometer-4b",
+          "model_name": "Robometer-4B Reward (fabric)",
+          "input_modality": "text",
+          "output_modality": "reward",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "4.45B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "25.1MB",
+          "huggingface_url": "https://huggingface.co/kevinqz/Robometer-4B-CoreAI"
         }
       ]
     },
@@ -1588,6 +1762,58 @@
         }
       ]
     },
+    "document_image→embedding": {
+      "input_modality": "document_image",
+      "output_modality": "embedding",
+      "hop_count": 3,
+      "modality_chain": [
+        "document_image",
+        "text",
+        "image",
+        "embedding"
+      ],
+      "model_ids": [
+        "glm-ocr",
+        "official-flux-2-klein-4b",
+        "lingbot-vision-vit-base"
+      ],
+      "total_artifact_size": "1.6GB + 4GB + 327.5MB",
+      "stages": [
+        {
+          "model_id": "glm-ocr",
+          "model_name": "GLM-OCR",
+          "input_modality": "document_image",
+          "output_modality": "text",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "0.9B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "1.6GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/GLM-OCR-CoreAI"
+        },
+        {
+          "model_id": "official-flux-2-klein-4b",
+          "model_name": "FLUX.2 klein 4B",
+          "input_modality": "text",
+          "output_modality": "image",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "4B / ~4GB",
+          "runner": "CoreAIDiffusionPipeline",
+          "artifact_size": "4GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/FLUX.2-klein-4B-CoreAI"
+        },
+        {
+          "model_id": "lingbot-vision-vit-base",
+          "model_name": "LingBot-Vision ViT-B (fabric)",
+          "input_modality": "image",
+          "output_modality": "embedding",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "86M",
+          "runner": "CoreAIRunner",
+          "artifact_size": "327.5MB",
+          "huggingface_url": "https://huggingface.co/kevinqz/LingBot-Vision-ViT-Base-CoreAI"
+        }
+      ]
+    },
     "document_image→gaussian-splats": {
       "input_modality": "document_image",
       "output_modality": "gaussian-splats",
@@ -1705,6 +1931,58 @@
         }
       ]
     },
+    "document_image→labels": {
+      "input_modality": "document_image",
+      "output_modality": "labels",
+      "hop_count": 3,
+      "modality_chain": [
+        "document_image",
+        "text",
+        "audio",
+        "labels"
+      ],
+      "model_ids": [
+        "glm-ocr",
+        "voxcpm-0-5b",
+        "streaming-sortformer-diar"
+      ],
+      "total_artifact_size": "1.6GB + 1.0GB + 708MB",
+      "stages": [
+        {
+          "model_id": "glm-ocr",
+          "model_name": "GLM-OCR",
+          "input_modality": "document_image",
+          "output_modality": "text",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "0.9B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "1.6GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/GLM-OCR-CoreAI"
+        },
+        {
+          "model_id": "voxcpm-0-5b",
+          "model_name": "VoxCPM-0.5B",
+          "input_modality": "text",
+          "output_modality": "audio",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "0.5B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "1.0GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/VoxCPM-0.5B-CoreAI"
+        },
+        {
+          "model_id": "streaming-sortformer-diar",
+          "model_name": "Streaming Sortformer Diarization",
+          "input_modality": "audio",
+          "output_modality": "labels",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "117M",
+          "runner": "CoreAIRunner",
+          "artifact_size": "708MB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Streaming-Sortformer-Diar-CoreAI"
+        }
+      ]
+    },
     "document_image→latex": {
       "input_modality": "document_image",
       "output_modality": "latex",
@@ -1793,6 +2071,45 @@
           "runner": "CoreAIImageSegmenter",
           "artifact_size": "1.7GB",
           "huggingface_url": "https://huggingface.co/mlboydaisuke/sam3-CoreAI-official"
+        }
+      ]
+    },
+    "document_image→reward": {
+      "input_modality": "document_image",
+      "output_modality": "reward",
+      "hop_count": 2,
+      "modality_chain": [
+        "document_image",
+        "text",
+        "reward"
+      ],
+      "model_ids": [
+        "glm-ocr",
+        "robometer-4b"
+      ],
+      "total_artifact_size": "1.6GB + 25.1MB",
+      "stages": [
+        {
+          "model_id": "glm-ocr",
+          "model_name": "GLM-OCR",
+          "input_modality": "document_image",
+          "output_modality": "text",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "0.9B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "1.6GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/GLM-OCR-CoreAI"
+        },
+        {
+          "model_id": "robometer-4b",
+          "model_name": "Robometer-4B Reward (fabric)",
+          "input_modality": "text",
+          "output_modality": "reward",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "4.45B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "25.1MB",
+          "huggingface_url": "https://huggingface.co/kevinqz/Robometer-4B-CoreAI"
         }
       ]
     },
@@ -2212,6 +2529,32 @@
         }
       ]
     },
+    "image→embedding": {
+      "input_modality": "image",
+      "output_modality": "embedding",
+      "hop_count": 1,
+      "modality_chain": [
+        "image",
+        "embedding"
+      ],
+      "model_ids": [
+        "lingbot-vision-vit-base"
+      ],
+      "total_artifact_size": "327.5MB",
+      "stages": [
+        {
+          "model_id": "lingbot-vision-vit-base",
+          "model_name": "LingBot-Vision ViT-B (fabric)",
+          "input_modality": "image",
+          "output_modality": "embedding",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "86M",
+          "runner": "CoreAIRunner",
+          "artifact_size": "327.5MB",
+          "huggingface_url": "https://huggingface.co/kevinqz/LingBot-Vision-ViT-Base-CoreAI"
+        }
+      ]
+    },
     "image→gaussian-splats": {
       "input_modality": "image",
       "output_modality": "gaussian-splats",
@@ -2290,6 +2633,58 @@
         }
       ]
     },
+    "image→labels": {
+      "input_modality": "image",
+      "output_modality": "labels",
+      "hop_count": 3,
+      "modality_chain": [
+        "image",
+        "text",
+        "audio",
+        "labels"
+      ],
+      "model_ids": [
+        "minicpm-v-4-6",
+        "voxcpm-0-5b",
+        "streaming-sortformer-diar"
+      ],
+      "total_artifact_size": "not_published + 1.0GB + 708MB",
+      "stages": [
+        {
+          "model_id": "minicpm-v-4-6",
+          "model_name": "MiniCPM-V 4.6",
+          "input_modality": "image",
+          "output_modality": "text",
+          "estimated_tokens_per_sec": 224.3,
+          "parameters": "sub-2B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "not_published",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/MiniCPM-V-4.6-CoreAI"
+        },
+        {
+          "model_id": "voxcpm-0-5b",
+          "model_name": "VoxCPM-0.5B",
+          "input_modality": "text",
+          "output_modality": "audio",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "0.5B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "1.0GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/VoxCPM-0.5B-CoreAI"
+        },
+        {
+          "model_id": "streaming-sortformer-diar",
+          "model_name": "Streaming Sortformer Diarization",
+          "input_modality": "audio",
+          "output_modality": "labels",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "117M",
+          "runner": "CoreAIRunner",
+          "artifact_size": "708MB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Streaming-Sortformer-Diar-CoreAI"
+        }
+      ]
+    },
     "image→latex": {
       "input_modality": "image",
       "output_modality": "latex",
@@ -2365,6 +2760,32 @@
           "runner": "CoreAIImageSegmenter",
           "artifact_size": "374MB",
           "huggingface_url": "https://huggingface.co/lenitas/coreai-artifacts/tree/main/artifacts/efficientsam3-tinyvit/default"
+        }
+      ]
+    },
+    "image→reward": {
+      "input_modality": "image",
+      "output_modality": "reward",
+      "hop_count": 1,
+      "modality_chain": [
+        "image",
+        "reward"
+      ],
+      "model_ids": [
+        "robometer-4b"
+      ],
+      "total_artifact_size": "25.1MB",
+      "stages": [
+        {
+          "model_id": "robometer-4b",
+          "model_name": "Robometer-4B Reward (fabric)",
+          "input_modality": "image",
+          "output_modality": "reward",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "4.45B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "25.1MB",
+          "huggingface_url": "https://huggingface.co/kevinqz/Robometer-4B-CoreAI"
         }
       ]
     },
@@ -2797,6 +3218,45 @@
         }
       ]
     },
+    "text→embedding": {
+      "input_modality": "text",
+      "output_modality": "embedding",
+      "hop_count": 2,
+      "modality_chain": [
+        "text",
+        "image",
+        "embedding"
+      ],
+      "model_ids": [
+        "official-flux-2-klein-4b",
+        "lingbot-vision-vit-base"
+      ],
+      "total_artifact_size": "4GB + 327.5MB",
+      "stages": [
+        {
+          "model_id": "official-flux-2-klein-4b",
+          "model_name": "FLUX.2 klein 4B",
+          "input_modality": "text",
+          "output_modality": "image",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "4B / ~4GB",
+          "runner": "CoreAIDiffusionPipeline",
+          "artifact_size": "4GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/FLUX.2-klein-4B-CoreAI"
+        },
+        {
+          "model_id": "lingbot-vision-vit-base",
+          "model_name": "LingBot-Vision ViT-B (fabric)",
+          "input_modality": "image",
+          "output_modality": "embedding",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "86M",
+          "runner": "CoreAIRunner",
+          "artifact_size": "327.5MB",
+          "huggingface_url": "https://huggingface.co/kevinqz/LingBot-Vision-ViT-Base-CoreAI"
+        }
+      ]
+    },
     "text→gaussian-splats": {
       "input_modality": "text",
       "output_modality": "gaussian-splats",
@@ -2888,6 +3348,45 @@
         }
       ]
     },
+    "text→labels": {
+      "input_modality": "text",
+      "output_modality": "labels",
+      "hop_count": 2,
+      "modality_chain": [
+        "text",
+        "audio",
+        "labels"
+      ],
+      "model_ids": [
+        "voxcpm-0-5b",
+        "streaming-sortformer-diar"
+      ],
+      "total_artifact_size": "1.0GB + 708MB",
+      "stages": [
+        {
+          "model_id": "voxcpm-0-5b",
+          "model_name": "VoxCPM-0.5B",
+          "input_modality": "text",
+          "output_modality": "audio",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "0.5B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "1.0GB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/VoxCPM-0.5B-CoreAI"
+        },
+        {
+          "model_id": "streaming-sortformer-diar",
+          "model_name": "Streaming Sortformer Diarization",
+          "input_modality": "audio",
+          "output_modality": "labels",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "117M",
+          "runner": "CoreAIRunner",
+          "artifact_size": "708MB",
+          "huggingface_url": "https://huggingface.co/mlboydaisuke/Streaming-Sortformer-Diar-CoreAI"
+        }
+      ]
+    },
     "text→latex": {
       "input_modality": "text",
       "output_modality": "latex",
@@ -2963,6 +3462,32 @@
           "runner": "CoreAIImageSegmenter",
           "artifact_size": "1.7GB",
           "huggingface_url": "https://huggingface.co/mlboydaisuke/sam3-CoreAI-official"
+        }
+      ]
+    },
+    "text→reward": {
+      "input_modality": "text",
+      "output_modality": "reward",
+      "hop_count": 1,
+      "modality_chain": [
+        "text",
+        "reward"
+      ],
+      "model_ids": [
+        "robometer-4b"
+      ],
+      "total_artifact_size": "25.1MB",
+      "stages": [
+        {
+          "model_id": "robometer-4b",
+          "model_name": "Robometer-4B Reward (fabric)",
+          "input_modality": "text",
+          "output_modality": "reward",
+          "estimated_tokens_per_sec": 0.0,
+          "parameters": "4.45B",
+          "runner": "CoreAIRunner",
+          "artifact_size": "25.1MB",
+          "huggingface_url": "https://huggingface.co/kevinqz/Robometer-4B-CoreAI"
         }
       ]
     },

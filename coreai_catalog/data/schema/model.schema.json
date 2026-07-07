@@ -264,7 +264,10 @@
         "video",
         "3d",
         "action",
-        "token-classification"
+        "token-classification",
+        "image-feature-extraction",
+        "diarization",
+        "reward-model"
       ]
     },
     "min_os": {

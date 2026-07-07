@@ -56,7 +56,7 @@
         "chat",
         "text-generation"
       ],
-      "model_count": 39
+      "model_count": 40
     },
     {
       "task": "classification",
@@ -65,7 +65,7 @@
         "embedding",
         "chat"
       ],
-      "model_count": 34
+      "model_count": 35
     },
     {
       "task": "clip",
@@ -82,7 +82,7 @@
         "agentic",
         "chat"
       ],
-      "model_count": 32
+      "model_count": 33
     },
     {
       "task": "code completion",
@@ -91,7 +91,7 @@
         "text-generation",
         "chat"
       ],
-      "model_count": 39
+      "model_count": 40
     },
     {
       "task": "code generation",
@@ -100,7 +100,7 @@
         "text-generation",
         "chat"
       ],
-      "model_count": 39
+      "model_count": 40
     },
     {
       "task": "computer use",
@@ -117,7 +117,7 @@
         "chat",
         "text-generation"
       ],
-      "model_count": 39
+      "model_count": 40
     },
     {
       "task": "depth estimation",
@@ -183,7 +183,7 @@
         "chat",
         "agentic"
       ],
-      "model_count": 32
+      "model_count": 33
     },
     {
       "task": "gaussian splatting",
@@ -224,7 +224,7 @@
       "capabilities": [
         "image-generation"
       ],
-      "model_count": 2
+      "model_count": 3
     },
     {
       "task": "image segmentation",
@@ -258,7 +258,7 @@
         "chat",
         "text-generation"
       ],
-      "model_count": 39
+      "model_count": 40
     },
     {
       "task": "instruction following",
@@ -267,7 +267,7 @@
         "chat",
         "text-generation"
       ],
-      "model_count": 39
+      "model_count": 40
     },
     {
       "task": "json generation",
@@ -276,7 +276,7 @@
         "text-generation",
         "chat"
       ],
-      "model_count": 39
+      "model_count": 40
     },
     {
       "task": "layout analysis",
@@ -294,7 +294,7 @@
         "chat",
         "text-generation"
       ],
-      "model_count": 39
+      "model_count": 40
     },
     {
       "task": "math",
@@ -303,7 +303,7 @@
         "reasoning",
         "chat"
       ],
-      "model_count": 34
+      "model_count": 35
     },
     {
       "task": "math reasoning",
@@ -312,7 +312,7 @@
         "reasoning",
         "chat"
       ],
-      "model_count": 34
+      "model_count": 35
     },
     {
       "task": "monocular depth",
@@ -329,7 +329,7 @@
         "vision-language",
         "chat"
       ],
-      "model_count": 38
+      "model_count": 39
     },
     {
       "task": "music generation",
@@ -373,7 +373,7 @@
         "reranking",
         "chat"
       ],
-      "model_count": 35
+      "model_count": 36
     },
     {
       "task": "panoptic segmentation",
@@ -398,7 +398,7 @@
         "chat",
         "text-generation"
       ],
-      "model_count": 39
+      "model_count": 40
     },
     {
       "task": "private on-device ocr",
@@ -416,7 +416,7 @@
         "chat",
         "text-generation"
       ],
-      "model_count": 39
+      "model_count": 40
     },
     {
       "task": "question answering",
@@ -425,7 +425,7 @@
         "chat",
         "text-generation"
       ],
-      "model_count": 39
+      "model_count": 40
     },
     {
       "task": "rag",
@@ -435,7 +435,7 @@
         "reranking",
         "chat"
       ],
-      "model_count": 35
+      "model_count": 36
     },
     {
       "task": "ranking",
@@ -452,7 +452,7 @@
         "reasoning",
         "chat"
       ],
-      "model_count": 34
+      "model_count": 35
     },
     {
       "task": "reranker",
@@ -488,7 +488,7 @@
         "vision-language-action",
         "robotics"
       ],
-      "model_count": 20
+      "model_count": 22
     },
     {
       "task": "scene understanding",
@@ -515,7 +515,7 @@
         "embedding",
         "chat"
       ],
-      "model_count": 34
+      "model_count": 35
     },
     {
       "task": "speech enhancement",
@@ -540,7 +540,7 @@
         "chat",
         "text-generation"
       ],
-      "model_count": 39
+      "model_count": 40
     },
     {
       "task": "summarize",
@@ -549,7 +549,7 @@
         "chat",
         "text-generation"
       ],
-      "model_count": 39
+      "model_count": 40
     },
     {
       "task": "super resolution",
@@ -575,7 +575,7 @@
         "embedding",
         "chat"
       ],
-      "model_count": 34
+      "model_count": 35
     },
     {
       "task": "text generation",
@@ -584,7 +584,7 @@
         "text-generation",
         "chat"
       ],
-      "model_count": 39
+      "model_count": 40
     },
     {
       "task": "text summarization",
@@ -593,7 +593,7 @@
         "chat",
         "text-generation"
       ],
-      "model_count": 39
+      "model_count": 40
     },
     {
       "task": "text to audio",
@@ -609,7 +609,7 @@
       "capabilities": [
         "image-generation"
       ],
-      "model_count": 2
+      "model_count": 3
     },
     {
       "task": "text to speech",
@@ -634,7 +634,7 @@
         "chat",
         "agentic"
       ],
-      "model_count": 32
+      "model_count": 33
     },
     {
       "task": "transcription",
@@ -651,7 +651,7 @@
         "chat",
         "text-generation"
       ],
-      "model_count": 39
+      "model_count": 40
     },
     {
       "task": "tts",
@@ -708,7 +708,7 @@
       "capabilities": [
         "vision-language-action"
       ],
-      "model_count": 15
+      "model_count": 16
     },
     {
       "task": "vlm",
@@ -726,7 +726,7 @@
         "text-to-speech",
         "chat"
       ],
-      "model_count": 46
+      "model_count": 47
     },
     {
       "task": "voice cloning",
@@ -751,7 +751,7 @@
         "chat",
         "text-generation"
       ],
-      "model_count": 39
+      "model_count": 40
     },
     {
       "task": "zero-shot classification",
@@ -760,7 +760,7 @@
         "embedding",
         "chat"
       ],
-      "model_count": 34
+      "model_count": 35
     }
   ],
   "export_schema_version": "1.0",

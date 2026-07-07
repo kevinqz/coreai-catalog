@@ -2,7 +2,7 @@
   "export_schema_version": "1.0",
   "export_catalog_version": "2.3.0",
   "description": "Alias mappings resolving catalog IDs to Zoo card names, CoreAIKit strings, and HF repo names.",
-  "total_models": 113,
+  "total_models": 124,
   "aliases": {
     "qwen3-5-0-8b": [
       "qwen3-5-0-8b-coreai",
@@ -346,8 +346,8 @@
       "voxcpm2.2b"
     ],
     "yolox-s": [
-      "YOLOX-S-CoreAI",
-      "yolox-s-coreai",
+      "YOLOX-CoreAI",
+      "yolox-coreai",
       "yolox.md",
       "yolox.s"
     ],
@@ -656,6 +656,71 @@
       "pulpie-orange-base-coreai",
       "pulpie-orange-base.yaml",
       "pulpie.orange.base"
+    ],
+    "pulpie-orange-large": [
+      "Pulpie-Orange-Large-CoreAI",
+      "pulpie-orange-large-coreai",
+      "pulpie-orange-large.yaml",
+      "pulpie.orange.large"
+    ],
+    "lingbot-vision-vit-small": [
+      "LingBot-Vision-ViT-Small-CoreAI",
+      "lingbot-vision-vit-small-coreai",
+      "lingbot-vision-vit-small.yaml",
+      "lingbot.vision.vit-small"
+    ],
+    "lingbot-vision-vit-base": [
+      "LingBot-Vision-ViT-Base-CoreAI",
+      "lingbot-vision-vit-base-coreai",
+      "lingbot-vision-vit-base.yaml",
+      "lingbot.vision.vit-base"
+    ],
+    "lingbot-vision-vit-large": [
+      "LingBot-Vision-ViT-Large-CoreAI",
+      "lingbot-vision-vit-large-coreai",
+      "lingbot-vision-vit-large.yaml",
+      "lingbot.vision.vit-large"
+    ],
+    "lingbot-vision-vit-giant": [
+      "LingBot-Vision-ViT-Giant-CoreAI",
+      "lingbot-vision-vit-giant-coreai",
+      "lingbot-vision-vit-giant.yaml",
+      "lingbot.vision.vit-giant"
+    ],
+    "gliner2-pii": [
+      "GLiNER2-PII-CoreAI",
+      "gliner2-pii-coreai",
+      "gliner2.pii"
+    ],
+    "glm-image": [
+      "GLM-Image-CoreAI",
+      "glm-image-coreai",
+      "glm-image.md",
+      "glm.image"
+    ],
+    "youtu-llm-2b": [
+      "Youtu-LLM-2B-CoreAI",
+      "youtu",
+      "youtu-llm-2b-coreai",
+      "youtu.llm.2b"
+    ],
+    "streaming-sortformer-diar": [
+      "Streaming-Sortformer-Diar-CoreAI",
+      "sortformer_diar",
+      "streaming-sortformer-diar-coreai",
+      "streaming.sortformer.diar"
+    ],
+    "evo1-so100": [
+      "EVO1-SO100-CoreAI",
+      "evo1-so100-coreai",
+      "evo1-so100.yaml",
+      "evo1.so100"
+    ],
+    "robometer-4b": [
+      "Robometer-4B-CoreAI",
+      "robometer-4b-coreai",
+      "robometer-4b.yaml",
+      "robometer.4b"
     ]
   }
 }
