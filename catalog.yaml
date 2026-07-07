@@ -7102,3 +7102,89 @@ models:
     reference_dtype: float32
     runner: coreai-fabric-parity-runner/0.1.0
     measured_on: apple_silicon
+- id: evo1-so100
+  name: EVO1 SO-100 (fabric)
+  family: LeRobot
+  source_group: fabric
+  source_path: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/evo1-so100.yaml
+  artifact_ref: evo1-so100
+  capabilities:
+  - vision-language-action
+  - robotics
+  bundle_kind: action
+  min_os:
+    macos: '27.0'
+    ios: '27.0'
+  upstream_repo: Beilinghamburger/evo1_so100_vla
+  modalities:
+    input:
+    - image
+    - text
+    - state
+    output:
+    - action
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 0.77B
+    precision: float32
+    quantization: none
+    artifact_size: 360.6MB
+    fidelity_tier: high_fidelity
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: false
+    custom_kernel: false
+    patch_required: false
+    tokenizer_required: true
+    processor_required: true
+    aot_required: false
+  device_support:
+    iphone: unknown
+    ipad: unknown
+    mac: unknown
+    mac_only: unknown
+  license:
+    name: apache-2.0
+    commercial_use: likely
+  status: needs_review
+  maturity: experimental
+  confidence: medium
+  sources:
+  - coreai-fabric
+  last_verified: '2026-07-07'
+  notes: 'Converted via coreai-fabric recipe evo1-so100 (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/evo1-so100.yaml).
+    Parity: gate A passed, gate B passed.'
+  architecture: transformer
+  evaluation:
+    metric: action_parity
+    status: passed
+    runner: coreai-fabric-parity-runner/0.1.0
+    measured_on: apple_silicon
+  io_contract:
+    entrypoint:
+      framework: CoreAIRunner
+      type: CoreAIRunner
+      init_pattern: load the encode + denoise_step graphs; host drives the N-step sampler
+        + un-normalization
+    inputs:
+    - name: image
+      modality: image
+    - name: text
+      modality: text
+    - name: state
+      modality: state
+    outputs:
+    - name: action_chunk
+      swift_type: '[[Float]]'
+      decoding:
+        detokenization: host-driven flow-matching sampler (N steps); un-normalize the action
+          chunk with norm_stats.json
+    session:
+      stateful: false
+      streaming: false
+    files:
+      tokenizer_ref: tokenizer
+      processor_ref: norm_stats.json

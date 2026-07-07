@@ -7063,10 +7063,71 @@
           "format_version": "2.0",
           "recipe_source": "fabric"
         }
+      },
+      {
+        "group": "external",
+        "huggingface": {
+          "files": [
+            {
+              "path": ".gitattributes",
+              "sha256": "355770992957a03fa4f6529b066e31f5cc306c64b7c7792c8d5b165489984f19",
+              "size_bytes": 1585
+            },
+            {
+              "path": "LICENSE",
+              "sha256": "9af4248b04feef7a1ee97eb54618ef1a33ed2da7445bf8b27a67692f357c60c7",
+              "size_bytes": 11983
+            },
+            {
+              "path": "README.md",
+              "sha256": "93eb9cbdd7acccd57eb22a0bf91505321cb924e296ba76c4b97d558872e6c583",
+              "size_bytes": 5501
+            },
+            {
+              "path": "evo1-so100.aimodel/main.hash",
+              "sha256": "fddaac84cad8086cd89c559659e64961ce802dc07752f1f6981d0654dca51eed",
+              "size_bytes": 32
+            },
+            {
+              "path": "evo1-so100.aimodel/main.mlirb",
+              "sha256": "a94ce9bc6d665a288c74da09646eee0d37037745e17c9c75fe6b5c5e0474e2d3",
+              "size_bytes": 378079976
+            },
+            {
+              "path": "evo1-so100.aimodel/metadata.json",
+              "sha256": "e611849e43f06fab4e64032cf8575907098e3f34b103b594bb3c6d02504ed761",
+              "size_bytes": 105
+            },
+            {
+              "path": "parity-report.json",
+              "sha256": "03bc104e51e8642b67219a6bfd9ba4c3dd7833fbd1519df5ff0f94a4a154d1d1",
+              "size_bytes": 2792
+            }
+          ],
+          "owner": "kevinqz",
+          "repo": "EVO1-SO100-CoreAI",
+          "revision": "0d65632860c32f6bbeedc21808ae445ca833a616",
+          "url": "https://huggingface.co/kevinqz/EVO1-SO100-CoreAI"
+        },
+        "id": "evo1-so100",
+        "officiality": {
+          "apple_export_recipe": false,
+          "apple_hosted_artifact": false,
+          "community_packaged": true
+        },
+        "provenance": {
+          "converted_by": {
+            "recipe_url": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/evo1-so100.yaml",
+            "tool": "models/evo1/export.py",
+            "version": "unknown"
+          },
+          "format_version": "2.0",
+          "recipe_source": "fabric"
+        }
       }
     ],
     "metadata": {
-      "count": 114,
+      "count": 115,
       "last_verified": "2026-07-04",
       "name": "Core AI Catalog artifact provenance"
     }
@@ -17784,6 +17845,118 @@
         ],
         "status": "needs_review",
         "upstream_repo": "feyninc/pulpie-orange-base"
+      },
+      {
+        "architecture": "transformer",
+        "artifact": {
+          "availability": "available",
+          "format": "aimodel"
+        },
+        "artifact_ref": "evo1-so100",
+        "bundle_kind": "action",
+        "capabilities": [
+          "vision-language-action",
+          "robotics"
+        ],
+        "confidence": "medium",
+        "device_support": {
+          "ipad": "unknown",
+          "iphone": "unknown",
+          "mac": "unknown",
+          "mac_only": "unknown"
+        },
+        "evaluation": {
+          "measured_on": "apple_silicon",
+          "metric": "action_parity",
+          "runner": "coreai-fabric-parity-runner/0.1.0",
+          "status": "passed"
+        },
+        "family": "LeRobot",
+        "id": "evo1-so100",
+        "io_contract": {
+          "entrypoint": {
+            "framework": "CoreAIRunner",
+            "init_pattern": "load the encode + denoise_step graphs; host drives the N-step sampler + un-normalization",
+            "type": "CoreAIRunner"
+          },
+          "files": {
+            "processor_ref": "norm_stats.json",
+            "tokenizer_ref": "tokenizer"
+          },
+          "inputs": [
+            {
+              "modality": "image",
+              "name": "image"
+            },
+            {
+              "modality": "text",
+              "name": "text"
+            },
+            {
+              "modality": "state",
+              "name": "state"
+            }
+          ],
+          "outputs": [
+            {
+              "decoding": {
+                "detokenization": "host-driven flow-matching sampler (N steps); un-normalize the action chunk with norm_stats.json"
+              },
+              "name": "action_chunk",
+              "swift_type": "[[Float]]"
+            }
+          ],
+          "session": {
+            "stateful": false,
+            "streaming": false
+          }
+        },
+        "last_verified": "2026-07-07",
+        "license": {
+          "commercial_use": "likely",
+          "name": "apache-2.0"
+        },
+        "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
+        "modalities": {
+          "input": [
+            "image",
+            "text",
+            "state"
+          ],
+          "output": [
+            "action"
+          ]
+        },
+        "name": "EVO1 SO-100 (fabric)",
+        "notes": "Converted via coreai-fabric recipe evo1-so100 (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/evo1-so100.yaml). Parity: gate A passed, gate B passed.",
+        "runtime": {
+          "aot_required": false,
+          "custom_kernel": false,
+          "patch_required": false,
+          "processor_required": true,
+          "runner": "CoreAIRunner",
+          "runtime_name": "apple-core-ai",
+          "stock_runtime": false,
+          "tokenizer_required": true
+        },
+        "size": {
+          "artifact_size": "360.6MB",
+          "fidelity_tier": "high_fidelity",
+          "parameters": "0.77B",
+          "precision": "float32",
+          "quantization": "none"
+        },
+        "source_group": "fabric",
+        "source_path": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/evo1-so100.yaml",
+        "sources": [
+          "coreai-fabric"
+        ],
+        "status": "needs_review",
+        "upstream_repo": "Beilinghamburger/evo1_so100_vla"
       }
     ]
   },

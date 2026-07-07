@@ -7062,12 +7062,73 @@
         "format_version": "2.0",
         "recipe_source": "fabric"
       }
+    },
+    {
+      "group": "external",
+      "huggingface": {
+        "files": [
+          {
+            "path": ".gitattributes",
+            "sha256": "355770992957a03fa4f6529b066e31f5cc306c64b7c7792c8d5b165489984f19",
+            "size_bytes": 1585
+          },
+          {
+            "path": "LICENSE",
+            "sha256": "9af4248b04feef7a1ee97eb54618ef1a33ed2da7445bf8b27a67692f357c60c7",
+            "size_bytes": 11983
+          },
+          {
+            "path": "README.md",
+            "sha256": "93eb9cbdd7acccd57eb22a0bf91505321cb924e296ba76c4b97d558872e6c583",
+            "size_bytes": 5501
+          },
+          {
+            "path": "evo1-so100.aimodel/main.hash",
+            "sha256": "fddaac84cad8086cd89c559659e64961ce802dc07752f1f6981d0654dca51eed",
+            "size_bytes": 32
+          },
+          {
+            "path": "evo1-so100.aimodel/main.mlirb",
+            "sha256": "a94ce9bc6d665a288c74da09646eee0d37037745e17c9c75fe6b5c5e0474e2d3",
+            "size_bytes": 378079976
+          },
+          {
+            "path": "evo1-so100.aimodel/metadata.json",
+            "sha256": "e611849e43f06fab4e64032cf8575907098e3f34b103b594bb3c6d02504ed761",
+            "size_bytes": 105
+          },
+          {
+            "path": "parity-report.json",
+            "sha256": "03bc104e51e8642b67219a6bfd9ba4c3dd7833fbd1519df5ff0f94a4a154d1d1",
+            "size_bytes": 2792
+          }
+        ],
+        "owner": "kevinqz",
+        "repo": "EVO1-SO100-CoreAI",
+        "revision": "0d65632860c32f6bbeedc21808ae445ca833a616",
+        "url": "https://huggingface.co/kevinqz/EVO1-SO100-CoreAI"
+      },
+      "id": "evo1-so100",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "provenance": {
+        "converted_by": {
+          "recipe_url": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/evo1-so100.yaml",
+          "tool": "models/evo1/export.py",
+          "version": "unknown"
+        },
+        "format_version": "2.0",
+        "recipe_source": "fabric"
+      }
     }
   ],
   "export_catalog_version": "2.3.0",
   "export_schema_version": "1.0",
   "metadata": {
-    "count": 114,
+    "count": 115,
     "last_verified": "2026-07-04",
     "name": "Core AI Catalog artifact provenance"
   }
