@@ -7001,12 +7001,73 @@
         },
         "recipe_source": "fabric"
       }
+    },
+    {
+      "group": "external",
+      "huggingface": {
+        "files": [
+          {
+            "path": ".gitattributes",
+            "sha256": "39bbb086e71a9f45de932093bba41287c90375b45b0408d961ce4dc66115e6e5",
+            "size_bytes": 1593
+          },
+          {
+            "path": "LICENSE",
+            "sha256": "2a3479e320987df6a323ac23446c6368a3c92eb787db6cff5220e96ed7fab3d2",
+            "size_bytes": 11973
+          },
+          {
+            "path": "README.md",
+            "sha256": "592823d4f5abca126f7e8231039ba326368f5053035de70d86fd751b636bbe88",
+            "size_bytes": 4750
+          },
+          {
+            "path": "parity-report.json",
+            "sha256": "1157294ec2fae83ac55689a7001de798f4add1593189ba233cf0ab5f5406f2ae",
+            "size_bytes": 2016
+          },
+          {
+            "path": "pulpie-orange-base.aimodel/main.hash",
+            "sha256": "83f39e79df54092dc6f615720129cf0d1ce00b86ff47ea562d1a1e9661686e52",
+            "size_bytes": 32
+          },
+          {
+            "path": "pulpie-orange-base.aimodel/main.mlirb",
+            "sha256": "14f6d6da3b988673a21791009ccafcc78c664249c482a0a14a5e5a04ac1daa3e",
+            "size_bytes": 2432032699
+          },
+          {
+            "path": "pulpie-orange-base.aimodel/metadata.json",
+            "sha256": "67c42dab6eb74c0bdfcae4af41001da5a6c11b6f1eb215b6cfe40c6785a1133d",
+            "size_bytes": 105
+          }
+        ],
+        "owner": "kevinqz",
+        "repo": "Pulpie-Orange-Base-CoreAI",
+        "revision": "af93c3b44a64c3a63ba98339d9b8b8c24c6d363f",
+        "url": "https://huggingface.co/kevinqz/Pulpie-Orange-Base-CoreAI"
+      },
+      "id": "pulpie-orange-base",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "provenance": {
+        "converted_by": {
+          "recipe_url": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/pulpie-orange-base.yaml",
+          "tool": "models/eurobert/export.py",
+          "version": "unknown"
+        },
+        "format_version": "2.0",
+        "recipe_source": "fabric"
+      }
     }
   ],
   "export_catalog_version": "2.3.0",
   "export_schema_version": "1.0",
   "metadata": {
-    "count": 113,
+    "count": 114,
     "last_verified": "2026-07-04",
     "name": "Core AI Catalog artifact provenance"
   }

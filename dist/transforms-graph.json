@@ -469,6 +469,7 @@
         "official-qwen3-4b",
         "official-qwen3-8b",
         "ornith-1-0-9b",
+        "pulpie-orange-base",
         "qwen2.5-0.5b-instruct-int8",
         "qwen2.5-1.5b-instruct-int8",
         "qwen2.5-coder-0.5b-instruct-int8",
@@ -488,7 +489,7 @@
         "rwkv7-goose-1-5b",
         "vibethinker-3b"
       ],
-      "model_count": 46
+      "model_count": 47
     },
     {
       "input": "text",

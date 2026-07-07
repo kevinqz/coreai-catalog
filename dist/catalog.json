@@ -8942,6 +8942,78 @@
       ],
       "status": "needs_review",
       "upstream_repo": "lerobot/VLA-JEPA-SimplerEnv"
+    },
+    {
+      "architecture": "transformer",
+      "artifact": {
+        "availability": "available",
+        "format": "aimodel"
+      },
+      "artifact_ref": "pulpie-orange-base",
+      "bundle_kind": "token-classification",
+      "capabilities": [
+        "token-classification"
+      ],
+      "confidence": "medium",
+      "device_support": {
+        "ipad": "unknown",
+        "iphone": "unknown",
+        "mac": "unknown",
+        "mac_only": "unknown"
+      },
+      "evaluation": {
+        "measured_on": "apple_silicon",
+        "metric": "graph_output_cosine",
+        "reference_dtype": "float32",
+        "runner": "coreai-fabric-parity-runner/0.1.0",
+        "status": "passed"
+      },
+      "family": "EuroBERT",
+      "id": "pulpie-orange-base",
+      "last_verified": "2026-07-07",
+      "license": {
+        "commercial_use": "likely",
+        "name": "apache-2.0"
+      },
+      "maturity": "experimental",
+      "min_os": {
+        "ios": "27.0",
+        "macos": "27.0"
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "name": "Pulpie Orange Base (fabric)",
+      "notes": "Converted via coreai-fabric recipe pulpie-orange-base (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/pulpie-orange-base.yaml). Parity: gate A passed, gate B passed.",
+      "runtime": {
+        "aot_required": false,
+        "custom_kernel": false,
+        "patch_required": false,
+        "processor_required": false,
+        "runner": "CoreAIRunner",
+        "runtime_name": "apple-core-ai",
+        "stock_runtime": false,
+        "tokenizer_required": true
+      },
+      "size": {
+        "artifact_size": "2.3GB",
+        "fidelity_tier": "high_fidelity",
+        "parameters": "0.6B",
+        "precision": "float32",
+        "quantization": "none"
+      },
+      "source_group": "fabric",
+      "source_path": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/pulpie-orange-base.yaml",
+      "sources": [
+        "coreai-fabric"
+      ],
+      "status": "needs_review",
+      "upstream_repo": "feyninc/pulpie-orange-base"
     }
   ]
 }
