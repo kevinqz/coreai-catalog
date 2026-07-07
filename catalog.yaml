@@ -7102,3 +7102,62 @@ models:
     reference_dtype: float32
     runner: coreai-fabric-parity-runner/0.1.0
     measured_on: apple_silicon
+- id: pulpie-orange-large
+  name: Pulpie Orange Large (fabric)
+  family: EuroBERT
+  source_group: fabric
+  source_path: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/pulpie-orange-large.yaml
+  artifact_ref: pulpie-orange-large
+  capabilities:
+  - token-classification
+  bundle_kind: token-classification
+  min_os:
+    macos: '27.0'
+    ios: '27.0'
+  upstream_repo: feyninc/pulpie-orange-large
+  modalities:
+    input:
+    - text
+    output:
+    - text
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 2.1B
+    precision: float32
+    quantization: none
+    artifact_size: 7.9GB
+    fidelity_tier: high_fidelity
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: false
+    custom_kernel: false
+    patch_required: false
+    tokenizer_required: true
+    processor_required: false
+    aot_required: false
+  device_support:
+    iphone: unknown
+    ipad: unknown
+    mac: unknown
+    mac_only: unknown
+  license:
+    name: apache-2.0
+    commercial_use: likely
+  status: needs_review
+  maturity: experimental
+  confidence: medium
+  sources:
+  - coreai-fabric
+  last_verified: '2026-07-07'
+  notes: 'Converted via coreai-fabric recipe pulpie-orange-large (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/pulpie-orange-large.yaml).
+    Parity: gate A passed, gate B passed.'
+  architecture: transformer
+  evaluation:
+    metric: graph_output_cosine
+    status: passed
+    reference_dtype: float32
+    runner: coreai-fabric-parity-runner/0.1.0
+    measured_on: apple_silicon

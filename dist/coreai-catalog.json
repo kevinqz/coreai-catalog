@@ -7063,10 +7063,71 @@
           "format_version": "2.0",
           "recipe_source": "fabric"
         }
+      },
+      {
+        "group": "external",
+        "huggingface": {
+          "files": [
+            {
+              "path": ".gitattributes",
+              "sha256": "49706716200604fe03c5f616f8675ae7386a9003d4548c7ccfaca367a1e923d3",
+              "size_bytes": 1594
+            },
+            {
+              "path": "LICENSE",
+              "sha256": "e8e4bc99b7035077f62153811bb01dffed99dfbc767fe0d77be5722a985141fb",
+              "size_bytes": 11975
+            },
+            {
+              "path": "README.md",
+              "sha256": "d555c5a9fb2f165a769b476be4d5db9d70bfc5d27aff835a4eb310d60d7f448f",
+              "size_bytes": 4768
+            },
+            {
+              "path": "parity-report.json",
+              "sha256": "2b35e8cadf60592036a9db9f070d55463ea4f9a83947012dc24c8a16df5fa7d6",
+              "size_bytes": 2021
+            },
+            {
+              "path": "pulpie-orange-large.aimodel/main.hash",
+              "sha256": "375f3bda1e148c92538be3fa18b8acc5674ac921631bc214ca771494a2011b89",
+              "size_bytes": 32
+            },
+            {
+              "path": "pulpie-orange-large.aimodel/main.mlirb",
+              "sha256": "9b74db3825c049693200a3e6fb434f57f791cfbce36ed151b71f8194f7f5a011",
+              "size_bytes": 8431059314
+            },
+            {
+              "path": "pulpie-orange-large.aimodel/metadata.json",
+              "sha256": "fe36bbc2ca9eb4109567b5dbce95e14663b2277afa783bf1bcb18a97c5ae29c6",
+              "size_bytes": 105
+            }
+          ],
+          "owner": "kevinqz",
+          "repo": "Pulpie-Orange-Large-CoreAI",
+          "revision": "9470e1c406ac4fe3e88170331f3140b88c74d789",
+          "url": "https://huggingface.co/kevinqz/Pulpie-Orange-Large-CoreAI"
+        },
+        "id": "pulpie-orange-large",
+        "officiality": {
+          "apple_export_recipe": false,
+          "apple_hosted_artifact": false,
+          "community_packaged": true
+        },
+        "provenance": {
+          "converted_by": {
+            "recipe_url": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/pulpie-orange-large.yaml",
+            "tool": "models/eurobert/export.py",
+            "version": "unknown"
+          },
+          "format_version": "2.0",
+          "recipe_source": "fabric"
+        }
       }
     ],
     "metadata": {
-      "count": 114,
+      "count": 115,
       "last_verified": "2026-07-04",
       "name": "Core AI Catalog artifact provenance"
     }
@@ -17784,6 +17845,78 @@
         ],
         "status": "needs_review",
         "upstream_repo": "feyninc/pulpie-orange-base"
+      },
+      {
+        "architecture": "transformer",
+        "artifact": {
+          "availability": "available",
+          "format": "aimodel"
+        },
+        "artifact_ref": "pulpie-orange-large",
+        "bundle_kind": "token-classification",
+        "capabilities": [
+          "token-classification"
+        ],
+        "confidence": "medium",
+        "device_support": {
+          "ipad": "unknown",
+          "iphone": "unknown",
+          "mac": "unknown",
+          "mac_only": "unknown"
+        },
+        "evaluation": {
+          "measured_on": "apple_silicon",
+          "metric": "graph_output_cosine",
+          "reference_dtype": "float32",
+          "runner": "coreai-fabric-parity-runner/0.1.0",
+          "status": "passed"
+        },
+        "family": "EuroBERT",
+        "id": "pulpie-orange-large",
+        "last_verified": "2026-07-07",
+        "license": {
+          "commercial_use": "likely",
+          "name": "apache-2.0"
+        },
+        "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "name": "Pulpie Orange Large (fabric)",
+        "notes": "Converted via coreai-fabric recipe pulpie-orange-large (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/pulpie-orange-large.yaml). Parity: gate A passed, gate B passed.",
+        "runtime": {
+          "aot_required": false,
+          "custom_kernel": false,
+          "patch_required": false,
+          "processor_required": false,
+          "runner": "CoreAIRunner",
+          "runtime_name": "apple-core-ai",
+          "stock_runtime": false,
+          "tokenizer_required": true
+        },
+        "size": {
+          "artifact_size": "7.9GB",
+          "fidelity_tier": "high_fidelity",
+          "parameters": "2.1B",
+          "precision": "float32",
+          "quantization": "none"
+        },
+        "source_group": "fabric",
+        "source_path": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/pulpie-orange-large.yaml",
+        "sources": [
+          "coreai-fabric"
+        ],
+        "status": "needs_review",
+        "upstream_repo": "feyninc/pulpie-orange-large"
       }
     ]
   },
