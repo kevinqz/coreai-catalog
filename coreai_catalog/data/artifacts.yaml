@@ -633,8 +633,7 @@ artifacts:
   huggingface:
     owner: mlboydaisuke
     repo: gemma-4-E2B-CoreAI
-    path: tree/main/vl
-    url: https://huggingface.co/mlboydaisuke/gemma-4-E2B-CoreAI/tree/main/vl
+    url: https://huggingface.co/mlboydaisuke/gemma-4-E2B-CoreAI
     revision: 1b6adc0eb22ea907247833014132f7b1f76cff9a
     files:
     - path: gpu-pipelined/gemma4_e2b_decode_int4lin_tbl/gemma4_e2b_decode_int4lin_tbl.aimodel/main.mlirb
@@ -2295,7 +2294,7 @@ artifacts:
   github:
     owner: john-rocky
     repo: coreai-model-zoo
-    path: https://github.com/john-rocky/coreai-model-zoo/README.md
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/README.md
   huggingface:
     owner: mlboydaisuke
     repo: Qwen3-ASR-1.7B-CoreAI
@@ -2351,7 +2350,7 @@ artifacts:
   github:
     owner: john-rocky
     repo: coreai-model-zoo
-    path: https://github.com/john-rocky/coreai-model-zoo/README.md
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/README.md
   huggingface:
     owner: mlboydaisuke
     repo: VoxCPM2-CoreAI
@@ -2481,8 +2480,8 @@ artifacts:
     path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/yolox.md
   huggingface:
     owner: mlboydaisuke
-    repo: YOLOX-S-CoreAI
-    url: https://huggingface.co/mlboydaisuke/YOLOX-S-CoreAI
+    repo: YOLOX-CoreAI
+    url: https://huggingface.co/mlboydaisuke/YOLOX-CoreAI
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false
@@ -2492,7 +2491,7 @@ artifacts:
   github:
     owner: john-rocky
     repo: coreai-model-zoo
-    path: https://github.com/john-rocky/coreai-model-zoo/README.md
+    path: https://github.com/john-rocky/coreai-model-zoo/blob/main/README.md
   huggingface:
     owner: mlboydaisuke
     repo: TripoSplat-CoreAI

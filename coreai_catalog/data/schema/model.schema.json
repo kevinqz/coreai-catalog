@@ -264,7 +264,8 @@
         "video",
         "3d",
         "action",
-        "token-classification"
+        "token-classification",
+        "image-feature-extraction"
       ]
     },
     "min_os": {

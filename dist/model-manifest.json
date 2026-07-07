@@ -581,7 +581,7 @@
       "parameters": "E2B",
       "precision": "int4",
       "artifact_size": "not_published",
-      "huggingface_url": "https://huggingface.co/mlboydaisuke/gemma-4-E2B-CoreAI/tree/main/vl",
+      "huggingface_url": "https://huggingface.co/mlboydaisuke/gemma-4-E2B-CoreAI",
       "license": "Gemma Terms",
       "commercial_use": "check_license",
       "min_os": {
@@ -2087,7 +2087,7 @@
       "parameters": "8.97M",
       "precision": "fp32",
       "artifact_size": "36.2MB",
-      "huggingface_url": "https://huggingface.co/mlboydaisuke/YOLOX-S-CoreAI",
+      "huggingface_url": "https://huggingface.co/mlboydaisuke/YOLOX-CoreAI",
       "license": "Apache-2.0",
       "commercial_use": "likely",
       "min_os": {

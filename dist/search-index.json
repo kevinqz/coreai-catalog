@@ -2318,7 +2318,7 @@
       "artifact": {
         "format": "aimodel",
         "availability": "available",
-        "huggingface_url": "https://huggingface.co/mlboydaisuke/gemma-4-E2B-CoreAI/tree/main/vl",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/gemma-4-E2B-CoreAI",
         "huggingface_repo": "mlboydaisuke/gemma-4-E2B-CoreAI",
         "github_source": "john-rocky/coreai-model-zoo",
         "apple_export_recipe": false,
@@ -6811,8 +6811,8 @@
       "artifact": {
         "format": "aimodel",
         "availability": "available",
-        "huggingface_url": "https://huggingface.co/mlboydaisuke/YOLOX-S-CoreAI",
-        "huggingface_repo": "mlboydaisuke/YOLOX-S-CoreAI",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/YOLOX-CoreAI",
+        "huggingface_repo": "mlboydaisuke/YOLOX-CoreAI",
         "github_source": "john-rocky/coreai-model-zoo",
         "apple_export_recipe": false,
         "apple_hosted_artifact": false,

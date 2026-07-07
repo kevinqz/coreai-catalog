@@ -1173,10 +1173,9 @@
             }
           ],
           "owner": "mlboydaisuke",
-          "path": "tree/main/vl",
           "repo": "gemma-4-E2B-CoreAI",
           "revision": "1b6adc0eb22ea907247833014132f7b1f76cff9a",
-          "url": "https://huggingface.co/mlboydaisuke/gemma-4-E2B-CoreAI/tree/main/vl"
+          "url": "https://huggingface.co/mlboydaisuke/gemma-4-E2B-CoreAI"
         },
         "id": "gemma-4-e2b-vision",
         "officiality": {
@@ -3563,7 +3562,7 @@
       {
         "github": {
           "owner": "john-rocky",
-          "path": "https://github.com/john-rocky/coreai-model-zoo/README.md",
+          "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/README.md",
           "repo": "coreai-model-zoo"
         },
         "group": "zoo",
@@ -3647,7 +3646,7 @@
       {
         "github": {
           "owner": "john-rocky",
-          "path": "https://github.com/john-rocky/coreai-model-zoo/README.md",
+          "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/README.md",
           "repo": "coreai-model-zoo"
         },
         "group": "zoo",
@@ -3860,8 +3859,8 @@
         "group": "zoo",
         "huggingface": {
           "owner": "mlboydaisuke",
-          "repo": "YOLOX-S-CoreAI",
-          "url": "https://huggingface.co/mlboydaisuke/YOLOX-S-CoreAI"
+          "repo": "YOLOX-CoreAI",
+          "url": "https://huggingface.co/mlboydaisuke/YOLOX-CoreAI"
         },
         "id": "yolox-s",
         "officiality": {
@@ -3873,7 +3872,7 @@
       {
         "github": {
           "owner": "john-rocky",
-          "path": "https://github.com/john-rocky/coreai-model-zoo/README.md",
+          "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/README.md",
           "repo": "coreai-model-zoo"
         },
         "group": "zoo",
@@ -19189,7 +19188,7 @@
         "platform": "unknown",
         "title": "AdcSR original model family",
         "trust": "needs_review",
-        "url": "https://github.com/jaewon-lee-b/AdcSR"
+        "url": "https://github.com/Guaishou74851/AdcSR"
       },
       {
         "applies_to": [

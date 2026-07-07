@@ -61,7 +61,7 @@ Generated from `artifacts.yaml`.
 | qwen3-asr-1-7b | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/Qwen3-ASR-1.7B-CoreAI | False | False |
 | parakeet-tdt-0-6b | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/Parakeet-TDT-0.6B-CoreAI | False | False |
 | voxcpm2-2b | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/VoxCPM2-CoreAI | False | False |
-| yolox-s | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/YOLOX-S-CoreAI | False | False |
+| yolox-s | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/YOLOX-CoreAI | False | False |
 | tripo-splat | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/TripoSplat-CoreAI | False | False |
 | ltx-video-2b | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/LTX-Video-2B-CoreAI | False | False |
 | official-qwen3-1-7b | official | john-rocky/coreai-model-zoo | mlboydaisuke/qwen3-1.7b-CoreAI-official | True | False |

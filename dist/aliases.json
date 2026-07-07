@@ -346,8 +346,8 @@
       "voxcpm2.2b"
     ],
     "yolox-s": [
-      "YOLOX-S-CoreAI",
-      "yolox-s-coreai",
+      "YOLOX-CoreAI",
+      "yolox-coreai",
       "yolox.md",
       "yolox.s"
     ],
