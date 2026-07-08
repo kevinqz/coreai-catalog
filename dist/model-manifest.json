@@ -1,7 +1,7 @@
 {
   "export_schema_version": "1.0",
   "export_catalog_version": "2.3.0",
-  "model_count": 113,
+  "model_count": 114,
   "models": [
     {
       "id": "qwen3-5-0-8b",
@@ -4634,6 +4634,73 @@
       },
       "upstream_repo": "feyninc/pulpie-orange-base",
       "io_contract": null
+    },
+    {
+      "id": "eo1-3b",
+      "name": "EO-1 3B (fabric)",
+      "bundle_kind": "action",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "vision-language-action",
+        "robotics"
+      ],
+      "input_modalities": [
+        "image",
+        "text",
+        "state"
+      ],
+      "output_modalities": [
+        "action"
+      ],
+      "parameters": "3.77B",
+      "precision": "float32",
+      "artifact_size": "2.6GB",
+      "huggingface_url": "https://huggingface.co/kevinqz/EO-1-3B-CoreAI",
+      "license": "mit",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "IPEC-COMMUNITY/EO-1-3B",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAIRunner",
+          "type": "CoreAIRunner",
+          "init_pattern": "load the encode + denoise_step graphs; host drives the N-step sampler + un-normalization"
+        },
+        "inputs": [
+          {
+            "name": "image",
+            "modality": "image"
+          },
+          {
+            "name": "text",
+            "modality": "text"
+          },
+          {
+            "name": "state",
+            "modality": "state"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "action_chunk",
+            "swift_type": "[[Float]]",
+            "decoding": {
+              "detokenization": "host-driven flow-matching sampler (N steps); un-normalize the action chunk with norm_stats.json"
+            }
+          }
+        ],
+        "session": {
+          "stateful": false,
+          "streaming": false
+        },
+        "files": {
+          "tokenizer_ref": "tokenizer",
+          "processor_ref": "norm_stats.json"
+        }
+      }
     }
   ]
 }

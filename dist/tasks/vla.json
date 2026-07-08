@@ -3,7 +3,7 @@
   "capabilities": [
     "vision-language-action"
   ],
-  "model_count": 15,
+  "model_count": 16,
   "models": [
     {
       "id": "bitvla",
@@ -58,6 +58,20 @@
         "mac": false
       },
       "license": "apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "eo1-3b",
+      "name": "EO-1 3B (fabric)",
+      "score": 43,
+      "parameters": "3.77B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": false
+      },
+      "license": "mit",
       "commercial_use": "likely",
       "has_benchmark": false
     },
