@@ -7764,3 +7764,250 @@ models:
     reference_dtype: float32
     runner: coreai-fabric-parity-runner/0.1.0
     measured_on: apple_silicon
+- id: lingbot-va-base
+  name: LingBot-VA Base (fabric)
+  family: LingBot-VA
+  source_group: fabric
+  source_path: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-va-base.yaml
+  artifact_ref: lingbot-va-base
+  capabilities:
+  - vision-language-action
+  - robotics
+  bundle_kind: action
+  min_os:
+    macos: '27.0'
+    ios: '27.0'
+  upstream_repo: lerobot/lingbot_va_base
+  modalities:
+    input:
+    - image
+    - text
+    - state
+    output:
+    - action
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 5B
+    precision: float32
+    quantization: int8
+    artifact_size: 4.7GB
+    fidelity_tier: high_fidelity
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: false
+    custom_kernel: false
+    patch_required: false
+    tokenizer_required: true
+    processor_required: true
+    aot_required: false
+  device_support:
+    iphone: unknown
+    ipad: unknown
+    mac: unknown
+    mac_only: unknown
+  license:
+    name: apache-2.0
+    commercial_use: likely
+  status: needs_review
+  maturity: experimental
+  confidence: medium
+  sources:
+  - coreai-fabric
+  last_verified: '2026-07-08'
+  notes: Converted via coreai-fabric recipe lingbot-va-base (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-va-base.yaml).
+  architecture: diffusion
+  io_contract:
+    entrypoint:
+      framework: CoreAIRunner
+      type: CoreAIRunner
+      init_pattern: load the encode + denoise_step graphs; host drives the N-step sampler
+        + un-normalization
+    inputs:
+    - name: image
+      modality: image
+    - name: text
+      modality: text
+    - name: state
+      modality: state
+    outputs:
+    - name: action_chunk
+      swift_type: '[[Float]]'
+      decoding:
+        detokenization: host-driven flow-matching sampler (N steps); un-normalize the action
+          chunk with norm_stats.json
+    session:
+      stateful: false
+      streaming: false
+    files:
+      tokenizer_ref: tokenizer
+      processor_ref: norm_stats.json
+- id: fastwam-libero
+  name: FastWAM LIBERO (fabric)
+  family: FastWAM
+  source_group: fabric
+  source_path: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/fastwam-libero.yaml
+  artifact_ref: fastwam-libero
+  capabilities:
+  - vision-language-action
+  - robotics
+  bundle_kind: action
+  min_os:
+    macos: '27.0'
+    ios: '27.0'
+  upstream_repo: lerobot/fastwam_libero_uncond_2cam224
+  modalities:
+    input:
+    - image
+    - text
+    - state
+    output:
+    - action
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 6B
+    precision: float32
+    quantization: int8
+    artifact_size: 3.8GB
+    fidelity_tier: high_fidelity
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: false
+    custom_kernel: false
+    patch_required: false
+    tokenizer_required: true
+    processor_required: true
+    aot_required: false
+  device_support:
+    iphone: unknown
+    ipad: unknown
+    mac: unknown
+    mac_only: unknown
+  license:
+    name: apache-2.0
+    commercial_use: likely
+  status: needs_review
+  maturity: experimental
+  confidence: medium
+  sources:
+  - coreai-fabric
+  last_verified: '2026-07-08'
+  notes: 'Converted via coreai-fabric recipe fastwam-libero (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/fastwam-libero.yaml).
+    Parity: gate A passed, gate B passed.'
+  architecture: diffusion
+  evaluation:
+    metric: graph_output_cosine
+    status: passed
+    reference_dtype: float32
+    runner: coreai-fabric-parity-runner/0.1.0
+    measured_on: apple_silicon
+  io_contract:
+    entrypoint:
+      framework: CoreAIRunner
+      type: CoreAIRunner
+      init_pattern: load the encode + denoise_step graphs; host drives the N-step sampler
+        + un-normalization
+    inputs:
+    - name: image
+      modality: image
+    - name: text
+      modality: text
+    - name: state
+      modality: state
+    outputs:
+    - name: action_chunk
+      swift_type: '[[Float]]'
+      decoding:
+        detokenization: host-driven flow-matching sampler (N steps); un-normalize the action
+          chunk with norm_stats.json
+    session:
+      stateful: false
+      streaming: false
+    files:
+      tokenizer_ref: tokenizer
+      processor_ref: norm_stats.json
+- id: eo1-3b
+  name: EO-1 3B (fabric)
+  family: EO-1
+  source_group: fabric
+  source_path: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/eo1-3b.yaml
+  artifact_ref: eo1-3b
+  capabilities:
+  - vision-language-action
+  - robotics
+  bundle_kind: action
+  min_os:
+    macos: '27.0'
+    ios: '27.0'
+  upstream_repo: IPEC-COMMUNITY/EO-1-3B
+  modalities:
+    input:
+    - image
+    - text
+    - state
+    output:
+    - action
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 3.77B
+    precision: float32
+    quantization: int8
+    artifact_size: 2.6GB
+    fidelity_tier: high_fidelity
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: false
+    custom_kernel: false
+    patch_required: false
+    tokenizer_required: true
+    processor_required: true
+    aot_required: false
+  device_support:
+    iphone: unknown
+    ipad: unknown
+    mac: unknown
+    mac_only: unknown
+  license:
+    name: mit
+    commercial_use: likely
+  status: needs_review
+  maturity: experimental
+  confidence: medium
+  sources:
+  - coreai-fabric
+  last_verified: '2026-07-08'
+  notes: Converted via coreai-fabric recipe eo1-3b (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/eo1-3b.yaml).
+  architecture: transformer
+  io_contract:
+    entrypoint:
+      framework: CoreAIRunner
+      type: CoreAIRunner
+      init_pattern: load the encode + denoise_step graphs; host drives the N-step sampler
+        + un-normalization
+    inputs:
+    - name: image
+      modality: image
+    - name: text
+      modality: text
+    - name: state
+      modality: state
+    outputs:
+    - name: action_chunk
+      swift_type: '[[Float]]'
+      decoding:
+        detokenization: host-driven flow-matching sampler (N steps); un-normalize the action
+          chunk with norm_stats.json
+    session:
+      stateful: false
+      streaming: false
+    files:
+      tokenizer_ref: tokenizer
+      processor_ref: norm_stats.json

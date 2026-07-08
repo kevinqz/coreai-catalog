@@ -3,7 +3,7 @@
   "capabilities": [
     "vision-language-action"
   ],
-  "model_count": 16,
+  "model_count": 19,
   "models": [
     {
       "id": "bitvla",
@@ -62,10 +62,52 @@
       "has_benchmark": false
     },
     {
+      "id": "eo1-3b",
+      "name": "EO-1 3B (fabric)",
+      "score": 43,
+      "parameters": "3.77B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": false
+      },
+      "license": "mit",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
       "id": "evo1-so100",
       "name": "EVO1 SO-100 (fabric)",
       "score": 43,
       "parameters": "0.77B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": false
+      },
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "fastwam-libero",
+      "name": "FastWAM LIBERO (fabric)",
+      "score": 43,
+      "parameters": "6B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": false
+      },
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "lingbot-va-base",
+      "name": "LingBot-VA Base (fabric)",
+      "score": 43,
+      "parameters": "5B",
       "devices": {
         "iphone": false,
         "ipad": false,

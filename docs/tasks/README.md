@@ -28,7 +28,7 @@ Browse models by capability.
 - [Reasoning](./reasoning.md) — 4 models
 - [Reranking](./reranking.md) — 1 models
 - [Reward Modeling](./reward-modeling.md) — 1 models
-- [Robotics](./robotics.md) — 22 models
+- [Robotics](./robotics.md) — 25 models
 - [Speaker Diarization](./speaker-diarization.md) — 1 models
 - [Speculative Decoding](./speculative-decoding.md) — 1 models
 - [Speech To Text](./speech-to-text.md) — 8 models
@@ -41,6 +41,6 @@ Browse models by capability.
 - [Token Classification](./token-classification.md) — 3 models
 - [Video Classification](./video-classification.md) — 1 models
 - [Vision Language](./vision-language.md) — 7 models
-- [Vision Language Action](./vision-language-action.md) — 16 models
+- [Vision Language Action](./vision-language-action.md) — 19 models
 - [Visual Document Retrieval](./visual-document-retrieval.md) — 1 models
 - [Voice Activity Detection](./voice-activity-detection.md) — 1 models

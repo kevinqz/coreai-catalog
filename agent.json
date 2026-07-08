@@ -1,7 +1,7 @@
 {
   "name": "Core AI Catalog",
   "url": "https://github.com/kevinqz/coreai-catalog",
-  "description": "A source-grounded catalog of 124 Apple Core AI models with artifact provenance, benchmarks, verified terminology, per-entry suitability facets (deployability / lifecycle / entry_completeness; readiness_score deprecated as a headline), typed integration metadata (io_contract, bundle_kind, min_os — all current models require macOS/iOS 27), and an MCP server for agent-native model discovery, comparison, recommendation, and contribution (draft/submit write path).",
+  "description": "A source-grounded catalog of 127 Apple Core AI models with artifact provenance, benchmarks, verified terminology, per-entry suitability facets (deployability / lifecycle / entry_completeness; readiness_score deprecated as a headline), typed integration metadata (io_contract, bundle_kind, min_os — all current models require macOS/iOS 27), and an MCP server for agent-native model discovery, comparison, recommendation, and contribution (draft/submit write path).",
   "primary_language": "en",
   "entity_type": "open_source_database",
   "version": "2.3.0",

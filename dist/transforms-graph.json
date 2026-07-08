@@ -123,8 +123,11 @@
         "act-aloha-insertion",
         "act-so101",
         "diffusion-pusht",
+        "eo1-3b",
         "evo1-so100",
+        "fastwam-libero",
         "folding-latest",
+        "lingbot-va-base",
         "pi0-base",
         "pi0-base-gemma",
         "pi0-libero-base",
@@ -140,7 +143,7 @@
         "vla-jepa-simpler-env",
         "vqbet-pusht"
       ],
-      "model_count": 20
+      "model_count": 23
     },
     {
       "input": "image",
@@ -342,7 +345,10 @@
         "act-aloha-insertion",
         "act-so101",
         "diffusion-pusht",
+        "eo1-3b",
         "evo1-so100",
+        "fastwam-libero",
+        "lingbot-va-base",
         "pi0-base",
         "pi0-base-gemma",
         "pi0-libero-base",
@@ -357,14 +363,17 @@
         "vla-jepa-pretrain",
         "vqbet-pusht"
       ],
-      "model_count": 18
+      "model_count": 21
     },
     {
       "input": "text",
       "output": "action",
       "model_ids": [
+        "eo1-3b",
         "evo1-so100",
+        "fastwam-libero",
         "folding-latest",
+        "lingbot-va-base",
         "pi0-base",
         "pi0-base-gemma",
         "pi0-libero-base",
@@ -379,7 +388,7 @@
         "vla-jepa-pretrain",
         "vla-jepa-simpler-env"
       ],
-      "model_count": 15
+      "model_count": 18
     },
     {
       "input": "text",

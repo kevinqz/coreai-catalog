@@ -2,7 +2,7 @@
   "export_schema_version": "1.0",
   "export_catalog_version": "2.3.0",
   "description": "Alias mappings resolving catalog IDs to Zoo card names, CoreAIKit strings, and HF repo names.",
-  "total_models": 124,
+  "total_models": 127,
   "aliases": {
     "qwen3-5-0-8b": [
       "qwen3-5-0-8b-coreai",
@@ -721,6 +721,24 @@
       "robometer-4b-coreai",
       "robometer-4b.yaml",
       "robometer.4b"
+    ],
+    "lingbot-va-base": [
+      "LingBot-VA-Base-CoreAI",
+      "lingbot-va-base-coreai",
+      "lingbot-va-base.yaml",
+      "lingbot.va.base"
+    ],
+    "fastwam-libero": [
+      "FastWAM-LIBERO-CoreAI",
+      "fastwam-libero-coreai",
+      "fastwam-libero.yaml",
+      "fastwam.libero"
+    ],
+    "eo1-3b": [
+      "EO-1-3B-CoreAI",
+      "eo-1-3b-coreai",
+      "eo1-3b.yaml",
+      "eo1.3b"
     ]
   }
 }

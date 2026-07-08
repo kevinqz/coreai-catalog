@@ -126,3 +126,6 @@
 | streaming-sortformer-diar | Streaming Sortformer Diarization | zoo | Sortformer | speaker-diarization, voice-activity-detection | audio | labels | 117M | iPhone/Mac | CC-BY-4.0 | confirmed |
 | evo1-so100 | EVO1 SO-100 (fabric) | fabric | LeRobot | vision-language-action, robotics | image, text, state | action | 0.77B | unknown | apache-2.0 | needs_review |
 | robometer-4b | Robometer-4B Reward (fabric) | fabric | Robometer | reward-modeling, robotics | image, text | reward | 4.45B | unknown | apache-2.0 | needs_review |
+| lingbot-va-base | LingBot-VA Base (fabric) | fabric | LingBot-VA | vision-language-action, robotics | image, text, state | action | 5B | unknown | apache-2.0 | needs_review |
+| fastwam-libero | FastWAM LIBERO (fabric) | fabric | FastWAM | vision-language-action, robotics | image, text, state | action | 6B | unknown | apache-2.0 | needs_review |
+| eo1-3b | EO-1 3B (fabric) | fabric | EO-1 | vision-language-action, robotics | image, text, state | action | 3.77B | unknown | mit | needs_review |
