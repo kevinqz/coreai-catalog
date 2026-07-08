@@ -128,6 +128,7 @@
         "fastwam-libero",
         "folding-latest",
         "lingbot-va-base",
+        "lingbot-vla-v2",
         "pi0-base",
         "pi0-base-gemma",
         "pi0-libero-base",
@@ -143,7 +144,7 @@
         "vla-jepa-simpler-env",
         "vqbet-pusht"
       ],
-      "model_count": 23
+      "model_count": 24
     },
     {
       "input": "image",
@@ -349,6 +350,7 @@
         "evo1-so100",
         "fastwam-libero",
         "lingbot-va-base",
+        "lingbot-vla-v2",
         "pi0-base",
         "pi0-base-gemma",
         "pi0-libero-base",
@@ -363,7 +365,7 @@
         "vla-jepa-pretrain",
         "vqbet-pusht"
       ],
-      "model_count": 21
+      "model_count": 22
     },
     {
       "input": "text",
@@ -374,6 +376,7 @@
         "fastwam-libero",
         "folding-latest",
         "lingbot-va-base",
+        "lingbot-vla-v2",
         "pi0-base",
         "pi0-base-gemma",
         "pi0-libero-base",
@@ -388,7 +391,7 @@
         "vla-jepa-pretrain",
         "vla-jepa-simpler-env"
       ],
-      "model_count": 18
+      "model_count": 19
     },
     {
       "input": "text",

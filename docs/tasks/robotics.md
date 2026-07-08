@@ -1,6 +1,6 @@
 # Robotics
 
-**25 models** in the catalog with this capability.
+**26 models** in the catalog with this capability.
 
 ## Task synonyms
 
@@ -18,6 +18,7 @@
 | [EVO1 SO-100 (fabric)](../../catalog.yaml#L1) | 43 | 0.77B |  | apache-2.0 | ✅ likely | — | fabric |
 | [FastWAM LIBERO (fabric)](../../catalog.yaml#L1) | 43 | 6B |  | apache-2.0 | ✅ likely | — | fabric |
 | [LingBot-VA Base (fabric)](../../catalog.yaml#L1) | 43 | 5B |  | apache-2.0 | ✅ likely | — | fabric |
+| [LingBot-VLA 2.0 (fabric)](../../catalog.yaml#L1) | 43 | 6.38B |  | apache-2.0 | ✅ likely | — | fabric |
 | [Robometer-4B Reward (fabric)](../../catalog.yaml#L1) | 43 | 4.45B |  | apache-2.0 | ✅ likely | — | fabric |
 | [ACT ALOHA Insertion (fabric)](../../catalog.yaml#L1) | 38 | 51.6M |  | apache-2.0 | ✅ likely | — | fabric |
 | [ACT ALOHA Transfer-Cube (fabric)](../../catalog.yaml#L1) | 38 | 51.6M |  | apache-2.0 | ✅ likely | — | fabric |
