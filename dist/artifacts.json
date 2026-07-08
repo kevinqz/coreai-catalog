@@ -7544,12 +7544,195 @@
         "format_version": "2.0",
         "recipe_source": "fabric"
       }
+    },
+    {
+      "group": "external",
+      "huggingface": {
+        "files": [
+          {
+            "path": ".gitattributes",
+            "sha256": "68e778ccdb52d41de37bc021ae7c3d0e804d0c639520894c729843895f04ee69",
+            "size_bytes": 1590
+          },
+          {
+            "path": "LICENSE",
+            "sha256": "c9ba1d4335530c7d51f0caf7cf0d4e5d004fae61a6e3e6e1e609a3f62dd5551c",
+            "size_bytes": 11967
+          },
+          {
+            "path": "README.md",
+            "sha256": "676f073ea3332c8fb31f3b871425e66d8c095a65086f8a21a6fc818e01476b40",
+            "size_bytes": 5484
+          },
+          {
+            "path": "lingbot-va-base.aimodel/main.hash",
+            "sha256": "3bdb8b75063faafbd9ccd3e52dcd76dea1c9d0a7dc5901536d098dfec2787130",
+            "size_bytes": 32
+          },
+          {
+            "path": "lingbot-va-base.aimodel/main.mlirb",
+            "sha256": "c92d96e365dd76ecd78548784320b05dde9754f9a46aefe313a2b28ed583b48f",
+            "size_bytes": 5013030676
+          },
+          {
+            "path": "lingbot-va-base.aimodel/metadata.json",
+            "sha256": "029f125e6704f8163815469f543e725f1b351762033fdd0aed507b4d47fedbf7",
+            "size_bytes": 105
+          },
+          {
+            "path": "parity-report.json",
+            "sha256": "919e13e50666c5392d7c8b590a9461526682a272a718e11fed12e899181b1a7e",
+            "size_bytes": 2016
+          }
+        ],
+        "owner": "kevinqz",
+        "repo": "LingBot-VA-Base-CoreAI",
+        "revision": "735faecbfd6252f44228bbd4456f757f6f4b1bc6",
+        "url": "https://huggingface.co/kevinqz/LingBot-VA-Base-CoreAI"
+      },
+      "id": "lingbot-va-base",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "provenance": {
+        "converted_by": {
+          "recipe_url": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-va-base.yaml",
+          "tool": "models/lingbot_va/export.py",
+          "version": "unknown"
+        },
+        "format_version": "2.0",
+        "recipe_source": "fabric"
+      }
+    },
+    {
+      "group": "external",
+      "huggingface": {
+        "files": [
+          {
+            "path": ".gitattributes",
+            "sha256": "5f85045ffd3e99f8e97ffbfea121d7c36e8954df4a8bc6ceb2fefa244ef9244d",
+            "size_bytes": 1589
+          },
+          {
+            "path": "LICENSE",
+            "sha256": "1e3332530df341142c676c252db3271469577ca460d537e928c61015ed692e42",
+            "size_bytes": 11995
+          },
+          {
+            "path": "README.md",
+            "sha256": "e9c8ad3006e56ec341333f8b7af8e4f7475067e4d54b7b688eddcce1690f8776",
+            "size_bytes": 5596
+          },
+          {
+            "path": "fastwam-libero.aimodel/main.hash",
+            "sha256": "ee10a22915485dcf171474320eb01ee237bee53b6cb065b5f361f4a859a59b67",
+            "size_bytes": 32
+          },
+          {
+            "path": "fastwam-libero.aimodel/main.mlirb",
+            "sha256": "1257f8424df056824e9e1e595aebb911f27ac49ab470db0427441ef7b6920136",
+            "size_bytes": 4044340784
+          },
+          {
+            "path": "fastwam-libero.aimodel/metadata.json",
+            "sha256": "e9ef87923a3e9dc2da74f7aad90c1d1f7f475b32f8822d927f4b0c9c5f530879",
+            "size_bytes": 105
+          },
+          {
+            "path": "parity-report.json",
+            "sha256": "13db924257bb4daa8c58e818c897edf866383e782b84e1ad8316c7a4dc3de271",
+            "size_bytes": 1886
+          }
+        ],
+        "owner": "kevinqz",
+        "repo": "FastWAM-LIBERO-CoreAI",
+        "revision": "fb85bf5432295758b8ff2f1e6a7f29b6f29fdc2e",
+        "url": "https://huggingface.co/kevinqz/FastWAM-LIBERO-CoreAI"
+      },
+      "id": "fastwam-libero",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "provenance": {
+        "converted_by": {
+          "recipe_url": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/fastwam-libero.yaml",
+          "tool": "models/fastwam/export.py",
+          "version": "unknown"
+        },
+        "format_version": "2.0",
+        "recipe_source": "fabric"
+      }
+    },
+    {
+      "group": "external",
+      "huggingface": {
+        "files": [
+          {
+            "path": ".gitattributes",
+            "sha256": "a2b839f4d9948d0644c221d24c18800e24f9d7c50d20fc799736c409e01ea6b2",
+            "size_bytes": 1581
+          },
+          {
+            "path": "LICENSE",
+            "sha256": "3106338c749c4c0f0124a5858dcbf670b8f8b2bc55bd5a215787d60d9176c998",
+            "size_bytes": 1671
+          },
+          {
+            "path": "README.md",
+            "sha256": "263d6cebd075a36a367d1a411b8dd9919b09ca3c2d42a533952d64e58a0135cc",
+            "size_bytes": 5381
+          },
+          {
+            "path": "eo1-3b.aimodel/main.hash",
+            "sha256": "b0e7a607436b97a6493c0e13d0546c420d5ae6e7c426732d8e644ce146a2ebb1",
+            "size_bytes": 32
+          },
+          {
+            "path": "eo1-3b.aimodel/main.mlirb",
+            "sha256": "024cf57e3d169f52cbbfff6234ab9b7a565f58ff684f8060fbf13d2428e6253f",
+            "size_bytes": 2797876595
+          },
+          {
+            "path": "eo1-3b.aimodel/metadata.json",
+            "sha256": "976601c06e3dc83b2380e81e6e8f5f3808c8b9461bd056b1558f644fd8bb7e8f",
+            "size_bytes": 105
+          },
+          {
+            "path": "parity-report.json",
+            "sha256": "af6da0fab8426044aa2508dec87bbac081b2b768c8c209df8c04df5d639944b0",
+            "size_bytes": 1871
+          }
+        ],
+        "owner": "kevinqz",
+        "repo": "EO-1-3B-CoreAI",
+        "revision": "7e4d3f986a52aa034c75e0389df8ad4456a79faf",
+        "url": "https://huggingface.co/kevinqz/EO-1-3B-CoreAI"
+      },
+      "id": "eo1-3b",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "provenance": {
+        "converted_by": {
+          "recipe_url": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/eo1-3b.yaml",
+          "tool": "models/eo1/export.py",
+          "version": "unknown"
+        },
+        "format_version": "2.0",
+        "recipe_source": "fabric"
+      }
     }
   ],
   "export_catalog_version": "2.3.0",
   "export_schema_version": "1.0",
   "metadata": {
-    "count": 125,
+    "count": 128,
     "last_verified": "2026-07-04",
     "name": "Core AI Catalog artifact provenance"
   }

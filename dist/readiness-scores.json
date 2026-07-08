@@ -496,8 +496,23 @@
       "score": 45
     },
     {
+      "id": "eo1-3b",
+      "name": "EO-1 3B (fabric)",
+      "score": 43
+    },
+    {
       "id": "evo1-so100",
       "name": "EVO1 SO-100 (fabric)",
+      "score": 43
+    },
+    {
+      "id": "fastwam-libero",
+      "name": "FastWAM LIBERO (fabric)",
+      "score": 43
+    },
+    {
+      "id": "lingbot-va-base",
+      "name": "LingBot-VA Base (fabric)",
       "score": 43
     },
     {

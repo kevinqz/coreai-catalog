@@ -129,3 +129,6 @@ Generated from `artifacts.yaml`.
 | streaming-sortformer-diar | zoo | / | mlboydaisuke/Streaming-Sortformer-Diar-CoreAI | False | False |
 | evo1-so100 | external | / | kevinqz/EVO1-SO100-CoreAI | False | False |
 | robometer-4b | external | / | kevinqz/Robometer-4B-CoreAI | False | False |
+| lingbot-va-base | external | / | kevinqz/LingBot-VA-Base-CoreAI | False | False |
+| fastwam-libero | external | / | kevinqz/FastWAM-LIBERO-CoreAI | False | False |
+| eo1-3b | external | / | kevinqz/EO-1-3B-CoreAI | False | False |

@@ -9832,6 +9832,331 @@
       ],
       "status": "needs_review",
       "upstream_repo": "lerobot/Robometer-4B"
+    },
+    {
+      "architecture": "diffusion",
+      "artifact": {
+        "availability": "available",
+        "format": "aimodel"
+      },
+      "artifact_ref": "lingbot-va-base",
+      "bundle_kind": "action",
+      "capabilities": [
+        "vision-language-action",
+        "robotics"
+      ],
+      "confidence": "medium",
+      "device_support": {
+        "ipad": "unknown",
+        "iphone": "unknown",
+        "mac": "unknown",
+        "mac_only": "unknown"
+      },
+      "family": "LingBot-VA",
+      "id": "lingbot-va-base",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAIRunner",
+          "init_pattern": "load the encode + denoise_step graphs; host drives the N-step sampler + un-normalization",
+          "type": "CoreAIRunner"
+        },
+        "files": {
+          "processor_ref": "norm_stats.json",
+          "tokenizer_ref": "tokenizer"
+        },
+        "inputs": [
+          {
+            "modality": "image",
+            "name": "image"
+          },
+          {
+            "modality": "text",
+            "name": "text"
+          },
+          {
+            "modality": "state",
+            "name": "state"
+          }
+        ],
+        "outputs": [
+          {
+            "decoding": {
+              "detokenization": "host-driven flow-matching sampler (N steps); un-normalize the action chunk with norm_stats.json"
+            },
+            "name": "action_chunk",
+            "swift_type": "[[Float]]"
+          }
+        ],
+        "session": {
+          "stateful": false,
+          "streaming": false
+        }
+      },
+      "last_verified": "2026-07-08",
+      "license": {
+        "commercial_use": "likely",
+        "name": "apache-2.0"
+      },
+      "maturity": "experimental",
+      "min_os": {
+        "ios": "27.0",
+        "macos": "27.0"
+      },
+      "modalities": {
+        "input": [
+          "image",
+          "text",
+          "state"
+        ],
+        "output": [
+          "action"
+        ]
+      },
+      "name": "LingBot-VA Base (fabric)",
+      "notes": "Converted via coreai-fabric recipe lingbot-va-base (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-va-base.yaml).",
+      "runtime": {
+        "aot_required": false,
+        "custom_kernel": false,
+        "patch_required": false,
+        "processor_required": true,
+        "runner": "CoreAIRunner",
+        "runtime_name": "apple-core-ai",
+        "stock_runtime": false,
+        "tokenizer_required": true
+      },
+      "size": {
+        "artifact_size": "4.7GB",
+        "fidelity_tier": "high_fidelity",
+        "parameters": "5B",
+        "precision": "float32",
+        "quantization": "int8"
+      },
+      "source_group": "fabric",
+      "source_path": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-va-base.yaml",
+      "sources": [
+        "coreai-fabric"
+      ],
+      "status": "needs_review",
+      "upstream_repo": "lerobot/lingbot_va_base"
+    },
+    {
+      "architecture": "diffusion",
+      "artifact": {
+        "availability": "available",
+        "format": "aimodel"
+      },
+      "artifact_ref": "fastwam-libero",
+      "bundle_kind": "action",
+      "capabilities": [
+        "vision-language-action",
+        "robotics"
+      ],
+      "confidence": "medium",
+      "device_support": {
+        "ipad": "unknown",
+        "iphone": "unknown",
+        "mac": "unknown",
+        "mac_only": "unknown"
+      },
+      "evaluation": {
+        "measured_on": "apple_silicon",
+        "metric": "graph_output_cosine",
+        "reference_dtype": "float32",
+        "runner": "coreai-fabric-parity-runner/0.1.0",
+        "status": "passed"
+      },
+      "family": "FastWAM",
+      "id": "fastwam-libero",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAIRunner",
+          "init_pattern": "load the encode + denoise_step graphs; host drives the N-step sampler + un-normalization",
+          "type": "CoreAIRunner"
+        },
+        "files": {
+          "processor_ref": "norm_stats.json",
+          "tokenizer_ref": "tokenizer"
+        },
+        "inputs": [
+          {
+            "modality": "image",
+            "name": "image"
+          },
+          {
+            "modality": "text",
+            "name": "text"
+          },
+          {
+            "modality": "state",
+            "name": "state"
+          }
+        ],
+        "outputs": [
+          {
+            "decoding": {
+              "detokenization": "host-driven flow-matching sampler (N steps); un-normalize the action chunk with norm_stats.json"
+            },
+            "name": "action_chunk",
+            "swift_type": "[[Float]]"
+          }
+        ],
+        "session": {
+          "stateful": false,
+          "streaming": false
+        }
+      },
+      "last_verified": "2026-07-08",
+      "license": {
+        "commercial_use": "likely",
+        "name": "apache-2.0"
+      },
+      "maturity": "experimental",
+      "min_os": {
+        "ios": "27.0",
+        "macos": "27.0"
+      },
+      "modalities": {
+        "input": [
+          "image",
+          "text",
+          "state"
+        ],
+        "output": [
+          "action"
+        ]
+      },
+      "name": "FastWAM LIBERO (fabric)",
+      "notes": "Converted via coreai-fabric recipe fastwam-libero (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/fastwam-libero.yaml). Parity: gate A passed, gate B passed.",
+      "runtime": {
+        "aot_required": false,
+        "custom_kernel": false,
+        "patch_required": false,
+        "processor_required": true,
+        "runner": "CoreAIRunner",
+        "runtime_name": "apple-core-ai",
+        "stock_runtime": false,
+        "tokenizer_required": true
+      },
+      "size": {
+        "artifact_size": "3.8GB",
+        "fidelity_tier": "high_fidelity",
+        "parameters": "6B",
+        "precision": "float32",
+        "quantization": "int8"
+      },
+      "source_group": "fabric",
+      "source_path": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/fastwam-libero.yaml",
+      "sources": [
+        "coreai-fabric"
+      ],
+      "status": "needs_review",
+      "upstream_repo": "lerobot/fastwam_libero_uncond_2cam224"
+    },
+    {
+      "architecture": "transformer",
+      "artifact": {
+        "availability": "available",
+        "format": "aimodel"
+      },
+      "artifact_ref": "eo1-3b",
+      "bundle_kind": "action",
+      "capabilities": [
+        "vision-language-action",
+        "robotics"
+      ],
+      "confidence": "medium",
+      "device_support": {
+        "ipad": "unknown",
+        "iphone": "unknown",
+        "mac": "unknown",
+        "mac_only": "unknown"
+      },
+      "family": "EO-1",
+      "id": "eo1-3b",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAIRunner",
+          "init_pattern": "load the encode + denoise_step graphs; host drives the N-step sampler + un-normalization",
+          "type": "CoreAIRunner"
+        },
+        "files": {
+          "processor_ref": "norm_stats.json",
+          "tokenizer_ref": "tokenizer"
+        },
+        "inputs": [
+          {
+            "modality": "image",
+            "name": "image"
+          },
+          {
+            "modality": "text",
+            "name": "text"
+          },
+          {
+            "modality": "state",
+            "name": "state"
+          }
+        ],
+        "outputs": [
+          {
+            "decoding": {
+              "detokenization": "host-driven flow-matching sampler (N steps); un-normalize the action chunk with norm_stats.json"
+            },
+            "name": "action_chunk",
+            "swift_type": "[[Float]]"
+          }
+        ],
+        "session": {
+          "stateful": false,
+          "streaming": false
+        }
+      },
+      "last_verified": "2026-07-08",
+      "license": {
+        "commercial_use": "likely",
+        "name": "mit"
+      },
+      "maturity": "experimental",
+      "min_os": {
+        "ios": "27.0",
+        "macos": "27.0"
+      },
+      "modalities": {
+        "input": [
+          "image",
+          "text",
+          "state"
+        ],
+        "output": [
+          "action"
+        ]
+      },
+      "name": "EO-1 3B (fabric)",
+      "notes": "Converted via coreai-fabric recipe eo1-3b (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/eo1-3b.yaml).",
+      "runtime": {
+        "aot_required": false,
+        "custom_kernel": false,
+        "patch_required": false,
+        "processor_required": true,
+        "runner": "CoreAIRunner",
+        "runtime_name": "apple-core-ai",
+        "stock_runtime": false,
+        "tokenizer_required": true
+      },
+      "size": {
+        "artifact_size": "2.6GB",
+        "fidelity_tier": "high_fidelity",
+        "parameters": "3.77B",
+        "precision": "float32",
+        "quantization": "int8"
+      },
+      "source_group": "fabric",
+      "source_path": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/eo1-3b.yaml",
+      "sources": [
+        "coreai-fabric"
+      ],
+      "status": "needs_review",
+      "upstream_repo": "IPEC-COMMUNITY/EO-1-3B"
     }
   ]
 }
