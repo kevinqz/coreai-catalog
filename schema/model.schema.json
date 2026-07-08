@@ -170,6 +170,11 @@
         "aot_required": {
           "type": ["boolean", "string"],
           "enum": [true, false, "unknown"]
+        },
+        "engine_variant": {
+          "type": "string",
+          "enum": ["coreai-sequential", "coreai-pipelined", "auto", "unknown"],
+          "description": "Inference engine variant for LLM/action models. coreai-sequential drives dynamic-shape bundles (standard path); coreai-pipelined uses static S=1 decode for 3.5x speedup; auto = factory detects from structure."
         }
       }
     },
@@ -404,6 +409,66 @@
         }
       }
     },
+    "framework_contract": {
+      "description": "Framework compatibility contract for source-framework-specific integrations (lerobot-coreai, lelab-coreai). Declares which framework/runtime/policy/robot a model is compatible with so downstream tooling can filter and validate. Absent for models not tied to a specific framework.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["framework", "runtime"],
+      "properties": {
+        "framework": {
+          "type": "string",
+          "enum": ["lerobot"],
+          "description": "Source framework (currently only 'lerobot')."
+        },
+        "version": {
+          "type": "string",
+          "description": "Framework version the model was trained/exported against (e.g. '0.6.0')."
+        },
+        "runtime": {
+          "type": "string",
+          "const": "coreai",
+          "description": "Runtime backend. Always 'coreai' for this contract."
+        },
+        "policy_type": {
+          "type": "string",
+          "description": "Policy architecture type (e.g. 'act', 'diffusion', 'pi0', 'pi05', 'smolvla', 'vqbet', 'evo1')."
+        },
+        "robot_type": {
+          "type": "string",
+          "description": "Robot type (e.g. 'so100', 'so101', 'aloha', 'libero')."
+        },
+        "dataset_format": {
+          "type": "string",
+          "description": "Dataset format (e.g. 'LeRobotDataset')."
+        },
+        "observation_features": {
+          "type": "object",
+          "description": "Observation feature specs keyed by framework feature name.",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "shape": { "type": "array", "items": { "type": "integer" } },
+              "dtype": { "type": "string" }
+            }
+          }
+        },
+        "action_features": {
+          "type": "object",
+          "description": "Action feature specs keyed by framework feature name.",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "shape": { "type": "array", "items": { "type": "integer" } },
+              "dtype": { "type": "string" }
+            }
+          }
+        },
+        "action_representation": {
+          "type": "string",
+          "description": "Action representation (e.g. 'joint_position_delta')."
+        }
+      }
+    },
     "deployability": {
       "description": "Decomposed deployment facets (SotA readiness reshape) — a per-axis view for filtering/badges, DERIVED from device_support/runtime/license/artifact. NOT a quality score. Surfaced per-entry in dist/search-index.json; may also be authored on source entries.",
       "type": "object",
@@ -483,7 +548,32 @@
         "reference_dtype": { "type": "string" },
         "flip_margin_nats": { "type": "number" },
         "runner": { "type": "string" },
-        "measured_on": { "type": "string" }
+        "measured_on": { "type": "string" },
+        "n_obs": { "type": "integer", "description": "Number of observations compared (action parity)." },
+        "min_chunk_cosine": { "type": "number", "description": "Minimum chunk cosine similarity across all compared chunks (1.0 = perfect). Action parity metric." },
+        "mean_chunk_cosine": { "type": "number" },
+        "max_action_mae": { "type": "number", "description": "Maximum mean absolute error per action dimension." },
+        "max_relative_action_mae": { "type": "number", "description": "Scale-invariant maximum relative MAE." },
+        "framework": { "type": "string", "description": "Framework the parity was measured against (e.g. 'lerobot')." },
+        "framework_version": { "type": "string" },
+        "sampler": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "type": { "type": "string", "description": "Sampler type (e.g. 'flow_matching', 'diffusion')." },
+            "solver": { "type": "string", "description": "Solver (e.g. 'euler')." },
+            "steps": { "type": "integer", "description": "Number of sampling steps." }
+          }
+        },
+        "proves": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "numeric_fidelity": { "type": "boolean", "description": "Parity proves numeric fidelity to the source policy." },
+            "task_success": { "type": "boolean", "description": "Parity proves task success (always false — parity is numeric, not behavioral)." },
+            "robot_safety": { "type": "boolean", "description": "Parity proves robot safety (always false)." }
+          }
+        }
       }
     }
   }

@@ -508,6 +508,9 @@ class Catalog:
         family: str | None = None,
         source_group: str | None = None,
         modality: str | None = None,
+        framework: str | None = None,
+        policy_type: str | None = None,
+        robot_type: str | None = None,
     ) -> list[dict]:
         """Filter models by criteria. Returns list of model dicts."""
         self._load()
@@ -518,6 +521,9 @@ class Catalog:
         family = str(family).lower() if family and isinstance(family, str) else None
         source_group = str(source_group) if source_group and isinstance(source_group, str) else None
         modality = str(modality).lower() if modality and isinstance(modality, str) else None
+        framework = str(framework).lower() if framework and isinstance(framework, str) else None
+        policy_type = str(policy_type).lower() if policy_type and isinstance(policy_type, str) else None
+        robot_type = str(robot_type).lower() if robot_type and isinstance(robot_type, str) else None
         # Normalize capability with aliases
         if capability:
             capability = CAPABILITY_ALIASES.get(capability, capability)
@@ -563,6 +569,18 @@ class Catalog:
                 inp = [x.lower() for x in m.get("modalities", {}).get("input", [])]
                 out = [x.lower() for x in m.get("modalities", {}).get("output", [])]
                 if modality.lower() not in inp and modality.lower() not in out:
+                    continue
+            if framework:
+                fc = m.get("framework_contract", {})
+                if fc.get("framework", "").lower() != framework:
+                    continue
+            if policy_type:
+                fc = m.get("framework_contract", {})
+                if fc.get("policy_type", "").lower() != policy_type:
+                    continue
+            if robot_type:
+                fc = m.get("framework_contract", {})
+                if fc.get("robot_type", "").lower() != robot_type:
                     continue
             results.append(m)
         # Sort by readiness score descending so best models appear first

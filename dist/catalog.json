@@ -10157,6 +10157,119 @@
       ],
       "status": "needs_review",
       "upstream_repo": "IPEC-COMMUNITY/EO-1-3B"
+    },
+    {
+      "architecture": "transformer",
+      "artifact": {
+        "availability": "available",
+        "format": "aimodel"
+      },
+      "artifact_ref": "lingbot-vla-v2",
+      "bundle_kind": "action",
+      "capabilities": [
+        "vision-language-action",
+        "robotics"
+      ],
+      "confidence": "medium",
+      "device_support": {
+        "ipad": "unknown",
+        "iphone": "unknown",
+        "mac": "unknown",
+        "mac_only": "unknown"
+      },
+      "evaluation": {
+        "measured_on": "apple_silicon",
+        "metric": "graph_output_cosine",
+        "reference_dtype": "float32",
+        "runner": "coreai-fabric-parity-runner/0.1.0",
+        "status": "passed"
+      },
+      "family": "LingBot-VLA",
+      "id": "lingbot-vla-v2",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAIRunner",
+          "init_pattern": "load the encode + denoise_step graphs; host drives the N-step sampler + un-normalization",
+          "type": "CoreAIRunner"
+        },
+        "files": {
+          "processor_ref": "norm_stats.json",
+          "tokenizer_ref": "tokenizer"
+        },
+        "inputs": [
+          {
+            "modality": "image",
+            "name": "image"
+          },
+          {
+            "modality": "text",
+            "name": "text"
+          },
+          {
+            "modality": "state",
+            "name": "state"
+          }
+        ],
+        "outputs": [
+          {
+            "decoding": {
+              "detokenization": "host-driven flow-matching sampler (N steps); un-normalize the action chunk with norm_stats.json"
+            },
+            "name": "action_chunk",
+            "swift_type": "[[Float]]"
+          }
+        ],
+        "session": {
+          "stateful": false,
+          "streaming": false
+        }
+      },
+      "last_verified": "2026-07-08",
+      "license": {
+        "commercial_use": "likely",
+        "name": "apache-2.0"
+      },
+      "maturity": "experimental",
+      "min_os": {
+        "ios": "27.0",
+        "macos": "27.0"
+      },
+      "modalities": {
+        "input": [
+          "image",
+          "text",
+          "state"
+        ],
+        "output": [
+          "action"
+        ]
+      },
+      "name": "LingBot-VLA 2.0 (fabric)",
+      "notes": "Converted via coreai-fabric recipe lingbot-vla-v2 (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-vla-v2.yaml). Parity: gate A passed, gate B passed.",
+      "runtime": {
+        "aot_required": false,
+        "custom_kernel": false,
+        "patch_required": false,
+        "processor_required": true,
+        "runner": "CoreAIRunner",
+        "runtime_name": "apple-core-ai",
+        "stock_runtime": false,
+        "tokenizer_required": true
+      },
+      "size": {
+        "artifact_size": "3.3GB",
+        "fidelity_tier": "high_fidelity",
+        "parameters": "6.38B",
+        "precision": "float32",
+        "quantization": "float16"
+      },
+      "source_group": "fabric",
+      "source_path": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-vla-v2.yaml",
+      "sources": [
+        "coreai-fabric"
+      ],
+      "status": "needs_review",
+      "upstream_repo": "robbyant/lingbot-vla-v2-6b"
     }
   ]
 }

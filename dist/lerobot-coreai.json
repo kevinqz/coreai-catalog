@@ -1,0 +1,248 @@
+{
+  "schema_version": "lerobot-coreai.catalog.v0",
+  "generated_at": "2026-07-08T04:57:39Z",
+  "export_catalog_version": "2.3.0",
+  "policy_count": 20,
+  "policies": [
+    {
+      "repo_id": "act-aloha-cube",
+      "catalog_model_id": "act-aloha-cube",
+      "policy_type": "act",
+      "robot_type": "aloha",
+      "runtime": "coreai",
+      "status": "indexed",
+      "default_mode": "dry_run",
+      "framework_contract": null,
+      "evaluation": null
+    },
+    {
+      "repo_id": "act-aloha-insertion",
+      "catalog_model_id": "act-aloha-insertion",
+      "policy_type": "act",
+      "robot_type": "aloha",
+      "runtime": "coreai",
+      "status": "indexed",
+      "default_mode": "dry_run",
+      "framework_contract": null,
+      "evaluation": null
+    },
+    {
+      "repo_id": "diffusion-pusht",
+      "catalog_model_id": "diffusion-pusht",
+      "policy_type": "diffusion",
+      "robot_type": "unknown",
+      "runtime": "coreai",
+      "status": "indexed",
+      "default_mode": "dry_run",
+      "framework_contract": null,
+      "evaluation": null
+    },
+    {
+      "repo_id": "vqbet-pusht",
+      "catalog_model_id": "vqbet-pusht",
+      "policy_type": "vqbet",
+      "robot_type": "unknown",
+      "runtime": "coreai",
+      "status": "indexed",
+      "default_mode": "dry_run",
+      "framework_contract": null,
+      "evaluation": null
+    },
+    {
+      "repo_id": "pi0-base",
+      "catalog_model_id": "pi0-base",
+      "policy_type": "pi0",
+      "robot_type": "unknown",
+      "runtime": "coreai",
+      "status": "indexed",
+      "default_mode": "dry_run",
+      "framework_contract": null,
+      "evaluation": null
+    },
+    {
+      "repo_id": "folding-latest",
+      "catalog_model_id": "folding-latest",
+      "policy_type": "unknown",
+      "robot_type": "unknown",
+      "runtime": "coreai",
+      "status": "indexed",
+      "default_mode": "dry_run",
+      "framework_contract": null,
+      "evaluation": null
+    },
+    {
+      "repo_id": "pi0-libero-base",
+      "catalog_model_id": "pi0-libero-base",
+      "policy_type": "pi0",
+      "robot_type": "libero",
+      "runtime": "coreai",
+      "status": "indexed",
+      "default_mode": "dry_run",
+      "framework_contract": null,
+      "evaluation": null
+    },
+    {
+      "repo_id": "pi0-libero-finetuned",
+      "catalog_model_id": "pi0-libero-finetuned",
+      "policy_type": "pi0",
+      "robot_type": "libero",
+      "runtime": "coreai",
+      "status": "indexed",
+      "default_mode": "dry_run",
+      "framework_contract": null,
+      "evaluation": null
+    },
+    {
+      "repo_id": "pi0-base-gemma",
+      "catalog_model_id": "pi0-base-gemma",
+      "policy_type": "pi0",
+      "robot_type": "unknown",
+      "runtime": "coreai",
+      "status": "indexed",
+      "default_mode": "dry_run",
+      "framework_contract": null,
+      "evaluation": null
+    },
+    {
+      "repo_id": "pi0-so101",
+      "catalog_model_id": "pi0-so101",
+      "policy_type": "pi0",
+      "robot_type": "so101",
+      "runtime": "coreai",
+      "status": "indexed",
+      "default_mode": "dry_run",
+      "framework_contract": null,
+      "evaluation": null
+    },
+    {
+      "repo_id": "act-so101",
+      "catalog_model_id": "act-so101",
+      "policy_type": "act",
+      "robot_type": "so101",
+      "runtime": "coreai",
+      "status": "indexed",
+      "default_mode": "dry_run",
+      "framework_contract": null,
+      "evaluation": null
+    },
+    {
+      "repo_id": "pi05-so100",
+      "catalog_model_id": "pi05-so100",
+      "policy_type": "pi05",
+      "robot_type": "so100",
+      "runtime": "coreai",
+      "status": "indexed",
+      "default_mode": "dry_run",
+      "framework_contract": null,
+      "evaluation": null
+    },
+    {
+      "repo_id": "pi05-base",
+      "catalog_model_id": "pi05-base",
+      "policy_type": "pi05",
+      "robot_type": "unknown",
+      "runtime": "coreai",
+      "status": "indexed",
+      "default_mode": "dry_run",
+      "framework_contract": null,
+      "evaluation": null
+    },
+    {
+      "repo_id": "smolvla-so101",
+      "catalog_model_id": "smolvla-so101",
+      "policy_type": "smolvla",
+      "robot_type": "so101",
+      "runtime": "coreai",
+      "status": "indexed",
+      "default_mode": "dry_run",
+      "framework_contract": null,
+      "evaluation": null
+    },
+    {
+      "repo_id": "smolvla-so101-pnp",
+      "catalog_model_id": "smolvla-so101-pnp",
+      "policy_type": "smolvla",
+      "robot_type": "so101",
+      "runtime": "coreai",
+      "status": "indexed",
+      "default_mode": "dry_run",
+      "framework_contract": null,
+      "evaluation": null
+    },
+    {
+      "repo_id": "pi0fast-base",
+      "catalog_model_id": "pi0fast-base",
+      "policy_type": "pi0fast",
+      "robot_type": "unknown",
+      "runtime": "coreai",
+      "status": "indexed",
+      "default_mode": "dry_run",
+      "framework_contract": null,
+      "evaluation": null
+    },
+    {
+      "repo_id": "vla-jepa-libero",
+      "catalog_model_id": "vla-jepa-libero",
+      "policy_type": "unknown",
+      "robot_type": "libero",
+      "runtime": "coreai",
+      "status": "action_parity_passed",
+      "default_mode": "dry_run",
+      "framework_contract": null,
+      "evaluation": {
+        "metric": "action_parity",
+        "status": "passed",
+        "runner": "coreai-fabric-parity-runner/0.1.0",
+        "measured_on": "apple_silicon"
+      }
+    },
+    {
+      "repo_id": "vla-jepa-pretrain",
+      "catalog_model_id": "vla-jepa-pretrain",
+      "policy_type": "unknown",
+      "robot_type": "unknown",
+      "runtime": "coreai",
+      "status": "action_parity_passed",
+      "default_mode": "dry_run",
+      "framework_contract": null,
+      "evaluation": {
+        "metric": "action_parity",
+        "status": "passed",
+        "runner": "coreai-fabric-parity-runner/0.1.0",
+        "measured_on": "apple_silicon"
+      }
+    },
+    {
+      "repo_id": "vla-jepa-simpler-env",
+      "catalog_model_id": "vla-jepa-simpler-env",
+      "policy_type": "unknown",
+      "robot_type": "unknown",
+      "runtime": "coreai",
+      "status": "action_parity_passed",
+      "default_mode": "dry_run",
+      "framework_contract": null,
+      "evaluation": {
+        "metric": "action_parity",
+        "status": "passed",
+        "runner": "coreai-fabric-parity-runner/0.1.0",
+        "measured_on": "apple_silicon"
+      }
+    },
+    {
+      "repo_id": "evo1-so100",
+      "catalog_model_id": "evo1-so100",
+      "policy_type": "evo1",
+      "robot_type": "so100",
+      "runtime": "coreai",
+      "status": "action_parity_passed",
+      "default_mode": "dry_run",
+      "framework_contract": null,
+      "evaluation": {
+        "metric": "action_parity",
+        "status": "passed",
+        "runner": "coreai-fabric-parity-runner/0.1.0",
+        "measured_on": "apple_silicon"
+      }
+    }
+  ]
+}

@@ -38,6 +38,7 @@
     tokenizer_required: true   # true | false | unknown
     processor_required: true   # true | false | unknown
     aot_required: true   # true | false | unknown
+    engine_variant: coreai-sequential   # coreai-sequential | coreai-pipelined | auto | unknown — Inference engine variant for LLM/action models. coreai-sequential drives dynamic-shape bundles (standard path); coreai-pipelined uses static S=1 decode for 3.5x speedup; auto = factory detects from structure. — optional
   device_support:
     iphone: true   # true | false | unknown
     ipad: true   # true | false | unknown
@@ -104,6 +105,16 @@
     files:   # Paths inside the pinned HF revision of the artifact repo. — optional
       tokenizer_ref: tokenizer   # optional
       processor_ref: preprocessor_config.json   # optional
+  framework_contract:   # Framework compatibility contract for source-framework-specific integrations (lerobot-coreai, lelab-coreai). Declares which framework/runtime/policy/robot a model is compatible with so downstream tooling can filter and validate. Absent for models not tied to a specific framework. — optional
+    framework: lerobot   # lerobot — Source framework (currently only 'lerobot').
+    version: tool-version-here   # Framework version the model was trained/exported against (e.g. '0.6.0'). — optional
+    runtime: coreai   # Runtime backend. Always 'coreai' for this contract.
+    policy_type: replace-me   # Policy architecture type (e.g. 'act', 'diffusion', 'pi0', 'pi05', 'smolvla', 'vqbet', 'evo1'). — optional
+    robot_type: replace-me   # Robot type (e.g. 'so100', 'so101', 'aloha', 'libero'). — optional
+    dataset_format: replace-me   # Dataset format (e.g. 'LeRobotDataset'). — optional
+    observation_features: {}   # Observation feature specs keyed by framework feature name. — optional
+    action_features: {}   # Action feature specs keyed by framework feature name. — optional
+    action_representation: replace-me   # Action representation (e.g. 'joint_position_delta'). — optional
   deployability:   # Decomposed deployment facets (SotA readiness reshape) — a per-axis view for filtering/badges, DERIVED from device_support/runtime/license/artifact. NOT a quality score. Surfaced per-entry in dist/search-index.json; may also be authored on source entries. — optional
     obtainable: available   # available | unavailable | unknown; optional
     runtime: stock   # stock | patched | unknown — Collapses the collinear stock_runtime/custom_kernel/patch_required/aot_required flags into one axis. — optional
@@ -141,3 +152,18 @@
     flip_margin_nats: 1.0   # optional
     runner: replace-me   # optional
     measured_on: replace-me   # optional
+    n_obs: 1   # Number of observations compared (action parity). — optional
+    min_chunk_cosine: 1.0   # Minimum chunk cosine similarity across all compared chunks (1.0 = perfect). Action parity metric. — optional
+    mean_chunk_cosine: 1.0   # optional
+    max_action_mae: 1.0   # Maximum mean absolute error per action dimension. — optional
+    max_relative_action_mae: 1.0   # Scale-invariant maximum relative MAE. — optional
+    framework: replace-me   # Framework the parity was measured against (e.g. 'lerobot'). — optional
+    framework_version: replace-me   # optional
+    sampler:   # optional
+      type: replace-me   # Sampler type (e.g. 'flow_matching', 'diffusion'). — optional
+      solver: replace-me   # Solver (e.g. 'euler'). — optional
+      steps: 1   # Number of sampling steps. — optional
+    proves:   # optional
+      numeric_fidelity: false   # Parity proves numeric fidelity to the source policy. — optional
+      task_success: false   # Parity proves task success (always false — parity is numeric, not behavioral). — optional
+      robot_safety: false   # Parity proves robot safety (always false). — optional

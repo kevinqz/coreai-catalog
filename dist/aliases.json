@@ -2,7 +2,7 @@
   "export_schema_version": "1.0",
   "export_catalog_version": "2.3.0",
   "description": "Alias mappings resolving catalog IDs to Zoo card names, CoreAIKit strings, and HF repo names.",
-  "total_models": 127,
+  "total_models": 128,
   "aliases": {
     "qwen3-5-0-8b": [
       "qwen3-5-0-8b-coreai",
@@ -739,6 +739,12 @@
       "eo-1-3b-coreai",
       "eo1-3b.yaml",
       "eo1.3b"
+    ],
+    "lingbot-vla-v2": [
+      "LingBot-VLA-2.0-CoreAI",
+      "lingbot-vla-2-0-coreai",
+      "lingbot-vla-v2.yaml",
+      "lingbot.vla.v2"
     ]
   }
 }

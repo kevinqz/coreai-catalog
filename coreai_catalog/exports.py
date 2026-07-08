@@ -251,6 +251,9 @@ def export_search_index(catalog_root: Path, dist: Path | None = None) -> int:
             "custom_kernel": rt.get("custom_kernel"),
             "patch_required": rt.get("patch_required"),
             "aot_required": rt.get("aot_required"),
+            "engine_variant": rt.get("engine_variant"),
+            "evaluation": m.get("evaluation"),
+            "framework_contract": m.get("framework_contract"),
             "license": m.get("license", {}).get("name"),
             "commercial_use": m.get("license", {}).get("commercial_use"),
             "status": m.get("status"),
@@ -443,6 +446,98 @@ def export_model_manifest(catalog_root: Path, dist: Path | None = None) -> dict:
         json.dumps(output, indent=2, ensure_ascii=False) + "\n"
     )
     return output
+
+
+def export_lerobot_coreai(catalog_root: Path, dist: Path | None = None) -> dict:
+    """Export a LeRobot-specific compatibility index for lerobot-coreai.
+
+    Filters to models with bundle_kind=action and family=LeRobot, emitting a
+    compact policy list with the fields lerobot-coreai needs for inspect/doctor.
+
+    Writes:
+      dist/lerobot-coreai.json
+
+    Shape (spec §18.3)::
+
+        {
+          "schema_version": "lerobot-coreai.catalog.v0",
+          "generated_at": "...",
+          "policies": [
+            {
+              "repo_id": "kevinqz/EVO1-SO100-CoreAI",
+              "catalog_model_id": "evo1-so100",
+              "policy_type": "evo1",
+              "robot_type": "so100",
+              "runtime": "coreai",
+              "status": "action_parity_passed",
+              "default_mode": "dry_run",
+              ...
+            }
+          ]
+        }
+    """
+    dist = dist or catalog_root / "dist"
+    dist.mkdir(exist_ok=True)
+    cat = Catalog(catalog_root)
+
+    policies: list[dict] = []
+    for m in cat.models:
+        bundle_kind = validate_bundle_kind(m)
+        if bundle_kind != "action":
+            continue
+        fc = m.get("framework_contract") or {}
+        if fc.get("framework") != "lerobot" and m.get("family") != "LeRobot":
+            continue
+
+        eval_block = m.get("evaluation", {})
+        eval_status = eval_block.get("status", "unknown")
+        policy_entry = {
+            "repo_id": m["id"],
+            "catalog_model_id": m["id"],
+            "policy_type": fc.get("policy_type", _infer_policy_type(m["id"])),
+            "robot_type": fc.get("robot_type", _infer_robot_type(m["id"])),
+            "runtime": "coreai",
+            "status": f"action_parity_{eval_status}" if eval_status != "unknown" else "indexed",
+            "default_mode": "dry_run",
+            "framework_contract": fc if fc else None,
+            "evaluation": eval_block if eval_block else None,
+        }
+        policies.append(policy_entry)
+
+    catalog_version = _get_catalog_version(catalog_root)
+    output = {
+        "schema_version": "lerobot-coreai.catalog.v0",
+        "generated_at": _utc_now_iso(),
+        "export_catalog_version": catalog_version,
+        "policy_count": len(policies),
+        "policies": policies,
+    }
+
+    (dist / "lerobot-coreai.json").write_text(
+        json.dumps(output, indent=2, ensure_ascii=False) + "\n"
+    )
+    return output
+
+
+def _infer_policy_type(model_id: str) -> str:
+    ml = model_id.lower()
+    for t in ("pi0fast", "pi05", "pi0", "smolvla", "vqbet", "diffusion", "evo1", "act", "fastwam", "bitvla"):
+        if t in ml:
+            return t
+    return "unknown"
+
+
+def _infer_robot_type(model_id: str) -> str:
+    ml = model_id.lower()
+    for r in ("so100", "so101", "aloha", "libero"):
+        if r in ml:
+            return r
+    return "unknown"
+
+
+def _utc_now_iso() -> str:
+    from datetime import datetime, timezone
+    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
 def export_leaderboard(catalog_root: Path, dist: Path | None = None) -> dict:

@@ -88,6 +88,8 @@ def placeholder(name: str, spec: dict, parent: str = '') -> object:
     """Synthesize a schema-valid placeholder value for a property."""
     if 'default' in spec:
         return spec['default']
+    if 'const' in spec:
+        return spec['const']
     if spec.get('examples'):
         return spec['examples'][0]
     enum = spec.get('enum')

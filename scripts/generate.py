@@ -25,7 +25,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
 
 sys.path.insert(0, str(ROOT))
-from coreai_catalog.exports import export_json, export_search_index, export_transform_graph, export_model_manifest
+from coreai_catalog.exports import export_json, export_search_index, export_transform_graph, export_model_manifest, export_lerobot_coreai
 
 
 def read_yaml(path: Path) -> dict:
@@ -312,6 +312,8 @@ def main() -> int:
         print(f"  transforms-graph.json")
         export_model_manifest(ROOT)
         print(f"  model-manifest.json")
+        lr = export_lerobot_coreai(ROOT)
+        print(f"  lerobot-coreai.json ({lr['policy_count']} policies)")
 
         # Phase 3: Generate aggregate benchmarks with minimum-k=3 suppression
         from scripts.generate_benchmarks_aggregate import generate_aggregate as gen_agg

@@ -1,7 +1,7 @@
 {
   "export_schema_version": "1.0",
   "export_catalog_version": "2.3.0",
-  "model_count": 127,
+  "model_count": 128,
   "models": [
     {
       "id": "qwen3-5-0-8b",
@@ -5142,6 +5142,73 @@
         "ios": "27.0"
       },
       "upstream_repo": "IPEC-COMMUNITY/EO-1-3B",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAIRunner",
+          "type": "CoreAIRunner",
+          "init_pattern": "load the encode + denoise_step graphs; host drives the N-step sampler + un-normalization"
+        },
+        "inputs": [
+          {
+            "name": "image",
+            "modality": "image"
+          },
+          {
+            "name": "text",
+            "modality": "text"
+          },
+          {
+            "name": "state",
+            "modality": "state"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "action_chunk",
+            "swift_type": "[[Float]]",
+            "decoding": {
+              "detokenization": "host-driven flow-matching sampler (N steps); un-normalize the action chunk with norm_stats.json"
+            }
+          }
+        ],
+        "session": {
+          "stateful": false,
+          "streaming": false
+        },
+        "files": {
+          "tokenizer_ref": "tokenizer",
+          "processor_ref": "norm_stats.json"
+        }
+      }
+    },
+    {
+      "id": "lingbot-vla-v2",
+      "name": "LingBot-VLA 2.0 (fabric)",
+      "bundle_kind": "action",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "vision-language-action",
+        "robotics"
+      ],
+      "input_modalities": [
+        "image",
+        "text",
+        "state"
+      ],
+      "output_modalities": [
+        "action"
+      ],
+      "parameters": "6.38B",
+      "precision": "float32",
+      "artifact_size": "3.3GB",
+      "huggingface_url": "https://huggingface.co/kevinqz/LingBot-VLA-2.0-CoreAI",
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "robbyant/lingbot-vla-v2-6b",
       "io_contract": {
         "entrypoint": {
           "framework": "CoreAIRunner",
