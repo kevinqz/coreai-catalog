@@ -1,6 +1,6 @@
 # Comparison: vision-language-action
 
-Side-by-side comparison of all 19 model(s) with the `vision-language-action` capability.
+Side-by-side comparison of all 20 model(s) with the `vision-language-action` capability.
 
 | Model | Family | Parameters | Precision | Devices | License | Runtime | Benchmark | Source |
 |---|---|---|---|---|---|---|---|---|
@@ -9,6 +9,7 @@ Side-by-side comparison of all 19 model(s) with the `vision-language-action` cap
 | EVO1 SO-100 (fabric) | LeRobot | 0.77B | float32 | unknown | apache-2.0 | CoreAIRunner | — | 🐼 Zoo |
 | FastWAM LIBERO (fabric) | FastWAM | 6B | float32 | unknown | apache-2.0 | CoreAIRunner | — | 🐼 Zoo |
 | LingBot-VA Base (fabric) | LingBot-VA | 5B | float32 | unknown | apache-2.0 | CoreAIRunner | — | 🐼 Zoo |
+| LingBot-VLA 2.0 (fabric) | LingBot-VLA | 6.38B | float32 | unknown | apache-2.0 | CoreAIRunner | — | 🐼 Zoo |
 | Pi0 (fabric) | LeRobot | 3.3B | float16 | unknown | apache-2.0 | CoreAIRunner | — | 🐼 Zoo |
 | Pi0 LIBERO base (fabric) | LeRobot | 3.3B | float16 | unknown | gemma | CoreAIRunner | — | 🐼 Zoo |
 | Pi0 LIBERO fine-tuned (fabric) | LeRobot | 3.3B | float16 | unknown | gemma | CoreAIRunner | — | 🐼 Zoo |

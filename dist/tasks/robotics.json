@@ -4,7 +4,7 @@
     "vision-language-action",
     "robotics"
   ],
-  "model_count": 25,
+  "model_count": 26,
   "models": [
     {
       "id": "bitvla",
@@ -109,6 +109,20 @@
       "name": "LingBot-VA Base (fabric)",
       "score": 43,
       "parameters": "5B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": false
+      },
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "lingbot-vla-v2",
+      "name": "LingBot-VLA 2.0 (fabric)",
+      "score": 43,
+      "parameters": "6.38B",
       "devices": {
         "iphone": false,
         "ipad": false,

@@ -1,7 +1,7 @@
 metadata:
   name: Core AI Catalog artifact provenance
   last_verified: '2026-07-04'
-  count: 128
+  count: 129
 artifacts:
 - id: qwen3-5-0-8b
   group: zoo
@@ -5006,6 +5006,82 @@ artifacts:
       tool: models/eo1/export.py
       version: unknown
       recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/eo1-3b.yaml
+    recipe_source: fabric
+    format_version: '2.0'
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: lingbot-vla-v2
+  group: external
+  huggingface:
+    owner: kevinqz
+    repo: LingBot-VLA-2.0-CoreAI
+    url: https://huggingface.co/kevinqz/LingBot-VLA-2.0-CoreAI
+    revision: d948c78280f523bd18d5ca86b5d9bb70d5344e96
+    files:
+    - path: .gitattributes
+      sha256: af4494db96916251f4e6c31faf6a0062e0a0bf7df60b6ce776a4336b0dceef17
+      size_bytes: 1894
+    - path: LICENSE
+      sha256: c438e2747587d0d31c2ffed5ce8c7eebbd6a41274cd9613cc5dfaad35f3cd9cc
+      size_bytes: 11943
+    - path: README.md
+      sha256: 2c5c8a498ee0deb55c377bc55956919cdd550955fb0c23a4e13a5244a594c811
+      size_bytes: 5515
+    - path: lingbot-vla-v2.aimodel/main.hash
+      sha256: c327ef12b6ad794875c735bfb67968dab0626d9c8f7de0b9c15eb3103bad1c55
+      size_bytes: 32
+    - path: lingbot-vla-v2.aimodel/manifest.json
+      sha256: 3a771a5dfd97ae0275cf9e4a5f03cbe058a2762ee902efb9916ef8a71f5872d7
+      size_bytes: 1905
+    - path: lingbot-vla-v2.aimodel/metadata.json
+      sha256: a33fe5cda1505345ed5ebcdf673b31d335616e0380fbad723c7e4238c6248fcd
+      size_bytes: 105
+    - path: lingbot-vla-v2.aimodel/programs/block0.aimodel/main.hash
+      sha256: c327ef12b6ad794875c735bfb67968dab0626d9c8f7de0b9c15eb3103bad1c55
+      size_bytes: 32
+    - path: lingbot-vla-v2.aimodel/programs/block0.aimodel/main.mlirb
+      sha256: 6780910f95f5af459dea6a94438bbdd1138b614fc5e9d59bc3589e47d4b73c5d
+      size_bytes: 1192168485
+    - path: lingbot-vla-v2.aimodel/programs/block0.aimodel/metadata.json
+      sha256: a33fe5cda1505345ed5ebcdf673b31d335616e0380fbad723c7e4238c6248fcd
+      size_bytes: 105
+    - path: lingbot-vla-v2.aimodel/programs/block1.aimodel/main.hash
+      sha256: 3f677950238ed426ac52317309cf927d988567a5b804c7e45ac313d41f2f91af
+      size_bytes: 32
+    - path: lingbot-vla-v2.aimodel/programs/block1.aimodel/main.mlirb
+      sha256: b43838a18309cef1e1e8703418ac2c29a8cb648c78a96e1e91e26a392e9f2f28
+      size_bytes: 1192168482
+    - path: lingbot-vla-v2.aimodel/programs/block1.aimodel/metadata.json
+      sha256: f3820a1f0edc4c4288dac83e0118dbf0ad1759a825b825e382c65dc23aae949b
+      size_bytes: 105
+    - path: lingbot-vla-v2.aimodel/programs/block2.aimodel/main.hash
+      sha256: 9fffe639652ddb6886a00ef334ca3195898cb38e6aefbecc4d2878e7e031c640
+      size_bytes: 32
+    - path: lingbot-vla-v2.aimodel/programs/block2.aimodel/main.mlirb
+      sha256: 2962336d178b64b2b48fa4bbafa594c7d63337fa5f3405abc48ff4bd5f515737
+      size_bytes: 1192258266
+    - path: lingbot-vla-v2.aimodel/programs/block2.aimodel/metadata.json
+      sha256: a10ae8b918bb5c227cc41860da5494ff8799e491f199875117021b4351091db4
+      size_bytes: 105
+    - path: lingbot-vla-v2.aimodel/programs/embed.aimodel/main.hash
+      sha256: 86fd87ac926864c0e5dd83e9c940192d6985b4cd1f1c148890ea76cdcbc40ebf
+      size_bytes: 32
+    - path: lingbot-vla-v2.aimodel/programs/embed.aimodel/main.mlirb
+      sha256: dfd34b72b6467de04dbd5413e25db55b5adfe9d52aa9369d20040e3253c79ae5
+      size_bytes: 3726037
+    - path: lingbot-vla-v2.aimodel/programs/embed.aimodel/metadata.json
+      sha256: 5e29ad279b1da9709003e5ece22393b2be7630f07e95895d7fdc16bb4b923261
+      size_bytes: 105
+    - path: parity-report.json
+      sha256: 9ec75456437965cd45a3c3bf6aeebc848aeacfe2fa4cb07a1bd1ee2a828f40b8
+      size_bytes: 2151
+  provenance:
+    converted_by:
+      tool: models/lingbotvla/export_split.py
+      version: unknown
+      recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-vla-v2.yaml
     recipe_source: fabric
     format_version: '2.0'
   officiality:

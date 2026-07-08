@@ -1,6 +1,6 @@
 # Vision Language Action
 
-**19 models** in the catalog with this capability.
+**20 models** in the catalog with this capability.
 
 ## Task synonyms
 
@@ -18,6 +18,7 @@
 | [EVO1 SO-100 (fabric)](../../catalog.yaml#L1) | 43 | 0.77B |  | apache-2.0 | ✅ likely | — | fabric |
 | [FastWAM LIBERO (fabric)](../../catalog.yaml#L1) | 43 | 6B |  | apache-2.0 | ✅ likely | — | fabric |
 | [LingBot-VA Base (fabric)](../../catalog.yaml#L1) | 43 | 5B |  | apache-2.0 | ✅ likely | — | fabric |
+| [LingBot-VLA 2.0 (fabric)](../../catalog.yaml#L1) | 43 | 6.38B |  | apache-2.0 | ✅ likely | — | fabric |
 | [Pi0 (fabric)](../../catalog.yaml#L1) | 38 | 3.3B |  | apache-2.0 | ✅ likely | — | fabric |
 | [Pi0 SO-ARM101 (fabric)](../../catalog.yaml#L1) | 38 | 3.3B |  | apache-2.0 | ✅ likely | — | fabric |
 | [Pi0.5 Folding (fabric)](../../catalog.yaml#L1) | 38 | 3.3B |  | apache-2.0 | ✅ likely | — | fabric |

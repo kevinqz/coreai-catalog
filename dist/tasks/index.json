@@ -488,7 +488,7 @@
         "vision-language-action",
         "robotics"
       ],
-      "model_count": 25
+      "model_count": 26
     },
     {
       "task": "scene understanding",
@@ -708,7 +708,7 @@
       "capabilities": [
         "vision-language-action"
       ],
-      "model_count": 19
+      "model_count": 20
     },
     {
       "task": "vlm",
