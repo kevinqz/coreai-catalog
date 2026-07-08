@@ -4,7 +4,7 @@
     "vision-language-action",
     "robotics"
   ],
-  "model_count": 20,
+  "model_count": 21,
   "models": [
     {
       "id": "bitvla",
@@ -53,6 +53,20 @@
       "name": "VLA-JEPA SimplerEnv (fabric)",
       "score": 53,
       "parameters": "3B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": false
+      },
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "fastwam-libero",
+      "name": "FastWAM LIBERO (fabric)",
+      "score": 43,
+      "parameters": "6B",
       "devices": {
         "iphone": false,
         "ipad": false,

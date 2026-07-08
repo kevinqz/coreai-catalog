@@ -24,7 +24,7 @@ Browse models by capability.
 - [Promptable Segmentation](./promptable-segmentation.md) — 2 models
 - [Reasoning](./reasoning.md) — 4 models
 - [Reranking](./reranking.md) — 1 models
-- [Robotics](./robotics.md) — 20 models
+- [Robotics](./robotics.md) — 21 models
 - [Speculative Decoding](./speculative-decoding.md) — 1 models
 - [Speech To Text](./speech-to-text.md) — 8 models
 - [Super Resolution](./super-resolution.md) — 2 models
@@ -35,5 +35,5 @@ Browse models by capability.
 - [Token Classification](./token-classification.md) — 1 models
 - [Video Classification](./video-classification.md) — 1 models
 - [Vision Language](./vision-language.md) — 7 models
-- [Vision Language Action](./vision-language-action.md) — 15 models
+- [Vision Language Action](./vision-language-action.md) — 16 models
 - [Visual Document Retrieval](./visual-document-retrieval.md) — 1 models

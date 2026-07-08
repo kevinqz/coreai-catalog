@@ -1,5 +1,5 @@
 {
-  "count": 113,
+  "count": 114,
   "export_schema_version": "1.0",
   "export_catalog_version": "2.3.0",
   "models": [
@@ -12801,6 +12801,132 @@
       "benchmarks": [],
       "last_verified": "2026-07-07",
       "notes": "Converted via coreai-fabric recipe pulpie-orange-base (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/pulpie-orange-base.yaml). Parity: gate A passed, gate B passed."
+    },
+    {
+      "id": "fastwam-libero",
+      "name": "FastWAM LIBERO (fabric)",
+      "family": "FastWAM",
+      "source_group": "fabric",
+      "bundle_kind": "action",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "lerobot/fastwam_libero_uncond_2cam224",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAIRunner",
+          "type": "CoreAIRunner",
+          "init_pattern": "load the encode + denoise_step graphs; host drives the N-step sampler + un-normalization"
+        },
+        "inputs": [
+          {
+            "name": "image",
+            "modality": "image"
+          },
+          {
+            "name": "text",
+            "modality": "text"
+          },
+          {
+            "name": "state",
+            "modality": "state"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "action_chunk",
+            "swift_type": "[[Float]]",
+            "decoding": {
+              "detokenization": "host-driven flow-matching sampler (N steps); un-normalize the action chunk with norm_stats.json"
+            }
+          }
+        ],
+        "session": {
+          "stateful": false,
+          "streaming": false
+        },
+        "files": {
+          "tokenizer_ref": "tokenizer",
+          "processor_ref": "norm_stats.json"
+        }
+      },
+      "capabilities": [
+        "vision-language-action",
+        "robotics"
+      ],
+      "input_modalities": [
+        "image",
+        "text",
+        "state"
+      ],
+      "output_modalities": [
+        "action"
+      ],
+      "devices": [],
+      "parameters": "6B",
+      "precision": "float32",
+      "quantization": "int8",
+      "artifact_size": "3.8GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "status": "needs_review",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 43,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": "unknown",
+          "iphone": "unknown",
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "apache-2.0",
+          "commercial_use": "likely"
+        },
+        "hosts": 1,
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-08"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": true
+        }
+      },
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/kevinqz/FastWAM-LIBERO-CoreAI",
+        "huggingface_repo": "kevinqz/FastWAM-LIBERO-CoreAI",
+        "github_source": null,
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-07-08",
+      "notes": "Converted via coreai-fabric recipe fastwam-libero (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/fastwam-libero.yaml). Parity: gate A passed, gate B passed."
     }
   ]
 }
