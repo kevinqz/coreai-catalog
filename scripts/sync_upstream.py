@@ -57,13 +57,30 @@ def fetch_json(url: str) -> list | dict:
         return json.loads(resp.read().decode("utf-8"))
 
 
+# Any HuggingFace repo URL — owner/repo, tolerating dots/dashes in both.
+HF_URL_RE = re.compile(r"https://huggingface\.co/([\w.\-]+/[\w.\-]+)")
+
+
+def extract_hf_repos(text: str) -> set[str]:
+    """Return the bare repo names (owner prefix stripped) for every HuggingFace
+    URL anywhere in the text. Decoupled from row parsing so multi-artifact rows
+    (e.g. Qwen3-VL 2B/4B/8B on one line) contribute *all* their repos to the
+    upstream set, not just the first."""
+    return {owner_repo.split("/", 1)[-1] for owner_repo in HF_URL_RE.findall(text)}
+
+
 def parse_zoo_readme(readme: str) -> dict[str, dict]:
     """Parse the model table rows from the zoo README."""
     models: dict[str, dict] = {}
-    # Match table rows: | **Model Name** (description) | [🤗 repo](url) | License |
+    # Match table rows. The model name is bold and may itself be a markdown link:
+    #   | **Model Name** (description) | [🤗 repo](url) | ... |
+    #   | [**Model Name**](zoo/x.md) (description) | [🤗 repo](url) | ... |
+    # The optional `\[?` + `(?:\]\([^)]*\))?` accepts the linked-name form; the
+    # HF repo is the first huggingface.co URL after the name column.
     for line in readme.splitlines():
         m = re.match(
-            r"\|\s*\*\*(.+?)\*\*\s*(.*?)\s*\|\s*\[.+?\]\((https://huggingface\.co/.+?)\)",
+            r"\|\s*\[?\*\*(.+?)\*\*(?:\]\([^)]*\))?\s*(.*?)\s*\|"
+            r"[^|]*?\((https://huggingface\.co/[^)]+?)\)",
             line,
         )
         if m:
@@ -99,6 +116,21 @@ def repo_matches(repo: str, candidates: set[str]) -> bool:
         if repo_l in cand_l or cand_l in repo_l:
             return True
     return False
+
+
+def hf_repo_live(owner_repo: str, *, _opener=urllib.request.urlopen) -> bool:
+    """Whether a HuggingFace repo still exists. Only a definitive 404 counts as
+    gone; 401 (gated/private), other HTTP codes, and network errors all count as
+    live so a transient failure never false-flags a removal. `_opener` is
+    injectable for tests."""
+    url = f"https://huggingface.co/api/models/{owner_repo}"
+    try:
+        with _opener(url, timeout=30):
+            return True
+    except HTTPError as e:
+        return e.code != 404
+    except Exception:
+        return True
 
 
 def compute_removed(
@@ -146,15 +178,20 @@ def main() -> int:
 
     our_hf_repos: set[str] = set()
     artifact_hf_repo_by_id: dict[str, str] = {}
+    artifact_hf_full_by_id: dict[str, str] = {}
     for a in our_artifacts.get("artifacts", []):
-        repo = (a.get("huggingface", {}) or {}).get("repo", "")
+        hf = a.get("huggingface", {}) or {}
+        repo = hf.get("repo", "")
         if repo:
             our_hf_repos.add(repo)
             artifact_hf_repo_by_id[a["id"]] = repo
+            owner = hf.get("owner", "")
+            artifact_hf_full_by_id[a["id"]] = f"{owner}/{repo}" if owner else repo
 
     report: dict = {
         "missing_from_catalog": [],
         "removed_from_upstream": [],
+        "in_catalog_not_in_readme": [],
         "unbenchmarked_models": [],
         "hf_artifacts_without_entries": [],
     }
@@ -167,6 +204,10 @@ def main() -> int:
         zoo_readme = fetch_text(ZOO_README_URL)
         zoo_models = parse_zoo_readme(zoo_readme)
         zoo_fetch_ok = True
+
+        # Feed the removal-detection set from *every* HF URL in the README, so
+        # multi-artifact rows and any format the row parser misses still count.
+        upstream_repos |= extract_hf_repos(zoo_readme)
 
         for name, info in zoo_models.items():
             hf_repo = info["hf_repo"].replace("mlboydaisuke/", "")
@@ -186,6 +227,7 @@ def main() -> int:
 
     try:
         official_readme = fetch_text(OFFICIAL_README_URL)
+        upstream_repos |= extract_hf_repos(official_readme)
         for info in parse_official_readme(official_readme).values():
             upstream_repos.add(info["hf_repo"].split("/", 1)[-1])
     except Exception as e:
@@ -193,10 +235,20 @@ def main() -> int:
 
     # ── 2. Removed-from-upstream detection (only when the fetch worked) ──
     if zoo_fetch_ok:
-        report["removed_from_upstream"] = compute_removed(
+        candidates = compute_removed(
             catalog.get("models", []), artifact_hf_repo_by_id, upstream_repos
         )
-        if report["removed_from_upstream"]:
+        # README-absence alone is weak: confirm each candidate's HF artifact is
+        # actually gone (404) before calling it a removal. Live-but-untabled
+        # models (indexed from a conversion script, Apple's repo, or a prose
+        # mention) are reported separately and do NOT trip the regression exit.
+        removed, untabled = [], []
+        for m in candidates:
+            full = artifact_hf_full_by_id.get(m["artifact_id"], m["hf_repo"])
+            (removed if not hf_repo_live(full) else untabled).append(m)
+        report["removed_from_upstream"] = removed
+        report["in_catalog_not_in_readme"] = untabled
+        if removed:
             regression = True
 
     # ── 3. Fetch HF CoreAI artifacts (all owners, not just mlboydaisuke) ──
@@ -263,6 +315,15 @@ def main() -> int:
                 print(f"  → {m['model_id']} (artifact {m['artifact_id']}, HF repo {m['hf_repo']})")
         elif zoo_fetch_ok:
             print("\n✅ No catalog models removed from upstream")
+
+        if report.get("in_catalog_not_in_readme"):
+            print(
+                f"\nℹ️  In catalog, not in a README table but HF artifact still live "
+                f"({len(report['in_catalog_not_in_readme'])}) — indexed from a conversion "
+                f"script / Apple repo / prose mention, not a regression:"
+            )
+            for m in report["in_catalog_not_in_readme"]:
+                print(f"  → {m['model_id']} (HF repo {m['hf_repo']})")
 
         if report["missing_from_catalog"]:
             print(f"\n📋 Models in zoo README but NOT in catalog ({len(report['missing_from_catalog'])}):")
