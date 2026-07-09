@@ -8161,3 +8161,66 @@ models:
     min_chunk_cosine: 0.9999999999994054
     mean_chunk_cosine: 0.9999999999994125
     measured_on: apple_silicon
+- id: lingbot-video-moe-30b-a3b
+  name: LingBot-Video MoE 30B-A3B (fabric)
+  family: LingBot-Video
+  source_group: fabric
+  source_path: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-video-moe-30b-a3b.yaml
+  artifact_ref: lingbot-video-moe-30b-a3b
+  capabilities:
+  - text-to-video
+  bundle_kind: video
+  min_os:
+    macos: '27.0'
+    ios: '27.0'
+  upstream_repo: robbyant/lingbot-video-moe-30b-a3b
+  modalities:
+    input:
+    - text
+    - image
+    output:
+    - video
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 30B
+    precision: float32
+    quantization: none
+    artifact_size: 273.0MB
+    fidelity_tier: high_fidelity
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIVideoPipeline
+    stock_runtime: false
+    custom_kernel: false
+    patch_required: false
+    tokenizer_required: true
+    processor_required: true
+    aot_required: false
+  device_support:
+    iphone: unknown
+    ipad: unknown
+    mac: unknown
+    mac_only: unknown
+  license:
+    name: apache-2.0
+    commercial_use: likely
+  status: needs_review
+  maturity: experimental
+  confidence: medium
+  sources:
+  - coreai-fabric
+  last_verified: '2026-07-09'
+  notes: 'Converted via coreai-fabric recipe lingbot-video-moe-30b-a3b (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-video-moe-30b-a3b.yaml).
+    Parity: gate A passed, gate B passed.'
+  architecture: diffusion
+  evaluation:
+    metric: graph_output_cosine
+    status: passed
+    reference_dtype: float32
+    n_obs: 8
+    runner: coreai-fabric-parity-runner/0.1.0
+    min_chunk_cosine: 0.9999999999994054
+    mean_chunk_cosine: 0.9999999999994125
+    measured_on: apple_silicon

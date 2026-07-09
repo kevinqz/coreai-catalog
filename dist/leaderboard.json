@@ -2,7 +2,7 @@
   "export_schema_version": "1.0",
   "export_catalog_version": "2.3.0",
   "description": "Ranked by the DEPRECATED readiness_score (a curation/deployability composite, NOT model quality). Prefer per-entry deployability/lifecycle/entry_completeness facets plus benchmark VALUES. Each entry includes best-known benchmarks per metric.",
-  "total_models": 129,
+  "total_models": 130,
   "leaderboard": [
     {
       "id": "depth-anything-3-base",
@@ -3439,6 +3439,36 @@
         "text-to-video"
       ],
       "parameters": "1.3B",
+      "readiness_score": 43,
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-09"
+      },
+      "entry_completeness": {
+        "pct": 0.5,
+        "present": 3,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
+      "benchmark_count": 0,
+      "best_metrics": {}
+    },
+    {
+      "id": "lingbot-video-moe-30b-a3b",
+      "name": "LingBot-Video MoE 30B-A3B (fabric)",
+      "capabilities": [
+        "text-to-video"
+      ],
+      "parameters": "30B",
       "readiness_score": 43,
       "lifecycle": {
         "stage": "community",

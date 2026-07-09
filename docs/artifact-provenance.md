@@ -134,3 +134,4 @@ Generated from `artifacts.yaml`.
 | eo1-3b | external | / | kevinqz/EO-1-3B-CoreAI | False | False |
 | lingbot-vla-v2 | external | / | kevinqz/LingBot-VLA-2.0-CoreAI | False | False |
 | lingbot-video-dense-1.3b | external | / | kevinqz/LingBot-Video-Dense-1.3B-CoreAI | False | False |
+| lingbot-video-moe-30b-a3b | external | / | kevinqz/LingBot-Video-MoE-30B-A3B-CoreAI | False | False |

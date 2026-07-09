@@ -521,6 +521,11 @@
       "score": 43
     },
     {
+      "id": "lingbot-video-moe-30b-a3b",
+      "name": "LingBot-Video MoE 30B-A3B (fabric)",
+      "score": 43
+    },
+    {
       "id": "lingbot-vision-vit-base",
       "name": "LingBot-Vision ViT-B (fabric)",
       "score": 43

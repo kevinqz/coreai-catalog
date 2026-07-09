@@ -1,7 +1,7 @@
 {
   "export_schema_version": "1.0",
   "export_catalog_version": "2.3.0",
-  "model_count": 129,
+  "model_count": 130,
   "models": [
     {
       "id": "qwen3-5-0-8b",
@@ -5274,6 +5274,34 @@
         "ios": "27.0"
       },
       "upstream_repo": "robbyant/lingbot-video-dense-1.3b",
+      "io_contract": null
+    },
+    {
+      "id": "lingbot-video-moe-30b-a3b",
+      "name": "LingBot-Video MoE 30B-A3B (fabric)",
+      "bundle_kind": "video",
+      "runner": "CoreAIVideoPipeline",
+      "capabilities": [
+        "text-to-video"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "video"
+      ],
+      "parameters": "30B",
+      "precision": "float32",
+      "artifact_size": "273.0MB",
+      "huggingface_url": "https://huggingface.co/kevinqz/LingBot-Video-MoE-30B-A3B-CoreAI",
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "robbyant/lingbot-video-moe-30b-a3b",
       "io_contract": null
     }
   ]
