@@ -8224,3 +8224,77 @@ models:
     min_chunk_cosine: 0.9999999999994054
     mean_chunk_cosine: 0.9999999999994125
     measured_on: apple_silicon
+- id: miril-drone-2b-1
+  name: Miril-Drone 2B-1 (fabric)
+  family: Miril-Drone
+  source_group: fabric
+  source_path: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/miril-drone-2b-1.yaml
+  artifact_ref: miril-drone-2b-1
+  capabilities:
+  - image-feature-extraction
+  bundle_kind: image-feature-extraction
+  min_os:
+    macos: '27.0'
+    ios: '27.0'
+  upstream_repo: MirilAI/Miril-Drone-2B-1
+  modalities:
+    input:
+    - image
+    output:
+    - text
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 2B
+    precision: float32
+    quantization: none
+    artifact_size: 588.3MB
+    fidelity_tier: high_fidelity
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: false
+    custom_kernel: false
+    patch_required: false
+    tokenizer_required: true
+    processor_required: true
+    aot_required: false
+  device_support:
+    iphone: unknown
+    ipad: unknown
+    mac: unknown
+    mac_only: unknown
+  license:
+    name: apache-2.0
+    commercial_use: likely
+  status: needs_review
+  maturity: experimental
+  confidence: medium
+  sources:
+  - coreai-fabric
+  last_verified: '2026-07-09'
+  notes: 'Converted via coreai-fabric recipe miril-drone-2b-1 (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/miril-drone-2b-1.yaml).
+    Parity: gate A passed, gate B passed.'
+  architecture: encoder
+  evaluation:
+    metric: graph_output_cosine
+    status: passed
+    reference_dtype: float32
+    n_obs: 8
+    min_chunk_cosine: 0.9999999999984324
+    mean_chunk_cosine: 0.9999999999986535
+    runner: coreai-fabric-parity-runner/0.1.0
+    measured_on: apple_silicon
+    value: 0.9999999999984324
+    threshold: 0.999
+    tolerance: 0.0005
+    min_cosine: 0.9999999999984324
+    median_cosine: 0.9999999999986656
+    measurement_source: graph-output-parity-measured.json
+    protocol:
+      n_obs: 8
+      reference_dtype: float32
+      granularity: flattened
+      input_protocol: synthetic
+      graph_boundary: single-graph forward

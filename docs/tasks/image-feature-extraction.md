@@ -1,6 +1,6 @@
 # Image Feature Extraction
 
-**4 models** in the catalog with this capability.
+**5 models** in the catalog with this capability.
 
 ## Models
 
@@ -10,6 +10,7 @@
 | [LingBot-Vision ViT-L (fabric)](../../catalog.yaml#L1) | 43 | 0.3B |  | apache-2.0 | ✅ likely | — | fabric |
 | [LingBot-Vision ViT-S (fabric)](../../catalog.yaml#L1) | 43 | 22M |  | apache-2.0 | ✅ likely | — | fabric |
 | [LingBot-Vision ViT-g (fabric)](../../catalog.yaml#L1) | 43 | 1.1B |  | apache-2.0 | ✅ likely | — | fabric |
+| [Miril-Drone 2B-1 (fabric)](../../catalog.yaml#L1) | 43 | 2B |  | apache-2.0 | ✅ likely | — | fabric |
 
 ## Install
 
