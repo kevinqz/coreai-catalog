@@ -104,6 +104,40 @@ def _normalize(name: str) -> str:
     return name.lower().replace("-", "").replace("_", "").replace(".", "")
 
 
+#: Foreign artifact-format markers. The catalog scope is Core AI (.aimodel)
+#: only, but Core-AI-community accounts also publish MLX / AWQ / GGUF / GPTQ /
+#: FP8 / EXL2 quantizations of unrelated models. Those are not Core AI and must
+#: not be flagged as new artifacts.
+_FOREIGN_FORMAT_TAGS = {
+    "mlx", "gguf", "ggml", "awq", "gptq", "fp8", "exl2", "litert", "onnx",
+}
+_FOREIGN_NAME_RE = re.compile(
+    r"(?i)(?:^|[-_.])(?:mlx|gguf|ggml|awq|gptq|fp8|exl2|litert|\d+bit|\d+-?bit)"
+    r"(?:[-_.]|$)"
+)
+#: A Core AI / Core ML artifact advertises itself with one of these.
+_COREAI_MARKERS = {"coreai", "core-ai", "coreaikit", "coreml"}
+
+
+def _is_coreai_format(repo_short: str, tags: list[str] | None = None) -> bool:
+    """Whether a HuggingFace repo is a Core AI (.aimodel) artifact rather than a
+    foreign-format quantization (MLX/AWQ/GGUF/…). A repo is kept when it carries
+    a Core AI/Core ML marker (tag or name); otherwise it is dropped if any
+    foreign-format marker appears in its tags or name."""
+    tagset = {t.lower() for t in (tags or [])}
+    name_l = repo_short.lower()
+    has_coreai = bool(tagset & _COREAI_MARKERS) or any(
+        m in name_l for m in ("coreai", "core-ai")
+    )
+    if has_coreai:
+        return True
+    if tagset & _FOREIGN_FORMAT_TAGS or _FOREIGN_NAME_RE.search(repo_short):
+        return False
+    # No signal either way — keep it; downstream classification/verification
+    # decides. Better a false candidate than a missed genuine one.
+    return True
+
+
 def check_hf_account(account: str, known_repos: set[str], known_ids: set[str] | None = None, since: str | None = None) -> list[dict]:
     """Check a HuggingFace account for new models.
 
@@ -128,8 +162,10 @@ def check_hf_account(account: str, known_repos: set[str], known_ids: set[str] | 
         if since and last_mod < since:
             continue
 
-        # Skip LiteRT artifacts — catalog scope is .aimodel only
-        if "litert" in repo_short.lower():
+        # Skip foreign artifact formats (LiteRT/MLX/AWQ/GGUF/…) — catalog scope
+        # is Core AI (.aimodel) only. Core-AI-community accounts also publish
+        # quantizations of unrelated models that are not Core AI artifacts.
+        if not _is_coreai_format(repo_short, m.get("tags")):
             continue
 
         is_new = repo_short.lower() not in known_repos and repo_full.lower() not in known_repos

@@ -337,6 +337,45 @@ class TestSyncUpstreamRemoved(unittest.TestCase):
         self.assertEqual(list(models), ["Qwen3 VL 2B"])
         self.assertEqual(models["Qwen3 VL 2B"]["hf_repo"], "mlboydaisuke/qwen3-vl-2b-coreai")
 
+    def test_parse_zoo_readme_linked_name(self):
+        # Regression: rows whose model name is a markdown link — `[**Name**](doc)`
+        # — must parse just like bare `**Name**` rows. The zoo README uses this
+        # form for ~half its models (Qwen3.5, Gemma 4 12B, LFM2.5, Parakeet…);
+        # the old regex silently dropped them, flagging live models as removed.
+        readme = (
+            "| Model | Download | Run | License |\n"
+            "|---|---|---|---|\n"
+            "| [**Qwen3.5-0.8B**](zoo/qwen3.5.md) | "
+            "[🤗 qwen3.5-0.8B-CoreAI](https://huggingface.co/mlboydaisuke/qwen3.5-0.8B-CoreAI) | "
+            "[ChatDemo](x) | Apache-2.0 |\n"
+            "| [**Gemma 4 12B**](zoo/gemma4-12b.md) (dense, Mac-only) | "
+            "[🤗 Gemma-4-12B-CoreAI](https://huggingface.co/mlboydaisuke/Gemma-4-12B-CoreAI) | "
+            "[ChatDemo](x) | Gemma |\n"
+        )
+        models = sync_upstream.parse_zoo_readme(readme)
+        self.assertIn("Qwen3.5-0.8B", models)
+        self.assertEqual(
+            models["Qwen3.5-0.8B"]["hf_repo"], "mlboydaisuke/qwen3.5-0.8B-CoreAI"
+        )
+        self.assertIn("Gemma 4 12B", models)
+        self.assertEqual(models["Gemma 4 12B"]["desc"], "dense, Mac-only")
+
+    def test_extract_hf_repos_multi_repo_row(self):
+        # A single row can list several artifacts (Qwen3-VL 2B/4B/8B). Removal
+        # detection must see *every* repo, not just the first, or the extra
+        # sizes get flagged as removed-from-upstream.
+        readme = (
+            "| [**Qwen3-VL**](zoo/qwen3-vl.md) | "
+            "[🤗 2B](https://huggingface.co/mlboydaisuke/Qwen3-VL-2B-CoreAI) · "
+            "[4B](https://huggingface.co/mlboydaisuke/Qwen3-VL-4B-CoreAI) · "
+            "[8B](https://huggingface.co/mlboydaisuke/Qwen3-VL-8B-CoreAI) | VLChat | Apache-2.0 |\n"
+        )
+        repos = sync_upstream.extract_hf_repos(readme)
+        self.assertEqual(
+            repos,
+            {"Qwen3-VL-2B-CoreAI", "Qwen3-VL-4B-CoreAI", "Qwen3-VL-8B-CoreAI"},
+        )
+
     def test_repo_matches_fuzzy(self):
         self.assertTrue(sync_upstream.repo_matches("Qwen3-VL-2B-CoreAI",
                                                    {"qwen3-vl-2b-coreai-4bit"}))
@@ -365,6 +404,33 @@ class TestSyncUpstreamRemoved(unittest.TestCase):
         artifact_repos = {f"model-{i}-artifact": f"model-{i}-coreai" for i in range(6)}
         removed = sync_upstream.compute_removed(models, artifact_repos, self.UPSTREAM)
         self.assertEqual(removed, [])
+
+    def test_hf_repo_live_only_404_is_removed(self):
+        # README-absence is a weak signal — models get indexed from conversion
+        # scripts, Apple's repo, or prose mentions, so plenty of live artifacts
+        # never appear in a README table. Only a definitive 404 means the
+        # artifact is actually gone. 200 → live; 401 (gated) → live; network
+        # hiccup → live (never false-flag a removal on a transient error).
+        def opener_200(url, timeout=0):
+            class R:
+                status = 200
+                def __enter__(self): return self
+                def __exit__(self, *a): return False
+            return R()
+
+        def opener_404(url, timeout=0):
+            raise HTTPError(url, 404, "Not Found", {}, None)
+
+        def opener_401(url, timeout=0):
+            raise HTTPError(url, 401, "Unauthorized", {}, None)
+
+        def opener_boom(url, timeout=0):
+            raise URLError("connection reset")
+
+        self.assertTrue(sync_upstream.hf_repo_live("x/y", _opener=opener_200))
+        self.assertFalse(sync_upstream.hf_repo_live("x/y", _opener=opener_404))
+        self.assertTrue(sync_upstream.hf_repo_live("x/y", _opener=opener_401))
+        self.assertTrue(sync_upstream.hf_repo_live("x/y", _opener=opener_boom))
 
     def test_parse_failure_guard(self):
         # An implausibly small upstream set (README format change / truncated

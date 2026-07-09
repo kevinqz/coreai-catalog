@@ -159,6 +159,24 @@ class TestDedupF4(unittest.TestCase):
             discover.normalize_name("qwen3-5-0-8b"),
         )
 
+    def test_is_coreai_format_filters_foreign_formats(self):
+        # The catalog scope is .aimodel only. A CoreAI-community account
+        # (e.g. warshanks) also publishes MLX/AWQ/GGUF/FP8 quantizations of
+        # other models; those must NOT be reported as new Core AI artifacts.
+        f = source_monitor._is_coreai_format
+        # Genuine Core AI / Core ML → kept
+        self.assertTrue(f("Gemma-4-12B-CoreAI", ["coreai", "core-ai"]))
+        self.assertTrue(f("TTS-Core-AI", ["coreml", "license:mit"]))
+        self.assertTrue(f("Parakeet-TDT-0.6B-CoreAI", []))  # no tags, name says CoreAI
+        # Foreign formats by tag → dropped
+        self.assertFalse(f("talkie-1930-13b-it-mlx-4bit", ["mlx", "safetensors"]))
+        self.assertFalse(f("Hermes-4-14B-AWQ", ["awq", "text-generation"]))
+        self.assertFalse(f("gpt-oss-20b-4bit", ["gguf"]))
+        self.assertFalse(f("Voxtral-Mini-3B-2507-FP8", ["fp8"]))
+        # Foreign formats by name suffix even when untagged → dropped
+        self.assertFalse(f("Qwen3-8B-abliterated-AWQ", []))
+        self.assertFalse(f("model-mlx-8bit", []))
+
     def test_base_models_from_tags(self):
         # Tag shapes verified live against the HF API (2026-07-03).
         tags = [
