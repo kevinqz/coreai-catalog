@@ -8037,10 +8037,71 @@
           "format_version": "2.0",
           "recipe_source": "fabric"
         }
+      },
+      {
+        "group": "external",
+        "huggingface": {
+          "files": [
+            {
+              "path": ".gitattributes",
+              "sha256": "388af2489c750115b97f4b2f19ed1a1225ad9db484846aab0740f9c8685e3704",
+              "size_bytes": 1603
+            },
+            {
+              "path": "LICENSE",
+              "sha256": "85de5b380b48da67fc179f3086fb1ede357244fd8ce87f506f75fe4d11fee21d",
+              "size_bytes": 11987
+            },
+            {
+              "path": "README.md",
+              "sha256": "743872d8b9278e3bf81894c0ac15959e4174c3691e580395a8171e2f3ce07ac5",
+              "size_bytes": 4928
+            },
+            {
+              "path": "lingbot-video-dense-1.3b-dit.aimodel/main.hash",
+              "sha256": "96d0080a236453602dab3ebad58bdd78e1a3d415d9d87497d5cfdbe73d24d0a9",
+              "size_bytes": 32
+            },
+            {
+              "path": "lingbot-video-dense-1.3b-dit.aimodel/main.mlirb",
+              "sha256": "e07da4988fb030f64622529e203fec53eb5a2700a5c06794a1c9ea100102f11d",
+              "size_bytes": 5429487707
+            },
+            {
+              "path": "lingbot-video-dense-1.3b-dit.aimodel/metadata.json",
+              "sha256": "a091aeb18a100ac8787b66f237b2980585f18b4de1f4353e50649eb74726a35e",
+              "size_bytes": 105
+            },
+            {
+              "path": "parity-report.json",
+              "sha256": "7c5bc460307e2a6df9d91b1b7428a8271b0d4853f9bfffd76665b70e8d1609c5",
+              "size_bytes": 1990
+            }
+          ],
+          "owner": "kevinqz",
+          "repo": "LingBot-Video-Dense-1.3B-DiT-CoreAI",
+          "revision": "bd1f37920541f7d9cbb05c29cf9619ed10c90523",
+          "url": "https://huggingface.co/kevinqz/LingBot-Video-Dense-1.3B-DiT-CoreAI"
+        },
+        "id": "lingbot-video-dense-1.3b-dit",
+        "officiality": {
+          "apple_export_recipe": false,
+          "apple_hosted_artifact": false,
+          "community_packaged": true
+        },
+        "provenance": {
+          "converted_by": {
+            "recipe_url": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-video-dense-1.3b-dit.yaml",
+            "tool": "models/lingbotvideo/dit_export.py",
+            "version": "unknown"
+          },
+          "format_version": "2.0",
+          "recipe_source": "fabric"
+        }
       }
     ],
     "metadata": {
-      "count": 132,
+      "count": 133,
       "last_verified": "2026-07-04",
       "name": "Core AI Catalog artifact provenance"
     }
@@ -20254,6 +20315,95 @@
         ],
         "status": "needs_review",
         "upstream_repo": "MirilAI/Miril-Drone-2B-1"
+      },
+      {
+        "architecture": "diffusion",
+        "artifact": {
+          "availability": "available",
+          "format": "aimodel"
+        },
+        "artifact_ref": "lingbot-video-dense-1.3b-dit",
+        "bundle_kind": "video",
+        "capabilities": [
+          "text-to-video"
+        ],
+        "confidence": "medium",
+        "device_support": {
+          "ipad": "unknown",
+          "iphone": "unknown",
+          "mac": "unknown",
+          "mac_only": "unknown"
+        },
+        "evaluation": {
+          "mean_chunk_cosine": 0.9999999999993227,
+          "measured_on": "apple_silicon",
+          "measurement_source": "graph-output-parity-measured.json",
+          "median_cosine": 0.9999999999993278,
+          "metric": "graph_output_cosine",
+          "min_chunk_cosine": 0.9999999999991931,
+          "min_cosine": 0.9999999999991931,
+          "n_obs": 8,
+          "protocol": {
+            "granularity": "flattened",
+            "graph_boundary": "single-graph forward",
+            "input_protocol": "synthetic",
+            "n_obs": 8,
+            "reference_dtype": "float32"
+          },
+          "reference_dtype": "float32",
+          "runner": "coreai-fabric-parity-runner/0.1.0",
+          "status": "passed",
+          "threshold": 0.999,
+          "tolerance": 0.0005,
+          "value": 0.9999999999991931
+        },
+        "family": "LingBot-Video",
+        "id": "lingbot-video-dense-1.3b-dit",
+        "last_verified": "2026-07-09",
+        "license": {
+          "commercial_use": "likely",
+          "name": "apache-2.0"
+        },
+        "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "video"
+          ]
+        },
+        "name": "LingBot-Video Dense 1.3B DiT (fabric)",
+        "notes": "Converted via coreai-fabric recipe lingbot-video-dense-1.3b-dit (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-video-dense-1.3b-dit.yaml). Parity: gate A passed, gate B passed.",
+        "runtime": {
+          "aot_required": false,
+          "custom_kernel": false,
+          "patch_required": false,
+          "processor_required": true,
+          "runner": "CoreAIVideoPipeline",
+          "runtime_name": "apple-core-ai",
+          "stock_runtime": false,
+          "tokenizer_required": true
+        },
+        "size": {
+          "artifact_size": "5.1GB",
+          "fidelity_tier": "high_fidelity",
+          "parameters": "1.3B",
+          "precision": "float32",
+          "quantization": "none"
+        },
+        "source_group": "fabric",
+        "source_path": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-video-dense-1.3b-dit.yaml",
+        "sources": [
+          "coreai-fabric"
+        ],
+        "status": "needs_review",
+        "upstream_repo": "robbyant/lingbot-video-dense-1.3b"
       }
     ]
   },

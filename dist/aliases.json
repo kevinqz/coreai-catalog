@@ -2,7 +2,7 @@
   "export_schema_version": "1.0",
   "export_catalog_version": "2.3.0",
   "description": "Alias mappings resolving catalog IDs to Zoo card names, CoreAIKit strings, and HF repo names.",
-  "total_models": 131,
+  "total_models": 132,
   "aliases": {
     "qwen3-5-0-8b": [
       "qwen3-5-0-8b-coreai",
@@ -763,6 +763,12 @@
       "miril-drone-2b-1-coreai",
       "miril-drone-2b-1.yaml",
       "miril.drone.2b-1"
+    ],
+    "lingbot-video-dense-1.3b-dit": [
+      "LingBot-Video-Dense-1.3B-DiT-CoreAI",
+      "lingbot-video-dense-1-3b-dit-coreai",
+      "lingbot-video-dense-1.3b-dit.yaml",
+      "lingbot.video.dense-1.3b-dit"
     ]
   }
 }
