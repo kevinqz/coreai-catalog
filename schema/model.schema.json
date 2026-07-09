@@ -554,6 +554,29 @@
         "mean_chunk_cosine": { "type": "number" },
         "max_action_mae": { "type": "number", "description": "Maximum mean absolute error per action dimension." },
         "max_relative_action_mae": { "type": "number", "description": "Scale-invariant maximum relative MAE." },
+        "value": { "type": "number", "description": "The headline metric value the gate was judged on (the durable Gate-B number; fabric RFC F6). Generic across metric families." },
+        "threshold": { "type": "number", "description": "The gate threshold the value was judged against." },
+        "tolerance": { "type": "number", "description": "Allowed slack below threshold before hard failure." },
+        "min_cosine": { "type": "number", "description": "Generic minimum cosine (graph_output_cosine / per_token_logit_cosine lanes)." },
+        "median_cosine": { "type": "number" },
+        "num_steps": { "type": "integer", "description": "Sampler steps the parity was driven through." },
+        "chunk_len": { "type": "integer", "description": "Action chunk length compared (action parity)." },
+        "measurement_source": { "type": "string", "description": "Provenance of the measured number (e.g. the parity-report artifact name)." },
+        "protocol": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "The measurement SIGNATURE (fabric RFC F2): what makes `value` comparable. 'The Gate-B number' is several incommensurable quantities (match-rate vs cosine, per-row vs flattened, synthetic vs recorded, fp16 vs fp32) — a ranking is only valid within a matching (metric, granularity, input_protocol, reference_dtype, graph_boundary) cell. Mirrors the fabric recipe gate_b.protocol.",
+          "properties": {
+            "n_obs": { "type": "integer", "minimum": 1 },
+            "seed": { "type": "integer" },
+            "input_protocol": { "type": "string", "enum": ["synthetic", "recorded", "mixed"], "description": "Where the inputs came from. synthetic = seeded random (the smolvla 0.02-cosine catastrophe is the standing warning); recorded = real dataset frames/pixels; mixed = a documented blend." },
+            "reference_dtype": { "type": "string", "enum": ["float32", "float16", "bfloat16"] },
+            "granularity": { "type": "string", "enum": ["per_row", "flattened", "per_token"], "description": "How the per-observation metric was aggregated. flattened = whole-tensor cosine (structurally inflated for wide outputs)." },
+            "graph_boundary": { "type": "string", "description": "What the number spans (e.g. 'encode->denoise', 'whole-LM', 'action head'). A reduced-boundary export cannot cite a whole-graph number." },
+            "loaded_on_ane": { "type": "boolean", "description": "Deployability signal, DISTINCT from parity: an AR generator reloading N multi-GB programs per token can pass cosine while being undeployable." },
+            "waivers": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true, "description": "Named relaxations applied (e.g. 'near_zero_action'). Surfaced, never silently marks passed-below-bar." }
+          }
+        },
         "framework": { "type": "string", "description": "Framework the parity was measured against (e.g. 'lerobot')." },
         "framework_version": { "type": "string" },
         "sampler": {

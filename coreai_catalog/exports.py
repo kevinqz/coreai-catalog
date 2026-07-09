@@ -513,9 +513,20 @@ def export_lerobot_coreai(catalog_root: Path, dist: Path | None = None) -> dict:
         "policies": policies,
     }
 
-    (dist / "lerobot-coreai.json").write_text(
-        json.dumps(output, indent=2, ensure_ascii=False) + "\n"
-    )
+    # Deterministic timestamp: preserve the existing `generated_at` when nothing
+    # else changed, so `generate.py` is idempotent and CI's
+    # `git diff --exit-code dist/` guard doesn't fail on a wall-clock-only churn
+    # (the non-deterministic timestamp made that guard fail on every PR).
+    out_path = dist / "lerobot-coreai.json"
+    if out_path.is_file():
+        try:
+            prev = json.loads(out_path.read_text())
+            if prev.get("generated_at") and \
+                    {**prev, "generated_at": None} == {**output, "generated_at": None}:
+                output["generated_at"] = prev["generated_at"]
+        except (ValueError, OSError):
+            pass
+    out_path.write_text(json.dumps(output, indent=2, ensure_ascii=False) + "\n")
     return output
 
 
