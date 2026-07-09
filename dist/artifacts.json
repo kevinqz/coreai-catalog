@@ -7909,12 +7909,73 @@
         "format_version": "2.0",
         "recipe_source": "fabric"
       }
+    },
+    {
+      "group": "external",
+      "huggingface": {
+        "files": [
+          {
+            "path": ".gitattributes",
+            "sha256": "729667c1a8949013e2b15a85cea8329a10bc4bb5367ee925c97ef9c07124aa5e",
+            "size_bytes": 1600
+          },
+          {
+            "path": "LICENSE",
+            "sha256": "7019d814d4762a3c28560d815c1d963d6da3b280322154dc6bfaa4ee35d60497",
+            "size_bytes": 11989
+          },
+          {
+            "path": "README.md",
+            "sha256": "864bae1a1cda16381016a697150da2bc2fe786683af0cef3509871d0853c57a9",
+            "size_bytes": 5006
+          },
+          {
+            "path": "lingbot-video-moe-30b-a3b.aimodel/main.hash",
+            "sha256": "15191fc9efb68aeb48a551d48cd0cdf4ba05a1a256f2163607e9d5dc5b7cbfc5",
+            "size_bytes": 32
+          },
+          {
+            "path": "lingbot-video-moe-30b-a3b.aimodel/main.mlirb",
+            "sha256": "a438ea0eba5c186bdc6351b5e67af52b63097e46a2d03b9247fe073eab826c54",
+            "size_bytes": 286208773
+          },
+          {
+            "path": "lingbot-video-moe-30b-a3b.aimodel/metadata.json",
+            "sha256": "35997989736108b723361ccf8d9b0ef4f88268a7167373cf103879c11d00dcdd",
+            "size_bytes": 105
+          },
+          {
+            "path": "parity-report.json",
+            "sha256": "3eee6ec586e8172ae6ec31467485822e40105891d8b60868cec56363c97b73a4",
+            "size_bytes": 2135
+          }
+        ],
+        "owner": "kevinqz",
+        "repo": "LingBot-Video-MoE-30B-A3B-CoreAI",
+        "revision": "fc741242ee2ed709629ae6a04307111ab77d9b45",
+        "url": "https://huggingface.co/kevinqz/LingBot-Video-MoE-30B-A3B-CoreAI"
+      },
+      "id": "lingbot-video-moe-30b-a3b",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "provenance": {
+        "converted_by": {
+          "recipe_url": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-video-moe-30b-a3b.yaml",
+          "tool": "models/lingbotvideo/export.py",
+          "version": "unknown"
+        },
+        "format_version": "2.0",
+        "recipe_source": "fabric"
+      }
     }
   ],
   "export_catalog_version": "2.3.0",
   "export_schema_version": "1.0",
   "metadata": {
-    "count": 130,
+    "count": 131,
     "last_verified": "2026-07-04",
     "name": "Core AI Catalog artifact provenance"
   }

@@ -3,7 +3,7 @@
   "capabilities": [
     "text-to-video"
   ],
-  "model_count": 2,
+  "model_count": 3,
   "models": [
     {
       "id": "ltx-video-2b",
@@ -24,6 +24,20 @@
       "name": "LingBot-Video Dense 1.3B (fabric)",
       "score": 43,
       "parameters": "1.3B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": false
+      },
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "lingbot-video-moe-30b-a3b",
+      "name": "LingBot-Video MoE 30B-A3B (fabric)",
+      "score": 43,
+      "parameters": "30B",
       "devices": {
         "iphone": false,
         "ipad": false,

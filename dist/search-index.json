@@ -1,5 +1,5 @@
 {
-  "count": 129,
+  "count": 130,
   "export_schema_version": "1.0",
   "export_catalog_version": "2.3.0",
   "models": [
@@ -14867,6 +14867,105 @@
       "benchmarks": [],
       "last_verified": "2026-07-09",
       "notes": "Converted via coreai-fabric recipe lingbot-video-dense-1.3b (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-video-dense-1.3b.yaml). Parity: gate A passed, gate B passed."
+    },
+    {
+      "id": "lingbot-video-moe-30b-a3b",
+      "name": "LingBot-Video MoE 30B-A3B (fabric)",
+      "family": "LingBot-Video",
+      "source_group": "fabric",
+      "bundle_kind": "video",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "robbyant/lingbot-video-moe-30b-a3b",
+      "io_contract": null,
+      "capabilities": [
+        "text-to-video"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "video"
+      ],
+      "devices": [],
+      "parameters": "30B",
+      "precision": "float32",
+      "quantization": "none",
+      "artifact_size": "273.0MB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIVideoPipeline",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "engine_variant": null,
+      "evaluation": {
+        "metric": "graph_output_cosine",
+        "status": "passed",
+        "reference_dtype": "float32",
+        "n_obs": 8,
+        "runner": "coreai-fabric-parity-runner/0.1.0",
+        "min_chunk_cosine": 0.9999999999994054,
+        "mean_chunk_cosine": 0.9999999999994125,
+        "measured_on": "apple_silicon"
+      },
+      "framework_contract": null,
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "status": "needs_review",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 43,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": "unknown",
+          "iphone": "unknown",
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "apache-2.0",
+          "commercial_use": "likely"
+        },
+        "hosts": 1,
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-09"
+      },
+      "entry_completeness": {
+        "pct": 0.5,
+        "present": 3,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/kevinqz/LingBot-Video-MoE-30B-A3B-CoreAI",
+        "huggingface_repo": "kevinqz/LingBot-Video-MoE-30B-A3B-CoreAI",
+        "github_source": null,
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-07-09",
+      "notes": "Converted via coreai-fabric recipe lingbot-video-moe-30b-a3b (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-video-moe-30b-a3b.yaml). Parity: gate A passed, gate B passed."
     }
   ]
 }

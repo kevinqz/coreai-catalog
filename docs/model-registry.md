@@ -131,3 +131,4 @@
 | eo1-3b | EO-1 3B (fabric) | fabric | EO-1 | vision-language-action, robotics | image, text, state | action | 3.77B | unknown | mit | needs_review |
 | lingbot-vla-v2 | LingBot-VLA 2.0 (fabric) | fabric | LingBot-VLA | vision-language-action, robotics | image, text, state | action | 6.38B | unknown | apache-2.0 | needs_review |
 | lingbot-video-dense-1.3b | LingBot-Video Dense 1.3B (fabric) | fabric | LingBot-Video | text-to-video | text, image | video | 1.3B | unknown | apache-2.0 | needs_review |
+| lingbot-video-moe-30b-a3b | LingBot-Video MoE 30B-A3B (fabric) | fabric | LingBot-Video | text-to-video | text, image | video | 30B | unknown | apache-2.0 | needs_review |

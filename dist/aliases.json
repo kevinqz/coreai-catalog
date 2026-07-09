@@ -2,7 +2,7 @@
   "export_schema_version": "1.0",
   "export_catalog_version": "2.3.0",
   "description": "Alias mappings resolving catalog IDs to Zoo card names, CoreAIKit strings, and HF repo names.",
-  "total_models": 129,
+  "total_models": 130,
   "aliases": {
     "qwen3-5-0-8b": [
       "qwen3-5-0-8b-coreai",
@@ -751,6 +751,12 @@
       "lingbot-video-dense-1-3b-coreai",
       "lingbot-video-dense-1.3b.yaml",
       "lingbot.video.dense-1.3b"
+    ],
+    "lingbot-video-moe-30b-a3b": [
+      "LingBot-Video-MoE-30B-A3B-CoreAI",
+      "lingbot-video-moe-30b-a3b-coreai",
+      "lingbot-video-moe-30b-a3b.yaml",
+      "lingbot.video.moe-30b-a3b"
     ]
   }
 }
