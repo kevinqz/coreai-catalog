@@ -1,5 +1,5 @@
 {
-  "task_count": 89,
+  "task_count": 92,
   "tasks": [
     {
       "task": "3d generation",
@@ -167,6 +167,14 @@
         "embedding"
       ],
       "model_count": 2
+    },
+    {
+      "task": "forecasting",
+      "slug": "forecasting",
+      "capabilities": [
+        "time-series-forecasting"
+      ],
+      "model_count": 1
     },
     {
       "task": "formula recognition",
@@ -626,6 +634,22 @@
         "text-to-video"
       ],
       "model_count": 5
+    },
+    {
+      "task": "time series",
+      "slug": "time-series",
+      "capabilities": [
+        "time-series-forecasting"
+      ],
+      "model_count": 1
+    },
+    {
+      "task": "time series forecasting",
+      "slug": "time-series-forecasting",
+      "capabilities": [
+        "time-series-forecasting"
+      ],
+      "model_count": 1
     },
     {
       "task": "tool use",

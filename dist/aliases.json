@@ -2,7 +2,7 @@
   "export_schema_version": "1.0",
   "export_catalog_version": "2.3.0",
   "description": "Alias mappings resolving catalog IDs to Zoo card names, CoreAIKit strings, and HF repo names.",
-  "total_models": 133,
+  "total_models": 134,
   "aliases": {
     "qwen3-5-0-8b": [
       "qwen3-5-0-8b-coreai",
@@ -436,6 +436,12 @@
       "nemotron-3-5-asr-streaming-0-6b-coreai",
       "nemotron-3.5-asr-streaming-0.6b-coreai",
       "nemotron.3.5-asr-streaming"
+    ],
+    "timesfm-2-5-200m": [
+      "TimesFM-2.5-200M-CoreAI",
+      "timesfm-2-5-200m-coreai",
+      "timesfm.2.5-200m",
+      "timesfm.md"
     ],
     "z-image-turbo": [
       "Z-Image-Turbo-CoreAI",

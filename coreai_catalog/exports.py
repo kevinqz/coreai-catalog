@@ -67,6 +67,7 @@ def derive_bundle_kind(model: dict[str, Any]) -> str:
         ({"text-to-audio", "music-generation"}, "audio-generation"),
         ({"text-to-video", "video-classification"}, "video"),
         ({"image-to-3d"}, "3d"),
+        ({"time-series-forecasting"}, "time-series"),
     ]
     for capset, kind in rules:
         if caps & capset:

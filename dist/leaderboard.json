@@ -2,7 +2,7 @@
   "export_schema_version": "1.0",
   "export_catalog_version": "2.3.0",
   "description": "Ranked by the DEPRECATED readiness_score (a curation/deployability composite, NOT model quality). Prefer per-entry deployability/lifecycle/entry_completeness facets plus benchmark VALUES. Each entry includes best-known benchmarks per metric.",
-  "total_models": 133,
+  "total_models": 134,
   "leaderboard": [
     {
       "id": "depth-anything-3-base",
@@ -1286,6 +1286,36 @@
       "best_metrics": {}
     },
     {
+      "id": "timesfm-2-5-200m",
+      "name": "TimesFM 2.5 200M",
+      "capabilities": [
+        "time-series-forecasting"
+      ],
+      "parameters": "200M",
+      "readiness_score": 78,
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-09"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
+      "benchmark_count": 0,
+      "best_metrics": {}
+    },
+    {
       "id": "voxcpm-0-5b",
       "name": "VoxCPM-0.5B",
       "capabilities": [
@@ -1778,7 +1808,7 @@
         "stage": "experimental",
         "verification": "confirmed",
         "curator_confidence": "high",
-        "last_verified": "2026-06-30"
+        "last_verified": "2026-07-09"
       },
       "entry_completeness": {
         "pct": 0.667,
