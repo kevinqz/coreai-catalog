@@ -1,5 +1,5 @@
 {
-  "count": 131,
+  "count": 132,
   "export_schema_version": "1.0",
   "export_catalog_version": "2.3.0",
   "models": [
@@ -15077,6 +15077,118 @@
       "benchmarks": [],
       "last_verified": "2026-07-09",
       "notes": "Converted via coreai-fabric recipe miril-drone-2b-1 (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/miril-drone-2b-1.yaml). Parity: gate A passed, gate B passed."
+    },
+    {
+      "id": "lingbot-video-dense-1.3b-dit",
+      "name": "LingBot-Video Dense 1.3B DiT (fabric)",
+      "family": "LingBot-Video",
+      "source_group": "fabric",
+      "bundle_kind": "video",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "robbyant/lingbot-video-dense-1.3b",
+      "io_contract": null,
+      "capabilities": [
+        "text-to-video"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "video"
+      ],
+      "devices": [],
+      "parameters": "1.3B",
+      "precision": "float32",
+      "quantization": "none",
+      "artifact_size": "5.1GB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIVideoPipeline",
+      "stock_runtime": false,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": false,
+      "engine_variant": null,
+      "evaluation": {
+        "metric": "graph_output_cosine",
+        "status": "passed",
+        "reference_dtype": "float32",
+        "n_obs": 8,
+        "min_chunk_cosine": 0.9999999999991931,
+        "mean_chunk_cosine": 0.9999999999993227,
+        "runner": "coreai-fabric-parity-runner/0.1.0",
+        "measured_on": "apple_silicon",
+        "value": 0.9999999999991931,
+        "threshold": 0.999,
+        "tolerance": 0.0005,
+        "min_cosine": 0.9999999999991931,
+        "median_cosine": 0.9999999999993278,
+        "measurement_source": "graph-output-parity-measured.json",
+        "protocol": {
+          "n_obs": 8,
+          "reference_dtype": "float32",
+          "granularity": "flattened",
+          "input_protocol": "synthetic",
+          "graph_boundary": "single-graph forward"
+        }
+      },
+      "framework_contract": null,
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "status": "needs_review",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 43,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "patched",
+        "device_fit": {
+          "mac": "unknown",
+          "iphone": "unknown",
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "apache-2.0",
+          "commercial_use": "likely"
+        },
+        "hosts": 1,
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-09"
+      },
+      "entry_completeness": {
+        "pct": 0.5,
+        "present": 3,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/kevinqz/LingBot-Video-Dense-1.3B-DiT-CoreAI",
+        "huggingface_repo": "kevinqz/LingBot-Video-Dense-1.3B-DiT-CoreAI",
+        "github_source": null,
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-07-09",
+      "notes": "Converted via coreai-fabric recipe lingbot-video-dense-1.3b-dit (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-video-dense-1.3b-dit.yaml). Parity: gate A passed, gate B passed."
     }
   ]
 }

@@ -133,3 +133,4 @@
 | lingbot-video-dense-1.3b | LingBot-Video Dense 1.3B (fabric) | fabric | LingBot-Video | text-to-video | text, image | video | 1.3B | unknown | apache-2.0 | needs_review |
 | lingbot-video-moe-30b-a3b | LingBot-Video MoE 30B-A3B (fabric) | fabric | LingBot-Video | text-to-video | text, image | video | 30B | unknown | apache-2.0 | needs_review |
 | miril-drone-2b-1 | Miril-Drone 2B-1 (fabric) | fabric | Miril-Drone | image-feature-extraction | image | text | 2B | unknown | apache-2.0 | needs_review |
+| lingbot-video-dense-1.3b-dit | LingBot-Video Dense 1.3B DiT (fabric) | fabric | LingBot-Video | text-to-video | text, image | video | 1.3B | unknown | apache-2.0 | needs_review |

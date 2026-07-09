@@ -1,7 +1,7 @@
 metadata:
   name: Core AI Catalog artifact provenance
   last_verified: '2026-07-04'
-  count: 132
+  count: 133
 artifacts:
 - id: qwen3-5-0-8b
   group: zoo
@@ -5205,6 +5205,46 @@ artifacts:
       tool: models/miril/export.py
       version: unknown
       recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/miril-drone-2b-1.yaml
+    recipe_source: fabric
+    format_version: '2.0'
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: lingbot-video-dense-1.3b-dit
+  group: external
+  huggingface:
+    owner: kevinqz
+    repo: LingBot-Video-Dense-1.3B-DiT-CoreAI
+    url: https://huggingface.co/kevinqz/LingBot-Video-Dense-1.3B-DiT-CoreAI
+    revision: bd1f37920541f7d9cbb05c29cf9619ed10c90523
+    files:
+    - path: .gitattributes
+      sha256: 388af2489c750115b97f4b2f19ed1a1225ad9db484846aab0740f9c8685e3704
+      size_bytes: 1603
+    - path: LICENSE
+      sha256: 85de5b380b48da67fc179f3086fb1ede357244fd8ce87f506f75fe4d11fee21d
+      size_bytes: 11987
+    - path: README.md
+      sha256: 743872d8b9278e3bf81894c0ac15959e4174c3691e580395a8171e2f3ce07ac5
+      size_bytes: 4928
+    - path: lingbot-video-dense-1.3b-dit.aimodel/main.hash
+      sha256: 96d0080a236453602dab3ebad58bdd78e1a3d415d9d87497d5cfdbe73d24d0a9
+      size_bytes: 32
+    - path: lingbot-video-dense-1.3b-dit.aimodel/main.mlirb
+      sha256: e07da4988fb030f64622529e203fec53eb5a2700a5c06794a1c9ea100102f11d
+      size_bytes: 5429487707
+    - path: lingbot-video-dense-1.3b-dit.aimodel/metadata.json
+      sha256: a091aeb18a100ac8787b66f237b2980585f18b4de1f4353e50649eb74726a35e
+      size_bytes: 105
+    - path: parity-report.json
+      sha256: 7c5bc460307e2a6df9d91b1b7428a8271b0d4853f9bfffd76665b70e8d1609c5
+      size_bytes: 1990
+  provenance:
+    converted_by:
+      tool: models/lingbotvideo/dit_export.py
+      version: unknown
+      recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-video-dense-1.3b-dit.yaml
     recipe_source: fabric
     format_version: '2.0'
   officiality:

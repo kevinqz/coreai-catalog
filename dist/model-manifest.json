@@ -1,7 +1,7 @@
 {
   "export_schema_version": "1.0",
   "export_catalog_version": "2.3.0",
-  "model_count": 131,
+  "model_count": 132,
   "models": [
     {
       "id": "qwen3-5-0-8b",
@@ -5329,6 +5329,34 @@
         "ios": "27.0"
       },
       "upstream_repo": "MirilAI/Miril-Drone-2B-1",
+      "io_contract": null
+    },
+    {
+      "id": "lingbot-video-dense-1.3b-dit",
+      "name": "LingBot-Video Dense 1.3B DiT (fabric)",
+      "bundle_kind": "video",
+      "runner": "CoreAIVideoPipeline",
+      "capabilities": [
+        "text-to-video"
+      ],
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "output_modalities": [
+        "video"
+      ],
+      "parameters": "1.3B",
+      "precision": "float32",
+      "artifact_size": "5.1GB",
+      "huggingface_url": "https://huggingface.co/kevinqz/LingBot-Video-Dense-1.3B-DiT-CoreAI",
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "robbyant/lingbot-video-dense-1.3b",
       "io_contract": null
     }
   ]
