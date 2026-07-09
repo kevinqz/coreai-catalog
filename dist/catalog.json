@@ -10270,6 +10270,82 @@
       ],
       "status": "needs_review",
       "upstream_repo": "robbyant/lingbot-vla-v2-6b"
+    },
+    {
+      "architecture": "diffusion",
+      "artifact": {
+        "availability": "available",
+        "format": "aimodel"
+      },
+      "artifact_ref": "lingbot-video-dense-1.3b",
+      "bundle_kind": "video",
+      "capabilities": [
+        "text-to-video"
+      ],
+      "confidence": "medium",
+      "device_support": {
+        "ipad": "unknown",
+        "iphone": "unknown",
+        "mac": "unknown",
+        "mac_only": "unknown"
+      },
+      "evaluation": {
+        "mean_chunk_cosine": 0.9999999999994125,
+        "measured_on": "apple_silicon",
+        "metric": "graph_output_cosine",
+        "min_chunk_cosine": 0.9999999999994054,
+        "n_obs": 8,
+        "reference_dtype": "float32",
+        "runner": "coreai-fabric-parity-runner/0.1.0",
+        "status": "passed"
+      },
+      "family": "LingBot-Video",
+      "id": "lingbot-video-dense-1.3b",
+      "last_verified": "2026-07-09",
+      "license": {
+        "commercial_use": "likely",
+        "name": "apache-2.0"
+      },
+      "maturity": "experimental",
+      "min_os": {
+        "ios": "27.0",
+        "macos": "27.0"
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "video"
+        ]
+      },
+      "name": "LingBot-Video Dense 1.3B (fabric)",
+      "notes": "Converted via coreai-fabric recipe lingbot-video-dense-1.3b (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-video-dense-1.3b.yaml). Parity: gate A passed, gate B passed.",
+      "runtime": {
+        "aot_required": false,
+        "custom_kernel": false,
+        "patch_required": false,
+        "processor_required": true,
+        "runner": "CoreAIVideoPipeline",
+        "runtime_name": "apple-core-ai",
+        "stock_runtime": false,
+        "tokenizer_required": true
+      },
+      "size": {
+        "artifact_size": "273.0MB",
+        "fidelity_tier": "high_fidelity",
+        "parameters": "1.3B",
+        "precision": "float32",
+        "quantization": "none"
+      },
+      "source_group": "fabric",
+      "source_path": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-video-dense-1.3b.yaml",
+      "sources": [
+        "coreai-fabric"
+      ],
+      "status": "needs_review",
+      "upstream_repo": "robbyant/lingbot-video-dense-1.3b"
     }
   ]
 }

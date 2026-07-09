@@ -35,7 +35,7 @@
     "vector",
     "video"
   ],
-  "direct_edge_count": 43,
+  "direct_edge_count": 44,
   "total_reachable_pairs": 87,
   "direct_edges": [
     {
@@ -331,6 +331,14 @@
       "model_count": 2
     },
     {
+      "input": "image",
+      "output": "video",
+      "model_ids": [
+        "lingbot-video-dense-1.3b"
+      ],
+      "model_count": 1
+    },
+    {
       "input": "query",
       "output": "score",
       "model_ids": [
@@ -563,9 +571,10 @@
       "input": "text",
       "output": "video",
       "model_ids": [
+        "lingbot-video-dense-1.3b",
         "ltx-video-2b"
       ],
-      "model_count": 1
+      "model_count": 2
     },
     {
       "input": "video",
@@ -2934,39 +2943,26 @@
     "image→video": {
       "input_modality": "image",
       "output_modality": "video",
-      "hop_count": 2,
+      "hop_count": 1,
       "modality_chain": [
         "image",
-        "text",
         "video"
       ],
       "model_ids": [
-        "minicpm-v-4-6",
-        "ltx-video-2b"
+        "lingbot-video-dense-1.3b"
       ],
-      "total_artifact_size": "not_published + 13.5GB",
+      "total_artifact_size": "273.0MB",
       "stages": [
         {
-          "model_id": "minicpm-v-4-6",
-          "model_name": "MiniCPM-V 4.6",
+          "model_id": "lingbot-video-dense-1.3b",
+          "model_name": "LingBot-Video Dense 1.3B (fabric)",
           "input_modality": "image",
-          "output_modality": "text",
-          "estimated_tokens_per_sec": 224.3,
-          "parameters": "sub-2B",
-          "runner": "CoreAIRunner",
-          "artifact_size": "not_published",
-          "huggingface_url": "https://huggingface.co/mlboydaisuke/MiniCPM-V-4.6-CoreAI"
-        },
-        {
-          "model_id": "ltx-video-2b",
-          "model_name": "LTX-Video 2B distilled",
-          "input_modality": "text",
           "output_modality": "video",
           "estimated_tokens_per_sec": 0.0,
-          "parameters": "2B / DiT 1.9B + T5-XXL 4.76B",
+          "parameters": "1.3B",
           "runner": "CoreAIVideoPipeline",
-          "artifact_size": "13.5GB",
-          "huggingface_url": "https://huggingface.co/mlboydaisuke/LTX-Video-2B-CoreAI"
+          "artifact_size": "273.0MB",
+          "huggingface_url": "https://huggingface.co/kevinqz/LingBot-Video-Dense-1.3B-CoreAI"
         }
       ]
     },

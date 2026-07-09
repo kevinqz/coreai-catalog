@@ -625,7 +625,7 @@
       "capabilities": [
         "text-to-video"
       ],
-      "model_count": 1
+      "model_count": 2
     },
     {
       "task": "tool use",

@@ -7848,12 +7848,73 @@
         "format_version": "2.0",
         "recipe_source": "fabric"
       }
+    },
+    {
+      "group": "external",
+      "huggingface": {
+        "files": [
+          {
+            "path": ".gitattributes",
+            "sha256": "ea98e85e3bd20b1905884eaba78856ef9bbc4c9036557a23394f505940163e35",
+            "size_bytes": 1599
+          },
+          {
+            "path": "LICENSE",
+            "sha256": "85de5b380b48da67fc179f3086fb1ede357244fd8ce87f506f75fe4d11fee21d",
+            "size_bytes": 11987
+          },
+          {
+            "path": "README.md",
+            "sha256": "8ce163b3ef8ba20b81c09d8732fcc817af964916f954f145b419e744c640b5a9",
+            "size_bytes": 4991
+          },
+          {
+            "path": "lingbot-video-dense-1.3b.aimodel/main.hash",
+            "sha256": "6a0efc49e8fa3e310082a0b3e98bf586d1b5abf1a1891389e66ba32d9b5d2fb0",
+            "size_bytes": 32
+          },
+          {
+            "path": "lingbot-video-dense-1.3b.aimodel/main.mlirb",
+            "sha256": "4f472a0556b7952d99e12735381fef46bb03d25a1b551c249cf682d0b9cf05c6",
+            "size_bytes": 286208763
+          },
+          {
+            "path": "lingbot-video-dense-1.3b.aimodel/metadata.json",
+            "sha256": "77f1851704ad3c1b9c74c904a0cfc4983c3e76d80d6386f4d3f9223fedfbcae7",
+            "size_bytes": 105
+          },
+          {
+            "path": "parity-report.json",
+            "sha256": "bb4bed5979c2e6a74fb8ede7388ff309c51d00e87c465f8458ed07b91ad36c1f",
+            "size_bytes": 2129
+          }
+        ],
+        "owner": "kevinqz",
+        "repo": "LingBot-Video-Dense-1.3B-CoreAI",
+        "revision": "3106a28e6edd106b60a94fb6c51e8a854e8254cc",
+        "url": "https://huggingface.co/kevinqz/LingBot-Video-Dense-1.3B-CoreAI"
+      },
+      "id": "lingbot-video-dense-1.3b",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "provenance": {
+        "converted_by": {
+          "recipe_url": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-video-dense-1.3b.yaml",
+          "tool": "models/lingbotvideo/export.py",
+          "version": "unknown"
+        },
+        "format_version": "2.0",
+        "recipe_source": "fabric"
+      }
     }
   ],
   "export_catalog_version": "2.3.0",
   "export_schema_version": "1.0",
   "metadata": {
-    "count": 129,
+    "count": 130,
     "last_verified": "2026-07-04",
     "name": "Core AI Catalog artifact provenance"
   }

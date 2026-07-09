@@ -1,6 +1,6 @@
 # Text To Video
 
-**1 models** in the catalog with this capability.
+**2 models** in the catalog with this capability.
 
 ## Task synonyms
 
@@ -11,6 +11,7 @@
 | Model | Score | Parameters | Devices | License | Commercial | Benchmark | Source |
 |---|---|---|---|---|---|---|---|
 | [LTX-Video 2B distilled](../../catalog.yaml#L1) | 63 | 2B / DiT 1.9B + T5-XXL 4.76B | 💻 | OpenRAIL-M | ⚠️ check_license | — | 🐼 |
+| [LingBot-Video Dense 1.3B (fabric)](../../catalog.yaml#L1) | 43 | 1.3B |  | apache-2.0 | ✅ likely | — | fabric |
 
 ## Install
 
