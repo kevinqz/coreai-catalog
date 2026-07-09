@@ -516,6 +516,11 @@
       "score": 43
     },
     {
+      "id": "lingbot-video-dense-1.3b",
+      "name": "LingBot-Video Dense 1.3B (fabric)",
+      "score": 43
+    },
+    {
       "id": "lingbot-vision-vit-base",
       "name": "LingBot-Vision ViT-B (fabric)",
       "score": 43

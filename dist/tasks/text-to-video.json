@@ -3,7 +3,7 @@
   "capabilities": [
     "text-to-video"
   ],
-  "model_count": 1,
+  "model_count": 2,
   "models": [
     {
       "id": "ltx-video-2b",
@@ -18,11 +18,25 @@
       "license": "OpenRAIL-M",
       "commercial_use": "check_license",
       "has_benchmark": false
+    },
+    {
+      "id": "lingbot-video-dense-1.3b",
+      "name": "LingBot-Video Dense 1.3B (fabric)",
+      "score": 43,
+      "parameters": "1.3B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": false
+      },
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
     }
   ],
   "export_schema_version": "1.0",
   "export_catalog_version": "2.3.0",
   "best_overall": "ltx-video-2b",
   "best_iphone": null,
-  "best_commercial": null
+  "best_commercial": "lingbot-video-dense-1.3b"
 }

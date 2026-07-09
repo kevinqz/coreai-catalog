@@ -133,3 +133,4 @@ Generated from `artifacts.yaml`.
 | fastwam-libero | external | / | kevinqz/FastWAM-LIBERO-CoreAI | False | False |
 | eo1-3b | external | / | kevinqz/EO-1-3B-CoreAI | False | False |
 | lingbot-vla-v2 | external | / | kevinqz/LingBot-VLA-2.0-CoreAI | False | False |
+| lingbot-video-dense-1.3b | external | / | kevinqz/LingBot-Video-Dense-1.3B-CoreAI | False | False |
