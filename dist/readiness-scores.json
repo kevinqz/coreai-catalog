@@ -526,6 +526,11 @@
       "score": 43
     },
     {
+      "id": "lingbot-video-dense-1.3b-vae-streaming",
+      "name": "LingBot-Video Dense 1.3B VAE (streaming) (fabric)",
+      "score": 43
+    },
+    {
       "id": "lingbot-video-moe-30b-a3b",
       "name": "LingBot-Video MoE 30B-A3B (fabric)",
       "score": 43

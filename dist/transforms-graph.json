@@ -337,9 +337,10 @@
       "model_ids": [
         "lingbot-video-dense-1.3b",
         "lingbot-video-dense-1.3b-dit",
+        "lingbot-video-dense-1.3b-vae-streaming",
         "lingbot-video-moe-30b-a3b"
       ],
-      "model_count": 3
+      "model_count": 4
     },
     {
       "input": "query",
@@ -576,10 +577,11 @@
       "model_ids": [
         "lingbot-video-dense-1.3b",
         "lingbot-video-dense-1.3b-dit",
+        "lingbot-video-dense-1.3b-vae-streaming",
         "lingbot-video-moe-30b-a3b",
         "ltx-video-2b"
       ],
-      "model_count": 4
+      "model_count": 5
     },
     {
       "input": "video",

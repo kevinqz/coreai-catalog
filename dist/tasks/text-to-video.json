@@ -3,7 +3,7 @@
   "capabilities": [
     "text-to-video"
   ],
-  "model_count": 4,
+  "model_count": 5,
   "models": [
     {
       "id": "ltx-video-2b",
@@ -36,6 +36,20 @@
     {
       "id": "lingbot-video-dense-1.3b-dit",
       "name": "LingBot-Video Dense 1.3B DiT (fabric)",
+      "score": 43,
+      "parameters": "1.3B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": false
+      },
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "lingbot-video-dense-1.3b-vae-streaming",
+      "name": "LingBot-Video Dense 1.3B VAE (streaming) (fabric)",
       "score": 43,
       "parameters": "1.3B",
       "devices": {

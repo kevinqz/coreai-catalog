@@ -137,3 +137,4 @@ Generated from `artifacts.yaml`.
 | lingbot-video-moe-30b-a3b | external | / | kevinqz/LingBot-Video-MoE-30B-A3B-CoreAI | False | False |
 | miril-drone-2b-1 | external | / | kevinqz/Miril-Drone-2B-1-CoreAI | False | False |
 | lingbot-video-dense-1.3b-dit | external | / | kevinqz/LingBot-Video-Dense-1.3B-DiT-CoreAI | False | False |
+| lingbot-video-dense-1.3b-vae-streaming | external | / | kevinqz/LingBot-Video-Dense-1.3B-VAE-Streaming-CoreAI | False | False |
