@@ -315,11 +315,12 @@
         "gemma-4-e2b-vision",
         "glm-ocr",
         "minicpm-v-4-6",
+        "miril-drone-2b-1",
         "qwen3-vl-2b",
         "qwen3-vl-4b",
         "qwen3-vl-8b"
       ],
-      "model_count": 7
+      "model_count": 8
     },
     {
       "input": "image",

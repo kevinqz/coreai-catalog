@@ -7971,10 +7971,76 @@
           "format_version": "2.0",
           "recipe_source": "fabric"
         }
+      },
+      {
+        "group": "external",
+        "huggingface": {
+          "files": [
+            {
+              "path": ".gitattributes",
+              "sha256": "b83bf119af2e1de47962241f9d38278e8a4e7b53f4d9eb695ac139706ac6513b",
+              "size_bytes": 1591
+            },
+            {
+              "path": "LICENSE",
+              "sha256": "7505b489cc8ad7f16ba08343184320f1583303cfacdb9121b9b756bc073df1ab",
+              "size_bytes": 10254
+            },
+            {
+              "path": "NOTICE",
+              "sha256": "b14341af8df796fc494674e6520ec7a73158eaadfe44c98e6649dffbbc45d0ed",
+              "size_bytes": 516
+            },
+            {
+              "path": "README.md",
+              "sha256": "4c00bd6103221de5036f9817fb89b7961898efd39b1b9ac041a8f465e45fa97e",
+              "size_bytes": 4687
+            },
+            {
+              "path": "miril-drone-2b-1.aimodel/main.hash",
+              "sha256": "43243bb1bc7ba0d8e24516ab44aa121c7590fb4d6880d8cb47ab97f0abe7f117",
+              "size_bytes": 32
+            },
+            {
+              "path": "miril-drone-2b-1.aimodel/main.mlirb",
+              "sha256": "08b6e04afdc38e4b645b286466a48f23a2f46f46512817e6c853a3e2d4eac35c",
+              "size_bytes": 616840912
+            },
+            {
+              "path": "miril-drone-2b-1.aimodel/metadata.json",
+              "sha256": "23c58587fb570ebfdfa43b0a7a2e861276d6fddbe2b80de67028e8a7b11bf45c",
+              "size_bytes": 105
+            },
+            {
+              "path": "parity-report.json",
+              "sha256": "f4e2513bc078f93fda87cf3a027b91f57f98762d79c6e0a60bc552079d242347",
+              "size_bytes": 2124
+            }
+          ],
+          "owner": "kevinqz",
+          "repo": "Miril-Drone-2B-1-CoreAI",
+          "revision": "645f25930ce2170de1d147aa49f54b2762d7c1f5",
+          "url": "https://huggingface.co/kevinqz/Miril-Drone-2B-1-CoreAI"
+        },
+        "id": "miril-drone-2b-1",
+        "officiality": {
+          "apple_export_recipe": false,
+          "apple_hosted_artifact": false,
+          "community_packaged": true
+        },
+        "provenance": {
+          "converted_by": {
+            "recipe_url": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/miril-drone-2b-1.yaml",
+            "tool": "models/miril/export.py",
+            "version": "unknown"
+          },
+          "format_version": "2.0",
+          "recipe_source": "fabric"
+        }
       }
     ],
     "metadata": {
-      "count": 131,
+      "count": 132,
       "last_verified": "2026-07-04",
       "name": "Core AI Catalog artifact provenance"
     }
@@ -20100,6 +20166,94 @@
         ],
         "status": "needs_review",
         "upstream_repo": "robbyant/lingbot-video-moe-30b-a3b"
+      },
+      {
+        "architecture": "encoder",
+        "artifact": {
+          "availability": "available",
+          "format": "aimodel"
+        },
+        "artifact_ref": "miril-drone-2b-1",
+        "bundle_kind": "image-feature-extraction",
+        "capabilities": [
+          "image-feature-extraction"
+        ],
+        "confidence": "medium",
+        "device_support": {
+          "ipad": "unknown",
+          "iphone": "unknown",
+          "mac": "unknown",
+          "mac_only": "unknown"
+        },
+        "evaluation": {
+          "mean_chunk_cosine": 0.9999999999986535,
+          "measured_on": "apple_silicon",
+          "measurement_source": "graph-output-parity-measured.json",
+          "median_cosine": 0.9999999999986656,
+          "metric": "graph_output_cosine",
+          "min_chunk_cosine": 0.9999999999984324,
+          "min_cosine": 0.9999999999984324,
+          "n_obs": 8,
+          "protocol": {
+            "granularity": "flattened",
+            "graph_boundary": "single-graph forward",
+            "input_protocol": "synthetic",
+            "n_obs": 8,
+            "reference_dtype": "float32"
+          },
+          "reference_dtype": "float32",
+          "runner": "coreai-fabric-parity-runner/0.1.0",
+          "status": "passed",
+          "threshold": 0.999,
+          "tolerance": 0.0005,
+          "value": 0.9999999999984324
+        },
+        "family": "Miril-Drone",
+        "id": "miril-drone-2b-1",
+        "last_verified": "2026-07-09",
+        "license": {
+          "commercial_use": "likely",
+          "name": "apache-2.0"
+        },
+        "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
+        "modalities": {
+          "input": [
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "name": "Miril-Drone 2B-1 (fabric)",
+        "notes": "Converted via coreai-fabric recipe miril-drone-2b-1 (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/miril-drone-2b-1.yaml). Parity: gate A passed, gate B passed.",
+        "runtime": {
+          "aot_required": false,
+          "custom_kernel": false,
+          "patch_required": false,
+          "processor_required": true,
+          "runner": "CoreAIRunner",
+          "runtime_name": "apple-core-ai",
+          "stock_runtime": false,
+          "tokenizer_required": true
+        },
+        "size": {
+          "artifact_size": "588.3MB",
+          "fidelity_tier": "high_fidelity",
+          "parameters": "2B",
+          "precision": "float32",
+          "quantization": "none"
+        },
+        "source_group": "fabric",
+        "source_path": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/miril-drone-2b-1.yaml",
+        "sources": [
+          "coreai-fabric"
+        ],
+        "status": "needs_review",
+        "upstream_repo": "MirilAI/Miril-Drone-2B-1"
       }
     ]
   },

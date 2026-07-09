@@ -1,6 +1,6 @@
 # Comparison: image-feature-extraction
 
-Side-by-side comparison of all 4 model(s) with the `image-feature-extraction` capability.
+Side-by-side comparison of all 5 model(s) with the `image-feature-extraction` capability.
 
 | Model | Family | Parameters | Precision | Devices | License | Runtime | Benchmark | Source |
 |---|---|---|---|---|---|---|---|---|
@@ -8,6 +8,7 @@ Side-by-side comparison of all 4 model(s) with the `image-feature-extraction` ca
 | LingBot-Vision ViT-L (fabric) | LingBot | 0.3B | float32 | unknown | apache-2.0 | CoreAIRunner | — | 🐼 Zoo |
 | LingBot-Vision ViT-S (fabric) | LingBot | 22M | float32 | unknown | apache-2.0 | CoreAIRunner | — | 🐼 Zoo |
 | LingBot-Vision ViT-g (fabric) | LingBot | 1.1B | float32 | unknown | apache-2.0 | CoreAIRunner | — | 🐼 Zoo |
+| Miril-Drone 2B-1 (fabric) | Miril-Drone | 2B | float32 | unknown | apache-2.0 | CoreAIRunner | — | 🐼 Zoo |
 
 > Generated automatically by `scripts/generate.py` from `catalog.yaml` + `benchmarks.jsonl`.
 

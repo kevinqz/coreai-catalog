@@ -1,7 +1,7 @@
 {
   "export_schema_version": "1.0",
   "export_catalog_version": "2.3.0",
-  "model_count": 130,
+  "model_count": 131,
   "models": [
     {
       "id": "qwen3-5-0-8b",
@@ -5302,6 +5302,33 @@
         "ios": "27.0"
       },
       "upstream_repo": "robbyant/lingbot-video-moe-30b-a3b",
+      "io_contract": null
+    },
+    {
+      "id": "miril-drone-2b-1",
+      "name": "Miril-Drone 2B-1 (fabric)",
+      "bundle_kind": "image-feature-extraction",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "image-feature-extraction"
+      ],
+      "input_modalities": [
+        "image"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "parameters": "2B",
+      "precision": "float32",
+      "artifact_size": "588.3MB",
+      "huggingface_url": "https://huggingface.co/kevinqz/Miril-Drone-2B-1-CoreAI",
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "MirilAI/Miril-Drone-2B-1",
       "io_contract": null
     }
   ]

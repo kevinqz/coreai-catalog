@@ -11,7 +11,7 @@ Browse models by capability.
 - [Embedding](./embedding.md) — 2 models
 - [Gui Grounding](./gui-grounding.md) — 1 models
 - [Hybrid Llm](./hybrid-llm.md) — 2 models
-- [Image Feature Extraction](./image-feature-extraction.md) — 4 models
+- [Image Feature Extraction](./image-feature-extraction.md) — 5 models
 - [Image Generation](./image-generation.md) — 3 models
 - [Image Text Similarity](./image-text-similarity.md) — 1 models
 - [Image To 3D](./image-to-3d.md) — 1 models

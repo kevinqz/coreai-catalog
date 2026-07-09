@@ -135,3 +135,4 @@ Generated from `artifacts.yaml`.
 | lingbot-vla-v2 | external | / | kevinqz/LingBot-VLA-2.0-CoreAI | False | False |
 | lingbot-video-dense-1.3b | external | / | kevinqz/LingBot-Video-Dense-1.3B-CoreAI | False | False |
 | lingbot-video-moe-30b-a3b | external | / | kevinqz/LingBot-Video-MoE-30B-A3B-CoreAI | False | False |
+| miril-drone-2b-1 | external | / | kevinqz/Miril-Drone-2B-1-CoreAI | False | False |
