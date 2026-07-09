@@ -157,6 +157,24 @@
     mean_chunk_cosine: 1.0   # optional
     max_action_mae: 1.0   # Maximum mean absolute error per action dimension. — optional
     max_relative_action_mae: 1.0   # Scale-invariant maximum relative MAE. — optional
+    value: 52.3   # The headline metric value the gate was judged on (the durable Gate-B number; fabric RFC F6). Generic across metric families. — optional
+    threshold: 1.0   # The gate threshold the value was judged against. — optional
+    tolerance: 1.0   # Allowed slack below threshold before hard failure. — optional
+    min_cosine: 1.0   # Generic minimum cosine (graph_output_cosine / per_token_logit_cosine lanes). — optional
+    median_cosine: 1.0   # optional
+    num_steps: 1   # Sampler steps the parity was driven through. — optional
+    chunk_len: 1   # Action chunk length compared (action parity). — optional
+    measurement_source: replace-me   # Provenance of the measured number (e.g. the parity-report artifact name). — optional
+    protocol:   # The measurement SIGNATURE (fabric RFC F2): what makes `value` comparable. 'The Gate-B number' is several incommensurable quantities (match-rate vs cosine, per-row vs flattened, synthetic vs recorded, fp16 vs fp32) — a ranking is only valid within a matching (metric, granularity, input_protocol, reference_dtype, graph_boundary) cell. Mirrors the fabric recipe gate_b.protocol. — optional
+      n_obs: 1   # optional
+      seed: 1   # optional
+      input_protocol: synthetic   # synthetic | recorded | mixed — Where the inputs came from. synthetic = seeded random (the smolvla 0.02-cosine catastrophe is the standing warning); recorded = real dataset frames/pixels; mixed = a documented blend. — optional
+      reference_dtype: float32   # float32 | float16 | bfloat16; optional
+      granularity: per_row   # per_row | flattened | per_token — How the per-observation metric was aggregated. flattened = whole-tensor cosine (structurally inflated for wide outputs). — optional
+      graph_boundary: replace-me   # What the number spans (e.g. 'encode->denoise', 'whole-LM', 'action head'). A reduced-boundary export cannot cite a whole-graph number. — optional
+      loaded_on_ane: false   # Deployability signal, DISTINCT from parity: an AR generator reloading N multi-GB programs per token can pass cosine while being undeployable. — optional
+      waivers:   # Named relaxations applied (e.g. 'near_zero_action'). Surfaced, never silently marks passed-below-bar. — optional
+      - replace-me
     framework: replace-me   # Framework the parity was measured against (e.g. 'lerobot'). — optional
     framework_version: replace-me   # optional
     sampler:   # optional
