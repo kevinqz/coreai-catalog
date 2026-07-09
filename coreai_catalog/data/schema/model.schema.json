@@ -272,7 +272,8 @@
         "token-classification",
         "image-feature-extraction",
         "diarization",
-        "reward-model"
+        "reward-model",
+        "time-series"
       ]
     },
     "min_os": {

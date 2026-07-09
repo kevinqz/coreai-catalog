@@ -79,6 +79,8 @@ Generated from `artifacts.yaml`.
 | vibevoice-7b | external | gafiatulin/vibevoice-coreai | gafiatulin/vibevoice-7b-coreai | False | False |
 | vibevoice-asr | external | gafiatulin/vibevoice-coreai | gafiatulin/vibevoice-asr-coreai | False | False |
 | nemotron-3-5-asr-streaming | external | mweinbach/NemotronCoreAI | mweinbach/nemotron-3.5-asr-streaming-0.6b-coreai | False | False |
+| nemotron-3-5-asr-streaming-mlboydaisuke | zoo | / | mlboydaisuke/Nemotron-3.5-ASR-Streaming-CoreAI | False | False |
+| timesfm-2-5-200m | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/TimesFM-2.5-200M-CoreAI | False | False |
 | z-image-turbo | external | bryanbblewis11/CoreAI-models | bryanbblewis11/Z-Image-Turbo-CoreAI | False | False |
 | real-esrgan-x4v3 | external | bryanbblewis11/CoreAI-models | bryanbblewis11/RealESRGAN-x4v3-CoreAI | False | False |
 | efficientsam3-tinyvit | external | lenitas/coreai-artifacts | lenitas/coreai-artifacts | False | False |

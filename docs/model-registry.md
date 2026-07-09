@@ -77,6 +77,7 @@
 | vibevoice-7b | VibeVoice 7B | external | VibeVoice | text-to-speech | text | audio | 7B | Mac | MIT | confirmed |
 | vibevoice-asr | VibeVoice ASR | external | VibeVoice | speech-to-text | audio | transcript | 7B | Mac | MIT | confirmed |
 | nemotron-3-5-asr-streaming | Nemotron 3.5 ASR Streaming 0.6B | external | Nemotron | speech-to-text | audio | transcript | 0.6B | iPhone/Mac | OpenMDW-1.1 | confirmed |
+| timesfm-2-5-200m | TimesFM 2.5 200M | zoo | TimesFM | time-series-forecasting | time-series | time-series | 200M | iPhone/Mac | Apache-2.0 | confirmed |
 | z-image-turbo | Z-Image Turbo | external | Z-Image | image-generation | text | image | not_published | iPhone/iPad/Mac | Apache-2.0 | confirmed |
 | real-esrgan-x4v3 | Real-ESRGAN x4v3 | external | Real-ESRGAN | super-resolution | image | image | not_published | Mac | BSD-3-Clause | confirmed |
 | efficientsam3-tinyvit | EfficientSAM3-TinyViT | external | SAM | promptable-segmentation | image | masks | not_published | iPhone/Mac | Apache-2.0 | confirmed |

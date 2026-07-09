@@ -3,7 +3,7 @@
   "export_schema_version": "1.0",
   "metadata": {
     "description": "Compact, source-grounded catalog of Apple Core AI models, artifacts, capabilities, modalities, runtime metadata, device support and sources.",
-    "last_verified": "2026-07-04",
+    "last_verified": "2026-07-09",
     "name": "Core AI Catalog",
     "repo": "coreai-catalog",
     "upstream": [
@@ -5412,6 +5412,9 @@
       "streaming": true
     },
     {
+      "alternate_artifacts": [
+        "nemotron-3-5-asr-streaming-mlboydaisuke"
+      ],
       "architecture": "transformer",
       "artifact": {
         "availability": "available",
@@ -5431,7 +5434,7 @@
       },
       "family": "Nemotron",
       "id": "nemotron-3-5-asr-streaming",
-      "last_verified": "2026-06-30",
+      "last_verified": "2026-07-09",
       "license": {
         "commercial_use": "check_license",
         "name": "OpenMDW-1.1"
@@ -5450,7 +5453,7 @@
         ]
       },
       "name": "Nemotron 3.5 ASR Streaming 0.6B",
-      "notes": "NVIDIA FastConformer + RNN-T streaming ASR. Cache-aware 320ms encoder mode. AOT artifacts for iOS (A19 h18p) + macOS (M3-M5). Companion Swift package mweinbach/NemotronCoreAI. Multiple quantization variants (int8, lut6, lut8). 174 files.",
+      "notes": "NVIDIA FastConformer + RNN-T streaming ASR. Cache-aware 320ms encoder mode. AOT artifacts for iOS (A19 h18p) + macOS (M3-M5). Companion Swift package mweinbach/NemotronCoreAI. Multiple quantization variants (int8, lut6, lut8). 174 files. The zoo also publishes an independent Core AI packaging of the same nvidia base model at mlboydaisuke/Nemotron-3.5-ASR-Streaming-CoreAI (OpenMDW-1.1); this entry indexes the mweinbach packaging rather than duplicating the model.",
       "runtime": {
         "aot_required": true,
         "custom_kernel": false,
@@ -5470,10 +5473,76 @@
       "source_group": "external",
       "source_path": "https://huggingface.co/mweinbach/nemotron-3.5-asr-streaming-0.6b-coreai",
       "sources": [
-        "mweinbach-nemotron-coreai"
+        "mweinbach-nemotron-coreai",
+        "mlboydaisuke-nemotron-coreai"
       ],
       "status": "confirmed",
       "streaming": false
+    },
+    {
+      "architecture": "transformer",
+      "artifact": {
+        "availability": "available",
+        "format": "aimodel"
+      },
+      "artifact_ref": "timesfm-2-5-200m",
+      "bundle_kind": "time-series",
+      "capabilities": [
+        "time-series-forecasting"
+      ],
+      "confidence": "medium",
+      "device_support": {
+        "ipad": "unknown",
+        "iphone": true,
+        "mac": true,
+        "mac_only": false
+      },
+      "family": "TimesFM",
+      "id": "timesfm-2-5-200m",
+      "last_verified": "2026-07-09",
+      "license": {
+        "commercial_use": "likely",
+        "name": "Apache-2.0"
+      },
+      "maturity": "experimental",
+      "min_os": {
+        "ios": "27.0",
+        "macos": "27.0"
+      },
+      "modalities": {
+        "input": [
+          "time-series"
+        ],
+        "output": [
+          "time-series"
+        ]
+      },
+      "name": "TimesFM 2.5 200M",
+      "notes": "Zoo's first time-series forecasting foundation model. Decoder-only patched transformer; any univariate series to 128-step point + 10-quantile forecast. One stateless Core AI graph + host RevIN/flip DSP. fp16 ~463 MB, ~14 ms/forecast on M4 Max, ~25 ms iPhone 17 Pro (device-verified). Google.",
+      "runtime": {
+        "aot_required": true,
+        "custom_kernel": false,
+        "patch_required": false,
+        "processor_required": true,
+        "runner": "CoreAIRunner",
+        "runtime_name": "apple-core-ai",
+        "stock_runtime": true,
+        "tokenizer_required": false
+      },
+      "size": {
+        "artifact_size": "463MB",
+        "parameters": "200M",
+        "precision": "fp16",
+        "quantization": "none"
+      },
+      "source_group": "zoo",
+      "source_path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/timesfm.md",
+      "sources": [
+        "coreai-model-zoo-readme",
+        "coreai-model-zoo-zoo"
+      ],
+      "status": "confirmed",
+      "upstream_repo": "google/timesfm-2.5-200m-transformers"
     },
     {
       "architecture": "diffusion",

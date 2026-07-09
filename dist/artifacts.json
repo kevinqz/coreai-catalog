@@ -4810,6 +4810,47 @@
       }
     },
     {
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "Nemotron-3.5-ASR-Streaming-CoreAI",
+        "revision": "bf300805e1fde25a225f7390e63e69f53e626fc1",
+        "url": "https://huggingface.co/mlboydaisuke/Nemotron-3.5-ASR-Streaming-CoreAI"
+      },
+      "id": "nemotron-3-5-asr-streaming-mlboydaisuke",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "provenance": {
+        "recipe_source": "zoo-port"
+      }
+    },
+    {
+      "github": {
+        "owner": "john-rocky",
+        "path": "https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/timesfm.md",
+        "repo": "coreai-model-zoo"
+      },
+      "group": "zoo",
+      "huggingface": {
+        "owner": "mlboydaisuke",
+        "repo": "TimesFM-2.5-200M-CoreAI",
+        "revision": "48b5abb74799158fc93a86ed48208a29c8e3f473",
+        "url": "https://huggingface.co/mlboydaisuke/TimesFM-2.5-200M-CoreAI"
+      },
+      "id": "timesfm-2-5-200m",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "provenance": {
+        "recipe_source": "zoo-port"
+      }
+    },
+    {
       "github": {
         "owner": "bryanbblewis11",
         "path": null,
@@ -8163,8 +8204,8 @@
   "export_catalog_version": "2.3.0",
   "export_schema_version": "1.0",
   "metadata": {
-    "count": 134,
-    "last_verified": "2026-07-04",
+    "count": 136,
+    "last_verified": "2026-07-09",
     "name": "Core AI Catalog artifact provenance"
   }
 }

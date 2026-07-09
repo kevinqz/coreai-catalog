@@ -1,5 +1,5 @@
 {
-  "count": 133,
+  "count": 134,
   "export_schema_version": "1.0",
   "export_catalog_version": "2.3.0",
   "models": [
@@ -8661,14 +8661,14 @@
           "name": "OpenMDW-1.1",
           "commercial_use": "check_license"
         },
-        "hosts": 1,
+        "hosts": 2,
         "measured": false
       },
       "lifecycle": {
         "stage": "experimental",
         "verification": "confirmed",
         "curator_confidence": "high",
-        "last_verified": "2026-06-30"
+        "last_verified": "2026-07-09"
       },
       "entry_completeness": {
         "pct": 0.667,
@@ -8694,8 +8694,100 @@
         "community_packaged": false
       },
       "benchmarks": [],
-      "last_verified": "2026-06-30",
-      "notes": "NVIDIA FastConformer + RNN-T streaming ASR. Cache-aware 320ms encoder mode. AOT artifacts for iOS (A19 h18p) + macOS (M3-M5). Companion Swift package mweinbach/NemotronCoreAI. Multiple quantization variants (int8, lut6, lut8). 174 files."
+      "last_verified": "2026-07-09",
+      "notes": "NVIDIA FastConformer + RNN-T streaming ASR. Cache-aware 320ms encoder mode. AOT artifacts for iOS (A19 h18p) + macOS (M3-M5). Companion Swift package mweinbach/NemotronCoreAI. Multiple quantization variants (int8, lut6, lut8). 174 files. The zoo also publishes an independent Core AI packaging of the same nvidia base model at mlboydaisuke/Nemotron-3.5-ASR-Streaming-CoreAI (OpenMDW-1.1); this entry indexes the mweinbach packaging rather than duplicating the model."
+    },
+    {
+      "id": "timesfm-2-5-200m",
+      "name": "TimesFM 2.5 200M",
+      "family": "TimesFM",
+      "source_group": "zoo",
+      "bundle_kind": "time-series",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "google/timesfm-2.5-200m-transformers",
+      "io_contract": null,
+      "capabilities": [
+        "time-series-forecasting"
+      ],
+      "input_modalities": [
+        "time-series"
+      ],
+      "output_modalities": [
+        "time-series"
+      ],
+      "devices": [
+        "iphone",
+        "mac"
+      ],
+      "parameters": "200M",
+      "precision": "fp16",
+      "quantization": "none",
+      "artifact_size": "463MB",
+      "runtime": "apple-core-ai",
+      "runner": "CoreAIRunner",
+      "stock_runtime": true,
+      "custom_kernel": false,
+      "patch_required": false,
+      "aot_required": true,
+      "engine_variant": null,
+      "evaluation": null,
+      "framework_contract": null,
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "status": "confirmed",
+      "maturity": "experimental",
+      "confidence": "medium",
+      "readiness_score": 78,
+      "deployability": {
+        "obtainable": "available",
+        "runtime": "stock",
+        "device_fit": {
+          "mac": true,
+          "iphone": true,
+          "ipad": "unknown"
+        },
+        "license": {
+          "name": "Apache-2.0",
+          "commercial_use": "likely"
+        },
+        "hosts": 1,
+        "measured": false
+      },
+      "lifecycle": {
+        "stage": "experimental",
+        "verification": "confirmed",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-09"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
+      "artifact": {
+        "format": "aimodel",
+        "availability": "available",
+        "huggingface_url": "https://huggingface.co/mlboydaisuke/TimesFM-2.5-200M-CoreAI",
+        "huggingface_repo": "mlboydaisuke/TimesFM-2.5-200M-CoreAI",
+        "github_source": "john-rocky/coreai-model-zoo",
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "benchmarks": [],
+      "last_verified": "2026-07-09",
+      "notes": "Zoo's first time-series forecasting foundation model. Decoder-only patched transformer; any univariate series to 128-step point + 10-quantile forecast. One stateless Core AI graph + host RevIN/flip DSP. fp16 ~463 MB, ~14 ms/forecast on M4 Max, ~25 ms iPhone 17 Pro (device-verified). Google."
     },
     {
       "id": "z-image-turbo",

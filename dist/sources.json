@@ -301,6 +301,17 @@
       "volatility": "medium"
     },
     {
+      "id": "mlboydaisuke-nemotron-coreai",
+      "last_checked": "2026-07-09",
+      "notes": "Zoo's independent Core AI packaging of NVIDIA Nemotron 3.5 streaming ASR (cache-aware FastConformer + pure RNN-T, 320 ms chunks, 40 locales). Distinct conversion from the mweinbach packaging already cataloged as nemotron-3-5-asr-streaming; same nvidia base model. Listed in the coreai-model-zoo README.",
+      "owner": "mlboydaisuke",
+      "title": "mlboydaisuke/Nemotron-3.5-ASR-Streaming-CoreAI",
+      "trust": "community_secondary",
+      "type": "huggingface_repository",
+      "url": "https://huggingface.co/mlboydaisuke/Nemotron-3.5-ASR-Streaming-CoreAI",
+      "volatility": "medium"
+    },
+    {
       "id": "bryanbblewis11-vibevoice-coreai",
       "last_checked": "2026-07-04",
       "notes": "Independent higher-fidelity (fp16) VibeVoice-1.5B Core AI conversion. Alternate host to gafiatulin's int8 build.",

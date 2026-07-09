@@ -2,7 +2,7 @@ metadata:
   name: Core AI Catalog
   repo: coreai-catalog
   version: 2.3.0
-  last_verified: '2026-07-04'
+  last_verified: '2026-07-09'
   upstream:
   - coreai-model-zoo
   - apple/coreai-models
@@ -4319,6 +4319,8 @@ models:
   family: Nemotron
   source_group: external
   artifact_ref: nemotron-3-5-asr-streaming
+  alternate_artifacts:
+  - nemotron-3-5-asr-streaming-mlboydaisuke
   source_path: https://huggingface.co/mweinbach/nemotron-3.5-asr-streaming-0.6b-coreai
   capabilities:
   - speech-to-text
@@ -4357,16 +4359,75 @@ models:
   confidence: high
   sources:
   - mweinbach-nemotron-coreai
-  last_verified: '2026-06-30'
+  - mlboydaisuke-nemotron-coreai
+  last_verified: '2026-07-09'
   bundle_kind: asr
   min_os:
     macos: '27.0'
     ios: '27.0'
   notes: NVIDIA FastConformer + RNN-T streaming ASR. Cache-aware 320ms encoder mode.
     AOT artifacts for iOS (A19 h18p) + macOS (M3-M5). Companion Swift package mweinbach/NemotronCoreAI.
-    Multiple quantization variants (int8, lut6, lut8). 174 files.
+    Multiple quantization variants (int8, lut6, lut8). 174 files. The zoo also
+    publishes an independent Core AI packaging of the same nvidia base model at
+    mlboydaisuke/Nemotron-3.5-ASR-Streaming-CoreAI (OpenMDW-1.1); this entry indexes
+    the mweinbach packaging rather than duplicating the model.
   architecture: transformer
   streaming: false
+- id: timesfm-2-5-200m
+  name: TimesFM 2.5 200M
+  family: TimesFM
+  source_group: zoo
+  artifact_ref: timesfm-2-5-200m
+  source_path: https://github.com/john-rocky/coreai-model-zoo/blob/main/zoo/timesfm.md
+  capabilities:
+  - time-series-forecasting
+  modalities:
+    input:
+    - time-series
+    output:
+    - time-series
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 200M
+    precision: fp16
+    quantization: none
+    artifact_size: 463MB
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: true
+    custom_kernel: false
+    patch_required: false
+    tokenizer_required: false
+    processor_required: true
+    aot_required: true
+  device_support:
+    iphone: true
+    ipad: unknown
+    mac: true
+    mac_only: false
+  license:
+    name: Apache-2.0
+    commercial_use: likely
+  status: confirmed
+  maturity: experimental
+  confidence: medium
+  sources:
+  - coreai-model-zoo-readme
+  - coreai-model-zoo-zoo
+  last_verified: '2026-07-09'
+  bundle_kind: time-series
+  min_os:
+    macos: '27.0'
+    ios: '27.0'
+  upstream_repo: google/timesfm-2.5-200m-transformers
+  notes: Zoo's first time-series forecasting foundation model. Decoder-only patched
+    transformer; any univariate series to 128-step point + 10-quantile forecast.
+    One stateless Core AI graph + host RevIN/flip DSP. fp16 ~463 MB, ~14 ms/forecast
+    on M4 Max, ~25 ms iPhone 17 Pro (device-verified). Google.
+  architecture: transformer
 - id: z-image-turbo
   name: Z-Image Turbo
   family: Z-Image

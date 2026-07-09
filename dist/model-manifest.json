@@ -1,7 +1,7 @@
 {
   "export_schema_version": "1.0",
   "export_catalog_version": "2.3.0",
-  "model_count": 133,
+  "model_count": 134,
   "models": [
     {
       "id": "qwen3-5-0-8b",
@@ -2565,6 +2565,33 @@
         "ios": "27.0"
       },
       "upstream_repo": null,
+      "io_contract": null
+    },
+    {
+      "id": "timesfm-2-5-200m",
+      "name": "TimesFM 2.5 200M",
+      "bundle_kind": "time-series",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "time-series-forecasting"
+      ],
+      "input_modalities": [
+        "time-series"
+      ],
+      "output_modalities": [
+        "time-series"
+      ],
+      "parameters": "200M",
+      "precision": "fp16",
+      "artifact_size": "463MB",
+      "huggingface_url": "https://huggingface.co/mlboydaisuke/TimesFM-2.5-200M-CoreAI",
+      "license": "Apache-2.0",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "google/timesfm-2.5-200m-transformers",
       "io_contract": null
     },
     {
