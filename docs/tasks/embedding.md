@@ -1,6 +1,6 @@
 # Embedding
 
-**2 models** in the catalog with this capability.
+**3 models** in the catalog with this capability.
 
 ## Task synonyms
 
@@ -12,6 +12,7 @@
 |---|---|---|---|---|---|---|---|
 | [Qwen3-Embedding 0.6B](../../catalog.yaml#L1) | 93 | 0.6B | 📱💻 | Apache-2.0 | ✅ likely | 📊 | 🐼 |
 | [EmbeddingGemma 300M](../../catalog.yaml#L1) | 73 | 300M | 📱💻 | Gemma Terms | ⚠️ check_license | — | 🐼 |
+| [BGE-Small-EN v1.5 (fabric)](../../catalog.yaml#L1) | 43 | 0.033B |  | mit | ✅ likely | — | fabric |
 
 ## Install
 

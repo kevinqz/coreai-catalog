@@ -509,6 +509,7 @@
       "input": "text",
       "output": "text",
       "model_ids": [
+        "bge-small-en-v15",
         "bitcpm-8b",
         "fastcontext-1-0-4b",
         "gemma-4-12b",
@@ -560,7 +561,7 @@
         "vibethinker-3b",
         "youtu-llm-2b"
       ],
-      "model_count": 50
+      "model_count": 51
     },
     {
       "input": "text",

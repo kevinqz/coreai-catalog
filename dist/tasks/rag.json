@@ -5,7 +5,7 @@
     "reranking",
     "chat"
   ],
-  "model_count": 36,
+  "model_count": 37,
   "models": [
     {
       "id": "qwen3-embedding-0-6b",
@@ -509,6 +509,20 @@
       },
       "license": "Apache-2.0",
       "commercial_use": "check_license",
+      "has_benchmark": false
+    },
+    {
+      "id": "bge-small-en-v15",
+      "name": "BGE-Small-EN v1.5 (fabric)",
+      "score": 43,
+      "parameters": "0.033B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": false
+      },
+      "license": "mit",
+      "commercial_use": "likely",
       "has_benchmark": false
     }
   ],
