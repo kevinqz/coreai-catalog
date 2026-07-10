@@ -1,7 +1,7 @@
 {
   "export_schema_version": "1.0",
   "export_catalog_version": "2.3.0",
-  "model_count": 134,
+  "model_count": 135,
   "models": [
     {
       "id": "qwen3-5-0-8b",
@@ -5413,6 +5413,66 @@
       },
       "upstream_repo": "robbyant/lingbot-video-dense-1.3b",
       "io_contract": null
+    },
+    {
+      "id": "qwen3-0.6b",
+      "name": "Qwen3 0.6B (fabric)",
+      "bundle_kind": "llm",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "parameters": "0.6B",
+      "precision": "float16",
+      "artifact_size": "940.2MB",
+      "huggingface_url": "https://huggingface.co/kevinqz/Qwen3-0.6B-CoreAI/tree/main/int4",
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "Qwen/Qwen3-0.6B",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAILanguageModels",
+          "type": "CoreAILanguageModel",
+          "init_pattern": "let model = try await CoreAILanguageModel(resourcesAt: bundleURL)"
+        },
+        "inputs": [
+          {
+            "name": "prompt",
+            "modality": "text",
+            "swift_type": "String",
+            "constraints": {
+              "max_context": 8192
+            }
+          }
+        ],
+        "outputs": [
+          {
+            "name": "response",
+            "swift_type": "String",
+            "decoding": {
+              "detokenization": "embedded tokenizer (Qwen/Qwen3-0.6B); LanguageModelSession.respond(to:) returns detokenized text"
+            }
+          }
+        ],
+        "session": {
+          "stateful": true,
+          "streaming": true
+        },
+        "files": {
+          "tokenizer_ref": "macos/tokenizer"
+        }
+      }
     }
   ]
 }

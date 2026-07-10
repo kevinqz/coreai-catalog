@@ -4,7 +4,7 @@
     "chat",
     "agentic"
   ],
-  "model_count": 33,
+  "model_count": 34,
   "models": [
     {
       "id": "official-qwen3-0-6b",
@@ -417,6 +417,20 @@
       "name": "Qwen2.5-1.5B-Instruct (fabric, int8)",
       "score": 53,
       "parameters": "1.5B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": false
+      },
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "qwen3-0.6b",
+      "name": "Qwen3 0.6B (fabric)",
+      "score": 53,
+      "parameters": "0.6B",
       "devices": {
         "iphone": false,
         "ipad": false,

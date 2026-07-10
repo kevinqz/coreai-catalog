@@ -4,7 +4,7 @@
     "text-generation",
     "chat"
   ],
-  "model_count": 40,
+  "model_count": 41,
   "models": [
     {
       "id": "official-qwen3-0-6b",
@@ -473,6 +473,20 @@
       "name": "Qwen2.5-Math 1.5B Instruct (fabric, int8)",
       "score": 53,
       "parameters": "not_published",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": false
+      },
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "qwen3-0.6b",
+      "name": "Qwen3 0.6B (fabric)",
+      "score": 53,
+      "parameters": "0.6B",
       "devices": {
         "iphone": false,
         "ipad": false,
