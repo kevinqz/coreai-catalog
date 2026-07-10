@@ -8509,3 +8509,77 @@ models:
       granularity: flattened
       input_protocol: synthetic
       graph_boundary: single-graph forward
+- id: moss-transcribe-diarize-audio
+  name: MOSS-Transcribe-Diarize Audio Encoder (fabric)
+  family: MOSS
+  source_group: fabric
+  source_path: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/moss-transcribe-diarize-audio.yaml
+  artifact_ref: moss-transcribe-diarize-audio
+  capabilities:
+  - speech-to-text
+  bundle_kind: asr
+  min_os:
+    macos: '27.0'
+    ios: '27.0'
+  upstream_repo: OpenMOSS-Team/MOSS-Transcribe-Diarize
+  modalities:
+    input:
+    - audio
+    output:
+    - embedding
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 0.9B
+    precision: float32
+    quantization: none
+    artifact_size: 1.2GB
+    fidelity_tier: high_fidelity
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: false
+    custom_kernel: false
+    patch_required: false
+    tokenizer_required: true
+    processor_required: true
+    aot_required: false
+  device_support:
+    iphone: unknown
+    ipad: unknown
+    mac: unknown
+    mac_only: unknown
+  license:
+    name: apache-2.0
+    commercial_use: likely
+  status: needs_review
+  maturity: experimental
+  confidence: medium
+  sources:
+  - coreai-fabric
+  last_verified: '2026-07-10'
+  notes: 'Converted via coreai-fabric recipe moss-transcribe-diarize-audio (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/moss-transcribe-diarize-audio.yaml).
+    Parity: gate A passed, gate B passed.'
+  architecture: transformer
+  evaluation:
+    metric: graph_output_cosine
+    status: passed
+    reference_dtype: float32
+    n_obs: 8
+    min_chunk_cosine: 0.9999999998890724
+    mean_chunk_cosine: 0.9999999999369416
+    runner: coreai-fabric-parity-runner/0.1.0
+    measured_on: apple_silicon
+    value: 0.9999999998890724
+    threshold: 0.999
+    tolerance: 0.0005
+    min_cosine: 0.9999999998890724
+    median_cosine: 0.9999999999478384
+    measurement_source: graph-output-parity-measured.json
+    protocol:
+      n_obs: 8
+      reference_dtype: float32
+      granularity: flattened
+      input_protocol: synthetic
+      graph_boundary: single-graph forward

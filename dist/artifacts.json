@@ -8199,12 +8199,73 @@
         "format_version": "2.0",
         "recipe_source": "fabric"
       }
+    },
+    {
+      "group": "external",
+      "huggingface": {
+        "files": [
+          {
+            "path": ".gitattributes",
+            "sha256": "df04654edde5178bee03b9eb1f88549203277d8563ec7a984ef2868e09de42ae",
+            "size_bytes": 1604
+          },
+          {
+            "path": "LICENSE",
+            "sha256": "f5eb72e4f413357133edd9c333fd0bbffa7872288425a067f0cd23dcf92d3cf8",
+            "size_bytes": 11995
+          },
+          {
+            "path": "README.md",
+            "sha256": "ba26afae3ea3d878e1c8b84ba4a72e2460b826ed7265adeee85fc6cc4ed27dba",
+            "size_bytes": 4968
+          },
+          {
+            "path": "moss-transcribe-diarize-audio.aimodel/main.hash",
+            "sha256": "161df44cf6ed91a8d001264f341af57b3408aeea1c4e55bd8f8cb5d61b29dc5d",
+            "size_bytes": 32
+          },
+          {
+            "path": "moss-transcribe-diarize-audio.aimodel/main.mlirb",
+            "sha256": "5a0fe8909656e73a8dfd729f2aa63cf92628e716bf0db2be5ddb769186fa1400",
+            "size_bytes": 1250093361
+          },
+          {
+            "path": "moss-transcribe-diarize-audio.aimodel/metadata.json",
+            "sha256": "a4d07498ac5b479191271035169df5f5c50a113fbda55b8ebd98fa38cda817b3",
+            "size_bytes": 105
+          },
+          {
+            "path": "parity-report.json",
+            "sha256": "e3b4e32b69ac08ad052632eb51ab2b19c56e60ff50f2810c06d5da4d6ee15f71",
+            "size_bytes": 2154
+          }
+        ],
+        "owner": "kevinqz",
+        "repo": "MOSS-Transcribe-Diarize-Audio-CoreAI",
+        "revision": "bff4614ccce22f90f1a57c84ced0bc3893bb1d48",
+        "url": "https://huggingface.co/kevinqz/MOSS-Transcribe-Diarize-Audio-CoreAI"
+      },
+      "id": "moss-transcribe-diarize-audio",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "provenance": {
+        "converted_by": {
+          "recipe_url": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/moss-transcribe-diarize-audio.yaml",
+          "tool": "models/moss_transcribe/export.py",
+          "version": "unknown"
+        },
+        "format_version": "2.0",
+        "recipe_source": "fabric"
+      }
     }
   ],
   "export_catalog_version": "2.3.0",
   "export_schema_version": "1.0",
   "metadata": {
-    "count": 136,
+    "count": 137,
     "last_verified": "2026-07-09",
     "name": "Core AI Catalog artifact provenance"
   }

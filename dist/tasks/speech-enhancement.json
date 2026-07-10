@@ -3,7 +3,7 @@
   "capabilities": [
     "speech-to-text"
   ],
-  "model_count": 8,
+  "model_count": 9,
   "models": [
     {
       "id": "official-whisper-large-v3-turbo",
@@ -115,6 +115,20 @@
       },
       "license": "OpenMDW-1.1",
       "commercial_use": "check_license",
+      "has_benchmark": false
+    },
+    {
+      "id": "moss-transcribe-diarize-audio",
+      "name": "MOSS-Transcribe-Diarize Audio Encoder (fabric)",
+      "score": 43,
+      "parameters": "0.9B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": false
+      },
+      "license": "apache-2.0",
+      "commercial_use": "likely",
       "has_benchmark": false
     }
   ],

@@ -571,6 +571,11 @@
       "score": 43
     },
     {
+      "id": "moss-transcribe-diarize-audio",
+      "name": "MOSS-Transcribe-Diarize Audio Encoder (fabric)",
+      "score": 43
+    },
+    {
       "id": "pulpie-orange-base",
       "name": "Pulpie Orange Base (fabric)",
       "score": 43

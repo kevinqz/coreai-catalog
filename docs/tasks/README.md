@@ -31,7 +31,7 @@ Browse models by capability.
 - [Robotics](./robotics.md) — 26 models
 - [Speaker Diarization](./speaker-diarization.md) — 1 models
 - [Speculative Decoding](./speculative-decoding.md) — 1 models
-- [Speech To Text](./speech-to-text.md) — 8 models
+- [Speech To Text](./speech-to-text.md) — 9 models
 - [Super Resolution](./super-resolution.md) — 2 models
 - [Text Generation](./text-generation.md) — 40 models
 - [Text To Audio](./text-to-audio.md) — 1 models
