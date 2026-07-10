@@ -10757,6 +10757,125 @@
       ],
       "status": "needs_review",
       "upstream_repo": "robbyant/lingbot-video-dense-1.3b"
+    },
+    {
+      "architecture": "transformer",
+      "artifact": {
+        "availability": "available",
+        "format": "aimodel"
+      },
+      "artifact_ref": "moss-transcribe-diarize-decoder",
+      "bundle_kind": "llm",
+      "capabilities": [
+        "text-generation"
+      ],
+      "confidence": "medium",
+      "device_support": {
+        "ipad": "unknown",
+        "iphone": "unknown",
+        "mac": "unknown",
+        "mac_only": "unknown"
+      },
+      "evaluation": {
+        "mean_chunk_cosine": 0.9999999999923304,
+        "measured_on": "apple_silicon",
+        "measurement_source": "graph-output-parity-measured.json",
+        "median_cosine": 0.9999999999928846,
+        "metric": "graph_output_cosine",
+        "min_chunk_cosine": 0.9999999999855157,
+        "min_cosine": 0.9999999999855157,
+        "n_obs": 8,
+        "protocol": {
+          "granularity": "flattened",
+          "graph_boundary": "single-graph forward",
+          "input_protocol": "synthetic",
+          "n_obs": 8,
+          "reference_dtype": "float32"
+        },
+        "reference_dtype": "float32",
+        "runner": "coreai-fabric-parity-runner/0.1.0",
+        "status": "passed",
+        "threshold": 0.999,
+        "tolerance": 0.0005,
+        "value": 0.9999999999855157
+      },
+      "family": "MOSS",
+      "id": "moss-transcribe-diarize-decoder",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAILanguageModels",
+          "init_pattern": "let model = try await CoreAILanguageModel(resourcesAt: bundleURL)",
+          "type": "CoreAILanguageModel"
+        },
+        "files": {
+          "tokenizer_ref": "macos/tokenizer"
+        },
+        "inputs": [
+          {
+            "modality": "text",
+            "name": "prompt",
+            "swift_type": "String"
+          }
+        ],
+        "outputs": [
+          {
+            "decoding": {
+              "detokenization": "embedded tokenizer (OpenMOSS-Team/MOSS-Transcribe-Diarize); LanguageModelSession.respond(to:) returns detokenized text"
+            },
+            "name": "response",
+            "swift_type": "String"
+          }
+        ],
+        "session": {
+          "stateful": true,
+          "streaming": true
+        }
+      },
+      "last_verified": "2026-07-10",
+      "license": {
+        "commercial_use": "likely",
+        "name": "apache-2.0"
+      },
+      "maturity": "experimental",
+      "min_os": {
+        "ios": "27.0",
+        "macos": "27.0"
+      },
+      "modalities": {
+        "input": [
+          "audio",
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "name": "MOSS-Transcribe-Diarize Qwen3 Decoder (fabric)",
+      "notes": "Converted via coreai-fabric recipe moss-transcribe-diarize-decoder (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/moss-transcribe-diarize-decoder.yaml). Parity: gate A passed, gate B passed.",
+      "runtime": {
+        "aot_required": false,
+        "custom_kernel": false,
+        "patch_required": false,
+        "processor_required": true,
+        "runner": "CoreAIRunner",
+        "runtime_name": "apple-core-ai",
+        "stock_runtime": false,
+        "tokenizer_required": true
+      },
+      "size": {
+        "artifact_size": "2.2GB",
+        "fidelity_tier": "high_fidelity",
+        "parameters": "0.6B",
+        "precision": "float32",
+        "quantization": "none"
+      },
+      "source_group": "fabric",
+      "source_path": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/moss-transcribe-diarize-decoder.yaml",
+      "sources": [
+        "coreai-fabric"
+      ],
+      "status": "needs_review",
+      "upstream_repo": "OpenMOSS-Team/MOSS-Transcribe-Diarize"
     }
   ]
 }

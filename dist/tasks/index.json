@@ -56,7 +56,7 @@
         "chat",
         "text-generation"
       ],
-      "model_count": 40
+      "model_count": 41
     },
     {
       "task": "classification",
@@ -91,7 +91,7 @@
         "text-generation",
         "chat"
       ],
-      "model_count": 40
+      "model_count": 41
     },
     {
       "task": "code generation",
@@ -100,7 +100,7 @@
         "text-generation",
         "chat"
       ],
-      "model_count": 40
+      "model_count": 41
     },
     {
       "task": "computer use",
@@ -117,7 +117,7 @@
         "chat",
         "text-generation"
       ],
-      "model_count": 40
+      "model_count": 41
     },
     {
       "task": "depth estimation",
@@ -266,7 +266,7 @@
         "chat",
         "text-generation"
       ],
-      "model_count": 40
+      "model_count": 41
     },
     {
       "task": "instruction following",
@@ -275,7 +275,7 @@
         "chat",
         "text-generation"
       ],
-      "model_count": 40
+      "model_count": 41
     },
     {
       "task": "json generation",
@@ -284,7 +284,7 @@
         "text-generation",
         "chat"
       ],
-      "model_count": 40
+      "model_count": 41
     },
     {
       "task": "layout analysis",
@@ -302,7 +302,7 @@
         "chat",
         "text-generation"
       ],
-      "model_count": 40
+      "model_count": 41
     },
     {
       "task": "math",
@@ -406,7 +406,7 @@
         "chat",
         "text-generation"
       ],
-      "model_count": 40
+      "model_count": 41
     },
     {
       "task": "private on-device ocr",
@@ -424,7 +424,7 @@
         "chat",
         "text-generation"
       ],
-      "model_count": 40
+      "model_count": 41
     },
     {
       "task": "question answering",
@@ -433,7 +433,7 @@
         "chat",
         "text-generation"
       ],
-      "model_count": 40
+      "model_count": 41
     },
     {
       "task": "rag",
@@ -548,7 +548,7 @@
         "chat",
         "text-generation"
       ],
-      "model_count": 40
+      "model_count": 41
     },
     {
       "task": "summarize",
@@ -557,7 +557,7 @@
         "chat",
         "text-generation"
       ],
-      "model_count": 40
+      "model_count": 41
     },
     {
       "task": "super resolution",
@@ -592,7 +592,7 @@
         "text-generation",
         "chat"
       ],
-      "model_count": 40
+      "model_count": 41
     },
     {
       "task": "text summarization",
@@ -601,7 +601,7 @@
         "chat",
         "text-generation"
       ],
-      "model_count": 40
+      "model_count": 41
     },
     {
       "task": "text to audio",
@@ -675,7 +675,7 @@
         "chat",
         "text-generation"
       ],
-      "model_count": 40
+      "model_count": 41
     },
     {
       "task": "tts",
@@ -775,7 +775,7 @@
         "chat",
         "text-generation"
       ],
-      "model_count": 40
+      "model_count": 41
     },
     {
       "task": "zero-shot classification",

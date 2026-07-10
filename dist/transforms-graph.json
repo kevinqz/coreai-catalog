@@ -53,9 +53,10 @@
       "output": "text",
       "model_ids": [
         "gemma-4-12b-mm-warshanks",
+        "moss-transcribe-diarize-decoder",
         "qwen2-5-omni-3b-audio"
       ],
-      "model_count": 2
+      "model_count": 3
     },
     {
       "input": "audio",
@@ -528,6 +529,7 @@
         "llada-8b-dllm",
         "minicpm-v-4-6",
         "minicpm5-1b",
+        "moss-transcribe-diarize-decoder",
         "nanbeige4-1-3b",
         "official-gemma-3-12b-it",
         "official-gemma-3-4b-it",
@@ -560,7 +562,7 @@
         "vibethinker-3b",
         "youtu-llm-2b"
       ],
-      "model_count": 50
+      "model_count": 51
     },
     {
       "input": "text",
