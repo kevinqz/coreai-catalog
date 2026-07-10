@@ -1,9 +1,10 @@
 # Comparison: speech-to-text
 
-Side-by-side comparison of all 8 model(s) with the `speech-to-text` capability.
+Side-by-side comparison of all 9 model(s) with the `speech-to-text` capability.
 
 | Model | Family | Parameters | Precision | Devices | License | Runtime | Benchmark | Source |
 |---|---|---|---|---|---|---|---|---|
+| MOSS-Transcribe-Diarize Audio Encoder (fabric) | MOSS | 0.9B | float32 | unknown | apache-2.0 | CoreAIRunner | — | 🐼 Zoo |
 | Nemotron 3.5 ASR Streaming 0.6B | Nemotron | 0.6B | fp16 | iPhone/Mac | OpenMDW-1.1 | CoreAITranscribe | — | 🔗 Independent |
 | Parakeet-TDT-0.6B | Parakeet | 0.6B | fp16 | iPhone/Mac | CC-BY-4.0 | CoreAIKit-GraphModel | 47.9 realtime_factor (A18 Pro) | 🐼 Zoo |
 | Qwen3-ASR-1.7B | Qwen | 1.7B | int8 | iPhone/Mac | Apache-2.0 | CoreAIRunner | — | 🐼 Zoo |

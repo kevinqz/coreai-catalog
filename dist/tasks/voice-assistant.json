@@ -5,7 +5,7 @@
     "text-to-speech",
     "chat"
   ],
-  "model_count": 47,
+  "model_count": 48,
   "models": [
     {
       "id": "official-qwen3-0-6b",
@@ -663,6 +663,20 @@
       },
       "license": "Apache-2.0",
       "commercial_use": "check_license",
+      "has_benchmark": false
+    },
+    {
+      "id": "moss-transcribe-diarize-audio",
+      "name": "MOSS-Transcribe-Diarize Audio Encoder (fabric)",
+      "score": 43,
+      "parameters": "0.9B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": false
+      },
+      "license": "apache-2.0",
+      "commercial_use": "likely",
       "has_benchmark": false
     }
   ],
