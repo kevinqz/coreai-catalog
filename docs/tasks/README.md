@@ -32,7 +32,7 @@ Browse models by capability.
 - [Speaker Diarization](./speaker-diarization.md) — 1 models
 - [Speculative Decoding](./speculative-decoding.md) — 1 models
 - [Speech To Text](./speech-to-text.md) — 8 models
-- [Super Resolution](./super-resolution.md) — 2 models
+- [Super Resolution](./super-resolution.md) — 3 models
 - [Text Generation](./text-generation.md) — 40 models
 - [Text To Audio](./text-to-audio.md) — 1 models
 - [Text To Image](./text-to-image.md) — 1 models

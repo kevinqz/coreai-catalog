@@ -10757,6 +10757,94 @@
       ],
       "status": "needs_review",
       "upstream_repo": "robbyant/lingbot-video-dense-1.3b"
+    },
+    {
+      "architecture": "cnn/transformer",
+      "artifact": {
+        "availability": "available",
+        "format": "aimodel"
+      },
+      "artifact_ref": "rife-4-interp",
+      "bundle_kind": "super-resolution",
+      "capabilities": [
+        "super-resolution"
+      ],
+      "confidence": "medium",
+      "device_support": {
+        "ipad": "unknown",
+        "iphone": "unknown",
+        "mac": "unknown",
+        "mac_only": "unknown"
+      },
+      "evaluation": {
+        "mean_chunk_cosine": 0.99999998080633,
+        "measured_on": "apple_silicon",
+        "measurement_source": "graph-output-parity-measured.json",
+        "median_cosine": 0.9999999866862368,
+        "metric": "graph_output_cosine",
+        "min_chunk_cosine": 0.999999947504797,
+        "min_cosine": 0.999999947504797,
+        "n_obs": 8,
+        "protocol": {
+          "granularity": "flattened",
+          "graph_boundary": "single-graph forward",
+          "input_protocol": "synthetic",
+          "n_obs": 8,
+          "reference_dtype": "float32"
+        },
+        "reference_dtype": "float32",
+        "runner": "coreai-fabric-parity-runner/0.1.0",
+        "status": "passed",
+        "threshold": 0.999,
+        "tolerance": 0.0005,
+        "value": 0.999999947504797
+      },
+      "family": "RIFE",
+      "id": "rife-4-interp",
+      "last_verified": "2026-07-10",
+      "license": {
+        "commercial_use": "likely",
+        "name": "mit"
+      },
+      "maturity": "experimental",
+      "min_os": {
+        "ios": "27.0",
+        "macos": "27.0"
+      },
+      "modalities": {
+        "input": [
+          "image"
+        ],
+        "output": [
+          "image"
+        ]
+      },
+      "name": "RIFE Frame Interpolation (fabric)",
+      "notes": "Converted via coreai-fabric recipe rife-4-interp (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/rife-4-interp.yaml). Parity: gate A passed, gate B passed.",
+      "runtime": {
+        "aot_required": false,
+        "custom_kernel": false,
+        "patch_required": false,
+        "processor_required": false,
+        "runner": "CoreAIRunner",
+        "runtime_name": "apple-core-ai",
+        "stock_runtime": false,
+        "tokenizer_required": false
+      },
+      "size": {
+        "artifact_size": "16.5MB",
+        "fidelity_tier": "high_fidelity",
+        "parameters": "0.01B",
+        "precision": "float32",
+        "quantization": "none"
+      },
+      "source_group": "fabric",
+      "source_path": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/rife-4-interp.yaml",
+      "sources": [
+        "coreai-fabric"
+      ],
+      "status": "needs_review",
+      "upstream_repo": "TensorForger/RIFE-safetensors"
     }
   ]
 }

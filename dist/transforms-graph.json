@@ -244,9 +244,10 @@
       "output": "image",
       "model_ids": [
         "adcsr-x4",
-        "real-esrgan-x4v3"
+        "real-esrgan-x4v3",
+        "rife-4-interp"
       ],
-      "model_count": 2
+      "model_count": 3
     },
     {
       "input": "image",

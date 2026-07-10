@@ -3,7 +3,7 @@
   "capabilities": [
     "super-resolution"
   ],
-  "model_count": 2,
+  "model_count": 3,
   "models": [
     {
       "id": "real-esrgan-x4v3",
@@ -31,6 +31,20 @@
       },
       "license": "Apache-2.0 + OpenRAIL++",
       "commercial_use": "check_license",
+      "has_benchmark": false
+    },
+    {
+      "id": "rife-4-interp",
+      "name": "RIFE Frame Interpolation (fabric)",
+      "score": 43,
+      "parameters": "0.01B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": false
+      },
+      "license": "mit",
+      "commercial_use": "likely",
       "has_benchmark": false
     }
   ],

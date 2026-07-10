@@ -1,7 +1,7 @@
 {
   "export_schema_version": "1.0",
   "export_catalog_version": "2.3.0",
-  "model_count": 134,
+  "model_count": 135,
   "models": [
     {
       "id": "qwen3-5-0-8b",
@@ -5412,6 +5412,33 @@
         "ios": "27.0"
       },
       "upstream_repo": "robbyant/lingbot-video-dense-1.3b",
+      "io_contract": null
+    },
+    {
+      "id": "rife-4-interp",
+      "name": "RIFE Frame Interpolation (fabric)",
+      "bundle_kind": "super-resolution",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "super-resolution"
+      ],
+      "input_modalities": [
+        "image"
+      ],
+      "output_modalities": [
+        "image"
+      ],
+      "parameters": "0.01B",
+      "precision": "float32",
+      "artifact_size": "16.5MB",
+      "huggingface_url": "https://huggingface.co/kevinqz/RIFE-Frame-Interpolation-CoreAI",
+      "license": "mit",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "TensorForger/RIFE-safetensors",
       "io_contract": null
     }
   ]

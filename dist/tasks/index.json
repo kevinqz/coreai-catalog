@@ -565,7 +565,7 @@
       "capabilities": [
         "super-resolution"
       ],
-      "model_count": 2
+      "model_count": 3
     },
     {
       "task": "table extraction",
@@ -691,7 +691,7 @@
       "capabilities": [
         "super-resolution"
       ],
-      "model_count": 2
+      "model_count": 3
     },
     {
       "task": "video understanding",

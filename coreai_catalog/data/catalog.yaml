@@ -8509,3 +8509,77 @@ models:
       granularity: flattened
       input_protocol: synthetic
       graph_boundary: single-graph forward
+- id: rife-4-interp
+  name: RIFE Frame Interpolation (fabric)
+  family: RIFE
+  source_group: fabric
+  source_path: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/rife-4-interp.yaml
+  artifact_ref: rife-4-interp
+  capabilities:
+  - super-resolution
+  bundle_kind: super-resolution
+  min_os:
+    macos: '27.0'
+    ios: '27.0'
+  upstream_repo: TensorForger/RIFE-safetensors
+  modalities:
+    input:
+    - image
+    output:
+    - image
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 0.01B
+    precision: float32
+    quantization: none
+    artifact_size: 16.5MB
+    fidelity_tier: high_fidelity
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: false
+    custom_kernel: false
+    patch_required: false
+    tokenizer_required: false
+    processor_required: false
+    aot_required: false
+  device_support:
+    iphone: unknown
+    ipad: unknown
+    mac: unknown
+    mac_only: unknown
+  license:
+    name: mit
+    commercial_use: likely
+  status: needs_review
+  maturity: experimental
+  confidence: medium
+  sources:
+  - coreai-fabric
+  last_verified: '2026-07-10'
+  notes: 'Converted via coreai-fabric recipe rife-4-interp (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/rife-4-interp.yaml).
+    Parity: gate A passed, gate B passed.'
+  architecture: cnn/transformer
+  evaluation:
+    metric: graph_output_cosine
+    status: passed
+    reference_dtype: float32
+    n_obs: 8
+    min_chunk_cosine: 0.999999947504797
+    mean_chunk_cosine: 0.99999998080633
+    runner: coreai-fabric-parity-runner/0.1.0
+    measured_on: apple_silicon
+    value: 0.999999947504797
+    threshold: 0.999
+    tolerance: 0.0005
+    min_cosine: 0.999999947504797
+    median_cosine: 0.9999999866862368
+    measurement_source: graph-output-parity-measured.json
+    protocol:
+      n_obs: 8
+      reference_dtype: float32
+      granularity: flattened
+      input_protocol: synthetic
+      graph_boundary: single-graph forward
