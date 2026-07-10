@@ -529,6 +529,7 @@
         "minicpm-v-4-6",
         "minicpm5-1b",
         "nanbeige4-1-3b",
+        "nomic-embed-text-v15",
         "official-gemma-3-12b-it",
         "official-gemma-3-4b-it",
         "official-gpt-oss-20b",
@@ -560,7 +561,7 @@
         "vibethinker-3b",
         "youtu-llm-2b"
       ],
-      "model_count": 50
+      "model_count": 51
     },
     {
       "input": "text",

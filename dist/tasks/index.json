@@ -65,7 +65,7 @@
         "embedding",
         "chat"
       ],
-      "model_count": 35
+      "model_count": 36
     },
     {
       "task": "clip",
@@ -150,7 +150,7 @@
       "capabilities": [
         "embedding"
       ],
-      "model_count": 2
+      "model_count": 3
     },
     {
       "task": "face detection",
@@ -166,7 +166,7 @@
       "capabilities": [
         "embedding"
       ],
-      "model_count": 2
+      "model_count": 3
     },
     {
       "task": "forecasting",
@@ -381,7 +381,7 @@
         "reranking",
         "chat"
       ],
-      "model_count": 36
+      "model_count": 37
     },
     {
       "task": "panoptic segmentation",
@@ -443,7 +443,7 @@
         "reranking",
         "chat"
       ],
-      "model_count": 36
+      "model_count": 37
     },
     {
       "task": "ranking",
@@ -523,7 +523,7 @@
         "embedding",
         "chat"
       ],
-      "model_count": 35
+      "model_count": 36
     },
     {
       "task": "speech enhancement",
@@ -583,7 +583,7 @@
         "embedding",
         "chat"
       ],
-      "model_count": 35
+      "model_count": 36
     },
     {
       "task": "text generation",
@@ -784,7 +784,7 @@
         "embedding",
         "chat"
       ],
-      "model_count": 35
+      "model_count": 36
     }
   ],
   "export_schema_version": "1.0",
