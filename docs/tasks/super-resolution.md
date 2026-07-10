@@ -1,6 +1,6 @@
 # Super Resolution
 
-**2 models** in the catalog with this capability.
+**3 models** in the catalog with this capability.
 
 ## Task synonyms
 
@@ -12,6 +12,7 @@
 |---|---|---|---|---|---|---|---|
 | [Real-ESRGAN x4v3](../../catalog.yaml#L1) | 78 | not_published | 💻 | BSD-3-Clause | ✅ likely | — | 🔗 |
 | [AdcSR ×4](../../catalog.yaml#L1) | 73 | ×4 | 📱💻 | Apache-2.0 + OpenRAIL++ | ⚠️ check_license | — | 🐼 |
+| [RIFE Frame Interpolation (fabric)](../../catalog.yaml#L1) | 43 | 0.01B |  | mit | ✅ likely | — | fabric |
 
 ## Install
 

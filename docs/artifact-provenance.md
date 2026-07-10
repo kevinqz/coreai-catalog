@@ -140,3 +140,4 @@ Generated from `artifacts.yaml`.
 | miril-drone-2b-1 | external | / | kevinqz/Miril-Drone-2B-1-CoreAI | False | False |
 | lingbot-video-dense-1.3b-dit | external | / | kevinqz/LingBot-Video-Dense-1.3B-DiT-CoreAI | False | False |
 | lingbot-video-dense-1.3b-vae-streaming | external | / | kevinqz/LingBot-Video-Dense-1.3B-VAE-Streaming-CoreAI | False | False |
+| rife-4-interp | external | / | kevinqz/RIFE-Frame-Interpolation-CoreAI | False | False |

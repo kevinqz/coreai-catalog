@@ -136,3 +136,4 @@
 | miril-drone-2b-1 | Miril-Drone 2B-1 (fabric) | fabric | Miril-Drone | image-feature-extraction | image | text | 2B | unknown | apache-2.0 | needs_review |
 | lingbot-video-dense-1.3b-dit | LingBot-Video Dense 1.3B DiT (fabric) | fabric | LingBot-Video | text-to-video | text, image | video | 1.3B | unknown | apache-2.0 | needs_review |
 | lingbot-video-dense-1.3b-vae-streaming | LingBot-Video Dense 1.3B VAE (streaming) (fabric) | fabric | LingBot-Video | text-to-video | text, image | video | 1.3B | unknown | apache-2.0 | needs_review |
+| rife-4-interp | RIFE Frame Interpolation (fabric) | fabric | RIFE | super-resolution | image | image | 0.01B | unknown | mit | needs_review |

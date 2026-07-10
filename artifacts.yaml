@@ -1,7 +1,7 @@
 metadata:
   name: Core AI Catalog artifact provenance
   last_verified: '2026-07-09'
-  count: 136
+  count: 137
 artifacts:
 - id: qwen3-5-0-8b
   group: zoo
@@ -5315,6 +5315,46 @@ artifacts:
       tool: models/lingbotvideo/vae_streaming_export.py
       version: unknown
       recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-video-dense-1.3b-vae-streaming.yaml
+    recipe_source: fabric
+    format_version: '2.0'
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: rife-4-interp
+  group: external
+  huggingface:
+    owner: kevinqz
+    repo: RIFE-Frame-Interpolation-CoreAI
+    url: https://huggingface.co/kevinqz/RIFE-Frame-Interpolation-CoreAI
+    revision: e82c8c535afecdf69815a4fabe9fc95fc2b204da
+    files:
+    - path: .gitattributes
+      sha256: b83aa649be7bb4a0668786357fa7830280bcc73fcffcb1b239b84581ad84c968
+      size_bytes: 1588
+    - path: LICENSE
+      sha256: 6612aa7d7f517e25a8f7da92e23150cba6fab6cec0415a45e33446e960d60a42
+      size_bytes: 1065
+    - path: README.md
+      sha256: b5528464d48ff9e868e18841e1bd72b0e8e0a75c6bf711d92918482ebc503bcb
+      size_bytes: 4713
+    - path: parity-report.json
+      sha256: 51466324f464a333bf30d2f2462b3ac6f6e4b60452158801059f677564f4507f
+      size_bytes: 2024
+    - path: rife-4-interp.aimodel/main.hash
+      sha256: 135b2d486f315bd4cbdcb264643d21b9b3f94edd0781634a9529cc79d8c494f9
+      size_bytes: 32
+    - path: rife-4-interp.aimodel/main.mlirb
+      sha256: 3e7db68a98670ac3a1fe173c65ef19afa54d1e21f48e14b8afa839980163e8d0
+      size_bytes: 17305793
+    - path: rife-4-interp.aimodel/metadata.json
+      sha256: 3d104676fa98ea866283c65d3ac50f857036ce251f6cc78e3e0e83d7247b1cbd
+      size_bytes: 105
+  provenance:
+    converted_by:
+      tool: models/rife/export.py
+      version: unknown
+      recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/rife-4-interp.yaml
     recipe_source: fabric
     format_version: '2.0'
   officiality:
