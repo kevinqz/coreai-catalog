@@ -1,7 +1,7 @@
 metadata:
   name: Core AI Catalog artifact provenance
   last_verified: '2026-07-09'
-  count: 136
+  count: 137
 artifacts:
 - id: qwen3-5-0-8b
   group: zoo
@@ -5315,6 +5315,46 @@ artifacts:
       tool: models/lingbotvideo/vae_streaming_export.py
       version: unknown
       recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-video-dense-1.3b-vae-streaming.yaml
+    recipe_source: fabric
+    format_version: '2.0'
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: da2-small
+  group: external
+  huggingface:
+    owner: kevinqz
+    repo: Depth-Anything-V2-Small-CoreAI
+    url: https://huggingface.co/kevinqz/Depth-Anything-V2-Small-CoreAI
+    revision: 9f55613ed5d86f14533961a04a11db0de6745418
+    files:
+    - path: .gitattributes
+      sha256: b07d49db3069881055a414b578c61dfee119588f06e3e003c1e452ae2c71802d
+      size_bytes: 1598
+    - path: LICENSE
+      sha256: cdaaaf8dc7711f11052aa41c910590d1c526805d5d2fcc26ad32fc69ad5fcb85
+      size_bytes: 12003
+    - path: README.md
+      sha256: 0edab1fe708116314b7826f45b59ee7d68503bb52f385127fb74fa6a185f9d4b
+      size_bytes: 4725
+    - path: depth-anything-v2-small.aimodel/main.hash
+      sha256: cbe0ce0bfb7135c472cf0c61ae257f88913219619212ff1d0121bdb1a2ea88cc
+      size_bytes: 32
+    - path: depth-anything-v2-small.aimodel/main.mlirb
+      sha256: 48044a6ae3ea4fa69b368936bf281072561567640dc3b84db467c7f8b8068b16
+      size_bytes: 99002275
+    - path: depth-anything-v2-small.aimodel/metadata.json
+      sha256: f5b7c548215163410ccc082a6eae56a1fdd56f2d42bb733feee32eb030e58d0c
+      size_bytes: 105
+    - path: parity-report.json
+      sha256: 9649ccff92d1fe48df9a6a78d76651ca1e1c0a66fccbf2255bae8b0900051567
+      size_bytes: 2091
+  provenance:
+    converted_by:
+      tool: models/depth_anything/export.py
+      version: unknown
+      recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/da2-small.yaml
     recipe_source: fabric
     format_version: '2.0'
   officiality:

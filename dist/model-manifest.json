@@ -1,7 +1,7 @@
 {
   "export_schema_version": "1.0",
   "export_catalog_version": "2.3.0",
-  "model_count": 134,
+  "model_count": 135,
   "models": [
     {
       "id": "qwen3-5-0-8b",
@@ -5412,6 +5412,33 @@
         "ios": "27.0"
       },
       "upstream_repo": "robbyant/lingbot-video-dense-1.3b",
+      "io_contract": null
+    },
+    {
+      "id": "da2-small",
+      "name": "Depth Anything V2 Small (fabric)",
+      "bundle_kind": "depth",
+      "runner": "CoreAIRunner",
+      "capabilities": [
+        "monocular-depth"
+      ],
+      "input_modalities": [
+        "image"
+      ],
+      "output_modalities": [
+        "image"
+      ],
+      "parameters": "0.025B",
+      "precision": "float32",
+      "artifact_size": "94.4MB",
+      "huggingface_url": "https://huggingface.co/kevinqz/Depth-Anything-V2-Small-CoreAI",
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "depth-anything/Depth-Anything-V2-Small-hf",
       "io_contract": null
     }
   ]

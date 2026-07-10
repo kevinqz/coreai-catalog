@@ -8200,10 +8200,71 @@
           "format_version": "2.0",
           "recipe_source": "fabric"
         }
+      },
+      {
+        "group": "external",
+        "huggingface": {
+          "files": [
+            {
+              "path": ".gitattributes",
+              "sha256": "b07d49db3069881055a414b578c61dfee119588f06e3e003c1e452ae2c71802d",
+              "size_bytes": 1598
+            },
+            {
+              "path": "LICENSE",
+              "sha256": "cdaaaf8dc7711f11052aa41c910590d1c526805d5d2fcc26ad32fc69ad5fcb85",
+              "size_bytes": 12003
+            },
+            {
+              "path": "README.md",
+              "sha256": "0edab1fe708116314b7826f45b59ee7d68503bb52f385127fb74fa6a185f9d4b",
+              "size_bytes": 4725
+            },
+            {
+              "path": "depth-anything-v2-small.aimodel/main.hash",
+              "sha256": "cbe0ce0bfb7135c472cf0c61ae257f88913219619212ff1d0121bdb1a2ea88cc",
+              "size_bytes": 32
+            },
+            {
+              "path": "depth-anything-v2-small.aimodel/main.mlirb",
+              "sha256": "48044a6ae3ea4fa69b368936bf281072561567640dc3b84db467c7f8b8068b16",
+              "size_bytes": 99002275
+            },
+            {
+              "path": "depth-anything-v2-small.aimodel/metadata.json",
+              "sha256": "f5b7c548215163410ccc082a6eae56a1fdd56f2d42bb733feee32eb030e58d0c",
+              "size_bytes": 105
+            },
+            {
+              "path": "parity-report.json",
+              "sha256": "9649ccff92d1fe48df9a6a78d76651ca1e1c0a66fccbf2255bae8b0900051567",
+              "size_bytes": 2091
+            }
+          ],
+          "owner": "kevinqz",
+          "repo": "Depth-Anything-V2-Small-CoreAI",
+          "revision": "9f55613ed5d86f14533961a04a11db0de6745418",
+          "url": "https://huggingface.co/kevinqz/Depth-Anything-V2-Small-CoreAI"
+        },
+        "id": "da2-small",
+        "officiality": {
+          "apple_export_recipe": false,
+          "apple_hosted_artifact": false,
+          "community_packaged": true
+        },
+        "provenance": {
+          "converted_by": {
+            "recipe_url": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/da2-small.yaml",
+            "tool": "models/depth_anything/export.py",
+            "version": "unknown"
+          },
+          "format_version": "2.0",
+          "recipe_source": "fabric"
+        }
       }
     ],
     "metadata": {
-      "count": 136,
+      "count": 137,
       "last_verified": "2026-07-09",
       "name": "Core AI Catalog artifact provenance"
     }
@@ -20664,6 +20725,94 @@
         ],
         "status": "needs_review",
         "upstream_repo": "robbyant/lingbot-video-dense-1.3b"
+      },
+      {
+        "architecture": "cnn/transformer",
+        "artifact": {
+          "availability": "available",
+          "format": "aimodel"
+        },
+        "artifact_ref": "da2-small",
+        "bundle_kind": "depth",
+        "capabilities": [
+          "monocular-depth"
+        ],
+        "confidence": "medium",
+        "device_support": {
+          "ipad": "unknown",
+          "iphone": "unknown",
+          "mac": "unknown",
+          "mac_only": "unknown"
+        },
+        "evaluation": {
+          "mean_chunk_cosine": 0.9999999999999056,
+          "measured_on": "apple_silicon",
+          "measurement_source": "graph-output-parity-measured.json",
+          "median_cosine": 0.9999999999999405,
+          "metric": "graph_output_cosine",
+          "min_chunk_cosine": 0.9999999999997667,
+          "min_cosine": 0.9999999999997667,
+          "n_obs": 8,
+          "protocol": {
+            "granularity": "flattened",
+            "graph_boundary": "single-graph forward",
+            "input_protocol": "synthetic",
+            "n_obs": 8,
+            "reference_dtype": "float32"
+          },
+          "reference_dtype": "float32",
+          "runner": "coreai-fabric-parity-runner/0.1.0",
+          "status": "passed",
+          "threshold": 0.999,
+          "tolerance": 0.0005,
+          "value": 0.9999999999997667
+        },
+        "family": "Depth-Anything",
+        "id": "da2-small",
+        "last_verified": "2026-07-10",
+        "license": {
+          "commercial_use": "likely",
+          "name": "apache-2.0"
+        },
+        "maturity": "experimental",
+        "min_os": {
+          "ios": "27.0",
+          "macos": "27.0"
+        },
+        "modalities": {
+          "input": [
+            "image"
+          ],
+          "output": [
+            "image"
+          ]
+        },
+        "name": "Depth Anything V2 Small (fabric)",
+        "notes": "Converted via coreai-fabric recipe da2-small (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/da2-small.yaml). Parity: gate A passed, gate B passed.",
+        "runtime": {
+          "aot_required": false,
+          "custom_kernel": false,
+          "patch_required": false,
+          "processor_required": false,
+          "runner": "CoreAIRunner",
+          "runtime_name": "apple-core-ai",
+          "stock_runtime": false,
+          "tokenizer_required": false
+        },
+        "size": {
+          "artifact_size": "94.4MB",
+          "fidelity_tier": "high_fidelity",
+          "parameters": "0.025B",
+          "precision": "float32",
+          "quantization": "none"
+        },
+        "source_group": "fabric",
+        "source_path": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/da2-small.yaml",
+        "sources": [
+          "coreai-fabric"
+        ],
+        "status": "needs_review",
+        "upstream_repo": "depth-anything/Depth-Anything-V2-Small-hf"
       }
     ]
   },
