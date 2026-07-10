@@ -8199,12 +8199,134 @@
         "format_version": "2.0",
         "recipe_source": "fabric"
       }
+    },
+    {
+      "group": "external",
+      "huggingface": {
+        "files": [
+          {
+            "path": ".gitattributes",
+            "sha256": "e88b7de4e1d0ab46081e11413e4708a0902fc13e45ed10ebdca408136bdf0ab5",
+            "size_bytes": 1732
+          },
+          {
+            "path": "LICENSE",
+            "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+            "size_bytes": 11343
+          },
+          {
+            "path": "README.md",
+            "sha256": "bcd03a98f53d69a74200ffd6fc0df51de9ff19ad75c4121deecf205e08ad44c8",
+            "size_bytes": 6490
+          },
+          {
+            "path": "int4/metadata.json",
+            "sha256": "cd8aee87cdf543ca85c25ab8e611dbc770ae22b40dc3ef51d287dc8fda97269a",
+            "size_bytes": 542
+          },
+          {
+            "path": "int4/parity-report.json",
+            "sha256": "6e15cc203c54afe070139c17525d06057402224bd055d29959a68851a3c82815",
+            "size_bytes": 1361
+          },
+          {
+            "path": "int4/qwen3-0.6b.aimodel/main.hash",
+            "sha256": "2eb37a97dfec56213c56933e5470114c6367f87331d2b3b27f2df138ee9e29b5",
+            "size_bytes": 32
+          },
+          {
+            "path": "int4/qwen3-0.6b.aimodel/main.mlirb",
+            "sha256": "b46c67d887371eb27c4e8c101ea047b012c56370322a44609120a73b0b8d56d7",
+            "size_bytes": 335979559
+          },
+          {
+            "path": "int4/qwen3-0.6b.aimodel/metadata.json",
+            "sha256": "5554b9924f8d933b551aa47a4dd552a8efc22fa650f0b8c84befa2836c85da02",
+            "size_bytes": 307
+          },
+          {
+            "path": "int4/tokenizer/added_tokens.json",
+            "sha256": "c0284b582e14987fbd3d5a2cb2bd139084371ed9acbae488829a1c900833c680",
+            "size_bytes": 707
+          },
+          {
+            "path": "int4/tokenizer/chat_template.jinja",
+            "sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8",
+            "size_bytes": 4168
+          },
+          {
+            "path": "int4/tokenizer/merges.txt",
+            "sha256": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+            "size_bytes": 1671853
+          },
+          {
+            "path": "int4/tokenizer/special_tokens_map.json",
+            "sha256": "76862e765266b85aa9459767e33cbaf13970f327a0e88d1c65846c2ddd3a1ecd",
+            "size_bytes": 613
+          },
+          {
+            "path": "int4/tokenizer/tokenizer.json",
+            "sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+            "size_bytes": 11422654
+          },
+          {
+            "path": "int4/tokenizer/tokenizer_config.json",
+            "sha256": "443bfa629eb16387a12edbf92a76f6a6f10b2af3b53d87ba1550adfcf45f7fa0",
+            "size_bytes": 5404
+          },
+          {
+            "path": "int4/tokenizer/vocab.json",
+            "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+            "size_bytes": 2776833
+          },
+          {
+            "path": "int8/parity-report.json",
+            "sha256": "3a7698e7b46f5839a523f12cac4a918ace134f4b3a98c9733c8ca00c9fc211e6",
+            "size_bytes": 1823
+          },
+          {
+            "path": "int8/qwen3-0.6b-int8.aimodel/main.hash",
+            "sha256": "73534513299a66c50174307d877499e20b1817b12325fccdc8bb9d80e7d89175",
+            "size_bytes": 32
+          },
+          {
+            "path": "int8/qwen3-0.6b-int8.aimodel/main.mlirb",
+            "sha256": "61631f1733d749908c8fc1e16af6e2f36e3d53055d23dd73f788c16c9c85c727",
+            "size_bytes": 633970016
+          },
+          {
+            "path": "int8/qwen3-0.6b-int8.aimodel/metadata.json",
+            "sha256": "5cf1a472e430a4a224527b2a5d22dbfc97c99858e0d1206a97149c16be04652e",
+            "size_bytes": 307
+          }
+        ],
+        "owner": "kevinqz",
+        "path": "tree/main/int4",
+        "repo": "Qwen3-0.6B-CoreAI",
+        "revision": "62038680473768fda12e3c8fea7db8502a719518",
+        "url": "https://huggingface.co/kevinqz/Qwen3-0.6B-CoreAI/tree/main/int4"
+      },
+      "id": "qwen3-0.6b",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "provenance": {
+        "converted_by": {
+          "recipe_url": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/qwen3-0.6b.yaml",
+          "tool": "coreai.llm.export",
+          "version": "unknown"
+        },
+        "format_version": "2.0",
+        "recipe_source": "fabric"
+      }
     }
   ],
   "export_catalog_version": "2.3.0",
   "export_schema_version": "1.0",
   "metadata": {
-    "count": 136,
+    "count": 137,
     "last_verified": "2026-07-09",
     "name": "Core AI Catalog artifact provenance"
   }

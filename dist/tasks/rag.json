@@ -5,7 +5,7 @@
     "reranking",
     "chat"
   ],
-  "model_count": 36,
+  "model_count": 37,
   "models": [
     {
       "id": "qwen3-embedding-0-6b",
@@ -460,6 +460,20 @@
       "name": "Qwen2.5-1.5B-Instruct (fabric, int8)",
       "score": 53,
       "parameters": "1.5B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": false
+      },
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
+      "id": "qwen3-0.6b",
+      "name": "Qwen3 0.6B (fabric)",
+      "score": 53,
+      "parameters": "0.6B",
       "devices": {
         "iphone": false,
         "ipad": false,

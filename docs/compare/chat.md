@@ -1,6 +1,6 @@
 # Comparison: chat
 
-Side-by-side comparison of all 33 model(s) with the `chat` capability.
+Side-by-side comparison of all 34 model(s) with the `chat` capability.
 
 | Model | Family | Parameters | Precision | Devices | License | Runtime | Benchmark | Source |
 |---|---|---|---|---|---|---|---|---|
@@ -25,6 +25,7 @@ Side-by-side comparison of all 33 model(s) with the `chat` capability.
 | Ornith 1.0 9B | Qwen | 9B | int8 | Mac | MIT | CoreAIRunner | — | 🐼 Zoo |
 | Qwen2.5-1.5B-Instruct (fabric, int8) | Qwen | 1.5B | float16 | unknown | apache-2.0 | CoreAIRunner | — | 🐼 Zoo |
 | Qwen3 0.6B | Qwen | 0.6B | int4 | iPhone/Mac | Apache-2.0 | stock-runner | 1121 tokens_per_second (M4 Max) | 🍎 Apple recipe |
+| Qwen3 0.6B (fabric) | Qwen | 0.6B | float16 | unknown | apache-2.0 | CoreAIRunner | — | 🐼 Zoo |
 | Qwen3 0.6B (fabric, int8) | Qwen | 0.6B | float16 | unknown | apache-2.0 | CoreAIRunner | — | 🐼 Zoo |
 | Qwen3 1.7B | Qwen | 1.7B | int4 | iPhone/Mac | Apache-2.0 | stock-runner | — | 🍎 Apple recipe |
 | Qwen3 4B | Qwen | 4B | int4 | iPhone/Mac | Apache-2.0 | stock-runner | 145.4 tokens_per_second (M4 Max) | 🍎 Apple recipe |

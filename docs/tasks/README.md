@@ -4,7 +4,7 @@ Browse models by capability.
 
 - [Agentic](./agentic.md) — 2 models
 - [Audio Understanding](./audio-understanding.md) — 1 models
-- [Chat](./chat.md) — 33 models
+- [Chat](./chat.md) — 34 models
 - [Code Generation](./code-generation.md) — 3 models
 - [Diffusion Lm](./diffusion-lm.md) — 1 models
 - [Document Ocr](./document-ocr.md) — 3 models
@@ -33,7 +33,7 @@ Browse models by capability.
 - [Speculative Decoding](./speculative-decoding.md) — 1 models
 - [Speech To Text](./speech-to-text.md) — 8 models
 - [Super Resolution](./super-resolution.md) — 2 models
-- [Text Generation](./text-generation.md) — 40 models
+- [Text Generation](./text-generation.md) — 41 models
 - [Text To Audio](./text-to-audio.md) — 1 models
 - [Text To Image](./text-to-image.md) — 1 models
 - [Text To Speech](./text-to-speech.md) — 6 models

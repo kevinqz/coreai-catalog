@@ -2,7 +2,7 @@
   "export_schema_version": "1.0",
   "export_catalog_version": "2.3.0",
   "description": "Ranked by the DEPRECATED readiness_score (a curation/deployability composite, NOT model quality). Prefer per-entry deployability/lifecycle/entry_completeness facets plus benchmark VALUES. Each entry includes best-known benchmarks per metric.",
-  "total_models": 134,
+  "total_models": 135,
   "leaderboard": [
     {
       "id": "depth-anything-3-base",
@@ -2982,6 +2982,37 @@
         "verification": "needs_review",
         "curator_confidence": "medium",
         "last_verified": "2026-07-06"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": false,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": true
+        }
+      },
+      "benchmark_count": 0,
+      "best_metrics": {}
+    },
+    {
+      "id": "qwen3-0.6b",
+      "name": "Qwen3 0.6B (fabric)",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "parameters": "0.6B",
+      "readiness_score": 53,
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-10"
       },
       "entry_completeness": {
         "pct": 0.667,

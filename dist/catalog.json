@@ -10757,6 +10757,105 @@
       ],
       "status": "needs_review",
       "upstream_repo": "robbyant/lingbot-video-dense-1.3b"
+    },
+    {
+      "architecture": "transformer",
+      "artifact": {
+        "availability": "available",
+        "format": "aimodel"
+      },
+      "artifact_ref": "qwen3-0.6b",
+      "bundle_kind": "llm",
+      "capabilities": [
+        "chat",
+        "text-generation"
+      ],
+      "confidence": "medium",
+      "device_support": {
+        "ipad": "unknown",
+        "iphone": "unknown",
+        "mac": "unknown",
+        "mac_only": "unknown"
+      },
+      "family": "Qwen",
+      "id": "qwen3-0.6b",
+      "io_contract": {
+        "entrypoint": {
+          "framework": "CoreAILanguageModels",
+          "init_pattern": "let model = try await CoreAILanguageModel(resourcesAt: bundleURL)",
+          "type": "CoreAILanguageModel"
+        },
+        "files": {
+          "tokenizer_ref": "macos/tokenizer"
+        },
+        "inputs": [
+          {
+            "constraints": {
+              "max_context": 8192
+            },
+            "modality": "text",
+            "name": "prompt",
+            "swift_type": "String"
+          }
+        ],
+        "outputs": [
+          {
+            "decoding": {
+              "detokenization": "embedded tokenizer (Qwen/Qwen3-0.6B); LanguageModelSession.respond(to:) returns detokenized text"
+            },
+            "name": "response",
+            "swift_type": "String"
+          }
+        ],
+        "session": {
+          "stateful": true,
+          "streaming": true
+        }
+      },
+      "last_verified": "2026-07-10",
+      "license": {
+        "commercial_use": "likely",
+        "name": "apache-2.0"
+      },
+      "maturity": "experimental",
+      "min_os": {
+        "ios": "27.0",
+        "macos": "27.0"
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "name": "Qwen3 0.6B (fabric)",
+      "notes": "Converted via coreai-fabric recipe qwen3-0.6b (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/qwen3-0.6b.yaml). Parity: gate A passed, gate B not_run.",
+      "runtime": {
+        "aot_required": false,
+        "custom_kernel": false,
+        "patch_required": false,
+        "processor_required": false,
+        "runner": "CoreAIRunner",
+        "runtime_name": "apple-core-ai",
+        "stock_runtime": true,
+        "tokenizer_required": true
+      },
+      "size": {
+        "artifact_size": "940.2MB",
+        "fidelity_tier": "size",
+        "parameters": "0.6B",
+        "precision": "float16",
+        "quantization": "4bit"
+      },
+      "source_group": "fabric",
+      "source_path": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/qwen3-0.6b.yaml",
+      "sources": [
+        "coreai-fabric"
+      ],
+      "status": "needs_review",
+      "upstream_repo": "Qwen/Qwen3-0.6B"
     }
   ]
 }

@@ -446,6 +446,11 @@
       "score": 53
     },
     {
+      "id": "qwen3-0.6b",
+      "name": "Qwen3 0.6B (fabric)",
+      "score": 53
+    },
+    {
       "id": "qwen3-0.6b-int8",
       "name": "Qwen3 0.6B (fabric, int8)",
       "score": 53
