@@ -39,7 +39,10 @@ struct ProtocolConfig: Codable {
         var repeatUntilTokens: Int
     }
     struct CoarseningEntry: Codable {
-        var rawPrefix: String
+        // protocol-config.json B5 fix: exact-identifier LIST (raw_models),
+        // not a single raw_prefix — a prefix binned whole hardware generations
+        // onto one chip (e.g. Mac16,1 base-M4 into mac-m4-max).
+        var rawModels: [String]
         var deviceClass: String
         var chipFamily: String
     }
@@ -227,16 +230,15 @@ func inferComputeUnit(engineTypeName: String) -> String {
 }
 
 /// Coarsens a raw device model (e.g. "Mac16,6") using the protocol-config
-/// mapping. Returns nil when no prefix matches — callers record "unknown"
-/// rather than guessing.
+/// mapping via EXACT identifier match (protocol-config.json B5 fix: exact
+/// identifiers, not prefixes — a prefix bins whole hardware generations onto
+/// one chip). Returns nil when no row lists the identifier — callers record
+/// "unknown" rather than guessing.
 func coarsenDevice(
     rawModel: String,
     mapping: [ProtocolConfig.CoarseningEntry]
 ) -> ProtocolConfig.CoarseningEntry? {
-    // Longest matching prefix wins so a future "Mac16,1"-specific row would
-    // take precedence over the generic "Mac16" family row.
-    let matches = mapping.filter { rawModel.hasPrefix($0.rawPrefix) }
-    return matches.max { $0.rawPrefix.count < $1.rawPrefix.count }
+    mapping.first { $0.rawModels.contains(rawModel) }
 }
 
 func iso8601Now() -> String {
