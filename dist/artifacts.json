@@ -8199,12 +8199,73 @@
         "format_version": "2.0",
         "recipe_source": "fabric"
       }
+    },
+    {
+      "group": "external",
+      "huggingface": {
+        "files": [
+          {
+            "path": ".gitattributes",
+            "sha256": "eb19cb99c6c1ab8f8554dce138e84830a9483d017a580d4e1062d968c779427e",
+            "size_bytes": 1595
+          },
+          {
+            "path": "LICENSE",
+            "sha256": "846f07ba29d2889f39d7bf390913855d4a64a09eee492fd1cfcbb1b89aeb8254",
+            "size_bytes": 11981
+          },
+          {
+            "path": "README.md",
+            "sha256": "2b9e4376df7aae0485321365c24ad814ecab0aef2a30475436cc3e3df36201a5",
+            "size_bytes": 4785
+          },
+          {
+            "path": "nomic-embed-text-v15.aimodel/main.hash",
+            "sha256": "8e5b290ba4564311907c2de2819560f051c158f31cc9cfd8e3ff5beb36f7e06f",
+            "size_bytes": 32
+          },
+          {
+            "path": "nomic-embed-text-v15.aimodel/main.mlirb",
+            "sha256": "42b3bec7b57bb0240ac8cdc4840017f0bb866dd7f08f4f6dcfe5da4f1f36b03d",
+            "size_bytes": 547530707
+          },
+          {
+            "path": "nomic-embed-text-v15.aimodel/metadata.json",
+            "sha256": "fd94c38ffe4e9745f58f6869d8c5f28dd88c190f7aa96be1ef8dd5a0e8172ad1",
+            "size_bytes": 105
+          },
+          {
+            "path": "parity-report.json",
+            "sha256": "f34c0bc178a2b00a072ce0da83e9a0ef9bc5deb9d59e7f49aa4f7af299e932a7",
+            "size_bytes": 2013
+          }
+        ],
+        "owner": "kevinqz",
+        "repo": "Nomic-Embed-Text-v1.5-CoreAI",
+        "revision": "60aa07e5a36e914ef14a25d5798ea87518c3a385",
+        "url": "https://huggingface.co/kevinqz/Nomic-Embed-Text-v1.5-CoreAI"
+      },
+      "id": "nomic-embed-text-v15",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "provenance": {
+        "converted_by": {
+          "recipe_url": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/nomic-embed-text-v15.yaml",
+          "tool": "models/embedding/export.py",
+          "version": "unknown"
+        },
+        "format_version": "2.0",
+        "recipe_source": "fabric"
+      }
     }
   ],
   "export_catalog_version": "2.3.0",
   "export_schema_version": "1.0",
   "metadata": {
-    "count": 136,
+    "count": 137,
     "last_verified": "2026-07-09",
     "name": "Core AI Catalog artifact provenance"
   }

@@ -4,7 +4,7 @@
     "embedding",
     "chat"
   ],
-  "model_count": 35,
+  "model_count": 36,
   "models": [
     {
       "id": "qwen3-embedding-0-6b",
@@ -494,6 +494,20 @@
       },
       "license": "Apache-2.0",
       "commercial_use": "check_license",
+      "has_benchmark": false
+    },
+    {
+      "id": "nomic-embed-text-v15",
+      "name": "Nomic Embed Text v1.5 (fabric)",
+      "score": 43,
+      "parameters": "0.137B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": false
+      },
+      "license": "apache-2.0",
+      "commercial_use": "likely",
       "has_benchmark": false
     }
   ],
