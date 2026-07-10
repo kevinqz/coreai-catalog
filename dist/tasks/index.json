@@ -125,7 +125,7 @@
       "capabilities": [
         "monocular-depth"
       ],
-      "model_count": 2
+      "model_count": 3
     },
     {
       "task": "document ocr",
@@ -328,7 +328,7 @@
       "capabilities": [
         "monocular-depth"
       ],
-      "model_count": 2
+      "model_count": 3
     },
     {
       "task": "multimodal chat",
@@ -487,7 +487,7 @@
         "monocular-depth",
         "promptable-segmentation"
       ],
-      "model_count": 16
+      "model_count": 17
     },
     {
       "task": "robotics",

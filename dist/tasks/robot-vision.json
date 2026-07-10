@@ -6,7 +6,7 @@
     "monocular-depth",
     "promptable-segmentation"
   ],
-  "model_count": 16,
+  "model_count": 17,
   "models": [
     {
       "id": "depth-anything-3-base",
@@ -230,6 +230,20 @@
       },
       "license": "Apache-2.0",
       "commercial_use": "check_license",
+      "has_benchmark": false
+    },
+    {
+      "id": "da2-small",
+      "name": "Depth Anything V2 Small (fabric)",
+      "score": 43,
+      "parameters": "0.025B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": false
+      },
+      "license": "apache-2.0",
+      "commercial_use": "likely",
       "has_benchmark": false
     }
   ],

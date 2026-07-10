@@ -3,7 +3,7 @@
   "capabilities": [
     "monocular-depth"
   ],
-  "model_count": 2,
+  "model_count": 3,
   "models": [
     {
       "id": "depth-anything-3-base",
@@ -32,6 +32,20 @@
       "license": "Apache-2.0",
       "commercial_use": "likely",
       "has_benchmark": true
+    },
+    {
+      "id": "da2-small",
+      "name": "Depth Anything V2 Small (fabric)",
+      "score": 43,
+      "parameters": "0.025B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": false
+      },
+      "license": "apache-2.0",
+      "commercial_use": "likely",
+      "has_benchmark": false
     }
   ],
   "export_schema_version": "1.0",

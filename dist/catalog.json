@@ -10757,6 +10757,94 @@
       ],
       "status": "needs_review",
       "upstream_repo": "robbyant/lingbot-video-dense-1.3b"
+    },
+    {
+      "architecture": "cnn/transformer",
+      "artifact": {
+        "availability": "available",
+        "format": "aimodel"
+      },
+      "artifact_ref": "da2-small",
+      "bundle_kind": "depth",
+      "capabilities": [
+        "monocular-depth"
+      ],
+      "confidence": "medium",
+      "device_support": {
+        "ipad": "unknown",
+        "iphone": "unknown",
+        "mac": "unknown",
+        "mac_only": "unknown"
+      },
+      "evaluation": {
+        "mean_chunk_cosine": 0.9999999999999056,
+        "measured_on": "apple_silicon",
+        "measurement_source": "graph-output-parity-measured.json",
+        "median_cosine": 0.9999999999999405,
+        "metric": "graph_output_cosine",
+        "min_chunk_cosine": 0.9999999999997667,
+        "min_cosine": 0.9999999999997667,
+        "n_obs": 8,
+        "protocol": {
+          "granularity": "flattened",
+          "graph_boundary": "single-graph forward",
+          "input_protocol": "synthetic",
+          "n_obs": 8,
+          "reference_dtype": "float32"
+        },
+        "reference_dtype": "float32",
+        "runner": "coreai-fabric-parity-runner/0.1.0",
+        "status": "passed",
+        "threshold": 0.999,
+        "tolerance": 0.0005,
+        "value": 0.9999999999997667
+      },
+      "family": "Depth-Anything",
+      "id": "da2-small",
+      "last_verified": "2026-07-10",
+      "license": {
+        "commercial_use": "likely",
+        "name": "apache-2.0"
+      },
+      "maturity": "experimental",
+      "min_os": {
+        "ios": "27.0",
+        "macos": "27.0"
+      },
+      "modalities": {
+        "input": [
+          "image"
+        ],
+        "output": [
+          "image"
+        ]
+      },
+      "name": "Depth Anything V2 Small (fabric)",
+      "notes": "Converted via coreai-fabric recipe da2-small (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/da2-small.yaml). Parity: gate A passed, gate B passed.",
+      "runtime": {
+        "aot_required": false,
+        "custom_kernel": false,
+        "patch_required": false,
+        "processor_required": false,
+        "runner": "CoreAIRunner",
+        "runtime_name": "apple-core-ai",
+        "stock_runtime": false,
+        "tokenizer_required": false
+      },
+      "size": {
+        "artifact_size": "94.4MB",
+        "fidelity_tier": "high_fidelity",
+        "parameters": "0.025B",
+        "precision": "float32",
+        "quantization": "none"
+      },
+      "source_group": "fabric",
+      "source_path": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/da2-small.yaml",
+      "sources": [
+        "coreai-fabric"
+      ],
+      "status": "needs_review",
+      "upstream_repo": "depth-anything/Depth-Anything-V2-Small-hf"
     }
   ]
 }

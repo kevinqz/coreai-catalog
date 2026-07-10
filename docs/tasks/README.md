@@ -19,7 +19,7 @@ Browse models by capability.
 - [Instruction Following](./instruction-following.md) — 3 models
 - [Mla](./mla.md) — 2 models
 - [Moe](./moe.md) — 4 models
-- [Monocular Depth](./monocular-depth.md) — 2 models
+- [Monocular Depth](./monocular-depth.md) — 3 models
 - [Music Generation](./music-generation.md) — 1 models
 - [Named Entity Recognition](./named-entity-recognition.md) — 1 models
 - [Object Detection](./object-detection.md) — 5 models
