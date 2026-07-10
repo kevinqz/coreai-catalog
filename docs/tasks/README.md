@@ -8,7 +8,7 @@ Browse models by capability.
 - [Code Generation](./code-generation.md) — 3 models
 - [Diffusion Lm](./diffusion-lm.md) — 1 models
 - [Document Ocr](./document-ocr.md) — 3 models
-- [Embedding](./embedding.md) — 2 models
+- [Embedding](./embedding.md) — 3 models
 - [Gui Grounding](./gui-grounding.md) — 1 models
 - [Hybrid Llm](./hybrid-llm.md) — 2 models
 - [Image Feature Extraction](./image-feature-extraction.md) — 5 models

@@ -8199,12 +8199,73 @@
         "format_version": "2.0",
         "recipe_source": "fabric"
       }
+    },
+    {
+      "group": "external",
+      "huggingface": {
+        "files": [
+          {
+            "path": ".gitattributes",
+            "sha256": "abca3cb8f558547736a05ee7fbf72cdd86b8a69429d3be0d871b8a7b93c976ef",
+            "size_bytes": 1591
+          },
+          {
+            "path": "LICENSE",
+            "sha256": "f04881eda9b6c1733b1627b0bc496082d6b016628a9df525721a2f6ba681120c",
+            "size_bytes": 1671
+          },
+          {
+            "path": "README.md",
+            "sha256": "4e4edeb9562a6ad91b1f7a6e48f3576b5f8c701766076cb04636985774f4a011",
+            "size_bytes": 4677
+          },
+          {
+            "path": "bge-small-en-v15.aimodel/main.hash",
+            "sha256": "bb217a0541858c43be1195b28838fa74eb9794d3635e682e1104846b46b31619",
+            "size_bytes": 32
+          },
+          {
+            "path": "bge-small-en-v15.aimodel/main.mlirb",
+            "sha256": "c08a63779eecc66810e4d8af3709f2dc463d9c2b202ffce6764d7364369521d0",
+            "size_bytes": 132376203
+          },
+          {
+            "path": "bge-small-en-v15.aimodel/metadata.json",
+            "sha256": "4c85c0bcb2a0d53be8b7c85850a4446744aaac7b30651c7bb32b87c5d87fc83d",
+            "size_bytes": 105
+          },
+          {
+            "path": "parity-report.json",
+            "sha256": "5b1bc21a02b3db8802fc384bb4d80b957ae4c16263d13066043a7fe4b64bde91",
+            "size_bytes": 1994
+          }
+        ],
+        "owner": "kevinqz",
+        "repo": "BGE-Small-EN-v1.5-CoreAI",
+        "revision": "b4505caf2dd9432211a38b45889f59f794c84aea",
+        "url": "https://huggingface.co/kevinqz/BGE-Small-EN-v1.5-CoreAI"
+      },
+      "id": "bge-small-en-v15",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      },
+      "provenance": {
+        "converted_by": {
+          "recipe_url": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/bge-small-en-v15.yaml",
+          "tool": "models/embedding/export.py",
+          "version": "unknown"
+        },
+        "format_version": "2.0",
+        "recipe_source": "fabric"
+      }
     }
   ],
   "export_catalog_version": "2.3.0",
   "export_schema_version": "1.0",
   "metadata": {
-    "count": 136,
+    "count": 137,
     "last_verified": "2026-07-09",
     "name": "Core AI Catalog artifact provenance"
   }

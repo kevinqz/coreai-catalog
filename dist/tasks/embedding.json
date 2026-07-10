@@ -3,7 +3,7 @@
   "capabilities": [
     "embedding"
   ],
-  "model_count": 2,
+  "model_count": 3,
   "models": [
     {
       "id": "qwen3-embedding-0-6b",
@@ -31,6 +31,20 @@
       },
       "license": "Gemma Terms",
       "commercial_use": "check_license",
+      "has_benchmark": false
+    },
+    {
+      "id": "bge-small-en-v15",
+      "name": "BGE-Small-EN v1.5 (fabric)",
+      "score": 43,
+      "parameters": "0.033B",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": false
+      },
+      "license": "mit",
+      "commercial_use": "likely",
       "has_benchmark": false
     }
   ],

@@ -8509,3 +8509,77 @@ models:
       granularity: flattened
       input_protocol: synthetic
       graph_boundary: single-graph forward
+- id: bge-small-en-v15
+  name: BGE-Small-EN v1.5 (fabric)
+  family: BGE
+  source_group: fabric
+  source_path: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/bge-small-en-v15.yaml
+  artifact_ref: bge-small-en-v15
+  capabilities:
+  - embedding
+  bundle_kind: embedding
+  min_os:
+    macos: '27.0'
+    ios: '27.0'
+  upstream_repo: BAAI/bge-small-en-v1.5
+  modalities:
+    input:
+    - text
+    output:
+    - text
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 0.033B
+    precision: float32
+    quantization: none
+    artifact_size: 126.3MB
+    fidelity_tier: high_fidelity
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAIRunner
+    stock_runtime: false
+    custom_kernel: false
+    patch_required: false
+    tokenizer_required: true
+    processor_required: false
+    aot_required: false
+  device_support:
+    iphone: unknown
+    ipad: unknown
+    mac: unknown
+    mac_only: unknown
+  license:
+    name: mit
+    commercial_use: likely
+  status: needs_review
+  maturity: experimental
+  confidence: medium
+  sources:
+  - coreai-fabric
+  last_verified: '2026-07-10'
+  notes: 'Converted via coreai-fabric recipe bge-small-en-v15 (https://github.com/kevinqz/coreai-fabric/blob/main/recipes/bge-small-en-v15.yaml).
+    Parity: gate A passed, gate B passed.'
+  architecture: encoder
+  evaluation:
+    metric: graph_output_cosine
+    status: passed
+    reference_dtype: float32
+    n_obs: 8
+    min_chunk_cosine: 0.9999999999979223
+    mean_chunk_cosine: 0.9999999999981185
+    runner: coreai-fabric-parity-runner/0.1.0
+    measured_on: apple_silicon
+    value: 0.9999999999979223
+    threshold: 0.999
+    tolerance: 0.0005
+    min_cosine: 0.9999999999979223
+    median_cosine: 0.9999999999980933
+    measurement_source: graph-output-parity-measured.json
+    protocol:
+      n_obs: 8
+      reference_dtype: float32
+      granularity: flattened
+      input_protocol: synthetic
+      graph_boundary: single-graph forward
