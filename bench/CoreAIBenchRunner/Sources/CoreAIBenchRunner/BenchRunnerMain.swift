@@ -176,13 +176,12 @@ struct BenchRunner: AsyncParsableCommand {
                 sampling: sampling,
                 maxTokens: generationTokens
             )
-            FileHandle.standardError.write(
-                Data(
-                    "Trial \(i + 1)/\(measuredRuns): "
-                        + String(format: "%.2f", record.decodeTokensPerSecond)
-                        + " tok/s, ttft "
-                        + String(format: "%.1f", record.timeToFirstTokenMs)
-                        + " ms, thermal \(record.thermalStateAfter)\n".utf8))
+            let trialLine = "Trial \(i + 1)/\(measuredRuns): "
+                + String(format: "%.2f", record.decodeTokensPerSecond)
+                + " tok/s, ttft "
+                + String(format: "%.1f", record.timeToFirstTokenMs)
+                + " ms, thermal \(record.thermalStateAfter)\n"
+            FileHandle.standardError.write(Data(trialLine.utf8))
             trials.append(record)
         }
 
