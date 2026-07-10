@@ -1,6 +1,6 @@
 # Comparison: text-generation
 
-Side-by-side comparison of all 40 model(s) with the `text-generation` capability.
+Side-by-side comparison of all 41 model(s) with the `text-generation` capability.
 
 | Model | Family | Parameters | Precision | Devices | License | Runtime | Benchmark | Source |
 |---|---|---|---|---|---|---|---|---|
@@ -19,6 +19,7 @@ Side-by-side comparison of all 40 model(s) with the `text-generation` capability
 | LFM2.5-1.2B-Instruct | LFM | 1.2B | int8 | iPhone/Mac | LFM Open License v1.0 | CoreAIRunner | 276.5 tokens_per_second (M4 Max) | 🐼 Zoo |
 | LFM2.5-8B-A1B | LFM | 8B / ~1B active | int8 | iPhone/Mac | LFM Open License v1.0 | CoreAIRunner | — | 🐼 Zoo |
 | LLaDA-8B dLLM | LLaDA | 8B | int4 | Mac | MIT | CoreAIRunner | — | 🐼 Zoo |
+| MOSS-Transcribe-Diarize Qwen3 Decoder (fabric) | MOSS | 0.6B | float32 | unknown | apache-2.0 | CoreAIRunner | — | 🐼 Zoo |
 | MiniCPM5-1B | MiniCPM | 1.08B | int8 | iPhone/Mac | Apache-2.0 | CoreAIRunner | 66.8 tokens_per_second (A18 Pro) | 🐼 Zoo |
 | Mistral 7B v0.3 | Mistral | 7B | int4 | Mac | Apache-2.0 | stock-runner | 101.7 tokens_per_second (M4 Max) | 🍎 Apple recipe |
 | Nanbeige4.1-3B | Nanbeige | 3.93B | int8 | iPhone/Mac | Apache-2.0 | CoreAIRunner | 114.5 tokens_per_second (M4 Max) | 🐼 Zoo |

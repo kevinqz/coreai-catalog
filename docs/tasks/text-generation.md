@@ -1,6 +1,6 @@
 # Text Generation
 
-**40 models** in the catalog with this capability.
+**41 models** in the catalog with this capability.
 
 ## Task synonyms
 
@@ -50,6 +50,7 @@
 | [VibeThinker 3B (fabric)](../../catalog.yaml#L1) | 53 | 3B |  | mit | ✅ likely | — | fabric |
 | [Youtu-LLM-2B](../../catalog.yaml#L1) | 53 | 2B | 📱💻 | Other | ⚠️ check_license | — | 🐼 |
 | [Gemma 4 12B IT Multimodal (warshanks)](../../catalog.yaml#L1) | 48 | 12B | 💻 | Apache-2.0 | ⚠️ check_license | — | 🔗 |
+| [MOSS-Transcribe-Diarize Qwen3 Decoder (fabric)](../../catalog.yaml#L1) | 43 | 0.6B |  | apache-2.0 | ✅ likely | — | fabric |
 
 ## Install
 

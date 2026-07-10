@@ -1,7 +1,7 @@
 metadata:
   name: Core AI Catalog artifact provenance
   last_verified: '2026-07-09'
-  count: 136
+  count: 137
 artifacts:
 - id: qwen3-5-0-8b
   group: zoo
@@ -5315,6 +5315,46 @@ artifacts:
       tool: models/lingbotvideo/vae_streaming_export.py
       version: unknown
       recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/lingbot-video-dense-1.3b-vae-streaming.yaml
+    recipe_source: fabric
+    format_version: '2.0'
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: moss-transcribe-diarize-decoder
+  group: external
+  huggingface:
+    owner: kevinqz
+    repo: MOSS-Transcribe-Diarize-Decoder-CoreAI
+    url: https://huggingface.co/kevinqz/MOSS-Transcribe-Diarize-Decoder-CoreAI
+    revision: d2e2ec868d2f0b0f7aeb3ec495458e7e5ae95a18
+    files:
+    - path: .gitattributes
+      sha256: 5f48bbcfb052a9df8d5893bfbf2a2dc3b1234d6c406031b98e58338495f51f96
+      size_bytes: 1606
+    - path: LICENSE
+      sha256: f5eb72e4f413357133edd9c333fd0bbffa7872288425a067f0cd23dcf92d3cf8
+      size_bytes: 11995
+    - path: README.md
+      sha256: c627744a3a6b6d4cb1b809b52635b550a2a4ae51826af88899478ad5b8a775a3
+      size_bytes: 6157
+    - path: moss-transcribe-diarize-decoder.aimodel/main.hash
+      sha256: 51c14a748ef625c6a1f0c126e17a7eb75a90f6108903ec99bcb8940d79f34304
+      size_bytes: 32
+    - path: moss-transcribe-diarize-decoder.aimodel/main.mlirb
+      sha256: e55a15ecc8b8e03bc49e08d157e5d3be4fb7fff529458142a260405f16a0e1e6
+      size_bytes: 2384832077
+    - path: moss-transcribe-diarize-decoder.aimodel/metadata.json
+      sha256: 2febb00d35a592eed9023bb1ebe1cd1f23303c675bbc954a63700316a2320a25
+      size_bytes: 105
+    - path: parity-report.json
+      sha256: 06d024ac4cc94a4e8adedaa9c56d5132fe1f4c32108143345e74599b4d46f27e
+      size_bytes: 2082
+  provenance:
+    converted_by:
+      tool: models/moss_transcribe/export_decoder.py
+      version: unknown
+      recipe_url: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/moss-transcribe-diarize-decoder.yaml
     recipe_source: fabric
     format_version: '2.0'
   officiality:
