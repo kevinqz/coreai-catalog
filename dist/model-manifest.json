@@ -5532,7 +5532,7 @@
         "image"
       ],
       "output_modalities": [
-        "text"
+        "embedding"
       ],
       "parameters": "2B",
       "precision": "float32",
@@ -5546,7 +5546,13 @@
       },
       "upstream_repo": "MirilAI/Miril-Drone-2B-1",
       "io_contract": null,
-      "runtime_verified": null
+      "runtime_verified": {
+        "loads": true,
+        "runs": true,
+        "runtime_os": "Version 27.0 (Build 26A5378j)",
+        "verified_at": "2026-07-11T16:22:31Z",
+        "verifier": "coreai-runtime-verify/0.1"
+      }
     },
     {
       "id": "lingbot-video-dense-1.3b-dit",

@@ -218,9 +218,10 @@
         "lingbot-vision-vit-base",
         "lingbot-vision-vit-giant",
         "lingbot-vision-vit-large",
-        "lingbot-vision-vit-small"
+        "lingbot-vision-vit-small",
+        "miril-drone-2b-1"
       ],
-      "model_count": 4
+      "model_count": 5
     },
     {
       "input": "image",
@@ -318,12 +319,11 @@
         "gemma-4-e2b-vision",
         "glm-ocr",
         "minicpm-v-4-6",
-        "miril-drone-2b-1",
         "qwen3-vl-2b",
         "qwen3-vl-4b",
         "qwen3-vl-8b"
       ],
-      "model_count": 8
+      "model_count": 7
     },
     {
       "input": "image",
