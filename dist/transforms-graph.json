@@ -66,11 +66,12 @@
         "parakeet-tdt-0-6b",
         "qwen3-asr-1-7b",
         "vibevoice-asr",
+        "whisper-large-v3-turbo",
         "whisper-large-v3-turbo-carstenl",
         "whisper-medium-intiser",
         "whisper-tiny-en-intiser"
       ],
-      "model_count": 8
+      "model_count": 9
     },
     {
       "input": "document_image",
