@@ -1,7 +1,7 @@
 {
   "export_schema_version": "1.0",
   "export_catalog_version": "2.3.0",
-  "model_count": 134,
+  "model_count": 135,
   "models": [
     {
       "id": "qwen3-5-0-8b",
@@ -2357,6 +2357,40 @@
       "upstream_repo": null,
       "io_contract": null,
       "runtime_verified": null
+    },
+    {
+      "id": "whisper-large-v3-turbo",
+      "name": "Whisper large-v3-turbo (fabric)",
+      "bundle_kind": "asr",
+      "runner": "CoreAITranscribe",
+      "capabilities": [
+        "speech-to-text"
+      ],
+      "input_modalities": [
+        "audio"
+      ],
+      "output_modalities": [
+        "transcript"
+      ],
+      "parameters": "809M",
+      "precision": "float16",
+      "artifact_size": "1.6GB",
+      "huggingface_url": "https://huggingface.co/kevinqz/whisper-large-v3-turbo-coreai",
+      "license": "mit",
+      "commercial_use": "likely",
+      "min_os": {
+        "macos": "27.0",
+        "ios": "27.0"
+      },
+      "upstream_repo": "openai/whisper-large-v3-turbo",
+      "io_contract": null,
+      "runtime_verified": {
+        "loads": true,
+        "runs": true,
+        "runtime_os": "Version 27.0 (Build 26A5378j)",
+        "verified_at": "2026-07-11T00:10:33Z",
+        "verifier": "coreai-runtime-verify/0.1"
+      }
     },
     {
       "id": "whisper-large-v3-turbo-carstenl",
