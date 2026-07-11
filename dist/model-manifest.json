@@ -4904,7 +4904,13 @@
       },
       "upstream_repo": "robbyant/lingbot-vision-vit-base",
       "io_contract": null,
-      "runtime_verified": null
+      "runtime_verified": {
+        "loads": true,
+        "runs": true,
+        "runtime_os": "Version 27.0 (Build 26A5378j)",
+        "verified_at": "2026-07-11T16:06:34Z",
+        "verifier": "coreai-runtime-verify/0.1"
+      }
     },
     {
       "id": "lingbot-vision-vit-large",
@@ -4932,7 +4938,13 @@
       },
       "upstream_repo": "robbyant/lingbot-vision-vit-large",
       "io_contract": null,
-      "runtime_verified": null
+      "runtime_verified": {
+        "loads": true,
+        "runs": true,
+        "runtime_os": "Version 27.0 (Build 26A5378j)",
+        "verified_at": "2026-07-11T16:06:36Z",
+        "verifier": "coreai-runtime-verify/0.1"
+      }
     },
     {
       "id": "lingbot-vision-vit-giant",
