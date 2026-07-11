@@ -8352,7 +8352,7 @@ models:
     input:
     - image
     output:
-    - text
+    - embedding
   artifact:
     format: aimodel
     availability: available
