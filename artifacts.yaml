@@ -1,7 +1,7 @@
 metadata:
   name: Core AI Catalog artifact provenance
   last_verified: '2026-07-09'
-  count: 137
+  count: 138
 artifacts:
 - id: qwen3-5-0-8b
   group: zoo

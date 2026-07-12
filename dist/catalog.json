@@ -1,5 +1,5 @@
 {
-  "export_catalog_version": "2.3.0",
+  "export_catalog_version": "2.5.0",
   "export_schema_version": "1.0",
   "metadata": {
     "description": "Compact, source-grounded catalog of Apple Core AI models, artifacts, capabilities, modalities, runtime metadata, device support and sources.",
@@ -10,7 +10,7 @@
       "coreai-model-zoo",
       "apple/coreai-models"
     ],
-    "version": "2.3.0"
+    "version": "2.5.0"
   },
   "models": [
     {
@@ -4825,6 +4825,71 @@
       ],
       "status": "confirmed",
       "streaming": false
+    },
+    {
+      "architecture": "transformer",
+      "artifact": {
+        "availability": "available",
+        "format": "aimodel"
+      },
+      "artifact_ref": "whisper-large-v3-turbo",
+      "bundle_kind": "asr",
+      "capabilities": [
+        "speech-to-text"
+      ],
+      "confidence": "medium",
+      "device_support": {
+        "ipad": "unknown",
+        "iphone": "unknown",
+        "mac": true,
+        "mac_only": false
+      },
+      "family": "Whisper",
+      "id": "whisper-large-v3-turbo",
+      "last_verified": "2026-07-11",
+      "license": {
+        "commercial_use": "likely",
+        "name": "mit"
+      },
+      "maturity": "active",
+      "min_os": {
+        "ios": "27.0",
+        "macos": "27.0"
+      },
+      "modalities": {
+        "input": [
+          "audio"
+        ],
+        "output": [
+          "transcript"
+        ]
+      },
+      "name": "Whisper large-v3-turbo (fabric)",
+      "notes": "First-party coreai-fabric conversion (single decoder graph, float16; full transcription needs an ASR harness). Runtime-verified loads+runs on macOS 27 (26A5378j) via coreai-runtime-verify (forward pass yields [1,1,51866] vocab logits).",
+      "runtime": {
+        "aot_required": false,
+        "custom_kernel": false,
+        "patch_required": false,
+        "processor_required": true,
+        "runner": "CoreAITranscribe",
+        "runtime_name": "apple-core-ai",
+        "stock_runtime": true,
+        "tokenizer_required": true
+      },
+      "size": {
+        "artifact_size": "1.6GB",
+        "parameters": "809M",
+        "precision": "float16",
+        "quantization": "none"
+      },
+      "source_group": "fabric",
+      "source_path": "https://github.com/kevinqz/coreai-fabric/blob/main/recipes/whisper-large-v3-turbo.yaml",
+      "sources": [
+        "coreai-fabric"
+      ],
+      "status": "needs_review",
+      "streaming": false,
+      "upstream_repo": "openai/whisper-large-v3-turbo"
     },
     {
       "architecture": "transformer",
@@ -10550,7 +10615,7 @@
           "image"
         ],
         "output": [
-          "text"
+          "embedding"
         ]
       },
       "name": "Miril-Drone 2B-1 (fabric)",

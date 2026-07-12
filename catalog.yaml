@@ -1,7 +1,7 @@
 metadata:
   name: Core AI Catalog
   repo: coreai-catalog
-  version: 2.3.0
+  version: 2.5.0
   last_verified: '2026-07-09'
   upstream:
   - coreai-model-zoo
@@ -3843,6 +3843,8 @@ models:
   family: Whisper
   source_group: fabric
   source_path: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/whisper-large-v3-turbo.yaml
+  sources:
+  - coreai-fabric
   artifact_ref: whisper-large-v3-turbo
   capabilities:
   - speech-to-text

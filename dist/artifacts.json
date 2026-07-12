@@ -4178,6 +4178,38 @@
       }
     },
     {
+      "group": "external",
+      "huggingface": {
+        "files": [
+          {
+            "path": "whisper-large-v3-turbo_float16.aimodel/metadata.json",
+            "sha256": "f6b0d8de5ce4b341fd8756dedf48d47aef149916fc5b49caa9d8b749fbf718eb",
+            "size_bytes": 397
+          },
+          {
+            "path": "whisper-large-v3-turbo_float16.aimodel/main.mlirb",
+            "sha256": "a260e4d3c89b8fde039d75008423506190e78e1db1acd6eb216d9e5642494376",
+            "size_bytes": 1618167791
+          },
+          {
+            "path": "whisper-large-v3-turbo_float16.aimodel/main.hash",
+            "sha256": "a831ae88caa89b725014eac2a02e42ad5e71050d69c4e6e5e9edfe6c0670c0f9",
+            "size_bytes": 32
+          }
+        ],
+        "owner": "kevinqz",
+        "repo": "whisper-large-v3-turbo-coreai",
+        "revision": "bb61c93611488ab696a61f9115a7d9f7b56e6428",
+        "url": "https://huggingface.co/kevinqz/whisper-large-v3-turbo-coreai"
+      },
+      "id": "whisper-large-v3-turbo",
+      "officiality": {
+        "apple_export_recipe": false,
+        "apple_hosted_artifact": false,
+        "community_packaged": true
+      }
+    },
+    {
       "github": {
         "owner": "CarstenL",
         "repo": "whisper-large-v3-turbo-coreai"
@@ -8323,10 +8355,10 @@
       }
     }
   ],
-  "export_catalog_version": "2.3.0",
+  "export_catalog_version": "2.5.0",
   "export_schema_version": "1.0",
   "metadata": {
-    "count": 137,
+    "count": 138,
     "last_verified": "2026-07-09",
     "name": "Core AI Catalog artifact provenance"
   }

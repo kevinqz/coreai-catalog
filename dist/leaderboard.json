@@ -1,8 +1,8 @@
 {
   "export_schema_version": "1.0",
-  "export_catalog_version": "2.3.0",
+  "export_catalog_version": "2.5.0",
   "description": "Ranked by the DEPRECATED readiness_score (a curation/deployability composite, NOT model quality). Prefer per-entry deployability/lifecycle/entry_completeness facets plus benchmark VALUES. Each entry includes best-known benchmarks per metric.",
-  "total_models": 135,
+  "total_models": 136,
   "leaderboard": [
     {
       "id": "depth-anything-3-base",
@@ -2152,6 +2152,36 @@
         "verification": "confirmed",
         "curator_confidence": "medium",
         "last_verified": "2026-06-29"
+      },
+      "entry_completeness": {
+        "pct": 0.667,
+        "present": 4,
+        "of": 6,
+        "fields": {
+          "artifact_availability_known": true,
+          "device_support_known": true,
+          "runtime_profile_known": true,
+          "license_triaged": true,
+          "benchmarked": false,
+          "io_contract_present": false
+        }
+      },
+      "benchmark_count": 0,
+      "best_metrics": {}
+    },
+    {
+      "id": "whisper-large-v3-turbo",
+      "name": "Whisper large-v3-turbo (fabric)",
+      "capabilities": [
+        "speech-to-text"
+      ],
+      "parameters": "809M",
+      "readiness_score": 68,
+      "lifecycle": {
+        "stage": "community",
+        "verification": "needs_review",
+        "curator_confidence": "medium",
+        "last_verified": "2026-07-11"
       },
       "entry_completeness": {
         "pct": 0.667,

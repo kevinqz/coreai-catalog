@@ -1,8 +1,8 @@
 {
   "export_schema_version": "1.0",
-  "export_catalog_version": "2.3.0",
+  "export_catalog_version": "2.5.0",
   "description": "Alias mappings resolving catalog IDs to Zoo card names, CoreAIKit strings, and HF repo names.",
-  "total_models": 135,
+  "total_models": 136,
   "aliases": {
     "qwen3-5-0-8b": [
       "qwen3-5-0-8b-coreai",
@@ -391,6 +391,11 @@
       "Stable-Audio-Open-Small-CoreAI",
       "stable-audio-open-small-coreai",
       "stable.audio.open-small"
+    ],
+    "whisper-large-v3-turbo": [
+      "whisper-large-v3-turbo-coreai",
+      "whisper-large-v3-turbo.yaml",
+      "whisper.large.v3-turbo"
     ],
     "whisper-large-v3-turbo-carstenl": [
       "whisper-large-v3-turbo-coreai",

@@ -31,7 +31,7 @@
       "capabilities": [
         "speech-to-text"
       ],
-      "model_count": 8
+      "model_count": 9
     },
     {
       "task": "audio transcription",
@@ -39,7 +39,7 @@
       "capabilities": [
         "speech-to-text"
       ],
-      "model_count": 8
+      "model_count": 9
     },
     {
       "task": "audio understanding",
@@ -354,7 +354,7 @@
       "capabilities": [
         "speech-to-text"
       ],
-      "model_count": 8
+      "model_count": 9
     },
     {
       "task": "object detection",
@@ -531,7 +531,7 @@
       "capabilities": [
         "speech-to-text"
       ],
-      "model_count": 8
+      "model_count": 9
     },
     {
       "task": "speech to text",
@@ -539,7 +539,7 @@
       "capabilities": [
         "speech-to-text"
       ],
-      "model_count": 8
+      "model_count": 9
     },
     {
       "task": "summarization",
@@ -666,7 +666,7 @@
       "capabilities": [
         "speech-to-text"
       ],
-      "model_count": 8
+      "model_count": 9
     },
     {
       "task": "translation",
@@ -750,7 +750,7 @@
         "text-to-speech",
         "chat"
       ],
-      "model_count": 48
+      "model_count": 49
     },
     {
       "task": "voice cloning",
@@ -788,5 +788,5 @@
     }
   ],
   "export_schema_version": "1.0",
-  "export_catalog_version": "2.3.0"
+  "export_catalog_version": "2.5.0"
 }

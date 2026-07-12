@@ -1,6 +1,6 @@
 # Speech To Text
 
-**8 models** in the catalog with this capability.
+**9 models** in the catalog with this capability.
 
 ## Task synonyms
 
@@ -18,6 +18,7 @@
 | [Qwen3-ASR-1.7B](../../catalog.yaml#L1) | 73 | 1.7B | 📱💻 | Apache-2.0 | ✅ likely | — | 🐼 |
 | [VibeVoice ASR](../../catalog.yaml#L1) | 73 | 7B | 💻 | MIT | ✅ likely | 📊 | 🔗 |
 | [Nemotron 3.5 ASR Streaming 0.6B](../../catalog.yaml#L1) | 70 | 0.6B | 📱💻 | OpenMDW-1.1 | ⚠️ check_license | — | 🔗 |
+| [Whisper large-v3-turbo (fabric)](../../catalog.yaml#L1) | 68 | 809M | 💻 | mit | ✅ likely | — | fabric |
 
 ## Install
 

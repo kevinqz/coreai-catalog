@@ -5,7 +5,7 @@
     "text-to-speech",
     "chat"
   ],
-  "model_count": 48,
+  "model_count": 49,
   "models": [
     {
       "id": "official-qwen3-0-6b",
@@ -456,6 +456,20 @@
       "has_benchmark": false
     },
     {
+      "id": "whisper-large-v3-turbo",
+      "name": "Whisper large-v3-turbo (fabric)",
+      "score": 68,
+      "parameters": "809M",
+      "devices": {
+        "iphone": false,
+        "ipad": false,
+        "mac": true
+      },
+      "license": "mit",
+      "commercial_use": "likely",
+      "has_benchmark": false
+    },
+    {
       "id": "gemma-4-e2b",
       "name": "Gemma 4 E2B",
       "score": 63,
@@ -681,7 +695,7 @@
     }
   ],
   "export_schema_version": "1.0",
-  "export_catalog_version": "2.3.0",
+  "export_catalog_version": "2.5.0",
   "best_overall": "official-qwen3-0-6b",
   "best_iphone": "official-qwen3-0-6b",
   "best_commercial": "official-qwen3-0-6b"

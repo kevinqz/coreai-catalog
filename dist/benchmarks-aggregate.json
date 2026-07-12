@@ -1,6 +1,6 @@
 {
   "export_schema_version": "1.0",
-  "export_catalog_version": "2.3.0",
+  "export_catalog_version": "2.5.0",
   "description": "Aggregate benchmark statistics grouped by model_id + device_class + metric. Entries with sample_count < 3 are suppressed (suppressed: true) to protect privacy. Only high/medium confidence entries are included.",
   "aggregates": [
     {
