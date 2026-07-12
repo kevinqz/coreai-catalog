@@ -29,8 +29,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "Qwen/Qwen3.5-0.8B",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "qwen3-5-2b",
@@ -58,8 +57,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "Qwen/Qwen3.5-2B",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "qwen3-6-35b-a3b",
@@ -88,8 +86,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "Qwen/Qwen3.6-35B-A3B",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "qwen3-6-27b",
@@ -117,8 +114,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "Qwen/Qwen3.6-27B",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "glm-4-7-flash",
@@ -148,8 +144,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "zai-org/GLM-4.7-Flash",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "gemma-4-e2b",
@@ -177,8 +172,7 @@
         "ios": "27.0"
       },
       "upstream_repo": null,
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "gemma-4-e4b",
@@ -206,8 +200,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "google/gemma-4-E4B-it-qat-q4_0-unquantized",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "gemma-4-12b",
@@ -235,8 +228,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "google/gemma-4-12B-it-qat-q4_0-unquantized",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "gemma-4-31b",
@@ -264,8 +256,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "google/gemma-4-31B-it-qat-q4_0-unquantized",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "lfm2-5-1-2b-instruct",
@@ -294,8 +285,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "LiquidAI/LFM2.5-1.2B-Instruct",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "lfm2-5-8b-a1b",
@@ -324,8 +314,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "LiquidAI/LFM2.5-8B-A1B",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "granite-4-0-h-1b",
@@ -354,8 +343,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "ibm-granite/granite-4.0-h-1b",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "granite-4-0-h-350m",
@@ -384,8 +372,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "ibm-granite/granite-4.0-h-350m",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "nanbeige4-1-3b",
@@ -415,8 +402,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "Nanbeige/Nanbeige4.1-3B",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "qwen3-vl-2b",
@@ -444,8 +430,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "Qwen/Qwen3-VL-2B-Instruct",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "qwen3-vl-4b",
@@ -473,8 +458,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "Qwen/Qwen3-VL-4B-Instruct",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "qwen3-vl-8b",
@@ -502,8 +486,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "Qwen/Qwen3-VL-8B-Instruct",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "minicpm-v-4-6",
@@ -578,8 +561,7 @@
         "files": {
           "tokenizer_ref": "gpu-pipelined/minicpmv46_vlm_decode_int8hu/tokenizer"
         }
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "gemma-4-e2b-vision",
@@ -607,8 +589,7 @@
         "ios": "27.0"
       },
       "upstream_repo": null,
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "unlimited-ocr",
@@ -684,8 +665,7 @@
           "tokenizer_ref": "tokenizer",
           "processor_ref": "assets/recipe.json"
         }
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "qwen2-5-omni-3b-audio",
@@ -712,8 +692,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "Qwen/Qwen2.5-Omni-3B",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "kokoro-82m",
@@ -740,8 +719,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "hexgrad/Kokoro-82M",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "voxcpm-0-5b",
@@ -768,8 +746,7 @@
         "ios": "27.0"
       },
       "upstream_repo": null,
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "embeddinggemma-300m",
@@ -796,8 +773,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "google/embeddinggemma-300m",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "qwen3-embedding-0-6b",
@@ -852,8 +828,7 @@
         "files": {
           "tokenizer_ref": "tokenizer"
         }
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "qwen3-reranker-0-6b",
@@ -912,8 +887,7 @@
         "files": {
           "tokenizer_ref": "tokenizer"
         }
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "rf-detr-nano",
@@ -969,8 +943,7 @@
             }
           }
         ]
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "rf-detr-small",
@@ -1026,8 +999,7 @@
             }
           }
         ]
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "rf-detr-medium",
@@ -1083,8 +1055,7 @@
             }
           }
         ]
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "rf-detr-large",
@@ -1140,8 +1111,7 @@
             }
           }
         ]
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "rf-detr-seg-nano",
@@ -1171,8 +1141,7 @@
         "ios": "27.0"
       },
       "upstream_repo": null,
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "rf-detr-seg-small",
@@ -1202,8 +1171,7 @@
         "ios": "27.0"
       },
       "upstream_repo": null,
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "rf-detr-seg-medium",
@@ -1233,8 +1201,7 @@
         "ios": "27.0"
       },
       "upstream_repo": null,
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "rf-detr-seg-large",
@@ -1264,8 +1231,7 @@
         "ios": "27.0"
       },
       "upstream_repo": null,
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "rf-detr-seg-xlarge",
@@ -1295,8 +1261,7 @@
         "ios": "27.0"
       },
       "upstream_repo": null,
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "rf-detr-seg-2xlarge",
@@ -1326,8 +1291,7 @@
         "ios": "27.0"
       },
       "upstream_repo": null,
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "adcsr-x4",
@@ -1354,8 +1318,7 @@
         "ios": "27.0"
       },
       "upstream_repo": null,
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "depth-anything-3-small",
@@ -1412,8 +1375,7 @@
             }
           }
         ]
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "depth-anything-3-base",
@@ -1470,8 +1432,7 @@
             }
           }
         ]
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "official-gpt-oss-20b",
@@ -1500,8 +1461,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "openai/gpt-oss-20b",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "official-qwen3-0-6b",
@@ -1561,8 +1521,7 @@
         "files": {
           "tokenizer_ref": "macos/tokenizer"
         }
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "official-qwen3-4b",
@@ -1590,8 +1549,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "Qwen/Qwen3-4B",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "official-qwen3-8b",
@@ -1619,8 +1577,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "Qwen/Qwen3-8B",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "official-gemma-3-4b-it",
@@ -1649,8 +1606,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "google/gemma-3-4b-it",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "official-gemma-3-12b-it",
@@ -1679,8 +1635,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "google/gemma-3-12b-it",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "official-mistral-7b-v0-3",
@@ -1708,8 +1663,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "mistralai/Mistral-7B-Instruct-v0.3",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "official-flux-2-klein-4b",
@@ -1762,8 +1716,7 @@
           "tokenizer_ref": "tokenizer",
           "processor_ref": "pipeline.json"
         }
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "official-sam-3",
@@ -1830,8 +1783,7 @@
         "files": {
           "tokenizer_ref": "tokenizer"
         }
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "official-whisper-large-v3-turbo",
@@ -1890,8 +1842,7 @@
           "tokenizer_ref": "tokenizer",
           "processor_ref": "preprocessor_config.json"
         }
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "minicpm5-1b",
@@ -1920,8 +1871,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "openbmb/MiniCPM5-1B",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "fastcontext-1-0-4b",
@@ -1950,8 +1900,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "microsoft/FastContext-1.0-4B-SFT",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "bitcpm-8b",
@@ -1979,8 +1928,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "openbmb/BitCPM-CANN-8B",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "holo2-4b",
@@ -2009,8 +1957,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "Hcompany/Holo2-4B",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "colmodernvbert",
@@ -2038,8 +1985,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "ModernVBERT/colmodernvbert",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "qwen3-asr-1-7b",
@@ -2066,8 +2012,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "Qwen/Qwen3-ASR-1.7B",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "parakeet-tdt-0-6b",
@@ -2094,8 +2039,7 @@
         "ios": "27.0"
       },
       "upstream_repo": null,
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "voxcpm2-2b",
@@ -2122,8 +2066,7 @@
         "ios": "27.0"
       },
       "upstream_repo": null,
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "yolox-s",
@@ -2152,8 +2095,7 @@
         "ios": "27.0"
       },
       "upstream_repo": null,
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "tripo-splat",
@@ -2180,8 +2122,7 @@
         "ios": "27.0"
       },
       "upstream_repo": null,
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "ltx-video-2b",
@@ -2208,8 +2149,7 @@
         "ios": "27.0"
       },
       "upstream_repo": null,
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "official-qwen3-1-7b",
@@ -2237,8 +2177,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "Qwen/Qwen3-1.7B",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "official-clip-vit-base-patch32",
@@ -2266,8 +2205,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "openai/clip-vit-base-patch32",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "llada-8b-dllm",
@@ -2296,8 +2234,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "d3LLM/d3LLM_LLaDA",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "bitvla",
@@ -2326,8 +2263,7 @@
         "ios": "27.0"
       },
       "upstream_repo": null,
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "stable-audio-open-small",
@@ -2355,8 +2291,7 @@
         "ios": "27.0"
       },
       "upstream_repo": null,
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "whisper-large-v3-turbo",
@@ -2383,14 +2318,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "openai/whisper-large-v3-turbo",
-      "io_contract": null,
-      "runtime_verified": {
-        "loads": true,
-        "runs": true,
-        "runtime_os": "Version 27.0 (Build 26A5378j)",
-        "verified_at": "2026-07-11T00:10:33Z",
-        "verifier": "coreai-runtime-verify/0.1"
-      }
+      "io_contract": null
     },
     {
       "id": "whisper-large-v3-turbo-carstenl",
@@ -2417,8 +2345,7 @@
         "ios": "27.0"
       },
       "upstream_repo": null,
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "whisper-tiny-en-intiser",
@@ -2445,8 +2372,7 @@
         "ios": "27.0"
       },
       "upstream_repo": null,
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "whisper-medium-intiser",
@@ -2473,8 +2399,7 @@
         "ios": "27.0"
       },
       "upstream_repo": null,
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "gemma-4-12b-mm-warshanks",
@@ -2505,8 +2430,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "google/gemma-4-12B-it",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "gemma-4-12b-assistant-warshanks",
@@ -2533,8 +2457,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "google/gemma-4-12B-it-assistant",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "vibevoice-0-5b",
@@ -2561,8 +2484,7 @@
         "ios": "27.0"
       },
       "upstream_repo": null,
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "vibevoice-1-5b",
@@ -2589,8 +2511,7 @@
         "ios": "27.0"
       },
       "upstream_repo": null,
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "vibevoice-7b",
@@ -2617,8 +2538,7 @@
         "ios": "27.0"
       },
       "upstream_repo": null,
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "vibevoice-asr",
@@ -2645,8 +2565,7 @@
         "ios": "27.0"
       },
       "upstream_repo": null,
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "nemotron-3-5-asr-streaming",
@@ -2673,8 +2592,7 @@
         "ios": "27.0"
       },
       "upstream_repo": null,
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "timesfm-2-5-200m",
@@ -2701,8 +2619,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "google/timesfm-2.5-200m-transformers",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "z-image-turbo",
@@ -2729,8 +2646,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "Tongyi-MAI/Z-Image-Turbo",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "real-esrgan-x4v3",
@@ -2757,8 +2673,7 @@
         "ios": "27.0"
       },
       "upstream_repo": null,
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "efficientsam3-tinyvit",
@@ -2785,8 +2700,7 @@
         "ios": "27.0"
       },
       "upstream_repo": null,
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "rwkv7-goose-1-5b",
@@ -2814,8 +2728,7 @@
         "ios": "27.0"
       },
       "upstream_repo": null,
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "vjepa2-vitl-ssv2",
@@ -2878,8 +2791,7 @@
             }
           }
         ]
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "ornith-1-0-9b",
@@ -2908,8 +2820,7 @@
         "ios": "27.0"
       },
       "upstream_repo": null,
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "qwen3-enhancer",
@@ -2937,8 +2848,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "huihui-ai/Huihui-Qwen3-4B-abliterated-v2",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "glm-ocr",
@@ -2969,8 +2879,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "zai-org/GLM-OCR",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "act-aloha-cube",
@@ -3030,8 +2939,7 @@
         "files": {
           "processor_ref": "norm_stats.json"
         }
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "act-aloha-insertion",
@@ -3091,8 +2999,7 @@
         "files": {
           "processor_ref": "norm_stats.json"
         }
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "diffusion-pusht",
@@ -3152,8 +3059,7 @@
         "files": {
           "processor_ref": "norm_stats.json"
         }
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "vqbet-pusht",
@@ -3213,8 +3119,7 @@
         "files": {
           "processor_ref": "norm_stats.json"
         }
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "pi0-base",
@@ -3281,8 +3186,7 @@
           "tokenizer_ref": "tokenizer",
           "processor_ref": "norm_stats.json"
         }
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "mineru-2-5-pro",
@@ -3313,8 +3217,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "opendatalab/MinerU2.5-Pro-2605-1.2B",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "folding-latest",
@@ -3376,8 +3279,7 @@
           "tokenizer_ref": "tokenizer",
           "processor_ref": "norm_stats.json"
         }
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "pi0-libero-base",
@@ -3444,8 +3346,7 @@
           "tokenizer_ref": "tokenizer",
           "processor_ref": "norm_stats.json"
         }
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "pi0-libero-finetuned",
@@ -3512,8 +3413,7 @@
           "tokenizer_ref": "tokenizer",
           "processor_ref": "norm_stats.json"
         }
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "pi0-base-gemma",
@@ -3580,8 +3480,7 @@
           "tokenizer_ref": "tokenizer",
           "processor_ref": "norm_stats.json"
         }
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "pi0-so101",
@@ -3648,8 +3547,7 @@
           "tokenizer_ref": "tokenizer",
           "processor_ref": "norm_stats.json"
         }
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "act-so101",
@@ -3709,8 +3607,7 @@
         "files": {
           "processor_ref": "norm_stats.json"
         }
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "pi05-so100",
@@ -3777,8 +3674,7 @@
           "tokenizer_ref": "tokenizer",
           "processor_ref": "norm_stats.json"
         }
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "pi05-base",
@@ -3845,8 +3741,7 @@
           "tokenizer_ref": "tokenizer",
           "processor_ref": "norm_stats.json"
         }
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "vibethinker-3b",
@@ -3906,8 +3801,7 @@
         "files": {
           "tokenizer_ref": "macos/tokenizer"
         }
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "smolvla-so101",
@@ -3974,8 +3868,7 @@
           "tokenizer_ref": "tokenizer",
           "processor_ref": "norm_stats.json"
         }
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "smolvla-so101-pnp",
@@ -4042,8 +3935,7 @@
           "tokenizer_ref": "tokenizer",
           "processor_ref": "norm_stats.json"
         }
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "pi0fast-base",
@@ -4110,8 +4002,7 @@
           "tokenizer_ref": "tokenizer",
           "processor_ref": "norm_stats.json"
         }
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "qwen2.5-0.5b-instruct-int8",
@@ -4167,13 +4058,6 @@
         "files": {
           "tokenizer_ref": "macos/tokenizer"
         }
-      },
-      "runtime_verified": {
-        "loads": true,
-        "runs": true,
-        "runtime_os": "Version 27.0 (Build 26A5378j)",
-        "verified_at": "2026-07-10T22:26:49Z",
-        "verifier": "coreai-runtime-verify/0.1"
       }
     },
     {
@@ -4234,8 +4118,7 @@
         "files": {
           "tokenizer_ref": "macos/tokenizer"
         }
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "qwen2.5-coder-0.5b-instruct-int8",
@@ -4292,8 +4175,7 @@
         "files": {
           "tokenizer_ref": "macos/tokenizer"
         }
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "qwen2.5-coder-1.5b-instruct-int8",
@@ -4350,8 +4232,7 @@
         "files": {
           "tokenizer_ref": "macos/tokenizer"
         }
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "qwen2.5-math-1.5b-instruct-int8",
@@ -4408,8 +4289,7 @@
         "files": {
           "tokenizer_ref": "macos/tokenizer"
         }
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "qwen3-0.6b-int8",
@@ -4469,8 +4349,7 @@
         "files": {
           "tokenizer_ref": "macos/tokenizer"
         }
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "qwen3-1.7b-int8",
@@ -4526,8 +4405,7 @@
         "files": {
           "tokenizer_ref": "macos/tokenizer"
         }
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "qwen3-4b-int8",
@@ -4586,8 +4464,7 @@
         "files": {
           "tokenizer_ref": "macos/tokenizer"
         }
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "vla-jepa-libero",
@@ -4654,8 +4531,7 @@
           "tokenizer_ref": "tokenizer",
           "processor_ref": "norm_stats.json"
         }
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "vla-jepa-pretrain",
@@ -4722,8 +4598,7 @@
           "tokenizer_ref": "tokenizer",
           "processor_ref": "norm_stats.json"
         }
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "vla-jepa-simpler-env",
@@ -4785,8 +4660,7 @@
           "tokenizer_ref": "tokenizer",
           "processor_ref": "norm_stats.json"
         }
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "pulpie-orange-base",
@@ -4813,8 +4687,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "feyninc/pulpie-orange-base",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "pulpie-orange-large",
@@ -4841,8 +4714,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "feyninc/pulpie-orange-large",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "lingbot-vision-vit-small",
@@ -4869,14 +4741,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "robbyant/lingbot-vision-vit-small",
-      "io_contract": null,
-      "runtime_verified": {
-        "loads": true,
-        "runs": true,
-        "runtime_os": "Version 27.0 (Build 26A5378j)",
-        "verified_at": "2026-07-10T22:26:55Z",
-        "verifier": "coreai-runtime-verify/0.1"
-      }
+      "io_contract": null
     },
     {
       "id": "lingbot-vision-vit-base",
@@ -4903,14 +4768,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "robbyant/lingbot-vision-vit-base",
-      "io_contract": null,
-      "runtime_verified": {
-        "loads": true,
-        "runs": true,
-        "runtime_os": "Version 27.0 (Build 26A5378j)",
-        "verified_at": "2026-07-11T16:06:34Z",
-        "verifier": "coreai-runtime-verify/0.1"
-      }
+      "io_contract": null
     },
     {
       "id": "lingbot-vision-vit-large",
@@ -4937,14 +4795,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "robbyant/lingbot-vision-vit-large",
-      "io_contract": null,
-      "runtime_verified": {
-        "loads": true,
-        "runs": true,
-        "runtime_os": "Version 27.0 (Build 26A5378j)",
-        "verified_at": "2026-07-11T16:06:36Z",
-        "verifier": "coreai-runtime-verify/0.1"
-      }
+      "io_contract": null
     },
     {
       "id": "lingbot-vision-vit-giant",
@@ -4971,8 +4822,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "robbyant/lingbot-vision-vit-giant",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "gliner2-pii",
@@ -5001,8 +4851,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "fastino/gliner2-privacy-filter-PII-multi",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "glm-image",
@@ -5030,8 +4879,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "zai-org/GLM-Image",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "youtu-llm-2b",
@@ -5060,8 +4908,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "tencent/Youtu-LLM-2B",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "streaming-sortformer-diar",
@@ -5089,8 +4936,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "nvidia/diar_streaming_sortformer_4spk-v2",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "evo1-so100",
@@ -5157,8 +5003,7 @@
           "tokenizer_ref": "tokenizer",
           "processor_ref": "norm_stats.json"
         }
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "robometer-4b",
@@ -5187,8 +5032,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "lerobot/Robometer-4B",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "lingbot-va-base",
@@ -5255,8 +5099,7 @@
           "tokenizer_ref": "tokenizer",
           "processor_ref": "norm_stats.json"
         }
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "fastwam-libero",
@@ -5323,8 +5166,7 @@
           "tokenizer_ref": "tokenizer",
           "processor_ref": "norm_stats.json"
         }
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "eo1-3b",
@@ -5391,8 +5233,7 @@
           "tokenizer_ref": "tokenizer",
           "processor_ref": "norm_stats.json"
         }
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "lingbot-vla-v2",
@@ -5459,8 +5300,7 @@
           "tokenizer_ref": "tokenizer",
           "processor_ref": "norm_stats.json"
         }
-      },
-      "runtime_verified": null
+      }
     },
     {
       "id": "lingbot-video-dense-1.3b",
@@ -5488,8 +5328,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "robbyant/lingbot-video-dense-1.3b",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "lingbot-video-moe-30b-a3b",
@@ -5517,8 +5356,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "robbyant/lingbot-video-moe-30b-a3b",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "miril-drone-2b-1",
@@ -5545,14 +5383,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "MirilAI/Miril-Drone-2B-1",
-      "io_contract": null,
-      "runtime_verified": {
-        "loads": true,
-        "runs": true,
-        "runtime_os": "Version 27.0 (Build 26A5378j)",
-        "verified_at": "2026-07-11T16:22:31Z",
-        "verifier": "coreai-runtime-verify/0.1"
-      }
+      "io_contract": null
     },
     {
       "id": "lingbot-video-dense-1.3b-dit",
@@ -5580,8 +5411,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "robbyant/lingbot-video-dense-1.3b",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "lingbot-video-dense-1.3b-vae-streaming",
@@ -5609,8 +5439,7 @@
         "ios": "27.0"
       },
       "upstream_repo": "robbyant/lingbot-video-dense-1.3b",
-      "io_contract": null,
-      "runtime_verified": null
+      "io_contract": null
     },
     {
       "id": "qwen3-0.6b",
@@ -5670,8 +5499,7 @@
         "files": {
           "tokenizer_ref": "macos/tokenizer"
         }
-      },
-      "runtime_verified": null
+      }
     }
   ]
 }

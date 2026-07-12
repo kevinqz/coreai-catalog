@@ -15,7 +15,6 @@ import yaml
 from .catalog import (
     Catalog,
     deployability_facets,
-    mobile_robot_brain_facets,
     entry_completeness,
     lifecycle_of,
 )
@@ -146,6 +145,35 @@ def _get_catalog_version(catalog_root: Path) -> str:
     return get_catalog_version(catalog_root)
 
 
+def _attach_download_provenance(catalog_data: dict, artifacts_data: dict) -> None:
+    """Join each model's artifact download provenance into the model entry, in place.
+
+    The download provenance (huggingface owner/repo/url/revision/files[sha256,size]) is
+    authored once in artifacts.yaml, keyed by artifact id. A consumer reading only the
+    model catalog (e.g. the Swift runner via dist/catalog.json) must still be able to
+    resolve WHERE to fetch a model's bundle — the catalog is the single source of truth.
+    So we denormalize it onto each model as `provenance.{huggingface,github}`, matching
+    the shape consumers expect. Models whose artifact has no huggingface block get no
+    `provenance` key (optional, as before). This is export-time only: catalog.yaml and
+    model.schema.json stay untouched (the source stays normalized).
+    """
+    art_by_id = {
+        a["id"]: a for a in artifacts_data.get("artifacts", []) if isinstance(a, dict) and "id" in a
+    }
+    for model in catalog_data.get("models", []):
+        art = art_by_id.get(model.get("artifact_ref"))
+        if not art:
+            continue
+        hf = art.get("huggingface")
+        if not hf:
+            continue
+        prov: dict[str, Any] = {"huggingface": hf}
+        gh = art.get("github")
+        if gh:
+            prov["github"] = gh
+        model["provenance"] = prov
+
+
 def export_json(catalog_root: Path, dist: Path | None = None) -> None:
     """Export all YAML files to dist/*.json."""
     dist = dist or catalog_root / "dist"
@@ -161,9 +189,14 @@ def export_json(catalog_root: Path, dist: Path | None = None) -> None:
 
     catalog_version = _get_catalog_version(catalog_root)
 
+    # Load artifacts once so the model catalog can carry download provenance (below).
+    artifacts_data = read_yaml(inputs["artifacts"]) if inputs["artifacts"].exists() else {}
+
     for name, path in inputs.items():
         if path.exists():
             data = read_yaml(path)
+            if name == "catalog":
+                _attach_download_provenance(data, artifacts_data)
             data["export_schema_version"] = EXPORT_SCHEMA_VERSION
             data["export_catalog_version"] = catalog_version
             (dist / f"{name}.json").write_text(
@@ -181,6 +214,8 @@ def export_json(catalog_root: Path, dist: Path | None = None) -> None:
 
     # Bundle
     bundle = {name: read_yaml(path) for name, path in inputs.items() if path.exists()}
+    if "catalog" in bundle:
+        _attach_download_provenance(bundle["catalog"], bundle.get("artifacts", {}))
     bundle["benchmarks"] = bench_data
     bundle["export_schema_version"] = EXPORT_SCHEMA_VERSION
     bundle["export_catalog_version"] = catalog_version
@@ -263,7 +298,6 @@ def export_search_index(catalog_root: Path, dist: Path | None = None) -> int:
             "confidence": m.get("confidence"),
             "readiness_score": score,
             "deployability": deployability_facets(m, has_bench),
-            "mobile_robot_brain": mobile_robot_brain_facets(m),
             "lifecycle": lifecycle_of(m),
             "entry_completeness": entry_completeness(m, has_bench),
             "artifact": {
@@ -387,19 +421,6 @@ def export_transform_graph(catalog_root: Path, dist: Path | None = None) -> dict
     return output
 
 
-def _runtime_verified(rec: dict | None) -> dict | None:
-    """Compact runtime-loadability summary for the manifest (Gate C verdict)."""
-    if not rec:
-        return None
-    return {
-        "loads": rec.get("loads", False),
-        "runs": rec.get("runs", False),
-        "runtime_os": rec.get("runtime_os", ""),
-        "verified_at": rec.get("verified_at", ""),
-        "verifier": rec.get("verifier", ""),
-    }
-
-
 def export_model_manifest(catalog_root: Path, dist: Path | None = None) -> dict:
     """Export a model download manifest for on-demand fetching.
 
@@ -418,21 +439,6 @@ def export_model_manifest(catalog_root: Path, dist: Path | None = None) -> dict:
     """
     dist = dist or catalog_root / "dist"
     cat = Catalog(catalog_root)
-
-    # Gate C — runtime loadability verdicts (produced by coreai-runtime-verify).
-    # Keyed by model_id, keeping the most recent verdict per model.
-    verified_by_model: dict[str, dict] = {}
-    vpath = catalog_root / "data" / "runtime-verifications.jsonl"
-    if vpath.exists():
-        for line in vpath.read_text().splitlines():
-            line = line.strip()
-            if not line:
-                continue
-            rec = json.loads(line)
-            mid = rec.get("model_id", "")
-            prev = verified_by_model.get(mid)
-            if prev is None or rec.get("verified_at", "") >= prev.get("verified_at", ""):
-                verified_by_model[mid] = rec
 
     entries: list[dict] = []
     for m in cat.models:
@@ -462,7 +468,6 @@ def export_model_manifest(catalog_root: Path, dist: Path | None = None) -> dict:
             "min_os": m.get("min_os"),
             "upstream_repo": m.get("upstream_repo"),
             "io_contract": m.get("io_contract"),
-            "runtime_verified": _runtime_verified(verified_by_model.get(m["id"])),
         }
         entries.append(entry)
 
