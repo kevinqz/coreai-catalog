@@ -15,6 +15,7 @@ import yaml
 from .catalog import (
     Catalog,
     deployability_facets,
+    mobile_robot_brain_facets,
     entry_completeness,
     lifecycle_of,
 )
@@ -262,6 +263,7 @@ def export_search_index(catalog_root: Path, dist: Path | None = None) -> int:
             "confidence": m.get("confidence"),
             "readiness_score": score,
             "deployability": deployability_facets(m, has_bench),
+            "mobile_robot_brain": mobile_robot_brain_facets(m),
             "lifecycle": lifecycle_of(m),
             "entry_completeness": entry_completeness(m, has_bench),
             "artifact": {
