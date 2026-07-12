@@ -1,7 +1,7 @@
 metadata:
   name: Core AI Catalog artifact provenance
   last_verified: '2026-07-09'
-  count: 137
+  count: 138
 artifacts:
 - id: qwen3-5-0-8b
   group: zoo
@@ -2687,6 +2687,27 @@ artifacts:
     - path: macos/sa_vae_fp16.aimodel/main.mlirb
       sha256: 52ce6d578f726099e198a6a135ace9b7f334632228c5bec4f930883e4c45b23e
       size_bytes: 156237126
+  officiality:
+    apple_export_recipe: false
+    apple_hosted_artifact: false
+    community_packaged: true
+- id: whisper-large-v3-turbo
+  group: external
+  huggingface:
+    owner: kevinqz
+    repo: whisper-large-v3-turbo-coreai
+    url: https://huggingface.co/kevinqz/whisper-large-v3-turbo-coreai
+    revision: bb61c93611488ab696a61f9115a7d9f7b56e6428
+    files:
+    - path: whisper-large-v3-turbo_float16.aimodel/metadata.json
+      sha256: f6b0d8de5ce4b341fd8756dedf48d47aef149916fc5b49caa9d8b749fbf718eb
+      size_bytes: 397
+    - path: whisper-large-v3-turbo_float16.aimodel/main.mlirb
+      sha256: a260e4d3c89b8fde039d75008423506190e78e1db1acd6eb216d9e5642494376
+      size_bytes: 1618167791
+    - path: whisper-large-v3-turbo_float16.aimodel/main.hash
+      sha256: a831ae88caa89b725014eac2a02e42ad5e71050d69c4e6e5e9edfe6c0670c0f9
+      size_bytes: 32
   officiality:
     apple_export_recipe: false
     apple_hosted_artifact: false

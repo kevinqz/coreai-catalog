@@ -1,7 +1,7 @@
 metadata:
   name: Core AI Catalog
   repo: coreai-catalog
-  version: 2.3.0
+  version: 2.5.0
   last_verified: '2026-07-09'
   upstream:
   - coreai-model-zoo
@@ -3837,6 +3837,58 @@ models:
   notes: 'First generative audio model. Latent diffusion: T5 encoder + DiT (8-step
     rectified-flow) + Oobleck VAE. ~11s 44.1 kHz stereo in ~0.4s on M4 Max (≈30× real-time).'
   architecture: diffusion
+  streaming: false
+- id: whisper-large-v3-turbo
+  name: Whisper large-v3-turbo (fabric)
+  family: Whisper
+  source_group: fabric
+  source_path: https://github.com/kevinqz/coreai-fabric/blob/main/recipes/whisper-large-v3-turbo.yaml
+  sources:
+  - coreai-fabric
+  artifact_ref: whisper-large-v3-turbo
+  capabilities:
+  - speech-to-text
+  bundle_kind: asr
+  min_os:
+    macos: '27.0'
+    ios: '27.0'
+  upstream_repo: openai/whisper-large-v3-turbo
+  modalities:
+    input:
+    - audio
+    output:
+    - transcript
+  artifact:
+    format: aimodel
+    availability: available
+  size:
+    parameters: 809M
+    precision: float16
+    quantization: none
+    artifact_size: 1.6GB
+  runtime:
+    runtime_name: apple-core-ai
+    runner: CoreAITranscribe
+    stock_runtime: true
+    custom_kernel: false
+    patch_required: false
+    tokenizer_required: true
+    processor_required: true
+    aot_required: false
+  device_support:
+    iphone: unknown
+    ipad: unknown
+    mac: true
+    mac_only: false
+  license:
+    name: mit
+    commercial_use: likely
+  status: needs_review
+  maturity: active
+  confidence: medium
+  last_verified: '2026-07-11'
+  notes: First-party coreai-fabric conversion (single decoder graph, float16; full transcription needs an ASR harness). Runtime-verified loads+runs on macOS 27 (26A5378j) via coreai-runtime-verify (forward pass yields [1,1,51866] vocab logits).
+  architecture: transformer
   streaming: false
 - id: whisper-large-v3-turbo-carstenl
   name: Whisper large-v3-turbo (CarstenL)
@@ -8302,7 +8354,7 @@ models:
     input:
     - image
     output:
-    - text
+    - embedding
   artifact:
     format: aimodel
     availability: available

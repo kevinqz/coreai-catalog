@@ -1,6 +1,6 @@
 # Comparison: speech-to-text
 
-Side-by-side comparison of all 8 model(s) with the `speech-to-text` capability.
+Side-by-side comparison of all 9 model(s) with the `speech-to-text` capability.
 
 | Model | Family | Parameters | Precision | Devices | License | Runtime | Benchmark | Source |
 |---|---|---|---|---|---|---|---|---|
@@ -10,6 +10,7 @@ Side-by-side comparison of all 8 model(s) with the `speech-to-text` capability.
 | VibeVoice ASR | VibeVoice | 7B | fp16 | Mac | MIT | CoreAIRunner | 11.1 realtime_factor (M4 Max) | 🔗 Independent |
 | Whisper large-v3-turbo | Whisper | 809M / ~1.5GB | fp16 | iPhone/Mac | Apache-2.0 | CoreAITranscribe | 180 milliseconds (M4 Max) | 🍎 Apple recipe |
 | Whisper large-v3-turbo (CarstenL) | Whisper | 809M | fp16 | Mac | Apache-2.0 | CoreAITranscribe | — | 🔗 Independent |
+| Whisper large-v3-turbo (fabric) | Whisper | 809M | float16 | Mac | mit | CoreAITranscribe | — | 🐼 Zoo |
 | Whisper medium (Intiser) | Whisper | 769M | fp16 | Mac | MIT | CoreAITranscribe | — | 🔗 Independent |
 | Whisper tiny.en (Intiser) | Whisper | 39M | fp16 | Mac | MIT | CoreAITranscribe | — | 🔗 Independent |
 

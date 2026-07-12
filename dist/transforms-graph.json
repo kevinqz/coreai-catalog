@@ -1,6 +1,6 @@
 {
   "export_schema_version": "1.0",
-  "export_catalog_version": "2.3.0",
+  "export_catalog_version": "2.5.0",
   "input_modalities": [
     "audio",
     "document_image",
@@ -66,11 +66,12 @@
         "parakeet-tdt-0-6b",
         "qwen3-asr-1-7b",
         "vibevoice-asr",
+        "whisper-large-v3-turbo",
         "whisper-large-v3-turbo-carstenl",
         "whisper-medium-intiser",
         "whisper-tiny-en-intiser"
       ],
-      "model_count": 8
+      "model_count": 9
     },
     {
       "input": "document_image",
@@ -217,9 +218,10 @@
         "lingbot-vision-vit-base",
         "lingbot-vision-vit-giant",
         "lingbot-vision-vit-large",
-        "lingbot-vision-vit-small"
+        "lingbot-vision-vit-small",
+        "miril-drone-2b-1"
       ],
-      "model_count": 4
+      "model_count": 5
     },
     {
       "input": "image",
@@ -317,12 +319,11 @@
         "gemma-4-e2b-vision",
         "glm-ocr",
         "minicpm-v-4-6",
-        "miril-drone-2b-1",
         "qwen3-vl-2b",
         "qwen3-vl-4b",
         "qwen3-vl-8b"
       ],
-      "model_count": 8
+      "model_count": 7
     },
     {
       "input": "image",

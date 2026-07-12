@@ -144,6 +144,45 @@ def deployability_facets(model: dict, has_bench: bool = False) -> dict[str, Any]
     }
 
 
+def mobile_robot_brain_facets(model: dict) -> dict[str, Any]:
+    """Mobile robot-brain suitability as an EVIDENCE-SCOPED tuple (RFC-0200 §14.1 / C8).
+
+    A ``device_support`` boolean alone is insufficient. Read from an optional entry
+    ``mobile_robot_brain`` block; anything absent stays ``unknown`` (never inferred from
+    ``iphone: true``). ``evidence_scoped`` is true only when a real evidence block with an
+    artifact root exists — so a suitability claim can never come from a bare boolean.
+    """
+    if not isinstance(model, dict):
+        return {}
+    mrb = model.get("mobile_robot_brain") or {}
+
+    def g(key):
+        return mrb[key] if key in mrb else "unknown"
+
+    return {
+        "artifact_root": g("artifact_root"),
+        "app_version": g("app_version"),
+        "device": g("device"),
+        "chip": g("chip"),
+        "os": g("os"),
+        "provider": g("provider"),
+        "aot_required": g("aot_required"),
+        "memory_entitlement_required": g("memory_entitlement_required"),
+        "installed_bytes": g("installed_bytes"),
+        "measured_peak_memory_bytes": g("measured_peak_memory_bytes"),
+        "cold_load_ms": g("cold_load_ms"),
+        "warm_load_ms": g("warm_load_ms"),
+        "sustained_latency_ms_after_soak": g("sustained_latency_ms_after_soak"),
+        "coexistence_sets": mrb.get("coexistence_sets", []),
+        "planner_capable": g("planner_capable"),
+        "action_policy_capable": g("action_policy_capable"),
+        "gateway_compatible": g("gateway_compatible"),
+        "evidence_roots": mrb.get("evidence_roots", []),
+        # true ONLY with a real evidence block bound to an artifact root.
+        "evidence_scoped": bool(mrb.get("artifact_root")),
+    }
+
+
 def lifecycle_of(model: dict) -> dict[str, Any]:
     """Ordinal maturity stage of the catalog ENTRY (MLTRL / MLflow-tags style).
 

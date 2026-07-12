@@ -15,6 +15,7 @@ import yaml
 from .catalog import (
     Catalog,
     deployability_facets,
+    mobile_robot_brain_facets,
     entry_completeness,
     lifecycle_of,
 )
@@ -262,6 +263,7 @@ def export_search_index(catalog_root: Path, dist: Path | None = None) -> int:
             "confidence": m.get("confidence"),
             "readiness_score": score,
             "deployability": deployability_facets(m, has_bench),
+            "mobile_robot_brain": mobile_robot_brain_facets(m),
             "lifecycle": lifecycle_of(m),
             "entry_completeness": entry_completeness(m, has_bench),
             "artifact": {
@@ -385,6 +387,19 @@ def export_transform_graph(catalog_root: Path, dist: Path | None = None) -> dict
     return output
 
 
+def _runtime_verified(rec: dict | None) -> dict | None:
+    """Compact runtime-loadability summary for the manifest (Gate C verdict)."""
+    if not rec:
+        return None
+    return {
+        "loads": rec.get("loads", False),
+        "runs": rec.get("runs", False),
+        "runtime_os": rec.get("runtime_os", ""),
+        "verified_at": rec.get("verified_at", ""),
+        "verifier": rec.get("verifier", ""),
+    }
+
+
 def export_model_manifest(catalog_root: Path, dist: Path | None = None) -> dict:
     """Export a model download manifest for on-demand fetching.
 
@@ -403,6 +418,21 @@ def export_model_manifest(catalog_root: Path, dist: Path | None = None) -> dict:
     """
     dist = dist or catalog_root / "dist"
     cat = Catalog(catalog_root)
+
+    # Gate C — runtime loadability verdicts (produced by coreai-runtime-verify).
+    # Keyed by model_id, keeping the most recent verdict per model.
+    verified_by_model: dict[str, dict] = {}
+    vpath = catalog_root / "data" / "runtime-verifications.jsonl"
+    if vpath.exists():
+        for line in vpath.read_text().splitlines():
+            line = line.strip()
+            if not line:
+                continue
+            rec = json.loads(line)
+            mid = rec.get("model_id", "")
+            prev = verified_by_model.get(mid)
+            if prev is None or rec.get("verified_at", "") >= prev.get("verified_at", ""):
+                verified_by_model[mid] = rec
 
     entries: list[dict] = []
     for m in cat.models:
@@ -432,6 +462,7 @@ def export_model_manifest(catalog_root: Path, dist: Path | None = None) -> dict:
             "min_os": m.get("min_os"),
             "upstream_repo": m.get("upstream_repo"),
             "io_contract": m.get("io_contract"),
+            "runtime_verified": _runtime_verified(verified_by_model.get(m["id"])),
         }
         entries.append(entry)
 

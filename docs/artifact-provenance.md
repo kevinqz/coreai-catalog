@@ -69,6 +69,7 @@ Generated from `artifacts.yaml`.
 | llada-8b-dllm | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/LLaDA-8B-dLLM-CoreAI | False | False |
 | bitvla | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/BitVLA-CoreAI | False | False |
 | stable-audio-open-small | zoo | john-rocky/coreai-model-zoo | mlboydaisuke/Stable-Audio-Open-Small-CoreAI | False | False |
+| whisper-large-v3-turbo | external | / | kevinqz/whisper-large-v3-turbo-coreai | False | False |
 | whisper-large-v3-turbo-carstenl | external | CarstenL/whisper-large-v3-turbo-coreai | CarstenL/whisper-large-v3-turbo-coreai | False | False |
 | whisper-tiny-en-intiser | external | Intiser/whisper-coreai | Intiser/whisper-tiny-en-coreai | False | False |
 | whisper-medium-intiser | external | Intiser/whisper-coreai | Intiser/whisper-medium-coreai | False | False |

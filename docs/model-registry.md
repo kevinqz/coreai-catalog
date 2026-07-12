@@ -67,6 +67,7 @@
 | llada-8b-dllm | LLaDA-8B dLLM | zoo | LLaDA | chat, text-generation, diffusion-lm | text | text | 8B | Mac | MIT | confirmed |
 | bitvla | BitVLA | zoo | BitVLA | vision-language-action, robotics | image, text | action-tokens | 2B (BitNet b1.58) | iPhone/Mac | MIT | confirmed |
 | stable-audio-open-small | Stable Audio Open Small | zoo | Stable Audio | text-to-audio, music-generation | text | audio | not_published | Mac | Stability Community | confirmed |
+| whisper-large-v3-turbo | Whisper large-v3-turbo (fabric) | fabric | Whisper | speech-to-text | audio | transcript | 809M | Mac | mit | needs_review |
 | whisper-large-v3-turbo-carstenl | Whisper large-v3-turbo (CarstenL) | external | Whisper | speech-to-text | audio | transcript | 809M | Mac | Apache-2.0 | confirmed |
 | whisper-tiny-en-intiser | Whisper tiny.en (Intiser) | external | Whisper | speech-to-text | audio | transcript | 39M | Mac | MIT | confirmed |
 | whisper-medium-intiser | Whisper medium (Intiser) | external | Whisper | speech-to-text | audio | transcript | 769M | Mac | MIT | confirmed |
@@ -133,7 +134,7 @@
 | lingbot-vla-v2 | LingBot-VLA 2.0 (fabric) | fabric | LingBot-VLA | vision-language-action, robotics | image, text, state | action | 6.38B | unknown | apache-2.0 | needs_review |
 | lingbot-video-dense-1.3b | LingBot-Video Dense 1.3B (fabric) | fabric | LingBot-Video | text-to-video | text, image | video | 1.3B | unknown | apache-2.0 | needs_review |
 | lingbot-video-moe-30b-a3b | LingBot-Video MoE 30B-A3B (fabric) | fabric | LingBot-Video | text-to-video | text, image | video | 30B | unknown | apache-2.0 | needs_review |
-| miril-drone-2b-1 | Miril-Drone 2B-1 (fabric) | fabric | Miril-Drone | image-feature-extraction | image | text | 2B | unknown | apache-2.0 | needs_review |
+| miril-drone-2b-1 | Miril-Drone 2B-1 (fabric) | fabric | Miril-Drone | image-feature-extraction | image | embedding | 2B | unknown | apache-2.0 | needs_review |
 | lingbot-video-dense-1.3b-dit | LingBot-Video Dense 1.3B DiT (fabric) | fabric | LingBot-Video | text-to-video | text, image | video | 1.3B | unknown | apache-2.0 | needs_review |
 | lingbot-video-dense-1.3b-vae-streaming | LingBot-Video Dense 1.3B VAE (streaming) (fabric) | fabric | LingBot-Video | text-to-video | text, image | video | 1.3B | unknown | apache-2.0 | needs_review |
 | qwen3-0.6b | Qwen3 0.6B (fabric) | fabric | Qwen | chat, text-generation | text | text | 0.6B | unknown | apache-2.0 | needs_review |
